@@ -1,0 +1,47 @@
+{
+  "cells": 2,
+  "trials": 32,
+  "different_plan_trials": 3,
+  "different_plan_cells": 2,
+  "choices": [
+    {
+      "key": "pow2:f32:fwd:ip:n524288",
+      "trial": 11,
+      "order": [
+        "fastfft",
+        "fastfft/measure"
+      ],
+      "metric": "best",
+      "ratio": 1.0308903068507103,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x4x8x8x4x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "measure": "stockham avx512-ymm split L=8 radices=8x2x8x8x8x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "verified": true
+    },
+    {
+      "key": "pow2:f32:fwd:ip:n524288",
+      "trial": 15,
+      "order": [
+        "fastfft",
+        "fastfft/measure"
+      ],
+      "metric": "best",
+      "ratio": 1.0311759706600718,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x4x8x8x4x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "measure": "stockham avx512-ymm split L=8 radices=8x2x8x8x8x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "verified": true
+    },
+    {
+      "key": "pow2:f32:fwd:oop:n524288",
+      "trial": 13,
+      "order": [
+        "fastfft",
+        "fastfft/measure"
+      ],
+      "metric": "best",
+      "ratio": 1.0442693514673818,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x4x8x8x4x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "measure": "stockham avx512-ymm split L=8 radices=8x2x8x8x8x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "verified": true
+    }
+  ]
+}

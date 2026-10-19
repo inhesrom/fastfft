@@ -1,0 +1,703 @@
+{
+  "passed": true,
+  "acceptance": false,
+  "binary_sha256": "42f7c2a3c18bf844420749fc5fdc325e7025f802d1ae64ad93c95df1fd846a5a",
+  "prior_binary_sha256": "a2bbb31ba6912363132f0cabfcc1798f369ccc217d2a9f5d548214314541596f",
+  "scope": "Reviewed static gate for a bounded quiet timing candidate: actual local spill alignment plus explicit arithmetic/allocation/cost evidence. Not universal speed, address stability, or complete machine dataflow equivalence.",
+  "gates": {
+    "all194_rsp_and64": true,
+    "six_prior_tiled_controls": true,
+    "indexed_empty_range": true,
+    "all180_excluded_fused_instruction_identity": true,
+    "all36_one_panel_instruction_identity": true,
+    "prior128_fused_real_caller_phase_exposure": true,
+    "all194_changed_function_direct_derived_indexed_local_alignment": true,
+    "arithmetic_opcode_family_counts_preserved": true,
+    "affected_Estimate_kernels_exact_vector_identity_and_traffic": true,
+    "constant_payload_identity_for_matching_streams": true,
+    "costs_reviewed_and_acceptable_for_one_bounded_validation": true
+  },
+  "full_machine_dataflow_equivalence_claimed": false,
+  "proof": {
+    "functions": 194,
+    "local_vector_memory_sites": 19809,
+    "fused_sites": 9651,
+    "CFG_scope": "All decoded direct branches and bounded LLVM signed-relative jump tables in each body; SysV entry RSP=8 mod16; congruence and stack-alias propagation through register moves, stack pointer spills/reloads, arithmetic, and calls. All identified local vector accesses aligned to their width and within64-byte line. No unresolved jump tables, pointer stores or scalar loads through derived stack pointers.",
+    "checker_controls": {
+      "passed": true,
+      "cases": [
+        {
+          "test": "aligned_direct",
+          "expected": true,
+          "actual": true,
+          "checks": 1
+        },
+        {
+          "test": "split_direct",
+          "expected": false,
+          "actual": false,
+          "checks": 1
+        },
+        {
+          "test": "unaligned_abi",
+          "expected": false,
+          "actual": false,
+          "checks": 1
+        },
+        {
+          "test": "derived_aligned_index",
+          "expected": true,
+          "actual": true,
+          "checks": 1
+        },
+        {
+          "test": "derived_unknown_index",
+          "expected": false,
+          "actual": false,
+          "checks": 1
+        },
+        {
+          "test": "derived_pointer_spill_reload",
+          "expected": false,
+          "actual": false,
+          "checks": 1
+        },
+        {
+          "test": "derived_pointer_xchg",
+          "expected": false,
+          "actual": false,
+          "checks": 1
+        },
+        {
+          "test": "implicit_mul_kills_known_rax",
+          "expected": false,
+          "actual": false,
+          "checks": 1
+        },
+        {
+          "test": "complete_r8_overwrite_clears_alias",
+          "expected": true,
+          "actual": true,
+          "checks": 0
+        }
+      ]
+    },
+    "call_effects_review": {
+      "F32x16": {
+        "stack_argument_calls": 2,
+        "derived_scalar_pointer_reload_count": 0,
+        "review": "Cold panic calls do not return. Other calls are memcpy lowered from typed scalar/vector array copying, or PanelVector::first whose scalar input/output and by-value one vector cannot introduce pointers into these local arrays. Indirect memcpy destinations may be local; this is natural array lowering, not a matrix black_box/escape. Caller-clobbered registers are killed, with RAX conservatively allowed to return an argument-derived stack alias. Alignment proof is scoped to the changed execute body, not a new guarantee for every unchanged callee."
+      },
+      "F64x8": {
+        "stack_argument_calls": 7,
+        "derived_scalar_pointer_reload_count": 0,
+        "review": "Cold panic calls do not return. Other calls are memcpy lowered from typed scalar/vector array copying, or PanelVector::first whose scalar input/output and by-value one vector cannot introduce pointers into these local arrays. Indirect memcpy destinations may be local; this is natural array lowering, not a matrix black_box/escape. Caller-clobbered registers are killed, with RAX conservatively allowed to return an argument-derived stack alias. Alignment proof is scoped to the changed execute body, not a new guarantee for every unchanged callee."
+      },
+      "F32x8v": {
+        "stack_argument_calls": 31,
+        "derived_scalar_pointer_reload_count": 0,
+        "review": "Cold panic calls do not return. Other calls are memcpy lowered from typed scalar/vector array copying, or PanelVector::first whose scalar input/output and by-value one vector cannot introduce pointers into these local arrays. Indirect memcpy destinations may be local; this is natural array lowering, not a matrix black_box/escape. Caller-clobbered registers are killed, with RAX conservatively allowed to return an argument-derived stack alias. Alignment proof is scoped to the changed execute body, not a new guarantee for every unchanged callee."
+      },
+      "F64x4v": {
+        "stack_argument_calls": 7,
+        "derived_scalar_pointer_reload_count": 0,
+        "review": "Cold panic calls do not return. Other calls are memcpy lowered from typed scalar/vector array copying, or PanelVector::first whose scalar input/output and by-value one vector cannot introduce pointers into these local arrays. Indirect memcpy destinations may be local; this is natural array lowering, not a matrix black_box/escape. Caller-clobbered registers are killed, with RAX conservatively allowed to return an argument-derived stack alias. Alignment proof is scoped to the changed execute body, not a new guarantee for every unchanged callee."
+      },
+      "F32x8": {
+        "stack_argument_calls": 148,
+        "derived_scalar_pointer_reload_count": 0,
+        "review": "Cold panic calls do not return. Other calls are memcpy lowered from typed scalar/vector array copying, or PanelVector::first whose scalar input/output and by-value one vector cannot introduce pointers into these local arrays. Indirect memcpy destinations may be local; this is natural array lowering, not a matrix black_box/escape. Caller-clobbered registers are killed, with RAX conservatively allowed to return an argument-derived stack alias. Alignment proof is scoped to the changed execute body, not a new guarantee for every unchanged callee."
+      },
+      "F64x4": {
+        "stack_argument_calls": 108,
+        "derived_scalar_pointer_reload_count": 0,
+        "review": "Cold panic calls do not return. Other calls are memcpy lowered from typed scalar/vector array copying, or PanelVector::first whose scalar input/output and by-value one vector cannot introduce pointers into these local arrays. Indirect memcpy destinations may be local; this is natural array lowering, not a matrix black_box/escape. Caller-clobbered registers are killed, with RAX conservatively allowed to return an argument-derived stack alias. Alignment proof is scoped to the changed execute body, not a new guarantee for every unchanged callee."
+      }
+    }
+  },
+  "fused": {
+    "prior_sha256": "a2bbb31ba6912363132f0cabfcc1798f369ccc217d2a9f5d548214314541596f",
+    "current_sha256": "42f7c2a3c18bf844420749fc5fdc325e7025f802d1ae64ad93c95df1fd846a5a",
+    "total": 368,
+    "excluded_total": 180,
+    "excluded_all_identical": true,
+    "one_panel_total": 36,
+    "one_panel_all_identical": true,
+    "selected_total": 188,
+    "selected_spillfree_total": 60,
+    "selected_vector_identity_count": 100,
+    "selected_direct_rsp_failed_count": 0
+  },
+  "selected_spillfree_cost_distribution": {
+    "(10, 0, 192)": 51,
+    "(11, 0, 192)": 8,
+    "(9, -1, 192)": 1
+  },
+  "selected_cost_ranges": {
+    "instructions": [
+      -50,
+      51
+    ],
+    "vector_instructions": [
+      -58,
+      42
+    ],
+    "direct_rsp_vector_memory_sites": [
+      -62,
+      36
+    ],
+    "explicit_frame_bytes": [
+      -328,
+      760
+    ]
+  },
+  "affected_Estimate_cells": [
+    {
+      "cell": "smooth:f32:fwd:ip:n18",
+      "identity": [
+        "F32x8",
+        18,
+        6,
+        3,
+        false,
+        false
+      ],
+      "delta": {
+        "instructions": 10,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 320
+      },
+      "vector_identity": true,
+      "prior_frame": 0,
+      "new_frame": 320
+    },
+    {
+      "cell": "smooth:f32:fwd:oop:n18",
+      "identity": [
+        "F32x8",
+        18,
+        6,
+        3,
+        false,
+        false
+      ],
+      "delta": {
+        "instructions": 10,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 320
+      },
+      "vector_identity": true,
+      "prior_frame": 0,
+      "new_frame": 320
+    },
+    {
+      "cell": "smooth:f32:inv:ip:n18",
+      "identity": [
+        "F32x8",
+        18,
+        6,
+        3,
+        true,
+        false
+      ],
+      "delta": {
+        "instructions": 10,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 320
+      },
+      "vector_identity": true,
+      "prior_frame": 0,
+      "new_frame": 320
+    },
+    {
+      "cell": "smooth:f32:inv:oop:n18",
+      "identity": [
+        "F32x8",
+        18,
+        6,
+        3,
+        true,
+        false
+      ],
+      "delta": {
+        "instructions": 10,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 320
+      },
+      "vector_identity": true,
+      "prior_frame": 0,
+      "new_frame": 320
+    },
+    {
+      "cell": "smooth:f32:fwd:ip:n24",
+      "identity": [
+        "F32x8",
+        24,
+        6,
+        4,
+        false,
+        false
+      ],
+      "delta": {
+        "instructions": 10,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 256
+      },
+      "vector_identity": true,
+      "prior_frame": 0,
+      "new_frame": 256
+    },
+    {
+      "cell": "smooth:f32:fwd:oop:n24",
+      "identity": [
+        "F32x8",
+        24,
+        6,
+        4,
+        false,
+        false
+      ],
+      "delta": {
+        "instructions": 10,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 256
+      },
+      "vector_identity": true,
+      "prior_frame": 0,
+      "new_frame": 256
+    },
+    {
+      "cell": "smooth:f32:inv:ip:n24",
+      "identity": [
+        "F32x8",
+        24,
+        6,
+        4,
+        true,
+        false
+      ],
+      "delta": {
+        "instructions": 10,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 256
+      },
+      "vector_identity": true,
+      "prior_frame": 0,
+      "new_frame": 256
+    },
+    {
+      "cell": "smooth:f32:inv:oop:n24",
+      "identity": [
+        "F32x8",
+        24,
+        6,
+        4,
+        true,
+        false
+      ],
+      "delta": {
+        "instructions": 10,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 256
+      },
+      "vector_identity": true,
+      "prior_frame": 0,
+      "new_frame": 256
+    },
+    {
+      "cell": "smooth:f32:fwd:ip:n160",
+      "identity": [
+        "F32x16",
+        160,
+        16,
+        10,
+        false,
+        false
+      ],
+      "delta": {
+        "instructions": 8,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 312
+      },
+      "vector_identity": true,
+      "prior_frame": 1096,
+      "new_frame": 1408
+    },
+    {
+      "cell": "smooth:f32:fwd:oop:n160",
+      "identity": [
+        "F32x16",
+        160,
+        16,
+        10,
+        false,
+        false
+      ],
+      "delta": {
+        "instructions": 8,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 312
+      },
+      "vector_identity": true,
+      "prior_frame": 1096,
+      "new_frame": 1408
+    },
+    {
+      "cell": "smooth:f32:inv:ip:n160",
+      "identity": [
+        "F32x16",
+        160,
+        16,
+        10,
+        true,
+        false
+      ],
+      "delta": {
+        "instructions": 8,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 312
+      },
+      "vector_identity": true,
+      "prior_frame": 1096,
+      "new_frame": 1408
+    },
+    {
+      "cell": "smooth:f32:inv:oop:n160",
+      "identity": [
+        "F32x16",
+        160,
+        16,
+        10,
+        true,
+        false
+      ],
+      "delta": {
+        "instructions": 8,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 312
+      },
+      "vector_identity": true,
+      "prior_frame": 1096,
+      "new_frame": 1408
+    },
+    {
+      "cell": "smooth:f32:fwd:ip:n210",
+      "identity": [
+        "F32x16",
+        210,
+        14,
+        15,
+        false,
+        false
+      ],
+      "delta": {
+        "instructions": 8,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 312
+      },
+      "vector_identity": true,
+      "prior_frame": 2120,
+      "new_frame": 2432
+    },
+    {
+      "cell": "smooth:f32:fwd:oop:n210",
+      "identity": [
+        "F32x16",
+        210,
+        14,
+        15,
+        false,
+        false
+      ],
+      "delta": {
+        "instructions": 8,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 312
+      },
+      "vector_identity": true,
+      "prior_frame": 2120,
+      "new_frame": 2432
+    },
+    {
+      "cell": "smooth:f32:inv:ip:n210",
+      "identity": [
+        "F32x16",
+        210,
+        14,
+        15,
+        true,
+        false
+      ],
+      "delta": {
+        "instructions": 8,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 312
+      },
+      "vector_identity": true,
+      "prior_frame": 2248,
+      "new_frame": 2560
+    },
+    {
+      "cell": "smooth:f32:inv:oop:n210",
+      "identity": [
+        "F32x16",
+        210,
+        14,
+        15,
+        true,
+        false
+      ],
+      "delta": {
+        "instructions": 8,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 312
+      },
+      "vector_identity": true,
+      "prior_frame": 2248,
+      "new_frame": 2560
+    }
+  ],
+  "FourStep": [
+    {
+      "variant": "FourStep-F32x4",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": true,
+      "delta": {
+        "instructions": 0,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "vector_opcode_delta": {}
+    },
+    {
+      "variant": "FourStep-F32x8",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": true,
+      "delta": {
+        "instructions": 7,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 64
+      },
+      "vector_opcode_delta": {}
+    },
+    {
+      "variant": "FourStep-F64x2",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": true,
+      "delta": {
+        "instructions": 0,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "vector_opcode_delta": {}
+    },
+    {
+      "variant": "FourStep-F64x4",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": true,
+      "delta": {
+        "instructions": 7,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 64
+      },
+      "vector_opcode_delta": {}
+    },
+    {
+      "variant": "FourStep-F64x8",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": false,
+      "delta": {
+        "instructions": -103,
+        "vector_instructions": 2,
+        "vector_memory_instructions": -46,
+        "direct_rsp_vector_memory_sites": -49,
+        "direct_rsp_vector_bytes_static": -3136,
+        "explicit_frame_bytes": 312
+      },
+      "vector_opcode_delta": {
+        "vbroadcastsd": 1,
+        "vmovapd": 414,
+        "vmovaps": 11,
+        "vmovupd": -413,
+        "vmovups": -11
+      }
+    },
+    {
+      "variant": "FourStep-S32",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": true,
+      "delta": {
+        "instructions": 0,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "vector_opcode_delta": {}
+    },
+    {
+      "variant": "FourStep-S64",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": true,
+      "delta": {
+        "instructions": 0,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "vector_opcode_delta": {}
+    },
+    {
+      "variant": "FourStep-F32x16",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": true,
+      "delta": {
+        "instructions": 8,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "vector_opcode_delta": {}
+    },
+    {
+      "variant": "FourStep-F32x8v",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": false,
+      "delta": {
+        "instructions": 137,
+        "vector_instructions": 20,
+        "vector_memory_instructions": 10,
+        "direct_rsp_vector_memory_sites": 8,
+        "direct_rsp_vector_bytes_static": 256,
+        "explicit_frame_bytes": 264
+      },
+      "vector_opcode_delta": {
+        "vbroadcastss": 2,
+        "vmovaps": 426,
+        "vmovups": -408
+      }
+    },
+    {
+      "variant": "FourStep-F64x4v",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": false,
+      "delta": {
+        "instructions": -83,
+        "vector_instructions": 7,
+        "vector_memory_instructions": 18,
+        "direct_rsp_vector_memory_sites": 15,
+        "direct_rsp_vector_bytes_static": 480,
+        "explicit_frame_bytes": 152
+      },
+      "vector_opcode_delta": {
+        "vbroadcastsd": 3,
+        "vfmadd132pd": 3,
+        "vfmadd213pd": -3,
+        "vfmsub132pd": -1,
+        "vfmsub213pd": 1,
+        "vfnmadd132pd": 1,
+        "vfnmadd213pd": -1,
+        "vinsertf128": -10,
+        "vinsertf32x4": 10,
+        "vmovapd": 425,
+        "vmovaps": 6,
+        "vmovupd": -425,
+        "vmovups": -2,
+        "vperm2f128": -13,
+        "vshuff64x2": 13
+      }
+    }
+  ],
+  "limitations": [
+    "100 of188 selected fused vector streams match after fixed spill/aligned-move normalization;88 differ through register assignment/allocation and batch base addressing. All floating arithmetic opcode-family counts match, but this is not a machine-dataflow proof. Arithmetic source is unchanged and optimized78 correctness tests pass.",
+    "60 selected previously spill-free variants gain192-byte frames and roughly10 scalar instructions; none is a default retained full710 Estimate recipe. This does not guarantee all candidates or nondefault platforms improve.",
+    "AVX2 FourStep already aligns RSP32 and its32-byte slots. The new64-byte alignment adds64 frame bytes and7 scalar instructions with no demonstrated line-split benefit; vector traffic is unchanged.",
+    "F64x4v N210 tiled14x15 remains instruction-identical, including four fixed cross-line ZMM stores; these are caller-phase independent and outside the modified fused/FourStep spill problem.",
+    "Prior recipes come from the retained full710 capture; unchanged deterministic planner source supports transfer, but future full710 must record actual recipes and review absolute Estimate behavior. No waiver by slowing Estimate.",
+    "Static checker relies on reviewed typed-array call effects and x86 ABI; it is not a proof of every unchanged callee or universal address performance."
+  ],
+  "next_step": "One unchanged quiet51 focus with both positive controls; only then full710 if all primary/raw changed-plan losses<=2% and all existing controls/quiet gates pass. Review all eight processes and absolute Estimate behavior transparently, especially the16 affected default cells. Do not alter3% margin,1sec/MAX8 budget,7 rounds, manifests, statistics or quiet policy.",
+  "artifact_sha256": {
+    "stack-context-comparison.json": "29cdc0254fdfca78b6efe2219d0309df329087ba1b9dd05688f4815080c49ec9",
+    "fused-inventory-comparison.json": "ca286d7355635f4a403b26a7d61808b85ef3dc062e6240b0553477d7e99e8c20",
+    "stack-address-proof-summary.json": "68774e25cb1469337f1a5d9a2fb1e626e6443aa4d35a9bcaf660d8541faea78c",
+    "prior-fused-exposure-verification.json": "436cb4c37aacd92a1b069bc8276c2427802b4c3c37a5f71d32354727fb314194",
+    "spillfree-estimate-coverage.json": "77e241e11ccd43a23b93c15af94c0d5ee4f9f80059d2d7dee8bcaeef0a0cf571",
+    "selected-estimate-costs.json": "7ddcaaca0baeafd770389abc3763c13df4eafcd54f04dd0e34440bac4cffd279",
+    "fused-arithmetic-opcode-inventory.json": "4b90a5ccc63383956253396206ac78d0ec000d2ba49564b15709dac50d43c966",
+    "fourstep-arithmetic-review.json": "46b48d752b69793103049ee135cd5ea371561cc1e4a17ac092595bde03e636f1",
+    "constant-payload-verification.json": "70a6884daa442f3730ea88f03f9035c4450237f9e883af66e750adc51675bf1f",
+    "alignment-verification.json": "ed18cefbbde9b1c9d5483430efaf83f4f3922e76a864f82bb5da52afe58b6a2b",
+    "iterator-code-verification.json": "cbf651032eac84d2dda54952220aefdb7cc919a8ca24fbf861883dad687e6b50",
+    "stack-address-proof-selftest.json": "46559d5bb9be48f0ec9fd77727cdb4897cc12ff2eff4755af76374362dcb7260",
+    "source/crates/fastfft/src/engine/small/rectangular.rs": "936ab4b023e02956345a3e43416c6e622114d39011c8d6d819ed09fa013afe51",
+    "source/crates/fastfft/src/engine/fourstep.rs": "bfd802b011c83d38c60f4a8ff3a1b5c3aaa39b3696cec184e253f22e042484b7",
+    "source/crates/fastfft/src/engine/small.rs": "f5533077e5cdf856e30ac40e96f73b60773bbe9bdb308340596e06ffa5ea534b"
+  },
+  "analysis_processes_finished": true
+}

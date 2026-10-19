@@ -1,0 +1,563 @@
+{
+  "schema": 1,
+  "publication_date": "2026-10-11",
+  "publication_status": "evaluation complete; release not qualified",
+  "source": {
+    "source_repo": "/home/ianhersom/repo/fastfft/target/ticket23-worktree",
+    "revision": "c99763735dd344257fd86963aa87fca9f2f6022e",
+    "branch": "ticket-23-gate-evaluation",
+    "rust_build_inputs_match_revision": true,
+    "dirty_state": "Tracked ticket/map progress and untracked plan/audit/runner/tests explicitly retained; no Rust/build input modifications. See preflight/source-dirty-status.txt, source-dirty-diff.txt and source archive.",
+    "source_archive": {
+      "path": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/source.tar.gz",
+      "sha256": "f375256e2328dba2eb0844affa581467c525d6bc49ca09eed9ad0d2328cf548b",
+      "files": 153
+    }
+  },
+  "executable": {
+    "path": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/bin/fastfft-arena",
+    "sha256": "21d8ce442e2b269c3e3a7b03b5e2ba50811ef64b3b4c2e172fe8bfa6c329d3f1"
+  },
+  "protocol": {
+    "rust": "1.95.0",
+    "profile": "arena",
+    "rustflags": "-C llvm-args=-align-all-functions=6",
+    "target_cpu": "default",
+    "planning": "Estimate",
+    "core": 2,
+    "boost": true,
+    "procs": 3,
+    "verify": true,
+    "suites": [
+      "pow2",
+      "smooth",
+      "rough",
+      "batch",
+      "realworld",
+      "datacheck",
+      "sweep"
+    ],
+    "cells": 8900,
+    "controls": 367,
+    "raw_trials": 27801,
+    "process_order": "rotating; three trials do not balance all eight construction positions"
+  },
+  "campaign": {
+    "started_at": "2026-10-09T18:33:33.074840+00:00",
+    "finished_at": "2026-10-11T07:46:52.625939+00:00",
+    "supervisor_state": "completed",
+    "all_suite_exit_codes_zero": true,
+    "all_suite_attempts_retained": true,
+    "sweep_admissible": false,
+    "idle_checks": {
+      "total": 11,
+      "ok": 7,
+      "waits": 4,
+      "bypassed": 0
+    },
+    "sampled_worker_affinity": "2 for each of seven suites; not continuous monitoring"
+  },
+  "frozen_inputs_before_postrun_changes": {
+    "checked_at": "2026-10-11T20:28:59.977810+00:00",
+    "frozen_files": 152,
+    "all_match": true,
+    "changes": [],
+    "source_archive_sha256": "f375256e2328dba2eb0844affa581467c525d6bc49ca09eed9ad0d2328cf548b",
+    "executable_sha256": "21d8ce442e2b269c3e3a7b03b5e2ba50811ef64b3b4c2e172fe8bfa6c329d3f1"
+  },
+  "fftw": [
+    {
+      "path": "/home/ianhersom/repo/fastfft/target/fftw/fftw-3.3.11.tar.gz",
+      "bytes": 4310712,
+      "sha256": "5630c24cdeb33b131612f7eb4b1a9934234754f9f388ff8617458d0be6f239a1"
+    },
+    {
+      "path": "/home/ianhersom/repo/fastfft/target/fftw/install/lib/libfftw3.a",
+      "bytes": 7937698,
+      "sha256": "d692810056bae9c120b3c2c70c7b4272d9d3f3199db18b470099570a73adc01a"
+    },
+    {
+      "path": "/home/ianhersom/repo/fastfft/target/fftw/install/lib/libfftw3f.a",
+      "bytes": 8176646,
+      "sha256": "e091e0f699b24f476efd86c024534c941a174e382e9d18f92ffaf7264f688aef"
+    },
+    {
+      "path": "/home/ianhersom/repo/fastfft/target/fftw/install/configure-line.txt",
+      "bytes": 385,
+      "sha256": "fd595993ed1f0cf5e129c70ff490341f2ab56c3e7774430cefad6e3e00499acd"
+    },
+    {
+      "path": "/home/ianhersom/repo/fastfft/target/fftw/build-double/config.log",
+      "bytes": 106617,
+      "sha256": "4eb3172071bd1862b07bb98a9f080b75a90c19b1f6f51ae2411a173b30d8cc52"
+    },
+    {
+      "path": "/home/ianhersom/repo/fastfft/target/fftw/build-single/config.log",
+      "bytes": 107925,
+      "sha256": "6e66e71a9139a5323d6ff7a61280578ebf40532f3600edeb85f9a6c4bfbc3f8d"
+    }
+  ],
+  "tools": {
+    "rustc": "rustc 1.95.0 (59807616e 2026-04-14)\nbinary: rustc\ncommit-hash: 59807616e1fa2540724bfbac14d7976d7e4a3860\ncommit-date: 2026-04-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.95.0\nLLVM version: 22.1.2",
+    "cargo": "cargo 1.95.0 (f2d3ce0bd 2026-03-21)",
+    "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]"
+  },
+  "validation": {
+    "preflight": {
+      "python_passed": 46,
+      "arena_passed": 5,
+      "fastfft_passed": 107,
+      "fastfft_ignored": 7
+    },
+    "postrun_audit_tests_passed": 29,
+    "postrun_change": "G7 excludes rejected-suite diagnostics from official strict_violation_count; focused regression added; no Rust changes"
+  },
+  "commands": {
+    "arena_build": {
+      "argv": [
+        "cargo",
+        "build",
+        "--locked",
+        "--profile",
+        "arena",
+        "-p",
+        "fastfft-arena",
+        "--features",
+        "fftw"
+      ],
+      "env": {
+        "FASTFFT_FFTW_DIR": "/home/ianhersom/repo/fastfft/target/fftw/install",
+        "RUSTFLAGS": "-C llvm-args=-align-all-functions=6",
+        "CARGO_BUILD_JOBS": "1"
+      }
+    },
+    "suite_runs": [
+      {
+        "suite": "pow2",
+        "argv": [
+          "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/bin/fastfft-arena",
+          "run",
+          "--suite",
+          "pow2",
+          "--profile",
+          "full",
+          "--libs",
+          "fastfft,fastfft/avx2,rustfft,phastft/split,phastft/interleaved,tfhe-fft,oxifft,fftw",
+          "--core",
+          "2",
+          "--procs",
+          "3",
+          "--max-n",
+          "16777216",
+          "--timeout",
+          "600",
+          "--control-every",
+          "25",
+          "--out",
+          "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/pow2-fa95b3fc098a4cab952142837cb41d1d/arena"
+        ],
+        "started_at": "2026-10-09T18:33:35.256831+00:00",
+        "finished_at": "2026-10-09T21:02:51.144554+00:00",
+        "exit_code": 0,
+        "benchmark_environment": {
+          "effective": {
+            "CARGO_BUILD_JOBS": "1",
+            "FASTFFT_ARENA_WISDOM_DIR": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/wisdom",
+            "FASTFFT_FFTW_DIR": "/home/ianhersom/repo/fastfft/target/fftw/install",
+            "RUSTFLAGS": "-C llvm-args=-align-all-functions=6"
+          },
+          "removed": []
+        }
+      },
+      {
+        "suite": "smooth",
+        "argv": [
+          "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/bin/fastfft-arena",
+          "run",
+          "--suite",
+          "smooth",
+          "--profile",
+          "full",
+          "--libs",
+          "fastfft,fastfft/avx2,rustfft,phastft/split,phastft/interleaved,tfhe-fft,oxifft,fftw",
+          "--core",
+          "2",
+          "--procs",
+          "3",
+          "--max-n",
+          "16777216",
+          "--timeout",
+          "600",
+          "--control-every",
+          "25",
+          "--out",
+          "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/smooth-be88fc5d36e44238a6963fc5be455b4d/arena"
+        ],
+        "started_at": "2026-10-09T21:02:53.273955+00:00",
+        "finished_at": "2026-10-09T22:27:46.422608+00:00",
+        "exit_code": 0,
+        "benchmark_environment": {
+          "effective": {
+            "CARGO_BUILD_JOBS": "1",
+            "FASTFFT_ARENA_WISDOM_DIR": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/wisdom",
+            "FASTFFT_FFTW_DIR": "/home/ianhersom/repo/fastfft/target/fftw/install",
+            "RUSTFLAGS": "-C llvm-args=-align-all-functions=6"
+          },
+          "removed": []
+        }
+      },
+      {
+        "suite": "rough",
+        "argv": [
+          "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/bin/fastfft-arena",
+          "run",
+          "--suite",
+          "rough",
+          "--profile",
+          "full",
+          "--libs",
+          "fastfft,fastfft/avx2,rustfft,phastft/split,phastft/interleaved,tfhe-fft,oxifft,fftw",
+          "--core",
+          "2",
+          "--procs",
+          "3",
+          "--max-n",
+          "16777216",
+          "--timeout",
+          "600",
+          "--control-every",
+          "25",
+          "--out",
+          "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/rough-2987ec09d23946cdbcf84d781f160d2f/arena"
+        ],
+        "started_at": "2026-10-09T22:27:48.555535+00:00",
+        "finished_at": "2026-10-09T23:02:02.528025+00:00",
+        "exit_code": 0,
+        "benchmark_environment": {
+          "effective": {
+            "CARGO_BUILD_JOBS": "1",
+            "FASTFFT_ARENA_WISDOM_DIR": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/wisdom",
+            "FASTFFT_FFTW_DIR": "/home/ianhersom/repo/fastfft/target/fftw/install",
+            "RUSTFLAGS": "-C llvm-args=-align-all-functions=6"
+          },
+          "removed": []
+        }
+      },
+      {
+        "suite": "batch",
+        "argv": [
+          "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/bin/fastfft-arena",
+          "run",
+          "--suite",
+          "batch",
+          "--profile",
+          "full",
+          "--libs",
+          "fastfft,fastfft/avx2,rustfft,phastft/split,phastft/interleaved,tfhe-fft,oxifft,fftw",
+          "--core",
+          "2",
+          "--procs",
+          "3",
+          "--max-n",
+          "16777216",
+          "--timeout",
+          "600",
+          "--control-every",
+          "25",
+          "--out",
+          "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/batch-7212027faa714feaa489668d7066bbc9/arena"
+        ],
+        "started_at": "2026-10-09T23:03:06.718636+00:00",
+        "finished_at": "2026-10-09T23:13:04.821731+00:00",
+        "exit_code": 0,
+        "benchmark_environment": {
+          "effective": {
+            "CARGO_BUILD_JOBS": "1",
+            "FASTFFT_ARENA_WISDOM_DIR": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/wisdom",
+            "FASTFFT_FFTW_DIR": "/home/ianhersom/repo/fastfft/target/fftw/install",
+            "RUSTFLAGS": "-C llvm-args=-align-all-functions=6"
+          },
+          "removed": []
+        }
+      },
+      {
+        "suite": "realworld",
+        "argv": [
+          "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/bin/fastfft-arena",
+          "run",
+          "--suite",
+          "realworld",
+          "--profile",
+          "full",
+          "--libs",
+          "fastfft,fastfft/avx2,rustfft,phastft/split,phastft/interleaved,tfhe-fft,oxifft,fftw",
+          "--core",
+          "2",
+          "--procs",
+          "3",
+          "--max-n",
+          "16777216",
+          "--timeout",
+          "600",
+          "--control-every",
+          "25",
+          "--out",
+          "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/realworld-240e7e6ee7564ab2bc6e5b230082deef/arena"
+        ],
+        "started_at": "2026-10-09T23:14:09.005853+00:00",
+        "finished_at": "2026-10-09T23:18:23.670467+00:00",
+        "exit_code": 0,
+        "benchmark_environment": {
+          "effective": {
+            "CARGO_BUILD_JOBS": "1",
+            "FASTFFT_ARENA_WISDOM_DIR": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/wisdom",
+            "FASTFFT_FFTW_DIR": "/home/ianhersom/repo/fastfft/target/fftw/install",
+            "RUSTFLAGS": "-C llvm-args=-align-all-functions=6"
+          },
+          "removed": []
+        }
+      },
+      {
+        "suite": "datacheck",
+        "argv": [
+          "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/bin/fastfft-arena",
+          "run",
+          "--suite",
+          "datacheck",
+          "--profile",
+          "full",
+          "--libs",
+          "fastfft,fastfft/avx2,rustfft,phastft/split,phastft/interleaved,tfhe-fft,oxifft,fftw",
+          "--core",
+          "2",
+          "--procs",
+          "3",
+          "--max-n",
+          "16777216",
+          "--timeout",
+          "600",
+          "--control-every",
+          "25",
+          "--out",
+          "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/datacheck-f90b5f8f387346b0a14cb70846f1f984/arena"
+        ],
+        "started_at": "2026-10-09T23:19:27.856556+00:00",
+        "finished_at": "2026-10-09T23:24:10.399598+00:00",
+        "exit_code": 0,
+        "benchmark_environment": {
+          "effective": {
+            "CARGO_BUILD_JOBS": "1",
+            "FASTFFT_ARENA_WISDOM_DIR": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/wisdom",
+            "FASTFFT_FFTW_DIR": "/home/ianhersom/repo/fastfft/target/fftw/install",
+            "RUSTFLAGS": "-C llvm-args=-align-all-functions=6"
+          },
+          "removed": []
+        }
+      },
+      {
+        "suite": "sweep",
+        "argv": [
+          "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/bin/fastfft-arena",
+          "run",
+          "--suite",
+          "sweep",
+          "--profile",
+          "full",
+          "--libs",
+          "fastfft,fastfft/avx2,rustfft,phastft/split,phastft/interleaved,tfhe-fft,oxifft,fftw",
+          "--core",
+          "2",
+          "--procs",
+          "3",
+          "--max-n",
+          "16777216",
+          "--timeout",
+          "600",
+          "--control-every",
+          "25",
+          "--out",
+          "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/sweep-1657591d49b147af8d2f8ebca120e278/arena"
+        ],
+        "started_at": "2026-10-09T23:25:14.587068+00:00",
+        "finished_at": "2026-10-11T07:46:52.618087+00:00",
+        "exit_code": 0,
+        "benchmark_environment": {
+          "effective": {
+            "CARGO_BUILD_JOBS": "1",
+            "FASTFFT_ARENA_WISDOM_DIR": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/wisdom",
+            "FASTFFT_FFTW_DIR": "/home/ianhersom/repo/fastfft/target/fftw/install",
+            "RUSTFLAGS": "-C llvm-args=-align-all-functions=6"
+          },
+          "removed": []
+        }
+      }
+    ],
+    "g9": {
+      "argv": [
+        "taskset",
+        "-c",
+        "2",
+        "cargo",
+        "xtask",
+        "build-time"
+      ],
+      "env": {
+        "RUSTFLAGS": "",
+        "CARGO_BUILD_JOBS": "1",
+        "TMPDIR": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/g9-tmp"
+      },
+      "exit_code": 0,
+      "result": {
+        "status": "FAIL",
+        "fastfft_seconds_printed": 44.4,
+        "rustfft_seconds_printed": 3.4,
+        "recomputed_ratio_from_rounded_durations": 13.058823529411764,
+        "printed_ratio": 13.1,
+        "compatible_ratio_interval": [
+          13.094999999999999,
+          13.105
+        ],
+        "printed_values_consistent": true,
+        "limitation": "Durations are rounded to 0.1s and ratio to 0.01; a boundary interval is incomplete. The launch manifest must attest empty RUSTFLAGS, normal release, clean targets, equal jobs and CPU 2; stdout cannot attest them."
+      },
+      "stdout": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/preflight/g9.stdout",
+      "stderr": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/preflight/g9.stderr"
+    },
+    "final_audit": [
+      "/usr/bin/python3",
+      "scripts/audit-ticket23-gates.py",
+      "--run",
+      "pow2=/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/pow2-fa95b3fc098a4cab952142837cb41d1d/arena",
+      "--run",
+      "smooth=/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/smooth-be88fc5d36e44238a6963fc5be455b4d/arena",
+      "--run",
+      "rough=/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/rough-2987ec09d23946cdbcf84d781f160d2f/arena",
+      "--run",
+      "batch=/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/batch-7212027faa714feaa489668d7066bbc9/arena",
+      "--run",
+      "realworld=/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/realworld-240e7e6ee7564ab2bc6e5b230082deef/arena",
+      "--run",
+      "datacheck=/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/datacheck-f90b5f8f387346b0a14cb70846f1f984/arena",
+      "--run",
+      "sweep=/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/sweep-1657591d49b147af8d2f8ebca120e278/arena",
+      "--g9",
+      "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/preflight/g9.stdout",
+      "--out",
+      "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/audit-final.json",
+      "--report",
+      "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/audit-final.md"
+    ]
+  },
+  "raw_evidence": {
+    "root": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z",
+    "availability": "local only; no remote artifact",
+    "record_population_complete": true,
+    "all_suites_admissible": false,
+    "schema": 1,
+    "archive": {
+      "path": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/archives/campaign-20261009T180520Z-raw.tar.gz",
+      "bytes": 58977673,
+      "sha256": "56fe7fc12a88fb6d29ed1bc65a5029666898edf23b2cd5dceeed8ec2d8568e69",
+      "verified_file_entries": 283,
+      "hardlink_entries_verified_by_contents": 4,
+      "contents": "all evidence files except postprocess/**; includes rejected sweep, source snapshot, frozen binary, clean G9 targets, provenance and logs",
+      "availability": "local only; no remote artifact"
+    },
+    "checksums": {
+      "path": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/raw-checksums.json",
+      "sha256": "09092b3522657fce55f40dbd8ad56c289fee2f19fe5d8926abaae9d9a5627ac0",
+      "files": 283,
+      "total_uncompressed_bytes": 266864975
+    },
+    "completed_at": "2026-10-11T20:30:26.290198+00:00"
+  },
+  "initial_manifest": {
+    "path": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/manifest.json",
+    "sha256": "a1d2cf9eb3f8229c4b91877a0c1a4790b0b5256f895eaf4f9eb40da64c4fe1fc",
+    "note": "Original pre-run manifest retained unchanged, including its historical complete=false field."
+  },
+  "final_postprocess_evidence": {
+    "created_at": "2026-10-11T20:32:32.853245+00:00",
+    "note": "post-run G7 audit hardening and final reproducibility evidence; original frozen tooling remains in source.tar.gz/raw archive",
+    "files": [
+      {
+        "source": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/scripts/audit-ticket23-gates.py",
+        "snapshot": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/final-tooling/audit-ticket23-gates.py",
+        "sha256": "d972877d4616765ab5a89d73a4e181bd383687cbdea05c07f26ad29b43bd8616"
+      },
+      {
+        "source": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/scripts/test_ticket23_audit.py",
+        "snapshot": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/final-tooling/test_ticket23_audit.py",
+        "sha256": "c828cfe56fe43c7c6ab8c25b7a9fe40d50a5f7ebcf8843e8f7c485a55f449a98"
+      },
+      {
+        "source": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/scripts/run-ticket23-gates.py",
+        "snapshot": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/final-tooling/run-ticket23-gates.py",
+        "sha256": "9aa543cb6fcc834cc27e254f01686a24909b8d513f947cb9cf36df28118fe3f8"
+      },
+      {
+        "source": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/scripts/test_ticket23_runner.py",
+        "snapshot": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/final-tooling/test_ticket23_runner.py",
+        "sha256": "c17e8c0ede04f4ecc33a445e6c2d067670147387906247005ec3fbb8ea3ee88f"
+      },
+      {
+        "path": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/audit-final.json",
+        "sha256": "d7eb622888c1b5ead581daf8afa872c47e32738907632c0dc59e77e9d54bd54b",
+        "bytes": 171104
+      },
+      {
+        "path": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/audit-final.md",
+        "sha256": "0b1f8a91c90651dba1420d582f8b174cd4b5be775dd1caf3d6277ea67b9ed6a5",
+        "bytes": 3368
+      },
+      {
+        "path": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/independent-check.py",
+        "sha256": "4ded719adbf985b371e18e049543180d1c47e20485ad643dc87bf6855ea33d21",
+        "bytes": 10842
+      },
+      {
+        "path": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/independent-crosscheck.json",
+        "sha256": "0a1e04127aa9991ca2c97f620577608ed3ea45c4649c278e093a9e0045405f27",
+        "bytes": 96021
+      }
+    ]
+  },
+  "supplementary_files": [
+    {
+      "path": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/final-tooling-manifest.json",
+      "sha256": "42a8c0058d63dc5218b8fb9757b631fe9679b40128e9c0704a6698d4ae6b8df5"
+    },
+    {
+      "path": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/frozen-input-check.json",
+      "sha256": "ff1d6aa857c733e5046468bdc8fcad5229bb6fd8a63df55b9d717d0a70415e31"
+    },
+    {
+      "path": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/audit-final-command.json",
+      "sha256": "df879adb90dde9bb8500964f46099841e37b6b9c9a0676b2fdd283970b25ee04"
+    },
+    {
+      "path": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/independent-check-command-exit.json",
+      "sha256": "01910f2f7bd48d9170f815c80dcc8e1322fcea5c0c312b427fbcd9d760d7356f"
+    }
+  ],
+  "published_artifacts": {
+    "README.md": {
+      "sha256": "762859b066284b8c2701bd97d058335460921ce9fd6590853dc667d3801961b7",
+      "bytes": 14283
+    },
+    "gate-summary.json": {
+      "sha256": "f22c31a0bf71cc0cdcd80e291f105455ea212baf3f06321276c84093a819f2e6",
+      "bytes": 63581
+    }
+  },
+  "limitations": [
+    "Clock probe is an uncalibrated throughput proxy (ticket 32).",
+    "Three processes rotate construction order across only three of eight positions; this does not balance all row positions.",
+    "Arena metadata cannot attest all launch variables, idle history, executable hash or source identity; retain the frozen-run manifest.",
+    "Only explicitly supplied attempts are audited; rejected earlier attempts must also be retained in the evidence manifest.",
+    "Datacheck has observed >2% differences and one missing supported comparison.",
+    "Sweep rejected in full for 8.263039709% clock drift; no immediate retry or cell splicing.",
+    "Final audit scripts differ from the original frozen audit only after timing; both versions retained.",
+    "Watcher did not enqueue because of unrelated /proc visibility uncertainty; watcher STOP cancelled it, then parent independently verified timing had stopped before postprocessing."
+  ]
+}

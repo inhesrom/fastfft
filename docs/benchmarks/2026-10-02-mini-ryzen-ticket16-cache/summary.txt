@@ -1,0 +1,25 @@
+before {"aborted": null, "cells": 12, "child_failures": 0, "drift_flag": false, "elapsed_s": 27.929320056999998, "max_drift": 0.009624176073718682, "official": true}
+after {"aborted": null, "cells": 12, "child_failures": 0, "drift_flag": false, "elapsed_s": 27.868205318, "max_drift": 0.009464569093703634, "official": true}
+smooth {"aborted": null, "cells": 6, "child_failures": 0, "drift_flag": false, "elapsed_s": 15.94301495, "max_drift": 0.012959371731802727, "official": true}
+pow2:f32:fwd:ip:n16384 before/after 1.0027 1.0050 stockham avx512-ymm split L=8 radices=8x4x8x8 scratch=33800
+pow2:f32:fwd:ip:n32768 before/after 0.9983 1.0036 stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=66568
+pow2:f32:fwd:ip:n262144 before/after 0.9966 0.9870 stockham avx512-ymm split L=8 radices=8x8x8x8x8 scratch=525320
+pow2:f32:fwd:ip:n524288 before/after 1.0150 1.0297 stockham avx512-ymm split L=8 radices=8x2x8x8x8x8 scratch=524296
+pow2:f32:fwd:ip:n1048576 before/after 0.9984 1.0061 fourstep avx512-ymm split L=8 decomposition=512x2048 scratch=1344008
+pow2:f32:fwd:ip:n2097152 before/after 1.0109 0.9889 fourstep avx512 split L=16 decomposition=512x4096 scratch=2490792
+pow2:f64:fwd:ip:n16384 before/after 0.9940 0.9903 stockham avx512 split L=8 radices=8x4x8x8 scratch=33284
+pow2:f64:fwd:ip:n32768 before/after 0.9903 0.9925 stockham avx512 split L=8 radices=8x8x8x8 scratch=66052
+pow2:f64:fwd:ip:n262144 before/after 1.0091 0.9948 stockham avx512 split L=8 radices=8x8x8x8x8 scratch=262148
+pow2:f64:fwd:ip:n524288 before/after 1.0040 1.0059 fourstep avx512 split L=8 decomposition=512x1024 scratch=672004
+pow2:f64:fwd:ip:n1048576 before/after 0.9962 1.0016 fourstep avx512 split L=8 decomposition=512x2048 scratch=1212644
+pow2:f64:fwd:ip:n2097152 before/after 1.0004 1.0005 fourstep avx512 split L=8 decomposition=512x4096 scratch=2293972
+after f32 {"best": {"geomean": 1.4750245246411675, "minimum": 1.3077027686213065}, "median": {"geomean": 1.4805654906705155, "minimum": 1.3130152032538007}}
+after f64 {"best": {"geomean": 1.6301068970934223, "minimum": 1.3906386157101955}, "median": {"geomean": 1.6399014913542895, "minimum": 1.3973730880824087}}
+after combined {"best": {"geomean": 1.5506281472356658, "minimum": 1.3077027686213065}, "median": {"geomean": 1.5581981761631842, "minimum": 1.3130152032538007}}
+smooth f32 {"best": {"geomean": 1.2145352035247945, "minimum": 1.0287071068512201}, "median": {"geomean": 1.2214748230318553, "minimum": 1.0461913771826126}}
+smooth f64 {"best": {"geomean": 1.1592086504658625, "minimum": 1.0229452090366138}, "median": {"geomean": 1.1652785937637207, "minimum": 1.0462540685179433}}
+smooth combined {"best": {"geomean": 1.1865494992714205, "minimum": 1.0229452090366138}, "median": {"geomean": 1.1930458767794094, "minimum": 1.0461913771826126}}
+before/after fastfft best geomean 1.0012911691340791 minimum 0.9902925815908518
+before/after fastfft median geomean 1.0004403672600646 minimum 0.9870494253337849
+before/after rustfft best geomean 0.9982564442068654 minimum 0.9869901411493608
+before/after rustfft median geomean 1.0006581369869583 minimum 0.9676430087534527

@@ -1,0 +1,161 @@
+
+target/ticket19/selection-fix/diagnostics-missing-alignment-interrupted/fastfft-arena:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000002cdd30 <fastfft_arena::clock_probe::measure_ghz>:
+  2cdd30:	55                   	push   %rbp
+  2cdd31:	41 56                	push   %r14
+  2cdd33:	53                   	push   %rbx
+  2cdd34:	48 83 ec 50          	sub    $0x50,%rsp
+  2cdd38:	bf 01 00 00 00       	mov    $0x1,%edi
+  2cdd3d:	e8 6e 5c dc 00       	call   10939b0 <<std::sys::pal::unix::time::Timespec>::now>
+  2cdd42:	48 89 c3             	mov    %rax,%rbx
+  2cdd45:	89 d5                	mov    %edx,%ebp
+  2cdd47:	e8 14 02 00 00       	call   2cdf60 <fastfft_arena::clock_probe::dependent_adds>
+  2cdd4c:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+  2cdd51:	4c 8d 74 24 08       	lea    0x8(%rsp),%r14
+  2cdd56:	bf 01 00 00 00       	mov    $0x1,%edi
+  2cdd5b:	e8 50 5c dc 00       	call   10939b0 <<std::sys::pal::unix::time::Timespec>::now>
+  2cdd60:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+  2cdd65:	89 54 24 28          	mov    %edx,0x28(%rsp)
+  2cdd69:	48 89 5c 24 30       	mov    %rbx,0x30(%rsp)
+  2cdd6e:	89 6c 24 38          	mov    %ebp,0x38(%rsp)
+  2cdd72:	48 8d 7c 24 08       	lea    0x8(%rsp),%rdi
+  2cdd77:	48 8d 74 24 20       	lea    0x20(%rsp),%rsi
+  2cdd7c:	48 8d 54 24 30       	lea    0x30(%rsp),%rdx
+  2cdd81:	e8 5a 5b dc 00       	call   10938e0 <<std::sys::pal::unix::time::Timespec>::sub_timespec>
+  2cdd86:	80 7c 24 08 00       	cmpb   $0x0,0x8(%rsp)
+  2cdd8b:	f2 0f 10 15 55 4a db 	movsd  -0x24b5ab(%rip),%xmm2        # 827e8 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x1b18>
+  2cdd92:	ff 
+  2cdd93:	f2 0f 11 54 24 48    	movsd  %xmm2,0x48(%rsp)
+  2cdd99:	75 4f                	jne    2cddea <fastfft_arena::clock_probe::measure_ghz+0xba>
+  2cdd9b:	f2 0f 10 44 24 10    	movsd  0x10(%rsp),%xmm0
+  2cdda1:	f2 0f 2a 4c 24 18    	cvtsi2sdl 0x18(%rsp),%xmm1
+  2cdda7:	0f 14 05 12 a6 da ff 	unpcklps -0x2559ee(%rip),%xmm0        # 783c0 <__abi_tag+0x780c4>
+  2cddae:	66 0f 5c 05 4a 8a da 	subpd  -0x2575b6(%rip),%xmm0        # 76800 <__abi_tag+0x76504>
+  2cddb5:	ff 
+  2cddb6:	66 0f 28 d0          	movapd %xmm0,%xmm2
+  2cddba:	66 0f 15 d0          	unpckhpd %xmm0,%xmm2
+  2cddbe:	f2 0f 58 d0          	addsd  %xmm0,%xmm2
+  2cddc2:	f2 0f 10 05 06 47 db 	movsd  -0x24b8fa(%rip),%xmm0        # 824d0 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x1800>
+  2cddc9:	ff 
+  2cddca:	f2 0f 5e c8          	divsd  %xmm0,%xmm1
+  2cddce:	f2 0f 58 ca          	addsd  %xmm2,%xmm1
+  2cddd2:	f2 0f 10 15 1e 4b db 	movsd  -0x24b4e2(%rip),%xmm2        # 828f8 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x1c28>
+  2cddd9:	ff 
+  2cddda:	f2 0f 5e d1          	divsd  %xmm1,%xmm2
+  2cddde:	f2 0f 5e d0          	divsd  %xmm0,%xmm2
+  2cdde2:	66 0f 57 c0          	xorpd  %xmm0,%xmm0
+  2cdde6:	f2 0f 5f d0          	maxsd  %xmm0,%xmm2
+  2cddea:	f2 0f 11 54 24 40    	movsd  %xmm2,0x40(%rsp)
+  2cddf0:	bf 01 00 00 00       	mov    $0x1,%edi
+  2cddf5:	e8 b6 5b dc 00       	call   10939b0 <<std::sys::pal::unix::time::Timespec>::now>
+  2cddfa:	48 89 c3             	mov    %rax,%rbx
+  2cddfd:	89 d5                	mov    %edx,%ebp
+  2cddff:	e8 5c 01 00 00       	call   2cdf60 <fastfft_arena::clock_probe::dependent_adds>
+  2cde04:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+  2cde09:	bf 01 00 00 00       	mov    $0x1,%edi
+  2cde0e:	e8 9d 5b dc 00       	call   10939b0 <<std::sys::pal::unix::time::Timespec>::now>
+  2cde13:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+  2cde18:	89 54 24 28          	mov    %edx,0x28(%rsp)
+  2cde1c:	48 89 5c 24 30       	mov    %rbx,0x30(%rsp)
+  2cde21:	89 6c 24 38          	mov    %ebp,0x38(%rsp)
+  2cde25:	48 8d 7c 24 08       	lea    0x8(%rsp),%rdi
+  2cde2a:	48 8d 74 24 20       	lea    0x20(%rsp),%rsi
+  2cde2f:	48 8d 54 24 30       	lea    0x30(%rsp),%rdx
+  2cde34:	e8 a7 5a dc 00       	call   10938e0 <<std::sys::pal::unix::time::Timespec>::sub_timespec>
+  2cde39:	80 7c 24 08 00       	cmpb   $0x0,0x8(%rsp)
+  2cde3e:	f2 0f 10 15 a2 49 db 	movsd  -0x24b65e(%rip),%xmm2        # 827e8 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x1b18>
+  2cde45:	ff 
+  2cde46:	75 4a                	jne    2cde92 <fastfft_arena::clock_probe::measure_ghz+0x162>
+  2cde48:	f2 0f 10 44 24 10    	movsd  0x10(%rsp),%xmm0
+  2cde4e:	0f 57 c9             	xorps  %xmm1,%xmm1
+  2cde51:	f2 0f 2a 4c 24 18    	cvtsi2sdl 0x18(%rsp),%xmm1
+  2cde57:	0f 14 05 62 a5 da ff 	unpcklps -0x255a9e(%rip),%xmm0        # 783c0 <__abi_tag+0x780c4>
+  2cde5e:	66 0f 5c 05 9a 89 da 	subpd  -0x257666(%rip),%xmm0        # 76800 <__abi_tag+0x76504>
+  2cde65:	ff 
+  2cde66:	66 0f 28 d0          	movapd %xmm0,%xmm2
+  2cde6a:	66 0f 15 d0          	unpckhpd %xmm0,%xmm2
+  2cde6e:	f2 0f 58 d0          	addsd  %xmm0,%xmm2
+  2cde72:	f2 0f 10 05 56 46 db 	movsd  -0x24b9aa(%rip),%xmm0        # 824d0 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x1800>
+  2cde79:	ff 
+  2cde7a:	f2 0f 5e c8          	divsd  %xmm0,%xmm1
+  2cde7e:	f2 0f 58 ca          	addsd  %xmm2,%xmm1
+  2cde82:	f2 0f 10 15 6e 4a db 	movsd  -0x24b592(%rip),%xmm2        # 828f8 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x1c28>
+  2cde89:	ff 
+  2cde8a:	f2 0f 5e d1          	divsd  %xmm1,%xmm2
+  2cde8e:	f2 0f 5e d0          	divsd  %xmm0,%xmm2
+  2cde92:	f2 0f 5f 54 24 40    	maxsd  0x40(%rsp),%xmm2
+  2cde98:	f2 0f 11 54 24 40    	movsd  %xmm2,0x40(%rsp)
+  2cde9e:	bf 01 00 00 00       	mov    $0x1,%edi
+  2cdea3:	e8 08 5b dc 00       	call   10939b0 <<std::sys::pal::unix::time::Timespec>::now>
+  2cdea8:	48 89 c3             	mov    %rax,%rbx
+  2cdeab:	89 d5                	mov    %edx,%ebp
+  2cdead:	e8 ae 00 00 00       	call   2cdf60 <fastfft_arena::clock_probe::dependent_adds>
+  2cdeb2:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+  2cdeb7:	bf 01 00 00 00       	mov    $0x1,%edi
+  2cdebc:	e8 ef 5a dc 00       	call   10939b0 <<std::sys::pal::unix::time::Timespec>::now>
+  2cdec1:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+  2cdec6:	89 54 24 28          	mov    %edx,0x28(%rsp)
+  2cdeca:	48 89 5c 24 30       	mov    %rbx,0x30(%rsp)
+  2cdecf:	89 6c 24 38          	mov    %ebp,0x38(%rsp)
+  2cded3:	48 8d 7c 24 08       	lea    0x8(%rsp),%rdi
+  2cded8:	48 8d 74 24 20       	lea    0x20(%rsp),%rsi
+  2cdedd:	48 8d 54 24 30       	lea    0x30(%rsp),%rdx
+  2cdee2:	e8 f9 59 dc 00       	call   10938e0 <<std::sys::pal::unix::time::Timespec>::sub_timespec>
+  2cdee7:	80 7c 24 08 00       	cmpb   $0x0,0x8(%rsp)
+  2cdeec:	75 50                	jne    2cdf3e <fastfft_arena::clock_probe::measure_ghz+0x20e>
+  2cdeee:	f2 0f 10 44 24 10    	movsd  0x10(%rsp),%xmm0
+  2cdef4:	0f 57 c9             	xorps  %xmm1,%xmm1
+  2cdef7:	f2 0f 2a 4c 24 18    	cvtsi2sdl 0x18(%rsp),%xmm1
+  2cdefd:	0f 14 05 bc a4 da ff 	unpcklps -0x255b44(%rip),%xmm0        # 783c0 <__abi_tag+0x780c4>
+  2cdf04:	66 0f 5c 05 f4 88 da 	subpd  -0x25770c(%rip),%xmm0        # 76800 <__abi_tag+0x76504>
+  2cdf0b:	ff 
+  2cdf0c:	66 0f 28 d0          	movapd %xmm0,%xmm2
+  2cdf10:	66 0f 15 d0          	unpckhpd %xmm0,%xmm2
+  2cdf14:	f2 0f 58 d0          	addsd  %xmm0,%xmm2
+  2cdf18:	f2 0f 10 05 b0 45 db 	movsd  -0x24ba50(%rip),%xmm0        # 824d0 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x1800>
+  2cdf1f:	ff 
+  2cdf20:	f2 0f 5e c8          	divsd  %xmm0,%xmm1
+  2cdf24:	f2 0f 58 ca          	addsd  %xmm2,%xmm1
+  2cdf28:	f2 0f 10 15 c8 49 db 	movsd  -0x24b638(%rip),%xmm2        # 828f8 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x1c28>
+  2cdf2f:	ff 
+  2cdf30:	f2 0f 5e d1          	divsd  %xmm1,%xmm2
+  2cdf34:	f2 0f 5e d0          	divsd  %xmm0,%xmm2
+  2cdf38:	f2 0f 11 54 24 48    	movsd  %xmm2,0x48(%rsp)
+  2cdf3e:	f2 0f 10 44 24 48    	movsd  0x48(%rsp),%xmm0
+  2cdf44:	f2 0f 5f 44 24 40    	maxsd  0x40(%rsp),%xmm0
+  2cdf4a:	48 83 c4 50          	add    $0x50,%rsp
+  2cdf4e:	5b                   	pop    %rbx
+  2cdf4f:	41 5e                	pop    %r14
+  2cdf51:	5d                   	pop    %rbp
+  2cdf52:	c3                   	ret
+  2cdf53:	cc                   	int3
+  2cdf54:	cc                   	int3
+  2cdf55:	cc                   	int3
+  2cdf56:	cc                   	int3
+  2cdf57:	cc                   	int3
+  2cdf58:	cc                   	int3
+  2cdf59:	cc                   	int3
+  2cdf5a:	cc                   	int3
+  2cdf5b:	cc                   	int3
+  2cdf5c:	cc                   	int3
+  2cdf5d:	cc                   	int3
+  2cdf5e:	cc                   	int3
+  2cdf5f:	cc                   	int3
+
+00000000002cdf60 <fastfft_arena::clock_probe::dependent_adds>:
+  2cdf60:	31 c0                	xor    %eax,%eax
+  2cdf62:	b9 80 96 98 00       	mov    $0x989680,%ecx
+  2cdf67:	48 83 c0 01          	add    $0x1,%rax
+  2cdf6b:	48 83 c0 01          	add    $0x1,%rax
+  2cdf6f:	48 83 c0 01          	add    $0x1,%rax
+  2cdf73:	48 83 c0 01          	add    $0x1,%rax
+  2cdf77:	48 ff c9             	dec    %rcx
+  2cdf7a:	75 eb                	jne    2cdf67 <fastfft_arena::clock_probe::dependent_adds+0x7>
+  2cdf7c:	c3                   	ret
+  2cdf7d:	cc                   	int3
+  2cdf7e:	cc                   	int3
+  2cdf7f:	cc                   	int3

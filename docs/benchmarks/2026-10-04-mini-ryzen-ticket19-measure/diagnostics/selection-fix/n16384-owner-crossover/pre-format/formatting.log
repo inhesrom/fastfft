@@ -1,0 +1,10 @@
+Diff in /home/ianhersom/repo/fastfft/bench/arena/src/measure_diagnostics.rs:56:
+             || d.execution_rotation != 0
+             || !matches!(
+                 (spec.n, spec.precision),
+-                (16_384 | 75_600, crate::spec::Precision::F32) | (165_375, crate::spec::Precision::F64)
++                (16_384 | 75_600, crate::spec::Precision::F32)
++                    | (165_375, crate::spec::Precision::F64)
+             )
+             || spec.batch != 1
+             || spec.direction != crate::spec::Direction::Inverse

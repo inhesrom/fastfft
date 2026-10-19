@@ -1,0 +1,86 @@
+{
+  "key": "pow2:f32:fwd:oop:n262144",
+  "strict_failure_retained": true,
+  "acceptance": false,
+  "one_time_noise_established": false,
+  "single_cell_replacement_allowed": false,
+  "source_remedy_supported": false,
+  "merged_ratios": {
+    "best": 1.0220192913255328,
+    "p1": 1.0202111574040449,
+    "median": 1.001416521485246
+  },
+  "within_process_failure": {
+    "ordinal": 3,
+    "order": [
+      "fastfft/measure",
+      "fastfft"
+    ],
+    "clock_ghz": [
+      5.028502811058783,
+      5.023289224667867
+    ],
+    "estimate": {
+      "best": 301690.0,
+      "p1": 302902.0,
+      "median": 311679.0,
+      "p10": 309796.0,
+      "p90": 317370.0,
+      "samples": 2237
+    },
+    "measure": {
+      "best": 308644.0,
+      "p1": 309335.0,
+      "median": 312320.0,
+      "p10": 310176.0,
+      "p90": 321999.0,
+      "samples": 2219
+    },
+    "ratios": {
+      "best": 1.023050150817064,
+      "p1": 1.021237892123525,
+      "median": 1.0020566031076845
+    },
+    "same_description": true,
+    "calls": [
+      1,
+      1
+    ]
+  },
+  "next_diagnostic": {
+    "execute_now": false,
+    "preconditions": [
+      "existing full capture finished",
+      "fresh sustained quiet gate"
+    ],
+    "fixed_captures": 1,
+    "case": "pow2:f32:fwd:oop:n262144",
+    "processes": 8,
+    "process_order": "rotating",
+    "calls": 1,
+    "sample_trace": true,
+    "selector_trace": false,
+    "unchanged": [
+      "public caller",
+      "seven rounds",
+      "budgets",
+      "controls",
+      "verified aligned zero input",
+      "acceptance gate"
+    ],
+    "purpose": "Locate low Estimate tail samples across rounds and member order, not replace acceptance evidence"
+  },
+  "findings": [
+    "This is a retained strict failure: merged best +2.2019%, p1 +2.0211%; median +0.1417% does not waive the gate.",
+    "It is not solely a cross-process minimum artifact: ordinal 3 itself has best +2.3050% and p1 +2.1238%.",
+    "Estimate best/p1 are unusually fast in ordinals 1 and 3; both run Measure first. Other Measure-first ordinals 5 and 7 do not show the same fast tail, so order alone is not established as causal.",
+    "Close medians and the distribution of eight trials support a lower-tail/context hypothesis, not a proven persistent average slowdown or dismissible one-time noise. Endpoint clocks cannot resolve short intra-round effects.",
+    "Identical descriptions establish the same reported recipe, not identical allocation addresses, cache state, or timed sample history. This is not evidence of a changed-recipe false promotion.",
+    "The retained F32x8v FourStep static gate proves reviewed local-vector alignment but reports +264 frame bytes, +117 scalar instructions, +20 vector instructions and +8 local vector sites versus its predecessor. Both current members use that path; these costs do not identify a member-specific source defect. No source remedy is justified yet.",
+    "The later dirty monitor sample does not explain this earlier quiet-window failure. Preserve it and all prior failures; finish the already-running full capture to retain complete coverage.",
+    "After completion and a fresh sustained quiet gate, the smallest useful next experiment is one predeclared sample-traced diagnostic replay of this single case: eight rotating processes, actual CALLS=1, verified aligned zero input, the same seven rounds/budgets/public caller and existing controls. Enable existing sample tracing only; no selector tracing, owner displacement, or algorithm change.",
+    "Retain every sample and round boundary, member order, both descriptions and all eight records. Test whether Estimate fast samples form a repeatable cluster within particular rounds/order or remain isolated. A recurrence narrows time/order/context hypotheses; absence does not prove the retained miss was noise.",
+    "The focused run would be diagnostic only: it cannot replace this cell in the full capture or restore acceptance. Do not automatically repeat it, cherry-pick minima, change thresholds, or rerun until pass."
+  ],
+  "read_only_execution": "All small inspection/extraction scripts pinned to CPU0; no builds/tests/FFT/disassembly/diagnostics/timing or production edits. Artifacts outside live capture."
+}

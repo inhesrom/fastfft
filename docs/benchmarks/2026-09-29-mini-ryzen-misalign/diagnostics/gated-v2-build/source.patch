@@ -1,0 +1,921 @@
+diff --git a/crates/fastfft/src/engine/bluestein.rs b/crates/fastfft/src/engine/bluestein.rs
+index a6401ac..a4342e9 100644
+--- a/crates/fastfft/src/engine/bluestein.rs
++++ b/crates/fastfft/src/engine/bluestein.rs
+@@ -88,9 +88,7 @@ impl<T: FftNum> BluesteinPlan<T> {
+     ) {
+         // The inner FFTs run on `work`: align it like Stockham's scratch, or
+         // every vector access of theirs may split a cache line.
+-        let slack = crate::fft::align_slack::<T>();
+-        let off = scratch.as_ptr().align_offset(64).min(slack);
+-        let (work, inner_scratch) = scratch[off..].split_at_mut(self.m);
++        let (work, inner_scratch) = crate::scratch::aligned(scratch).split_at_mut(self.m);
+         let conj = |c: Complex<T>| if inverse { c.conj() } else { c };
+         for (w, (&x, &c)) in work.iter_mut().zip(input.iter().zip(&self.chirp)) {
+             *w = x * conj(c);
+diff --git a/crates/fastfft/src/engine/fixed.rs b/crates/fastfft/src/engine/fixed.rs
+index 4c6294d..5445501 100644
+--- a/crates/fastfft/src/engine/fixed.rs
++++ b/crates/fastfft/src/engine/fixed.rs
+@@ -220,16 +220,7 @@ impl<
+         count: usize,
+         mode: Mode,
+     ) {
+-        let sp = scratch.as_mut_ptr();
+-        let offset = if scratch.is_empty() {
+-            0
+-        } else {
+-            // A legal Complex<T> slice can be aligned only to T. If its
+-            // address cannot reach 64-byte alignment in whole complex steps,
+-            // align_offset returns usize::MAX. As in generic Stockham, keep
+-            // the offset within the reserved slack and use unaligned SIMD.
+-            sp.align_offset(64).min(align_slack::<T>())
+-        };
++        let sp = crate::scratch::aligned(scratch).as_mut_ptr();
+         // SAFETY: public entry checks scratch including alignment slack and
+         // complete disjoint/aliased buffers. Constructor checks T=V::S and ISA.
+         unsafe {
+@@ -237,7 +228,7 @@ impl<
+                 &*(&self.plan as *const StockhamPlan<T>).cast::<StockhamPlan<V::S>>(),
+                 input.cast(),
+                 output.cast(),
+-                sp.add(offset).cast(),
++                sp.cast(),
+                 count,
+                 mode,
+             );
+diff --git a/crates/fastfft/src/engine/stockham.rs b/crates/fastfft/src/engine/stockham.rs
+index 98f1520..befcb65 100644
+--- a/crates/fastfft/src/engine/stockham.rs
++++ b/crates/fastfft/src/engine/stockham.rs
+@@ -18,9 +18,14 @@
+ //! The inverse transform swaps re and im on the first load and the final
+ //! store (`IFFT(x) = swap(FFT(swap(x)))`), which is free in split layout.
+ 
++#[cfg(test)]
++mod contracts;
++mod scratch;
++
+ use crate::codelets::generated;
+ use crate::isa::Vector;
+ use crate::twiddle::omega;
++use scratch::{PAGE_BYTES, placement_offset};
+ 
+ /// Per-tier pass entry points. Keeping each radix in its own target-feature
+ /// function lets LLVM allocate registers independently of the other radices
+@@ -74,6 +79,9 @@ pub(crate) struct StockhamPlan<S> {
+     pub(super) pass_tw: Vec<Vec<S>>,
+     /// Phase B: per block and per `n1` in `0..l`: `[wr x l][wi x l]`.
+     pub(super) vtw: Vec<S>,
++    /// Nonzero only for modes whose scratch-only working set fits the cache.
++    /// Computed once at planning, shared by sizing and execution.
++    misaligned_scratch: [usize; 3],
+ }
+ 
+ /// Where the transform reads and writes.
+@@ -101,14 +109,56 @@ impl<S> StockhamPlan<S> {
+         self.n.div_ceil(per_line) * per_line
+     }
+ 
+-    /// Scratch (complex values) needed by every mode. Misaligned caller
+-    /// buffers keep passes 2..p in scratch (see `execute`): one buffer when
+-    /// the second pass is the last and runs in place, two beyond that.
+-    pub(crate) fn scratch_len(&self, _mode: Mode) -> usize {
+-        match self.radices.len() {
+-            0 => 0,
+-            1 | 2 => self.n,
+-            _ => self.padded_n() + self.n,
++    /// The gated path has at least three passes and uses two scratch buffers.
++    /// The final Phase A pass can run in place.
++    fn scratch_only_len(&self) -> usize {
++        self.padded_n() + self.n + 2 * self.placement_slack()
++    }
++
++    /// One page per buffer allows choosing any 64-byte-aligned page offset.
++    fn placement_slack(&self) -> usize {
++        PAGE_BYTES / (2 * core::mem::size_of::<S>())
++    }
++
++    pub(crate) fn scratch_len(&self, mode: Mode) -> usize {
++        let gated = self.misaligned_scratch[mode as usize];
++        if gated != 0 {
++            gated
++        } else if self.radices.is_empty() || mode == Mode::OutOfPlace {
++            0
++        } else {
++            self.n
++        }
++    }
++
++    fn set_cache_gate(&mut self, cache_bytes: usize) {
++        let p = self.radices.len();
++        // Scalar accesses cannot split SIMD loads. Short plans retain the
++        // legacy path: in-place p <= 2 already keeps intermediates in scratch,
++        // and scratch-only out-of-place p = 2 regressed on streaming batches
++        // even after page-offset placement (ticket 12's stage-3 measurements).
++        if self.l == 1 || p < 3 {
++            return;
++        }
++        let scratch = self.scratch_only_len();
++        let real_bytes = core::mem::size_of::<S>();
++        let tables = self.pass_tw.iter().map(Vec::len).sum::<usize>() + self.vtw.len();
++        // Leave a quarter of the last-level cache for unrelated state. Count
++        // twiddles too: Phase B's table alone is about one full N-buffer.
++        let budget = cache_bytes - cache_bytes / 4;
++        for mode in [Mode::InPlace, Mode::OutOfPlace, Mode::Immutable] {
++            let caller_buffers = if mode == Mode::InPlace { 1usize } else { 2 };
++            let working_set = self
++                .n
++                .checked_mul(caller_buffers)
++                .and_then(|n| n.checked_add(scratch))
++                .and_then(|n| n.checked_mul(2))
++                .and_then(|n| n.checked_add(tables))
++                .and_then(|n| n.checked_mul(real_bytes))
++                .and_then(|n| n.checked_add(64));
++            if working_set.is_some_and(|bytes| bytes <= budget) {
++                self.misaligned_scratch[mode as usize] = scratch;
++            }
+         }
+     }
+ }
+@@ -116,6 +166,11 @@ impl<S> StockhamPlan<S> {
+ impl<S: num_traits::FromPrimitive + Copy + Default> StockhamPlan<S> {
+     /// `radices` must multiply to `n / l` and each be a generated radix.
+     pub(crate) fn new(n: usize, l: usize, radices: Vec<usize>) -> Self {
++        Self::with_cache(n, l, radices, crate::isa::cache::last_level_bytes())
++    }
++
++    /// Explicit cache capacity for deterministic policy tests.
++    pub(crate) fn with_cache(n: usize, l: usize, radices: Vec<usize>, cache_bytes: usize) -> Self {
+         debug_assert!(n.is_multiple_of(l));
+         let m = n / l;
+         debug_assert_eq!(radices.iter().product::<usize>(), m.max(1));
+@@ -149,14 +204,17 @@ impl<S: num_traits::FromPrimitive + Copy + Default> StockhamPlan<S> {
+                 }
+             }
+         }
+-        StockhamPlan {
++        let mut plan = StockhamPlan {
+             n,
+             l,
+             m,
+             radices,
+             pass_tw,
+             vtw,
+-        }
++            misaligned_scratch: [0; 3],
++        };
++        plan.set_cache_gate(cache_bytes);
++        plan
+     }
+ }
+ 
+@@ -488,16 +546,31 @@ pub(crate) unsafe fn execute<V: StockhamVector>(
+         // of its size. When a caller buffer is misaligned, only the first
+         // pass's loads and Phase B's stores touch caller memory: the first
+         // pass writes the scratch, the passes in between ping-pong within it
+-        // (a second buffer from `padded_n` on), and the last runs in place.
++        // (two separately placed regions for p > 2), and the last runs in
++        // place. The gate includes the extra buffers, placement slack and
++        // tables; above the cache budget use the legacy choreography.
+         let vbytes = V::LANES * core::mem::size_of::<V::S>();
+-        if !(input as usize | output as usize).is_multiple_of(vbytes) {
+-            let s1 = scratch;
++        if plan.misaligned_scratch[mode as usize] != 0
++            && !(input as usize | output as usize).is_multiple_of(vbytes)
++        {
++            let real_bytes = core::mem::size_of::<V::S>();
++            let s1 = scratch.add(
++                placement_offset(scratch as usize, input as usize, output as usize, None)
++                    / real_bytes,
++            );
+             let mut cur = s1;
+-            let mut other = if p > 2 {
+-                scratch.add(2 * plan.padded_n())
+-            } else {
+-                s1
+-            };
++            // Disjoint regions, each reserving one page before its N
++            // values. Pick a different page offset for the second buffer
++            // too, to avoid repeating a base-address dependency per chunk.
++            let s2 = scratch.add(2 * (plan.padded_n() + plan.placement_slack()));
++            let mut other = s2.add(
++                placement_offset(
++                    s2 as usize,
++                    input as usize,
++                    output as usize,
++                    Some(s1 as usize),
++                ) / real_bytes,
++            );
+             let mut ns = 1;
+             for (i, &r) in plan.radices.iter().enumerate() {
+                 let tw = plan.pass_tw[i].as_ptr();
+@@ -550,3 +623,65 @@ pub(crate) unsafe fn execute<V: StockhamVector>(
+         run_phase_b::<V>(false, inverse, src, output, plan.m, plan.vtw.as_ptr(), one);
+     }
+ }
++
++#[cfg(test)]
++mod tests {
++    use super::{Mode, StockhamPlan};
++
++    #[test]
++    fn two_pass_plans_keep_legacy_scratch() {
++        // N=512 batches remained 14–15% slower with scratch-only passes,
++        // even after page-offset placement. Do not enable that path.
++        let p = StockhamPlan::<f32>::with_cache(512, 8, vec![8, 8], 16 * 1024 * 1024);
++        assert_eq!(p.scratch_len(Mode::InPlace), 512);
++        assert_eq!(p.scratch_len(Mode::OutOfPlace), 0);
++        assert_eq!(p.scratch_len(Mode::Immutable), 512);
++    }
++
++    #[test]
++    fn cache_gate_counts_modes_tables_and_placement_slack() {
++        // 64 KiB with 25% headroom: this plan fits in place, but not with
++        // separate input/output once tables and both placement regions count.
++        let p = StockhamPlan::<f32>::with_cache(1024, 8, vec![8, 2, 8], 64 * 1024);
++        assert_eq!(p.scratch_len(Mode::InPlace), 3072);
++        assert_eq!(p.scratch_len(Mode::OutOfPlace), 0);
++        assert_eq!(p.scratch_len(Mode::Immutable), 1024);
++
++        let scalar = StockhamPlan::<f32>::with_cache(512, 1, vec![8, 8, 8], usize::MAX);
++        assert_eq!(scalar.scratch_len(Mode::InPlace), 512);
++        assert_eq!(scalar.scratch_len(Mode::OutOfPlace), 0);
++        let p = StockhamPlan::<f32>::with_cache(64, 8, vec![8], 16 * 1024 * 1024);
++        assert_eq!(p.scratch_len(Mode::InPlace), 64);
++        assert_eq!(p.scratch_len(Mode::OutOfPlace), 0);
++        assert_eq!(p.scratch_len(Mode::Immutable), 64);
++        let p = StockhamPlan::<f32>::with_cache(8, 8, vec![], usize::MAX);
++        for mode in [Mode::InPlace, Mode::OutOfPlace, Mode::Immutable] {
++            assert_eq!(p.scratch_len(mode), 0);
++        }
++    }
++
++    #[test]
++    fn cache_gate_excludes_measured_zen4_l3_boundary() {
++        let cache = 16 * 1024 * 1024;
++        let small = StockhamPlan::<f32>::with_cache(262144, 8, vec![8; 5], cache);
++        let large = StockhamPlan::<f32>::with_cache(524288, 8, vec![8, 8, 8, 8, 2, 8], cache);
++        assert!(small.scratch_len(Mode::InPlace) > 2 * small.n);
++        assert!(small.scratch_len(Mode::OutOfPlace) > 2 * small.n);
++        assert_eq!(large.scratch_len(Mode::InPlace), large.n);
++        assert_eq!(large.scratch_len(Mode::OutOfPlace), 0);
++        let small = StockhamPlan::<f64>::with_cache(131072, 8, vec![8, 8, 8, 4, 8], cache);
++        let large = StockhamPlan::<f64>::with_cache(262144, 8, vec![8; 5], cache);
++        assert!(small.scratch_len(Mode::InPlace) > 2 * small.n);
++        assert!(small.scratch_len(Mode::OutOfPlace) > 2 * small.n);
++        assert_eq!(large.scratch_len(Mode::InPlace), large.n);
++        assert_eq!(large.scratch_len(Mode::OutOfPlace), 0);
++    }
++
++    #[test]
++    fn cache_gate_preserves_legacy_scratch_when_over_budget() {
++        let p = StockhamPlan::<f32>::with_cache(1024, 8, vec![8, 2, 8], 0);
++        assert_eq!(p.scratch_len(Mode::InPlace), 1024);
++        assert_eq!(p.scratch_len(Mode::OutOfPlace), 0);
++        assert_eq!(p.scratch_len(Mode::Immutable), 1024);
++    }
++}
+diff --git a/crates/fastfft/src/fft.rs b/crates/fastfft/src/fft.rs
+index 732a874..c556d7a 100644
+--- a/crates/fastfft/src/fft.rs
++++ b/crates/fastfft/src/fft.rs
+@@ -89,11 +89,8 @@ impl<T: FftNum> FftImpl<T> {
+                 }
+             }
+             Kernel::Stockham { shape, plan } => {
+-                // Align the internal scratch to 64 bytes.
+-                let sp = scratch.as_mut_ptr();
+-                let off = sp.align_offset(64).min(align_slack::<T>());
+-                // SAFETY: scratch has `align_slack` extra elements when non-empty.
+-                let sp = unsafe { sp.add(if scratch.is_empty() { 0 } else { off }) };
++                // The aligned tail handles scalar-offset Complex slices too.
++                let sp = crate::scratch::aligned(scratch).as_mut_ptr();
+                 let (i, o, s) = (input.cast::<T>(), output.cast::<T>(), sp.cast::<T>());
+                 // SAFETY: the planner only builds Stockham kernels for
+                 // available tiers with matching lanes; pointer validity per
+diff --git a/crates/fastfft/src/isa/mod.rs b/crates/fastfft/src/isa/mod.rs
+index cf391be..2457788 100644
+--- a/crates/fastfft/src/isa/mod.rs
++++ b/crates/fastfft/src/isa/mod.rs
+@@ -5,6 +5,7 @@
+ //! `#[target_feature]` entry points (see `engine`) after the tier was
+ //! detected, which is what makes calling the intrinsics sound.
+ 
++pub(crate) mod cache;
+ pub(crate) mod scalar;
+ #[cfg(target_arch = "x86_64")]
+ pub(crate) mod x86;
+diff --git a/crates/fastfft/src/isa/x86/interleaved.rs b/crates/fastfft/src/isa/x86/interleaved.rs
+index bb54ac8..badc36b 100644
+--- a/crates/fastfft/src/isa/x86/interleaved.rs
++++ b/crates/fastfft/src/isa/x86/interleaved.rs
+@@ -1066,11 +1066,10 @@ unsafe fn leaf128<R: Quad, const INV: bool>(
+ 
+ /// N=256 (16 rows x 16 columns) in two passes: radix-16 columns with
+ /// twiddles and transposes into an intermediate, then radix-16 across its
+-/// rows. Out of place into a 64-byte-aligned output, the output is the
+-/// intermediate and the second pass runs in place on it. Otherwise the
+-/// intermediate is a stack window placed against 4K aliasing (see `leaf128`):
+-/// in place, 2 KiB from the buffer modulo 4 KiB, so the two never alias; a
+-/// misaligned output would split every intermediate access.
++/// rows. Out of place, the output is the intermediate and the second pass
++/// runs in place on it. In place, the intermediate is a stack window placed
++/// against 4K aliasing (see `leaf128`). Staging misaligned out-of-place calls
++/// through that window was measured in ticket 12 and did not help.
+ #[inline(always)]
+ unsafe fn leaf256<R: Quad, const INV: bool>(
+     input: *const R::S,
+@@ -1082,7 +1081,7 @@ unsafe fn leaf256<R: Quad, const INV: bool>(
+     unsafe {
+         let w = tw.add(broadcast(256));
+         let mut stack = core::mem::MaybeUninit::<Aligned<[[R::S; 512]; 3]>>::uninit();
+-        let mid = if core::ptr::eq(input, output) || !(output as usize).is_multiple_of(64) {
++        let mid = if core::ptr::eq(input, output) {
+             let bytes = 512 * size_of::<R::S>();
+             window(
+                 stack.as_mut_ptr().cast(),
+diff --git a/crates/fastfft/src/lib.rs b/crates/fastfft/src/lib.rs
+index 7850391..f25e0df 100644
+--- a/crates/fastfft/src/lib.rs
++++ b/crates/fastfft/src/lib.rs
+@@ -29,6 +29,17 @@
+ //! `Fft`, `FftDirection`, `Length` and `Direction` have the same names and
+ //! behavior (scratch lengths are implementation-defined in both crates).
+ //!
++//! ## Alignment and scratch
++//!
++//! Normal Rust alignment is sufficient for correctness. Prefer 64-byte-aligned
++//! input/output allocations for performance; `Vec<Complex<T>>` and subslices do
++//! not guarantee this. In-cache Stockham plans can keep misaligned intermediate
++//! passes in aligned scratch, but larger plans avoid that extra working set.
++//! Always query the scratch length for the chosen placement: even out-of-place
++//! calls may need scratch, and lengths can depend on the CPU. Caller scratch
++//! itself needs no SIMD alignment; the reported length includes alignment space.
++//! [`Fft::process`] manages reusable thread-local scratch automatically.
++//!
+ //! ## Instruction sets
+ //!
+ //! The highest supported tier is detected once at runtime ([`detected_isa`]).
+diff --git a/crates/fastfft/src/scratch.rs b/crates/fastfft/src/scratch.rs
+index de8dcb0..e7d97fb 100644
+--- a/crates/fastfft/src/scratch.rs
++++ b/crates/fastfft/src/scratch.rs
+@@ -8,6 +8,31 @@ thread_local! {
+     static SCRATCH: RefCell<Vec<u64>> = const { RefCell::new(Vec::new()) };
+ }
+ 
++/// Returns the 64-byte-aligned tail, consuming at most one cache line of
++/// reserved slack. Works even when the original base is only scalar-aligned.
++#[inline(always)]
++pub(crate) fn aligned<T: crate::FftNum>(buffer: &mut [Complex<T>]) -> &mut [Complex<T>] {
++    if buffer.is_empty() {
++        return buffer;
++    }
++    // Complex<T> has scalar alignment: a legal slice may start half a
++    // complex value past a SIMD boundary. Align in reals, not complexes.
++    let ptr = buffer.as_mut_ptr().cast::<T>();
++    let offset = ptr.align_offset(64);
++    let len = buffer
++        .len()
++        .checked_sub(offset.div_ceil(2))
++        .expect("scratch must include one cache line of alignment slack");
++    // SAFETY: FftNum is sealed to f32/f64 and Complex<T> is repr(C), two
++    // adjacent reals without padding. Its initialized storage may be viewed
++    // from any scalar-aligned start. `offset <= 2 * buffer.len()` by the
++    // subtraction above; rounding consumed reals UP to complexes leaves the
++    // new tail wholly inside the original slice. The raw pointer retains its
++    // allocation provenance, and the exclusive borrow is transferred to the
++    // returned slice. No references into `buffer` are retained here.
++    unsafe { core::slice::from_raw_parts_mut(ptr.add(offset).cast::<Complex<T>>(), len) }
++}
++
+ /// Runs `f` with a scratch slice of at least `len` complex values.
+ pub(crate) fn with_scratch<T: Copy, R>(len: usize, f: impl FnOnce(&mut [Complex<T>]) -> R) -> R {
+     let bytes = len * core::mem::size_of::<Complex<T>>();
+@@ -35,3 +60,49 @@ pub(crate) fn with_scratch<T: Copy, R>(len: usize, f: impl FnOnce(&mut [Complex<
+         None => run(&mut vec![0u64; words]),
+     }
+ }
++
++#[cfg(test)]
++mod tests {
++    use super::aligned;
++    use crate::FftNum;
++    use num_complex::Complex;
++
++    #[repr(C, align(64))]
++    struct Storage<T, const P: usize> {
++        prefix: [T; P],
++        data: [Complex<T>; 32],
++        suffix: T,
++    }
++
++    fn check<T: FftNum, const P: usize>() {
++        let guard = Complex::new(T::from_f64(12345.).unwrap(), T::from_f64(-6789.).unwrap());
++        for offset in 0..=8 {
++            let mut s = Storage::<T, P> {
++                prefix: [guard.re; P],
++                data: [guard; 32],
++                suffix: guard.im,
++            };
++            let tail = aligned(&mut s.data[offset..offset + 16]);
++            assert_eq!(tail.as_ptr() as usize % 64, 0);
++            assert!(tail.len() >= 16 - crate::fft::align_slack::<T>());
++            tail.fill(Complex::new(T::zero(), T::zero()));
++            assert_eq!(s.prefix, [guard.re; P]);
++            assert_eq!(s.suffix, guard.im);
++            assert!(
++                s.data[..offset]
++                    .iter()
++                    .chain(&s.data[offset + 16..])
++                    .all(|&x| x == guard)
++            );
++        }
++        assert!(aligned::<T>(&mut []).is_empty());
++    }
++
++    #[test]
++    fn scalar_aligned_scratch_gets_a_simd_aligned_tail() {
++        check::<f32, 0>();
++        check::<f32, 1>();
++        check::<f64, 0>();
++        check::<f64, 1>();
++    }
++}
+diff --git a/crates/fastfft/README.md b/crates/fastfft/README.md
+new file mode 100644
+index 0000000..c617c68
+--- /dev/null
++++ b/crates/fastfft/README.md
+@@ -0,0 +1,67 @@
++# fastfft
++
++Single-threaded, one-dimensional complex FFTs for `f32` and `f64`, with a
++RustFFT-compatible API. SIMD tiers (AVX-512, AVX2+FMA, SSE2) are selected at
++runtime; a portable scalar implementation is always available.
++
++This crate is under development; release gates are tracked in the repository's
++[`ROADMAP.md`](../../ROADMAP.md).
++
++```rust
++use fastfft::{FftPlanner, num_complex::Complex};
++
++let mut planner = FftPlanner::<f32>::new();
++let fft = planner.plan_fft_forward(1024);
++let mut buffer = vec![Complex::new(1.0, 0.0); 1024];
++fft.process(&mut buffer);
++```
++
++Transforms are unnormalized, with output in natural frequency order. A buffer
++may contain consecutive transforms of the planned length. Mutable out-of-place
++calls may overwrite their input; immutable calls preserve it.
++
++## Alignment and scratch
++
++**Prefer 64-byte-aligned input and output buffers for predictable performance.**
++Only Rust's normal alignment for `Complex<T>` is required for correctness.
++`Vec<Complex<T>>` does not guarantee 64-byte alignment, and slicing an aligned
++allocation can lose it. In a batch, every chunk remains aligned only if its
++byte length is also a multiple of 64.
++
++For eligible Stockham plans, misaligned calls keep intermediate passes in
++aligned scratch. The planner enables this only for three-or-more-pass plans
++whose estimated working set (caller buffers, scratch and twiddle tables) fits
++within 75% of the detected last-level data cache (a 1 MiB capacity fallback when
++unavailable). Shorter plans retain their original execution: scratch-only
++staging regressed on two-pass streaming batches. Larger transforms also use the
++original buffer choreography rather than grow
++their working set across the cache boundary. Small-N kernels retain their own
++buffer strategies. Alignment can still help the first and final passes and
++plans outside the gate; this mitigation does not make alignment irrelevant.
++
++Always query the scratch length for the method you call:
++
++```rust
++# use fastfft::{FftPlanner, num_complex::Complex};
++# let mut planner = FftPlanner::<f32>::new();
++# let fft = planner.plan_fft_forward(1024);
++# let mut buffer = vec![Complex::new(1.0, 0.0); 1024];
++let mut scratch = vec![Complex::new(0.0, 0.0); fft.get_inplace_scratch_len()];
++fft.process_with_scratch(&mut buffer, &mut scratch);
++```
++
++- Scratch lengths depend on the plan, CPU and placement, not the alignment of
++  the buffers supplied later. Gated plans reserve enough for misaligned calls
++  even when a particular call is aligned. The gated path reserves roughly
++  `2N` complex values, plus 8 KiB of placement space and a small alignment
++  allowance.
++- Out-of-place scratch is **not necessarily zero**. Use
++  `get_outofplace_scratch_len()` or `get_immutable_scratch_len()` as appropriate.
++- Scratch need not be SIMD-aligned by the caller; the reported length includes
++  room for internal alignment and placement. Separate caller-supplied buffers
++  must not overlap.
++- `process()` manages reusable thread-local scratch automatically.
++- Bluestein plans reserve alignment space for their inner FFT work buffer too.
++
++The alignment measurements and their limitations are recorded in
++[`ticket 12`](../../.scratch/fastfft-v1/issues/12-unaligned-user-buffers.md).
+diff --git a/crates/fastfft/src/engine/stockham/contracts.rs b/crates/fastfft/src/engine/stockham/contracts.rs
+new file mode 100644
+index 0000000..fc61317
+--- /dev/null
++++ b/crates/fastfft/src/engine/stockham/contracts.rs
+@@ -0,0 +1,171 @@
++//! Public Fft contracts with the cache gate forced on/off and scalar-only
++//! alignment, including batches whose chunks have different page offsets.
++
++use crate::api::{Fft, FftDirection, FftNum};
++use crate::engine::{shapes, stockham::StockhamPlan};
++use crate::fft::{FftImpl, Kernel};
++use crate::isa::{Precision, detected_isa};
++use fastfft_testkit::{Dir, error_vs_dd, random_c64, reference_dd};
++use num_complex::Complex;
++
++#[repr(C, align(64))]
++struct Storage<T, const P: usize> {
++    prefix: [T; P],
++    data: [Complex<T>; 8192],
++    suffix: T,
++}
++
++fn check<T: FftNum, const P: usize>(f: &dyn Fft<T>, dir: FftDirection) {
++    let n = f.len();
++    let count = 3;
++    let guard = Complex::new(T::from_f64(12345.).unwrap(), T::from_f64(-6789.).unwrap());
++    let input: Vec<_> = random_c64(n * count, 71)
++        .iter()
++        .map(|z| Complex::new(T::from_f64(z.re).unwrap(), T::from_f64(z.im).unwrap()))
++        .collect();
++    let widen = |b: &[Complex<T>]| {
++        b.iter()
++            .map(|z| Complex::new(z.re.to_f64().unwrap(), z.im.to_f64().unwrap()))
++            .collect::<Vec<_>>()
++    };
++    let refs: Vec<_> = input
++        .chunks(n)
++        .map(|chunk| {
++            reference_dd(
++                &widen(chunk),
++                if dir == FftDirection::Forward {
++                    Dir::Forward
++                } else {
++                    Dir::Inverse
++                },
++            )
++        })
++        .collect();
++    let storage = || {
++        Box::new(Storage::<T, P> {
++            prefix: [guard.re; P],
++            data: [guard; 8192],
++            suffix: guard.im,
++        })
++    };
++    for (io, oo, so) in [(0, 0, 0), (1, 0, 7), (0, 1, 3), (7, 5, 255), (63, 127, 511)] {
++        for mode in 0..4 {
++            let need = match mode {
++                0 | 3 => f.get_inplace_scratch_len(),
++                1 => f.get_outofplace_scratch_len(),
++                _ => f.get_immutable_scratch_len(),
++            };
++            let (mut src, mut dst, mut scratch) = (storage(), storage(), storage());
++            src.data[io..io + input.len()].copy_from_slice(&input);
++            let a = &mut src.data[io..io + input.len()];
++            let b = &mut dst.data[oo..oo + input.len()];
++            let s = &mut scratch.data[so..so + need];
++            if need > 0 && mode < 3 && (io, oo, so) == (0, 0, 0) {
++                assert!(
++                    std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| match mode {
++                        0 => f.process_with_scratch(a, &mut s[..need - 1]),
++                        1 => f.process_outofplace_with_scratch(a, b, &mut s[..need - 1]),
++                        _ => f.process_immutable_with_scratch(a, b, &mut s[..need - 1]),
++                    }))
++                    .is_err(),
++                    "undersized scratch accepted"
++                );
++            }
++            match mode {
++                0 => f.process_with_scratch(a, s),
++                1 => f.process_outofplace_with_scratch(a, b, s),
++                2 => f.process_immutable_with_scratch(a, b, s),
++                _ => f.process(a),
++            }
++            let what = format!("n={n} dir={dir} P={P} mode={mode} offsets={io},{oo},{so}");
++            if mode == 2 {
++                assert_eq!(
++                    &src.data[io..io + input.len()],
++                    &input,
++                    "{what}: input modified"
++                );
++            }
++            for (buf, start, len) in [
++                (&src, io, input.len()),
++                (&dst, oo, input.len()),
++                (&scratch, so, need),
++            ] {
++                assert!(buf.prefix.iter().all(|&x| x == guard.re));
++                assert_eq!(buf.suffix, guard.im);
++                assert!(
++                    buf.data[..start]
++                        .iter()
++                        .chain(&buf.data[start + len..])
++                        .all(|&x| x == guard),
++                    "{what}: guard modified"
++                );
++            }
++            let got = if mode == 0 || mode == 3 {
++                &src.data[io..io + input.len()]
++            } else {
++                &dst.data[oo..oo + input.len()]
++            };
++            for (chunk, reference) in got.chunks(n).zip(&refs) {
++                let error =
++                    error_vs_dd(&widen(chunk), reference).rel_l2 / T::epsilon().to_f64().unwrap();
++                assert!(
++                    error.is_finite() && error < 8. * (n as f64).log2() + 8.,
++                    "{what}: error {error}"
++                );
++            }
++        }
++    }
++}
++
++fn contracts<T: FftNum, const P: usize>() {
++    let f64_ = T::precision() == Precision::F64;
++    let mut ss = vec![shapes(detected_isa(), f64_)[0]];
++    // Include a narrow shape to exercise padded_n on non-power-of-two sizes.
++    if crate::isa::available(crate::Isa::Sse2) {
++        let narrow = crate::engine::Shape {
++            isa: crate::Isa::Sse2,
++            lanes: if f64_ { 2 } else { 4 },
++        };
++        if !ss.contains(&narrow) {
++            ss.push(narrow);
++        }
++    }
++    for dir in [FftDirection::Forward, FftDirection::Inverse] {
++        for &shape in &ss {
++            for radices in [vec![8, 2, 8], vec![3, 3, 3]] {
++                let n = shape.lanes * radices.iter().product::<usize>();
++                for cache in [0, 16 * 1024 * 1024] {
++                    let f = FftImpl::new(
++                        n,
++                        dir,
++                        Kernel::Stockham {
++                            shape,
++                            plan: StockhamPlan::<T>::with_cache(
++                                n,
++                                shape.lanes,
++                                radices.clone(),
++                                cache,
++                            ),
++                        },
++                        String::new(),
++                    );
++                    check::<T, P>(&f, dir);
++                }
++            }
++        }
++        let mut planner = crate::FftPlanner::<T>::new();
++        check::<T, P>(planner.plan_fft(257, dir).as_ref(), dir);
++    }
++}
++
++#[test]
++fn cache_gated_public_contracts_f32() {
++    contracts::<f32, 0>();
++    contracts::<f32, 1>();
++}
++
++#[test]
++fn cache_gated_public_contracts_f64() {
++    contracts::<f64, 0>();
++    contracts::<f64, 1>();
++}
+diff --git a/crates/fastfft/src/engine/stockham/scratch.rs b/crates/fastfft/src/engine/stockham/scratch.rs
+new file mode 100644
+index 0000000..76de05a
+--- /dev/null
++++ b/crates/fastfft/src/engine/stockham/scratch.rs
+@@ -0,0 +1,61 @@
++//! Place aligned scratch bases away from live buffer bases modulo 4 KiB.
++
++pub(super) const PAGE_BYTES: usize = 4096;
++
++/// Byte offset inside a PAGE_BYTES-slack region. Callers keep provenance by
++/// adding this offset to the original allocation, never casting it to a pointer.
++#[inline(always)]
++pub(super) fn placement_offset(base: usize, a: usize, b: usize, other: Option<usize>) -> usize {
++    let mask = PAGE_BYTES - 1;
++    let mut points = [a & mask, b & mask, other.unwrap_or(a) & mask];
++    points.sort_unstable();
++    let gaps = [
++        points[1] - points[0],
++        points[2] - points[1],
++        points[0] + PAGE_BYTES - points[2],
++    ];
++    let mut best = 0;
++    for i in 1..3 {
++        if gaps[i] > gaps[best] {
++            best = i;
++        }
++    }
++    // Midpoint of the largest circular gap, rounded to the nearest cache
++    // line. With two distinct bases this is at least 992 bytes from either;
++    // with three, at least 650 bytes.
++    let target = (points[best] + gaps[best] / 2 + 32) & !63;
++    target.wrapping_sub(base) & mask
++}
++
++#[cfg(test)]
++mod tests {
++    use super::{PAGE_BYTES, placement_offset};
++
++    fn distance(a: usize, b: usize) -> usize {
++        let delta = a.wrapping_sub(b) % PAGE_BYTES;
++        delta.min(PAGE_BYTES - delta)
++    }
++
++    #[test]
++    fn placed_scratch_is_aligned_bounded_and_separated() {
++        // Include scratch that is only scalar-aligned, arbitrary caller
++        // misalignments, and the wrap at the end of a 4 KiB page.
++        for base in [0, 4, 8, 16, 32, 60, 64, 4092] {
++            for a in (0..4096).step_by(64) {
++                for b in [0, 8, 512, 2048, 4032, 4092] {
++                    let off = placement_offset(base, a + 8, b, None);
++                    let start = base + off;
++                    assert!(off < PAGE_BYTES);
++                    assert_eq!(start % 64, 0);
++                    assert!(distance(start, a + 8) >= 960);
++                    assert!(distance(start, b) >= 960);
++                    let second = base + placement_offset(base, a + 8, b, Some(start));
++                    assert_eq!(second % 64, 0);
++                    for addr in [a + 8, b, start] {
++                        assert!(distance(second, addr) >= 640);
++                    }
++                }
++            }
++        }
++    }
++}
+diff --git a/crates/fastfft/src/isa/cache.rs b/crates/fastfft/src/isa/cache.rs
+new file mode 100644
+index 0000000..b001f12
+--- /dev/null
++++ b/crates/fastfft/src/isa/cache.rs
+@@ -0,0 +1,153 @@
++//! Cache capacity used by the Stockham misalignment gate.
++
++/// Conservative fallback when cache topology is unavailable.
++const FALLBACK_BYTES: usize = 1024 * 1024;
++
++pub(crate) fn last_level_bytes() -> usize {
++    static BYTES: std::sync::OnceLock<usize> = std::sync::OnceLock::new();
++    *BYTES.get_or_init(|| {
++        #[cfg(all(target_arch = "x86_64", not(miri)))]
++        {
++            detect_with(|leaf, sub| {
++                #[allow(unused_unsafe)] // Older supported compilers require unsafe for CPUID.
++                // SAFETY: CPUID is available on every x86_64 CPU. Only
++                // supported topology leaves/subleaves are queried below.
++                let r = unsafe { core::arch::x86_64::__cpuid_count(leaf, sub) };
++                [r.eax, r.ebx, r.ecx, r.edx]
++            })
++            .unwrap_or(FALLBACK_BYTES)
++        }
++        #[cfg(any(not(target_arch = "x86_64"), miri))]
++        {
++            FALLBACK_BYTES
++        }
++    })
++}
++
++#[cfg(any(all(target_arch = "x86_64", not(miri)), test))]
++fn detect_with(cpuid: impl Fn(u32, u32) -> [u32; 4]) -> Option<usize> {
++    let basic = cpuid(0, 0)[0];
++    let extended = cpuid(0x8000_0000, 0)[0];
++    let amd_topology = extended >= 0x8000_001d && cpuid(0x8000_0001, 0)[2] & (1 << 22) != 0;
++    // AMD's extended deterministic cache leaf, then Intel's basic leaf.
++    // A masked/empty extended topology may still leave usable basic data.
++    for leaf in [
++        amd_topology.then_some(0x8000_001d),
++        (basic >= 4).then_some(4),
++    ]
++    .into_iter()
++    .flatten()
++    {
++        let mut last: Option<(u32, usize)> = None;
++        // A finite bound also tolerates a broken hypervisor that never emits
++        // the terminating null entry. No unsafe memory access depends on CPUID.
++        for sub in 0..32 {
++            let [eax, ebx, ecx, _] = cpuid(leaf, sub);
++            let kind = eax & 31;
++            if kind == 0 {
++                break;
++            }
++            let level = (eax >> 5) & 7;
++            if !matches!(kind, 1 | 3) || level == 0 {
++                continue;
++            }
++            let line = (ebx & 0xfff) as usize + 1;
++            let partitions = ((ebx >> 12) & 0x3ff) as usize + 1;
++            let ways = (ebx >> 22) as usize + 1;
++            let bytes = (ecx as usize)
++                .checked_add(1)
++                .and_then(|sets| sets.checked_mul(line))
++                .and_then(|n| n.checked_mul(partitions))
++                .and_then(|n| n.checked_mul(ways));
++            if let Some(bytes) = bytes
++                && last.is_none_or(|(old_level, old_bytes)| (level, bytes) > (old_level, old_bytes))
++            {
++                last = Some((level, bytes));
++            }
++        }
++        if let Some((_, bytes)) = last {
++            return Some(bytes);
++        }
++    }
++    None
++}
++
++#[cfg(test)]
++mod tests {
++    use super::{detect_with, last_level_bytes};
++
++    #[test]
++    fn basic_topology_ignores_instruction_cache_and_counts_partitions() {
++        let cache = detect_with(|leaf, sub| match (leaf, sub) {
++            (0, _) => [4, 0, 0, 0],
++            (0x8000_0000, _) => [0x8000_0000, 0, 0, 0],
++            // Data L2: 64-byte lines * 2 partitions * 4 ways * 1024 sets.
++            (4, 0) => [0x43, 0x00c0_103f, 1023, 0],
++            // An instruction-only L3 must not be used as data capacity.
++            (4, 1) => [0x62, 0x03c0_003f, 16383, 0],
++            _ => [0; 4],
++        });
++        assert_eq!(cache, Some(512 * 1024));
++    }
++
++    #[test]
++    fn missing_topology_never_queries_unsupported_leaves() {
++        assert_eq!(
++            detect_with(|leaf, _| match leaf {
++                0 => [3, 0, 0, 0],
++                0x8000_0000 => [0x8000_0000, 0, 0, 0],
++                _ => panic!("unsupported leaf {leaf:x}"),
++            }),
++            None
++        );
++        assert!(last_level_bytes() > 0);
++        eprintln!(
++            "detected last-level data cache: {} bytes",
++            last_level_bytes()
++        );
++    }
++
++    #[test]
++    fn masked_extended_topology_falls_back_to_basic() {
++        let cache = detect_with(|leaf, sub| match (leaf, sub) {
++            (0, _) => [4, 0, 0, 0],
++            (0x8000_0000, _) => [0x8000_001d, 0, 0, 0],
++            (0x8000_0001, _) => [0, 0, 1 << 22, 0],
++            (4, 0) => [0x43, 0x01c0_003f, 2047, 0],
++            _ => [0; 4],
++        });
++        assert_eq!(cache, Some(1024 * 1024));
++    }
++
++    #[test]
++    fn malformed_topology_is_bounded_and_size_overflow_is_rejected() {
++        let calls = std::cell::Cell::new(0);
++        let cache = detect_with(|leaf, _| {
++            calls.set(calls.get() + 1);
++            match leaf {
++                0 => [4, 0, 0, 0],
++                0x8000_0000 => [0; 4],
++                4 => [0x63, u32::MAX, u32::MAX, 0],
++                _ => panic!("unexpected leaf"),
++            }
++        });
++        assert_eq!(cache, None);
++        assert!(calls.get() <= 34);
++    }
++
++    #[test]
++    fn amd_extended_topology_selects_l3_not_l1_or_l2() {
++        let cache = detect_with(|leaf, sub| match (leaf, sub) {
++            (0, _) => [1, 0, 0, 0],
++            (0x8000_0000, _) => [0x8000_001d, 0, 0, 0],
++            (0x8000_0001, _) => [0, 0, 1 << 22, 0],
++            // 32 KiB L1D, 32 KiB L1I, 1 MiB L2, 16 MiB L3 (Zen 4).
++            (0x8000_001d, 0) => [0x21, 0x01c0_003f, 63, 0],
++            (0x8000_001d, 1) => [0x22, 0x01c0_003f, 63, 0],
++            (0x8000_001d, 2) => [0x43, 0x01c0_003f, 2047, 0],
++            (0x8000_001d, 3) => [0x63, 0x03c0_003f, 16383, 0],
++            _ => [0; 4],
++        });
++        assert_eq!(cache, Some(16 * 1024 * 1024));
++    }
++}

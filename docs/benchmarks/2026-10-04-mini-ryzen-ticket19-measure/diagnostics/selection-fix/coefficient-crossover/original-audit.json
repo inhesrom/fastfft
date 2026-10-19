@@ -1,0 +1,56 @@
+{
+  "run": "target/ticket19/selection-fix/coefficient-crossover/run",
+  "cells": 2,
+  "problems": [
+    "environment check did not pass"
+  ],
+  "threshold": 1.02,
+  "suites": {
+    "smooth": {
+      "cells": 2,
+      "failures": 1,
+      "worst": 1.022531452814756,
+      "geomean": 1.0156365621142025
+    }
+  },
+  "failures": [
+    {
+      "key": "smooth:f32:inv:ip:n1000000",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 1.022531452814756,
+      "best": 1.022531452814756,
+      "p1": 1.0139705128848804,
+      "median": 1.0210959445900583,
+      "estimate": "stockham avx512-ymm split L=8 radices=10x5x10x5x5x10 scratch=1000008 scratch_oop=0 scratch_immutable=1000008",
+      "measure": "stockham avx512-ymm split L=8 radices=10x5x10x5x5x10 scratch=1000008 scratch_oop=0 scratch_immutable=1000008",
+      "same_plan": true
+    }
+  ],
+  "comparisons": [
+    {
+      "key": "smooth:f32:inv:ip:n96",
+      "suite": "smooth",
+      "metric": "p1",
+      "ratio": 1.0087881633994376,
+      "best": 0.9993847781463998,
+      "p1": 1.0087881633994376,
+      "median": 0.9986056727567222,
+      "estimate": "small avx512-ymm n=96 decomposition=8x12 radices=8x12 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=rectangular",
+      "measure": "small avx512-ymm n=96 decomposition=8x12 radices=8x12 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=rectangular",
+      "same_plan": true
+    },
+    {
+      "key": "smooth:f32:inv:ip:n1000000",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 1.022531452814756,
+      "best": 1.022531452814756,
+      "p1": 1.0139705128848804,
+      "median": 1.0210959445900583,
+      "estimate": "stockham avx512-ymm split L=8 radices=10x5x10x5x5x10 scratch=1000008 scratch_oop=0 scratch_immutable=1000008",
+      "measure": "stockham avx512-ymm split L=8 radices=10x5x10x5x5x10 scratch=1000008 scratch_oop=0 scratch_immutable=1000008",
+      "same_plan": true
+    }
+  ]
+}

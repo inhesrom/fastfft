@@ -1,0 +1,3 @@
+Geometry: taskset -c 0-3 cargo run -p fastfft --features tuning --example diagnostic_geometry_probe -j 4
+Original correctness compile/run: taskset -c 0-3 cargo test -p fastfft --no-default-features --features sse2,tuning coefficient_swap --lib -j 4
+Retained correctness log: rerun existing test binary, no rebuild

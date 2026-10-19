@@ -1,0 +1,12 @@
+    Checking fastfft-arena v0.0.0 (/home/ianhersom/repo/fastfft/bench/arena)
+error: very complex type used. Consider factoring parts into `type` definitions
+   --> bench/arena/src/buffers.rs:101:41
+    |
+101 |     pub fn io_scratch_mut(&mut self) -> (&mut [Complex<T>], &mut [Complex<T>], &mut [Complex<T>]) {
+    |                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#type_complexity
+    = note: `-D clippy::type-complexity` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::type_complexity)]`
+
+error: could not compile `fastfft-arena` (bin "fastfft-arena" test) due to 1 previous error

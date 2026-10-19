@@ -1,0 +1,4223 @@
+{
+  "assembly": "/home/ianhersom/repo/fastfft/target/ticket19/selection-fix/vector-stack-scope/stack-context-current/FourStep-F64x8.asm",
+  "instructions": 24348,
+  "reachable_instructions": 24272,
+  "iterations": 121886,
+  "jump_tables": [
+    {
+      "jump": "0xe5aba1",
+      "table": "0xa4834",
+      "entries": 14,
+      "targets": [
+        "0xe5aba3",
+        "0xe60c5c",
+        "0xe5f5b2",
+        "0xe5f9d3",
+        "0xe5c6f0",
+        "0xe60fcd",
+        "0xe6339c",
+        "0xe60027",
+        "0xe64be1",
+        "0xe5e2e9",
+        "0xe63ca6",
+        "0xe5adff",
+        "0xe5cda8",
+        "0xe618f2"
+      ]
+    },
+    {
+      "jump": "0xe5aca4",
+      "table": "0xa47c0",
+      "entries": 14,
+      "targets": [
+        "0xe5aca6",
+        "0xe60dbd",
+        "0xe5f751",
+        "0xe5fc75",
+        "0xe5c9b7",
+        "0xe613b0",
+        "0xe6375b",
+        "0xe6056d",
+        "0xe659e7",
+        "0xe5eb78",
+        "0xe6431f",
+        "0xe5b98a",
+        "0xe5d7c6",
+        "0xe62536"
+      ]
+    },
+    {
+      "jump": "0xe65262",
+      "table": "0xa486c",
+      "entries": 15,
+      "targets": [
+        "0xe65264",
+        "0xe653a6",
+        "0xe65323",
+        "0xe6536a",
+        "0xe652c9",
+        "0xe653ed",
+        "0xe65429",
+        "0xe65388",
+        "0xe6546b",
+        "0xe65305",
+        "0xe6544a",
+        "0xe652ab",
+        "0xe652e7",
+        "0xe6540b",
+        "0xe6517f"
+      ]
+    },
+    {
+      "jump": "0xe65b22",
+      "table": "0xa47f8",
+      "entries": 15,
+      "targets": [
+        "0xe65b24",
+        "0xe65c66",
+        "0xe65be3",
+        "0xe65c2a",
+        "0xe65b89",
+        "0xe65cad",
+        "0xe65ce9",
+        "0xe65c48",
+        "0xe65d2b",
+        "0xe65bc5",
+        "0xe65d0a",
+        "0xe65b6b",
+        "0xe65ba7",
+        "0xe65ccb",
+        "0xe65a35"
+      ]
+    },
+    {
+      "jump": "0xe68036",
+      "table": "0xa4578",
+      "entries": 14,
+      "targets": [
+        "0xe68038",
+        "0xe6889f",
+        "0xe683d3",
+        "0xe68813",
+        "0xe682fe",
+        "0xe68c2b",
+        "0xe68cb7",
+        "0xe68856",
+        "0xe68d46",
+        "0xe68390",
+        "0xe68d00",
+        "0xe682bb",
+        "0xe68347",
+        "0xe68c6e"
+      ]
+    },
+    {
+      "jump": "0xe6814c",
+      "table": "0xa4504",
+      "entries": 14,
+      "targets": [
+        "0xe6814e",
+        "0xe68a14",
+        "0xe68591",
+        "0xe68836",
+        "0xe68324",
+        "0xe68c4e",
+        "0xe68cdd",
+        "0xe6887c",
+        "0xe695b8",
+        "0xe683b3",
+        "0xe68d23",
+        "0xe682de",
+        "0xe6836d",
+        "0xe68c94"
+      ]
+    },
+    {
+      "jump": "0xe68e94",
+      "table": "0xa45b0",
+      "entries": 15,
+      "targets": [
+        "0xe68e96",
+        "0xe68f98",
+        "0xe68f2d",
+        "0xe68f6c",
+        "0xe68eeb",
+        "0xe68fd7",
+        "0xe69003",
+        "0xe68f82",
+        "0xe69035",
+        "0xe68f17",
+        "0xe6901c",
+        "0xe68ed5",
+        "0xe68f01",
+        "0xe68fed",
+        "0xe68dca"
+      ]
+    },
+    {
+      "jump": "0xe69714",
+      "table": "0xa453c",
+      "entries": 15,
+      "targets": [
+        "0xe69716",
+        "0xe69818",
+        "0xe697ad",
+        "0xe697ec",
+        "0xe6976b",
+        "0xe69857",
+        "0xe69883",
+        "0xe69802",
+        "0xe698b5",
+        "0xe69797",
+        "0xe6989c",
+        "0xe69755",
+        "0xe69781",
+        "0xe6986d",
+        "0xe69642"
+      ]
+    },
+    {
+      "jump": "0xe6b34b",
+      "table": "0xa46d4",
+      "entries": 14,
+      "targets": [
+        "0xe6b34d",
+        "0xe6bb3a",
+        "0xe6b78a",
+        "0xe6b8e2",
+        "0xe6b745",
+        "0xe6bc67",
+        "0xe6bc8e",
+        "0xe6bb22",
+        "0xe6bca3",
+        "0xe6b775",
+        "0xe6bcb8",
+        "0xe6b730",
+        "0xe6b75d",
+        "0xe6bc79"
+      ]
+    },
+    {
+      "jump": "0xe6b45c",
+      "table": "0xa4660",
+      "entries": 14,
+      "targets": [
+        "0xe6b45e",
+        "0xe6cb02",
+        "0xe6c629",
+        "0xe6ca84",
+        "0xe6c569",
+        "0xe6cebe",
+        "0xe6cf3c",
+        "0xe6cac0",
+        "0xe6cf7b",
+        "0xe6c5ed",
+        "0xe6cf95",
+        "0xe6c52d",
+        "0xe6c5ab",
+        "0xe6cefa"
+      ]
+    },
+    {
+      "jump": "0xe6b593",
+      "table": "0xa45ec",
+      "entries": 14,
+      "targets": [
+        "0xe6b595",
+        "0xe6cc87",
+        "0xe6c7e1",
+        "0xe6ca9e",
+        "0xe6c586",
+        "0xe6ced8",
+        "0xe6cf56",
+        "0xe6cadd",
+        "0xe6d80d",
+        "0xe6c607",
+        "0xe6d82f",
+        "0xe6c547",
+        "0xe6c5c8",
+        "0xe6cf17"
+      ]
+    },
+    {
+      "jump": "0xe6be12",
+      "table": "0xa470c",
+      "entries": 15,
+      "targets": [
+        "0xe6be14",
+        "0xe6bf1f",
+        "0xe6beb0",
+        "0xe6beef",
+        "0xe6be68",
+        "0xe6bf5e",
+        "0xe6bf8e",
+        "0xe6bf07",
+        "0xe6bfc4",
+        "0xe6be98",
+        "0xe6bfa9",
+        "0xe6be50",
+        "0xe6be80",
+        "0xe6bf76",
+        "0xe6bd32"
+      ]
+    },
+    {
+      "jump": "0xe6d0f2",
+      "table": "0xa4698",
+      "entries": 15,
+      "targets": [
+        "0xe6d0f4",
+        "0xe6d1ff",
+        "0xe6d190",
+        "0xe6d1cf",
+        "0xe6d148",
+        "0xe6d23e",
+        "0xe6d26e",
+        "0xe6d1e7",
+        "0xe6d2a4",
+        "0xe6d178",
+        "0xe6d289",
+        "0xe6d130",
+        "0xe6d160",
+        "0xe6d256",
+        "0xe6d00f"
+      ]
+    },
+    {
+      "jump": "0xe6d992",
+      "table": "0xa4624",
+      "entries": 15,
+      "targets": [
+        "0xe6d994",
+        "0xe6da9f",
+        "0xe6da30",
+        "0xe6da6f",
+        "0xe6d9e8",
+        "0xe6dade",
+        "0xe6db0e",
+        "0xe6da87",
+        "0xe6db44",
+        "0xe6da18",
+        "0xe6db29",
+        "0xe6d9d0",
+        "0xe6da00",
+        "0xe6daf6",
+        "0xe6d8b1"
+      ]
+    },
+    {
+      "jump": "0xe6e4b8",
+      "table": "0xa4990",
+      "entries": 14,
+      "targets": [
+        "0xe6e4ba",
+        "0xe6ec8a",
+        "0xe6e8da",
+        "0xe6ea32",
+        "0xe6e895",
+        "0xe6edb4",
+        "0xe6eddb",
+        "0xe6ec72",
+        "0xe6edf0",
+        "0xe6e8c5",
+        "0xe6ee05",
+        "0xe6e880",
+        "0xe6e8ad",
+        "0xe6edc6"
+      ]
+    },
+    {
+      "jump": "0xe6e5c9",
+      "table": "0xa491c",
+      "entries": 14,
+      "targets": [
+        "0xe6e5cb",
+        "0xe6fc52",
+        "0xe6f77c",
+        "0xe6fbd4",
+        "0xe6f6bc",
+        "0xe7000e",
+        "0xe7008c",
+        "0xe6fc10",
+        "0xe700cb",
+        "0xe6f740",
+        "0xe700e5",
+        "0xe6f680",
+        "0xe6f6fe",
+        "0xe7004a"
+      ]
+    },
+    {
+      "jump": "0xe6e6f0",
+      "table": "0xa48a8",
+      "entries": 14,
+      "targets": [
+        "0xe6e6f2",
+        "0xe6fdd4",
+        "0xe6f931",
+        "0xe6fbee",
+        "0xe6f6d9",
+        "0xe70028",
+        "0xe700a6",
+        "0xe6fc2d",
+        "0xe70960",
+        "0xe6f75a",
+        "0xe70982",
+        "0xe6f69a",
+        "0xe6f71b",
+        "0xe70067"
+      ]
+    },
+    {
+      "jump": "0xe6ef52",
+      "table": "0xa49c8",
+      "entries": 15,
+      "targets": [
+        "0xe6ef54",
+        "0xe6f062",
+        "0xe6eff3",
+        "0xe6f032",
+        "0xe6efab",
+        "0xe6f0a1",
+        "0xe6f0d1",
+        "0xe6f04a",
+        "0xe6f107",
+        "0xe6efdb",
+        "0xe6f0ec",
+        "0xe6ef93",
+        "0xe6efc3",
+        "0xe6f0b9",
+        "0xe6ee79"
+      ]
+    },
+    {
+      "jump": "0xe70232",
+      "table": "0xa4954",
+      "entries": 15,
+      "targets": [
+        "0xe70234",
+        "0xe70342",
+        "0xe702d3",
+        "0xe70312",
+        "0xe7028b",
+        "0xe70381",
+        "0xe703b1",
+        "0xe7032a",
+        "0xe703e7",
+        "0xe702bb",
+        "0xe703cc",
+        "0xe70273",
+        "0xe702a3",
+        "0xe70399",
+        "0xe70156"
+      ]
+    },
+    {
+      "jump": "0xe70ae2",
+      "table": "0xa48e0",
+      "entries": 15,
+      "targets": [
+        "0xe70ae4",
+        "0xe70bf2",
+        "0xe70b83",
+        "0xe70bc2",
+        "0xe70b3b",
+        "0xe70c31",
+        "0xe70c61",
+        "0xe70bda",
+        "0xe70c97",
+        "0xe70b6b",
+        "0xe70c7c",
+        "0xe70b23",
+        "0xe70b53",
+        "0xe70c49",
+        "0xe709fe"
+      ]
+    },
+    {
+      "jump": "0xe722c0",
+      "table": "0xa4a04",
+      "entries": 15,
+      "targets": [
+        "0xe722c2",
+        "0xe72442",
+        "0xe7238e",
+        "0xe723ca",
+        "0xe72319",
+        "0xe7247e",
+        "0xe724d8",
+        "0xe72406",
+        "0xe72537",
+        "0xe72373",
+        "0xe72517",
+        "0xe722fe",
+        "0xe72358",
+        "0xe724bd",
+        "0xe721b1"
+      ]
+    },
+    {
+      "jump": "0xe75640",
+      "table": "0xa4748",
+      "entries": 15,
+      "targets": [
+        "0xe75642",
+        "0xe757c2",
+        "0xe7570e",
+        "0xe7574a",
+        "0xe75699",
+        "0xe757fe",
+        "0xe75858",
+        "0xe75786",
+        "0xe758b7",
+        "0xe756f3",
+        "0xe75897",
+        "0xe7567e",
+        "0xe756d8",
+        "0xe7583d",
+        "0xe75531"
+      ]
+    },
+    {
+      "jump": "0xe78493",
+      "table": "0xa4a40",
+      "entries": 15,
+      "targets": [
+        "0xe78495",
+        "0xe7861b",
+        "0xe7855e",
+        "0xe7859d",
+        "0xe784ec",
+        "0xe78657",
+        "0xe786ae",
+        "0xe785dc",
+        "0xe7870a",
+        "0xe78543",
+        "0xe786ea",
+        "0xe784d1",
+        "0xe78528",
+        "0xe78693",
+        "0xe78346"
+      ]
+    },
+    {
+      "jump": "0xe7ae13",
+      "table": "0xa4784",
+      "entries": 15,
+      "targets": [
+        "0xe7ae15",
+        "0xe7af9b",
+        "0xe7aede",
+        "0xe7af1d",
+        "0xe7ae6c",
+        "0xe7afd7",
+        "0xe7b02e",
+        "0xe7af5c",
+        "0xe7b08a",
+        "0xe7aec3",
+        "0xe7b06a",
+        "0xe7ae51",
+        "0xe7aea8",
+        "0xe7b013",
+        "0xe7acc6"
+      ]
+    }
+  ],
+  "unsupported_control_flow": [],
+  "local_vector_memory_checks": [
+    {
+      "address": "0xe59f41",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x500],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5a068",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x500],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5a1aa",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x280],zmm31",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5afe1",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x840],zmm4",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b165",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x480],zmm24",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b173",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x540],zmm6",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b181",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x600],zmm6",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b18f",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x940],zmm6",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b19d",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x680],zmm6",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b1b1",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x8c0],zmm6",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b1dd",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm3",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b1fd",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x180],zmm3",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b221",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x380],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b22f",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x440],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b237",
+      "instruction": "vmovapd zmm1,ZMMWORD PTR [rsp+0x840]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b245",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x840],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b259",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x900],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b34d",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xa00],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b3d5",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x9c0],zmm5",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b3fb",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x980],zmm11",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b4b9",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x940]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b567",
+      "instruction": "vmovapd zmm12,ZMMWORD PTR [rsp+0x8c0]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b575",
+      "instruction": "vmovapd zmm3,ZMMWORD PTR [rsp+0x680]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b583",
+      "instruction": "vmovapd zmm1,ZMMWORD PTR [rsp+0x600]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b591",
+      "instruction": "vmovapd zmm25,ZMMWORD PTR [rsp+0x480]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b59f",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x940],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b5d7",
+      "instruction": "vmovapd zmm2,ZMMWORD PTR [rsp+0x540]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b5f1",
+      "instruction": "vmovapd zmm3,ZMMWORD PTR [rsp+0x900]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b60f",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x840]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b71d",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x440]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b753",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x380]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b77f",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b7ab",
+      "instruction": "vmovapd zmm3,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b84b",
+      "instruction": "vmovapd zmm3,ZMMWORD PTR [rsp+0x980]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b86b",
+      "instruction": "vmovapd zmm3,ZMMWORD PTR [rsp+0x9c0]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b88b",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b89a",
+      "instruction": "vmovaps zmm4,ZMMWORD PTR [rsp+0xa00]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5b8a9",
+      "instruction": "vmovapd zmm4,ZMMWORD PTR [rsp+0x940]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bb50",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bbaa",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x600],zmm12",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bbc4",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x440],zmm9",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bbde",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x380],zmm14",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bc82",
+      "instruction": "vmovapd zmm9,ZMMWORD PTR [rsp+0x600]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bc96",
+      "instruction": "vmovapd zmm7,ZMMWORD PTR [rsp+0x440]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bcb0",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x540],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bcc4",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x680],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bcd8",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x940],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bcec",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xa00],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bd0c",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x980],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bd26",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x480],zmm10",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bd2e",
+      "instruction": "vmovapd zmm4,ZMMWORD PTR [rsp+0x380]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bd48",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x180],zmm3",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bd56",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x380],zmm3",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bd7a",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x440],zmm3",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bd88",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x600],zmm3",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bd96",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x8c0],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bda4",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x840],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5be14",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5be22",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x9c0],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5be4e",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x900],zmm10",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5bef8",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xa40],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c068",
+      "instruction": "vmovapd zmm15,ZMMWORD PTR [rsp+0x980]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c070",
+      "instruction": "vaddpd zmm1,zmm15,ZMMWORD PTR [rsp+0x9c0]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c078",
+      "instruction": "vmovapd zmm5,ZMMWORD PTR [rsp+0xa00]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c086",
+      "instruction": "vmovapd zmm6,ZMMWORD PTR [rsp+0x940]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c094",
+      "instruction": "vmovapd zmm3,ZMMWORD PTR [rsp+0x680]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c0a2",
+      "instruction": "vmovapd zmm4,ZMMWORD PTR [rsp+0x540]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c0b0",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c10a",
+      "instruction": "vmovapd zmm1,ZMMWORD PTR [rsp+0x840]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c122",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x8c0]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c220",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x600]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c256",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x440]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c282",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x380]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c2ae",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x480]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c344",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0xa40]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c364",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x900]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c38b",
+      "instruction": "vmovaps zmm2,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c39a",
+      "instruction": "vmovapd zmm2,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c470",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c5e5",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm3",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c633",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x600],zmm11",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c64d",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x440],zmm9",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5c667",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x380],zmm12",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5cfb9",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x440],zmm24",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5cffd",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x680],zmm26",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d09d",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x940],zmm6",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d1b7",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm3",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d1c5",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x540],zmm3",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d1eb",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x180],zmm3",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d1f9",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x380],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d213",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x480],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d22d",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x8c0],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d241",
+      "instruction": "vmovapd zmm24,ZMMWORD PTR [rsp+0x940]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d255",
+      "instruction": "vmovapd zmm1,ZMMWORD PTR [rsp+0x440]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d26f",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x440],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d277",
+      "instruction": "vmovapd zmm3,ZMMWORD PTR [rsp+0x680]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d28b",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x600],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d2b5",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x680],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d2ef",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x840],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d375",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x900],zmm15",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d407",
+      "instruction": "vmovapd zmm8,ZMMWORD PTR [rsp+0x540]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d43f",
+      "instruction": "vmovapd zmm12,ZMMWORD PTR [rsp+0x8c0]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d483",
+      "instruction": "vmovapd zmm11,ZMMWORD PTR [rsp+0x380]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d49d",
+      "instruction": "vmovapd zmm11,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d4ab",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x380],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d4c5",
+      "instruction": "vmovapd zmm11,ZMMWORD PTR [rsp+0x480]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d4df",
+      "instruction": "vmovapd zmm12,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d4ed",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d4fb",
+      "instruction": "vmovapd zmm14,ZMMWORD PTR [rsp+0x680]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d509",
+      "instruction": "vmovapd zmm1,ZMMWORD PTR [rsp+0x600]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d541",
+      "instruction": "vmovapd zmm1,ZMMWORD PTR [rsp+0x440]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d5d1",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d5fd",
+      "instruction": "vmovapd zmm6,ZMMWORD PTR [rsp+0x840]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d605",
+      "instruction": "vmovapd zmm13,ZMMWORD PTR [rsp+0x900]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d619",
+      "instruction": "vmovapd zmm6,ZMMWORD PTR [rsp+0x380]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5d621",
+      "instruction": "vmovapd zmm13,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5da3c",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm23",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5dafe",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x480],zmm14",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5db42",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x180],zmm14",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5db68",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x380],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5db7c",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x540],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5dba0",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x440],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5dbe0",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x600],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5dd08",
+      "instruction": "vmovapd zmm24,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5dd94",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x480]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5ddba",
+      "instruction": "vmovapd zmm7,ZMMWORD PTR [rsp+0x440]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5ddc8",
+      "instruction": "vmovapd zmm1,ZMMWORD PTR [rsp+0x540]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5ddfa",
+      "instruction": "vmovapd zmm1,ZMMWORD PTR [rsp+0x380]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5dea4",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5deac",
+      "instruction": "vmovapd zmm6,ZMMWORD PTR [rsp+0x600]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5df02",
+      "instruction": "vmovapd zmm6,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e26c",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm23",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e5b9",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e5c7",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x540],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e5d5",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x680],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e61d",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x180],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e641",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x480],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e655",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x380],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e6e5",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x600],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e723",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x440],zmm3",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e841",
+      "instruction": "vmovapd zmm12,ZMMWORD PTR [rsp+0x540]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e89d",
+      "instruction": "vmovapd zmm5,ZMMWORD PTR [rsp+0x680]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e8a5",
+      "instruction": "vaddpd zmm30,zmm5,ZMMWORD PTR [rsp+0x600]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e95d",
+      "instruction": "vmovapd zmm28,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e96b",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x540],zmm30",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e99b",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e9a3",
+      "instruction": "vmovapd zmm9,ZMMWORD PTR [rsp+0x380]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5e9d3",
+      "instruction": "vmovapd zmm9,ZMMWORD PTR [rsp+0x480]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5ea03",
+      "instruction": "vmovapd zmm9,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5eaa8",
+      "instruction": "vmovaps zmm9,ZMMWORD PTR [rsp+0x440]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5eab7",
+      "instruction": "vmovapd zmm9,ZMMWORD PTR [rsp+0x540]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5ed0e",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm14",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5ee04",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x380],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5ee18",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x600],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5ee2c",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x840],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5ee5e",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x480],zmm8",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5ee78",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x180],zmm8",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5ee86",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x540],zmm6",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5eeaa",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x440],zmm5",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5eeb8",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x680],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5eec6",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x8c0],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5ef20",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5ef2e",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x900],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5f0be",
+      "instruction": "vaddpd zmm1,zmm14,ZMMWORD PTR [rsp+0x900]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5f0c6",
+      "instruction": "vmovapd zmm3,ZMMWORD PTR [rsp+0x840]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5f0d4",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x600]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5f0e2",
+      "instruction": "vmovapd zmm2,ZMMWORD PTR [rsp+0x380]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5f0f0",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5f138",
+      "instruction": "vmovapd zmm1,ZMMWORD PTR [rsp+0x8c0]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5f14c",
+      "instruction": "vmovapd zmm4,ZMMWORD PTR [rsp+0x680]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5f1e0",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x440]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5f210",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x540]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5f236",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x480]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5f2db",
+      "instruction": "vmovaps zmm2,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5f2ea",
+      "instruction": "vmovapd zmm2,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5f3a0",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe5f4df",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm7",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe619db",
+      "instruction": "vmovaps ZMMWORD PTR [rsp+0x300],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61a3d",
+      "instruction": "vmovaps ZMMWORD PTR [rsp+0x180],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61b09",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x380],zmm13",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61b37",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x440],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61bdd",
+      "instruction": "vmovapd zmm13,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61c0b",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm13",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61c4f",
+      "instruction": "vmovapd zmm8,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61c8d",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x180],zmm8",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61d6b",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x480],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61d7f",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x600],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61d93",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x540],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61dbf",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x940],zmm8",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61dd3",
+      "instruction": "vmovapd zmm8,ZMMWORD PTR [rsp+0x440]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61de7",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xa80],zmm25",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61dfb",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x900],zmm8",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61e03",
+      "instruction": "vmovapd zmm13,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61e0b",
+      "instruction": "vmovapd zmm18,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61e1f",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x680],zmm4",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61e3f",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x840],zmm4",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61e8b",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm4",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61e9f",
+      "instruction": "vmovapd zmm4,ZMMWORD PTR [rsp+0x380]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61eb3",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x180],zmm6",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61ec1",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x440],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61f1d",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x380],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61f77",
+      "instruction": "vmovapd zmm18,ZMMWORD PTR [rsp+0x600]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61f95",
+      "instruction": "vmovapd zmm21,ZMMWORD PTR [rsp+0x940]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61fbb",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xa00],zmm23",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61fc9",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x8c0],zmm10",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61fe3",
+      "instruction": "vmovapd zmm12,ZMMWORD PTR [rsp+0x900]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe61ffd",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x980],zmm9",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6200b",
+      "instruction": "vmovapd zmm17,ZMMWORD PTR [rsp+0x480]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62019",
+      "instruction": "vmovapd zmm23,ZMMWORD PTR [rsp+0x540]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62033",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xa40],zmm8",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62053",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xac0],zmm8",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62061",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x9c0],zmm8",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6206f",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xb00],zmm7",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62077",
+      "instruction": "vmovapd zmm30,ZMMWORD PTR [rsp+0x680]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62085",
+      "instruction": "vmovapd zmm8,ZMMWORD PTR [rsp+0x840]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62141",
+      "instruction": "vmovapd zmm11,ZMMWORD PTR [rsp+0xa80]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6216d",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x540],zmm5",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe621b1",
+      "instruction": "vmovapd zmm11,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe621b9",
+      "instruction": "vmovapd zmm8,ZMMWORD PTR [rsp+0x440]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe621cd",
+      "instruction": "vmovapd zmm1,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe621db",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x480],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe621ff",
+      "instruction": "vmovapd zmm1,ZMMWORD PTR [rsp+0x380]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62225",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x180],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62239",
+      "instruction": "vmovapd zmm14,ZMMWORD PTR [rsp+0x980]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62241",
+      "instruction": "vmovapd zmm16,ZMMWORD PTR [rsp+0xac0]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6224f",
+      "instruction": "vmovapd zmm5,ZMMWORD PTR [rsp+0xa00]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6226d",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x380],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6227b",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62283",
+      "instruction": "vmovapd zmm29,ZMMWORD PTR [rsp+0xa40]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6228b",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0xb00]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6229f",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x440],zmm5",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe622cb",
+      "instruction": "vmovapd zmm5,ZMMWORD PTR [rsp+0x8c0]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe622d9",
+      "instruction": "vmovapd zmm7,ZMMWORD PTR [rsp+0x9c0]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62325",
+      "instruction": "vfmadd132pd zmm23,zmm13,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62339",
+      "instruction": "vfmadd132pd zmm17,zmm22,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6234d",
+      "instruction": "vfmadd132pd zmm3,zmm13,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62373",
+      "instruction": "vfmsub132pd zmm4,zmm10,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62381",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe623ad",
+      "instruction": "vmulpd zmm10,zmm29,ZMMWORD PTR [rsp+0x540]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62404",
+      "instruction": "vmovaps zmm5,ZMMWORD PTR [rsp+0x480]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62413",
+      "instruction": "vmovaps zmm5,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6243d",
+      "instruction": "vmovaps zmm5,ZMMWORD PTR [rsp+0x380]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62455",
+      "instruction": "vmovapd zmm5,ZMMWORD PTR [rsp+0x440]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6249d",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6274e",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x540],zmm12",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62766",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm14",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62780",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x600],zmm9",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe627ac",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x180],zmm27",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe627d2",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x440],zmm14",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe627e0",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x480],zmm28",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe627fa",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x380],zmm11",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62838",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x8c0],zmm8",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe628c4",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xb00],zmm20",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe628d8",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xc40],zmm23",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe628ec",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xd00],zmm24",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62900",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x840],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62920",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xac0],zmm7",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62934",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xa40],zmm12",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6293c",
+      "instruction": "vmovapd zmm2,ZMMWORD PTR [rsp+0x600]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62950",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xc00],zmm17",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62968",
+      "instruction": "vmovapd zmm3,ZMMWORD PTR [rsp+0x440]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6298c",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xa80],zmm15",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe629e4",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x600],zmm7",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe629f2",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x680],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe629fa",
+      "instruction": "vmovapd zmm1,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62a0e",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x900],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62a16",
+      "instruction": "vmovapd zmm2,ZMMWORD PTR [rsp+0x380]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62a1e",
+      "instruction": "vmovapd zmm5,ZMMWORD PTR [rsp+0x8c0]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62a32",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x940],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62a40",
+      "instruction": "vmovapd zmm2,ZMMWORD PTR [rsp+0x480]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62a96",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x380],zmm6",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62aa4",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x180],zmm5",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62abe",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x480],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62ade",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x8c0],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62af2",
+      "instruction": "vmovapd zmm2,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62b12",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62b38",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x440],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62b58",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x980],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62b66",
+      "instruction": "vmovapd zmm24,ZMMWORD PTR [rsp+0xac0]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62b74",
+      "instruction": "vmovapd zmm20,ZMMWORD PTR [rsp+0xa40]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62b82",
+      "instruction": "vmovapd zmm30,ZMMWORD PTR [rsp+0xc00]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62b90",
+      "instruction": "vmovapd zmm23,ZMMWORD PTR [rsp+0xa80]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62bb0",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x9c0],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62bbe",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xa00],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62bcc",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x540]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62bec",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xbc0],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62c0c",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0xb00]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62c1a",
+      "instruction": "vmovapd zmm12,ZMMWORD PTR [rsp+0xc40]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62c28",
+      "instruction": "vmovapd zmm8,ZMMWORD PTR [rsp+0xd00]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62c48",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xc80],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62c56",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xcc0],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62c5e",
+      "instruction": "vmovapd zmm5,ZMMWORD PTR [rsp+0x840]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62c78",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xb80],zmm10",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62c92",
+      "instruction": "vmovapd zmm29,ZMMWORD PTR [rsp+0x900]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62ca0",
+      "instruction": "vmovapd zmm7,ZMMWORD PTR [rsp+0x940]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62cb4",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0xb40],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62d40",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x840],zmm5",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62d6c",
+      "instruction": "vmovapd zmm5,ZMMWORD PTR [rsp+0x480]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62d74",
+      "instruction": "vmovapd zmm7,ZMMWORD PTR [rsp+0x8c0]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62d94",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x900],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62d9c",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62daa",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x540],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62dc2",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x440]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62dca",
+      "instruction": "vmovapd zmm1,ZMMWORD PTR [rsp+0x980]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62dde",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0xbc0]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62dec",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62e00",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x380]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62e1a",
+      "instruction": "vmovapd zmm12,ZMMWORD PTR [rsp+0x680]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62e2e",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x480],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62e3c",
+      "instruction": "vmovapd zmm14,ZMMWORD PTR [rsp+0xb80]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62e44",
+      "instruction": "vmovapd zmm8,ZMMWORD PTR [rsp+0xc80]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62e5c",
+      "instruction": "vmulpd zmm3,zmm29,ZMMWORD PTR [rsp+0x9c0]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62e7c",
+      "instruction": "vmovapd zmm24,ZMMWORD PTR [rsp+0xa00]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62e84",
+      "instruction": "vmovapd zmm1,ZMMWORD PTR [rsp+0xb40]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62e92",
+      "instruction": "vmulpd zmm3,zmm29,ZMMWORD PTR [rsp+0xcc0]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62ee2",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62f26",
+      "instruction": "vmulpd zmm13,zmm29,ZMMWORD PTR [rsp+0x600]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62f3a",
+      "instruction": "vmulpd zmm13,zmm29,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62f5a",
+      "instruction": "vmulpd zmm13,zmm29,ZMMWORD PTR [rsp+0x840]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62f92",
+      "instruction": "vmulpd zmm14,zmm29,ZMMWORD PTR [rsp+0x900]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62fb3",
+      "instruction": "vmovaps zmm14,ZMMWORD PTR [rsp+0x540]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe62fc2",
+      "instruction": "vmovapd zmm14,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe63022",
+      "instruction": "vmovapd zmm9,ZMMWORD PTR [rsp+0x480]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe63249",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x540],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe63261",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm14",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6327b",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x600],zmm9",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe632a7",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x180],zmm10",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe632cd",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x440],zmm10",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe632db",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x480],zmm12",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe632f5",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x380],zmm11",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe63333",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x8c0],zmm8",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe63fa5",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x180],zmm15",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe64019",
+      "instruction": "vfmsub132pd zmm2,zmm7,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe64027",
+      "instruction": "vfmsub132pd zmm9,zmm8,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe64035",
+      "instruction": "vfmsub132pd zmm10,zmm4,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6403d",
+      "instruction": "vmovapd zmm21,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6404b",
+      "instruction": "vfmadd132pd zmm24,zmm19,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe64053",
+      "instruction": "vfmsub132pd zmm5,zmm14,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe64061",
+      "instruction": "vfmsub132pd zmm1,zmm11,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6406f",
+      "instruction": "vfmsub132pd zmm15,zmm16,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6407d",
+      "instruction": "vfmsub132pd zmm12,zmm18,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6408b",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe64093",
+      "instruction": "vfmsub132pd zmm3,zmm22,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe640c7",
+      "instruction": "vfmsub132pd zmm17,zmm23,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe640d5",
+      "instruction": "vmovapd zmm4,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe640fd",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe64225",
+      "instruction": "vmovaps zmm3,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe64650",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x480],zmm21",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6465e",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x180],zmm9",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe646ae",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x380],zmm6",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe646ce",
+      "instruction": "vmovapd zmm13,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe64730",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x300],zmm2",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6477c",
+      "instruction": "vmulpd zmm24,zmm31,ZMMWORD PTR [rsp+0x480]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6479c",
+      "instruction": "vmovapd zmm30,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe647c8",
+      "instruction": "vmovapd zmm16,ZMMWORD PTR [rsp+0x380]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe648f0",
+      "instruction": "vmovapd zmm2,ZMMWORD PTR [rsp+0x300]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe651be",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe65a7e",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe66dd0",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe67cb3",
+      "instruction": "vmovapd ZMMWORD PTR [rsp+0x180],zmm21",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe68d98",
+      "instruction": "vmovapd zmm21,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe68e08",
+      "instruction": "vmovapd zmm21,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe69608",
+      "instruction": "vmovapd zmm21,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe69688",
+      "instruction": "vmovapd zmm21,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6bcf6",
+      "instruction": "vmovapd zmm21,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6bd6e",
+      "instruction": "vmovapd zmm21,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6cfd3",
+      "instruction": "vmovapd zmm21,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6d04e",
+      "instruction": "vmovapd zmm21,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6d875",
+      "instruction": "vmovapd zmm21,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6d8ee",
+      "instruction": "vmovapd zmm21,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6ee43",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe6eeae",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe70120",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe7018e",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe709c5",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe70a3e",
+      "instruction": "vmovapd zmm31,ZMMWORD PTR [rsp+0x280]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe71c12",
+      "instruction": "vmovapd zmm20,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe71f28",
+      "instruction": "vmovapd zmm8,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe720a2",
+      "instruction": "vmovapd zmm6,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe721bf",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe72525",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe73f3f",
+      "instruction": "vmovapd zmm17,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe74f92",
+      "instruction": "vmovapd zmm20,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe752a8",
+      "instruction": "vmovapd zmm6,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe75422",
+      "instruction": "vmovapd zmm6,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe7553f",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe758a5",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe772bf",
+      "instruction": "vmovapd zmm17,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe78099",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe781d3",
+      "instruction": "vmovapd zmm7,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe782c9",
+      "instruction": "vmovapd zmm6,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe78354",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe786f8",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe7a10c",
+      "instruction": "vmovapd zmm17,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe7aa19",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe7ab53",
+      "instruction": "vmovapd zmm7,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe7ac49",
+      "instruction": "vmovapd zmm6,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe7acd4",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe7b078",
+      "instruction": "vmovapd zmm0,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xe7ca8c",
+      "instruction": "vmovapd zmm17,ZMMWORD PTR [rsp+0x500]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    }
+  ],
+  "unproved_local_vector_memory": [],
+  "unresolved_stack_pointer_stores": [],
+  "derived_scalar_stack_loads_to_review": [],
+  "calls_with_stack_arguments_to_review": [
+    {
+      "address": "0xe7ce03",
+      "instruction": "call   c13900 <core::panicking::panic_fmt>",
+      "stack_arguments": {
+        "rsi": [
+          6,
+          0,
+          true
+        ],
+        "r8": [
+          0,
+          0,
+          true
+        ]
+      }
+    },
+    {
+      "address": "0xe7ce48",
+      "instruction": "call   c13900 <core::panicking::panic_fmt>",
+      "stack_arguments": {
+        "r9": [
+          0,
+          0,
+          true
+        ]
+      }
+    },
+    {
+      "address": "0xe7ce63",
+      "instruction": "call   c13900 <core::panicking::panic_fmt>",
+      "stack_arguments": {
+        "r8": [
+          0,
+          0,
+          true
+        ]
+      }
+    },
+    {
+      "address": "0xe7ce8d",
+      "instruction": "call   c17c40 <core::panicking::panic_const::panic_const_div_by_zero>",
+      "stack_arguments": {
+        "r9": [
+          0,
+          0,
+          true
+        ]
+      }
+    },
+    {
+      "address": "0xe7cea0",
+      "instruction": "call   c15a00 <core::panicking::panic_bounds_check>",
+      "stack_arguments": {
+        "r8": [
+          0,
+          0,
+          true
+        ]
+      }
+    },
+    {
+      "address": "0xe7ceaf",
+      "instruction": "call   c17c40 <core::panicking::panic_const::panic_const_div_by_zero>",
+      "stack_arguments": {
+        "r8": [
+          0,
+          0,
+          true
+        ],
+        "r9": [
+          0,
+          0,
+          true
+        ]
+      }
+    },
+    {
+      "address": "0xe7ced5",
+      "instruction": "call   c15a00 <core::panicking::panic_bounds_check>",
+      "stack_arguments": {
+        "r9": [
+          0,
+          0,
+          true
+        ]
+      }
+    }
+  ],
+  "passed": true,
+  "limitations": "Low-bit/alias model covers recorded instruction families; review transfer semantics and all unsupported constructs. Caller-clobbered registers lose aliases; RAX conservatively may return an argument-derived stack alias. Escaping stack-pointer stores fail; source review must establish that local-array copying calls do not introduce pointer values into vector storage. Does not prove arithmetic equivalence."
+}

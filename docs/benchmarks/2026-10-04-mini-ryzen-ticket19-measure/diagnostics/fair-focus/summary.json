@@ -1,0 +1,80 @@
+{
+  "expected_groups": 27,
+  "completed_groups": 27,
+  "cells": 29,
+  "failures": [
+    {
+      "key": "pow2:f64:fwd:ip:n16384",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.0457114659967701,
+      "best": 1.0457114659967701,
+      "p1": 1.044112616565284,
+      "median": 1.0404217408590908,
+      "estimate": "stockham avx512 split L=8 radices=8x8x4x8 scratch=33284 scratch_oop=33284 scratch_immutable=33284",
+      "measure": "stockham avx512 split L=8 radices=8x8x4x8 scratch=33284 scratch_oop=33284 scratch_immutable=33284",
+      "same_plan": true
+    },
+    {
+      "key": "pow2:f64:inv:ip:n16384",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.0295261457460811,
+      "best": 1.0295261457460811,
+      "p1": 1.0310734042077325,
+      "median": 1.0306451136262893,
+      "estimate": "stockham avx512 split L=8 radices=8x8x4x8 scratch=33284 scratch_oop=33284 scratch_immutable=33284",
+      "measure": "stockham avx512 split L=8 radices=8x8x4x8 scratch=33284 scratch_oop=33284 scratch_immutable=33284",
+      "same_plan": true
+    },
+    {
+      "key": "smooth:f64:fwd:ip:n768",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 1.0272404050482036,
+      "best": 1.0272404050482036,
+      "p1": 1.0242802046836739,
+      "median": 1.0251407779451176,
+      "estimate": "stockham avx512-ymm split L=4 radices=8x6x4 scratch=2052 scratch_oop=2052 scratch_immutable=2052",
+      "measure": "stockham avx512-ymm split L=4 radices=8x6x4 scratch=2052 scratch_oop=2052 scratch_immutable=2052",
+      "same_plan": true
+    },
+    {
+      "key": "smooth:f64:inv:ip:n768",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 1.0240993268511593,
+      "best": 1.0240993268511593,
+      "p1": 1.0225776850886341,
+      "median": 1.0218711619221241,
+      "estimate": "stockham avx512-ymm split L=4 radices=8x6x4 scratch=2052 scratch_oop=2052 scratch_immutable=2052",
+      "measure": "stockham avx512-ymm split L=4 radices=8x6x4 scratch=2052 scratch_oop=2052 scratch_immutable=2052",
+      "same_plan": true
+    },
+    {
+      "key": "smooth:f64:fwd:oop:n4725",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 1.022176022176022,
+      "best": 1.022176022176022,
+      "p1": 1.0189678578940324,
+      "median": 1.0180405533447034,
+      "estimate": "fourstep avx512 split L=8 decomposition=63x75 radices=7x9/15x5 scratch=5932 scratch_oop=5932 scratch_immutable=5932",
+      "measure": "fourstep avx512 split L=8 decomposition=63x75 radices=7x9/15x5 scratch=5932 scratch_oop=5932 scratch_immutable=5932",
+      "same_plan": true
+    },
+    {
+      "key": "datacheck:f64:fwd:imm:n4096",
+      "suite": "datacheck",
+      "metric": "best",
+      "ratio": 1.0233502130053855,
+      "best": 1.0233502130053855,
+      "p1": 1.0228743114672005,
+      "median": 1.0245736511419168,
+      "estimate": "stockham avx512 split L=8 radices=8x8x8 scratch=8708 scratch_oop=8708 scratch_immutable=8708",
+      "measure": "stockham avx512 split L=8 radices=8x8x8 scratch=8708 scratch_oop=8708 scratch_immutable=8708",
+      "same_plan": true
+    }
+  ],
+  "problems": []
+}

@@ -1,0 +1,30 @@
+xtask: cd "/home/ianhersom/.paseo/worktrees/36vt8mpo/tearful-walrus" && "/home/ianhersom/.rustup/toolchains/1.95.0-x86_64-unknown-linux-gnu/bin/cargo" "build" "--profile" "arena" "-p" "fastfft-arena" "--features" "fftw"
+    Finished `arena` profile [optimized + debuginfo] target(s) in 0.04s
+xtask: "/home/ianhersom/.paseo/worktrees/36vt8mpo/tearful-walrus/target/arena/fastfft-arena" "run" "--suite" "pow2" "--profile" "full" "--libs" "fastfft,rustfft,fftw,phastft/interleaved" "--max-n" "1048576" "--filter" "place=ip" "--core" "2" "--label" "variance-2" "--out" "/home/ianhersom/.paseo/worktrees/36vt8mpo/tearful-walrus/target/arena/variance/2026-10-17-mini-ryzen/runs/variance-2"
+arena: 80 cells, profile full, core 2 (sibling 2,10), output /home/ianhersom/.paseo/worktrees/36vt8mpo/tearful-walrus/target/arena/variance/2026-10-17-mini-ryzen/runs/variance-2
+[1/80] pow2:f32:fwd:ip:n2 (3.7s) fastfft=2.6ns rustfft=2.8ns fftw=3.6ns phastft/interleaved=34.4ns
+[2/80] pow2:f32:inv:ip:n2 (3.7s) fastfft=2.6ns rustfft=2.8ns fftw=3.6ns phastft/interleaved=35.6ns
+[3/80] pow2:f32:fwd:ip:n4 (3.7s) fastfft=3.6ns rustfft=4.2ns fftw=4.5ns phastft/interleaved=42.9ns
+[4/80] pow2:f32:inv:ip:n4 (3.7s) fastfft=3.6ns rustfft=4.2ns fftw=4.5ns phastft/interleaved=44.4ns
+[5/80] pow2:f32:fwd:ip:n8 (3.7s) fastfft=7.0ns rustfft=7.8ns fftw=7.7ns phastft/interleaved=56.3ns
+[6/80] pow2:f32:inv:ip:n8 (3.7s) fastfft=7.0ns rustfft=7.8ns fftw=7.7ns phastft/interleaved=58.5ns
+[7/80] pow2:f32:fwd:ip:n16 (3.7s) fastfft=8.3ns rustfft=8.8ns fftw=15.0ns phastft/interleaved=83.3ns
+[8/80] pow2:f32:inv:ip:n16 (3.7s) fastfft=8.3ns rustfft=8.8ns fftw=16.0ns phastft/interleaved=85.2ns
+[9/80] pow2:f32:fwd:ip:n32 (3.7s) fastfft=11.4ns rustfft=12.6ns fftw=27.4ns phastft/interleaved=111.3ns
+[10/80] pow2:f32:inv:ip:n32 (3.7s) fastfft=11.6ns rustfft=12.6ns fftw=27.7ns phastft/interleaved=114.5ns
+[11/80] pow2:f32:fwd:ip:n64 (3.7s) fastfft=17.5ns rustfft=21.3ns fftw=38.1ns phastft/interleaved=88.0ns
+[12/80] pow2:f32:inv:ip:n64 (3.7s) fastfft=18.8ns rustfft=48.9ns fftw=44.1ns phastft/interleaved=97.6ns
+[13/80] pow2:f32:fwd:ip:n128 (3.7s) fastfft=36.3ns rustfft=47.4ns fftw=59.8ns phastft/interleaved=157.5ns
+[14/80] pow2:f32:inv:ip:n128 (3.7s) fastfft=36.3ns rustfft=46.9ns fftw=61.3ns phastft/interleaved=162.5ns
+[15/80] pow2:f32:fwd:ip:n256 (3.7s) fastfft=74.2ns rustfft=101.7ns fftw=147.2ns phastft/interleaved=313.3ns
+[16/80] pow2:f32:inv:ip:n256 (3.7s) fastfft=74.0ns rustfft=104.5ns fftw=138.4ns phastft/interleaved=325.5ns
+[17/80] pow2:f32:fwd:ip:n512 (3.7s) fastfft=227.9ns rustfft=258.2ns fftw=264.2ns phastft/interleaved=654.4ns
+[18/80] pow2:f32:inv:ip:n512 (3.7s) fastfft=224.3ns rustfft=253.8ns fftw=256.5ns phastft/interleaved=701.8ns
+[19/80] pow2:f32:fwd:ip:n1024 (3.7s) fastfft=500.5ns rustfft=578.6ns fftw=487.8ns phastft/interleaved=1.27us
+arena: clock drift warning 7.7% at pow2:f32:inv:ip:n1024
+[20/80] pow2:f32:inv:ip:n1024 (3.8s) fastfft=512.9ns rustfft=588.0ns fftw=490.0ns phastft/interleaved=1.39us
+arena: clock drift warning 55.1% at pow2:f32:fwd:ip:n2048
+arena: ABORT: clock drift 55.1% > 10% at pow2:f32:fwd:ip:n2048
+[21/80] pow2:f32:fwd:ip:n2048 (3.8s) fastfft=1.14us rustfft=1.39us fftw=1.29us phastft/interleaved=2.85us
+arena: done in 84s, max clock drift 55.13%, 0 child failures
+/home/ianhersom/.paseo/worktrees/36vt8mpo/tearful-walrus/target/arena/variance/2026-10-17-mini-ryzen/runs/variance-2

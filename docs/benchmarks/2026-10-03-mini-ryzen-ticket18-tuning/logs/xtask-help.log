@@ -1,0 +1,7 @@
+xtask: cd "/home/ianhersom/repo/fastfft" && "/home/ianhersom/.rustup/toolchains/1.95.0-x86_64-unknown-linux-gnu/bin/cargo" "build" "--profile" "arena" "-p" "fastfft" "--features" "tuning" "--example" "tune"
+    Finished `arena` profile [optimized + debuginfo] target(s) in 0.06s
+xtask: cd "/home/ianhersom/repo/fastfft" && "taskset" "-c" "2" "/home/ianhersom/repo/fastfft/target/arena/examples/tune" "--help"
+cargo xtask tune [--core 2] [--n N,N,...] [--max-n N] [--precision f32|f64] [--ms 5]
+  [--passes-only | --plans-only | --planning-only --check-g8]
+  [--raw target/tune.jsonl] [--out target/tune.rs]
+See docs/benchmarking.md for three-process calibration and independent audits.

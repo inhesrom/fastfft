@@ -1,0 +1,1274 @@
+--- prior
+
++++ current
+
+@@ -1,4 +1,11 @@
+
+-sub    rsp,0x6c8
++push   rbp
++mov    rbp,rsp
++and    rsp,0xffffffffffffffc0
++sub    rsp,0x800
++mov    BYTE PTR [rsp+0x780],0x0
++lea    rax,[rsp+0x780]
++mov    QWORD PTR [rsp+0xb8],rax
++lea    rax,[rsp+0xb8]
+ vmovups zmm25,ZMMWORD PTR [rdi]
+ vmovups xmm0,XMMWORD PTR [rdi+0x60]
+ vmovups ymm1,YMMWORD PTR [rdi+0x40]
+@@ -26,9 +33,9 @@
+
+ vexpandpd zmm0{k1}{z},zmm0
+ vmovaps zmm1,zmm4
+ vpermt2ps zmm1,zmm19,zmm0
+-vmovups ZMMWORD PTR [rsp-0x40],zmm1
++vmovaps ZMMWORD PTR [rsp+0x40],zmm1
+ vpermt2ps zmm4,zmm21,zmm0
+-vmovups ZMMWORD PTR [rsp+0xc0],zmm4
++vmovaps ZMMWORD PTR [rsp+0x180],zmm4
+ vmovups xmm0,XMMWORD PTR [rdi+0x140]
+ vinsertps xmm0,xmm0,DWORD PTR [rdi+0x144],0x10
+ vbroadcastss xmm1,DWORD PTR [rdi+0x148]
+@@ -42,7 +49,7 @@
+
+ vpermt2ps zmm31,zmm19,zmm0
+ vpermt2ps zmm2,zmm21,zmm0
+ vmovaps zmm7,zmm2
+-vmovups ZMMWORD PTR [rsp+0x480],zmm2
++vmovaps ZMMWORD PTR [rsp+0x540],zmm2
+ vmovups zmm4,ZMMWORD PTR [rdi+0x150]
+ vmovups xmm0,XMMWORD PTR [rdi+0x1b0]
+ vinsertps xmm0,xmm0,DWORD PTR [rdi+0x1b4],0x10
+@@ -57,7 +64,7 @@
+
+ vmovaps zmm27,zmm1
+ vpermt2ps zmm4,zmm21,zmm0
+ vmovaps zmm10,zmm4
+-vmovups ZMMWORD PTR [rsp+0x400],zmm4
++vmovaps ZMMWORD PTR [rsp+0x4c0],zmm4
+ vmovups zmm4,ZMMWORD PTR [rdi+0x1c0]
+ vmovups xmm0,XMMWORD PTR [rdi+0x220]
+ vmovups ymm1,YMMWORD PTR [rdi+0x200]
+@@ -69,9 +76,9 @@
+
+ vexpandpd zmm0{k1}{z},zmm0
+ vmovaps zmm1,zmm4
+ vpermt2ps zmm1,zmm19,zmm0
+-vmovups ZMMWORD PTR [rsp],zmm1
++vmovaps ZMMWORD PTR [rsp+0xc0],zmm1
+ vpermt2ps zmm4,zmm21,zmm0
+-vmovups ZMMWORD PTR [rsp+0x40],zmm4
++vmovaps ZMMWORD PTR [rsp+0x100],zmm4
+ vmovups zmm8,ZMMWORD PTR [rdi+0x230]
+ vmovups xmm0,XMMWORD PTR [rdi+0x290]
+ vinsertps xmm0,xmm0,DWORD PTR [rdi+0x294],0x10
+@@ -95,9 +102,9 @@
+
+ vexpandpd zmm0{k1}{z},zmm0
+ vmovaps zmm1,zmm4
+ vpermt2ps zmm1,zmm19,zmm0
+-vmovups ZMMWORD PTR [rsp-0x80],zmm1
++vmovaps ZMMWORD PTR [rsp],zmm1
+ vpermt2ps zmm4,zmm21,zmm0
+-vmovups ZMMWORD PTR [rsp+0x300],zmm4
++vmovaps ZMMWORD PTR [rsp+0x3c0],zmm4
+ vmovups zmm14,ZMMWORD PTR [rdi+0x310]
+ vmovups xmm0,XMMWORD PTR [rdi+0x370]
+ vinsertps xmm0,xmm0,DWORD PTR [rdi+0x374],0x10
+@@ -110,7 +117,7 @@
+
+ vmovaps zmm29,zmm14
+ vpermt2ps zmm29,zmm19,zmm0
+ vpermt2ps zmm14,zmm21,zmm0
+-vmovups ZMMWORD PTR [rsp+0x180],zmm14
++vmovaps ZMMWORD PTR [rsp+0x240],zmm14
+ vmovups zmm15,ZMMWORD PTR [rdi+0x380]
+ vmovups xmm0,XMMWORD PTR [rdi+0x3e0]
+ vmovups ymm1,YMMWORD PTR [rdi+0x3c0]
+@@ -123,10 +130,10 @@
+
+ vmovaps zmm1,zmm15
+ vpermt2ps zmm1,zmm19,zmm0
+ vmovaps zmm11,zmm1
+-vmovups ZMMWORD PTR [rsp+0x380],zmm1
++vmovaps ZMMWORD PTR [rsp+0x440],zmm1
+ vpermt2ps zmm15,zmm21,zmm0
+ vmovaps zmm17,zmm15
+-vmovups ZMMWORD PTR [rsp+0x2c0],zmm15
++vmovaps ZMMWORD PTR [rsp+0x380],zmm15
+ vmovups zmm15,ZMMWORD PTR [rdi+0x3f0]
+ vmovups xmm0,XMMWORD PTR [rdi+0x450]
+ vinsertps xmm0,xmm0,DWORD PTR [rdi+0x454],0x10
+@@ -138,9 +145,9 @@
+
+ vexpandpd zmm0{k1}{z},zmm0
+ vmovaps zmm1,zmm15
+ vpermt2ps zmm1,zmm19,zmm0
+-vmovups ZMMWORD PTR [rsp+0x80],zmm1
++vmovaps ZMMWORD PTR [rsp+0x140],zmm1
+ vpermt2ps zmm15,zmm21,zmm0
+-vmovups ZMMWORD PTR [rsp+0x280],zmm15
++vmovaps ZMMWORD PTR [rsp+0x340],zmm15
+ vmovups xmm0,XMMWORD PTR [rdi+0x4c0]
+ vinsertps xmm0,xmm0,DWORD PTR [rdi+0x4c4],0x10
+ vbroadcastss xmm1,DWORD PTR [rdi+0x4c8]
+@@ -177,7 +184,7 @@
+
+ vmovaps zmm24,zmm15
+ vpermt2ps zmm24,zmm19,zmm0
+ vpermt2ps zmm15,zmm21,zmm0
+-vmovups ZMMWORD PTR [rsp+0x440],zmm15
++vmovaps ZMMWORD PTR [rsp+0x500],zmm15
+ vmovups zmm23,ZMMWORD PTR [rdi+0x5b0]
+ vmovups xmm0,XMMWORD PTR [rdi+0x610]
+ vinsertps xmm0,xmm0,DWORD PTR [rdi+0x614],0x10
+@@ -190,10 +197,10 @@
+
+ vmovaps zmm1,zmm23
+ vpermt2ps zmm1,zmm19,zmm0
+ vmovaps zmm6,zmm1
+-vmovups ZMMWORD PTR [rsp+0x500],zmm1
++vmovaps ZMMWORD PTR [rsp+0x5c0],zmm1
+ vpermt2ps zmm23,zmm21,zmm0
+ vmovaps zmm4,zmm23
+-vmovups ZMMWORD PTR [rsp+0x100],zmm23
++vmovaps ZMMWORD PTR [rsp+0x1c0],zmm23
+ vmovups xmm0,XMMWORD PTR [rdi+0x680]
+ vinsertps xmm0,xmm0,DWORD PTR [rdi+0x684],0x10
+ vbroadcastss xmm1,DWORD PTR [rdi+0x688]
+@@ -212,35 +219,35 @@
+
+ vmovaps zmm17,zmm0
+ vbroadcastss zmm23,DWORD PTR [rip+RELOC]
+ vaddps zmm0,zmm8,zmm1
+-vmovups ZMMWORD PTR [rsp+0x240],zmm0
++vmovaps ZMMWORD PTR [rsp+0x300],zmm0
+ vfnmadd231ps zmm8,zmm23,zmm1
+-vmovups ZMMWORD PTR [rsp+0x1c0],zmm8
++vmovaps ZMMWORD PTR [rsp+0x280],zmm8
+ vaddps zmm1,zmm4,zmm14
+ vmovaps zmm0,zmm28
+ vfmadd213ps zmm0,zmm1,zmm26
+ vaddps zmm4,zmm26,zmm1
+-vmovups ZMMWORD PTR [rsp+0x140],zmm4
++vmovaps ZMMWORD PTR [rsp+0x200],zmm4
+ vfnmadd231ps zmm26,zmm23,zmm1
+ vaddps zmm1,zmm10,zmm15
+ vmovaps zmm4,zmm28
+ vfmadd213ps zmm4,zmm1,zmm25
+ vmovaps zmm8,zmm4
+ vaddps zmm4,zmm25,zmm1
+-vmovups ZMMWORD PTR [rsp+0x3c0],zmm4
++vmovaps ZMMWORD PTR [rsp+0x480],zmm4
+ vfnmadd231ps zmm25,zmm23,zmm1
+ vaddps zmm1,zmm11,zmm31
+ vmovaps zmm30,zmm28
+ vmovaps zmm22,zmm13
+ vfmadd213ps zmm30,zmm1,zmm13
+ vaddps zmm4,zmm13,zmm1
+-vmovups ZMMWORD PTR [rsp+0x340],zmm4
++vmovaps ZMMWORD PTR [rsp+0x400],zmm4
+ vfnmadd231ps zmm22,zmm23,zmm1
+ vaddps zmm1,zmm6,zmm29
+ vmovaps zmm11,zmm28
+ vmovaps zmm21,zmm16
+ vfmadd213ps zmm11,zmm1,zmm16
+ vaddps zmm4,zmm16,zmm1
+-vmovups ZMMWORD PTR [rsp+0x680],zmm4
++vmovaps ZMMWORD PTR [rsp+0x740],zmm4
+ vfnmadd231ps zmm21,zmm23,zmm1
+ vmovaps zmm16,zmm27
+ vaddps zmm1,zmm27,zmm24
+@@ -253,65 +260,65 @@
+
+ vmovaps zmm14,zmm2
+ vaddps zmm1,zmm9,zmm2
+ vfnmadd231ps zmm17,zmm1,zmm23
+-vmovups ZMMWORD PTR [rsp+0x580],zmm17
+-vmovups zmm17,ZMMWORD PTR [rsp+0xc0]
+-vmovups zmm13,ZMMWORD PTR [rsp+0x40]
++vmovaps ZMMWORD PTR [rsp+0x640],zmm17
++vmovaps zmm17,ZMMWORD PTR [rsp+0x180]
++vmovaps zmm13,ZMMWORD PTR [rsp+0x100]
+ vaddps zmm4,zmm17,zmm13
+ vfnmadd231ps zmm0,zmm4,zmm23
+-vmovups ZMMWORD PTR [rsp+0x540],zmm0
+-vmovups zmm20,ZMMWORD PTR [rsp+0x300]
+-vmovups zmm18,ZMMWORD PTR [rsp+0x280]
++vmovaps ZMMWORD PTR [rsp+0x600],zmm0
++vmovaps zmm20,ZMMWORD PTR [rsp+0x3c0]
++vmovaps zmm18,ZMMWORD PTR [rsp+0x340]
+ vaddps zmm2,zmm20,zmm18
+ vfnmadd231ps zmm8,zmm2,zmm23
+-vmovups ZMMWORD PTR [rsp+0x200],zmm8
++vmovaps ZMMWORD PTR [rsp+0x2c0],zmm8
+ vmovaps zmm10,zmm5
+ vaddps zmm3,zmm5,zmm19
+ vfnmadd231ps zmm30,zmm3,zmm23
+-vmovups zmm9,ZMMWORD PTR [rsp-0x40]
+-vmovups zmm8,ZMMWORD PTR [rsp]
++vmovaps zmm9,ZMMWORD PTR [rsp+0x40]
++vmovaps zmm8,ZMMWORD PTR [rsp+0xc0]
+ vaddps zmm5,zmm9,zmm8
+ vfnmadd231ps zmm11,zmm5,zmm23
+-vmovups ZMMWORD PTR [rsp+0x4c0],zmm11
+-vmovups zmm11,ZMMWORD PTR [rsp-0x80]
+-vmovups zmm7,ZMMWORD PTR [rsp+0x80]
++vmovaps ZMMWORD PTR [rsp+0x580],zmm11
++vmovaps zmm11,ZMMWORD PTR [rsp]
++vmovaps zmm7,ZMMWORD PTR [rsp+0x140]
+ vaddps zmm0,zmm11,zmm7
+ vfnmadd231ps zmm6,zmm0,zmm23
+-vmovups ZMMWORD PTR [rsp+0x640],zmm6
+-vaddps zmm6,zmm1,ZMMWORD PTR [rsp+0x240]
+-vmovups ZMMWORD PTR [rsp+0x600],zmm6
+-vmovups zmm23,ZMMWORD PTR [rsp+0x1c0]
++vmovaps ZMMWORD PTR [rsp+0x700],zmm6
++vaddps zmm6,zmm1,ZMMWORD PTR [rsp+0x300]
++vmovaps ZMMWORD PTR [rsp+0x6c0],zmm6
++vmovaps zmm23,ZMMWORD PTR [rsp+0x280]
+ vfmadd231ps zmm23,zmm28,zmm1
+-vaddps zmm1,zmm4,ZMMWORD PTR [rsp+0x140]
+-vmovups ZMMWORD PTR [rsp+0x5c0],zmm1
++vaddps zmm1,zmm4,ZMMWORD PTR [rsp+0x200]
++vmovaps ZMMWORD PTR [rsp+0x680],zmm1
+ vfmadd231ps zmm26,zmm28,zmm4
+-vaddps zmm1,zmm2,ZMMWORD PTR [rsp+0x3c0]
+-vmovups ZMMWORD PTR [rsp+0x3c0],zmm1
++vaddps zmm1,zmm2,ZMMWORD PTR [rsp+0x480]
++vmovaps ZMMWORD PTR [rsp+0x480],zmm1
+ vfmadd231ps zmm25,zmm28,zmm2
+-vaddps zmm1,zmm3,ZMMWORD PTR [rsp+0x340]
+-vmovups ZMMWORD PTR [rsp+0x240],zmm1
++vaddps zmm1,zmm3,ZMMWORD PTR [rsp+0x400]
++vmovaps ZMMWORD PTR [rsp+0x300],zmm1
+ vfmadd231ps zmm22,zmm28,zmm3
+ vaddps zmm1,zmm27,zmm0
+-vmovups ZMMWORD PTR [rsp+0x1c0],zmm1
++vmovaps ZMMWORD PTR [rsp+0x280],zmm1
+ vfmadd231ps zmm12,zmm0,zmm28
+ vfmadd231ps zmm21,zmm28,zmm5
+-vaddps zmm0,zmm5,ZMMWORD PTR [rsp+0x680]
+-vmovups ZMMWORD PTR [rsp+0x140],zmm0
+-vmovups zmm0,ZMMWORD PTR [rsp+0x380]
++vaddps zmm0,zmm5,ZMMWORD PTR [rsp+0x740]
++vmovaps ZMMWORD PTR [rsp+0x200],zmm0
++vmovaps zmm0,ZMMWORD PTR [rsp+0x440]
+ vsubps zmm0,zmm0,zmm31
+ vsubps zmm2,zmm10,zmm19
+-vmovups zmm1,ZMMWORD PTR [rsp+0x500]
++vmovaps zmm1,ZMMWORD PTR [rsp+0x5c0]
+ vsubps zmm4,zmm1,zmm29
+ vsubps zmm5,zmm9,zmm8
+ vsubps zmm27,zmm16,zmm24
+ vsubps zmm7,zmm11,zmm7
+-vmovups zmm1,ZMMWORD PTR [rsp+0x2c0]
+-vsubps zmm8,zmm1,ZMMWORD PTR [rsp+0x480]
++vmovaps zmm1,ZMMWORD PTR [rsp+0x380]
++vsubps zmm8,zmm1,ZMMWORD PTR [rsp+0x540]
+ vsubps zmm11,zmm15,zmm14
+-vmovups zmm1,ZMMWORD PTR [rsp+0x100]
+-vsubps zmm16,zmm1,ZMMWORD PTR [rsp+0x180]
++vmovaps zmm1,ZMMWORD PTR [rsp+0x1c0]
++vsubps zmm16,zmm1,ZMMWORD PTR [rsp+0x240]
+ vsubps zmm19,zmm17,zmm13
+-vmovups zmm1,ZMMWORD PTR [rsp+0x400]
+-vsubps zmm24,zmm1,ZMMWORD PTR [rsp+0x440]
++vmovaps zmm1,ZMMWORD PTR [rsp+0x4c0]
++vsubps zmm24,zmm1,ZMMWORD PTR [rsp+0x500]
+ vbroadcastss zmm28,DWORD PTR [rip+RELOC]
+ vsubps zmm29,zmm20,zmm18
+ vmulps zmm9,zmm2,zmm28
+@@ -340,62 +347,62 @@
+
+ vmulps zmm7,zmm24,zmm28
+ vfnmadd231ps zmm7,zmm29,zmm6
+ vsubps zmm4,zmm30,zmm27
+-vmovups zmm24,ZMMWORD PTR [rsp+0x4c0]
++vmovaps zmm24,ZMMWORD PTR [rsp+0x580]
+ vsubps zmm6,zmm24,zmm31
+ vsubps zmm8,zmm4,zmm6
+-vmovups ZMMWORD PTR [rsp],zmm8
++vmovaps ZMMWORD PTR [rsp+0xc0],zmm8
+ vaddps zmm4,zmm4,zmm6
+-vmovups ZMMWORD PTR [rsp-0x80],zmm4
+-vmovups zmm10,ZMMWORD PTR [rsp+0x580]
++vmovaps ZMMWORD PTR [rsp],zmm4
++vmovaps zmm10,ZMMWORD PTR [rsp+0x640]
+ vaddps zmm6,zmm10,zmm9
+-vmovups zmm20,ZMMWORD PTR [rsp+0x540]
++vmovaps zmm20,ZMMWORD PTR [rsp+0x600]
+ vaddps zmm16,zmm20,zmm15
+ vaddps zmm4,zmm6,zmm16
+-vmovups ZMMWORD PTR [rsp+0x2c0],zmm4
++vmovaps ZMMWORD PTR [rsp+0x380],zmm4
+ vsubps zmm4,zmm6,zmm16
+-vmovups ZMMWORD PTR [rsp+0x40],zmm4
++vmovaps ZMMWORD PTR [rsp+0x100],zmm4
+ vsubps zmm6,zmm22,zmm1
+ vsubps zmm16,zmm21,zmm0
+ vsubps zmm4,zmm6,zmm16
+-vmovups ZMMWORD PTR [rsp+0x80],zmm4
++vmovaps ZMMWORD PTR [rsp+0x140],zmm4
+ vaddps zmm4,zmm6,zmm16
+-vmovups ZMMWORD PTR [rsp+0x300],zmm4
++vmovaps ZMMWORD PTR [rsp+0x3c0],zmm4
+ vaddps zmm6,zmm23,zmm3
+ vaddps zmm16,zmm26,zmm2
+ vaddps zmm4,zmm6,zmm16
+-vmovups ZMMWORD PTR [rsp+0x180],zmm4
++vmovaps ZMMWORD PTR [rsp+0x240],zmm4
+ vsubps zmm4,zmm6,zmm16
+-vmovups ZMMWORD PTR [rsp+0x100],zmm4
++vmovaps ZMMWORD PTR [rsp+0x1c0],zmm4
+ vaddps zmm4,zmm25,zmm5
+-vmovups ZMMWORD PTR [rsp+0x440],zmm4
++vmovaps ZMMWORD PTR [rsp+0x500],zmm4
+ vsubps zmm4,zmm25,zmm5
+ vsubps zmm6,zmm23,zmm3
+-vmovups ZMMWORD PTR [rsp+0x340],zmm6
++vmovaps ZMMWORD PTR [rsp+0x400],zmm6
+ vsubps zmm8,zmm26,zmm2
+-vmovups ZMMWORD PTR [rsp+0x380],zmm8
++vmovaps ZMMWORD PTR [rsp+0x440],zmm8
+ vsubps zmm2,zmm12,zmm7
+-vmovups ZMMWORD PTR [rsp+0x400],zmm2
++vmovaps ZMMWORD PTR [rsp+0x4c0],zmm2
+ vaddps zmm7,zmm7,zmm12
+ vaddps zmm29,zmm1,zmm22
+ vaddps zmm19,zmm0,zmm21
+-vmovups zmm22,ZMMWORD PTR [rsp+0x600]
+-vmovups zmm16,ZMMWORD PTR [rsp+0x5c0]
++vmovaps zmm22,ZMMWORD PTR [rsp+0x6c0]
++vmovaps zmm16,ZMMWORD PTR [rsp+0x680]
+ vaddps zmm11,zmm22,zmm16
+-vmovups zmm1,ZMMWORD PTR [rsp+0x3c0]
++vmovaps zmm1,ZMMWORD PTR [rsp+0x480]
+ vaddps zmm0,zmm1,zmm11
+-vmovups ZMMWORD PTR [rsp+0x280],zmm0
++vmovaps ZMMWORD PTR [rsp+0x340],zmm0
+ vbroadcastss zmm28,DWORD PTR [rip+RELOC]
+ vfnmadd213ps zmm11,zmm28,zmm1
+-vmovups zmm5,ZMMWORD PTR [rsp+0x240]
+-vmovups zmm3,ZMMWORD PTR [rsp+0x140]
++vmovaps zmm5,ZMMWORD PTR [rsp+0x300]
++vmovaps zmm3,ZMMWORD PTR [rsp+0x200]
+ vaddps zmm2,zmm5,zmm3
+-vmovups zmm1,ZMMWORD PTR [rsp+0x1c0]
++vmovaps zmm1,ZMMWORD PTR [rsp+0x280]
+ vaddps zmm0,zmm1,zmm2
+-vmovups ZMMWORD PTR [rsp-0x40],zmm0
++vmovaps ZMMWORD PTR [rsp+0x40],zmm0
+ vfnmadd213ps zmm2,zmm28,zmm1
+ vaddps zmm13,zmm6,zmm8
+ vaddps zmm0,zmm4,zmm13
+-vmovups ZMMWORD PTR [rsp+0x1c0],zmm0
++vmovaps ZMMWORD PTR [rsp+0x280],zmm0
+ vfnmadd213ps zmm13,zmm28,zmm4
+ vmovaps zmm4,zmm28
+ vmovaps zmm23,zmm28
+@@ -406,50 +413,50 @@
+
+ vmovaps zmm8,zmm28
+ vfnmadd213ps zmm28,zmm26,zmm7
+ vaddps zmm7,zmm7,zmm26
+-vmovups ZMMWORD PTR [rsp+0xc0],zmm7
++vmovaps ZMMWORD PTR [rsp+0x180],zmm7
+ vsubps zmm7,zmm10,zmm9
+ vsubps zmm9,zmm20,zmm15
+-vmovups zmm10,ZMMWORD PTR [rsp+0x200]
++vmovaps zmm10,ZMMWORD PTR [rsp+0x2c0]
+ vaddps zmm20,zmm10,zmm17
+ vsubps zmm25,zmm10,zmm17
+ vaddps zmm10,zmm27,zmm30
+ vaddps zmm12,zmm31,zmm24
+ vsubps zmm18,zmm10,zmm12
+ vaddps zmm30,zmm10,zmm12
+-vmovups zmm12,ZMMWORD PTR [rsp+0x640]
++vmovaps zmm12,ZMMWORD PTR [rsp+0x700]
+ vsubps zmm10,zmm12,zmm14
+ vaddps zmm21,zmm14,zmm12
+ vaddps zmm31,zmm7,zmm9
+ vsubps zmm7,zmm7,zmm9
+ vsubps zmm9,zmm5,zmm3
+ vsubps zmm17,zmm22,zmm16
+-vmovups zmm3,ZMMWORD PTR [rsp+0x2c0]
++vmovaps zmm3,ZMMWORD PTR [rsp+0x380]
+ vfnmadd213ps zmm4,zmm3,zmm20
+ vaddps zmm27,zmm20,zmm3
+-vmovups zmm3,ZMMWORD PTR [rsp-0x80]
++vmovaps zmm3,ZMMWORD PTR [rsp]
+ vfnmadd213ps zmm23,zmm3,zmm10
+ vaddps zmm10,zmm10,zmm3
+-vmovups ZMMWORD PTR [rsp-0x80],zmm10
+-vmovups zmm15,ZMMWORD PTR [rsp+0x180]
+-vmovups zmm14,ZMMWORD PTR [rsp+0x440]
++vmovaps ZMMWORD PTR [rsp],zmm10
++vmovaps zmm15,ZMMWORD PTR [rsp+0x240]
++vmovaps zmm14,ZMMWORD PTR [rsp+0x500]
+ vfnmadd213ps zmm0,zmm15,zmm14
+ vbroadcastss zmm24,DWORD PTR [rip+RELOC]
+-vmulps zmm10,zmm24,ZMMWORD PTR [rsp+0x80]
++vmulps zmm10,zmm24,ZMMWORD PTR [rsp+0x140]
+ vsubps zmm20,zmm0,zmm10
+ vaddps zmm0,zmm0,zmm10
+-vmovups ZMMWORD PTR [rsp+0x480],zmm0
+-vmovups zmm12,ZMMWORD PTR [rsp+0x300]
+-vmovups zmm5,ZMMWORD PTR [rsp+0x400]
++vmovaps ZMMWORD PTR [rsp+0x540],zmm0
++vmovaps zmm12,ZMMWORD PTR [rsp+0x3c0]
++vmovaps zmm5,ZMMWORD PTR [rsp+0x4c0]
+ vfnmadd213ps zmm1,zmm12,zmm5
+-vmulps zmm0,zmm24,ZMMWORD PTR [rsp+0x100]
++vmulps zmm0,zmm24,ZMMWORD PTR [rsp+0x1c0]
+ vaddps zmm26,zmm1,zmm0
+ vsubps zmm0,zmm1,zmm0
+-vmovups ZMMWORD PTR [rsp+0x80],zmm0
++vmovaps ZMMWORD PTR [rsp+0x140],zmm0
+ vsubps zmm0,zmm29,zmm19
+-vmovups zmm1,ZMMWORD PTR [rsp+0x340]
+-vsubps zmm1,zmm1,ZMMWORD PTR [rsp+0x380]
+-vmulps zmm16,zmm24,ZMMWORD PTR [rsp]
+-vmulps zmm19,zmm24,ZMMWORD PTR [rsp+0x40]
++vmovaps zmm1,ZMMWORD PTR [rsp+0x400]
++vsubps zmm1,zmm1,ZMMWORD PTR [rsp+0x440]
++vmulps zmm16,zmm24,ZMMWORD PTR [rsp+0xc0]
++vmulps zmm19,zmm24,ZMMWORD PTR [rsp+0x100]
+ vmulps zmm22,zmm18,zmm24
+ vmulps zmm3,zmm7,zmm24
+ vmulps zmm7,zmm9,zmm24
+@@ -463,27 +470,27 @@
+
+ vsubps zmm25,zmm11,zmm7
+ vaddps zmm30,zmm11,zmm7
+ vaddps zmm7,zmm9,zmm2
+-vmovups ZMMWORD PTR [rsp],zmm7
++vmovaps ZMMWORD PTR [rsp+0xc0],zmm7
+ vsubps zmm17,zmm2,zmm9
+ vaddps zmm10,zmm16,zmm4
+ vsubps zmm9,zmm4,zmm16
+ vsubps zmm11,zmm23,zmm19
+ vaddps zmm2,zmm23,zmm19
+-vmovups ZMMWORD PTR [rsp+0x2c0],zmm2
++vmovaps ZMMWORD PTR [rsp+0x380],zmm2
+ vaddps zmm2,zmm14,zmm15
+ vaddps zmm15,zmm22,zmm6
+ vaddps zmm4,zmm5,zmm12
+-vmovups ZMMWORD PTR [rsp+0x40],zmm4
++vmovaps ZMMWORD PTR [rsp+0x100],zmm4
+ vsubps zmm19,zmm13,zmm0
+ vaddps zmm4,zmm13,zmm0
+ vaddps zmm29,zmm28,zmm1
+ vsubps zmm0,zmm28,zmm1
+-vmovups ZMMWORD PTR [rsp+0x300],zmm0
++vmovaps ZMMWORD PTR [rsp+0x3c0],zmm0
+ vsubps zmm12,zmm8,zmm3
+ vsubps zmm1,zmm6,zmm22
+ vaddps zmm3,zmm8,zmm3
+ vmovaps zmm0,ZMMWORD PTR [rip+RELOC]
+-vmovups zmm28,ZMMWORD PTR [rsp+0x280]
++vmovaps zmm28,ZMMWORD PTR [rsp+0x340]
+ vmovaps zmm14,zmm28
+ vpermt2ps zmm14,zmm0,zmm19
+ vmovaps zmm16,ZMMWORD PTR [rip+RELOC]
+@@ -494,7 +501,7 @@
+
+ vmovaps zmm21,zmm20
+ vpermt2ps zmm21,zmm0,zmm30
+ vpermt2ps zmm20,zmm16,zmm30
+-vmovups zmm18,ZMMWORD PTR [rsp+0x1c0]
++vmovaps zmm18,ZMMWORD PTR [rsp+0x280]
+ vmovaps zmm23,zmm18
+ vpermt2ps zmm23,zmm0,zmm9
+ vpermt2ps zmm18,zmm16,zmm9
+@@ -507,46 +514,46 @@
+
+ vmovaps zmm9,zmm27
+ vpermt2ps zmm9,zmm0,zmm1
+ vpermt2ps zmm27,zmm16,zmm1
+-vmovups zmm13,ZMMWORD PTR [rsp-0x40]
++vmovaps zmm13,ZMMWORD PTR [rsp+0x40]
+ vmovaps zmm7,zmm13
+ vpermt2ps zmm7,zmm0,zmm29
+ vpermt2ps zmm13,zmm16,zmm29
+ vmovaps zmm29,zmm11
+ vpermt2ps zmm29,zmm0,zmm24
+ vpermt2ps zmm11,zmm16,zmm24
+-vmovups ZMMWORD PTR [rsp+0x240],zmm11
++vmovaps ZMMWORD PTR [rsp+0x300],zmm11
+ vmovaps zmm1,zmm26
+ vpermt2ps zmm26,zmm0,zmm17
+ vpermt2ps zmm1,zmm16,zmm17
+-vmovups ZMMWORD PTR [rsp+0x280],zmm1
+-vmovups zmm1,ZMMWORD PTR [rsp+0xc0]
++vmovaps ZMMWORD PTR [rsp+0x340],zmm1
++vmovaps zmm1,ZMMWORD PTR [rsp+0x180]
+ vmovaps zmm17,zmm1
+-vmovups zmm2,ZMMWORD PTR [rsp+0x2c0]
++vmovaps zmm2,ZMMWORD PTR [rsp+0x380]
+ vpermt2ps zmm17,zmm0,zmm2
+ vpermt2ps zmm1,zmm16,zmm2
+-vmovups ZMMWORD PTR [rsp+0xc0],zmm1
++vmovaps ZMMWORD PTR [rsp+0x180],zmm1
+ vmovaps zmm2,zmm12
+-vmovups zmm1,ZMMWORD PTR [rsp+0x40]
++vmovaps zmm1,ZMMWORD PTR [rsp+0x100]
+ vpermt2ps zmm2,zmm0,zmm1
+ vpermt2ps zmm12,zmm16,zmm1
+-vmovups zmm1,ZMMWORD PTR [rsp]
++vmovaps zmm1,ZMMWORD PTR [rsp+0xc0]
+ vmovaps zmm4,zmm1
+-vmovups zmm5,ZMMWORD PTR [rsp+0x300]
++vmovaps zmm5,ZMMWORD PTR [rsp+0x3c0]
+ vpermt2ps zmm4,zmm0,zmm5
+ vpermt2ps zmm1,zmm16,zmm5
+-vmovups ZMMWORD PTR [rsp],zmm1
+-vmovups zmm1,ZMMWORD PTR [rsp-0x80]
++vmovaps ZMMWORD PTR [rsp+0xc0],zmm1
++vmovaps zmm1,ZMMWORD PTR [rsp]
+ vmovaps zmm6,zmm1
+ vpermt2ps zmm6,zmm0,zmm3
+ vpermt2ps zmm1,zmm16,zmm3
+-vmovups ZMMWORD PTR [rsp-0x80],zmm1
++vmovaps ZMMWORD PTR [rsp],zmm1
+ vxorps xmm1,xmm1,xmm1
+-vmovups zmm3,ZMMWORD PTR [rsp+0x480]
++vmovaps zmm3,ZMMWORD PTR [rsp+0x540]
+ vmovaps zmm22,zmm3
+ vpermt2ps zmm22,zmm0,zmm1
+ vpermt2ps zmm3,zmm16,zmm1
+ vmovaps zmm11,zmm3
+-vmovups zmm24,ZMMWORD PTR [rsp+0x80]
++vmovaps zmm24,ZMMWORD PTR [rsp+0x140]
+ vpermi2ps zmm0,zmm24,zmm1
+ vpermt2ps zmm24,zmm16,zmm1
+ vmovaps zmm16,ZMMWORD PTR [rip+RELOC]
+@@ -574,7 +581,7 @@
+
+ vpermt2ps zmm15,zmm16,zmm27
+ vpermt2ps zmm20,zmm5,zmm27
+ vunpcklpd zmm20,zmm22,zmm20
+-vmovups ZMMWORD PTR [rsp-0x40],zmm20
++vmovaps ZMMWORD PTR [rsp+0x40],zmm20
+ vmovaps zmm27,zmm18
+ vpermt2ps zmm27,zmm16,zmm11
+ vpermt2ps zmm18,zmm5,zmm11
+@@ -589,7 +596,7 @@
+
+ vunpckhpd zmm20,zmm19,zmm23
+ vunpcklpd zmm23,zmm1,zmm15
+ vunpckhpd zmm1,zmm1,zmm15
+-vmovups ZMMWORD PTR [rsp+0x80],zmm1
++vmovaps ZMMWORD PTR [rsp+0x140],zmm1
+ vunpcklpd zmm19,zmm8,zmm27
+ vunpckhpd zmm10,zmm8,zmm27
+ vmovaps zmm28,zmm7
+@@ -607,35 +614,35 @@
+
+ vmovaps zmm4,zmm13
+ vpermt2ps zmm4,zmm16,zmm12
+ vpermt2ps zmm13,zmm5,zmm12
+-vmovups zmm30,ZMMWORD PTR [rsp+0x240]
++vmovaps zmm30,ZMMWORD PTR [rsp+0x300]
+ vmovaps zmm12,zmm30
+-vmovups zmm1,ZMMWORD PTR [rsp]
++vmovaps zmm1,ZMMWORD PTR [rsp+0xc0]
+ vpermt2ps zmm12,zmm16,zmm1
+ vpermt2ps zmm30,zmm5,zmm1
+-vmovups zmm1,ZMMWORD PTR [rsp+0x280]
++vmovaps zmm1,ZMMWORD PTR [rsp+0x340]
+ vmovaps zmm0,zmm1
+-vmovups zmm8,ZMMWORD PTR [rsp-0x80]
++vmovaps zmm8,ZMMWORD PTR [rsp]
+ vpermt2ps zmm0,zmm16,zmm8
+ vpermt2ps zmm1,zmm5,zmm8
+ vmovaps zmm27,zmm1
+-vmovups zmm1,ZMMWORD PTR [rsp+0xc0]
++vmovaps zmm1,ZMMWORD PTR [rsp+0x180]
+ vpermi2ps zmm16,zmm1,zmm24
+ vpermt2ps zmm1,zmm5,zmm24
+ vmovaps zmm5,ZMMWORD PTR [rip+RELOC]
+ vmovaps zmm8,zmm18
+ vpermt2ps zmm8,zmm5,zmm3
+-vmovups ZMMWORD PTR [rsp+0x200],zmm8
++vmovaps ZMMWORD PTR [rsp+0x2c0],zmm8
+ vmovaps zmm15,ZMMWORD PTR [rip+RELOC]
+ vpermt2ps zmm18,zmm15,zmm3
+-vmovups ZMMWORD PTR [rsp+0x100],zmm18
++vmovaps ZMMWORD PTR [rsp+0x1c0],zmm18
+ vmovaps zmm8,zmm22
+ vpermt2ps zmm8,zmm5,zmm9
+ vpermt2ps zmm22,zmm15,zmm9
+-vmovups ZMMWORD PTR [rsp+0x180],zmm22
++vmovaps ZMMWORD PTR [rsp+0x240],zmm22
+ vmovaps zmm9,zmm31
+ vpermt2ps zmm9,zmm5,zmm14
+ vpermt2ps zmm31,zmm15,zmm14
+-vmovups ZMMWORD PTR [rsp-0x80],zmm31
++vmovaps ZMMWORD PTR [rsp],zmm31
+ vmovaps zmm24,zmm21
+ vpermt2ps zmm21,zmm5,zmm20
+ vpermt2ps zmm24,zmm15,zmm20
+@@ -643,16 +650,16 @@
+
+ vpermt2ps zmm22,zmm5,zmm19
+ vpermt2ps zmm23,zmm15,zmm19
+ vmovaps zmm31,zmm23
+-vmovups zmm3,ZMMWORD PTR [rsp+0x80]
++vmovaps zmm3,ZMMWORD PTR [rsp+0x140]
+ vmovaps zmm19,zmm3
+ vpermt2ps zmm19,zmm5,zmm10
+ vpermt2ps zmm3,zmm15,zmm10
+ vmovaps zmm23,zmm3
+-vmovups zmm3,ZMMWORD PTR [rsp-0x40]
++vmovaps zmm3,ZMMWORD PTR [rsp+0x40]
+ vmovaps zmm10,zmm3
+ vpermt2ps zmm10,zmm5,zmm11
+ vpermt2ps zmm3,zmm15,zmm11
+-vmovups ZMMWORD PTR [rsp-0x40],zmm3
++vmovaps ZMMWORD PTR [rsp+0x40],zmm3
+ vunpcklpd zmm27,zmm13,zmm27
+ vunpcklpd zmm20,zmm30,zmm1
+ vunpcklpd zmm13,zmm28,zmm25
+@@ -669,7 +676,7 @@
+
+ vunpckhpd zmm4,zmm12,zmm16
+ vmovaps zmm12,zmm13
+ vpermt2ps zmm12,zmm5,zmm11
+-vmovups ZMMWORD PTR [rsp+0x40],zmm12
++vmovaps ZMMWORD PTR [rsp+0x100],zmm12
+ vpermt2ps zmm13,zmm15,zmm11
+ vmovaps zmm16,zmm18
+ vpermt2ps zmm16,zmm5,zmm6
+@@ -694,51 +701,51 @@
+
+ vmulps zmm4,zmm8,zmm20
+ vfnmadd231ps zmm4,zmm16,zmm17
+ vmovaps zmm12,zmm4
+-vmovups ZMMWORD PTR [rsp+0x1c0],zmm4
++vmovaps ZMMWORD PTR [rsp+0x280],zmm4
+ vmulps zmm7,zmm16,zmm20
+ vmovups zmm4,ZMMWORD PTR [rdx+0x600]
+ vfmadd231ps zmm7,zmm17,zmm8
+-vmovups ZMMWORD PTR [rsp+0xc0],zmm7
++vmovaps ZMMWORD PTR [rsp+0x180],zmm7
+ vmovups zmm7,ZMMWORD PTR [rdx+0x640]
+ vmulps zmm8,zmm10,zmm4
+ vfnmadd231ps zmm8,zmm5,zmm7
+-vmovups ZMMWORD PTR [rsp+0x640],zmm8
++vmovaps ZMMWORD PTR [rsp+0x700],zmm8
+ vmulps zmm5,zmm5,zmm4
+ vmovups zmm4,ZMMWORD PTR [rdx+0x200]
+ vfmadd231ps zmm5,zmm7,zmm10
+ vmovaps zmm10,zmm5
+-vmovups ZMMWORD PTR [rsp+0x380],zmm5
++vmovaps ZMMWORD PTR [rsp+0x440],zmm5
+ vmovups zmm5,ZMMWORD PTR [rdx+0x240]
+ vmulps zmm7,zmm9,zmm4
+ vfnmadd231ps zmm7,zmm11,zmm5
+-vmovups ZMMWORD PTR [rsp],zmm7
++vmovaps ZMMWORD PTR [rsp+0xc0],zmm7
+ vmulps zmm7,zmm11,zmm4
+ vmovups zmm4,ZMMWORD PTR [rdx+0x500]
+ vfmadd231ps zmm7,zmm5,zmm9
+-vmovups ZMMWORD PTR [rsp+0x300],zmm7
++vmovaps ZMMWORD PTR [rsp+0x3c0],zmm7
+ vmovups zmm5,ZMMWORD PTR [rdx+0x540]
+ vmulps zmm7,zmm19,zmm4
+ vfnmadd231ps zmm7,zmm0,zmm5
+-vmovups ZMMWORD PTR [rsp+0x80],zmm7
++vmovaps ZMMWORD PTR [rsp+0x140],zmm7
+ vmulps zmm4,zmm0,zmm4
+ vmovups zmm0,ZMMWORD PTR [rdx+0x300]
+ vfmadd231ps zmm4,zmm5,zmm19
+-vmovups ZMMWORD PTR [rsp+0x2c0],zmm4
++vmovaps ZMMWORD PTR [rsp+0x380],zmm4
+ vmovups zmm4,ZMMWORD PTR [rdx+0x340]
+ vmulps zmm5,zmm21,zmm0
+ vfnmadd231ps zmm5,zmm14,zmm4
+-vmovups ZMMWORD PTR [rsp+0x280],zmm5
++vmovaps ZMMWORD PTR [rsp+0x340],zmm5
+ vmulps zmm5,zmm14,zmm0
+ vmovups zmm0,ZMMWORD PTR [rdx+0x400]
+ vfmadd231ps zmm5,zmm4,zmm21
+-vmovups ZMMWORD PTR [rsp+0x480],zmm5
++vmovaps ZMMWORD PTR [rsp+0x540],zmm5
+ vmovups zmm4,ZMMWORD PTR [rdx+0x440]
+ vmulps zmm26,zmm22,zmm0
+ vfnmadd231ps zmm26,zmm6,zmm4
+ vmulps zmm5,zmm6,zmm0
+ vmovups zmm0,ZMMWORD PTR [rdx+0x380]
+ vfmadd231ps zmm5,zmm4,zmm22
+-vmovups ZMMWORD PTR [rsp+0x240],zmm5
++vmovaps ZMMWORD PTR [rsp+0x300],zmm5
+ vmovups zmm6,ZMMWORD PTR [rdx+0x3c0]
+ vmulps zmm28,zmm24,zmm0
+ vfnmadd231ps zmm28,zmm3,zmm6
+@@ -748,67 +755,67 @@
+
+ vmovups zmm3,ZMMWORD PTR [rdx+0x4c0]
+ vmulps zmm4,zmm31,zmm0
+ vfnmadd231ps zmm4,zmm2,zmm3
+-vmovups ZMMWORD PTR [rsp+0x5c0],zmm4
++vmovaps ZMMWORD PTR [rsp+0x680],zmm4
+ vmulps zmm2,zmm2,zmm0
+ vmovups zmm0,ZMMWORD PTR [rdx+0x280]
+ vfmadd231ps zmm2,zmm3,zmm31
+ vmovaps zmm5,zmm2
+-vmovups ZMMWORD PTR [rsp+0x540],zmm2
++vmovaps ZMMWORD PTR [rsp+0x600],zmm2
+ vmovups zmm2,ZMMWORD PTR [rdx+0x2c0]
+-vmovups zmm6,ZMMWORD PTR [rsp-0x80]
++vmovaps zmm6,ZMMWORD PTR [rsp]
+ vmulps zmm3,zmm6,zmm0
+ vfnmadd231ps zmm3,zmm1,zmm2
+-vmovups ZMMWORD PTR [rsp+0x600],zmm3
++vmovaps ZMMWORD PTR [rsp+0x6c0],zmm3
+ vmulps zmm1,zmm1,zmm0
+ vmovups zmm0,ZMMWORD PTR [rdx+0x580]
+ vfmadd231ps zmm1,zmm2,zmm6
+ vmovaps zmm7,zmm1
+-vmovups ZMMWORD PTR [rsp+0x580],zmm1
++vmovaps ZMMWORD PTR [rsp+0x640],zmm1
+ vmovups zmm1,ZMMWORD PTR [rdx+0x5c0]
+ vmulps zmm2,zmm23,zmm0
+ vfnmadd231ps zmm2,zmm25,zmm1
+ vmovaps zmm6,zmm2
+-vmovups ZMMWORD PTR [rsp+0x340],zmm2
++vmovaps ZMMWORD PTR [rsp+0x400],zmm2
+ vmulps zmm17,zmm25,zmm0
+ vmovups zmm0,ZMMWORD PTR [rdx+0x180]
+ vfmadd231ps zmm17,zmm1,zmm23
+ vmovups zmm1,ZMMWORD PTR [rdx+0x1c0]
+-vmovups zmm9,ZMMWORD PTR [rsp+0x180]
++vmovaps zmm9,ZMMWORD PTR [rsp+0x240]
+ vmulps zmm2,zmm9,zmm0
+ vfnmadd231ps zmm2,zmm18,zmm1
+-vmovups ZMMWORD PTR [rsp-0x80],zmm2
++vmovaps ZMMWORD PTR [rsp],zmm2
+ vmulps zmm2,zmm18,zmm0
+ vmovups zmm0,ZMMWORD PTR [rdx+0x680]
+ vfmadd231ps zmm2,zmm1,zmm9
+-vmovups ZMMWORD PTR [rsp+0x440],zmm2
++vmovaps ZMMWORD PTR [rsp+0x500],zmm2
+ vmovups zmm1,ZMMWORD PTR [rdx+0x6c0]
+-vmovups zmm9,ZMMWORD PTR [rsp-0x40]
++vmovaps zmm9,ZMMWORD PTR [rsp+0x40]
+ vmulps zmm16,zmm9,zmm0
+ vfnmadd231ps zmm16,zmm27,zmm1
+-vmovups ZMMWORD PTR [rsp+0x4c0],zmm16
++vmovaps ZMMWORD PTR [rsp+0x580],zmm16
+ vmulps zmm0,zmm27,zmm0
+ vmovups zmm2,ZMMWORD PTR [rdx+0xc0]
+ vfmadd231ps zmm0,zmm1,zmm9
+-vmovups ZMMWORD PTR [rsp+0x180],zmm0
++vmovaps ZMMWORD PTR [rsp+0x240],zmm0
+ vaddps zmm0,zmm12,zmm8
+-vmovups zmm9,ZMMWORD PTR [rsp+0x100]
++vmovaps zmm9,ZMMWORD PTR [rsp+0x1c0]
+ vmulps zmm1,zmm9,zmm15
+ vfnmadd231ps zmm1,zmm13,zmm2
+ vmovaps zmm8,zmm1
+-vmovups ZMMWORD PTR [rsp+0x500],zmm1
++vmovaps ZMMWORD PTR [rsp+0x5c0],zmm1
+ vmulps zmm1,zmm13,zmm15
+ vfmadd231ps zmm1,zmm2,zmm9
+-vmovups ZMMWORD PTR [rsp+0x100],zmm1
++vmovaps ZMMWORD PTR [rsp+0x1c0],zmm1
+ vbroadcastss zmm14,DWORD PTR [rip+RELOC]
+ vmovaps zmm2,zmm14
+-vmovups zmm23,ZMMWORD PTR [rsp+0x200]
++vmovaps zmm23,ZMMWORD PTR [rsp+0x2c0]
+ vfmadd213ps zmm2,zmm0,zmm23
+ vbroadcastss zmm13,DWORD PTR [rip+RELOC]
+ vmovaps zmm1,zmm13
+ vfnmadd213ps zmm1,zmm0,zmm23
+-vmovups ZMMWORD PTR [rsp-0x40],zmm1
++vmovaps ZMMWORD PTR [rsp+0x40],zmm1
+ vaddps zmm1,zmm23,zmm0
+-vmovups ZMMWORD PTR [rsp+0x140],zmm1
++vmovaps ZMMWORD PTR [rsp+0x200],zmm1
+ vbroadcastss zmm15,DWORD PTR [rip+RELOC]
+ vfnmadd231ps zmm23,zmm15,zmm0
+ vaddps zmm0,zmm4,zmm3
+@@ -817,11 +824,11 @@
+
+ vmovaps zmm30,zmm13
+ vfnmadd213ps zmm30,zmm0,zmm28
+ vaddps zmm1,zmm28,zmm0
+-vmovups ZMMWORD PTR [rsp+0x200],zmm1
++vmovaps ZMMWORD PTR [rsp+0x2c0],zmm1
+ vfnmadd231ps zmm28,zmm15,zmm0
+-vaddps zmm1,zmm10,ZMMWORD PTR [rsp+0xc0]
++vaddps zmm1,zmm10,ZMMWORD PTR [rsp+0x180]
+ vmovaps zmm29,zmm14
+-vmovups zmm9,ZMMWORD PTR [rsp+0x40]
++vmovaps zmm9,ZMMWORD PTR [rsp+0x100]
+ vfmadd213ps zmm29,zmm1,zmm9
+ vmovaps zmm20,zmm13
+ vfnmadd213ps zmm20,zmm1,zmm9
+@@ -833,90 +840,90 @@
+
+ vmovaps zmm10,zmm13
+ vfnmadd213ps zmm10,zmm19,zmm21
+ vaddps zmm0,zmm21,zmm19
+-vmovups ZMMWORD PTR [rsp+0x40],zmm0
++vmovaps ZMMWORD PTR [rsp+0x100],zmm0
+ vfnmadd231ps zmm7,zmm19,zmm15
+-vmovups zmm0,ZMMWORD PTR [rsp+0x80]
+-vaddps zmm19,zmm0,ZMMWORD PTR [rsp]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x140]
++vaddps zmm19,zmm0,ZMMWORD PTR [rsp+0xc0]
+ vmovaps zmm0,zmm13
+ vfnmadd231ps zmm2,zmm19,zmm13
+-vmovups zmm24,ZMMWORD PTR [rsp+0x280]
++vmovaps zmm24,ZMMWORD PTR [rsp+0x340]
+ vaddps zmm27,zmm24,zmm26
+ vfnmadd231ps zmm2,zmm27,zmm15
+-vmovups ZMMWORD PTR [rsp+0x3c0],zmm2
+-vaddps zmm25,zmm6,ZMMWORD PTR [rsp-0x80]
++vmovaps ZMMWORD PTR [rsp+0x480],zmm2
++vaddps zmm25,zmm6,ZMMWORD PTR [rsp]
+ vfnmadd231ps zmm31,zmm25,zmm13
+ vaddps zmm5,zmm16,zmm8
+ vfnmadd231ps zmm31,zmm5,zmm15
+-vmovups zmm22,ZMMWORD PTR [rsp+0x300]
+-vmovups zmm21,ZMMWORD PTR [rsp+0x2c0]
++vmovaps zmm22,ZMMWORD PTR [rsp+0x3c0]
++vmovaps zmm21,ZMMWORD PTR [rsp+0x380]
+ vaddps zmm2,zmm22,zmm21
+ vfnmadd231ps zmm29,zmm2,zmm13
+-vmovups zmm13,ZMMWORD PTR [rsp+0x480]
+-vmovups zmm11,ZMMWORD PTR [rsp+0x240]
++vmovaps zmm13,ZMMWORD PTR [rsp+0x540]
++vmovaps zmm11,ZMMWORD PTR [rsp+0x300]
+ vaddps zmm4,zmm13,zmm11
+ vfnmadd231ps zmm29,zmm4,zmm15
+-vmovups zmm16,ZMMWORD PTR [rsp+0x440]
++vmovaps zmm16,ZMMWORD PTR [rsp+0x500]
+ vaddps zmm1,zmm17,zmm16
+ vfnmadd231ps zmm14,zmm1,zmm0
+-vmovups zmm8,ZMMWORD PTR [rsp+0x180]
+-vmovups zmm6,ZMMWORD PTR [rsp+0x100]
++vmovaps zmm8,ZMMWORD PTR [rsp+0x240]
++vmovaps zmm6,ZMMWORD PTR [rsp+0x1c0]
+ vaddps zmm3,zmm8,zmm6
+ vfnmadd231ps zmm14,zmm3,zmm15
+-vmovups zmm0,ZMMWORD PTR [rsp-0x40]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x40]
+ vfnmadd231ps zmm0,zmm19,zmm15
+ vfnmadd231ps zmm30,zmm25,zmm15
+ vfnmadd231ps zmm20,zmm2,zmm15
+ vfnmadd231ps zmm10,zmm1,zmm15
+-vaddps zmm12,zmm19,ZMMWORD PTR [rsp+0x140]
++vaddps zmm12,zmm19,ZMMWORD PTR [rsp+0x200]
+ vbroadcastss zmm15,DWORD PTR [rip+RELOC]
+ vfmadd231ps zmm23,zmm15,zmm19
+-vaddps zmm19,zmm25,ZMMWORD PTR [rsp+0x200]
++vaddps zmm19,zmm25,ZMMWORD PTR [rsp+0x2c0]
+ vfmadd231ps zmm28,zmm15,zmm25
+ vaddps zmm18,zmm2,zmm18
+ vfmadd231ps zmm9,zmm15,zmm2
+-vaddps zmm2,zmm1,ZMMWORD PTR [rsp+0x40]
++vaddps zmm2,zmm1,ZMMWORD PTR [rsp+0x100]
+ vfmadd231ps zmm7,zmm1,zmm15
+ vfmadd231ps zmm0,zmm27,zmm15
+-vmovups ZMMWORD PTR [rsp-0x40],zmm0
++vmovaps ZMMWORD PTR [rsp+0x40],zmm0
+ vfmadd231ps zmm30,zmm5,zmm15
+ vfmadd231ps zmm20,zmm4,zmm15
+ vfmadd231ps zmm10,zmm3,zmm15
+ vaddps zmm0,zmm12,zmm27
+-vmovups ZMMWORD PTR [rsp+0x40],zmm0
++vmovaps ZMMWORD PTR [rsp+0x100],zmm0
+ vbroadcastss zmm0,DWORD PTR [rip+RELOC]
+ vfnmadd231ps zmm23,zmm0,zmm27
+ vmovaps zmm25,zmm23
+ vaddps zmm1,zmm19,zmm5
+-vmovups ZMMWORD PTR [rsp+0x200],zmm1
++vmovaps ZMMWORD PTR [rsp+0x2c0],zmm1
+ vfnmadd231ps zmm28,zmm0,zmm5
+ vaddps zmm1,zmm4,zmm18
+-vmovups ZMMWORD PTR [rsp+0x140],zmm1
++vmovaps ZMMWORD PTR [rsp+0x200],zmm1
+ vfnmadd231ps zmm9,zmm0,zmm4
+ vfnmadd231ps zmm7,zmm3,zmm0
+ vaddps zmm0,zmm2,zmm3
+-vmovups ZMMWORD PTR [rsp+0x400],zmm0
++vmovaps ZMMWORD PTR [rsp+0x4c0],zmm0
+ vsubps zmm23,zmm13,zmm11
+-vmovups zmm0,ZMMWORD PTR [rsp+0xc0]
+-vsubps zmm1,zmm0,ZMMWORD PTR [rsp+0x380]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x180]
++vsubps zmm1,zmm0,ZMMWORD PTR [rsp+0x440]
+ vsubps zmm2,zmm22,zmm21
+ vsubps zmm8,zmm8,zmm6
+-vmovups zmm0,ZMMWORD PTR [rsp+0x540]
+-vsubps zmm5,zmm0,ZMMWORD PTR [rsp+0x580]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x600]
++vsubps zmm5,zmm0,ZMMWORD PTR [rsp+0x640]
+ vsubps zmm13,zmm17,zmm16
+ vsubps zmm15,zmm24,zmm26
+-vmovups zmm0,ZMMWORD PTR [rsp+0x1c0]
+-vsubps zmm16,zmm0,ZMMWORD PTR [rsp+0x640]
+-vmovups zmm0,ZMMWORD PTR [rsp]
+-vsubps zmm18,zmm0,ZMMWORD PTR [rsp+0x80]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x280]
++vsubps zmm16,zmm0,ZMMWORD PTR [rsp+0x700]
++vmovaps zmm0,ZMMWORD PTR [rsp+0xc0]
++vsubps zmm18,zmm0,ZMMWORD PTR [rsp+0x140]
+ vbroadcastss zmm19,DWORD PTR [rip+RELOC]
+-vmovups zmm0,ZMMWORD PTR [rsp+0x4c0]
+-vsubps zmm17,zmm0,ZMMWORD PTR [rsp+0x500]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x580]
++vsubps zmm17,zmm0,ZMMWORD PTR [rsp+0x5c0]
+ vbroadcastss zmm21,DWORD PTR [rip+RELOC]
+-vmovups zmm0,ZMMWORD PTR [rsp+0x5c0]
+-vsubps zmm22,zmm0,ZMMWORD PTR [rsp+0x600]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x680]
++vsubps zmm22,zmm0,ZMMWORD PTR [rsp+0x6c0]
+ vmulps zmm6,zmm2,zmm19
+-vmovups zmm0,ZMMWORD PTR [rsp+0x340]
+-vsubps zmm24,zmm0,ZMMWORD PTR [rsp-0x80]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x400]
++vsubps zmm24,zmm0,ZMMWORD PTR [rsp]
+ vbroadcastss zmm26,DWORD PTR [rip+RELOC]
+ vfmadd231ps zmm6,zmm1,zmm21
+ vmulps zmm3,zmm1,zmm19
+@@ -951,24 +958,24 @@
+
+ vfnmadd231ps zmm0,zmm17,zmm21
+ vfmadd231ps zmm1,zmm19,zmm23
+ vfmadd231ps zmm5,zmm19,zmm8
+-vmovups zmm12,ZMMWORD PTR [rsp+0x3c0]
++vmovaps zmm12,ZMMWORD PTR [rsp+0x480]
+ vaddps zmm23,zmm12,zmm6
+ vfmadd231ps zmm16,zmm19,zmm15
+ vaddps zmm15,zmm31,zmm4
+ vfmadd231ps zmm22,zmm17,zmm19
+ vsubps zmm26,zmm23,zmm15
+ vaddps zmm11,zmm25,zmm1
+-vmovups ZMMWORD PTR [rsp-0x80],zmm11
++vmovaps ZMMWORD PTR [rsp],zmm11
+ vsubps zmm1,zmm25,zmm1
+-vmovups ZMMWORD PTR [rsp+0xc0],zmm1
++vmovaps ZMMWORD PTR [rsp+0x180],zmm1
+ vaddps zmm21,zmm28,zmm5
+ vsubps zmm1,zmm28,zmm5
+-vmovups ZMMWORD PTR [rsp],zmm1
++vmovaps ZMMWORD PTR [rsp+0xc0],zmm1
+ vsubps zmm19,zmm9,zmm16
+ vaddps zmm24,zmm16,zmm9
+ vsubps zmm25,zmm7,zmm22
+ vaddps zmm17,zmm7,zmm22
+-vmovups zmm1,ZMMWORD PTR [rsp-0x40]
++vmovaps zmm1,ZMMWORD PTR [rsp+0x40]
+ vaddps zmm16,zmm1,zmm3
+ vsubps zmm22,zmm1,zmm3
+ vaddps zmm28,zmm30,zmm27
+@@ -987,17 +994,17 @@
+
+ vaddps zmm1,zmm14,zmm18
+ vaddps zmm18,zmm9,zmm11
+ vaddps zmm12,zmm23,zmm15
+-vmovups zmm14,ZMMWORD PTR [rsp-0x80]
++vmovaps zmm14,ZMMWORD PTR [rsp]
+ vsubps zmm5,zmm14,zmm21
+ vaddps zmm0,zmm3,zmm0
+-vmovups ZMMWORD PTR [rsp-0x40],zmm0
++vmovaps ZMMWORD PTR [rsp+0x40],zmm0
+ vsubps zmm13,zmm19,zmm25
+ vsubps zmm23,zmm16,zmm28
+-vmovups zmm10,ZMMWORD PTR [rsp+0xc0]
+-vmovups zmm16,ZMMWORD PTR [rsp]
++vmovaps zmm10,ZMMWORD PTR [rsp+0x180]
++vmovaps zmm16,ZMMWORD PTR [rsp+0xc0]
+ vaddps zmm31,zmm10,zmm16
+ vsubps zmm0,zmm9,zmm11
+-vmovups ZMMWORD PTR [rsp+0x100],zmm0
++vmovaps ZMMWORD PTR [rsp+0x1c0],zmm0
+ vaddps zmm11,zmm24,zmm17
+ vaddps zmm28,zmm14,zmm21
+ vsubps zmm3,zmm22,zmm30
+@@ -1008,12 +1015,12 @@
+
+ vsubps zmm17,zmm24,zmm17
+ vaddps zmm16,zmm2,zmm1
+ vaddps zmm22,zmm22,zmm30
+-vmovups zmm20,ZMMWORD PTR [rsp+0x40]
+-vmovups zmm0,ZMMWORD PTR [rsp+0x200]
++vmovaps zmm20,ZMMWORD PTR [rsp+0x100]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x2c0]
+ vsubps zmm10,zmm20,zmm0
+ vaddps zmm7,zmm8,zmm7
+-vmovups zmm8,ZMMWORD PTR [rsp+0x140]
+-vmovups zmm14,ZMMWORD PTR [rsp+0x400]
++vmovaps zmm8,ZMMWORD PTR [rsp+0x200]
++vmovaps zmm14,ZMMWORD PTR [rsp+0x4c0]
+ vsubps zmm30,zmm8,zmm14
+ vsubps zmm25,zmm6,zmm4
+ vsubps zmm24,zmm2,zmm1
+@@ -1022,194 +1029,194 @@
+
+ vmovaps zmm6,ZMMWORD PTR [rip+RELOC]
+ vmovaps zmm2,zmm14
+ vpermt2ps zmm2,zmm6,zmm1
+-vmovups ZMMWORD PTR [rsp-0x80],zmm2
++vmovaps ZMMWORD PTR [rsp],zmm2
+ vunpckhps zmm2,zmm14,zmm1
+-vmovups ZMMWORD PTR [rsp+0xc0],zmm2
++vmovaps ZMMWORD PTR [rsp+0x180],zmm2
+ vunpcklps zmm2,zmm14,zmm1
+-vmovups ZMMWORD PTR [rsp],zmm2
++vmovaps ZMMWORD PTR [rsp+0xc0],zmm2
+ vmovaps ymm20,YMMWORD PTR [rip+RELOC]
+ vpermt2ps zmm14,zmm20,zmm1
+ vmovaps zmm1,zmm27
+ vpermt2ps zmm1,zmm6,zmm26
+-vmovups ZMMWORD PTR [rsp+0x40],zmm1
++vmovaps ZMMWORD PTR [rsp+0x100],zmm1
+ vunpckhps zmm1,zmm27,zmm26
+-vmovups ZMMWORD PTR [rsp+0x80],zmm1
++vmovaps ZMMWORD PTR [rsp+0x140],zmm1
+ vunpcklps zmm1,zmm27,zmm26
+-vmovups ZMMWORD PTR [rsp+0x300],zmm1
++vmovaps ZMMWORD PTR [rsp+0x3c0],zmm1
+ vpermt2ps zmm27,zmm20,zmm26
+ vmovaps zmm2,zmm18
+ vpermt2ps zmm2,zmm6,zmm29
+ vunpckhps zmm1,zmm18,zmm29
+-vmovups ZMMWORD PTR [rsp+0x2c0],zmm1
++vmovaps ZMMWORD PTR [rsp+0x380],zmm1
+ vunpcklps zmm1,zmm18,zmm29
+-vmovups ZMMWORD PTR [rsp+0x480],zmm1
++vmovaps ZMMWORD PTR [rsp+0x540],zmm1
+ vpermt2ps zmm18,zmm20,zmm29
+ vmovaps zmm29,zmm13
+ vpermt2ps zmm29,zmm6,zmm5
+ vunpckhps zmm1,zmm13,zmm5
+-vmovups ZMMWORD PTR [rsp+0x280],zmm1
++vmovaps ZMMWORD PTR [rsp+0x340],zmm1
+ vunpcklps zmm1,zmm13,zmm5
+-vmovups ZMMWORD PTR [rsp+0x240],zmm1
++vmovaps ZMMWORD PTR [rsp+0x300],zmm1
+ vpermt2ps zmm13,zmm20,zmm5
+ vmovaps zmm26,zmm11
+ vpermt2ps zmm26,zmm6,zmm31
+ vunpckhps zmm1,zmm11,zmm31
+-vmovups ZMMWORD PTR [rsp+0x200],zmm1
++vmovaps ZMMWORD PTR [rsp+0x2c0],zmm1
+ vunpcklps zmm1,zmm11,zmm31
+-vmovups ZMMWORD PTR [rsp+0x640],zmm1
++vmovaps ZMMWORD PTR [rsp+0x700],zmm1
+ vpermt2ps zmm11,zmm20,zmm31
+ vmovaps zmm31,zmm15
+ vpermt2ps zmm31,zmm6,zmm3
+ vunpckhps zmm1,zmm15,zmm3
+-vmovups ZMMWORD PTR [rsp+0x1c0],zmm1
++vmovaps ZMMWORD PTR [rsp+0x280],zmm1
+ vunpcklps zmm1,zmm15,zmm3
+-vmovups ZMMWORD PTR [rsp+0x180],zmm1
++vmovaps ZMMWORD PTR [rsp+0x240],zmm1
+ vpermt2ps zmm15,zmm20,zmm3
+ vmovaps zmm4,zmm16
+ vpermt2ps zmm4,zmm6,zmm9
+ vunpckhps zmm0,zmm16,zmm9
+-vmovups ZMMWORD PTR [rsp+0x140],zmm0
++vmovaps ZMMWORD PTR [rsp+0x200],zmm0
+ vunpcklps zmm0,zmm16,zmm9
+-vmovups ZMMWORD PTR [rsp+0x440],zmm0
++vmovaps ZMMWORD PTR [rsp+0x500],zmm0
+ vpermt2ps zmm16,zmm20,zmm9
+ vmovaps zmm3,zmm30
+ vpermt2ps zmm3,zmm6,zmm10
+ vunpckhps zmm0,zmm30,zmm10
+-vmovups ZMMWORD PTR [rsp+0x400],zmm0
++vmovaps ZMMWORD PTR [rsp+0x4c0],zmm0
+ vunpcklps zmm0,zmm30,zmm10
+-vmovups ZMMWORD PTR [rsp+0x600],zmm0
++vmovaps ZMMWORD PTR [rsp+0x6c0],zmm0
+ vpermt2ps zmm30,zmm20,zmm10
+-vmovups zmm0,ZMMWORD PTR [rsp-0x40]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x40]
+ vmovaps zmm5,zmm0
+ vpermt2ps zmm5,zmm6,zmm12
+ vunpckhps zmm1,zmm0,zmm12
+-vmovups ZMMWORD PTR [rsp+0x5c0],zmm1
++vmovaps ZMMWORD PTR [rsp+0x680],zmm1
+ vunpcklps zmm1,zmm0,zmm12
+-vmovups ZMMWORD PTR [rsp+0x3c0],zmm1
++vmovaps ZMMWORD PTR [rsp+0x480],zmm1
+ vpermt2ps zmm0,zmm20,zmm12
+-vmovups ZMMWORD PTR [rsp-0x40],zmm0
+-vmovups zmm1,ZMMWORD PTR [rsp+0x100]
++vmovaps ZMMWORD PTR [rsp+0x40],zmm0
++vmovaps zmm1,ZMMWORD PTR [rsp+0x1c0]
+ vmovaps zmm0,zmm1
+ vpermt2ps zmm0,zmm6,zmm23
+ vunpckhps zmm8,zmm1,zmm23
+-vmovups ZMMWORD PTR [rsp+0x380],zmm8
++vmovaps ZMMWORD PTR [rsp+0x440],zmm8
+ vunpcklps zmm8,zmm1,zmm23
+-vmovups ZMMWORD PTR [rsp+0x580],zmm8
++vmovaps ZMMWORD PTR [rsp+0x640],zmm8
+ vpermt2ps zmm1,zmm20,zmm23
+ vmovaps zmm10,zmm1
+ vmovaps zmm1,zmm21
+ vpermt2ps zmm1,zmm6,zmm28
+ vunpckhps zmm8,zmm21,zmm28
+-vmovups ZMMWORD PTR [rsp+0x100],zmm8
++vmovaps ZMMWORD PTR [rsp+0x1c0],zmm8
+ vunpcklps zmm8,zmm21,zmm28
+-vmovups ZMMWORD PTR [rsp+0x540],zmm8
++vmovaps ZMMWORD PTR [rsp+0x600],zmm8
+ vpermt2ps zmm21,zmm20,zmm28
+ vmovaps zmm28,zmm17
+ vpermt2ps zmm28,zmm6,zmm19
+ vunpckhps zmm8,zmm17,zmm19
+-vmovups ZMMWORD PTR [rsp+0x340],zmm8
++vmovaps ZMMWORD PTR [rsp+0x400],zmm8
+ vunpcklps zmm8,zmm17,zmm19
+-vmovups ZMMWORD PTR [rsp+0x500],zmm8
++vmovaps ZMMWORD PTR [rsp+0x5c0],zmm8
+ vpermt2ps zmm17,zmm20,zmm19
+ vmovaps zmm23,zmm7
+ vpermt2ps zmm23,zmm6,zmm22
+ vunpckhps zmm19,zmm7,zmm22
+ vunpcklps zmm8,zmm7,zmm22
+-vmovups ZMMWORD PTR [rsp+0x4c0],zmm8
++vmovaps ZMMWORD PTR [rsp+0x580],zmm8
+ vpermt2ps zmm7,zmm20,zmm22
+ vpermi2ps zmm6,zmm24,zmm25
+ vunpckhps zmm12,zmm24,zmm25
+ vunpcklps zmm8,zmm24,zmm25
+ vpermt2ps zmm24,zmm20,zmm25
+-vmovups zmm9,ZMMWORD PTR [rsp-0x80]
++vmovaps zmm9,ZMMWORD PTR [rsp]
+ vmovups ZMMWORD PTR [rsi],zmm9
+-vmovups zmm9,ZMMWORD PTR [rsp]
++vmovaps zmm9,ZMMWORD PTR [rsp+0xc0]
+ vextractf32x4 XMMWORD PTR [rsi+0x60],zmm9,0x3
+-vmovups zmm9,ZMMWORD PTR [rsp+0xc0]
++vmovaps zmm9,ZMMWORD PTR [rsp+0x180]
+ vextractf32x4 xmm9,zmm9,0x3
+ vmovlps QWORD PTR [rsi+0x70],xmm9
+ vmovups YMMWORD PTR [rsi+0x40],ymm14
+-vmovups zmm9,ZMMWORD PTR [rsp+0x40]
++vmovaps zmm9,ZMMWORD PTR [rsp+0x100]
+ vmovups ZMMWORD PTR [rsi+0x78],zmm9
+-vmovups zmm9,ZMMWORD PTR [rsp+0x300]
++vmovaps zmm9,ZMMWORD PTR [rsp+0x3c0]
+ vextractf32x4 XMMWORD PTR [rsi+0xd8],zmm9,0x3
+-vmovups zmm9,ZMMWORD PTR [rsp+0x80]
++vmovaps zmm9,ZMMWORD PTR [rsp+0x140]
+ vextractf32x4 xmm9,zmm9,0x3
+ vmovlps QWORD PTR [rsi+0xe8],xmm9
+ vmovups YMMWORD PTR [rsi+0xb8],ymm27
+ vmovups ZMMWORD PTR [rsi+0xf0],zmm2
+-vmovups zmm2,ZMMWORD PTR [rsp+0x480]
++vmovaps zmm2,ZMMWORD PTR [rsp+0x540]
+ vextractf32x4 XMMWORD PTR [rsi+0x150],zmm2,0x3
+-vmovups zmm2,ZMMWORD PTR [rsp+0x2c0]
++vmovaps zmm2,ZMMWORD PTR [rsp+0x380]
+ vextractf32x4 xmm2,zmm2,0x3
+ vmovlps QWORD PTR [rsi+0x160],xmm2
+ vmovups YMMWORD PTR [rsi+0x130],ymm18
+ vmovups ZMMWORD PTR [rsi+0x168],zmm29
+-vmovups zmm2,ZMMWORD PTR [rsp+0x240]
++vmovaps zmm2,ZMMWORD PTR [rsp+0x300]
+ vextractf32x4 XMMWORD PTR [rsi+0x1c8],zmm2,0x3
+-vmovups zmm2,ZMMWORD PTR [rsp+0x280]
++vmovaps zmm2,ZMMWORD PTR [rsp+0x340]
+ vextractf32x4 xmm2,zmm2,0x3
+ vmovlps QWORD PTR [rsi+0x1d8],xmm2
+ vmovups YMMWORD PTR [rsi+0x1a8],ymm13
+ vmovups ZMMWORD PTR [rsi+0x1e0],zmm26
+-vmovups zmm2,ZMMWORD PTR [rsp+0x640]
++vmovaps zmm2,ZMMWORD PTR [rsp+0x700]
+ vextractf32x4 XMMWORD PTR [rsi+0x240],zmm2,0x3
+-vmovups zmm2,ZMMWORD PTR [rsp+0x200]
++vmovaps zmm2,ZMMWORD PTR [rsp+0x2c0]
+ vextractf32x4 xmm2,zmm2,0x3
+ vmovlps QWORD PTR [rsi+0x250],xmm2
+ vmovups YMMWORD PTR [rsi+0x220],ymm11
+ vmovups ZMMWORD PTR [rsi+0x258],zmm31
+-vmovups zmm2,ZMMWORD PTR [rsp+0x180]
++vmovaps zmm2,ZMMWORD PTR [rsp+0x240]
+ vextractf32x4 XMMWORD PTR [rsi+0x2b8],zmm2,0x3
+-vmovups zmm2,ZMMWORD PTR [rsp+0x1c0]
++vmovaps zmm2,ZMMWORD PTR [rsp+0x280]
+ vextractf32x4 xmm2,zmm2,0x3
+ vmovlps QWORD PTR [rsi+0x2c8],xmm2
+ vmovups YMMWORD PTR [rsi+0x298],ymm15
+ vmovups ZMMWORD PTR [rsi+0x2d0],zmm4
+-vmovups zmm2,ZMMWORD PTR [rsp+0x440]
++vmovaps zmm2,ZMMWORD PTR [rsp+0x500]
+ vextractf32x4 XMMWORD PTR [rsi+0x330],zmm2,0x3
+-vmovups zmm2,ZMMWORD PTR [rsp+0x140]
++vmovaps zmm2,ZMMWORD PTR [rsp+0x200]
+ vextractf32x4 xmm2,zmm2,0x3
+ vmovlps QWORD PTR [rsi+0x340],xmm2
+ vmovups YMMWORD PTR [rsi+0x310],ymm16
+ vmovups ZMMWORD PTR [rsi+0x348],zmm3
+-vmovups zmm2,ZMMWORD PTR [rsp+0x600]
++vmovaps zmm2,ZMMWORD PTR [rsp+0x6c0]
+ vextractf32x4 XMMWORD PTR [rsi+0x3a8],zmm2,0x3
+-vmovups zmm2,ZMMWORD PTR [rsp+0x400]
++vmovaps zmm2,ZMMWORD PTR [rsp+0x4c0]
+ vextractf32x4 xmm2,zmm2,0x3
+ vmovlps QWORD PTR [rsi+0x3b8],xmm2
+ vmovups YMMWORD PTR [rsi+0x388],ymm30
+ vmovups ZMMWORD PTR [rsi+0x3c0],zmm5
+-vmovups zmm2,ZMMWORD PTR [rsp+0x3c0]
++vmovaps zmm2,ZMMWORD PTR [rsp+0x480]
+ vextractf32x4 XMMWORD PTR [rsi+0x420],zmm2,0x3
+-vmovups zmm2,ZMMWORD PTR [rsp+0x5c0]
++vmovaps zmm2,ZMMWORD PTR [rsp+0x680]
+ vextractf32x4 xmm2,zmm2,0x3
+ vmovlps QWORD PTR [rsi+0x430],xmm2
+-vmovups zmm2,ZMMWORD PTR [rsp-0x40]
++vmovaps zmm2,ZMMWORD PTR [rsp+0x40]
+ vmovups YMMWORD PTR [rsi+0x400],ymm2
+ vmovups ZMMWORD PTR [rsi+0x438],zmm0
+-vmovups zmm0,ZMMWORD PTR [rsp+0x580]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x640]
+ vextractf32x4 XMMWORD PTR [rsi+0x498],zmm0,0x3
+-vmovups zmm0,ZMMWORD PTR [rsp+0x380]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x440]
+ vextractf32x4 xmm0,zmm0,0x3
+ vmovlps QWORD PTR [rsi+0x4a8],xmm0
+ vmovups YMMWORD PTR [rsi+0x478],ymm10
+ vmovups ZMMWORD PTR [rsi+0x4b0],zmm1
+-vmovups zmm0,ZMMWORD PTR [rsp+0x540]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x600]
+ vextractf32x4 XMMWORD PTR [rsi+0x510],zmm0,0x3
+-vmovups zmm0,ZMMWORD PTR [rsp+0x100]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x1c0]
+ vextractf32x4 xmm0,zmm0,0x3
+ vmovlps QWORD PTR [rsi+0x520],xmm0
+ vmovups YMMWORD PTR [rsi+0x4f0],ymm21
+ vmovups ZMMWORD PTR [rsi+0x528],zmm28
+-vmovups zmm0,ZMMWORD PTR [rsp+0x500]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x5c0]
+ vextractf32x4 XMMWORD PTR [rsi+0x588],zmm0,0x3
+-vmovups zmm0,ZMMWORD PTR [rsp+0x340]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x400]
+ vextractf32x4 xmm0,zmm0,0x3
+ vmovlps QWORD PTR [rsi+0x598],xmm0
+ vmovups YMMWORD PTR [rsi+0x568],ymm17
+ vmovups ZMMWORD PTR [rsi+0x5a0],zmm23
+-vmovups zmm0,ZMMWORD PTR [rsp+0x4c0]
++vmovaps zmm0,ZMMWORD PTR [rsp+0x580]
+ vextractf32x4 XMMWORD PTR [rsi+0x600],zmm0,0x3
+ vextractf32x4 xmm0,zmm19,0x3
+ vmovlps QWORD PTR [rsi+0x610],xmm0
+@@ -1219,6 +1226,7 @@
+
+ vextractf32x4 xmm0,zmm12,0x3
+ vmovlps QWORD PTR [rsi+0x688],xmm0
+ vmovups YMMWORD PTR [rsi+0x658],ymm24
+-add    rsp,0x6c8
++mov    rsp,rbp
++pop    rbp
+ vzeroupper
+ ret

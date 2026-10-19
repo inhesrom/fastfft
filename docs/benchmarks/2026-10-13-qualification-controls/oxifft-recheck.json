@@ -1,0 +1,1569 @@
+{
+  "schema": 1,
+  "kind": "affected-comparator-correctness-recheck",
+  "timing_gate_evidence": false,
+  "strict_g7_complete": false,
+  "source_revision": "4332e484e993cdc5c7637a1ed9b088ae00f5d0f5",
+  "compiler": "rustc 1.95.0 (59807616e 2026-04-14)\nbinary: rustc\ncommit-hash: 59807616e1fa2540724bfbac14d7976d7e4a3860\ncommit-date: 2026-04-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.95.0\nLLVM version: 22.1.2\n",
+  "executable_sha256": "8e731b272890ab6b2f40144bed8ab63c94c2a6fe7d547576739e4d0ea6e1469e",
+  "patch": "vendor/oxifft/FASTFFT-PATCH.md",
+  "distinct_required_cases": 46,
+  "passed": 46,
+  "coverage": {
+    "historical_missing_pow2": 40,
+    "f64_boundary": 4,
+    "datacheck_actual_zero_random": 2
+  },
+  "verification_methods": {
+    "rustfft-f64+roundtrip": 24,
+    "dd": 22
+  },
+  "rows": [
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f32",
+        "direction": "forward",
+        "placement": "inplace",
+        "n": 8388608,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 1.5920344908054171,
+        "max_eps": 1.8679313142278644,
+        "roundtrip_eps": 2.2679333122738172,
+        "passed": true
+      },
+      "describe": "Stockham",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/00.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f32",
+        "direction": "forward",
+        "placement": "outofplace",
+        "n": 8388608,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 1.5920344908054171,
+        "max_eps": 1.8679313142278644,
+        "roundtrip_eps": 2.2679333122738172,
+        "passed": true
+      },
+      "describe": "Stockham",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/01.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f32",
+        "direction": "inverse",
+        "placement": "inplace",
+        "n": 8388608,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 1.5920431347208597,
+        "max_eps": 2.0962098008373107,
+        "roundtrip_eps": 2.267653847879729,
+        "passed": true
+      },
+      "describe": "Stockham",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/02.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f32",
+        "direction": "inverse",
+        "placement": "outofplace",
+        "n": 8388608,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 1.5920431347208597,
+        "max_eps": 2.0962098008373107,
+        "roundtrip_eps": 2.267653847879729,
+        "passed": true
+      },
+      "describe": "Stockham",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/03.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f32",
+        "direction": "forward",
+        "placement": "inplace",
+        "n": 16777216,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 1.6277506969226543,
+        "max_eps": 1.7667033376117622,
+        "roundtrip_eps": 2.3179047969856903,
+        "passed": true
+      },
+      "describe": "Stockham",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/04.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f32",
+        "direction": "forward",
+        "placement": "outofplace",
+        "n": 16777216,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 1.6277506969226543,
+        "max_eps": 1.7667033376117622,
+        "roundtrip_eps": 2.3179047969856903,
+        "passed": true
+      },
+      "describe": "Stockham",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/05.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f32",
+        "direction": "inverse",
+        "placement": "inplace",
+        "n": 16777216,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 1.6277445580181025,
+        "max_eps": 1.7667033387603608,
+        "roundtrip_eps": 2.318451656294022,
+        "passed": true
+      },
+      "describe": "Stockham",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/06.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f32",
+        "direction": "inverse",
+        "placement": "outofplace",
+        "n": 16777216,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 1.6277445580181025,
+        "max_eps": 1.7667033387603608,
+        "roundtrip_eps": 2.318451656294022,
+        "passed": true
+      },
+      "describe": "Stockham",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/07.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "inplace",
+        "n": 65536,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 2.678331059476046,
+        "max_eps": 3.9516122856436446,
+        "passed": true
+      },
+      "describe": "Stockham",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/08.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "outofplace",
+        "n": 65536,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 2.678331059476046,
+        "max_eps": 3.9516122856436446,
+        "passed": true
+      },
+      "describe": "Stockham",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/09.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "inplace",
+        "n": 65536,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 2.671221647770646,
+        "max_eps": 3.505294015889471,
+        "passed": true
+      },
+      "describe": "Stockham",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/10.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "outofplace",
+        "n": 65536,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 2.671221647770646,
+        "max_eps": 3.505294015889471,
+        "passed": true
+      },
+      "describe": "Stockham",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/11.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "inplace",
+        "n": 131072,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 2.8619548517796223,
+        "max_eps": 4.013300624615245,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dit)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/12.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "outofplace",
+        "n": 131072,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 2.8619548517796223,
+        "max_eps": 4.013300624615245,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dit)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/13.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "inplace",
+        "n": 131072,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 2.8644122087805433,
+        "max_eps": 3.3976038968736106,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dit)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/14.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "outofplace",
+        "n": 131072,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 2.8644122087805433,
+        "max_eps": 3.3976038968736106,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dit)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/15.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "inplace",
+        "n": 262144,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 3.0070857426681106,
+        "max_eps": 4.005517322058899,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dit)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/16.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "outofplace",
+        "n": 262144,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 3.0070857426681106,
+        "max_eps": 4.005517322058899,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dit)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/17.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "inplace",
+        "n": 262144,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 3.0111943042467866,
+        "max_eps": 4.419248923176353,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dit)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/18.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "outofplace",
+        "n": 262144,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 3.0111943042467866,
+        "max_eps": 4.419248923176353,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dit)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/19.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "inplace",
+        "n": 524288,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 3.15571258605435,
+        "max_eps": 4.7441711241668,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dit)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/20.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "outofplace",
+        "n": 524288,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 3.15571258605435,
+        "max_eps": 4.7441711241668,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dit)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/21.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "inplace",
+        "n": 524288,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 3.154611507838109,
+        "max_eps": 4.4372646639116535,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dit)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/22.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "outofplace",
+        "n": 524288,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 3.154611507838109,
+        "max_eps": 4.4372646639116535,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dit)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/23.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "inplace",
+        "n": 1048576,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 7.330925515530994,
+        "max_eps": 15.510877765129067,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/24.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "outofplace",
+        "n": 1048576,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 7.330925515530994,
+        "max_eps": 15.510877765129067,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/25.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "inplace",
+        "n": 1048576,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 7.3227352321464965,
+        "max_eps": 15.29808400737629,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/26.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "outofplace",
+        "n": 1048576,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 7.3227352321464965,
+        "max_eps": 15.29808400737629,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/27.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "inplace",
+        "n": 2097152,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 6.986183175691401,
+        "max_eps": 15.32188157131941,
+        "roundtrip_eps": 10.346782239354544,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/30.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "outofplace",
+        "n": 2097152,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 6.986183175691401,
+        "max_eps": 15.32188157131941,
+        "roundtrip_eps": 10.346782239354544,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/31.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "inplace",
+        "n": 2097152,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 6.987456290942486,
+        "max_eps": 15.073949659591712,
+        "roundtrip_eps": 10.342883009286789,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/32.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "outofplace",
+        "n": 2097152,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 6.987456290942486,
+        "max_eps": 15.073949659591712,
+        "roundtrip_eps": 10.342883009286789,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/33.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "inplace",
+        "n": 4194304,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 8.302589294977428,
+        "max_eps": 18.421904340548597,
+        "roundtrip_eps": 12.652338165074882,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/34.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "outofplace",
+        "n": 4194304,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 8.302589294977428,
+        "max_eps": 18.421904340548597,
+        "roundtrip_eps": 12.652338165074882,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/35.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "inplace",
+        "n": 4194304,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 8.294680964235841,
+        "max_eps": 17.085966151567234,
+        "roundtrip_eps": 12.650178057713928,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/36.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "outofplace",
+        "n": 4194304,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 8.294680964235841,
+        "max_eps": 17.085966151567234,
+        "roundtrip_eps": 12.650178057713928,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/37.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "inplace",
+        "n": 8388608,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 8.152977989821073,
+        "max_eps": 19.2151831177025,
+        "roundtrip_eps": 12.260860535320612,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/38.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "outofplace",
+        "n": 8388608,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 8.152977989821073,
+        "max_eps": 19.2151831177025,
+        "roundtrip_eps": 12.260860535320612,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/39.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "inplace",
+        "n": 8388608,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 8.15010903435766,
+        "max_eps": 18.843959803858496,
+        "roundtrip_eps": 12.266212791503136,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/40.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "outofplace",
+        "n": 8388608,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 8.15010903435766,
+        "max_eps": 18.843959803858496,
+        "roundtrip_eps": 12.266212791503136,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/41.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "inplace",
+        "n": 16777216,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 8.384728517208845,
+        "max_eps": 17.80382095832363,
+        "roundtrip_eps": 11.32028439254302,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/42.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "outofplace",
+        "n": 16777216,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 8.384728517208845,
+        "max_eps": 17.80382095832363,
+        "roundtrip_eps": 11.32028439254302,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/43.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "inplace",
+        "n": 16777216,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 8.385622428074154,
+        "max_eps": 17.17590055020588,
+        "roundtrip_eps": 11.318725825793479,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/44.json"
+    },
+    {
+      "spec": {
+        "suite": "pow2",
+        "precision": "f64",
+        "direction": "inverse",
+        "placement": "outofplace",
+        "n": 16777216,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "rustfft-f64+roundtrip",
+        "rel_l2_eps": 8.385622428074154,
+        "max_eps": 17.17590055020588,
+        "roundtrip_eps": 11.318725825793479,
+        "passed": true
+      },
+      "describe": "CooleyTukey(Dif)",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/45.json"
+    },
+    {
+      "spec": {
+        "suite": "datacheck",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "immutable",
+        "n": 1048576,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 7.330925515530994,
+        "max_eps": 15.510877765129067,
+        "passed": true
+      },
+      "raw": "target/qualification/oxifft/data-pair-corrected/zero.json"
+    },
+    {
+      "spec": {
+        "suite": "datacheck",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "immutable",
+        "n": 1048576,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "random",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "status": "ok",
+      "verify": {
+        "method": "dd",
+        "rel_l2_eps": 7.330925515530994,
+        "max_eps": 15.510877765129067,
+        "passed": true
+      },
+      "raw": "target/qualification/oxifft/data-pair-corrected/random.json"
+    }
+  ],
+  "invalid_input_attempts": [
+    {
+      "request": {
+        "suite": "datacheck",
+        "direction": "forward",
+        "placement": "immutable",
+        "n": 1048576,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false,
+        "precision": "f64",
+        "timing_data": "zero"
+      },
+      "actual": {
+        "suite": "datacheck",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "immutable",
+        "n": 1048576,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "reason": "Mistyped timing_data ignored by old decoder; both cells used zero. Not evidence of a zero/random pair.",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/28.json"
+    },
+    {
+      "request": {
+        "suite": "datacheck",
+        "direction": "forward",
+        "placement": "immutable",
+        "n": 1048576,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false,
+        "precision": "f64",
+        "timing_data": "random"
+      },
+      "actual": {
+        "suite": "datacheck",
+        "precision": "f64",
+        "direction": "forward",
+        "placement": "immutable",
+        "n": 1048576,
+        "batch": 1,
+        "misalign": 0,
+        "scenario": null,
+        "libs": [
+          "oxifft"
+        ],
+        "profile": "sweep",
+        "data": "zero",
+        "verify": true,
+        "seed": 1592590336,
+        "control": false
+      },
+      "reason": "Mistyped timing_data ignored by old decoder; both cells used zero. Not evidence of a zero/random pair.",
+      "raw": "target/qualification/oxifft/adapter-recheck-final/29.json"
+    }
+  ],
+  "limitations": [
+    "Concurrent correctness/build activity: no timings admitted.",
+    "Large-transform verifier retains existing RustFFT/roundtrip proxies; strict G7 is incomplete.",
+    "Zero/random timing agreement is not established by a correctness recheck."
+  ],
+  "sha256": {
+    "target/qualification/oxifft/adapter-recheck-final/00.json": "841f90826d581828cfc38914cb40c7cb66dcf77f60befa0fcb109fb2ece8c80e",
+    "target/qualification/oxifft/adapter-recheck-final/00.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/01.json": "4e78327b6f98c5ced2cd8738596bd7118d7832070a7bf5fcc11d6513ddba94ef",
+    "target/qualification/oxifft/adapter-recheck-final/01.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/02.json": "e6d08b8a62c2bd8c8c94e15eaf421cf3e91266c4f95dfc1edd258844a1891310",
+    "target/qualification/oxifft/adapter-recheck-final/02.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/03.json": "e777fde4c182368442be8dbc948565c9b2ba587ade6ffb4ad614cb81dbe8d61b",
+    "target/qualification/oxifft/adapter-recheck-final/03.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/04.json": "e0598fa52f0b9da4ff1ff453878eeadb265710944a7f71bc357499b370ce96f8",
+    "target/qualification/oxifft/adapter-recheck-final/04.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/05.json": "d3871779115b447298f41e7398ba6903c762359431560ae44ae0ac56698875e8",
+    "target/qualification/oxifft/adapter-recheck-final/05.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/06.json": "07a5d25d4735b762cb4eb8edf00df726497ab5f8e1871d9c84db12c5507d9fb9",
+    "target/qualification/oxifft/adapter-recheck-final/06.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/07.json": "fd2d9118535f4007e4bbc19f1bb9b847718a01f3baef80ba57d84d063f25d478",
+    "target/qualification/oxifft/adapter-recheck-final/07.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/08.json": "a36dec1a54d6f42fbd6d94e61e361ab75f86b3bc95d8bca5a219ae77f913b1c4",
+    "target/qualification/oxifft/adapter-recheck-final/08.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/09.json": "243993a75a6e88f25000005788ba9ad40a80f4b879b0d36bf6015210c784ffd1",
+    "target/qualification/oxifft/adapter-recheck-final/09.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/10.json": "f51d90b40e66eba0384fc5aed38a31bf6d6e4dfe8de1dbb6640061e0bd8c46e9",
+    "target/qualification/oxifft/adapter-recheck-final/10.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/11.json": "3eab1273ad8394b424c91e1a64a3116bbe8652554dac442171edce5a80523f55",
+    "target/qualification/oxifft/adapter-recheck-final/11.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/12.json": "6b02c4c9942fc530b8910d46031e83ba36ad66bc2e6cdb81bf3cc0d7a0261fe3",
+    "target/qualification/oxifft/adapter-recheck-final/12.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/13.json": "cf0e7650d8e5159e4560f646367735d38c316d6d7b6280fbe0002ec8cbe2df0c",
+    "target/qualification/oxifft/adapter-recheck-final/13.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/14.json": "8d72c8bee00b30f014077bed13262d17675441d93805ee188d0d7c2975a942bb",
+    "target/qualification/oxifft/adapter-recheck-final/14.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/15.json": "a9f4d2514c035090ed7a2e17b18a398eec91174310267eaa66ff5c3d8a0a3467",
+    "target/qualification/oxifft/adapter-recheck-final/15.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/16.json": "2708acad254f00eefd76dbe003e2549afed3ce007ee4cfdec3ecaf37ddeb391e",
+    "target/qualification/oxifft/adapter-recheck-final/16.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/17.json": "d869045981360ab07dc0f165adc24b4ebb3385b616562f18896f6d4c71a943d9",
+    "target/qualification/oxifft/adapter-recheck-final/17.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/18.json": "bed7ce6037622feaec8b038c42269549750a4334247c3b46313b07092a6fe876",
+    "target/qualification/oxifft/adapter-recheck-final/18.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/19.json": "4ae325f1e4e199337d8901487b7c865c63293569281e5ac27278e2c05a47b671",
+    "target/qualification/oxifft/adapter-recheck-final/19.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/20.json": "36744601c3e7462f990cd92468d3ea6d84580c9ffc209d06493a56a46c2db1a0",
+    "target/qualification/oxifft/adapter-recheck-final/20.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/21.json": "a80fa6bf323c003825a6413bba34fa9a31dfc2b202c9b1ebe38d53f6f0687211",
+    "target/qualification/oxifft/adapter-recheck-final/21.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/22.json": "ad8d8c5872916ed7df8c08fadf84f5c9a1f702d327b3f4b8b3cea80b0d347b2c",
+    "target/qualification/oxifft/adapter-recheck-final/22.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/23.json": "8e880826a2fd5003ac5da978a95d5e14416835c774d2a999c9d7ab465a6fac3e",
+    "target/qualification/oxifft/adapter-recheck-final/23.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/24.json": "38beb8024b3badafa3e3437df095a550e867e558c47ef6cf9cedb9e8eb6b29dc",
+    "target/qualification/oxifft/adapter-recheck-final/24.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/25.json": "b12ae3bedc1d4f1d0606d7f38222852c881db6009447fa21a5eb9efec84b4228",
+    "target/qualification/oxifft/adapter-recheck-final/25.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/26.json": "08eb62c03ddd9b5efbc6dee3beb8f075b4bb78fd76faaeae7f408030b2aadeae",
+    "target/qualification/oxifft/adapter-recheck-final/26.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/27.json": "bac214d27f6abc8e39cc65abfc172ffe3592167388520e3b8c6a579be2a0b7d1",
+    "target/qualification/oxifft/adapter-recheck-final/27.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/28.json": "7b77b9e92f5edcf01662bb48dd2f4feb80a90791421a6784621db3f6289c28ac",
+    "target/qualification/oxifft/adapter-recheck-final/28.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/29.json": "5c4c881d6fbc628c9a616b90326e47efd864d06903fe4eda32c8e7cd92636926",
+    "target/qualification/oxifft/adapter-recheck-final/29.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/30.json": "d9f2864285b574ec6683253f318bac9520756e73910d16ef7c7e86ce4ab15c0c",
+    "target/qualification/oxifft/adapter-recheck-final/30.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/31.json": "301893bc10e6bdaecb277fe96f9f526c2f899305b15445e3df731cdc3c59b398",
+    "target/qualification/oxifft/adapter-recheck-final/31.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/32.json": "cbf927c7a006705cda02ce080a7122e491d7eebfb674ca102be9bbad2ac39379",
+    "target/qualification/oxifft/adapter-recheck-final/32.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/33.json": "891432d932be24e05d55ddf6ed212c207f81971b55d4994295ae46628b91e74e",
+    "target/qualification/oxifft/adapter-recheck-final/33.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/34.json": "616d9f475270d51920d7f9bc451894ee7622360e754bf6d95fe66a0d636b1703",
+    "target/qualification/oxifft/adapter-recheck-final/34.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/35.json": "b14714b06ab39e04b92457f477da8e2aa9f108464cec7f9c944065162b21ff84",
+    "target/qualification/oxifft/adapter-recheck-final/35.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/36.json": "66d115c90f73d22934fe37150982ac2484890f2391712222c4732b872a014fe6",
+    "target/qualification/oxifft/adapter-recheck-final/36.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/37.json": "1fdef58f5caa0de49492916edc966ef4e199cdb1995183910e351540ce31b59c",
+    "target/qualification/oxifft/adapter-recheck-final/37.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/38.json": "ff622344199edcb89bbd99bb19c323b098973484267c629599bde14b9f6e3461",
+    "target/qualification/oxifft/adapter-recheck-final/38.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/39.json": "a1bce4d4f27a6181b33ab13cc872f83d58dccaf28c0b677663e358711d450c64",
+    "target/qualification/oxifft/adapter-recheck-final/39.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/40.json": "7f98f5cec8bf47b6451d47baf03d0d10dd622501e1e77e44cca215c94cd7bac2",
+    "target/qualification/oxifft/adapter-recheck-final/40.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/41.json": "9325525915898a6165b9a4e84fc02f39f2b8682633f664fdc7fe837bc5bece45",
+    "target/qualification/oxifft/adapter-recheck-final/41.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/42.json": "2e4eeefe435c588d578a4902df02a40d43dbb5ac511bf968fbbd257d54cd1781",
+    "target/qualification/oxifft/adapter-recheck-final/42.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/43.json": "c7948e304ab3557c2a488389b56b41f693107d037965512dae48daf904952e4b",
+    "target/qualification/oxifft/adapter-recheck-final/43.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/44.json": "decb05694d751f501c8cd834c3cdd24c25905e236021e37473d5eab8a62f3bd7",
+    "target/qualification/oxifft/adapter-recheck-final/44.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/45.json": "92d794be808f76c1af74b6f7c193c2f52269e7d3862ec1816cd480f286f6059e",
+    "target/qualification/oxifft/adapter-recheck-final/45.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/adapter-recheck-final/manifest.json": "8200d0642f888d39a9c00ae6d58d0c4ebd60aa89584c66f3f993f423a8d95890",
+    "target/qualification/oxifft/adapter-recheck-final/summary.json": "d4bd881a0539872755d618a8143a34ba85e12c502b3a4f1e848060a3ea944bf7",
+    "target/qualification/oxifft/data-pair-corrected/random.json": "731dc9355f459d765ed80699560531daf81851a6832623cabc87501801421755",
+    "target/qualification/oxifft/data-pair-corrected/random.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/data-pair-corrected/summary.json": "577835d1675653705e0adb09a0329fa77c4a924a5ee75715b9bddf59b9a72b6f",
+    "target/qualification/oxifft/data-pair-corrected/zero.json": "9fc902862d53f8e27380d84f1e1968780f50266bbc1d2d67256a5283ff1c43af",
+    "target/qualification/oxifft/data-pair-corrected/zero.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target/qualification/oxifft/recheck-data-pair.py": "61c13843adeaf69be33b1ef0b57eab906cf21cdfdae119492f76bec572b5f168",
+    "target/qualification/oxifft/recheck-final.py": "34344288931ce6cad7b0b093d3d733cd898e66768e1b3fb41dddfdd154e933a6"
+  }
+}

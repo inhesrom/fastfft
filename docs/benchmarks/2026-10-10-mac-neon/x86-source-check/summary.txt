@@ -1,0 +1,29 @@
+X86 active-source equivalence check, 2026-10-10
+
+scalar: IDENTICAL
+sse2: IDENTICAL
+avx2: IDENTICAL
+avx512: IDENTICAL
+default: IDENTICAL
+tuning: IDENTICAL
+
+Target: x86_64-unknown-linux-gnu; Rust 1.95.0.
+Baseline: /tmp/fastfft-arm-baseline-source.tar.gz (SHA-256 in provenance.json).
+Both sources use identical existing num-complex/num-traits dependency metadata.
+Current default and tuning include the new neon feature; all NEON implementations
+are removed by target cfg before comparison. Current ARM scalar FMA and macOS
+cache detection changes are also included in this checked source snapshot.
+
+Normalization removes documentation and empty lines, and folds the added
+x86 TIERS constant (if false { 6 } else { 5 }) to 5. No function bodies,
+arithmetic, control flow, string literals, or target-feature attributes are
+removed or rewritten. Normalized expanded source is byte-identical in all six
+configurations. Exact compiler outputs are in expanded-sources.tar.xz.
+Source and dependency hashes plus every command are in provenance.json.
+
+This establishes identical active x86 Rust source, not emitted machine-code
+identity or native performance. Source positions and metadata can still affect
+code generation or layout. The native Ryzen before/after measurement gate remains.
+
+Reproduce while no performance measurements run:
+python3 compare-expanded.py --repo /path/to/fastfft --baseline /path/to/baseline.tar.gz --out /tmp/x86-check

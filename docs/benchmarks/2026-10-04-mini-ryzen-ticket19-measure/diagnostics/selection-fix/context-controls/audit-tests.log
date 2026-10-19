@@ -1,0 +1,13 @@
+PASS normal exit restores existing/new threads and exec-renamed affected child; preserves preexisting child
+PASS SIGTERM stops quiet monitor and restores service/new children
+PASS completed journal cannot widen subsequent intentional affinity
+PASS dry-run journal cannot mutate affinity on recovery
+PASS journal failure does not prevent remaining affinity restoration
+{"test_evidence": "/tmp/ticket19-affinity-73310xx_"}
+quiet-run: sustained quiet period and environment check passed; launching
+PASS cancellation during Popen assignment kills active child and its separate process group
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK

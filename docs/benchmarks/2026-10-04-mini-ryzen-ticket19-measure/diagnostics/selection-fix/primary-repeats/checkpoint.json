@@ -1,0 +1,237 @@
+[
+  {
+    "case": 0,
+    "comparison": {
+      "run": "target/ticket19/selection-fix/primary-repeats/case-00",
+      "cells": 1,
+      "problems": [],
+      "threshold": 1.02,
+      "suites": {
+        "smooth": {
+          "cells": 1,
+          "failures": 0,
+          "worst": 1.014870975750071,
+          "geomean": 1.014870975750071
+        }
+      },
+      "failures": [],
+      "comparisons": [
+        {
+          "key": "smooth:f32:inv:ip:n1000000",
+          "suite": "smooth",
+          "metric": "best",
+          "ratio": 1.014870975750071,
+          "best": 1.014870975750071,
+          "p1": 1.0009247414132314,
+          "median": 1.0055418072639304,
+          "estimate": "stockham avx512-ymm split L=8 radices=10x5x10x5x5x10 scratch=1000008 scratch_oop=0 scratch_immutable=1000008",
+          "measure": "stockham avx512-ymm split L=8 radices=10x5x10x5x5x10 scratch=1000008 scratch_oop=0 scratch_immutable=1000008",
+          "same_plan": true
+        }
+      ]
+    },
+    "meta": {
+      "aborted": null,
+      "cells": 1,
+      "child_failures": 0,
+      "drift_flag": false,
+      "elapsed_s": 48.186012189,
+      "max_drift": 0.006888725896701198,
+      "official": true
+    },
+    "restored": true,
+    "restore_errors": [
+      []
+    ],
+    "running_quiet_count": 10,
+    "running_dirty_count": 0
+  },
+  {
+    "case": 1,
+    "comparison": {
+      "run": "target/ticket19/selection-fix/primary-repeats/case-01",
+      "cells": 1,
+      "problems": [],
+      "threshold": 1.02,
+      "suites": {
+        "batch": {
+          "cells": 1,
+          "failures": 0,
+          "worst": 0.9983266927431307,
+          "geomean": 0.9983266927431307
+        }
+      },
+      "failures": [],
+      "comparisons": [
+        {
+          "key": "batch:f64:fwd:oop:n32:b32768",
+          "suite": "batch",
+          "metric": "best",
+          "ratio": 0.9983266927431307,
+          "best": 0.9983266927431307,
+          "p1": 1.0368148215670656,
+          "median": 1.0102244471484498,
+          "estimate": "small avx512-ymm n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512 lanes=4 batch_radices=8x4",
+          "measure": "small avx512-ymm n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512 lanes=4 batch_radices=8x4",
+          "same_plan": true
+        }
+      ]
+    },
+    "meta": {
+      "aborted": null,
+      "cells": 1,
+      "child_failures": 0,
+      "drift_flag": false,
+      "elapsed_s": 31.153362673,
+      "max_drift": 0.005734520280034183,
+      "official": true
+    },
+    "restored": true,
+    "restore_errors": [
+      []
+    ],
+    "running_quiet_count": 7,
+    "running_dirty_count": 0
+  },
+  {
+    "case": 2,
+    "comparison": {
+      "run": "target/ticket19/selection-fix/primary-repeats/case-02",
+      "cells": 1,
+      "problems": [],
+      "threshold": 1.02,
+      "suites": {
+        "smooth": {
+          "cells": 1,
+          "failures": 0,
+          "worst": 0.9772778818819788,
+          "geomean": 0.9772778818819788
+        }
+      },
+      "failures": [],
+      "comparisons": [
+        {
+          "key": "smooth:f64:inv:oop:n165375",
+          "suite": "smooth",
+          "metric": "best",
+          "ratio": 0.9772778818819788,
+          "best": 0.9772778818819788,
+          "p1": 0.9798055233465881,
+          "median": 0.9761113469778413,
+          "estimate": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+          "measure": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+          "same_plan": true
+        }
+      ]
+    },
+    "meta": {
+      "aborted": null,
+      "cells": 1,
+      "child_failures": 0,
+      "drift_flag": false,
+      "elapsed_s": 33.077376407,
+      "max_drift": 0.006787702657680361,
+      "official": true
+    },
+    "restored": true,
+    "restore_errors": [
+      []
+    ],
+    "running_quiet_count": 7,
+    "running_dirty_count": 0
+  },
+  {
+    "case": 3,
+    "comparison": {
+      "run": "target/ticket19/selection-fix/primary-repeats/case-03",
+      "cells": 1,
+      "problems": [],
+      "threshold": 1.02,
+      "suites": {
+        "pow2": {
+          "cells": 1,
+          "failures": 0,
+          "worst": 1.018923689503715,
+          "geomean": 1.018923689503715
+        }
+      },
+      "failures": [],
+      "comparisons": [
+        {
+          "key": "pow2:f32:fwd:ip:n4096",
+          "suite": "pow2",
+          "metric": "best",
+          "ratio": 1.018923689503715,
+          "best": 1.018923689503715,
+          "p1": 1.018433924889841,
+          "median": 1.0174572979828003,
+          "estimate": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224",
+          "measure": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224",
+          "same_plan": true
+        }
+      ]
+    },
+    "meta": {
+      "aborted": null,
+      "cells": 1,
+      "child_failures": 0,
+      "drift_flag": false,
+      "elapsed_s": 30.332742208,
+      "max_drift": 0.0092431559860634,
+      "official": true
+    },
+    "restored": true,
+    "restore_errors": [
+      []
+    ],
+    "running_quiet_count": 7,
+    "running_dirty_count": 0
+  },
+  {
+    "case": 4,
+    "comparison": {
+      "run": "target/ticket19/selection-fix/primary-repeats/case-04",
+      "cells": 1,
+      "problems": [],
+      "threshold": 1.02,
+      "suites": {
+        "pow2": {
+          "cells": 1,
+          "failures": 0,
+          "worst": 0.9765711330714123,
+          "geomean": 0.9765711330714123
+        }
+      },
+      "failures": [],
+      "comparisons": [
+        {
+          "key": "pow2:f32:fwd:ip:n16777216",
+          "suite": "pow2",
+          "metric": "best",
+          "ratio": 0.9765711330714123,
+          "best": 0.9765711330714123,
+          "p1": 0.9765711330714123,
+          "median": 0.9879324800762088,
+          "estimate": "fourstep avx512 split L=16 decomposition=4096x4096 radices=8x8x8x8/8x8x8x8 scratch=17170856 scratch_oop=17170856 scratch_immutable=17170856",
+          "measure": "fourstep avx512 split L=16 decomposition=4096x4096 radices=8x8x8x8/8x8x8x8 scratch=17170856 scratch_oop=17170856 scratch_immutable=17170856",
+          "same_plan": true
+        }
+      ]
+    },
+    "meta": {
+      "aborted": null,
+      "cells": 1,
+      "child_failures": 0,
+      "drift_flag": false,
+      "elapsed_s": 93.951242462,
+      "max_drift": 0.010772006055106198,
+      "official": true
+    },
+    "restored": true,
+    "restore_errors": [
+      []
+    ],
+    "running_quiet_count": 19,
+    "running_dirty_count": 0
+  }
+]

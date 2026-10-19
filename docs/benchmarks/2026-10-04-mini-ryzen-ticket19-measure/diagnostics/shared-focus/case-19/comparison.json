@@ -1,0 +1,29 @@
+{
+  "run": "target/ticket19/shared-focus/case-19",
+  "cells": 1,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "smooth": {
+      "cells": 1,
+      "failures": 0,
+      "worst": 0.9922949592086077,
+      "geomean": 0.9922949592086077
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "smooth:f64:fwd:oop:n4725",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 0.9922949592086077,
+      "best": 0.9922949592086077,
+      "p1": 0.9926982943058472,
+      "median": 0.992370285089859,
+      "estimate": "fourstep avx512 split L=8 decomposition=63x75 radices=7x9/15x5 scratch=5932 scratch_oop=5932 scratch_immutable=5932",
+      "measure": "fourstep avx512 split L=8 decomposition=63x75 radices=7x9/15x5 scratch=5932 scratch_oop=5932 scratch_immutable=5932",
+      "same_plan": true
+    }
+  ]
+}

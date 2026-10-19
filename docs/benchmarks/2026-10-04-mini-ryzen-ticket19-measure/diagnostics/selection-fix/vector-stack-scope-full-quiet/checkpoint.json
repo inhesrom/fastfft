@@ -1,0 +1,54 @@
+{
+  "utc": "2026-10-06T04:30:15.223373+00:00",
+  "acceptance": false,
+  "interrupted": true,
+  "driver_exit": 75,
+  "cells": 176,
+  "ordinary_trials": 1413,
+  "control_trials": 64,
+  "quiet_start_seconds": 300,
+  "running_samples": 730,
+  "dirty_samples": 3,
+  "peak_background_busy_cores": 0.6883477220692816,
+  "started": "2026-10-06T03:23:24.177441+00:00",
+  "ended": "2026-10-06T04:24:26.796125+00:00",
+  "failures": [],
+  "problems": [
+    "pow2:f64:fwd:ip:n2097152: raw process workspace reservation differs",
+    "pow2:f64:fwd:ip:n2097152: raw process workspace reservation differs",
+    "pow2:f64:fwd:ip:n2097152: raw process workspace reservation differs",
+    "pow2:f64:fwd:ip:n2097152: raw process workspace reservation differs",
+    "pow2:f64:fwd:ip:n2097152: raw process workspace reservation differs",
+    "raw process trial coverage is incomplete",
+    "expected 710 cells, found 176 valid pairs",
+    "run has not completed (missing meta.json)",
+    "environment check did not pass",
+    "full completion cells: expected 710, got None",
+    "full completion official: expected True, got None",
+    "full completion child_failures: expected 0, got None",
+    "full completion aborted: expected None, got None",
+    "full completion drift_flag: expected False, got None",
+    "full completion max_drift is missing, invalid or exceeds 3%",
+    "full cell/control sequence differs from the frozen 710-cell manifest",
+    "full raw trial sequence/repetition coverage differs from the frozen protocol"
+  ],
+  "restoration": {
+    "passed": true,
+    "live_threads": 37,
+    "exited_threads": 3
+  },
+  "original_cells": [
+    {
+      "key": "pow2:f32:fwd:ip:n524288",
+      "metric": "best",
+      "ratio": 0.9997836006096017
+    },
+    {
+      "key": "pow2:f32:fwd:oop:n524288",
+      "metric": "best",
+      "ratio": 1.0090796733486898
+    }
+  ],
+  "prior_N16384_miss_retained": true,
+  "scope": "The one fixed completion attempt is interrupted. Every completed primary and changed-plan trial passes, but missing coverage and dirty monitoring prevent acceptance. No automatic benchmark retry; five-minute read-only host checks continue."
+}

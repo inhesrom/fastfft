@@ -1,0 +1,67 @@
+{
+  "created_utc": "2026-10-05T21:39:33.342886+00:00",
+  "acceptance": false,
+  "cells": 5,
+  "procs": 8,
+  "core": 4,
+  "filters": [
+    "precision=f32,dir=fwd,place=oop,n=4096",
+    "precision=f32,dir=inv,place=ip,n=4096",
+    "precision=f32,dir=inv,place=oop,n=4096",
+    "precision=f64,dir=inv,place=ip,n=210",
+    "precision=f64,dir=inv,place=oop,n=210"
+  ],
+  "source_candidate": "fourstep-storage-anchor plus generic indexed FourStep completion loop; no production storage layout change",
+  "hypothesis": [
+    "PhaseB-only displacement may preserve OOP gain withoutIP loss: distinguish from movingbothPhaseA+PhaseB; interaction remains possible.",
+    "Generic range iteration removes redundant stride24 pointer-distance multiply even when panel hasonepass; N210 absolute performance should improve if thatcodecost contributes. No storage layout change."
+  ],
+  "calls": {
+    "f32_n4096": 20,
+    "f64_n210": 160
+  },
+  "rounds": 7,
+  "turn_ms": 100,
+  "warmup_ms": 200,
+  "balancing": "process bit0=original plan construction, bit1=middle displacement order, bit2=first timed member; each appears once per cell",
+  "targets": "N4096: both retained Stockham owners. N210: neither owner moves; generic FourStep iterator code control only, all six phases retain original geometry and check output.",
+  "invariants": [
+    "Original plan/runner/backing/descriptor addresses and buffers retained",
+    "No growth, replacement allocation or address hunting",
+    "Every phase exact coefficient and verified-output equality",
+    "Original complete backing bytes restored",
+    "Preallocated sample and snapshot storage",
+    "Original selector untraced and primary arena samples retained",
+    "All phases, samples, descriptions and failures retained",
+    "Every component transition restorespreviousscope tozero beforeapplyingnext",
+    "N210 Estimate backing bytes and geometry unchanged allsixphases",
+    "Generated F64x8empty-range path mustremove stride24divisionbeforetiming"
+  ],
+  "interpretation": "All8processes and all phases retained. Compare bothoccurrences percondition andzeroendpoints. N210 originalandzero-phase absolutecompare priorcleanproductionfocus andcontaminatedpreviousdiagnostic separately; featurebuild/codeplacement confounds remain until defaultproductionvalidation. No absolute speedup/acceptance claim fromcontaminatedprior.",
+  "gate": "Own fresh60s sustainedquiet +envcheck; journaled CPU4/12 reservation;continuousmonitor; allrunningquietrequired; independent restoration proof",
+  "fixed_attempt": true,
+  "prior_capture": "coefficient-position (all40 trialintegrity pass;1/105dirty monitor invalidates clean evidence; retained exploratory observations only)",
+  "conditions": [
+    [
+      0,
+      1,
+      2,
+      2,
+      1,
+      0
+    ],
+    [
+      0,
+      2,
+      1,
+      1,
+      2,
+      0
+    ]
+  ],
+  "condition_meaning": {
+    "0": "canonical all coefficients",
+    "1": "only PhaseB displaced1024bytes",
+    "2": "all coefficients displaced1024bytes"
+  }
+}

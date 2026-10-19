@@ -1,0 +1,20 @@
+statistic: p1; times in ns; x rf = rustfft time / fastfft time
+cell                                  ff m0      ff m8 ff m8/m0 rf m8/m0  x rf m0  x rf m8  plan
+rough:f32:fwd:ip:n257                 878.2      860.9    0.980    1.003    0.520    0.532  bluestein n=257 m=576 inner=[stockham avx512-ymm split L=8 radices=12x6 scratch=584]
+rough:f32:fwd:ip:n4099              20716.0    17022.3    0.822    1.003    1.160    1.415  bluestein n=4099 m=9216 inner=[stockham avx512-ymm split L=8 radices=12x8x12 scratch=9224]
+rough:f32:fwd:ip:n131071          1241579.0   809762.0    0.652    1.094    0.724    1.215  bluestein n=131071 m=262144 inner=[stockham avx512-ymm split L=8 radices=8x8x8x8x8 scratch=262152]
+rough:f64:fwd:ip:n257                1651.7     1615.0    0.978    1.001    0.520    0.533  bluestein n=257 m=576 inner=[stockham avx512 split L=8 radices=12x6 scratch=580]
+rough:f64:fwd:ip:n4099              36744.5    39459.5    1.074    0.997    1.200    1.113  bluestein n=4099 m=9216 inner=[stockham avx512 split L=8 radices=12x8x12 scratch=9220]
+rough:f64:fwd:ip:n131071          2070989.0  2028216.0    0.979    0.985    1.235    1.243  bluestein n=131071 m=262144 inner=[stockham avx512 split L=8 radices=8x8x8x8x8 scratch=262148]
+
+prec  band      place cells  ff m8/m0   worst  rf m8/m0  x rf m0  x rf m8
+f32   512-16K   all       2     0.897   0.980     1.003    0.777    0.868
+f32   512-16K   ip        2     0.897   0.980     1.003    0.777    0.868
+f32   32K-128K  all       1     0.652   0.652     1.094    0.724    1.215
+f32   32K-128K  ip        1     0.652   0.652     1.094    0.724    1.215
+f32   all       all       3     0.807   0.980     1.032    0.759    0.971
+f64   512-16K   all       2     1.025   1.074     0.999    0.790    0.770
+f64   512-16K   ip        2     1.025   1.074     0.999    0.790    0.770
+f64   32K-128K  all       1     0.979   0.979     0.985    1.235    1.243
+f64   32K-128K  ip        1     0.979   0.979     0.985    1.235    1.243
+f64   all       all       3     1.009   1.074     0.994    0.917    0.903

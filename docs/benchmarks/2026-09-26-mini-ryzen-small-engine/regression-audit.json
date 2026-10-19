@@ -1,0 +1,572 @@
+{
+  "pow2:f32:fwd:ip:n512": {
+    "changes": [
+      {
+        "best": -0.004684357230460456,
+        "median": 0.005529989431037441
+      },
+      {
+        "best": 0.0007209125134457484,
+        "median": -0.0007636315510852754
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512-ymm split L=8 radices=8x8 scratch=520",
+    "broad_change": {
+      "best": -0.004659939098855648,
+      "median": 0.002109183822474936
+    }
+  },
+  "pow2:f32:fwd:ip:n1024": {
+    "changes": [
+      {
+        "best": 0.0008635396701699438,
+        "median": 0.00011420028653885694
+      },
+      {
+        "best": -0.0025585260035020374,
+        "median": -0.0007519427764041131
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512-ymm split L=8 radices=8x2x8 scratch=1032",
+    "broad_change": {
+      "best": 0.002356671816811984,
+      "median": -0.007300342422999484
+    }
+  },
+  "pow2:f32:fwd:ip:n2048": {
+    "changes": [
+      {
+        "best": 0.005561047948591025,
+        "median": 0.006127075546841665
+      },
+      {
+        "best": 0.009659917956861053,
+        "median": 0.007337759788985432
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512-ymm split L=8 radices=8x4x8 scratch=2056",
+    "broad_change": {
+      "best": -0.007987253079484335,
+      "median": -0.008098313526208045
+    }
+  },
+  "pow2:f32:fwd:ip:n262144": {
+    "changes": [
+      {
+        "best": -0.0034192068843433843,
+        "median": 0.00020416977502057954
+      },
+      {
+        "best": -0.0059940664154019,
+        "median": -0.0098719091634214
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512-ymm split L=8 radices=8x8x8x8x8 scratch=262152",
+    "broad_change": {
+      "best": -0.0016626615988996063,
+      "median": 0.0037357275545690793
+    }
+  },
+  "pow2:f64:fwd:ip:n512": {
+    "changes": [
+      {
+        "best": -0.01930659124025036,
+        "median": -0.0017870019124056613
+      },
+      {
+        "best": -0.015384700616052793,
+        "median": -0.021634486200145853
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512 split L=8 radices=8x8 scratch=516",
+    "broad_change": {
+      "best": 0.03670771128869732,
+      "median": 0.04050030959752293
+    }
+  },
+  "pow2:f64:fwd:ip:n1024": {
+    "changes": [
+      {
+        "best": 0.014822581308334248,
+        "median": 0.014734432795863839
+      },
+      {
+        "best": 0.04200502466069289,
+        "median": 0.04347826086956541
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512 split L=8 radices=8x2x8 scratch=1028",
+    "broad_change": {
+      "best": 0.056260979471525197,
+      "median": 0.055972905147614105
+    }
+  },
+  "pow2:f64:fwd:ip:n2048": {
+    "changes": [
+      {
+        "best": 0.03673761700143241,
+        "median": 0.029761670536077256
+      },
+      {
+        "best": 0.09236993802683036,
+        "median": 0.08664015967060079
+      }
+    ],
+    "repeatable_over_3pct": true,
+    "same_plan": true,
+    "plan": "stockham avx512 split L=8 radices=8x4x8 scratch=2052",
+    "broad_change": {
+      "best": 0.03478285513720203,
+      "median": 0.025736335315774683
+    }
+  },
+  "pow2:f64:fwd:ip:n262144": {
+    "changes": [
+      {
+        "best": -0.005110752041029953,
+        "median": -0.011155694695533347
+      },
+      {
+        "best": -0.010806804248113755,
+        "median": -0.02003881709516131
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512 split L=8 radices=8x8x8x8x8 scratch=262148",
+    "broad_change": {
+      "best": 0.005938142564809956,
+      "median": 0.01454574039374723
+    }
+  },
+  "smooth:f32:fwd:ip:n768": {
+    "changes": [
+      {
+        "best": 0.0030567780258849986,
+        "median": 0.007295990414651898
+      },
+      {
+        "best": 0.005430414666463879,
+        "median": 0.0047222460719500425
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512-ymm split L=8 radices=12x8 scratch=776",
+    "broad_change": {
+      "best": 0.0010841753762089734,
+      "median": 0.009882524438346696
+    }
+  },
+  "smooth:f32:fwd:ip:n1200": {
+    "changes": [
+      {
+        "best": 5.003159890470954e-05,
+        "median": 0.0020064857983781437
+      },
+      {
+        "best": -0.005026178010471116,
+        "median": -0.0012248033048930518
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512-ymm split L=8 radices=15x10 scratch=1208",
+    "broad_change": {
+      "best": -0.014093726991776578,
+      "median": -0.007546092347854527
+    }
+  },
+  "smooth:f32:fwd:ip:n4800": {
+    "changes": [
+      {
+        "best": -0.0019712317270722535,
+        "median": -0.007532557601911072
+      },
+      {
+        "best": -0.0021410358720829192,
+        "median": 0.0013529707371757738
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512-ymm split L=8 radices=12x5x10 scratch=4808",
+    "broad_change": {
+      "best": 0.011009677545743113,
+      "median": 0.010714216267719179
+    }
+  },
+  "smooth:f32:fwd:ip:n27000": {
+    "changes": [
+      {
+        "best": -0.011156497731566017,
+        "median": -0.013422069009543791
+      },
+      {
+        "best": -0.005492996429552255,
+        "median": -0.004407753165822648
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512-ymm split L=8 radices=15x15x15 scratch=27008",
+    "broad_change": {
+      "best": 0.013425668833502158,
+      "median": 0.011606941627225531
+    }
+  },
+  "smooth:f64:fwd:ip:n768": {
+    "changes": [
+      {
+        "best": -0.01035856573705185,
+        "median": -0.010562544717386046
+      },
+      {
+        "best": 0.019144203472978738,
+        "median": 0.020175881511402816
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512 split L=8 radices=12x8 scratch=772",
+    "broad_change": {
+      "best": 0.03350691001888073,
+      "median": 0.03412980366830598
+    }
+  },
+  "smooth:f64:fwd:ip:n1200": {
+    "changes": [
+      {
+        "best": -0.0032423745950767024,
+        "median": -0.0033486138008104183
+      },
+      {
+        "best": 0.052610229126279995,
+        "median": 0.05282291239266734
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512 split L=8 radices=15x10 scratch=1204",
+    "broad_change": {
+      "best": 0.09241488831985722,
+      "median": 0.09281275062359029
+    }
+  },
+  "smooth:f64:fwd:ip:n4800": {
+    "changes": [
+      {
+        "best": -0.003437143942271237,
+        "median": -0.003403289846852009
+      },
+      {
+        "best": 0.005883465758607764,
+        "median": 0.006231174698795305
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512 split L=8 radices=12x5x10 scratch=4804",
+    "broad_change": {
+      "best": 0.038416768492502085,
+      "median": 0.03856864898662682
+    }
+  },
+  "smooth:f64:fwd:ip:n27000": {
+    "changes": [
+      {
+        "best": 0.058104698833175705,
+        "median": 0.06565899898038063
+      },
+      {
+        "best": -0.00010676118590324801,
+        "median": -0.0027465011049142563
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512 split L=8 radices=15x15x15 scratch=27004",
+    "broad_change": {
+      "best": 0.07214831812966471,
+      "median": 0.07857650603089361
+    }
+  },
+  "rough:f32:fwd:ip:n257": {
+    "changes": [
+      {
+        "best": 0.00788512616201853,
+        "median": 0.006968854737186447
+      },
+      {
+        "best": 0.015342991554252894,
+        "median": 0.012673212803923528
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "bluestein n=257 m=576 inner=[stockham avx512-ymm split L=8 radices=12x6 scratch=584]",
+    "broad_change": {
+      "best": -0.004103821832422527,
+      "median": -0.0020666738607060253
+    }
+  },
+  "rough:f32:fwd:ip:n509": {
+    "changes": [
+      {
+        "best": 0.005255285604560234,
+        "median": 0.004993508439029348
+      },
+      {
+        "best": 0.008305949236941279,
+        "median": 0.0069813763569366305
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "bluestein n=509 m=1024 inner=[stockham avx512-ymm split L=8 radices=8x2x8 scratch=1032]",
+    "broad_change": {
+      "best": 0.0032177620464968193,
+      "median": 0.002592481802772051
+    }
+  },
+  "rough:f32:fwd:ip:n1021": {
+    "changes": [
+      {
+        "best": -0.014184679748979079,
+        "median": -0.014416439869049058
+      },
+      {
+        "best": 0.020491146542744865,
+        "median": 0.01886305934623933
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "bluestein n=1021 m=2048 inner=[stockham avx512-ymm split L=8 radices=8x4x8 scratch=2056]",
+    "broad_change": {
+      "best": 0.006938933317054419,
+      "median": 0.011300803164224993
+    }
+  },
+  "rough:f32:fwd:ip:n2018": {
+    "changes": [
+      {
+        "best": -0.023062105375807107,
+        "median": -0.03572236038887622
+      },
+      {
+        "best": 0.018121531287125237,
+        "median": 0.020489868703998493
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "bluestein n=2018 m=4096 inner=[stockham avx512-ymm split L=8 radices=8x8x8 scratch=4104]",
+    "broad_change": {
+      "best": 0.5017974477328264,
+      "median": 0.5092700050146859
+    }
+  },
+  "rough:f32:fwd:ip:n131071": {
+    "changes": [
+      {
+        "best": -0.005740013216927187,
+        "median": -0.0008686511875083403
+      },
+      {
+        "best": 0.008264256647415591,
+        "median": 0.010554025804376588
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "bluestein n=131071 m=262144 inner=[stockham avx512-ymm split L=8 radices=8x8x8x8x8 scratch=262152]",
+    "broad_change": {
+      "best": 0.016791464292138958,
+      "median": 0.01828083720889717
+    }
+  },
+  "rough:f64:fwd:ip:n257": {
+    "changes": [
+      {
+        "best": -0.01243129809133614,
+        "median": -0.011549547758672118
+      },
+      {
+        "best": 0.006783483641457533,
+        "median": 0.007579788387634068
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "bluestein n=257 m=576 inner=[stockham avx512 split L=8 radices=12x6 scratch=580]",
+    "broad_change": {
+      "best": -0.008922565583824649,
+      "median": -0.010627430951164918
+    }
+  },
+  "rough:f64:fwd:ip:n509": {
+    "changes": [
+      {
+        "best": -0.01364219363364294,
+        "median": -0.013941453618598887
+      },
+      {
+        "best": -0.005337833859921148,
+        "median": -0.007229573045969162
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "bluestein n=509 m=1024 inner=[stockham avx512 split L=8 radices=8x2x8 scratch=1028]",
+    "broad_change": {
+      "best": 0.08093330190902659,
+      "median": 0.08169131485207837
+    }
+  },
+  "rough:f64:fwd:ip:n1021": {
+    "changes": [
+      {
+        "best": 0.20594844516681143,
+        "median": 0.20805805988490245
+      },
+      {
+        "best": 0.10384184339515756,
+        "median": 0.10024163388216989
+      }
+    ],
+    "repeatable_over_3pct": true,
+    "same_plan": true,
+    "plan": "bluestein n=1021 m=2048 inner=[stockham avx512 split L=8 radices=8x4x8 scratch=2052]",
+    "broad_change": {
+      "best": 0.024828979210731905,
+      "median": 0.03007689255823598
+    }
+  },
+  "rough:f64:fwd:ip:n2018": {
+    "changes": [
+      {
+        "best": -0.019606114568824218,
+        "median": -0.018505288469915837
+      },
+      {
+        "best": 0.016302826756227295,
+        "median": 0.01245465538089463
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "bluestein n=2018 m=4096 inner=[stockham avx512 split L=8 radices=8x8x8 scratch=4100]",
+    "broad_change": {
+      "best": 0.036591203219458635,
+      "median": 0.032227620678807245
+    }
+  },
+  "rough:f64:fwd:ip:n131071": {
+    "changes": [
+      {
+        "best": 0.001930702655574601,
+        "median": 0.00894841103531907
+      },
+      {
+        "best": -0.009658788222335568,
+        "median": -0.009850286517770201
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "bluestein n=131071 m=262144 inner=[stockham avx512 split L=8 radices=8x8x8x8x8 scratch=262148]",
+    "broad_change": {
+      "best": 0.008605357530582669,
+      "median": 0.06082651759446267
+    }
+  },
+  "batch:f32:fwd:ip:n512:b2048": {
+    "changes": [
+      {
+        "best": -0.004705087411552955,
+        "median": -0.02217899256345024
+      },
+      {
+        "best": -0.00693030808993389,
+        "median": 0.0026355469856615965
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512-ymm split L=8 radices=8x8 scratch=520",
+    "broad_change": {
+      "best": 0.013746432844995216,
+      "median": 0.0016653268518669329
+    }
+  },
+  "batch:f64:fwd:ip:n512:b2048": {
+    "changes": [
+      {
+        "best": -0.03755497373008487,
+        "median": 0.0007897223235426853
+      },
+      {
+        "best": 0.0022140641973085184,
+        "median": -0.03331677170537872
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512 split L=8 radices=8x8 scratch=516",
+    "broad_change": {
+      "best": 0.03257804931786623,
+      "median": 0.020669453171621832
+    }
+  },
+  "batch:f32:fwd:ip:n1024:b1024": {
+    "changes": [
+      {
+        "best": -0.012083801548573803,
+        "median": -0.0029276246907761205
+      },
+      {
+        "best": 0.010338282091388207,
+        "median": 0.002361200283850895
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512-ymm split L=8 radices=8x2x8 scratch=1032",
+    "broad_change": {
+      "best": -0.015017628496147073,
+      "median": -0.04041447419055599
+    }
+  },
+  "batch:f64:fwd:ip:n1024:b1024": {
+    "changes": [
+      {
+        "best": -0.021490152554124342,
+        "median": -0.0220960326496078
+      },
+      {
+        "best": -0.03965030145194537,
+        "median": -0.061153716983622486
+      }
+    ],
+    "repeatable_over_3pct": false,
+    "same_plan": true,
+    "plan": "stockham avx512 split L=8 radices=8x2x8 scratch=1028",
+    "broad_change": {
+      "best": 0.019379935790781122,
+      "median": 0.05988663098226832
+    }
+  }
+}

@@ -1,0 +1,59 @@
+[Unit]
+Description=GitHub Actions runner for inhesrom/fastfft-history
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=3
+
+[Service]
+Type=simple
+Slice=fastfft-ci.slice
+User=fastfft-runner
+Group=fastfft-runner
+WorkingDirectory=/var/lib/fastfft-runner/runner
+Environment=HOME=/var/lib/fastfft-runner
+Environment=CARGO_HOME=/var/lib/fastfft-runner/.cargo
+Environment=RUSTUP_HOME=/var/lib/fastfft-runner/.rustup
+Environment=TMPDIR=/var/lib/fastfft-runner/tmp
+Environment=PATH=/var/lib/fastfft-runner/.cargo/bin:/usr/local/bin:/usr/bin:/bin
+Environment=ACTIONS_RUNNER_HOOK_JOB_STARTED=/usr/local/lib/fastfft-runner/job-started.sh
+Environment=ACTIONS_RUNNER_HOOK_JOB_COMPLETED=/usr/local/lib/fastfft-runner/job-completed.sh
+Environment=RUNNER_LOGRETENTION=7
+Environment=WORKER_LOGRETENTION=7
+ExecStartPre=/usr/bin/python3 -I /usr/local/lib/fastfft-runner/cleanup.py startup
+ExecStart=/var/lib/fastfft-runner/runner/runsvc.sh
+Restart=on-failure
+RestartSec=15
+KillSignal=SIGINT
+KillMode=control-group
+TimeoutStopSec=5min
+UMask=0077
+
+# No personal home, sudo, Docker socket, or writes outside runner-owned storage
+# (apart from private temporary directories). This is not a VM security boundary.
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/fastfft-runner
+PrivateTmp=true
+NoNewPrivileges=true
+CapabilityBoundingSet=
+# Do not enable RestrictSUIDSGID: its openat2 denial breaks GNU tar's nested
+# archive extraction on this host. NoNewPrivileges still prevents setuid gains.
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+InaccessiblePaths=-/run/docker.sock -/run/podman/podman.sock
+
+# One heavy job at a time. Both listeners share the slice's 8 GiB ceiling.
+CPUQuota=400%
+CPUWeight=25
+IOWeight=25
+Nice=10
+MemoryHigh=8G
+MemoryMax=8G
+MemorySwapMax=0
+TasksMax=4096
+LogNamespace=fastfft-runner
+
+[Install]
+WantedBy=multi-user.target

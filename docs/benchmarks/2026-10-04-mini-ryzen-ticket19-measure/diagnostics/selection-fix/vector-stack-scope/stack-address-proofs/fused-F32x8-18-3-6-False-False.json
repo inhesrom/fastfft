@@ -1,0 +1,70 @@
+{
+  "assembly": "/home/ianhersom/repo/fastfft/target/ticket19/selection-fix/vector-stack-scope/all-fused-inventory-current/F32x8-18-3-6-false-false.asm",
+  "instructions": 197,
+  "reachable_instructions": 197,
+  "iterations": 197,
+  "jump_tables": [],
+  "unsupported_control_flow": [],
+  "local_vector_memory_checks": [
+    {
+      "address": "0x74521d",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x40],ymm1",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x745377",
+      "instruction": "vpermilps ymm3,YMMWORD PTR [rsp+0x40],0xd8",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x74538c",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x40],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x7453a9",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x60],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x74542f",
+      "instruction": "vmovaps ymm3,YMMWORD PTR [rsp+0x40]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x745435",
+      "instruction": "vmovaps ymm14,YMMWORD PTR [rsp+0x60]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    }
+  ],
+  "unproved_local_vector_memory": [],
+  "unresolved_stack_pointer_stores": [],
+  "derived_scalar_stack_loads_to_review": [],
+  "calls_with_stack_arguments_to_review": [],
+  "passed": true,
+  "limitations": "Low-bit/alias model covers recorded instruction families; review transfer semantics and all unsupported constructs. Caller-clobbered registers lose aliases; RAX conservatively may return an argument-derived stack alias. Escaping stack-pointer stores fail; source review must establish that local-array copying calls do not introduce pointer values into vector storage. Does not prove arithmetic equivalence."
+}

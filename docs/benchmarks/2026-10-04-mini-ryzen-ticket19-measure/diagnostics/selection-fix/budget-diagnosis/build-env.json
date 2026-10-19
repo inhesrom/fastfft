@@ -1,0 +1,8 @@
+{
+  "RUSTFLAGS": "-C llvm-args=-align-all-functions=6",
+  "profile": "release",
+  "features": "default SIMD; no tuning",
+  "build": "cargo test -j1 --release -pfastfft --lib --no-run",
+  "jobs": 1,
+  "created_utc": "2026-10-05T15:44:08.550245+00:00"
+}

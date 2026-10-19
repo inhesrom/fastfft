@@ -1,0 +1,255 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Avoid building obsolete commits.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: 1
+  # Private archive: one heavy test slot and one light check slot share an
+  # 8 GiB memory budget on the self-hosted runners, so keep one rustc process
+  # per job. Hosted runners (public repo) use four. Tests cap at four threads.
+  CARGO_BUILD_JOBS: ${{ github.event.repository.private && '1' || '4' }}
+  RUST_TEST_THREADS: "4"
+
+# Correctness only, including on the local runner (see docs/benchmarking.md).
+# x86 jobs run on GitHub-hosted ubuntu-24.04 in the public repository. Only the
+# private archive (inhesrom/fastfft-history) routes them to the self-hosted
+# mini-ryzen runners, and only for pushes and same-repo PRs. Never register a
+# self-hosted runner on the public repository: fork PRs control this file.
+# See docs/self-hosted-runner.md.
+# Never cache cargo/bin: rust-cache's post-step deletes preinstalled binaries,
+# including Rustup's command shims. A new prefix excludes old binary archives.
+jobs:
+  fmt:
+    if: ${{ !github.event.repository.private || github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted", "linux", "x64", "fastfft-light"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: bash scripts/runner/ensure-rust.sh
+      - run: rustup show active-toolchain || rustup toolchain install
+      - run: cargo fmt --all --check
+
+  clippy:
+    if: ${{ !github.event.repository.private || github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted", "linux", "x64", "fastfft-light"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: bash scripts/runner/ensure-rust.sh
+      - uses: Swatinem/rust-cache@v2
+        with:
+          cache-bin: false
+          prefix-key: v1-rust-no-bin
+      - run: cargo clippy --workspace --all-targets -- -D warnings
+
+  test:
+    if: ${{ !github.event.repository.private || github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted", "linux", "x64", "fastfft"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: bash scripts/runner/ensure-rust.sh
+      - uses: Swatinem/rust-cache@v2
+        with:
+          cache-bin: false
+          prefix-key: v1-rust-no-bin
+      - run: cargo test --workspace --release
+
+  msrv:
+    if: ${{ !github.event.repository.private || github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted", "linux", "x64", "fastfft-light"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 60
+    env:
+      RUSTUP_TOOLCHAIN: "1.89"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: bash scripts/runner/ensure-rust.sh
+      - run: rustup toolchain install 1.89 --profile minimal
+      - run: cargo build -p fastfft --release
+
+  # Every ISA tier up to the host's, selected with FASTFFT_ISA_CAP.
+  tiers:
+    if: ${{ !github.event.repository.private || github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted", "linux", "x64", "fastfft"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        cap: [scalar, sse2, avx2]
+    env:
+      FASTFFT_ISA_CAP: ${{ matrix.cap }}
+      FASTFFT_REQUIRE_ISA: ${{ matrix.cap }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: bash scripts/runner/ensure-rust.sh
+      - uses: Swatinem/rust-cache@v2
+        with:
+          cache-bin: false
+          prefix-key: v1-rust-no-bin
+      - run: cargo test -p fastfft --release
+
+  # AVX-512 tiers under Intel SDE (Sapphire Rapids model): correctness only.
+  sde:
+    if: ${{ !github.event.repository.private || github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted", "linux", "x64", "fastfft"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        cap: [avx512, avx512-ymm]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: bash scripts/runner/ensure-rust.sh
+      - uses: Swatinem/rust-cache@v2
+        with:
+          cache-bin: false
+          prefix-key: v1-rust-no-bin
+      # Same hash-pinned 10.13.1 archive, installed into job-temporary storage.
+      # The upstream action uses sudo chmod, incompatible with NoNewPrivileges.
+      - name: install SDE without privilege escalation
+        run: python3 -I scripts/runner/setup_sde.py
+      - name: build tests
+        # Explicit bash adds pipefail: a compile error must fail this step
+        # rather than leave an empty test list that "passes".
+        shell: bash
+        run: |
+          cargo test -p fastfft --release --no-run --message-format=json | jq -r 'select(.executable != null and .target.kind[0] != "bench") | .executable' > tests.txt
+          test -s tests.txt
+      - name: run tests under SDE
+        shell: bash
+        env:
+          FASTFFT_ISA_CAP: ${{ matrix.cap }}
+          FASTFFT_REQUIRE_ISA: ${{ matrix.cap }}
+          FASTFFT_TEST_QUICK: "1"
+        run: |
+          while read -r t; do
+            echo "== $t"
+            "$SDE_PATH/sde64" -spr -- "$t" --test-threads=4
+          done < tests.txt
+
+  # Native ARM coverage on a GitHub-hosted runner (free for public repos; the
+  # private archive needs hosted billing for this job).
+  aarch64:
+    runs-on: ubuntu-24.04-arm
+    strategy:
+      fail-fast: false
+      matrix:
+        cap: [scalar, neon]
+    env:
+      FASTFFT_ISA_CAP: ${{ matrix.cap }}
+      FASTFFT_REQUIRE_ISA: ${{ matrix.cap }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: bash scripts/runner/ensure-rust.sh
+      - uses: Swatinem/rust-cache@v2
+        with:
+          cache-bin: false
+          prefix-key: v1-rust-no-bin
+      # Tuning tests exercise scalar retained routes and explicit NEON rejection.
+      - run: cargo test -p fastfft --release --features tuning
+      - run: cargo build -p fastfft --release --no-default-features
+      - run: cargo test -p fastfft-arena -- --test-threads=1
+      - run: cargo test -p fastfft-arena --features stockham-diagnostics -- --test-threads=1
+
+  wasm:
+    if: ${{ !github.event.repository.private || github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted", "linux", "x64", "fastfft-light"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: bash scripts/runner/ensure-rust.sh
+      - run: rustup target add wasm32-unknown-unknown
+      - run: cargo build -p fastfft --target wasm32-unknown-unknown --release
+
+  miri:
+    if: ${{ !github.event.repository.private || github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted", "linux", "x64", "fastfft-light"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 60
+    env:
+      FASTFFT_ISA_CAP: scalar
+      FASTFFT_TEST_QUICK: "1"
+      RUSTUP_TOOLCHAIN: nightly
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: bash scripts/runner/ensure-rust.sh
+      - run: rustup toolchain install nightly --component miri --profile minimal
+      - run: cargo miri test -p fastfft --lib -- miri_
+
+  codegen:
+    if: ${{ !github.event.repository.private || github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted", "linux", "x64", "fastfft-light"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: bash scripts/runner/ensure-rust.sh
+      - uses: Swatinem/rust-cache@v2
+        with:
+          cache-bin: false
+          prefix-key: v1-rust-no-bin
+      - run: cargo xtask codegen --check
+      - name: runner cleanup regression tests
+        run: python3 -B -m unittest discover -s scripts/runner -v
+
+  docs:
+    if: ${{ !github.event.repository.private || github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted", "linux", "x64", "fastfft-light"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 30
+    env:
+      RUSTDOCFLAGS: -D warnings
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: bash scripts/runner/ensure-rust.sh
+      - uses: Swatinem/rust-cache@v2
+        with:
+          cache-bin: false
+          prefix-key: v1-rust-no-bin
+      - run: cargo doc -p fastfft --no-deps
+
+  deny:
+    if: ${{ !github.event.repository.private || github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted", "linux", "x64", "fastfft-light"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: bash scripts/runner/ensure-rust.sh
+      # Same cargo-deny version as cargo-deny-action@v2, without Docker or
+      # giving the runner access to a root-equivalent Docker socket.
+      - run: cargo install cargo-deny --version 0.20.2 --locked
+      - run: cargo deny check licenses bans sources

@@ -1,0 +1,27 @@
+[
+  {
+    "keys": [
+      "pow2:f32:fwd:oop:n32768"
+    ],
+    "directory": "target/ticket19/selection-fix/fixed-repeat/case-00",
+    "command": [
+      "/home/ianhersom/repo/fastfft/target/ticket19/selection-fix/warmed/fastfft-arena",
+      "run",
+      "--suite",
+      "pow2",
+      "--profile",
+      "full",
+      "--libs",
+      "fastfft,fastfft/measure",
+      "--filter",
+      "precision=f32,dir=fwd,place=oop,n=32768",
+      "--core",
+      "4",
+      "--procs",
+      "8",
+      "--out",
+      "target/ticket19/selection-fix/fixed-repeat/case-00"
+    ],
+    "env_underscore": "target/ticket19/selection-fix/warmed/fastfft-arena"
+  }
+]

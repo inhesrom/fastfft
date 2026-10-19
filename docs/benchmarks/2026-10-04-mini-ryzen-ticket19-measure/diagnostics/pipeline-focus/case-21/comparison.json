@@ -1,0 +1,29 @@
+{
+  "run": "target/ticket19/pipeline-focus/case-21",
+  "cells": 1,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "rough": {
+      "cells": 1,
+      "failures": 0,
+      "worst": 1.003987903987904,
+      "geomean": 1.003987903987904
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "rough:f32:inv:oop:n2018",
+      "suite": "rough",
+      "metric": "best",
+      "ratio": 1.003987903987904,
+      "best": 1.003987903987904,
+      "p1": 1.0039698965192851,
+      "median": 1.0039214221691066,
+      "estimate": "bluestein avx512 n=2018 m=4096 radices=inner scratch=13328 scratch_oop=13328 scratch_immutable=13328 inner=[stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224]",
+      "measure": "bluestein avx512 n=2018 m=4096 radices=inner scratch=13328 scratch_oop=13328 scratch_immutable=13328 inner=[stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224]",
+      "same_plan": true
+    }
+  ]
+}

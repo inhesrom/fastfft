@@ -1,0 +1,1305 @@
+{
+  "pid": 2373,
+  "identity": {
+    "comm": "herdr",
+    "starttime": 13351
+  },
+  "owner_uid": 1000,
+  "boot_id": "cfd2c8bb-1e16-4bc1-8227-f9cfb7a26f97",
+  "pid_namespace": 4026531836,
+  "dry_run": false,
+  "restored": true,
+  "children": {},
+  "preexisting_descendants": [
+    "300038:175153613",
+    "1186695:279097058",
+    "887112:604277607",
+    "1186888:279110489",
+    "3047176:506965730",
+    "1186748:279097218",
+    "1208461:287287849",
+    "967126:606064811",
+    "1186967:279110619",
+    "301783:175227776",
+    "471714:585140955",
+    "1186722:279097204",
+    "1186915:279110560",
+    "278756:563390223",
+    "888495:604316380",
+    "640496:594135088",
+    "493304:587660507",
+    "4045564:545521048",
+    "1186941:279110603"
+  ],
+  "reserved_cpus": [
+    4,
+    12
+  ],
+  "original_mask": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "restricted_mask": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15
+  ],
+  "command": [
+    "python3",
+    "docs/benchmarks/2026-10-04-mini-ryzen-ticket19-measure/quiet-run.py",
+    "--attribute",
+    "--core",
+    "4",
+    "--log",
+    "target/ticket19/selection-fix/caller-qualification/positive-quiet.jsonl",
+    "--",
+    "taskset",
+    "-c",
+    "4",
+    "target/ticket19/selection-fix/caller-qualification/fastfft-library-tests",
+    "measure::tests::",
+    "--include-ignored",
+    "--test-threads=1",
+    "--nocapture"
+  ],
+  "events": [
+    {
+      "utc": "2026-10-05T15:31:52.842136+00:00",
+      "event": "prepared",
+      "dry_run": false
+    },
+    {
+      "utc": "2026-10-05T15:31:52.857232+00:00",
+      "event": "restricted",
+      "tid": 2373,
+      "starttime": 13351
+    },
+    {
+      "utc": "2026-10-05T15:31:52.862234+00:00",
+      "event": "restricted",
+      "tid": 2374,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.866641+00:00",
+      "event": "restricted",
+      "tid": 2375,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.871200+00:00",
+      "event": "restricted",
+      "tid": 2376,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.875826+00:00",
+      "event": "restricted",
+      "tid": 2377,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.879586+00:00",
+      "event": "restricted",
+      "tid": 2378,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.883713+00:00",
+      "event": "restricted",
+      "tid": 2379,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.888594+00:00",
+      "event": "restricted",
+      "tid": 2380,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.894016+00:00",
+      "event": "restricted",
+      "tid": 2381,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.897535+00:00",
+      "event": "restricted",
+      "tid": 2382,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.902135+00:00",
+      "event": "restricted",
+      "tid": 2383,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.906232+00:00",
+      "event": "restricted",
+      "tid": 2384,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.910596+00:00",
+      "event": "restricted",
+      "tid": 2385,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.915891+00:00",
+      "event": "restricted",
+      "tid": 2386,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.920160+00:00",
+      "event": "restricted",
+      "tid": 2387,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.925094+00:00",
+      "event": "restricted",
+      "tid": 2388,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.929583+00:00",
+      "event": "restricted",
+      "tid": 2389,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.933557+00:00",
+      "event": "restricted",
+      "tid": 2390,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T15:31:52.937453+00:00",
+      "event": "restricted",
+      "tid": 2442,
+      "starttime": 13359
+    },
+    {
+      "utc": "2026-10-05T15:31:52.941532+00:00",
+      "event": "restricted",
+      "tid": 1652183,
+      "starttime": 322385405
+    },
+    {
+      "utc": "2026-10-05T15:31:52.945337+00:00",
+      "event": "restricted",
+      "tid": 3047177,
+      "starttime": 506965730
+    },
+    {
+      "utc": "2026-10-05T15:31:52.949339+00:00",
+      "event": "restricted",
+      "tid": 3047178,
+      "starttime": 506965730
+    },
+    {
+      "utc": "2026-10-05T15:31:52.953371+00:00",
+      "event": "restricted",
+      "tid": 4045459,
+      "starttime": 545519566
+    },
+    {
+      "utc": "2026-10-05T15:31:52.957376+00:00",
+      "event": "restricted",
+      "tid": 4045565,
+      "starttime": 545521048
+    },
+    {
+      "utc": "2026-10-05T15:31:52.961239+00:00",
+      "event": "restricted",
+      "tid": 471715,
+      "starttime": 585140956
+    },
+    {
+      "utc": "2026-10-05T15:31:52.964356+00:00",
+      "event": "restricted",
+      "tid": 471716,
+      "starttime": 585140956
+    },
+    {
+      "utc": "2026-10-05T15:31:52.968373+00:00",
+      "event": "restricted",
+      "tid": 493306,
+      "starttime": 587660508
+    },
+    {
+      "utc": "2026-10-05T15:31:52.972244+00:00",
+      "event": "restricted",
+      "tid": 640497,
+      "starttime": 594135088
+    },
+    {
+      "utc": "2026-10-05T15:31:52.975332+00:00",
+      "event": "restricted",
+      "tid": 640498,
+      "starttime": 594135088
+    },
+    {
+      "utc": "2026-10-05T15:31:52.979210+00:00",
+      "event": "restricted",
+      "tid": 887113,
+      "starttime": 604277607
+    },
+    {
+      "utc": "2026-10-05T15:31:52.982310+00:00",
+      "event": "restricted",
+      "tid": 887114,
+      "starttime": 604277607
+    },
+    {
+      "utc": "2026-10-05T15:31:52.986138+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T15:31:52.991142+00:00",
+      "event": "command_started",
+      "pid": 1095663
+    },
+    {
+      "utc": "2026-10-05T15:31:58.006093+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T15:32:03.026075+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T15:32:08.042834+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T15:32:13.065072+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T15:32:18.086599+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T15:32:23.105975+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T15:32:28.125654+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T15:32:33.145228+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T15:32:38.162622+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T15:32:43.177764+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T15:32:48.197254+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T15:32:53.214674+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T15:32:58.227689+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T15:33:03.246276+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T15:33:03.254841+00:00",
+      "event": "command_finished",
+      "returncode": 101
+    },
+    {
+      "utc": "2026-10-05T15:33:03.268851+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2373,
+      "starttime": 13351,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.272956+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2374,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.277449+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2375,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.281349+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2376,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.285273+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2377,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.288901+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2378,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.293036+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2379,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.296963+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2380,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.300948+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2381,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.305035+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2382,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.308994+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2383,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.313037+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2384,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.317042+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2385,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.320841+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2386,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.324928+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2387,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.328973+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2388,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.332959+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2389,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.337006+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2390,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.341102+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2442,
+      "starttime": 13359,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.343983+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 1652183,
+      "starttime": 322385405,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.348045+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 3047177,
+      "starttime": 506965730,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.352026+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 3047178,
+      "starttime": 506965730,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.355851+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 4045459,
+      "starttime": 545519566,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.359931+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 4045565,
+      "starttime": 545521048,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.363964+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 471715,
+      "starttime": 585140956,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.367857+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 471716,
+      "starttime": 585140956,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.371931+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 493306,
+      "starttime": 587660508,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.375997+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 640497,
+      "starttime": 594135088,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.380068+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 640498,
+      "starttime": 594135088,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.384011+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 887113,
+      "starttime": 604277607,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.387843+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 887114,
+      "starttime": 604277607,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T15:33:03.402426+00:00",
+      "event": "restore_verified",
+      "errors": []
+    }
+  ],
+  "threads": {
+    "2373:13351": {
+      "tid": 2373,
+      "starttime": 13351,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2374:13352": {
+      "tid": 2374,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2375:13352": {
+      "tid": 2375,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2376:13352": {
+      "tid": 2376,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2377:13352": {
+      "tid": 2377,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2378:13352": {
+      "tid": 2378,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2379:13352": {
+      "tid": 2379,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2380:13352": {
+      "tid": 2380,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2381:13352": {
+      "tid": 2381,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2382:13352": {
+      "tid": 2382,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2383:13352": {
+      "tid": 2383,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2384:13352": {
+      "tid": 2384,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2385:13352": {
+      "tid": 2385,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2386:13352": {
+      "tid": 2386,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2387:13352": {
+      "tid": 2387,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2388:13352": {
+      "tid": 2388,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2389:13352": {
+      "tid": 2389,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2390:13352": {
+      "tid": 2390,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2442:13359": {
+      "tid": 2442,
+      "starttime": 13359,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "1652183:322385405": {
+      "tid": 1652183,
+      "starttime": 322385405,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "3047177:506965730": {
+      "tid": 3047177,
+      "starttime": 506965730,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "3047178:506965730": {
+      "tid": 3047178,
+      "starttime": 506965730,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "4045459:545519566": {
+      "tid": 4045459,
+      "starttime": 545519566,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "4045565:545521048": {
+      "tid": 4045565,
+      "starttime": 545521048,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "471715:585140956": {
+      "tid": 471715,
+      "starttime": 585140956,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "471716:585140956": {
+      "tid": 471716,
+      "starttime": 585140956,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "493306:587660508": {
+      "tid": 493306,
+      "starttime": 587660508,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "640497:594135088": {
+      "tid": 640497,
+      "starttime": 594135088,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "640498:594135088": {
+      "tid": 640498,
+      "starttime": 594135088,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "887113:604277607": {
+      "tid": 887113,
+      "starttime": 604277607,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "887114:604277607": {
+      "tid": 887114,
+      "starttime": 604277607,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    }
+  }
+}

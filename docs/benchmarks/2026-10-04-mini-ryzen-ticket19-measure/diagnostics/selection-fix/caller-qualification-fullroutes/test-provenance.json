@@ -1,0 +1,7 @@
+{
+  "executable": "target/ticket19/selection-fix/caller-qualification/fastfft-library-tests",
+  "sha256": "7952559b70ebc98af805a770ddd589ebd32968a68793e5412d88225a44395ff4",
+  "build_command": "RUSTFLAGS='-C llvm-args=-align-all-functions=6' cargo test -j 1 --release -p fastfft --lib --no-run",
+  "features": "default SIMD, no tuning",
+  "source_snapshot": "target/ticket19/selection-fix/caller-qualification/source-sha256.json"
+}

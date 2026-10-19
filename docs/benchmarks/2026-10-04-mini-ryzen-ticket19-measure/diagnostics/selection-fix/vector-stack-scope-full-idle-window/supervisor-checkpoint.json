@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-07T21:09:22.735470+00:00",
+  "driver_exit": 0,
+  "automatic_benchmark_retries": false,
+  "independent_host_restoration_exit": 0,
+  "strict_audit_exit": 1,
+  "post_run_source_and_executable_mismatches": [],
+  "accepted": false,
+  "manual_finalization": "Original execution handle unavailable after server restart; post-run host proof, strict audit and evidence retention completed without rerunning any benchmark.",
+  "completed_cells": 710,
+  "primary_failures": [
+    {
+      "key": "pow2:f32:fwd:oop:n262144",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.0220192913255328,
+      "best": 1.0220192913255328,
+      "p1": 1.0202111574040449,
+      "median": 1.001416521485246,
+      "estimate": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+      "measure": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+      "same_plan": true
+    },
+    {
+      "key": "batch:f32:fwd:oop:n32:b32768",
+      "suite": "batch",
+      "metric": "best",
+      "ratio": 1.0209168653965426,
+      "best": 1.0209168653965426,
+      "p1": 1.022725487971939,
+      "median": 1.022637529422357,
+      "estimate": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+      "measure": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+      "same_plan": true
+    }
+  ],
+  "running_monitor_samples": 2643,
+  "dirty_running_samples": 1,
+  "meta": {
+    "aborted": null,
+    "cells": 710,
+    "child_failures": 0,
+    "drift_flag": true,
+    "elapsed_s": 13253.839483881,
+    "max_drift": 0.06414477263287555,
+    "official": true
+  }
+}

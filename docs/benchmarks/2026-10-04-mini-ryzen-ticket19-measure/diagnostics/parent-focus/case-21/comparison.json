@@ -1,0 +1,29 @@
+{
+  "run": "target/ticket19/parent-focus/case-21",
+  "cells": 1,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "rough": {
+      "cells": 1,
+      "failures": 0,
+      "worst": 1.011759136527173,
+      "geomean": 1.011759136527173
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "rough:f32:inv:oop:n2018",
+      "suite": "rough",
+      "metric": "best",
+      "ratio": 1.011759136527173,
+      "best": 1.011759136527173,
+      "p1": 1.0082877600496138,
+      "median": 1.006697425212085,
+      "estimate": "bluestein avx512 n=2018 m=4096 radices=inner scratch=13328 scratch_oop=13328 scratch_immutable=13328 inner=[stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224]",
+      "measure": "bluestein avx512 n=2018 m=4096 radices=inner scratch=13328 scratch_oop=13328 scratch_immutable=13328 inner=[stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224]",
+      "same_plan": true
+    }
+  ]
+}

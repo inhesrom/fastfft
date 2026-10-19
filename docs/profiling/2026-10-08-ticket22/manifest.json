@@ -1,0 +1,38 @@
+{
+  "bundle": {
+    "file": "evidence.tar.gz",
+    "sha256": "14bd753ee677a5e1e2a4c82073e48ddcc2a9dd86e9e58cfaedddea01f0324f6c",
+    "bytes": 39209575,
+    "files": 277,
+    "manifest": "manifest.json",
+    "notes": "Raw evidence is kept outside source control. The local bundle preserves all original evidence files byte for byte. Its manifest records uncompressed capture hashes.",
+    "local_path": "target/profiling/ticket22-evidence/evidence.tar.gz"
+  },
+  "shared_executable": {
+    "file": "fastfft-arena.gz",
+    "sha256": "22f1dec9154a84f959affe0912d7cdd3b8fe1c703874696d6a4c9fa1f4129de8",
+    "bytes": 96040248
+  },
+  "captures": {
+    "fastfft-record": {
+      "recorded_executable": "/home/ianhersom/repo/fastfft/target/profiling/ticket22-v2/fastfft-record/fastfft-arena",
+      "files": {
+        "perf.data": {
+          "sha256": "f16c57fba56b0faa11e0e7d07b6f8e73b218084c3c5636f954289bd5adc036c1",
+          "bytes": 16091384,
+          "archive": "perf.data.gz"
+        }
+      }
+    },
+    "rustfft-record": {
+      "recorded_executable": "/home/ianhersom/repo/fastfft/target/profiling/ticket22-v2/rustfft-record/fastfft-arena",
+      "files": {
+        "perf.data": {
+          "sha256": "ac02c6f450b54f4095ad66cf9defb457e3d3251313770fb8adeead1a9aa5064a",
+          "bytes": 16008272,
+          "archive": "perf.data.gz"
+        }
+      }
+    }
+  }
+}

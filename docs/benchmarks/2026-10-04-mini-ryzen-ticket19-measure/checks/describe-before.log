@@ -1,0 +1,101 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.26
+   Compiling quote v1.0.47
+   Compiling libc v0.2.189
+   Compiling cfg-if v1.0.5
+   Compiling autocfg v1.5.1
+   Compiling zerocopy v0.8.57
+   Compiling serde_core v1.0.229
+   Compiling getrandom v0.3.4
+   Compiling find-msvc-tools v0.1.13
+   Compiling rustix v1.1.5
+   Compiling zmij v1.0.23
+   Compiling serde v1.0.229
+   Compiling shlex v2.0.1
+   Compiling getrandom v0.4.3
+   Compiling bitflags v2.13.2
+   Compiling serde_json v1.0.151
+   Compiling regex-syntax v0.8.11
+   Compiling linux-raw-sys v0.12.1
+   Compiling either v1.18.0
+   Compiling cc v1.4.7
+   Compiling itoa v1.0.18
+   Compiling anstyle v1.0.14
+   Compiling memchr v2.8.3
+   Compiling once_cell v1.21.4
+   Compiling ciborium-io v0.2.2
+   Compiling clap_lex v1.1.1
+   Compiling fastrand v2.5.0
+   Compiling itertools v0.13.0
+   Compiling same-file v1.0.6
+   Compiling bit-vec v0.8.0
+   Compiling num-traits v0.2.19
+   Compiling strength_reduce v0.2.4
+   Compiling clap_builder v4.6.7
+   Compiling fnv v1.0.7
+   Compiling quick-error v1.2.3
+   Compiling cast v0.3.0
+   Compiling walkdir v2.5.0
+   Compiling oorandom v11.1.5
+   Compiling bit-set v0.8.0
+   Compiling anes v0.1.6
+   Compiling unarray v0.1.4
+   Compiling syn v2.0.119
+   Compiling syn v3.0.6
+   Compiling alloca v0.4.0
+   Compiling wait-timeout v0.2.1
+   Compiling page_size v0.6.0
+   Compiling num-integer v0.1.47
+   Compiling num-complex v0.4.6
+   Compiling rand_core v0.9.5
+   Compiling rand v0.9.5
+   Compiling rand_xorshift v0.4.0
+   Compiling transpose v0.2.3
+   Compiling primal-check v0.3.4
+   Compiling fastfft-testkit v0.0.0 (/home/ianhersom/repo/fastfft/crates/fastfft-testkit)
+   Compiling fastfft v0.1.0 (/home/ianhersom/repo/fastfft/crates/fastfft)
+   Compiling rustfft v6.4.1
+   Compiling criterion-plot v0.8.2
+   Compiling regex-automata v0.4.18
+   Compiling tempfile v3.27.0
+   Compiling rusty-fork v0.3.1
+   Compiling clap v4.6.7
+   Compiling serde_derive v1.0.229
+   Compiling regex v1.13.1
+   Compiling zerocopy-derive v0.8.57
+   Compiling tinytemplate v1.2.1
+   Compiling half v2.7.1
+   Compiling ppv-lite86 v0.2.21
+   Compiling ciborium-ll v0.2.2
+   Compiling rand_chacha v0.9.0
+   Compiling ciborium v0.2.2
+   Compiling proptest v1.11.0
+   Compiling criterion v0.8.2
+    Finished `test-release` profile [optimized] target(s) in 4m 24s
+     Running tests/describe.rs (target/test-release/deps/describe-3451dd55861ef108)
+
+running 2 tests
+test cached_descriptions_f32 ... FAILED
+test cached_descriptions_f64 ... FAILED
+
+failures:
+
+---- cached_descriptions_f32 stdout ----
+
+thread 'cached_descriptions_f32' (1675) panicked at crates/fastfft/tests/describe.rs:24:56:
+identity n=0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- cached_descriptions_f64 stdout ----
+
+thread 'cached_descriptions_f64' (1676) panicked at crates/fastfft/tests/describe.rs:24:56:
+identity n=0
+
+
+failures:
+    cached_descriptions_f32
+    cached_descriptions_f64
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p fastfft --test describe`

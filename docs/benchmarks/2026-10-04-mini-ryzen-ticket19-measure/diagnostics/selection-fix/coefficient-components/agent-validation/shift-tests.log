@@ -1,0 +1,20 @@
+   Compiling fastfft v0.1.0 (/home/ianhersom/repo/fastfft/crates/fastfft)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 19.11s
+     Running unittests src/lib.rs (target/debug/deps/fastfft-454abd5a52368c6d)
+
+running 12 tests
+test engine::aligned_storage::shift_tests::coefficient_shift_slab_overlap_disjoint_sham_and_restore ... ok
+test engine::aligned_storage::shift_tests::coefficient_shift_slab_rejections_do_not_mutate ... ok
+test engine::fourstep::storage::tests::coefficient_shift_fourstep_preserves_bits_owner_and_restore_both_precisions ... ok
+test engine::fourstep::storage::tests::coefficient_shift_fourstep_rejects_invalid_storage_atomically ... ok
+test engine::stockham::storage::shift_tests::coefficient_shift_phase_b_preserves_all_phase_a_bytes_both_precisions ... ok
+test engine::stockham::storage::shift_tests::coefficient_shift_phase_b_rejects_malformed_ranges_without_mutation ... ok
+test engine::stockham::storage::shift_tests::coefficient_shift_stockham_preserves_bits_owner_and_restore_both_precisions ... ok
+test engine::stockham::storage::shift_tests::coefficient_shift_stockham_rejects_invalid_storage_atomically ... ok
+test tuning::coefficient_swap_tests::coefficient_shift_phase_b_public_outputs_contracts_both_precisions_directions ... ok
+test tuning::coefficient_swap_tests::coefficient_shift_phase_b_public_rejects_ownership_unsupported_and_mixed_scopes ... ok
+test tuning::coefficient_swap_tests::coefficient_shift_public_outputs_contracts_and_restore_both_precisions_directions ... ok
+test tuning::coefficient_swap_tests::coefficient_shift_public_rejections_preserve_ownership_and_bytes ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 108 filtered out; finished in 0.31s
+

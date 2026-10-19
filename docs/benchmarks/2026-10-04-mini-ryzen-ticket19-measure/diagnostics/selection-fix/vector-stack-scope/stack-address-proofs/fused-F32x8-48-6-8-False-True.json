@@ -1,0 +1,790 @@
+{
+  "assembly": "/home/ianhersom/repo/fastfft/target/ticket19/selection-fix/vector-stack-scope/all-fused-inventory-current/F32x8-48-6-8-false-true.asm",
+  "instructions": 361,
+  "reachable_instructions": 361,
+  "iterations": 363,
+  "jump_tables": [],
+  "unsupported_control_flow": [],
+  "local_vector_memory_checks": [
+    {
+      "address": "0x6c60ea",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x40],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c60fb",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0xc0],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6110",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0xe0],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c613a",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x80],ymm2",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6188",
+      "instruction": "vmovaps ymm3,YMMWORD PTR [rsp+0xc0]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6195",
+      "instruction": "vmovaps ymm11,YMMWORD PTR [rsp+0x40]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c619f",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x60],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c61ad",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x20],ymm2",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c61ec",
+      "instruction": "vsubps ymm2,ymm3,YMMWORD PTR [rsp+0xe0]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c61fa",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x100],ymm3",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c621e",
+      "instruction": "vmovaps ymm1,YMMWORD PTR [rsp+0x80]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6248",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x40],ymm1",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c625f",
+      "instruction": "vmovaps ymm3,YMMWORD PTR [rsp+0x60]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6265",
+      "instruction": "vsubps ymm14,ymm3,YMMWORD PTR [rsp+0x20]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c626b",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x180],ymm14",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6278",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x160],ymm3",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c628e",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x80],ymm5",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c62a9",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x60],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c62b5",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x20],ymm2",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c62c1",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x1a0],ymm5",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c62d0",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x1c0],ymm7",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c62dd",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x1e0],ymm1",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c62e6",
+      "instruction": "vmovaps ymm10,YMMWORD PTR [rsp+0x100]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c62f5",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x120],ymm2",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6304",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x140],ymm4",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6311",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0xc0],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c632e",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x220],ymm5",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c633f",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x240],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6365",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0xe0],ymm8",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6377",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x260],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6380",
+      "instruction": "vinsertf128 ymm8,ymm15,XMMWORD PTR [rsp+0x80],0x1",
+      "bytes": 16,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c638b",
+      "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x40]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c63a3",
+      "instruction": "vmovaps xmm9,XMMWORD PTR [rsp+0x160]",
+      "bytes": 16,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c63ac",
+      "instruction": "vmovaps xmm4,XMMWORD PTR [rsp+0x180]",
+      "bytes": 16,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c63c2",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x180],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c63cf",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x40],ymm1",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c63da",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x100],ymm2",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c63eb",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x160],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6411",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x80],ymm2",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6423",
+      "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x60]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6429",
+      "instruction": "vunpckhps ymm1,ymm0,YMMWORD PTR [rsp+0x20]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c642f",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x60],ymm1",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6435",
+      "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x1c0]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c643e",
+      "instruction": "vunpckhps ymm2,ymm0,YMMWORD PTR [rsp+0x1a0]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6447",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x20],ymm2",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c644d",
+      "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x120]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6456",
+      "instruction": "vunpckhps ymm11,ymm0,YMMWORD PTR [rsp+0x140]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c645f",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x1a0],ymm11",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c646c",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x1c0],ymm5",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c64a4",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x120],ymm1",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c64b1",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x140],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c64bf",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x200],ymm4",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c64f1",
+      "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x1e0]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c64fa",
+      "instruction": "vunpckhpd ymm0,ymm0,YMMWORD PTR [rsp+0xc0]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6503",
+      "instruction": "vmovaps ymm1,YMMWORD PTR [rsp+0x220]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c650c",
+      "instruction": "vunpckhpd ymm1,ymm1,YMMWORD PTR [rsp+0x240]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6537",
+      "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x180]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6540",
+      "instruction": "vunpckhpd ymm6,ymm0,YMMWORD PTR [rsp+0x40]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6546",
+      "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x100]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c654f",
+      "instruction": "vunpckhpd ymm13,ymm0,YMMWORD PTR [rsp+0x160]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c657a",
+      "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x60]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6580",
+      "instruction": "vunpckhpd ymm3,ymm0,YMMWORD PTR [rsp+0x20]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6586",
+      "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x1a0]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c658f",
+      "instruction": "vunpckhpd ymm6,ymm0,YMMWORD PTR [rsp+0x1c0]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c65ba",
+      "instruction": "vmovaps ymm2,YMMWORD PTR [rsp+0x120]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c65c3",
+      "instruction": "vunpcklpd ymm2,ymm2,YMMWORD PTR [rsp+0x140]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c65cc",
+      "instruction": "vmovaps ymm3,YMMWORD PTR [rsp+0x200]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c65da",
+      "instruction": "vmovaps ymm6,YMMWORD PTR [rsp+0xe0]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c65eb",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x20],ymm2",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c661b",
+      "instruction": "vmovaps ymm2,YMMWORD PTR [rsp+0x260]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c662c",
+      "instruction": "vmovaps ymm2,YMMWORD PTR [rsp+0x80]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6641",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0xe0],ymm14",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c664e",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x1e0],ymm5",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c665b",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0xc0],ymm5",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c666d",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x40],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c667d",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x60],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6699",
+      "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x20]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c66b0",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x20],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c66c0",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x80],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c66d2",
+      "instruction": "vmulps ymm2,ymm0,YMMWORD PTR [rsp+0x1e0]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c66e7",
+      "instruction": "vmulps ymm2,ymm0,YMMWORD PTR [rsp+0xe0]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c66f0",
+      "instruction": "vmulps ymm7,ymm0,YMMWORD PTR [rsp+0xc0]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6711",
+      "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x40]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6728",
+      "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x60]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6755",
+      "instruction": "vmovaps ymm4,YMMWORD PTR [rsp+0x20]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c6832",
+      "instruction": "vmovaps ymm2,YMMWORD PTR [rsp+0x80]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    }
+  ],
+  "unproved_local_vector_memory": [],
+  "unresolved_stack_pointer_stores": [],
+  "derived_scalar_stack_loads_to_review": [],
+  "calls_with_stack_arguments_to_review": [],
+  "passed": true,
+  "limitations": "Low-bit/alias model covers recorded instruction families; review transfer semantics and all unsupported constructs. Caller-clobbered registers lose aliases; RAX conservatively may return an argument-derived stack alias. Escaping stack-pointer stores fail; source review must establish that local-array copying calls do not introduce pointer values into vector storage. Does not prove arithmetic equivalence."
+}

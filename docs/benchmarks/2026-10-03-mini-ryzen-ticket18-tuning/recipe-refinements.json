@@ -1,0 +1,93 @@
+{
+  "source_build": "cache-penalty",
+  "inputs": [
+    "audit-idle-1.jsonl.gz",
+    "audit-misses-2.jsonl.gz",
+    "audit-misses-3.jsonl.gz"
+  ],
+  "objective": "inplace",
+  "note": "Calibration for the next revision; independent validation is still required.",
+  "changes": [
+    {
+      "prior_rust": "Recipe { n: 165375, f64_: false, cap: Isa::Avx512, kernel: CandidateKernel::FourStep, isa: Isa::Avx512, lanes: 16, radices: &[375, 441], ns: 236227.000000 },",
+      "new_recipe": {
+        "precision": "f32",
+        "n": 165375,
+        "cap": "avx512",
+        "kernel": "fourstep",
+        "isa": "avx512-ymm",
+        "lanes": 8,
+        "radices": [
+          375,
+          441
+        ],
+        "ns": 239633.0,
+        "winner_worst_ratio": 1.031481644370167,
+        "winner_objective_ratio": 1.0197409295556483
+      },
+      "prior_objective_ratio": 1.0327782596363724
+    },
+    {
+      "prior_rust": "Recipe { n: 1000000, f64_: false, cap: Isa::Avx512, kernel: CandidateKernel::Stockham, isa: Isa::Avx512Ymm, lanes: 8, radices: &[10, 5, 10, 5, 5, 10], ns: 2922196.000000 },",
+      "new_recipe": {
+        "precision": "f32",
+        "n": 1000000,
+        "cap": "avx512",
+        "kernel": "stockham",
+        "isa": "avx512-ymm",
+        "lanes": 8,
+        "radices": [
+          10,
+          5,
+          5,
+          10,
+          5,
+          10
+        ],
+        "ns": 2998905.0,
+        "winner_worst_ratio": 1.182005623485499,
+        "winner_objective_ratio": 1.0088451148145574
+      },
+      "prior_objective_ratio": 1.0305151733740416
+    },
+    {
+      "prior_rust": "Recipe { n: 1048576, f64_: false, cap: Isa::Avx512, kernel: CandidateKernel::FourStep, isa: Isa::Avx512, lanes: 16, radices: &[1024, 1024], ns: 2076344.000000 },",
+      "new_recipe": {
+        "precision": "f32",
+        "n": 1048576,
+        "cap": "avx512",
+        "kernel": "fourstep",
+        "isa": "avx512-ymm",
+        "lanes": 8,
+        "radices": [
+          512,
+          2048
+        ],
+        "ns": 1916446.0,
+        "winner_worst_ratio": 1.0551604264473082,
+        "winner_objective_ratio": 1.0
+      },
+      "prior_objective_ratio": 1.0837978215926773
+    },
+    {
+      "prior_rust": "Recipe { n: 4096, f64_: true, cap: Isa::Avx512, kernel: CandidateKernel::Stockham, isa: Isa::Avx512, lanes: 8, radices: &[4, 4, 8, 4], ns: 5114.750000 },",
+      "new_recipe": {
+        "precision": "f64",
+        "n": 4096,
+        "cap": "avx512",
+        "kernel": "stockham",
+        "isa": "avx512",
+        "lanes": 8,
+        "radices": [
+          8,
+          8,
+          8
+        ],
+        "ns": 4607.5,
+        "winner_worst_ratio": 1.0598405800469428,
+        "winner_objective_ratio": 1.0
+      },
+      "prior_objective_ratio": 1.1005697232772653
+    }
+  ]
+}

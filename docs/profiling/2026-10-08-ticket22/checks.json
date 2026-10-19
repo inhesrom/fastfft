@@ -1,0 +1,88 @@
+[
+  {
+    "check": "bundle-original-files",
+    "files": 277,
+    "result": "all 277 original files verified byte for byte before consolidation"
+  },
+  {
+    "check": "retained-artifact-integrity",
+    "captures": 5,
+    "capture_files": 244,
+    "result": "all uncompressed SHA-256 hashes match"
+  },
+  {
+    "check": "bundle-sha256",
+    "result": "matches manifest.json"
+  },
+  {
+    "check": "fastfft-local-report",
+    "args": [
+      "python3",
+      "docs/profiling/2026-10-08-ticket22/replay.py",
+      "fastfft",
+      "report",
+      "--stdio",
+      "--no-children",
+      "-g",
+      "none"
+    ],
+    "exit_code": 0,
+    "result": "nonempty FFT symbols; expected sample count for reports"
+  },
+  {
+    "check": "fastfft-local-annotate",
+    "args": [
+      "python3",
+      "docs/profiling/2026-10-08-ticket22/replay.py",
+      "fastfft",
+      "annotate",
+      "--stdio",
+      "--symbol",
+      "fastfft::engine::x86_avx512::<impl fastfft::engine::stockham::StockhamVector for fastfft::isa::x86::F32x8v>::pass"
+    ],
+    "exit_code": 0,
+    "result": "nonempty FFT symbols; expected sample count for reports"
+  },
+  {
+    "check": "rustfft-local-report",
+    "args": [
+      "python3",
+      "docs/profiling/2026-10-08-ticket22/replay.py",
+      "rustfft",
+      "report",
+      "--stdio",
+      "--no-children",
+      "-g",
+      "none"
+    ],
+    "exit_code": 0,
+    "result": "nonempty FFT symbols; expected sample count for reports"
+  },
+  {
+    "check": "rustfft-local-annotate",
+    "args": [
+      "python3",
+      "docs/profiling/2026-10-08-ticket22/replay.py",
+      "rustfft",
+      "annotate",
+      "--stdio",
+      "--symbol",
+      "rustfft::avx::avx32_butterflies::Butterfly512Avx<T>::column_butterflies_and_transpose"
+    ],
+    "exit_code": 0,
+    "result": "nonempty FFT symbols; expected sample count for reports"
+  },
+  {
+    "check": "explicit-evidence-path",
+    "exit_code": 0
+  },
+  {
+    "check": "missing-local-evidence",
+    "exit_code": 2,
+    "result": "clear actionable error"
+  },
+  {
+    "check": "bundle-hash-mismatch",
+    "result": "fails before decompression or perf"
+  }
+]

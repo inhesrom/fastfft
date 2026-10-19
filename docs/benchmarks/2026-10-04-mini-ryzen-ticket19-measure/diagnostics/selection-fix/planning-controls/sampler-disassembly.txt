@@ -1,0 +1,2065 @@
+
+target/ticket19/selection-fix/planning-controls/fastfft-arena:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000004db0c0 <fastfft::measure::Buffers<T>::sample>:
+  4db0c0:	push   %rbp
+  4db0c1:	push   %r15
+  4db0c3:	push   %r14
+  4db0c5:	push   %r13
+  4db0c7:	push   %r12
+  4db0c9:	push   %rbx
+  4db0ca:	sub    $0x98,%rsp
+  4db0d1:	mov    %r9,%rbx
+  4db0d4:	mov    %rdx,%r9
+  4db0d7:	mov    %rsi,%r11
+  4db0da:	mov    0x48(%rdi),%r13
+  4db0de:	mov    0x50(%rdi),%r10
+  4db0e2:	mov    0x58(%rdi),%rax
+  4db0e6:	mov    %rax,0x8(%rsp)
+  4db0eb:	mov    0x8(%rdi),%r15
+  4db0ef:	mov    0x10(%rdi),%rdx
+  4db0f3:	test   %rdx,%rdx
+  4db0f6:	je     4db135 <fastfft::measure::Buffers<T>::sample+0x75>
+  4db0f8:	lea    0x3f(%r15),%r14
+  4db0fc:	and    $0xffffffffffffffc0,%r14
+  4db100:	sub    %r15,%r14
+  4db103:	mov    %r15d,%esi
+  4db106:	and    $0x3,%esi
+  4db109:	shr    $0x2,%r14
+  4db10d:	xor    %eax,%eax
+  4db10f:	neg    %rsi
+  4db112:	sbb    %rax,%rax
+  4db115:	or     %r14,%rax
+  4db118:	mov    %rax,%r14
+  4db11b:	shr    $1,%r14
+  4db11e:	mov    %eax,%esi
+  4db120:	and    $0x1,%esi
+  4db123:	add    %r14,%rsi
+  4db126:	sub    %rsi,%rdx
+  4db129:	jb     4db45a <fastfft::measure::Buffers<T>::sample+0x39a>
+  4db12f:	lea    (%r15,%rax,4),%r15
+  4db133:	jmp    4db137 <fastfft::measure::Buffers<T>::sample+0x77>
+  4db135:	xor    %edx,%edx
+  4db137:	lea    (%rcx,%r13,1),%rax
+  4db13b:	cmp    %rdx,%rax
+  4db13e:	seta   %al
+  4db141:	mov    %r13,%rsi
+  4db144:	add    %rcx,%rsi
+  4db147:	jb     4db40f <fastfft::measure::Buffers<T>::sample+0x34f>
+  4db14d:	test   %al,%al
+  4db14f:	jne    4db419 <fastfft::measure::Buffers<T>::sample+0x359>
+  4db155:	mov    0x20(%rdi),%r12
+  4db159:	mov    0x28(%rdi),%rdx
+  4db15d:	test   %rdx,%rdx
+  4db160:	je     4db1a0 <fastfft::measure::Buffers<T>::sample+0xe0>
+  4db162:	lea    0x3f(%r12),%r14
+  4db167:	and    $0xffffffffffffffc0,%r14
+  4db16b:	sub    %r12,%r14
+  4db16e:	mov    %r12d,%esi
+  4db171:	and    $0x3,%esi
+  4db174:	shr    $0x2,%r14
+  4db178:	xor    %eax,%eax
+  4db17a:	neg    %rsi
+  4db17d:	sbb    %rax,%rax
+  4db180:	or     %r14,%rax
+  4db183:	mov    %rax,%r14
+  4db186:	shr    $1,%r14
+  4db189:	mov    %eax,%esi
+  4db18b:	and    $0x1,%esi
+  4db18e:	add    %r14,%rsi
+  4db191:	sub    %rsi,%rdx
+  4db194:	jb     4db45a <fastfft::measure::Buffers<T>::sample+0x39a>
+  4db19a:	lea    (%r12,%rax,4),%r12
+  4db19e:	jmp    4db1a2 <fastfft::measure::Buffers<T>::sample+0xe2>
+  4db1a0:	xor    %edx,%edx
+  4db1a2:	lea    (%r10,%rcx,1),%rax
+  4db1a6:	cmp    %rdx,%rax
+  4db1a9:	seta   %al
+  4db1ac:	mov    %r10,%rsi
+  4db1af:	add    %rcx,%rsi
+  4db1b2:	jb     4db428 <fastfft::measure::Buffers<T>::sample+0x368>
+  4db1b8:	test   %al,%al
+  4db1ba:	jne    4db432 <fastfft::measure::Buffers<T>::sample+0x372>
+  4db1c0:	mov    %r12,0x50(%rsp)
+  4db1c5:	mov    0x38(%rdi),%rbp
+  4db1c9:	mov    0x40(%rdi),%r12
+  4db1cd:	test   %r12,%r12
+  4db1d0:	mov    %r10,0x28(%rsp)
+  4db1d5:	mov    %rcx,0x40(%rsp)
+  4db1da:	mov    %r15,0x30(%rsp)
+  4db1df:	je     4db21e <fastfft::measure::Buffers<T>::sample+0x15e>
+  4db1e1:	lea    0x3f(%rbp),%rsi
+  4db1e5:	and    $0xffffffffffffffc0,%rsi
+  4db1e9:	sub    %rbp,%rsi
+  4db1ec:	mov    %ebp,%edx
+  4db1ee:	and    $0x3,%edx
+  4db1f1:	shr    $0x2,%rsi
+  4db1f5:	xor    %eax,%eax
+  4db1f7:	neg    %rdx
+  4db1fa:	sbb    %rax,%rax
+  4db1fd:	or     %rsi,%rax
+  4db200:	mov    %rax,%rsi
+  4db203:	shr    $1,%rsi
+  4db206:	mov    %eax,%edx
+  4db208:	and    $0x1,%edx
+  4db20b:	add    %rsi,%rdx
+  4db20e:	sub    %rdx,%r12
+  4db211:	jb     4db45a <fastfft::measure::Buffers<T>::sample+0x39a>
+  4db217:	lea    0x0(%rbp,%rax,4),%rbp
+  4db21c:	jmp    4db221 <fastfft::measure::Buffers<T>::sample+0x161>
+  4db21e:	xor    %r12d,%r12d
+  4db221:	mov    %r8d,%r14d
+  4db224:	movzbl %r8b,%eax
+  4db228:	mov    %r11,0x20(%rsp)
+  4db22d:	mov    %r11,%rdi
+  4db230:	mov    %r9,0x10(%rsp)
+  4db235:	mov    %rax,0x48(%rsp)
+  4db23a:	call   *0x60(%r9,%rax,8)
+  4db23f:	mov    0x8(%rsp),%rdi
+  4db244:	lea    (%rax,%rdi,1),%rcx
+  4db248:	cmp    %r12,%rcx
+  4db24b:	seta   %cl
+  4db24e:	mov    %rax,%rsi
+  4db251:	add    %rdi,%rsi
+  4db254:	jb     4db441 <fastfft::measure::Buffers<T>::sample+0x381>
+  4db25a:	test   %cl,%cl
+  4db25c:	jne    4db44b <fastfft::measure::Buffers<T>::sample+0x38b>
+  4db262:	mov    %rax,0x18(%rsp)
+  4db267:	lea    0x0(,%rdi,8),%rax
+  4db26f:	add    %rbp,%rax
+  4db272:	mov    %rax,0x8(%rsp)
+  4db277:	mov    0x30(%rsp),%rax
+  4db27c:	lea    (%rax,%r13,8),%rbp
+  4db280:	mov    $0x1,%edi
+  4db285:	call   10f7c00 <<std::sys::pal::unix::time::Timespec>::now>
+  4db28a:	mov    %rax,0x58(%rsp)
+  4db28f:	mov    %edx,0x3c(%rsp)
+  4db293:	test   %r14b,%r14b
+  4db296:	je     4db306 <fastfft::measure::Buffers<T>::sample+0x246>
+  4db298:	mov    0x28(%rsp),%rax
+  4db29d:	mov    0x50(%rsp),%rcx
+  4db2a2:	lea    (%rcx,%rax,8),%r15
+  4db2a6:	cmpl   $0x1,0x48(%rsp)
+  4db2ab:	mov    0x40(%rsp),%r12
+  4db2b0:	jne    4db34b <fastfft::measure::Buffers<T>::sample+0x28b>
+  4db2b6:	test   %rbx,%rbx
+  4db2b9:	mov    0x20(%rsp),%r13
+  4db2be:	mov    0x18(%rsp),%r14
+  4db2c3:	je     4db3a4 <fastfft::measure::Buffers<T>::sample+0x2e4>
+  4db2c9:	mov    0x10(%rsp),%rax
+  4db2ce:	mov    0x50(%rax),%rax
+  4db2d2:	mov    %rax,0x28(%rsp)
+  4db2d7:	nopw   0x0(%rax,%rax,1)
+  4db2e0:	mov    %r14,(%rsp)
+  4db2e4:	mov    %r13,%rdi
+  4db2e7:	mov    %rbp,%rsi
+  4db2ea:	mov    %r12,%rdx
+  4db2ed:	mov    %r15,%rcx
+  4db2f0:	mov    %r12,%r8
+  4db2f3:	mov    0x8(%rsp),%r9
+  4db2f8:	call   *0x28(%rsp)
+  4db2fc:	dec    %rbx
+  4db2ff:	jne    4db2e0 <fastfft::measure::Buffers<T>::sample+0x220>
+  4db301:	jmp    4db3a4 <fastfft::measure::Buffers<T>::sample+0x2e4>
+  4db306:	test   %rbx,%rbx
+  4db309:	mov    0x40(%rsp),%r12
+  4db30e:	mov    0x20(%rsp),%r15
+  4db313:	mov    0x18(%rsp),%r13
+  4db318:	je     4db3a4 <fastfft::measure::Buffers<T>::sample+0x2e4>
+  4db31e:	mov    0x10(%rsp),%rax
+  4db323:	mov    0x48(%rax),%r14
+  4db327:	nopw   0x0(%rax,%rax,1)
+  4db330:	mov    %r15,%rdi
+  4db333:	mov    %rbp,%rsi
+  4db336:	mov    %r12,%rdx
+  4db339:	mov    0x8(%rsp),%rcx
+  4db33e:	mov    %r13,%r8
+  4db341:	call   *%r14
+  4db344:	dec    %rbx
+  4db347:	jne    4db330 <fastfft::measure::Buffers<T>::sample+0x270>
+  4db349:	jmp    4db3a4 <fastfft::measure::Buffers<T>::sample+0x2e4>
+  4db34b:	test   %rbx,%rbx
+  4db34e:	mov    0x20(%rsp),%r13
+  4db353:	mov    0x18(%rsp),%rcx
+  4db358:	je     4db3a4 <fastfft::measure::Buffers<T>::sample+0x2e4>
+  4db35a:	mov    %r12,%rdx
+  4db35d:	mov    0x10(%rsp),%rax
+  4db362:	mov    0x58(%rax),%r12
+  4db366:	mov    %rbp,0x30(%rsp)
+  4db36b:	nopl   0x0(%rax,%rax,1)
+  4db370:	mov    %rcx,(%rsp)
+  4db374:	mov    %r13,%rdi
+  4db377:	mov    %rbp,%rsi
+  4db37a:	mov    %rcx,%rbp
+  4db37d:	mov    %r15,%rcx
+  4db380:	mov    %rbx,%r14
+  4db383:	mov    %rdx,%rbx
+  4db386:	mov    %rdx,%r8
+  4db389:	mov    0x8(%rsp),%r9
+  4db38e:	call   *%r12
+  4db391:	mov    %rbx,%rdx
+  4db394:	mov    %r14,%rbx
+  4db397:	mov    %rbp,%rcx
+  4db39a:	mov    0x30(%rsp),%rbp
+  4db39f:	dec    %rbx
+  4db3a2:	jne    4db370 <fastfft::measure::Buffers<T>::sample+0x2b0>
+  4db3a4:	mov    $0x1,%edi
+  4db3a9:	call   10f7c00 <<std::sys::pal::unix::time::Timespec>::now>
+  4db3ae:	mov    %rax,0x60(%rsp)
+  4db3b3:	mov    %edx,0x68(%rsp)
+  4db3b7:	mov    0x58(%rsp),%rax
+  4db3bc:	mov    %rax,0x70(%rsp)
+  4db3c1:	mov    0x3c(%rsp),%eax
+  4db3c5:	mov    %eax,0x78(%rsp)
+  4db3c9:	lea    0x80(%rsp),%rdi
+  4db3d1:	lea    0x60(%rsp),%rsi
+  4db3d6:	lea    0x70(%rsp),%rdx
+  4db3db:	call   10f7b00 <<std::sys::pal::unix::time::Timespec>::sub_timespec>
+  4db3e0:	xor    %eax,%eax
+  4db3e2:	cmpb   $0x0,0x80(%rsp)
+  4db3ea:	mov    0x90(%rsp),%edx
+  4db3f1:	cmovne %eax,%edx
+  4db3f4:	cmove  0x88(%rsp),%rax
+  4db3fd:	add    $0x98,%rsp
+  4db404:	pop    %rbx
+  4db405:	pop    %r12
+  4db407:	pop    %r13
+  4db409:	pop    %r14
+  4db40b:	pop    %r15
+  4db40d:	pop    %rbp
+  4db40e:	ret
+  4db40f:	mov    $0x1,%al
+  4db411:	test   %al,%al
+  4db413:	je     4db155 <fastfft::measure::Buffers<T>::sample+0x95>
+  4db419:	lea    0xd954a8(%rip),%rcx        # 12708c8 <__frame_dummy_init_array_entry+0x1a2f0>
+  4db420:	mov    %r13,%rdi
+  4db423:	call   c4ec40 <core::slice::index::slice_index_fail>
+  4db428:	mov    $0x1,%al
+  4db42a:	test   %al,%al
+  4db42c:	je     4db1c0 <fastfft::measure::Buffers<T>::sample+0x100>
+  4db432:	lea    0xd95477(%rip),%rcx        # 12708b0 <__frame_dummy_init_array_entry+0x1a2d8>
+  4db439:	mov    %r10,%rdi
+  4db43c:	call   c4ec40 <core::slice::index::slice_index_fail>
+  4db441:	mov    $0x1,%cl
+  4db443:	test   %cl,%cl
+  4db445:	je     4db262 <fastfft::measure::Buffers<T>::sample+0x1a2>
+  4db44b:	lea    0xd95446(%rip),%rcx        # 1270898 <__frame_dummy_init_array_entry+0x1a2c0>
+  4db452:	mov    %r12,%rdx
+  4db455:	call   c4ec40 <core::slice::index::slice_index_fail>
+  4db45a:	lea    -0x4050ac(%rip),%rdi        # d63b5 <crc32fast::table::CRC32_TABLE+0x8a81>
+  4db461:	lea    0xdb1638(%rip),%rdx        # 128caa0 <__frame_dummy_init_array_entry+0x364c8>
+  4db468:	mov    $0x36,%esi
+  4db46d:	call   c51200 <core::option::expect_failed>
+  4db472:	int3
+  4db473:	int3
+  4db474:	int3
+  4db475:	int3
+  4db476:	int3
+  4db477:	int3
+  4db478:	int3
+  4db479:	int3
+  4db47a:	int3
+  4db47b:	int3
+  4db47c:	int3
+  4db47d:	int3
+  4db47e:	int3
+  4db47f:	int3
+
+00000000004db480 <fastfft::measure::Buffers<T>::sample>:
+  4db480:	push   %rbp
+  4db481:	push   %r15
+  4db483:	push   %r14
+  4db485:	push   %r13
+  4db487:	push   %r12
+  4db489:	push   %rbx
+  4db48a:	sub    $0xa8,%rsp
+  4db491:	mov    %r9,0x10(%rsp)
+  4db496:	mov    %rdx,%r15
+  4db499:	mov    %rsi,%r9
+  4db49c:	mov    0x48(%rdi),%r10
+  4db4a0:	mov    0x50(%rdi),%r11
+  4db4a4:	mov    0x58(%rdi),%rax
+  4db4a8:	mov    %rax,0x40(%rsp)
+  4db4ad:	mov    0x8(%rdi),%r12
+  4db4b1:	mov    0x10(%rdi),%rdx
+  4db4b5:	test   %rdx,%rdx
+  4db4b8:	je     4db4f8 <fastfft::measure::Buffers<T>::sample+0x78>
+  4db4ba:	lea    0x3f(%r12),%r14
+  4db4bf:	and    $0xffffffffffffffc0,%r14
+  4db4c3:	sub    %r12,%r14
+  4db4c6:	mov    %r12d,%esi
+  4db4c9:	and    $0x7,%esi
+  4db4cc:	shr    $0x3,%r14
+  4db4d0:	xor    %eax,%eax
+  4db4d2:	neg    %rsi
+  4db4d5:	sbb    %rax,%rax
+  4db4d8:	or     %r14,%rax
+  4db4db:	mov    %rax,%r14
+  4db4de:	shr    $1,%r14
+  4db4e1:	mov    %eax,%esi
+  4db4e3:	and    $0x1,%esi
+  4db4e6:	add    %r14,%rsi
+  4db4e9:	sub    %rsi,%rdx
+  4db4ec:	jb     4db862 <fastfft::measure::Buffers<T>::sample+0x3e2>
+  4db4f2:	lea    (%r12,%rax,8),%r12
+  4db4f6:	jmp    4db4fa <fastfft::measure::Buffers<T>::sample+0x7a>
+  4db4f8:	xor    %edx,%edx
+  4db4fa:	lea    (%r10,%rcx,1),%rax
+  4db4fe:	cmp    %rdx,%rax
+  4db501:	seta   %al
+  4db504:	mov    %r10,%rsi
+  4db507:	add    %rcx,%rsi
+  4db50a:	jb     4db815 <fastfft::measure::Buffers<T>::sample+0x395>
+  4db510:	test   %al,%al
+  4db512:	jne    4db81f <fastfft::measure::Buffers<T>::sample+0x39f>
+  4db518:	mov    0x20(%rdi),%r14
+  4db51c:	mov    0x28(%rdi),%rdx
+  4db520:	test   %rdx,%rdx
+  4db523:	je     4db562 <fastfft::measure::Buffers<T>::sample+0xe2>
+  4db525:	lea    0x3f(%r14),%r13
+  4db529:	and    $0xffffffffffffffc0,%r13
+  4db52d:	sub    %r14,%r13
+  4db530:	mov    %r14d,%esi
+  4db533:	and    $0x7,%esi
+  4db536:	shr    $0x3,%r13
+  4db53a:	xor    %eax,%eax
+  4db53c:	neg    %rsi
+  4db53f:	sbb    %rax,%rax
+  4db542:	or     %r13,%rax
+  4db545:	mov    %rax,%r13
+  4db548:	shr    $1,%r13
+  4db54b:	mov    %eax,%esi
+  4db54d:	and    $0x1,%esi
+  4db550:	add    %r13,%rsi
+  4db553:	sub    %rsi,%rdx
+  4db556:	jb     4db862 <fastfft::measure::Buffers<T>::sample+0x3e2>
+  4db55c:	lea    (%r14,%rax,8),%r14
+  4db560:	jmp    4db564 <fastfft::measure::Buffers<T>::sample+0xe4>
+  4db562:	xor    %edx,%edx
+  4db564:	lea    (%r11,%rcx,1),%rax
+  4db568:	cmp    %rdx,%rax
+  4db56b:	seta   %al
+  4db56e:	mov    %r11,%rsi
+  4db571:	add    %rcx,%rsi
+  4db574:	jb     4db82e <fastfft::measure::Buffers<T>::sample+0x3ae>
+  4db57a:	test   %al,%al
+  4db57c:	jne    4db838 <fastfft::measure::Buffers<T>::sample+0x3b8>
+  4db582:	mov    0x38(%rdi),%r13
+  4db586:	mov    0x40(%rdi),%rdi
+  4db58a:	test   %rdi,%rdi
+  4db58d:	mov    %r11,0x68(%rsp)
+  4db592:	mov    %r14,0x38(%rsp)
+  4db597:	mov    %rcx,0x58(%rsp)
+  4db59c:	mov    %r12,0x20(%rsp)
+  4db5a1:	je     4db5ec <fastfft::measure::Buffers<T>::sample+0x16c>
+  4db5a3:	lea    0x3f(%r13),%rsi
+  4db5a7:	and    $0xffffffffffffffc0,%rsi
+  4db5ab:	sub    %r13,%rsi
+  4db5ae:	mov    %r13d,%edx
+  4db5b1:	and    $0x7,%edx
+  4db5b4:	shr    $0x3,%rsi
+  4db5b8:	xor    %eax,%eax
+  4db5ba:	neg    %rdx
+  4db5bd:	sbb    %rax,%rax
+  4db5c0:	or     %rsi,%rax
+  4db5c3:	mov    %rax,%rsi
+  4db5c6:	shr    $1,%rsi
+  4db5c9:	mov    %eax,%edx
+  4db5cb:	and    $0x1,%edx
+  4db5ce:	add    %rsi,%rdx
+  4db5d1:	sub    %rdx,%rdi
+  4db5d4:	jb     4db862 <fastfft::measure::Buffers<T>::sample+0x3e2>
+  4db5da:	mov    %r10,%r14
+  4db5dd:	lea    0x0(%r13,%rax,8),%r13
+  4db5e2:	mov    %r13,0x18(%rsp)
+  4db5e7:	mov    %rdi,%r12
+  4db5ea:	jmp    4db5f7 <fastfft::measure::Buffers<T>::sample+0x177>
+  4db5ec:	mov    %r13,0x18(%rsp)
+  4db5f1:	mov    %r10,%r14
+  4db5f4:	xor    %r12d,%r12d
+  4db5f7:	mov    %r8d,%r13d
+  4db5fa:	movzbl %r8b,%eax
+  4db5fe:	mov    %r9,0x50(%rsp)
+  4db603:	mov    %r9,%rdi
+  4db606:	mov    %r15,%rbp
+  4db609:	mov    %rax,0x60(%rsp)
+  4db60e:	call   *0x60(%r15,%rax,8)
+  4db613:	mov    0x40(%rsp),%rdi
+  4db618:	lea    (%rax,%rdi,1),%rcx
+  4db61c:	mov    %r12,%rdx
+  4db61f:	cmp    %r12,%rcx
+  4db622:	seta   %cl
+  4db625:	mov    %rax,%rsi
+  4db628:	add    %rdi,%rsi
+  4db62b:	jb     4db847 <fastfft::measure::Buffers<T>::sample+0x3c7>
+  4db631:	mov    0x20(%rsp),%rbx
+  4db636:	test   %cl,%cl
+  4db638:	jne    4db856 <fastfft::measure::Buffers<T>::sample+0x3d6>
+  4db63e:	mov    %rax,0x28(%rsp)
+  4db643:	mov    %rbp,0x30(%rsp)
+  4db648:	shl    $0x4,%rdi
+  4db64c:	add    %rdi,0x18(%rsp)
+  4db651:	shl    $0x4,%r14
+  4db655:	add    %r14,%rbx
+  4db658:	mov    $0x1,%edi
+  4db65d:	call   10f7c00 <<std::sys::pal::unix::time::Timespec>::now>
+  4db662:	mov    %rax,0x20(%rsp)
+  4db667:	mov    %edx,0x4c(%rsp)
+  4db66b:	test   %r13b,%r13b
+  4db66e:	je     4db702 <fastfft::measure::Buffers<T>::sample+0x282>
+  4db674:	mov    0x58(%rsp),%r13
+  4db679:	mov    0x68(%rsp),%rbp
+  4db67e:	shl    $0x4,%rbp
+  4db682:	add    %rbp,0x38(%rsp)
+  4db687:	cmpl   $0x1,0x60(%rsp)
+  4db68c:	mov    0x50(%rsp),%r12
+  4db691:	jne    4db74a <fastfft::measure::Buffers<T>::sample+0x2ca>
+  4db697:	cmpq   $0x0,0x10(%rsp)
+  4db69d:	mov    0x38(%rsp),%rbp
+  4db6a2:	mov    0x18(%rsp),%r15
+  4db6a7:	mov    0x28(%rsp),%rcx
+  4db6ac:	je     4db7a1 <fastfft::measure::Buffers<T>::sample+0x321>
+  4db6b2:	mov    %rbx,%r14
+  4db6b5:	mov    %r13,%rbx
+  4db6b8:	mov    0x30(%rsp),%rax
+  4db6bd:	mov    0x50(%rax),%r13
+  4db6c1:	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+  4db6d0:	mov    %rcx,(%rsp)
+  4db6d4:	mov    %r12,%rdi
+  4db6d7:	mov    %r14,%rsi
+  4db6da:	mov    %rbx,%rdx
+  4db6dd:	mov    %rbp,%rcx
+  4db6e0:	mov    %rbx,%r8
+  4db6e3:	mov    %r15,%r9
+  4db6e6:	call   *%r13
+  4db6e9:	mov    0x10(%rsp),%rax
+  4db6ee:	mov    0x28(%rsp),%rcx
+  4db6f3:	dec    %rax
+  4db6f6:	mov    %rax,0x10(%rsp)
+  4db6fb:	jne    4db6d0 <fastfft::measure::Buffers<T>::sample+0x250>
+  4db6fd:	jmp    4db7a1 <fastfft::measure::Buffers<T>::sample+0x321>
+  4db702:	cmpq   $0x0,0x10(%rsp)
+  4db708:	mov    0x58(%rsp),%r13
+  4db70d:	mov    0x50(%rsp),%r12
+  4db712:	mov    0x18(%rsp),%r14
+  4db717:	mov    0x28(%rsp),%r15
+  4db71c:	je     4db7a1 <fastfft::measure::Buffers<T>::sample+0x321>
+  4db722:	mov    0x30(%rsp),%rax
+  4db727:	mov    0x48(%rax),%rbp
+  4db72b:	nopl   0x0(%rax,%rax,1)
+  4db730:	mov    %r12,%rdi
+  4db733:	mov    %rbx,%rsi
+  4db736:	mov    %r13,%rdx
+  4db739:	mov    %r14,%rcx
+  4db73c:	mov    %r15,%r8
+  4db73f:	call   *%rbp
+  4db741:	decq   0x10(%rsp)
+  4db746:	jne    4db730 <fastfft::measure::Buffers<T>::sample+0x2b0>
+  4db748:	jmp    4db7a1 <fastfft::measure::Buffers<T>::sample+0x321>
+  4db74a:	mov    %rbx,%r14
+  4db74d:	cmpq   $0x0,0x10(%rsp)
+  4db753:	mov    %r13,%rbx
+  4db756:	mov    0x38(%rsp),%rbp
+  4db75b:	mov    0x18(%rsp),%r15
+  4db760:	mov    0x28(%rsp),%r13
+  4db765:	je     4db7a1 <fastfft::measure::Buffers<T>::sample+0x321>
+  4db767:	mov    0x30(%rsp),%rax
+  4db76c:	mov    0x58(%rax),%rax
+  4db770:	mov    %rax,0x40(%rsp)
+  4db775:	data16 cs nopw 0x0(%rax,%rax,1)
+  4db780:	mov    %r13,(%rsp)
+  4db784:	mov    %r12,%rdi
+  4db787:	mov    %r14,%rsi
+  4db78a:	mov    %rbx,%rdx
+  4db78d:	mov    %rbp,%rcx
+  4db790:	mov    %rbx,%r8
+  4db793:	mov    %r15,%r9
+  4db796:	call   *0x40(%rsp)
+  4db79a:	decq   0x10(%rsp)
+  4db79f:	jne    4db780 <fastfft::measure::Buffers<T>::sample+0x300>
+  4db7a1:	mov    $0x1,%edi
+  4db7a6:	call   10f7c00 <<std::sys::pal::unix::time::Timespec>::now>
+  4db7ab:	mov    %rax,0x70(%rsp)
+  4db7b0:	mov    %edx,0x78(%rsp)
+  4db7b4:	mov    0x20(%rsp),%rax
+  4db7b9:	mov    %rax,0x80(%rsp)
+  4db7c1:	mov    0x4c(%rsp),%eax
+  4db7c5:	mov    %eax,0x88(%rsp)
+  4db7cc:	lea    0x90(%rsp),%rdi
+  4db7d4:	lea    0x70(%rsp),%rsi
+  4db7d9:	lea    0x80(%rsp),%rdx
+  4db7e1:	call   10f7b00 <<std::sys::pal::unix::time::Timespec>::sub_timespec>
+  4db7e6:	xor    %eax,%eax
+  4db7e8:	cmpb   $0x0,0x90(%rsp)
+  4db7f0:	mov    0xa0(%rsp),%edx
+  4db7f7:	cmovne %eax,%edx
+  4db7fa:	cmove  0x98(%rsp),%rax
+  4db803:	add    $0xa8,%rsp
+  4db80a:	pop    %rbx
+  4db80b:	pop    %r12
+  4db80d:	pop    %r13
+  4db80f:	pop    %r14
+  4db811:	pop    %r15
+  4db813:	pop    %rbp
+  4db814:	ret
+  4db815:	mov    $0x1,%al
+  4db817:	test   %al,%al
+  4db819:	je     4db518 <fastfft::measure::Buffers<T>::sample+0x98>
+  4db81f:	lea    0xd950a2(%rip),%rcx        # 12708c8 <__frame_dummy_init_array_entry+0x1a2f0>
+  4db826:	mov    %r10,%rdi
+  4db829:	call   c4ec40 <core::slice::index::slice_index_fail>
+  4db82e:	mov    $0x1,%al
+  4db830:	test   %al,%al
+  4db832:	je     4db582 <fastfft::measure::Buffers<T>::sample+0x102>
+  4db838:	lea    0xd95071(%rip),%rcx        # 12708b0 <__frame_dummy_init_array_entry+0x1a2d8>
+  4db83f:	mov    %r11,%rdi
+  4db842:	call   c4ec40 <core::slice::index::slice_index_fail>
+  4db847:	mov    $0x1,%cl
+  4db849:	mov    0x20(%rsp),%rbx
+  4db84e:	test   %cl,%cl
+  4db850:	je     4db63e <fastfft::measure::Buffers<T>::sample+0x1be>
+  4db856:	lea    0xd9503b(%rip),%rcx        # 1270898 <__frame_dummy_init_array_entry+0x1a2c0>
+  4db85d:	call   c4ec40 <core::slice::index::slice_index_fail>
+  4db862:	lea    -0x4054b4(%rip),%rdi        # d63b5 <crc32fast::table::CRC32_TABLE+0x8a81>
+  4db869:	lea    0xdb1230(%rip),%rdx        # 128caa0 <__frame_dummy_init_array_entry+0x364c8>
+  4db870:	mov    $0x36,%esi
+  4db875:	call   c51200 <core::option::expect_failed>
+  4db87a:	int3
+  4db87b:	int3
+  4db87c:	int3
+  4db87d:	int3
+  4db87e:	int3
+  4db87f:	int3
+
+00000000004db880 <fastfft::measure::planning_addresses>:
+  4db880:	push   %rbp
+  4db881:	push   %r15
+  4db883:	push   %r14
+  4db885:	push   %r13
+  4db887:	push   %r12
+  4db889:	push   %rbx
+  4db88a:	sub    $0x18,%rsp
+  4db88e:	mov    %rsi,%r12
+  4db891:	mov    %rdi,%rbx
+  4db894:	mov    0x48(%rsi),%rdi
+  4db898:	mov    0x58(%rsi),%r15
+  4db89c:	mov    0x8(%rsi),%rbp
+  4db8a0:	mov    0x10(%rsi),%rax
+  4db8a4:	test   %rax,%rax
+  4db8a7:	je     4db8ea <fastfft::measure::planning_addresses+0x6a>
+  4db8a9:	lea    0x3f(%rbp),%rsi
+  4db8ad:	and    $0xffffffffffffffc0,%rsi
+  4db8b1:	sub    %rbp,%rsi
+  4db8b4:	mov    %ebp,%r8d
+  4db8b7:	and    $0x3,%r8d
+  4db8bb:	shr    $0x2,%rsi
+  4db8bf:	xor    %ecx,%ecx
+  4db8c1:	neg    %r8
+  4db8c4:	sbb    %rcx,%rcx
+  4db8c7:	or     %rsi,%rcx
+  4db8ca:	mov    %rcx,%rsi
+  4db8cd:	shr    $1,%rsi
+  4db8d0:	mov    %ecx,%r8d
+  4db8d3:	and    $0x1,%r8d
+  4db8d7:	add    %rsi,%r8
+  4db8da:	sub    %r8,%rax
+  4db8dd:	jb     4dba86 <fastfft::measure::planning_addresses+0x206>
+  4db8e3:	lea    0x0(%rbp,%rcx,4),%rbp
+  4db8e8:	jmp    4db8ec <fastfft::measure::planning_addresses+0x6c>
+  4db8ea:	xor    %eax,%eax
+  4db8ec:	lea    0x60(%rdi),%rcx
+  4db8f0:	cmp    %rax,%rcx
+  4db8f3:	setbe  %cl
+  4db8f6:	mov    %rdi,%rsi
+  4db8f9:	sub    $0xffffffffffffffa0,%rsi
+  4db8fd:	jae    4dba6d <fastfft::measure::planning_addresses+0x1ed>
+  4db903:	test   %cl,%cl
+  4db905:	je     4dba77 <fastfft::measure::planning_addresses+0x1f7>
+  4db90b:	mov    %rdi,0x10(%rsp)
+  4db910:	mov    (%rdx),%rdi
+  4db913:	mov    0x8(%rdx),%rax
+  4db917:	mov    0x10(%rdx),%r13
+  4db91b:	mov    0x18(%rdx),%r14
+  4db91f:	call   *0x60(%rax)
+  4db922:	test   %rax,%rax
+  4db925:	je     4db976 <fastfft::measure::planning_addresses+0xf6>
+  4db927:	mov    0x38(%r12),%rcx
+  4db92c:	mov    0x40(%r12),%rdx
+  4db931:	test   %rdx,%rdx
+  4db934:	je     4db992 <fastfft::measure::planning_addresses+0x112>
+  4db936:	lea    0x3f(%rcx),%rdi
+  4db93a:	and    $0xffffffffffffffc0,%rdi
+  4db93e:	sub    %rcx,%rdi
+  4db941:	mov    %ecx,%r8d
+  4db944:	and    $0x3,%r8d
+  4db948:	shr    $0x2,%rdi
+  4db94c:	xor    %esi,%esi
+  4db94e:	neg    %r8
+  4db951:	sbb    %rsi,%rsi
+  4db954:	or     %rdi,%rsi
+  4db957:	mov    %rsi,%rdi
+  4db95a:	shr    $1,%rdi
+  4db95d:	mov    %esi,%r8d
+  4db960:	and    $0x1,%r8d
+  4db964:	add    %rdi,%r8
+  4db967:	sub    %r8,%rdx
+  4db96a:	jb     4dba86 <fastfft::measure::planning_addresses+0x206>
+  4db970:	lea    (%rcx,%rsi,4),%rcx
+  4db974:	jmp    4db994 <fastfft::measure::planning_addresses+0x114>
+  4db976:	movq   $0x0,0x8(%rsp)
+  4db97f:	mov    %r13,%rdi
+  4db982:	call   *0x60(%r14)
+  4db986:	test   %rax,%rax
+  4db989:	jne    4db9c5 <fastfft::measure::planning_addresses+0x145>
+  4db98b:	xor    %eax,%eax
+  4db98d:	jmp    4dba32 <fastfft::measure::planning_addresses+0x1b2>
+  4db992:	xor    %edx,%edx
+  4db994:	add    %r15,%rax
+  4db997:	cmp    %rdx,%rax
+  4db99a:	setbe  %sil
+  4db99e:	cmp    %r15,%rax
+  4db9a1:	jb     4dba9e <fastfft::measure::planning_addresses+0x21e>
+  4db9a7:	test   %sil,%sil
+  4db9aa:	je     4dbab6 <fastfft::measure::planning_addresses+0x236>
+  4db9b0:	lea    (%rcx,%r15,8),%rax
+  4db9b4:	mov    %rax,0x8(%rsp)
+  4db9b9:	mov    %r13,%rdi
+  4db9bc:	call   *0x60(%r14)
+  4db9c0:	test   %rax,%rax
+  4db9c3:	je     4db98b <fastfft::measure::planning_addresses+0x10b>
+  4db9c5:	mov    0x38(%r12),%rcx
+  4db9ca:	mov    0x40(%r12),%rdx
+  4db9cf:	test   %rdx,%rdx
+  4db9d2:	je     4dba10 <fastfft::measure::planning_addresses+0x190>
+  4db9d4:	lea    0x3f(%rcx),%rdi
+  4db9d8:	and    $0xffffffffffffffc0,%rdi
+  4db9dc:	sub    %rcx,%rdi
+  4db9df:	mov    %ecx,%r8d
+  4db9e2:	and    $0x3,%r8d
+  4db9e6:	shr    $0x2,%rdi
+  4db9ea:	xor    %esi,%esi
+  4db9ec:	neg    %r8
+  4db9ef:	sbb    %rsi,%rsi
+  4db9f2:	or     %rdi,%rsi
+  4db9f5:	mov    %rsi,%rdi
+  4db9f8:	shr    $1,%rdi
+  4db9fb:	mov    %esi,%r8d
+  4db9fe:	and    $0x1,%r8d
+  4dba02:	add    %rdi,%r8
+  4dba05:	sub    %r8,%rdx
+  4dba08:	jb     4dba86 <fastfft::measure::planning_addresses+0x206>
+  4dba0a:	lea    (%rcx,%rsi,4),%rcx
+  4dba0e:	jmp    4dba12 <fastfft::measure::planning_addresses+0x192>
+  4dba10:	xor    %edx,%edx
+  4dba12:	add    %r15,%rax
+  4dba15:	cmp    %rdx,%rax
+  4dba18:	setbe  %sil
+  4dba1c:	cmp    %r15,%rax
+  4dba1f:	jb     4dbaab <fastfft::measure::planning_addresses+0x22b>
+  4dba25:	test   %sil,%sil
+  4dba28:	je     4dbab6 <fastfft::measure::planning_addresses+0x236>
+  4dba2e:	lea    (%rcx,%r15,8),%rax
+  4dba32:	mov    0x10(%rsp),%rcx
+  4dba37:	lea    0x0(,%rcx,8),%rcx
+  4dba3f:	add    %rbp,%rcx
+  4dba42:	mov    %rcx,(%rbx)
+  4dba45:	mov    %rcx,0x8(%rbx)
+  4dba49:	mov    0x8(%rsp),%rdx
+  4dba4e:	mov    %rdx,0x10(%rbx)
+  4dba52:	mov    %rcx,0x18(%rbx)
+  4dba56:	mov    %rcx,0x20(%rbx)
+  4dba5a:	mov    %rax,0x28(%rbx)
+  4dba5e:	add    $0x18,%rsp
+  4dba62:	pop    %rbx
+  4dba63:	pop    %r12
+  4dba65:	pop    %r13
+  4dba67:	pop    %r14
+  4dba69:	pop    %r15
+  4dba6b:	pop    %rbp
+  4dba6c:	ret
+  4dba6d:	xor    %ecx,%ecx
+  4dba6f:	test   %cl,%cl
+  4dba71:	jne    4db90b <fastfft::measure::planning_addresses+0x8b>
+  4dba77:	lea    0xd94e62(%rip),%rcx        # 12708e0 <__frame_dummy_init_array_entry+0x1a308>
+  4dba7e:	mov    %rax,%rdx
+  4dba81:	call   c4ec40 <core::slice::index::slice_index_fail>
+  4dba86:	lea    -0x4056d8(%rip),%rdi        # d63b5 <crc32fast::table::CRC32_TABLE+0x8a81>
+  4dba8d:	lea    0xdb100c(%rip),%rdx        # 128caa0 <__frame_dummy_init_array_entry+0x364c8>
+  4dba94:	mov    $0x36,%esi
+  4dba99:	call   c51200 <core::option::expect_failed>
+  4dba9e:	xor    %esi,%esi
+  4dbaa0:	test   %sil,%sil
+  4dbaa3:	jne    4db9b0 <fastfft::measure::planning_addresses+0x130>
+  4dbaa9:	jmp    4dbab6 <fastfft::measure::planning_addresses+0x236>
+  4dbaab:	xor    %esi,%esi
+  4dbaad:	test   %sil,%sil
+  4dbab0:	jne    4dba2e <fastfft::measure::planning_addresses+0x1ae>
+  4dbab6:	lea    0xd94e3b(%rip),%rcx        # 12708f8 <__frame_dummy_init_array_entry+0x1a320>
+  4dbabd:	mov    %r15,%rdi
+  4dbac0:	mov    %rax,%rsi
+  4dbac3:	call   c4ec40 <core::slice::index::slice_index_fail>
+  4dbac8:	int3
+  4dbac9:	int3
+  4dbaca:	int3
+  4dbacb:	int3
+  4dbacc:	int3
+  4dbacd:	int3
+  4dbace:	int3
+  4dbacf:	int3
+  4dbad0:	int3
+  4dbad1:	int3
+  4dbad2:	int3
+  4dbad3:	int3
+  4dbad4:	int3
+  4dbad5:	int3
+  4dbad6:	int3
+  4dbad7:	int3
+  4dbad8:	int3
+  4dbad9:	int3
+  4dbada:	int3
+  4dbadb:	int3
+  4dbadc:	int3
+  4dbadd:	int3
+  4dbade:	int3
+  4dbadf:	int3
+  4dbae0:	int3
+  4dbae1:	int3
+  4dbae2:	int3
+  4dbae3:	int3
+  4dbae4:	int3
+  4dbae5:	int3
+  4dbae6:	int3
+  4dbae7:	int3
+  4dbae8:	int3
+  4dbae9:	int3
+  4dbaea:	int3
+  4dbaeb:	int3
+  4dbaec:	int3
+  4dbaed:	int3
+  4dbaee:	int3
+  4dbaef:	int3
+  4dbaf0:	int3
+  4dbaf1:	int3
+  4dbaf2:	int3
+  4dbaf3:	int3
+  4dbaf4:	int3
+  4dbaf5:	int3
+  4dbaf6:	int3
+  4dbaf7:	int3
+  4dbaf8:	int3
+  4dbaf9:	int3
+  4dbafa:	int3
+  4dbafb:	int3
+  4dbafc:	int3
+  4dbafd:	int3
+  4dbafe:	int3
+  4dbaff:	int3
+
+00000000004dbb00 <fastfft::measure::planning_path_sample>:
+  4dbb00:	push   %rbp
+  4dbb01:	push   %r15
+  4dbb03:	push   %r14
+  4dbb05:	push   %r13
+  4dbb07:	push   %r12
+  4dbb09:	push   %rbx
+  4dbb0a:	sub    $0x18,%rsp
+  4dbb0e:	mov    %r8,%r9
+  4dbb11:	mov    %rdx,%r10
+  4dbb14:	mov    %rsi,%r11
+  4dbb17:	test   %rcx,%rcx
+  4dbb1a:	je     4dbb7a <fastfft::measure::planning_path_sample+0x7a>
+  4dbb1c:	mov    0x48(%rdi),%r15
+  4dbb20:	mov    0x50(%rdi),%rax
+  4dbb24:	mov    0x58(%rdi),%rcx
+  4dbb28:	mov    %rcx,0x10(%rsp)
+  4dbb2d:	mov    0x8(%rdi),%rbx
+  4dbb31:	mov    0x10(%rdi),%rdx
+  4dbb35:	test   %rdx,%rdx
+  4dbb38:	je     4dbba8 <fastfft::measure::planning_path_sample+0xa8>
+  4dbb3a:	lea    0x3f(%rbx),%rsi
+  4dbb3e:	and    $0xffffffffffffffc0,%rsi
+  4dbb42:	sub    %rbx,%rsi
+  4dbb45:	mov    %ebx,%r8d
+  4dbb48:	and    $0x3,%r8d
+  4dbb4c:	shr    $0x2,%rsi
+  4dbb50:	xor    %ecx,%ecx
+  4dbb52:	neg    %r8
+  4dbb55:	sbb    %rcx,%rcx
+  4dbb58:	or     %rsi,%rcx
+  4dbb5b:	mov    %rcx,%rsi
+  4dbb5e:	shr    $1,%rsi
+  4dbb61:	mov    %ecx,%r8d
+  4dbb64:	and    $0x1,%r8d
+  4dbb68:	add    %rsi,%r8
+  4dbb6b:	sub    %r8,%rdx
+  4dbb6e:	jb     4dbd10 <fastfft::measure::planning_path_sample+0x210>
+  4dbb74:	lea    (%rbx,%rcx,4),%rbx
+  4dbb78:	jmp    4dbbaa <fastfft::measure::planning_path_sample+0xaa>
+  4dbb7a:	lea    -0xac1(%rip),%rax        # 4db0c0 <fastfft::measure::Buffers<T>::sample>
+  4dbb81:	mov    %rax,(%rsp)
+  4dbb85:	mov    %rsp,%rax
+  4dbb88:	mov    $0x60,%ecx
+  4dbb8d:	mov    %r11,%rsi
+  4dbb90:	mov    %r10,%rdx
+  4dbb93:	xor    %r8d,%r8d
+  4dbb96:	call   *(%rsp)
+  4dbb99:	add    $0x18,%rsp
+  4dbb9d:	pop    %rbx
+  4dbb9e:	pop    %r12
+  4dbba0:	pop    %r13
+  4dbba2:	pop    %r14
+  4dbba4:	pop    %r15
+  4dbba6:	pop    %rbp
+  4dbba7:	ret
+  4dbba8:	xor    %edx,%edx
+  4dbbaa:	lea    0x60(%r15),%rsi
+  4dbbae:	cmp    %rdx,%rsi
+  4dbbb1:	seta   %cl
+  4dbbb4:	cmp    $0xffffffffffffff9f,%r15
+  4dbbb8:	ja     4dbcc9 <fastfft::measure::planning_path_sample+0x1c9>
+  4dbbbe:	test   %cl,%cl
+  4dbbc0:	jne    4dbcd3 <fastfft::measure::planning_path_sample+0x1d3>
+  4dbbc6:	mov    0x28(%rdi),%rdx
+  4dbbca:	test   %rdx,%rdx
+  4dbbcd:	je     4dbc08 <fastfft::measure::planning_path_sample+0x108>
+  4dbbcf:	mov    0x20(%rdi),%rcx
+  4dbbd3:	lea    0x3f(%rcx),%rsi
+  4dbbd7:	and    $0xffffffffffffffc0,%rsi
+  4dbbdb:	sub    %rcx,%rsi
+  4dbbde:	and    $0x3,%ecx
+  4dbbe1:	shr    $0x2,%rsi
+  4dbbe5:	xor    %r8d,%r8d
+  4dbbe8:	neg    %rcx
+  4dbbeb:	sbb    %r8,%r8
+  4dbbee:	or     %rsi,%r8
+  4dbbf1:	mov    %r8,%rcx
+  4dbbf4:	shr    $1,%rcx
+  4dbbf7:	and    $0x1,%r8d
+  4dbbfb:	add    %rcx,%r8
+  4dbbfe:	sub    %r8,%rdx
+  4dbc01:	jae    4dbc0a <fastfft::measure::planning_path_sample+0x10a>
+  4dbc03:	jmp    4dbd10 <fastfft::measure::planning_path_sample+0x210>
+  4dbc08:	xor    %edx,%edx
+  4dbc0a:	lea    0x60(%rax),%rsi
+  4dbc0e:	cmp    %rdx,%rsi
+  4dbc11:	seta   %cl
+  4dbc14:	cmp    $0xffffffffffffff9f,%rax
+  4dbc18:	ja     4dbce2 <fastfft::measure::planning_path_sample+0x1e2>
+  4dbc1e:	test   %cl,%cl
+  4dbc20:	jne    4dbcec <fastfft::measure::planning_path_sample+0x1ec>
+  4dbc26:	mov    %r9,0x8(%rsp)
+  4dbc2b:	mov    0x38(%rdi),%r14
+  4dbc2f:	mov    0x40(%rdi),%rbp
+  4dbc33:	test   %rbp,%rbp
+  4dbc36:	je     4dbc75 <fastfft::measure::planning_path_sample+0x175>
+  4dbc38:	lea    0x3f(%r14),%rcx
+  4dbc3c:	and    $0xffffffffffffffc0,%rcx
+  4dbc40:	sub    %r14,%rcx
+  4dbc43:	mov    %r14d,%edx
+  4dbc46:	and    $0x3,%edx
+  4dbc49:	shr    $0x2,%rcx
+  4dbc4d:	xor    %eax,%eax
+  4dbc4f:	neg    %rdx
+  4dbc52:	sbb    %rax,%rax
+  4dbc55:	or     %rcx,%rax
+  4dbc58:	mov    %rax,%rcx
+  4dbc5b:	shr    $1,%rcx
+  4dbc5e:	mov    %eax,%edx
+  4dbc60:	and    $0x1,%edx
+  4dbc63:	add    %rcx,%rdx
+  4dbc66:	sub    %rdx,%rbp
+  4dbc69:	jb     4dbd10 <fastfft::measure::planning_path_sample+0x210>
+  4dbc6f:	lea    (%r14,%rax,4),%r14
+  4dbc73:	jmp    4dbc77 <fastfft::measure::planning_path_sample+0x177>
+  4dbc75:	xor    %ebp,%ebp
+  4dbc77:	mov    %r11,%r12
+  4dbc7a:	mov    %r11,%rdi
+  4dbc7d:	mov    %r10,%r13
+  4dbc80:	call   *0x60(%r10)
+  4dbc84:	mov    0x10(%rsp),%rdi
+  4dbc89:	lea    (%rax,%rdi,1),%rcx
+  4dbc8d:	cmp    %rbp,%rcx
+  4dbc90:	seta   %cl
+  4dbc93:	mov    %rax,%rsi
+  4dbc96:	add    %rdi,%rsi
+  4dbc99:	jb     4dbcfb <fastfft::measure::planning_path_sample+0x1fb>
+  4dbc9b:	test   %cl,%cl
+  4dbc9d:	jne    4dbd01 <fastfft::measure::planning_path_sample+0x201>
+  4dbc9f:	lea    (%rbx,%r15,8),%rdx
+  4dbca3:	lea    (%r14,%rdi,8),%rcx
+  4dbca7:	mov    0x48(%r13),%rsi
+  4dbcab:	mov    %r12,%rdi
+  4dbcae:	mov    %rax,%r8
+  4dbcb1:	mov    0x8(%rsp),%r9
+  4dbcb6:	add    $0x18,%rsp
+  4dbcba:	pop    %rbx
+  4dbcbb:	pop    %r12
+  4dbcbd:	pop    %r13
+  4dbcbf:	pop    %r14
+  4dbcc1:	pop    %r15
+  4dbcc3:	pop    %rbp
+  4dbcc4:	jmp    4dce00 <fastfft::measure::planning_slice_bridge>
+  4dbcc9:	mov    $0x1,%cl
+  4dbccb:	test   %cl,%cl
+  4dbccd:	je     4dbbc6 <fastfft::measure::planning_path_sample+0xc6>
+  4dbcd3:	lea    0xd94c66(%rip),%rcx        # 1270940 <__frame_dummy_init_array_entry+0x1a368>
+  4dbcda:	mov    %r15,%rdi
+  4dbcdd:	call   c4ec40 <core::slice::index::slice_index_fail>
+  4dbce2:	mov    $0x1,%cl
+  4dbce4:	test   %cl,%cl
+  4dbce6:	je     4dbc26 <fastfft::measure::planning_path_sample+0x126>
+  4dbcec:	lea    0xd94c35(%rip),%rcx        # 1270928 <__frame_dummy_init_array_entry+0x1a350>
+  4dbcf3:	mov    %rax,%rdi
+  4dbcf6:	call   c4ec40 <core::slice::index::slice_index_fail>
+  4dbcfb:	mov    $0x1,%cl
+  4dbcfd:	test   %cl,%cl
+  4dbcff:	je     4dbc9f <fastfft::measure::planning_path_sample+0x19f>
+  4dbd01:	lea    0xd94c08(%rip),%rcx        # 1270910 <__frame_dummy_init_array_entry+0x1a338>
+  4dbd08:	mov    %rbp,%rdx
+  4dbd0b:	call   c4ec40 <core::slice::index::slice_index_fail>
+  4dbd10:	lea    -0x405962(%rip),%rdi        # d63b5 <crc32fast::table::CRC32_TABLE+0x8a81>
+  4dbd17:	lea    0xdb0d82(%rip),%rdx        # 128caa0 <__frame_dummy_init_array_entry+0x364c8>
+  4dbd1e:	mov    $0x36,%esi
+  4dbd23:	call   c51200 <core::option::expect_failed>
+  4dbd28:	int3
+  4dbd29:	int3
+  4dbd2a:	int3
+  4dbd2b:	int3
+  4dbd2c:	int3
+  4dbd2d:	int3
+  4dbd2e:	int3
+  4dbd2f:	int3
+  4dbd30:	int3
+  4dbd31:	int3
+  4dbd32:	int3
+  4dbd33:	int3
+  4dbd34:	int3
+  4dbd35:	int3
+  4dbd36:	int3
+  4dbd37:	int3
+  4dbd38:	int3
+  4dbd39:	int3
+  4dbd3a:	int3
+  4dbd3b:	int3
+  4dbd3c:	int3
+  4dbd3d:	int3
+  4dbd3e:	int3
+  4dbd3f:	int3
+
+00000000004dbd40 <fastfft::measure::run_planning_control>:
+  4dbd40:	push   %rbp
+  4dbd41:	push   %r15
+  4dbd43:	push   %r14
+  4dbd45:	push   %r13
+  4dbd47:	push   %r12
+  4dbd49:	push   %rbx
+  4dbd4a:	sub    $0x518,%rsp
+  4dbd51:	mov    %r8,0x128(%rsp)
+  4dbd59:	mov    %rcx,0xa8(%rsp)
+  4dbd61:	mov    %rdi,0x118(%rsp)
+  4dbd69:	xorps  %xmm0,%xmm0
+  4dbd6c:	movups %xmm0,0x48(%rsi)
+  4dbd70:	mov    %rsi,0x28(%rsp)
+  4dbd75:	movq   $0x0,0x58(%rsi)
+  4dbd7d:	mov    (%rdx),%rdi
+  4dbd80:	mov    0x8(%rdx),%rax
+  4dbd84:	mov    0x10(%rdx),%rbp
+  4dbd88:	mov    %rdx,0x30(%rsp)
+  4dbd8d:	mov    0x18(%rdx),%r14
+  4dbd91:	mov    0x30(%rax),%rax
+  4dbd95:	movq   $0x0,0x150(%rsp)
+  4dbda1:	movq   $0x8,0x158(%rsp)
+  4dbdad:	movq   $0x0,0x160(%rsp)
+  4dbdb9:	lea    0x150(%rsp),%r15
+  4dbdc1:	mov    %r15,0x50(%rsp)
+  4dbdc6:	mov    $0x1,%r12b
+  4dbdc9:	lea    0xd94b88(%rip),%rdx        # 1270958 <__frame_dummy_init_array_entry+0x1a380>
+  4dbdd0:	lea    0x50(%rsp),%rsi
+  4dbdd5:	mov    %rdi,0x120(%rsp)
+  4dbddd:	call   *%rax
+  4dbddf:	mov    0x150(%rsp),%rax
+  4dbde7:	mov    %rax,0x18(%rsp)
+  4dbdec:	mov    0x158(%rsp),%rbx
+  4dbdf4:	mov    0x160(%rsp),%r13
+  4dbdfc:	mov    0x30(%r14),%rax
+  4dbe00:	movq   $0x0,0x150(%rsp)
+  4dbe0c:	movq   $0x8,0x158(%rsp)
+  4dbe18:	movq   $0x0,0x160(%rsp)
+  4dbe24:	mov    %r15,0x50(%rsp)
+  4dbe29:	xor    %r12d,%r12d
+  4dbe2c:	lea    0xd94b25(%rip),%rdx        # 1270958 <__frame_dummy_init_array_entry+0x1a380>
+  4dbe33:	lea    0x50(%rsp),%rsi
+  4dbe38:	mov    %rbx,0x40(%rsp)
+  4dbe3d:	mov    %rbp,%rdi
+  4dbe40:	call   *%rax
+  4dbe42:	mov    %rbp,%rbx
+  4dbe45:	mov    0x150(%rsp),%rax
+  4dbe4d:	mov    %rax,0x48(%rsp)
+  4dbe52:	mov    0x158(%rsp),%r15
+  4dbe5a:	mov    0x160(%rsp),%rax
+  4dbe62:	mov    %rax,0x8(%rsp)
+  4dbe67:	mov    $0x8,%eax
+  4dbe6c:	mov    %rax,0x20(%rsp)
+  4dbe71:	test   %r13,%r13
+  4dbe74:	sete   %r12b
+  4dbe78:	mov    0x30(%rsp),%r14
+  4dbe7d:	mov    %r13,%rcx
+  4dbe80:	mov    %r15,0x10(%rsp)
+  4dbe85:	je     4dbea3 <fastfft::measure::run_planning_control+0x163>
+  4dbe87:	mov    %rcx,%r13
+  4dbe8a:	imul   $0x38,%rcx,%rbp
+  4dbe8e:	mov    %rbp,%rdi
+  4dbe91:	call   *0xdb4f09(%rip)        # 1290da0 <malloc@GLIBC_2.2.5>
+  4dbe97:	test   %rax,%rax
+  4dbe9a:	je     4dcb47 <fastfft::measure::run_planning_control+0xe07>
+  4dbea0:	mov    %r13,%rcx
+  4dbea3:	mov    %rax,0xa0(%rsp)
+  4dbeab:	mov    %rcx,0xb8(%rsp)
+  4dbeb3:	cmpq   $0x0,0x8(%rsp)
+  4dbeb9:	mov    %rbx,%r13
+  4dbebc:	je     4dbedb <fastfft::measure::run_planning_control+0x19b>
+  4dbebe:	imul   $0x38,0x8(%rsp),%rbp
+  4dbec4:	mov    %rbp,%rdi
+  4dbec7:	call   *0xdb4ed3(%rip)        # 1290da0 <malloc@GLIBC_2.2.5>
+  4dbecd:	mov    %rax,0x20(%rsp)
+  4dbed2:	test   %rax,%rax
+  4dbed5:	je     4dcb4b <fastfft::measure::run_planning_control+0xe0b>
+  4dbedb:	xorps  %xmm0,%xmm0
+  4dbede:	movaps %xmm0,0x140(%rsp)
+  4dbee6:	mov    $0x40000,%edi
+  4dbeeb:	call   *0xdb4eaf(%rip)        # 1290da0 <malloc@GLIBC_2.2.5>
+  4dbef1:	test   %rax,%rax
+  4dbef4:	je     4dcb36 <fastfft::measure::run_planning_control+0xdf6>
+  4dbefa:	mov    %rax,0xb0(%rsp)
+  4dbf02:	lea    0xd0(%rsp),%rdi
+  4dbf0a:	mov    0x28(%rsp),%rbp
+  4dbf0f:	mov    %rbp,%rsi
+  4dbf12:	mov    %r14,%rdx
+  4dbf15:	call   4db880 <fastfft::measure::planning_addresses>
+  4dbf1a:	mov    0x558(%rsp),%rdi
+  4dbf22:	mov    0x550(%rsp),%rsi
+  4dbf2a:	mov    0xa8(%rsp),%r8
+  4dbf32:	mov    %r8d,%ecx
+  4dbf35:	and    $0x1,%ecx
+  4dbf38:	mov    %r8d,%eax
+  4dbf3b:	shr    $1,%eax
+  4dbf3d:	and    $0x1,%eax
+  4dbf40:	mov    %r8d,%edx
+  4dbf43:	shr    $0x2,%edx
+  4dbf46:	and    $0x1,%edx
+  4dbf49:	xorps  %xmm0,%xmm0
+  4dbf4c:	movaps %xmm0,0x80(%rsp)
+  4dbf54:	movq   $0x0,0x90(%rsp)
+  4dbf60:	movups 0x8(%rbp),%xmm1
+  4dbf64:	movaps %xmm1,0x130(%rsp)
+  4dbf6c:	mov    %r8,0x448(%rsp)
+  4dbf74:	mov    0x0(%rbp),%r8
+  4dbf78:	mov    %r8,0xa8(%rsp)
+  4dbf80:	mov    0x120(%rsp),%r8
+  4dbf88:	mov    %r8,0x1d0(%rsp)
+  4dbf90:	mov    0x20(%rbp),%rbx
+  4dbf94:	mov    %r13,0x1d8(%rsp)
+  4dbf9c:	mov    0x28(%rbp),%r13
+  4dbfa0:	movq   $0x400,0x1e0(%rsp)
+  4dbfac:	movq   $0x800,0x1e8(%rsp)
+  4dbfb8:	mov    0x128(%rsp),%r8
+  4dbfc0:	mov    %r8,0x450(%rsp)
+  4dbfc8:	mov    0x18(%rbp),%r15
+  4dbfcc:	mov    %rdi,0x1f8(%rsp)
+  4dbfd4:	mov    0x38(%rbp),%r14
+  4dbfd8:	mov    %rsi,0x1f0(%rsp)
+  4dbfe0:	lea    -0x4133b7(%rip),%rsi        # c8c30 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x47950>
+  4dbfe7:	mov    %rsi,0x1b0(%rsp)
+  4dbfef:	movq   $0xe,0x1b8(%rsp)
+  4dbffb:	lea    -0x4133c4(%rip),%rsi        # c8c3e <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x4795e>
+  4dc002:	mov    %rsi,0x1c0(%rsp)
+  4dc00a:	mov    %rbp,%rsi
+  4dc00d:	mov    0x40(%rbp),%rbp
+  4dc011:	movq   $0xc,0x1c8(%rsp)
+  4dc01d:	mov    %rcx,0x458(%rsp)
+  4dc025:	mov    0x30(%rsi),%r12
+  4dc029:	movaps %xmm0,0x60(%rsp)
+  4dc02e:	movaps %xmm0,0x70(%rsp)
+  4dc033:	movaps %xmm0,0x50(%rsp)
+  4dc038:	mov    %rax,0x460(%rsp)
+  4dc040:	mov    %rdx,0x468(%rsp)
+  4dc048:	lea    0x200(%rsp),%rdi
+  4dc050:	mov    $0x1d0,%edx
+  4dc055:	xor    %esi,%esi
+  4dc057:	call   *0xdb4d63(%rip)        # 1290dc0 <memset@GLIBC_2.2.5>
+  4dc05d:	movq   $0x4000,0x430(%rsp)
+  4dc069:	mov    0xb0(%rsp),%rax
+  4dc071:	mov    %rax,0x438(%rsp)
+  4dc079:	movq   $0x0,0x440(%rsp)
+  4dc085:	movb   $0x0,0x500(%rsp)
+  4dc08d:	movups 0xd0(%rsp),%xmm0
+  4dc095:	movups 0xe0(%rsp),%xmm1
+  4dc09d:	movups 0xf0(%rsp),%xmm2
+  4dc0a5:	movaps %xmm0,0x3d0(%rsp)
+  4dc0ad:	movaps %xmm1,0x3e0(%rsp)
+  4dc0b5:	movaps %xmm2,0x3f0(%rsp)
+  4dc0bd:	xorps  %xmm0,%xmm0
+  4dc0c0:	movaps %xmm0,0x400(%rsp)
+  4dc0c8:	movaps %xmm0,0x410(%rsp)
+  4dc0d0:	movaps %xmm0,0x420(%rsp)
+  4dc0d8:	movaps 0x130(%rsp),%xmm0
+  4dc0e0:	movaps %xmm0,0x470(%rsp)
+  4dc0e8:	mov    0xa8(%rsp),%rax
+  4dc0f0:	mov    %rax,0x480(%rsp)
+  4dc0f8:	mov    %rbx,0x488(%rsp)
+  4dc100:	mov    %r13,0x490(%rsp)
+  4dc108:	mov    %r15,0x498(%rsp)
+  4dc110:	mov    %r14,0x4a0(%rsp)
+  4dc118:	mov    %rbp,0x4a8(%rsp)
+  4dc120:	mov    %r12,0x4b0(%rsp)
+  4dc128:	mov    0x90(%rsp),%rax
+  4dc130:	mov    %rax,0x4f8(%rsp)
+  4dc138:	movaps 0x50(%rsp),%xmm0
+  4dc13d:	movaps 0x60(%rsp),%xmm1
+  4dc142:	movaps 0x70(%rsp),%xmm2
+  4dc147:	movaps 0x80(%rsp),%xmm3
+  4dc14f:	movups %xmm3,0x4e8(%rsp)
+  4dc157:	movups %xmm2,0x4d8(%rsp)
+  4dc15f:	movups %xmm1,0x4c8(%rsp)
+  4dc167:	movups %xmm0,0x4b8(%rsp)
+  4dc16f:	mov    0x18(%rsp),%rax
+  4dc174:	mov    %rax,0x150(%rsp)
+  4dc17c:	mov    0x40(%rsp),%rax
+  4dc181:	mov    %rax,0x158(%rsp)
+  4dc189:	mov    0xb8(%rsp),%rcx
+  4dc191:	mov    %rcx,0x160(%rsp)
+  4dc199:	mov    0x48(%rsp),%rax
+  4dc19e:	mov    %rax,0x168(%rsp)
+  4dc1a6:	mov    0x10(%rsp),%rax
+  4dc1ab:	mov    %rax,0x170(%rsp)
+  4dc1b3:	mov    0x8(%rsp),%rax
+  4dc1b8:	mov    %rax,0x178(%rsp)
+  4dc1c0:	mov    %rcx,0x180(%rsp)
+  4dc1c8:	mov    0xa0(%rsp),%rcx
+  4dc1d0:	mov    %rcx,0x188(%rsp)
+  4dc1d8:	movq   $0x0,0x190(%rsp)
+  4dc1e4:	mov    %rax,0x198(%rsp)
+  4dc1ec:	mov    0x20(%rsp),%rax
+  4dc1f1:	mov    %rax,0x1a0(%rsp)
+  4dc1f9:	movq   $0x0,0x1a8(%rsp)
+  4dc205:	mov    $0x1,%al
+  4dc207:	mov    %eax,0x40(%rsp)
+  4dc20b:	lea    0x50(%rsp),%r14
+  4dc210:	lea    -0x1157(%rip),%r12        # 4db0c0 <fastfft::measure::Buffers<T>::sample>
+  4dc217:	xor    %eax,%eax
+  4dc219:	movq   $0x0,0x48(%rsp)
+  4dc222:	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+  4dc230:	test   $0x1,%al
+  4dc232:	je     4dc5b8 <fastfft::measure::run_planning_control+0x878>
+  4dc238:	mov    $0x1,%edi
+  4dc23d:	call   10f7c00 <<std::sys::pal::unix::time::Timespec>::now>
+  4dc242:	mov    %rax,0x18(%rsp)
+  4dc247:	mov    %edx,0x10(%rsp)
+  4dc24b:	jmp    4dc276 <fastfft::measure::run_planning_control+0x536>
+  4dc24d:	nopl   (%rax)
+  4dc250:	mov    0x438(%rsp),%rax
+  4dc258:	mov    %rbx,%rcx
+  4dc25b:	shl    $0x4,%rcx
+  4dc25f:	movaps 0x100(%rsp),%xmm0
+  4dc267:	movups %xmm0,(%rax,%rcx,1)
+  4dc26b:	inc    %rbx
+  4dc26e:	mov    %rbx,0x440(%rsp)
+  4dc276:	mov    $0x1,%edi
+  4dc27b:	mov    %r14,%rsi
+  4dc27e:	call   *0xdb4b84(%rip)        # 1290e08 <clock_gettime@GLIBC_2.17>
+  4dc284:	cmp    $0xffffffff,%eax
+  4dc287:	je     4dcaf5 <fastfft::measure::run_planning_control+0xdb5>
+  4dc28d:	mov    0x58(%rsp),%rax
+  4dc292:	cmp    $0x3b9aca00,%rax
+  4dc298:	jae    4dca94 <fastfft::measure::run_planning_control+0xd54>
+  4dc29e:	mov    0x50(%rsp),%rcx
+  4dc2a3:	mov    %rcx,0xc0(%rsp)
+  4dc2ab:	mov    %eax,0xc8(%rsp)
+  4dc2b2:	mov    0x18(%rsp),%rax
+  4dc2b7:	mov    %rax,0xd0(%rsp)
+  4dc2bf:	mov    0x10(%rsp),%eax
+  4dc2c3:	mov    %eax,0xd8(%rsp)
+  4dc2ca:	mov    %r14,%rdi
+  4dc2cd:	lea    0xc0(%rsp),%rsi
+  4dc2d5:	lea    0xd0(%rsp),%rdx
+  4dc2dd:	call   10f7b00 <<std::sys::pal::unix::time::Timespec>::sub_timespec>
+  4dc2e2:	cmpq   $0x0,0x58(%rsp)
+  4dc2e8:	sete   %al
+  4dc2eb:	cmpl   $0x5f5e100,0x60(%rsp)
+  4dc2f3:	setb   %cl
+  4dc2f6:	cmpb   $0x0,0x50(%rsp)
+  4dc2fb:	mov    0x440(%rsp),%r15
+  4dc303:	jne    4dc313 <fastfft::measure::run_planning_control+0x5d3>
+  4dc305:	and    %cl,%al
+  4dc307:	jne    4dc313 <fastfft::measure::run_planning_control+0x5d3>
+  4dc309:	cmp    $0x7,%r15
+  4dc30d:	jae    4dc538 <fastfft::measure::run_planning_control+0x7f8>
+  4dc313:	cmp    0x430(%rsp),%r15
+  4dc31b:	je     4dc530 <fastfft::measure::run_planning_control+0x7f0>
+  4dc321:	movaps 0x140(%rsp),%xmm0
+  4dc329:	movaps %xmm0,0x100(%rsp)
+  4dc331:	mov    0x468(%rsp),%ebp
+  4dc338:	add    %r15d,%ebp
+  4dc33b:	and    $0x1,%ebp
+  4dc33e:	mov    %ebp,%eax
+  4dc340:	shl    $0x4,%eax
+  4dc343:	mov    0x30(%rsp),%rcx
+  4dc348:	mov    (%rcx,%rax,1),%rsi
+  4dc34c:	mov    0x8(%rcx,%rax,1),%rdx
+  4dc351:	mov    0x1e0(%rsp,%rbp,8),%rax
+  4dc359:	mov    %rax,0x20(%rsp)
+  4dc35e:	mov    %r12,0x50(%rsp)
+  4dc363:	mov    $0x60,%ecx
+  4dc368:	mov    $0x1,%r9d
+  4dc36e:	mov    %r14,%rbx
+  4dc371:	mov    0x28(%rsp),%r14
+  4dc376:	mov    %r14,%rdi
+  4dc379:	mov    %rsi,%r13
+  4dc37c:	mov    %rdx,0x8(%rsp)
+  4dc381:	xor    %r8d,%r8d
+  4dc384:	call   *0x50(%rsp)
+  4dc388:	mov    %r12,0x50(%rsp)
+  4dc38d:	mov    $0x60,%ecx
+  4dc392:	mov    $0x1,%r9d
+  4dc398:	mov    %r14,%rdi
+  4dc39b:	mov    %r13,%rsi
+  4dc39e:	mov    0x8(%rsp),%rdx
+  4dc3a3:	xor    %r8d,%r8d
+  4dc3a6:	call   *0x50(%rsp)
+  4dc3aa:	mov    %r12,0x50(%rsp)
+  4dc3af:	mov    $0x60,%ecx
+  4dc3b4:	mov    $0x1,%r9d
+  4dc3ba:	mov    %r14,%rdi
+  4dc3bd:	mov    %r13,%rsi
+  4dc3c0:	mov    0x8(%rsp),%rdx
+  4dc3c5:	xor    %r8d,%r8d
+  4dc3c8:	call   *0x50(%rsp)
+  4dc3cc:	mov    %r12,0x50(%rsp)
+  4dc3d1:	mov    $0x60,%ecx
+  4dc3d6:	mov    %r14,%rdi
+  4dc3d9:	mov    %r13,%rsi
+  4dc3dc:	mov    0x8(%rsp),%rdx
+  4dc3e1:	xor    %r8d,%r8d
+  4dc3e4:	mov    0x20(%rsp),%r9
+  4dc3e9:	call   *0x50(%rsp)
+  4dc3ed:	mov    %edx,%ecx
+  4dc3ef:	mov    $0x3b9aca00,%edx
+  4dc3f4:	mul    %rdx
+  4dc3f7:	mov    %ecx,%ecx
+  4dc3f9:	add    %rax,%rcx
+  4dc3fc:	adc    $0x0,%rdx
+  4dc400:	jne    4dcacf <fastfft::measure::run_planning_control+0xd8f>
+  4dc406:	mov    %rcx,0x100(%rsp,%rbp,8)
+  4dc40e:	not    %r15d
+  4dc411:	add    0x468(%rsp),%r15d
+  4dc419:	and    $0x1,%r15d
+  4dc41d:	mov    %r15d,%eax
+  4dc420:	shl    $0x4,%eax
+  4dc423:	mov    0x30(%rsp),%rcx
+  4dc428:	mov    (%rcx,%rax,1),%rbx
+  4dc42c:	mov    0x8(%rcx,%rax,1),%r13
+  4dc431:	mov    0x1e0(%rsp,%r15,8),%rax
+  4dc439:	mov    %rax,0x8(%rsp)
+  4dc43e:	lea    -0x1385(%rip),%r12        # 4db0c0 <fastfft::measure::Buffers<T>::sample>
+  4dc445:	mov    %r12,0x50(%rsp)
+  4dc44a:	lea    0x50(%rsp),%rbp
+  4dc44f:	mov    $0x60,%ecx
+  4dc454:	mov    $0x1,%r9d
+  4dc45a:	mov    0x28(%rsp),%r14
+  4dc45f:	mov    %r14,%rdi
+  4dc462:	mov    %rbx,%rsi
+  4dc465:	mov    %r13,%rdx
+  4dc468:	xor    %r8d,%r8d
+  4dc46b:	call   *0x50(%rsp)
+  4dc46f:	mov    %r12,0x50(%rsp)
+  4dc474:	mov    $0x60,%ecx
+  4dc479:	mov    $0x1,%r9d
+  4dc47f:	mov    %r14,%rdi
+  4dc482:	mov    %rbx,%rsi
+  4dc485:	mov    %r13,%rdx
+  4dc488:	xor    %r8d,%r8d
+  4dc48b:	call   *0x50(%rsp)
+  4dc48f:	mov    %r12,0x50(%rsp)
+  4dc494:	mov    $0x60,%ecx
+  4dc499:	mov    $0x1,%r9d
+  4dc49f:	mov    %r14,%rdi
+  4dc4a2:	mov    %rbx,%rsi
+  4dc4a5:	mov    %r13,%rdx
+  4dc4a8:	xor    %r8d,%r8d
+  4dc4ab:	call   *0x50(%rsp)
+  4dc4af:	mov    %r12,0x50(%rsp)
+  4dc4b4:	mov    $0x60,%ecx
+  4dc4b9:	mov    %r14,%rdi
+  4dc4bc:	mov    %rbx,%rsi
+  4dc4bf:	mov    %r13,%rdx
+  4dc4c2:	xor    %r8d,%r8d
+  4dc4c5:	mov    0x8(%rsp),%r9
+  4dc4ca:	call   *0x50(%rsp)
+  4dc4ce:	mov    %edx,%ecx
+  4dc4d0:	mov    $0x3b9aca00,%edx
+  4dc4d5:	mul    %rdx
+  4dc4d8:	mov    %ecx,%ecx
+  4dc4da:	add    %rax,%rcx
+  4dc4dd:	adc    $0x0,%rdx
+  4dc4e1:	jne    4dcacf <fastfft::measure::run_planning_control+0xd8f>
+  4dc4e7:	mov    %rcx,0x100(%rsp,%r15,8)
+  4dc4ef:	mov    0x440(%rsp),%rbx
+  4dc4f7:	cmp    0x430(%rsp),%rbx
+  4dc4ff:	lea    0x50(%rsp),%r14
+  4dc504:	lea    -0x144b(%rip),%r12        # 4db0c0 <fastfft::measure::Buffers<T>::sample>
+  4dc50b:	jne    4dc250 <fastfft::measure::run_planning_control+0x510>
+  4dc511:	lea    0x430(%rsp),%rdi
+  4dc519:	call   3938c0 <alloc::raw_vec::RawVec<T,A>::grow_one>
+  4dc51e:	jmp    4dc250 <fastfft::measure::run_planning_control+0x510>
+  4dc523:	data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+  4dc530:	movb   $0x1,0x500(%rsp)
+  4dc538:	mov    $0x1,%edi
+  4dc53d:	call   10f7c00 <<std::sys::pal::unix::time::Timespec>::now>
+  4dc542:	mov    %rax,0xc0(%rsp)
+  4dc54a:	mov    %edx,0xc8(%rsp)
+  4dc551:	mov    0x18(%rsp),%rax
+  4dc556:	mov    %rax,0xd0(%rsp)
+  4dc55e:	mov    0x10(%rsp),%eax
+  4dc562:	mov    %eax,0xd8(%rsp)
+  4dc569:	mov    %r14,%rdi
+  4dc56c:	lea    0xc0(%rsp),%rsi
+  4dc574:	lea    0xd0(%rsp),%rdx
+  4dc57c:	call   10f7b00 <<std::sys::pal::unix::time::Timespec>::sub_timespec>
+  4dc581:	mov    0x60(%rsp),%ecx
+  4dc585:	mov    $0x3b9aca00,%eax
+  4dc58a:	mulq   0x58(%rsp)
+  4dc58f:	add    %rcx,%rax
+  4dc592:	adc    $0x0,%rdx
+  4dc596:	cmpb   $0x0,0x50(%rsp)
+  4dc59b:	mov    $0x0,%ecx
+  4dc5a0:	cmovne %rcx,%rdx
+  4dc5a4:	cmovne %rcx,%rax
+  4dc5a8:	mov    %rax,0x3c0(%rsp)
+  4dc5b0:	mov    %rdx,0x3c8(%rsp)
+  4dc5b8:	imul   $0xe0,0x48(%rsp),%rcx
+  4dc5c1:	lea    0x200(%rsp),%rax
+  4dc5c9:	add    %rax,%rcx
+  4dc5cc:	mov    %rcx,0x8(%rsp)
+  4dc5d1:	movb   $0x1,0x18(%rsp)
+  4dc5d6:	xor    %edi,%edi
+  4dc5d8:	nopl   0x0(%rax,%rax,1)
+  4dc5e0:	mov    0x458(%rsp),%rax
+  4dc5e8:	mov    0x460(%rsp),%r15
+  4dc5f0:	mov    %rax,0x10(%rsp)
+  4dc5f5:	lea    (%rdi,%rax,1),%ebx
+  4dc5f8:	and    $0x1,%ebx
+  4dc5fb:	mov    %rdi,0x20(%rsp)
+  4dc600:	lea    (%r15,%rdi,1),%eax
+  4dc604:	and    $0x1,%eax
+  4dc607:	mov    0x1e0(%rsp,%rax,8),%r12
+  4dc60f:	shl    $0x4,%eax
+  4dc612:	mov    0x30(%rsp),%rcx
+  4dc617:	mov    (%rcx,%rax,1),%r13
+  4dc61b:	mov    0x8(%rcx,%rax,1),%rbp
+  4dc620:	mov    $0x1,%r8d
+  4dc626:	mov    0x28(%rsp),%r14
+  4dc62b:	mov    %r14,%rdi
+  4dc62e:	mov    %r13,%rsi
+  4dc631:	mov    %rbp,%rdx
+  4dc634:	mov    %rbx,%rcx
+  4dc637:	call   4dbb00 <fastfft::measure::planning_path_sample>
+  4dc63c:	mov    $0x1,%r8d
+  4dc642:	mov    %r14,%rdi
+  4dc645:	mov    %r13,%rsi
+  4dc648:	mov    %rbp,%rdx
+  4dc64b:	mov    %rbx,%rcx
+  4dc64e:	call   4dbb00 <fastfft::measure::planning_path_sample>
+  4dc653:	mov    $0x1,%r8d
+  4dc659:	mov    %r14,%rdi
+  4dc65c:	mov    %r13,%rsi
+  4dc65f:	mov    %rbp,%rdx
+  4dc662:	mov    %rbx,%rcx
+  4dc665:	call   4dbb00 <fastfft::measure::planning_path_sample>
+  4dc66a:	mov    %r14,%rdi
+  4dc66d:	mov    %r13,%rsi
+  4dc670:	mov    %rbp,%rdx
+  4dc673:	mov    %rbx,%rcx
+  4dc676:	mov    %r12,%r8
+  4dc679:	call   4dbb00 <fastfft::measure::planning_path_sample>
+  4dc67e:	mov    %edx,%ecx
+  4dc680:	mov    $0x3b9aca00,%edx
+  4dc685:	mul    %rdx
+  4dc688:	mov    %ecx,%ecx
+  4dc68a:	add    %rax,%rcx
+  4dc68d:	adc    $0x0,%rdx
+  4dc691:	jne    4dcacf <fastfft::measure::run_planning_control+0xd8f>
+  4dc697:	mov    0x10(%rsp),%rax
+  4dc69c:	mov    0x20(%rsp),%rsi
+  4dc6a1:	xor    %sil,%al
+  4dc6a4:	movzbl %al,%eax
+  4dc6a7:	and    $0x1,%eax
+  4dc6aa:	shl    $0x4,%eax
+  4dc6ad:	xor    %sil,%r15b
+  4dc6b0:	movzbl %r15b,%edx
+  4dc6b4:	and    $0x1,%edx
+  4dc6b7:	lea    (%rax,%rdx,8),%eax
+  4dc6ba:	mov    0x8(%rsp),%rdx
+  4dc6bf:	mov    %rcx,(%rdx,%rax,1)
+  4dc6c3:	mov    0x460(%rsp),%r15
+  4dc6cb:	lea    (%rsi,%r15,1),%eax
+  4dc6cf:	inc    %eax
+  4dc6d1:	and    $0x1,%eax
+  4dc6d4:	mov    0x1e0(%rsp,%rax,8),%r12
+  4dc6dc:	shl    $0x4,%eax
+  4dc6df:	mov    0x30(%rsp),%rcx
+  4dc6e4:	mov    (%rcx,%rax,1),%r13
+  4dc6e8:	mov    0x8(%rcx,%rax,1),%rbp
+  4dc6ed:	mov    $0x1,%r8d
+  4dc6f3:	mov    0x28(%rsp),%r14
+  4dc6f8:	mov    %r14,%rdi
+  4dc6fb:	mov    %r13,%rsi
+  4dc6fe:	mov    %rbp,%rdx
+  4dc701:	mov    %rbx,%rcx
+  4dc704:	call   4dbb00 <fastfft::measure::planning_path_sample>
+  4dc709:	mov    $0x1,%r8d
+  4dc70f:	mov    %r14,%rdi
+  4dc712:	mov    %r13,%rsi
+  4dc715:	mov    %rbp,%rdx
+  4dc718:	mov    %rbx,%rcx
+  4dc71b:	call   4dbb00 <fastfft::measure::planning_path_sample>
+  4dc720:	mov    $0x1,%r8d
+  4dc726:	mov    %r14,%rdi
+  4dc729:	mov    %r13,%rsi
+  4dc72c:	mov    %rbp,%rdx
+  4dc72f:	mov    %rbx,%rcx
+  4dc732:	call   4dbb00 <fastfft::measure::planning_path_sample>
+  4dc737:	mov    %r14,%rdi
+  4dc73a:	mov    %r13,%rsi
+  4dc73d:	mov    %rbp,%rdx
+  4dc740:	mov    %rbx,%rcx
+  4dc743:	mov    %r12,%r8
+  4dc746:	call   4dbb00 <fastfft::measure::planning_path_sample>
+  4dc74b:	mov    %edx,%ecx
+  4dc74d:	mov    $0x3b9aca00,%edx
+  4dc752:	mul    %rdx
+  4dc755:	mov    %ecx,%ecx
+  4dc757:	add    %rax,%rcx
+  4dc75a:	adc    $0x0,%rdx
+  4dc75e:	jne    4dcacf <fastfft::measure::run_planning_control+0xd8f>
+  4dc764:	mov    0x20(%rsp),%rsi
+  4dc769:	mov    0x10(%rsp),%rax
+  4dc76e:	xor    %sil,%al
+  4dc771:	movzbl %al,%eax
+  4dc774:	and    $0x1,%eax
+  4dc777:	shl    $0x4,%eax
+  4dc77a:	xor    0x18(%rsp),%r15b
+  4dc77f:	movzbl %r15b,%edx
+  4dc783:	and    $0x1,%edx
+  4dc786:	lea    (%rax,%rdx,8),%eax
+  4dc789:	mov    0x8(%rsp),%rdx
+  4dc78e:	mov    %rcx,(%rdx,%rax,1)
+  4dc792:	mov    0x458(%rsp),%rax
+  4dc79a:	mov    0x460(%rsp),%r15
+  4dc7a2:	mov    %rax,0x10(%rsp)
+  4dc7a7:	lea    (%rsi,%rax,1),%ebx
+  4dc7aa:	inc    %ebx
+  4dc7ac:	and    $0x1,%ebx
+  4dc7af:	lea    (%r15,%rsi,1),%eax
+  4dc7b3:	and    $0x1,%eax
+  4dc7b6:	mov    0x1e0(%rsp,%rax,8),%r12
+  4dc7be:	shl    $0x4,%eax
+  4dc7c1:	mov    0x30(%rsp),%rcx
+  4dc7c6:	mov    (%rcx,%rax,1),%r13
+  4dc7ca:	mov    0x8(%rcx,%rax,1),%rbp
+  4dc7cf:	mov    $0x1,%r8d
+  4dc7d5:	mov    0x28(%rsp),%r14
+  4dc7da:	mov    %r14,%rdi
+  4dc7dd:	mov    %r13,%rsi
+  4dc7e0:	mov    %rbp,%rdx
+  4dc7e3:	mov    %rbx,%rcx
+  4dc7e6:	call   4dbb00 <fastfft::measure::planning_path_sample>
+  4dc7eb:	mov    $0x1,%r8d
+  4dc7f1:	mov    %r14,%rdi
+  4dc7f4:	mov    %r13,%rsi
+  4dc7f7:	mov    %rbp,%rdx
+  4dc7fa:	mov    %rbx,%rcx
+  4dc7fd:	call   4dbb00 <fastfft::measure::planning_path_sample>
+  4dc802:	mov    $0x1,%r8d
+  4dc808:	mov    %r14,%rdi
+  4dc80b:	mov    %r13,%rsi
+  4dc80e:	mov    %rbp,%rdx
+  4dc811:	mov    %rbx,%rcx
+  4dc814:	call   4dbb00 <fastfft::measure::planning_path_sample>
+  4dc819:	mov    %r14,%rdi
+  4dc81c:	mov    %r13,%rsi
+  4dc81f:	mov    %rbp,%rdx
+  4dc822:	mov    %rbx,%rcx
+  4dc825:	mov    %r12,%r8
+  4dc828:	call   4dbb00 <fastfft::measure::planning_path_sample>
+  4dc82d:	mov    %edx,%ecx
+  4dc82f:	mov    $0x3b9aca00,%edx
+  4dc834:	mul    %rdx
+  4dc837:	mov    %ecx,%ecx
+  4dc839:	add    %rax,%rcx
+  4dc83c:	adc    $0x0,%rdx
+  4dc840:	jne    4dcacf <fastfft::measure::run_planning_control+0xd8f>
+  4dc846:	movzbl 0x18(%rsp),%eax
+  4dc84b:	xor    0x10(%rsp),%al
+  4dc84f:	movzbl %al,%eax
+  4dc852:	and    $0x1,%eax
+  4dc855:	shl    $0x4,%eax
+  4dc858:	mov    0x20(%rsp),%rsi
+  4dc85d:	xor    %sil,%r15b
+  4dc860:	movzbl %r15b,%edx
+  4dc864:	and    $0x1,%edx
+  4dc867:	lea    (%rax,%rdx,8),%eax
+  4dc86a:	mov    0x8(%rsp),%rdx
+  4dc86f:	mov    %rcx,(%rdx,%rax,1)
+  4dc873:	mov    0x460(%rsp),%r15
+  4dc87b:	lea    (%rsi,%r15,1),%eax
+  4dc87f:	inc    %eax
+  4dc881:	and    $0x1,%eax
+  4dc884:	mov    0x1e0(%rsp,%rax,8),%r12
+  4dc88c:	shl    $0x4,%eax
+  4dc88f:	mov    0x30(%rsp),%rcx
+  4dc894:	mov    (%rcx,%rax,1),%r13
+  4dc898:	mov    0x8(%rcx,%rax,1),%rbp
+  4dc89d:	mov    $0x1,%r8d
+  4dc8a3:	mov    0x28(%rsp),%r14
+  4dc8a8:	mov    %r14,%rdi
+  4dc8ab:	mov    %r13,%rsi
+  4dc8ae:	mov    %rbp,%rdx
+  4dc8b1:	mov    %rbx,%rcx
+  4dc8b4:	call   4dbb00 <fastfft::measure::planning_path_sample>
+  4dc8b9:	mov    $0x1,%r8d
+  4dc8bf:	mov    %r14,%rdi
+  4dc8c2:	mov    %r13,%rsi
+  4dc8c5:	mov    %rbp,%rdx
+  4dc8c8:	mov    %rbx,%rcx
+  4dc8cb:	call   4dbb00 <fastfft::measure::planning_path_sample>
+  4dc8d0:	mov    $0x1,%r8d
+  4dc8d6:	mov    %r14,%rdi
+  4dc8d9:	mov    %r13,%rsi
+  4dc8dc:	mov    %rbp,%rdx
+  4dc8df:	mov    %rbx,%rcx
+  4dc8e2:	call   4dbb00 <fastfft::measure::planning_path_sample>
+  4dc8e7:	mov    %r14,%rdi
+  4dc8ea:	mov    %r13,%rsi
+  4dc8ed:	mov    %rbp,%rdx
+  4dc8f0:	mov    %rbx,%rcx
+  4dc8f3:	mov    %r12,%r8
+  4dc8f6:	call   4dbb00 <fastfft::measure::planning_path_sample>
+  4dc8fb:	mov    %edx,%ecx
+  4dc8fd:	mov    $0x3b9aca00,%edx
+  4dc902:	mul    %rdx
+  4dc905:	mov    %ecx,%ecx
+  4dc907:	add    %rax,%rcx
+  4dc90a:	adc    $0x0,%rdx
+  4dc90e:	jne    4dcacf <fastfft::measure::run_planning_control+0xd8f>
+  4dc914:	mov    0x20(%rsp),%rdi
+  4dc919:	inc    %rdi
+  4dc91c:	movzbl 0x18(%rsp),%esi
+  4dc921:	mov    0x10(%rsp),%rax
+  4dc926:	xor    %sil,%al
+  4dc929:	movzbl %al,%eax
+  4dc92c:	and    $0x1,%eax
+  4dc92f:	shl    $0x4,%eax
+  4dc932:	xor    %sil,%r15b
+  4dc935:	movzbl %r15b,%edx
+  4dc939:	and    $0x1,%edx
+  4dc93c:	lea    (%rax,%rdx,8),%eax
+  4dc93f:	mov    0x8(%rsp),%rdx
+  4dc944:	mov    %rcx,(%rdx,%rax,1)
+  4dc948:	add    $0x20,%rdx
+  4dc94c:	mov    %rdx,0x8(%rsp)
+  4dc951:	xor    $0x1,%sil
+  4dc955:	mov    %sil,0x18(%rsp)
+  4dc95a:	cmp    $0x7,%rdi
+  4dc95e:	jne    4dc5e0 <fastfft::measure::run_planning_control+0x8a0>
+  4dc964:	mov    $0x1,%eax
+  4dc969:	mov    %rax,0x48(%rsp)
+  4dc96e:	mov    $0x1,%al
+  4dc970:	testb  $0x1,0x40(%rsp)
+  4dc975:	movl   $0x0,0x40(%rsp)
+  4dc97d:	lea    0x50(%rsp),%r14
+  4dc982:	lea    -0x18c9(%rip),%r12        # 4db0c0 <fastfft::measure::Buffers<T>::sample>
+  4dc989:	jne    4dc230 <fastfft::measure::run_planning_control+0x4f0>
+  4dc98f:	lea    0x50(%rsp),%rdi
+  4dc994:	mov    0x28(%rsp),%rbx
+  4dc999:	mov    %rbx,%rsi
+  4dc99c:	mov    0x30(%rsp),%r14
+  4dc9a1:	mov    %r14,%rdx
+  4dc9a4:	call   4db880 <fastfft::measure::planning_addresses>
+  4dc9a9:	movups 0x50(%rsp),%xmm0
+  4dc9ae:	movups 0x60(%rsp),%xmm1
+  4dc9b3:	movups 0x70(%rsp),%xmm2
+  4dc9b8:	lea    0x200(%rsp),%rax
+  4dc9c0:	movups %xmm2,0x220(%rax)
+  4dc9c7:	movups %xmm1,0x210(%rax)
+  4dc9ce:	movups %xmm0,0x200(%rax)
+  4dc9d5:	movups 0x8(%rbx),%xmm0
+  4dc9d9:	mov    (%rbx),%rax
+  4dc9dc:	movups 0x20(%rbx),%xmm1
+  4dc9e0:	mov    0x18(%rbx),%rcx
+  4dc9e4:	movups 0x38(%rbx),%xmm2
+  4dc9e8:	mov    0x30(%rbx),%rdx
+  4dc9ec:	movups %xmm0,0x4b8(%rsp)
+  4dc9f4:	mov    %rax,0x4c8(%rsp)
+  4dc9fc:	movaps %xmm1,0x4d0(%rsp)
+  4dca04:	mov    %rcx,0x4e0(%rsp)
+  4dca0c:	movups %xmm2,0x4e8(%rsp)
+  4dca14:	mov    %rdx,0x4f8(%rsp)
+  4dca1c:	mov    (%r14),%rdi
+  4dca1f:	mov    0x8(%r14),%rax
+  4dca23:	mov    0x10(%r14),%rbx
+  4dca27:	mov    0x18(%r14),%r14
+  4dca2b:	lea    0x180(%rsp),%rcx
+  4dca33:	mov    %rcx,0x50(%rsp)
+  4dca38:	lea    0xd93f19(%rip),%rdx        # 1270958 <__frame_dummy_init_array_entry+0x1a380>
+  4dca3f:	lea    0x50(%rsp),%rsi
+  4dca44:	call   *0x30(%rax)
+  4dca47:	lea    0x198(%rsp),%rax
+  4dca4f:	mov    %rax,0x50(%rsp)
+  4dca54:	lea    0xd93efd(%rip),%rdx        # 1270958 <__frame_dummy_init_array_entry+0x1a380>
+  4dca5b:	lea    0x50(%rsp),%rsi
+  4dca60:	mov    %rbx,%rdi
+  4dca63:	call   *0x30(%r14)
+  4dca67:	lea    0x150(%rsp),%rsi
+  4dca6f:	mov    $0x3c0,%edx
+  4dca74:	mov    0x118(%rsp),%rdi
+  4dca7c:	call   *0xdb4326(%rip)        # 1290da8 <memcpy@GLIBC_2.14>
+  4dca82:	add    $0x518,%rsp
+  4dca89:	pop    %rbx
+  4dca8a:	pop    %r12
+  4dca8c:	pop    %r13
+  4dca8e:	pop    %r14
+  4dca90:	pop    %r15
+  4dca92:	pop    %rbp
+  4dca93:	ret
+  4dca94:	lea    0xdb302d(%rip),%rax        # 128fac8 <__frame_dummy_init_array_entry+0x394f0>
+  4dca9b:	mov    %rax,0xd0(%rsp)
+  4dcaa3:	lea    -0x401b14(%rip),%rdi        # daf96 <core::unicode::unicode_data::white_space::WHITESPACE_MAP+0x7ca>
+  4dcaaa:	lea    0xdb2f87(%rip),%rcx        # 128fa38 <__frame_dummy_init_array_entry+0x39460>
+  4dcab1:	lea    0xdb3040(%rip),%r8        # 128faf8 <__frame_dummy_init_array_entry+0x39520>
+  4dcab8:	lea    0xd0(%rsp),%rdx
+  4dcac0:	mov    $0x2b,%esi
+  4dcac5:	call   c51240 <core::result::unwrap_failed>
+  4dcaca:	jmp    4dcb68 <fastfft::measure::run_planning_control+0xe28>
+  4dcacf:	lea    -0x413e8c(%rip),%rdi        # c8c4a <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x4796a>
+  4dcad6:	lea    0xd7b6c3(%rip),%rcx        # 12581a0 <__frame_dummy_init_array_entry+0x1bc8>
+  4dcadd:	lea    0xd93e9c(%rip),%r8        # 1270980 <__frame_dummy_init_array_entry+0x1a3a8>
+  4dcae4:	lea    0x3f(%rsp),%rdx
+  4dcae9:	mov    $0x2e,%esi
+  4dcaee:	call   c51240 <core::result::unwrap_failed>
+  4dcaf3:	jmp    4dcb68 <fastfft::measure::run_planning_control+0xe28>
+  4dcaf5:	call   *0xdb432d(%rip)        # 1290e28 <__errno_location@GLIBC_2.2.5>
+  4dcafb:	mov    (%rax),%eax
+  4dcafd:	shl    $0x20,%rax
+  4dcb01:	or     $0x2,%rax
+  4dcb05:	mov    %rax,0xd0(%rsp)
+  4dcb0d:	lea    -0x401b7e(%rip),%rdi        # daf96 <core::unicode::unicode_data::white_space::WHITESPACE_MAP+0x7ca>
+  4dcb14:	lea    0xdb2f1d(%rip),%rcx        # 128fa38 <__frame_dummy_init_array_entry+0x39460>
+  4dcb1b:	lea    0xdb2fbe(%rip),%r8        # 128fae0 <__frame_dummy_init_array_entry+0x39508>
+  4dcb22:	lea    0xd0(%rsp),%rdx
+  4dcb2a:	mov    $0x2b,%esi
+  4dcb2f:	call   c51240 <core::result::unwrap_failed>
+  4dcb34:	jmp    4dcb68 <fastfft::measure::run_planning_control+0xe28>
+  4dcb36:	mov    $0x8,%edi
+  4dcb3b:	mov    $0x40000,%esi
+  4dcb40:	call   c4bf80 <alloc::raw_vec::handle_error>
+  4dcb45:	jmp    4dcb68 <fastfft::measure::run_planning_control+0xe28>
+  4dcb47:	mov    $0x1,%bl
+  4dcb49:	jmp    4dcb5b <fastfft::measure::run_planning_control+0xe1b>
+  4dcb4b:	mov    %r12d,%ebx
+  4dcb4e:	mov    0xa0(%rsp),%rax
+  4dcb56:	mov    %rax,0x20(%rsp)
+  4dcb5b:	mov    $0x8,%edi
+  4dcb60:	mov    %rbp,%rsi
+  4dcb63:	call   c4bf80 <alloc::raw_vec::handle_error>
+  4dcb68:	ud2
+  4dcb6a:	mov    %rax,%r12
+  4dcb6d:	mov    0xb0(%rsp),%rdi
+  4dcb75:	call   *0xdb423d(%rip)        # 1290db8 <free@GLIBC_2.2.5>
+  4dcb7b:	jmp    4dcb80 <fastfft::measure::run_planning_control+0xe40>
+  4dcb7d:	mov    %rax,%r12
+  4dcb80:	cmpq   $0x0,0xb8(%rsp)
+  4dcb89:	je     4dcb99 <fastfft::measure::run_planning_control+0xe59>
+  4dcb8b:	mov    0xa0(%rsp),%rdi
+  4dcb93:	call   *0xdb421f(%rip)        # 1290db8 <free@GLIBC_2.2.5>
+  4dcb99:	cmpq   $0x0,0x8(%rsp)
+  4dcb9f:	je     4dcbac <fastfft::measure::run_planning_control+0xe6c>
+  4dcba1:	mov    0x20(%rsp),%rdi
+  4dcba6:	call   *0xdb420c(%rip)        # 1290db8 <free@GLIBC_2.2.5>
+  4dcbac:	cmpq   $0x0,0x18(%rsp)
+  4dcbb2:	je     4dcbbf <fastfft::measure::run_planning_control+0xe7f>
+  4dcbb4:	mov    0x40(%rsp),%rdi
+  4dcbb9:	call   *0xdb41f9(%rip)        # 1290db8 <free@GLIBC_2.2.5>
+  4dcbbf:	cmpq   $0x0,0x48(%rsp)
+  4dcbc5:	mov    0x10(%rsp),%rdi
+  4dcbca:	je     4dccc3 <fastfft::measure::run_planning_control+0xf83>
+  4dcbd0:	jmp    4dcd37 <fastfft::measure::run_planning_control+0xff7>
+  4dcbd5:	mov    %rax,%r12
+  4dcbd8:	test   %bl,%bl
+  4dcbda:	je     4dcba1 <fastfft::measure::run_planning_control+0xe61>
+  4dcbdc:	jmp    4dcbac <fastfft::measure::run_planning_control+0xe6c>
+  4dcbde:	jmp    4dcc38 <fastfft::measure::run_planning_control+0xef8>
+  4dcbe0:	mov    %r12d,%ebp
+  4dcbe3:	mov    %rax,%r12
+  4dcbe6:	cmpq   $0x0,0x150(%rsp)
+  4dcbef:	je     4dcbff <fastfft::measure::run_planning_control+0xebf>
+  4dcbf1:	mov    0x158(%rsp),%rdi
+  4dcbf9:	call   *0xdb41b9(%rip)        # 1290db8 <free@GLIBC_2.2.5>
+  4dcbff:	cmpq   $0x0,0x18(%rsp)
+  4dcc05:	sete   %al
+  4dcc08:	or     %al,%bpl
+  4dcc0b:	mov    %rbx,%rdi
+  4dcc0e:	jne    4dccc3 <fastfft::measure::run_planning_control+0xf83>
+  4dcc14:	jmp    4dcd37 <fastfft::measure::run_planning_control+0xff7>
+  4dcc19:	jmp    4dcc38 <fastfft::measure::run_planning_control+0xef8>
+  4dcc1b:	mov    %rax,%r12
+  4dcc1e:	lea    0xd0(%rsp),%rdi
+  4dcc26:	call   10cdec0 <core::ptr::drop_in_place::<std::io::error::Error>>
+  4dcc2b:	jmp    4dcc8c <fastfft::measure::run_planning_control+0xf4c>
+  4dcc2d:	call   c51380 <core::panicking::panic_in_cleanup>
+  4dcc32:	jmp    4dcc38 <fastfft::measure::run_planning_control+0xef8>
+  4dcc34:	jmp    4dcc38 <fastfft::measure::run_planning_control+0xef8>
+  4dcc36:	jmp    4dcc38 <fastfft::measure::run_planning_control+0xef8>
+  4dcc38:	mov    %rax,%r12
+  4dcc3b:	jmp    4dcc8c <fastfft::measure::run_planning_control+0xf4c>
+  4dcc3d:	mov    %rax,%r12
+  4dcc40:	mov    0xd0(%rsp),%rax
+  4dcc48:	mov    %eax,%ecx
+  4dcc4a:	and    $0x3,%ecx
+  4dcc4d:	lea    -0x2(%rcx),%edx
+  4dcc50:	cmp    $0x2,%edx
+  4dcc53:	jb     4dcc8c <fastfft::measure::run_planning_control+0xf4c>
+  4dcc55:	test   %rcx,%rcx
+  4dcc58:	je     4dcc8c <fastfft::measure::run_planning_control+0xf4c>
+  4dcc5a:	lea    -0x1(%rax),%rbx
+  4dcc5e:	mov    -0x1(%rax),%r15
+  4dcc62:	mov    0x7(%rax),%r14
+  4dcc66:	mov    (%r14),%rax
+  4dcc69:	test   %rax,%rax
+  4dcc6c:	je     4dcc73 <fastfft::measure::run_planning_control+0xf33>
+  4dcc6e:	mov    %r15,%rdi
+  4dcc71:	call   *%rax
+  4dcc73:	cmpq   $0x0,0x8(%r14)
+  4dcc78:	je     4dcc83 <fastfft::measure::run_planning_control+0xf43>
+  4dcc7a:	mov    %r15,%rdi
+  4dcc7d:	call   *0xdb4135(%rip)        # 1290db8 <free@GLIBC_2.2.5>
+  4dcc83:	mov    %rbx,%rdi
+  4dcc86:	call   *0xdb412c(%rip)        # 1290db8 <free@GLIBC_2.2.5>
+  4dcc8c:	cmpq   $0x0,0x430(%rsp)
+  4dcc95:	jne    4dcccb <fastfft::measure::run_planning_control+0xf8b>
+  4dcc97:	cmpq   $0x0,0x150(%rsp)
+  4dcca0:	jne    4dcce4 <fastfft::measure::run_planning_control+0xfa4>
+  4dcca2:	cmpq   $0x0,0x168(%rsp)
+  4dccab:	jne    4dccfd <fastfft::measure::run_planning_control+0xfbd>
+  4dccad:	cmpq   $0x0,0x180(%rsp)
+  4dccb6:	jne    4dcd16 <fastfft::measure::run_planning_control+0xfd6>
+  4dccb8:	cmpq   $0x0,0x198(%rsp)
+  4dccc1:	jne    4dcd2f <fastfft::measure::run_planning_control+0xfef>
+  4dccc3:	mov    %r12,%rdi
+  4dccc6:	call   1255570 <_Unwind_Resume@plt>
+  4dcccb:	mov    0x438(%rsp),%rdi
+  4dccd3:	call   *0xdb40df(%rip)        # 1290db8 <free@GLIBC_2.2.5>
+  4dccd9:	cmpq   $0x0,0x150(%rsp)
+  4dcce2:	je     4dcca2 <fastfft::measure::run_planning_control+0xf62>
+  4dcce4:	mov    0x158(%rsp),%rdi
+  4dccec:	call   *0xdb40c6(%rip)        # 1290db8 <free@GLIBC_2.2.5>
+  4dccf2:	cmpq   $0x0,0x168(%rsp)
+  4dccfb:	je     4dccad <fastfft::measure::run_planning_control+0xf6d>
+  4dccfd:	mov    0x170(%rsp),%rdi
+  4dcd05:	call   *0xdb40ad(%rip)        # 1290db8 <free@GLIBC_2.2.5>
+  4dcd0b:	cmpq   $0x0,0x180(%rsp)
+  4dcd14:	je     4dccb8 <fastfft::measure::run_planning_control+0xf78>
+  4dcd16:	mov    0x188(%rsp),%rdi
+  4dcd1e:	call   *0xdb4094(%rip)        # 1290db8 <free@GLIBC_2.2.5>
+  4dcd24:	cmpq   $0x0,0x198(%rsp)
+  4dcd2d:	je     4dccc3 <fastfft::measure::run_planning_control+0xf83>
+  4dcd2f:	mov    0x1a0(%rsp),%rdi
+  4dcd37:	call   *0xdb407b(%rip)        # 1290db8 <free@GLIBC_2.2.5>
+  4dcd3d:	mov    %r12,%rdi
+  4dcd40:	call   1255570 <_Unwind_Resume@plt>
+  4dcd45:	cmpq   $0x0,0x8(%r14)
+  4dcd4a:	je     4dcd55 <fastfft::measure::run_planning_control+0x1015>
+  4dcd4c:	mov    %r15,%rdi
+  4dcd4f:	call   *0xdb4063(%rip)        # 1290db8 <free@GLIBC_2.2.5>
+  4dcd55:	mov    %rbx,%rdi
+  4dcd58:	call   *0xdb405a(%rip)        # 1290db8 <free@GLIBC_2.2.5>
+  4dcd5e:	call   c51380 <core::panicking::panic_in_cleanup>
+  4dcd63:	int3
+  4dcd64:	int3
+  4dcd65:	int3
+  4dcd66:	int3
+  4dcd67:	int3
+  4dcd68:	int3
+  4dcd69:	int3
+  4dcd6a:	int3
+  4dcd6b:	int3
+  4dcd6c:	int3
+  4dcd6d:	int3
+  4dcd6e:	int3
+  4dcd6f:	int3
+  4dcd70:	int3
+  4dcd71:	int3
+  4dcd72:	int3
+  4dcd73:	int3
+  4dcd74:	int3
+  4dcd75:	int3
+  4dcd76:	int3
+  4dcd77:	int3
+  4dcd78:	int3
+  4dcd79:	int3
+  4dcd7a:	int3
+  4dcd7b:	int3
+  4dcd7c:	int3
+  4dcd7d:	int3
+  4dcd7e:	int3
+  4dcd7f:	int3
+
+00000000004dcd80 <fastfft::measure::run_planning_control::{{closure}}>:
+  4dcd80:	push   %r15
+  4dcd82:	push   %r14
+  4dcd84:	push   %rbx
+  4dcd85:	mov    (%rdi),%rbx
+  4dcd88:	mov    0x10(%rbx),%r14
+  4dcd8c:	cmp    (%rbx),%r14
+  4dcd8f:	je     4dcdc8 <fastfft::measure::run_planning_control::{{closure}}+0x48>
+  4dcd91:	mov    0x8(%rbx),%rax
+  4dcd95:	imul   $0x38,%r14,%rcx
+  4dcd99:	mov    0x30(%rsi),%rdx
+  4dcd9d:	mov    %rdx,0x30(%rax,%rcx,1)
+  4dcda2:	movups (%rsi),%xmm0
+  4dcda5:	movups 0x10(%rsi),%xmm1
+  4dcda9:	movups 0x20(%rsi),%xmm2
+  4dcdad:	movups %xmm2,0x20(%rax,%rcx,1)
+  4dcdb2:	movups %xmm1,0x10(%rax,%rcx,1)
+  4dcdb7:	movups %xmm0,(%rax,%rcx,1)
+  4dcdbb:	inc    %r14
+  4dcdbe:	mov    %r14,0x10(%rbx)
+  4dcdc2:	pop    %rbx
+  4dcdc3:	pop    %r14
+  4dcdc5:	pop    %r15
+  4dcdc7:	ret
+  4dcdc8:	mov    %rbx,%rdi
+  4dcdcb:	mov    %rsi,%r15
+  4dcdce:	call   393b40 <alloc::raw_vec::RawVec<T,A>::grow_one>
+  4dcdd3:	mov    %r15,%rsi
+  4dcdd6:	jmp    4dcd91 <fastfft::measure::run_planning_control::{{closure}}+0x11>
+  4dcdd8:	int3
+  4dcdd9:	int3
+  4dcdda:	int3
+  4dcddb:	int3
+  4dcddc:	int3
+  4dcddd:	int3
+  4dcdde:	int3
+  4dcddf:	int3
+  4dcde0:	int3
+  4dcde1:	int3
+  4dcde2:	int3
+  4dcde3:	int3
+  4dcde4:	int3
+  4dcde5:	int3
+  4dcde6:	int3
+  4dcde7:	int3
+  4dcde8:	int3
+  4dcde9:	int3
+  4dcdea:	int3
+  4dcdeb:	int3
+  4dcdec:	int3
+  4dcded:	int3
+  4dcdee:	int3
+  4dcdef:	int3
+  4dcdf0:	int3
+  4dcdf1:	int3
+  4dcdf2:	int3
+  4dcdf3:	int3
+  4dcdf4:	int3
+  4dcdf5:	int3
+  4dcdf6:	int3
+  4dcdf7:	int3
+  4dcdf8:	int3
+  4dcdf9:	int3
+  4dcdfa:	int3
+  4dcdfb:	int3
+  4dcdfc:	int3
+  4dcdfd:	int3
+  4dcdfe:	int3
+  4dcdff:	int3
+
+00000000004dce00 <fastfft::measure::planning_slice_bridge>:
+  4dce00:	push   %rbp
+  4dce01:	push   %r15
+  4dce03:	push   %r14
+  4dce05:	push   %r13
+  4dce07:	push   %r12
+  4dce09:	push   %rbx
+  4dce0a:	sub    $0x48,%rsp
+  4dce0e:	mov    %r9,%rbx
+  4dce11:	mov    %r8,%r15
+  4dce14:	mov    %rcx,%r12
+  4dce17:	mov    %rdx,%r13
+  4dce1a:	mov    %rsi,%r14
+  4dce1d:	mov    %rdi,%rbp
+  4dce20:	mov    $0x1,%edi
+  4dce25:	call   10f7c00 <<std::sys::pal::unix::time::Timespec>::now>
+  4dce2a:	mov    %rax,0x8(%rsp)
+  4dce2f:	mov    %edx,0x4(%rsp)
+  4dce33:	test   %rbx,%rbx
+  4dce36:	je     4dce59 <fastfft::measure::planning_slice_bridge+0x59>
+  4dce38:	nopl   0x0(%rax,%rax,1)
+  4dce40:	mov    $0x60,%edx
+  4dce45:	mov    %rbp,%rdi
+  4dce48:	mov    %r13,%rsi
+  4dce4b:	mov    %r12,%rcx
+  4dce4e:	mov    %r15,%r8
+  4dce51:	call   *%r14
+  4dce54:	dec    %rbx
+  4dce57:	jne    4dce40 <fastfft::measure::planning_slice_bridge+0x40>
+  4dce59:	mov    $0x1,%edi
+  4dce5e:	call   10f7c00 <<std::sys::pal::unix::time::Timespec>::now>
+  4dce63:	mov    %rax,0x10(%rsp)
+  4dce68:	mov    %edx,0x18(%rsp)
+  4dce6c:	mov    0x8(%rsp),%rax
+  4dce71:	mov    %rax,0x20(%rsp)
+  4dce76:	mov    0x4(%rsp),%eax
+  4dce7a:	mov    %eax,0x28(%rsp)
+  4dce7e:	lea    0x30(%rsp),%rdi
+  4dce83:	lea    0x10(%rsp),%rsi
+  4dce88:	lea    0x20(%rsp),%rdx
+  4dce8d:	call   10f7b00 <<std::sys::pal::unix::time::Timespec>::sub_timespec>
+  4dce92:	xor    %eax,%eax
+  4dce94:	cmpb   $0x0,0x30(%rsp)
+  4dce99:	mov    0x40(%rsp),%edx
+  4dce9d:	cmovne %eax,%edx
+  4dcea0:	cmove  0x38(%rsp),%rax
+  4dcea6:	add    $0x48,%rsp
+  4dceaa:	pop    %rbx
+  4dceab:	pop    %r12
+  4dcead:	pop    %r13
+  4dceaf:	pop    %r14
+  4dceb1:	pop    %r15
+  4dceb3:	pop    %rbp
+  4dceb4:	ret
+  4dceb5:	int3
+  4dceb6:	int3
+  4dceb7:	int3
+  4dceb8:	int3
+  4dceb9:	int3
+  4dceba:	int3
+  4dcebb:	int3
+  4dcebc:	int3
+  4dcebd:	int3
+  4dcebe:	int3
+  4dcebf:	int3
+
+00000000004dcec0 <fastfft::measure::pick>:
+  4dcec0:	push   %rbp
+  4dcec1:	push   %r15
+  4dcec3:	push   %r14
+  4dcec5:	push   %r13
+  4dcec7:	push   %r12
+  4dcec9:	push   %rbx
+  4dceca:	sub    $0xda8,%rsp
+  4dced1:	mov    %ecx,%ebx
+  4dced3:	mov    %edx,%ebp
+  4dced5:	mov    %rsi,%r14
+  4dced8:	mov    %rdi,%r15
+  4dcedb:	mov    %r8,0x60(%rsp)
+  4dcee0:	mov    %r8,0x428(%rsp)
+  4dcee8:	mov    %r9,0x58(%rsp)
+  4dceed:	mov    %r9,0x430(%rsp)
+  4dcef5:	mov    %fs:0x0,%rax
+  4dcefe:	lea    -0x70(%rax),%r12
+  4dcf05:	movzbl %fs:0xffffffffffffffb0,%eax
+  4dcf0e:	cmp    $0x1,%eax
+  4dcf11:	je     4dcf41 <fastfft::measure::pick+0x81>
+  4dcf13:	cmp    $0x2,%eax
+  4dcf16:	jne    4dcf29 <fastfft::measure::pick+0x69>
+  4dcf18:	lea    0xda7c79(%rip),%rdi        # 1284b98 <__frame_dummy_init_array_entry+0x2e5c0>
+  4dcf1f:	call   10fe3c0 <std::thread::local::panic_access_error>
+  4dcf24:	jmp    4e0feb <fastfft::measure::pick+0x412b>
+  4dcf29:	lea    0x8db390(%rip),%rsi        # db82c0 <std::sys::thread_local::native::eager::destroy>
+  4dcf30:	mov    %r12,%rdi
+  4dcf33:	call   10f5940 <std::sys::thread_local::destructors::linux_like::register>
+  4dcf38:	movb   $0x1,%fs:0xffffffffffffffb0
+  4dcf41:	cmpq   $0x0,%fs:0xffffffffffffff90
+  4dcf4b:	jne    4e0da3 <fastfft::measure::pick+0x3ee3>
+  4dcf51:	mov    0xde8(%rsp),%r13
+  4dcf59:	mov    0xde0(%rsp),%rax
+  4dcf61:	mov    %rax,0x158(%rsp)
+  4dcf69:	mov    %fs:0xffffffffffffffa8,%rcx
+  4dcf72:	movq   $0x0,%fs:0xffffffffffffffa8
+  4dcf7f:	movzbl %bpl,%eax
+  4dcf83:	mov    %eax,0x294(%rsp)
+  4dcf8a:	movzbl %bl,%eax
+  4dcf8d:	mov    %eax,0x290(%rsp)
+  4dcf94:	mov    %rcx,0x18(%rsp)
+  4dcf99:	test   %rcx,%rcx
+  4dcf9c:	mov    %r14,0x1e8(%rsp)
+  4dcfa4:	je     4dd494 <fastfft::measure::pick+0x5d4>
+  4dcfaa:	mov    0x60(%rsp),%rbx
+  4dcfaf:	mov    %rbx,0x438(%rsp)
+  4dcfb7:	mov    0x58(%rsp),%rax
+  4dcfbc:	mov    %rax,0x440(%rsp)
+  4dcfc4:	cmp    $0x8,%r13
+  4dcfc8:	mov    $0x8,%r14d
+  4dcfce:	mov    $0x8,%eax
+  4dcfd3:	cmovb  %r13,%rax
+  4dcfd7:	mov    %rax,0x68(%rsp)
+  4dcfdc:	test   %r13,%r13
+  4dcfdf:	je     4dd623 <fastfft::measure::pick+0x763>
+  4dcfe5:	mov    %ebp,0x39c(%rsp)
+  4dcfec:	mov    %r12,0x3b8(%rsp)
+  4dcff4:	mov    %r15,0x298(%rsp)
+  4dcffc:	mov    0xde0(%rsp),%rax
+  4dd004:	movzbl 0x30(%rax),%ebx
+  4dd008:	movzbl 0x20(%rax),%ebp
+  4dd00c:	mov    0x10(%rax),%r12
+  4dd010:	movupd 0x10(%rax),%xmm0
+  4dd015:	movapd %xmm0,0x40(%rsp)
+  4dd01b:	test   %r12,%r12
+  4dd01e:	je     4dd066 <fastfft::measure::pick+0x1a6>
+  4dd020:	mov    %bpl,0x10(%rsp)
+  4dd025:	mov    %ebx,%ebp
+  4dd027:	mov    0x8(%rax),%r15
+  4dd02b:	lea    0x0(,%r12,8),%rbx
+  4dd033:	mov    %rbx,%rdi
+  4dd036:	call   *0xdb3d64(%rip)        # 1290da0 <malloc@GLIBC_2.2.5>
+  4dd03c:	test   %rax,%rax
+  4dd03f:	je     4e0f98 <fastfft::measure::pick+0x40d8>
+  4dd045:	mov    %rax,%r14
+  4dd048:	mov    %rax,%rdi
+  4dd04b:	mov    %r15,%rsi
+  4dd04e:	mov    %rbx,%rdx
+  4dd051:	call   *0xdb3d51(%rip)        # 1290da8 <memcpy@GLIBC_2.14>
+  4dd057:	mov    0xde0(%rsp),%rax
+  4dd05f:	mov    %ebp,%ebx
+  4dd061:	movzbl 0x10(%rsp),%ebp
+  4dd066:	movsd  0x28(%rax),%xmm0
+  4dd06b:	movsd  %xmm0,0x30(%rsp)
+  4dd071:	mov    $0x1,%edi
+  4dd076:	call   10f7c00 <<std::sys::pal::unix::time::Timespec>::now>
+  4dd07b:	mov    %rax,0x10(%rsp)
+  4dd080:	mov    %edx,0xc(%rsp)
+  4dd084:	mov    0x60(%rsp),%rax
+  4dd089:	lock incq (%rax)
+  4dd08d:	jle    4e0feb <fastfft::measure::pick+0x412b>
+  4dd093:	movabs $0x8000000000000000,%rcx
+  4dd09d:	mov    %r12,0x338(%rsp)
+  4dd0a5:	mov    %r14,0x340(%rsp)
+  4dd0ad:	movaps 0x40(%rsp),%xmm0
+  4dd0b2:	movups %xmm0,0x348(%rsp)
+  4dd0ba:	mov    %bpl,0x358(%rsp)
+  4dd0c2:	movsd  0x30(%rsp),%xmm0
+  4dd0c8:	movsd  %xmm0,0x360(%rsp)
+  4dd0d1:	mov    %bl,0x368(%rsp)
+  4dd0d8:	mov    %rax,0x370(%rsp)
+  4dd0e0:	mov    0x58(%rsp),%rax
+  4dd0e5:	mov    %rax,0x378(%rsp)
+  4dd0ed:	mov    %rcx,0x448(%rsp)
+  4dd0f5:	rex.W
+  4dd0f6:	.byte 0xc7
+  4dd0f7:	test   %ah,(%rax,%rbp,2)
+  4dd0fa:	add    (%rax),%al
+  4dd0fc:	add    %al,(%rax)
+	...

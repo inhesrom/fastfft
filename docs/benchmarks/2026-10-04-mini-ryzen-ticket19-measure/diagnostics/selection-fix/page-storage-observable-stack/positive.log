@@ -1,0 +1,48 @@
+quiet-run: sustained quiet period and environment check passed; launching
+
+running 13 tests
+test measure::tests::both_caller_routes_must_pass_best_and_median_separately ... ok
+test measure::tests::canonical_helper_covers_every_placement_and_length_only_at_offset_zero ... ok
+test measure::tests::deadline_during_warmup_prevents_a_timed_sample ... ok
+test measure::tests::large_promotion_can_use_the_remaining_global_budget ... measure-ledger entries=19 capacity=160 overflow=false
+measure-ledger event=BuildBegin candidate=1 workload=None len=0 placement=None offsets_complex=[0, 0, 0] elapsed_ns=2952435 calls=[0, 0] caller_routes=0 masks=[0, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[None, None] score=None
+measure-ledger event=BuildComplete candidate=1 workload=None len=0 placement=None offsets_complex=[0, 0, 0] elapsed_ns=6607029 calls=[0, 0] caller_routes=0 masks=[0, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[None, None] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(0) len=524288 placement=InPlace offsets_complex=[0, 0, 0] elapsed_ns=127069579 calls=[1, 1] caller_routes=2 masks=[16383, 16383] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1206994.0, 670418.0, 1220529.0, 694323.0]), Some([1204318.0, 669336.0, 1223534.0, 684205.0])] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(1) len=524288 placement=OutOfPlace offsets_complex=[0, 0, 0] elapsed_ns=246516056 calls=[1, 1] caller_routes=2 masks=[16383, 16383] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1173650.0, 726795.0, 1199119.0, 747544.0]), Some([1186254.0, 717086.0, 1193258.0, 723759.0])] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(2) len=524288 placement=Immutable offsets_complex=[0, 0, 0] elapsed_ns=388694890 calls=[1, 1] caller_routes=2 masks=[16383, 16383] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1314257.0, 874034.0, 1370082.0, 877260.0]), Some([1309348.0, 885837.0, 1342359.0, 1040548.0000000001])] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(3) len=524288 placement=InPlace offsets_complex=[128, 256, 384] elapsed_ns=445898602 calls=[1, 1] caller_routes=1 masks=[16383, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1190383.0, 640502.0, 1199269.0, 649489.0]), None] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(4) len=524288 placement=OutOfPlace offsets_complex=[128, 256, 384] elapsed_ns=503944578 calls=[1, 1] caller_routes=1 masks=[16383, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1175805.0, 656281.0, 1186434.0, 662754.0]), None] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(5) len=524288 placement=Immutable offsets_complex=[128, 256, 384] elapsed_ns=574108800 calls=[1, 1] caller_routes=1 masks=[16383, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1315329.0, 813359.0, 1341739.0, 829169.0]), None] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(6) len=524288 placement=InPlace offsets_complex=[256, 384, 128] elapsed_ns=631717678 calls=[1, 1] caller_routes=1 masks=[16383, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1185743.0, 633569.0, 1203607.0, 642005.0]), None] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(7) len=524288 placement=OutOfPlace offsets_complex=[256, 384, 128] elapsed_ns=690259822 calls=[1, 1] caller_routes=1 masks=[16383, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1173991.0, 648346.0, 1189781.0, 659488.0]), None] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(8) len=524288 placement=Immutable offsets_complex=[256, 384, 128] elapsed_ns=759104678 calls=[1, 1] caller_routes=1 masks=[16383, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1299178.0, 819070.0, 1328323.0, 857141.0]), None] score=None
+measure-ledger event=CompareQualified candidate=1 workload=None len=0 placement=None offsets_complex=[0, 0, 0] elapsed_ns=759106101 calls=[0, 0] caller_routes=0 masks=[0, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[None, None] score=Some(0.7751637229682969)
+measure-ledger event=BuildBegin candidate=2 workload=None len=0 placement=None offsets_complex=[0, 0, 0] elapsed_ns=759106952 calls=[0, 0] caller_routes=0 masks=[0, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[None, None] score=None
+measure-ledger event=BuildComplete candidate=2 workload=None len=0 placement=None offsets_complex=[0, 0, 0] elapsed_ns=762865162 calls=[0, 0] caller_routes=0 masks=[0, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[None, None] score=None
+measure-ledger event=WorkloadPassed candidate=2 workload=Some(0) len=524288 placement=InPlace offsets_complex=[0, 0, 0] elapsed_ns=884021204 calls=[1, 1] caller_routes=2 masks=[16383, 16383] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1217743.0, 702489.0, 1224106.0, 720753.0]), Some([1216752.0, 696728.0, 1226059.0, 725502.0])] score=None
+measure-ledger event=SamplingDeadline candidate=2 workload=Some(1) len=524288 placement=OutOfPlace offsets_complex=[0, 0, 0] elapsed_ns=1000318113 calls=[1, 1] caller_routes=2 masks=[4095, 16383] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[None, Some([1200301.0, 757173.0, 1218906.0, 783743.0])] score=None
+measure-ledger event=CompareDeadline candidate=2 workload=None len=0 placement=None offsets_complex=[0, 0, 0] elapsed_ns=1000318764 calls=[0, 0] caller_routes=0 masks=[0, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[None, None] score=None
+measure-ledger event=SearchDeadline candidate=2 workload=None len=0 placement=None offsets_complex=[0, 0, 0] elapsed_ns=1000616918 calls=[0, 0] caller_routes=0 masks=[0, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[None, None] score=None
+measure-ledger event=ChoiceComplete candidate=2 workload=None len=0 placement=None offsets_complex=[0, 0, 0] elapsed_ns=1000616958 calls=[0, 0] caller_routes=0 masks=[0, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[None, None] score=Some(0.7751637229682969)
+measure-ledger candidate=0 configuration=Candidate { kernel: Stockham, shape: Shape { isa: Sse2, lanes: 4 }, radices: [4, 4, 2, 4, 4, 4, 4, 4, 4], cost: 2.3177947998046875 }
+measure-ledger candidate=1 configuration=Candidate { kernel: Stockham, shape: Shape { isa: Avx512Ymm, lanes: 8 }, radices: [8, 4, 8, 8, 4, 8], cost: 1.2366065979003906 }
+measure-ledger candidate=2 configuration=Candidate { kernel: Stockham, shape: Shape { isa: Avx512Ymm, lanes: 8 }, radices: [8, 2, 8, 8, 8, 8], cost: 1.2166143057446153 }
+measure-ledger candidate=3 configuration=Candidate { kernel: FourStep, shape: Shape { isa: Avx512, lanes: 16 }, radices: [512, 1024], cost: 0.0 }
+measure-ledger candidate=4 configuration=Candidate { kernel: FourStep, shape: Shape { isa: Avx512Ymm, lanes: 8 }, radices: [512, 1024], cost: 0.0 }
+measure-ledger candidate=5 configuration=Candidate { kernel: FourStep, shape: Shape { isa: Sse2, lanes: 4 }, radices: [512, 1024], cost: 0.0 }
+measure-ledger candidate=6 configuration=Candidate { kernel: Stockham, shape: Shape { isa: Avx512, lanes: 16 }, radices: [8, 4, 4, 4, 4, 4, 4], cost: 1.4431731411084836 }
+measure-ledger candidate=7 configuration=Candidate { kernel: Stockham, shape: Shape { isa: Avx2, lanes: 8 }, radices: [8, 4, 4, 8, 8, 8], cost: 1.538679524261542 }
+measure-ledger retained_baseline=false chosen=Candidate { kernel: Stockham, shape: Shape { isa: Avx512Ymm, lanes: 8 }, radices: [8, 4, 8, 8, 4, 8], cost: 1.2366065979003906 }
+ok
+test measure::tests::measurement_can_promote_a_faster_public_plan ... ok
+test measure::tests::primary_only_workload_calibrates_no_helper_and_cannot_hide_expiry ... ok
+test measure::tests::promotion_requires_both_statistics_and_every_workload ... ok
+test measure::tests::rejected_and_tied_scores_retain_actual_executable_identity ... ok
+test measure::tests::route_calibration_uses_max_per_plan_and_preserves_partial_state ... ok
+test measure::tests::route_collection_balances_order_and_keeps_seven_samples_each ... ok
+test measure::tests::second_route_expiry_keeps_first_route_and_no_invented_samples ... ok
+test measure::tests::warmup_does_not_enter_timing_statistics ... ok
+test measure::tests::zero_budget_retains_estimate ... ok
+
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 66 filtered out; finished in 1.03s
+

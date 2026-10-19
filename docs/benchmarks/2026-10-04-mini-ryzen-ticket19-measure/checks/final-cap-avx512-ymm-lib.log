@@ -1,0 +1,63 @@
+
+running 58 tests
+test engine::fourstep::tests::fourstep_bounded_prefixes ... ok
+test engine::stockham::tests::cache_gate_preserves_legacy_scratch_when_over_budget ... ok
+test engine::fourstep::tests::miri_fourstep_panels ... ok
+test engine::stockham::tests::cache_gate_counts_modes_tables_and_placement_slack ... ok
+test engine::stockham::scratch::tests::placed_scratch_is_aligned_bounded_and_separated ... ok
+test engine::stockham::tests::two_pass_plans_keep_legacy_scratch ... ok
+test isa::cache::tests::amd_extended_topology_reports_all_data_levels ... ok
+test isa::cache::tests::basic_topology_ignores_instruction_cache_and_counts_partitions ... ok
+test isa::cache::tests::duplicate_levels_choose_largest_and_stop_at_null ... ok
+test isa::cache::tests::extended_leaf_requires_topology_extensions_flag ... ok
+test isa::cache::tests::host_sizes_are_cached_and_nonzero ... ok
+test isa::cache::tests::malformed_topology_is_bounded_and_size_overflow_is_rejected ... ok
+test isa::cache::tests::masked_extended_topology_falls_back_to_basic ... ok
+test isa::cache::tests::missing_l2_default_does_not_replace_observed_llc ... ok
+test isa::cache::tests::missing_topology_never_queries_unsupported_leaves ... ok
+test isa::cache::tests::partial_topology_falls_back_per_level_and_prefers_extended ... ok
+test measure::tests::promotion_requires_both_statistics_and_every_workload ... ok
+test engine::fourstep::tests::panel_groups_use_l1_l2_and_last_level_capacity ... ok
+test measure::tests::zero_budget_retains_estimate ... ok
+test plan::tests::calibrated_recipes_are_ordered_and_have_valid_decompositions ... ok
+test plan::tests::radix_search_rejects_rough_lengths_and_preserves_smooth_lengths ... ok
+test planner::cache_tests::cache_policy_preserves_zen4_splits_and_lower_tier_estimates ... ok
+test planner::cache_tests::cache_sizes_move_both_candidate_and_estimate_boundaries ... ok
+test planner::cache_tests::odd_simd_panels_do_not_depend_on_cache_thresholds ... ok
+test scratch::tests::scalar_aligned_scratch_gets_a_simd_aligned_tail ... ok
+test planner::cache_tests::descriptions_cover_candidate_engines_without_dispatch_assumptions ... ok
+test specialized_tests::latency_planner_contracts ... ok
+test specialized_tests::preserved_incumbent_dispatch ... ok
+test measure::tests::measurement_can_promote_a_faster_public_plan ... ok
+test engine::stockham::tests::cache_gate_excludes_measured_zen4_l3_boundary ... ok
+test engine::fourstep::tests::fourstep_planner_candidates ... ok
+test tests::fixed_scratch_aligned_to_real_but_not_complex_stride ... ok
+test tests::m3_smooth_every_shape ... ignored, exhaustive M3 checkpoint across every supported vector shape and placement
+test tests::miri_scalar_small ... ok
+test engine::batch::tests::streaming_batches_f32_preserve_public_contracts ... ok
+test tests::small_candidate_timings ... ignored, focused timing on an idle pinned core, not a correctness test
+test tests::radix_choice_covers_smooth_sizes ... ok
+test engine::batch::tests::streaming_batches_f64_preserve_public_contracts ... ok
+test tests::small_measure_candidates_include_estimate_and_stockham ... ok
+test tests::small_every_kernel_f64 ... ok
+test tests::small_every_kernel_f32 ... ok
+test tests::fixed_kernels_with_exact_offset_scratch ... ok
+test engine::fourstep::tests::fourstep_contracts_f32 ... ok
+test twiddle::tests::matches_double_double_reference ... ok
+test engine::fourstep::tests::fourstep_contracts_f64 ... ok
+test engine::stockham::contracts::cache_gated_public_contracts_f64 ... ok
+test tests::smooth_transition_candidate_orders ... ok
+test engine::stockham::contracts::cache_gated_public_contracts_f32 ... ok
+test isa::roots::tests::reusable_roots_match_double_double_reference ... ok
+test engine::fourstep::tests::cache_scaled_groups_preserve_public_execution_contracts ... ok
+test specialized_tests::all_specialized_contracts_f32 ... ok
+test specialized_tests::all_specialized_contracts_f64 ... ok
+test tests::stockham_offsets_f32 ... ok
+test tests::stockham_offsets_f64 ... ok
+test tests::every_tier_f32 ... ok
+test tests::every_tier_f64 ... ok
+test engine::fourstep::tests::fourstep_references_f64 ... ok
+test engine::fourstep::tests::fourstep_references_f32 ... ok
+
+test result: ok. 56 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 1.79s
+

@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-05T18:05:34.617876+00:00",
+  "acceptance": false,
+  "focus_passed": false,
+  "cells": 34,
+  "ordinary_trials": 272,
+  "control_rows": 3,
+  "control_trials": 24,
+  "protocol_issues": [],
+  "audit_failures": [
+    {
+      "key": "smooth:f32:inv:ip:n1000000",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 1.0569250665255945,
+      "best": 1.0569250665255945,
+      "p1": 1.0398532163988379,
+      "median": 1.0621000359914123,
+      "estimate": "stockham avx512-ymm split L=8 radices=10x5x10x5x5x10 scratch=1000008 scratch_oop=0 scratch_immutable=1000008",
+      "measure": "stockham avx512-ymm split L=8 radices=10x5x10x5x5x10 scratch=1000008 scratch_oop=0 scratch_immutable=1000008",
+      "same_plan": true
+    },
+    {
+      "key": "smooth:f32:inv:ip:n96",
+      "suite": "smooth",
+      "metric": "p1",
+      "ratio": 1.025229041628632,
+      "best": 1.005108730235393,
+      "p1": 1.025229041628632,
+      "median": 1.0001353213479272,
+      "estimate": "small avx512-ymm n=96 decomposition=8x12 radices=8x12 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=rectangular",
+      "measure": "small avx512-ymm n=96 decomposition=8x12 radices=8x12 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=rectangular",
+      "same_plan": true
+    }
+  ],
+  "audit_problems": [
+    "smooth:f32:fwd:ip:n80: slower promotion in raw process trial 3 (p1 ratio 1.024644)"
+  ],
+  "meta": {
+    "aborted": null,
+    "cells": 34,
+    "child_failures": 0,
+    "drift_flag": false,
+    "elapsed_s": 647.604344099,
+    "max_drift": 0.01058742793988765,
+    "official": true
+  },
+  "quiet_running_samples": 130,
+  "quiet_dirty_samples": [],
+  "restoration": true,
+  "full710_launched": false
+}

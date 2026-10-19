@@ -1,0 +1,74 @@
+{
+  "pow2:f32:fwd:ip:n32": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=4 fixed n=32 scratch=40",
+    "before_plan": "stockham avx512-ymm split L=8 radices=4 fixed n=32 scratch=40",
+    "change": {
+      "best": -0.000760166573463894,
+      "median": 0.000769022905162231
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:oop:n32": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=4 fixed n=32 scratch=40",
+    "before_plan": "stockham avx512-ymm split L=8 radices=4 fixed n=32 scratch=40",
+    "change": {
+      "best": 0.002595508054949347,
+      "median": -0.0009790789507286846
+    },
+    "flag": false
+  },
+  "pow2:f32:inv:ip:n32": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=4 fixed n=32 scratch=40",
+    "before_plan": "stockham avx512-ymm split L=8 radices=4 fixed n=32 scratch=40",
+    "change": {
+      "best": 0.002365068105700807,
+      "median": 0.001788287349047124
+    },
+    "flag": false
+  },
+  "pow2:f32:inv:oop:n32": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=4 fixed n=32 scratch=40",
+    "before_plan": "stockham avx512-ymm split L=8 radices=4 fixed n=32 scratch=40",
+    "change": {
+      "best": 0.0032479294965384042,
+      "median": -0.0013164289445422028
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n32": {
+    "after_plan": "stockham avx512-ymm split L=4 radices=8 fixed n=32 scratch=36",
+    "before_plan": "small avx512 n=32 decomposition=4x8 scratch=0",
+    "change": {
+      "best": -0.08278281591731562,
+      "median": -0.08670957469726448
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:oop:n32": {
+    "after_plan": "stockham avx512-ymm split L=4 radices=8 fixed n=32 scratch=36",
+    "before_plan": "small avx512 n=32 decomposition=4x8 scratch=0",
+    "change": {
+      "best": -0.018631446981187016,
+      "median": -0.05796701199276011
+    },
+    "flag": false
+  },
+  "pow2:f64:inv:ip:n32": {
+    "after_plan": "stockham avx512-ymm split L=4 radices=8 fixed n=32 scratch=36",
+    "before_plan": "small avx512 n=32 decomposition=4x8 scratch=0",
+    "change": {
+      "best": -0.08989535434464824,
+      "median": -0.08493718109326875
+    },
+    "flag": false
+  },
+  "pow2:f64:inv:oop:n32": {
+    "after_plan": "stockham avx512-ymm split L=4 radices=8 fixed n=32 scratch=36",
+    "before_plan": "small avx512 n=32 decomposition=4x8 scratch=0",
+    "change": {
+      "best": -0.029290597027026855,
+      "median": -0.06726818416233671
+    },
+    "flag": false
+  }
+}

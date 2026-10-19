@@ -1,0 +1,18 @@
+
+running 1 test
+test sweep_f64 ... FAILED
+
+failures:
+
+---- sweep_f64 stdout ----
+
+thread 'sweep_f64' (3781457) panicked at crates/fastfft/tests/accuracy.rs:86:13:
+n=19 Inverse: error 2.14 eps (bound 49.4, rustfft 0.74) plan: bluestein scalar n=19 m=36 radices=inner scratch=80 scratch_oop=80 scratch_immutable=80 inner=[stockham scalar split L=1 radices=12x3 scratch=40 scratch_oop=0 scratch_immutable=40]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    sweep_f64
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.00s
+

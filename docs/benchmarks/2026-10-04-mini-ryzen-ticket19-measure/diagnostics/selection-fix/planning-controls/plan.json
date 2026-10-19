@@ -1,0 +1,59 @@
+{
+  "acceptance": false,
+  "created_utc": "2026-10-05T14:38:45.926657+00:00",
+  "case": "smooth:f32:inv:ip:n96",
+  "procs": 8,
+  "core": 4,
+  "profile": "full",
+  "rustflags": "-C llvm-args=-align-all-functions=6",
+  "fixed_rule": "one eight-process run; no retry until promotion or passing result",
+  "gate": "fresh 60s sustained quiet and envcheck; journaled physical-core reservation; continuous monitor",
+  "selection": "all original search, choice and scores completed before diagnostic; elapsed frozen; no rescoring",
+  "plans": [
+    "actual internal baseline 8x12",
+    "actual built nominated contender1 16x6; independent of chosen"
+  ],
+  "paths": [
+    "actual Buffers::sample via black-boxed fn pointer",
+    "non-inlined slice bridge"
+  ],
+  "calls": [
+    1024,
+    2048
+  ],
+  "rounds": 7,
+  "warm_calls_per_sample": 3,
+  "phases": [
+    "before original-route exposure",
+    "after original-route exposure"
+  ],
+  "exposure": {
+    "duration_ms": 100,
+    "path": 0,
+    "calls": [
+      1024,
+      2048
+    ],
+    "raw_pairs_retained": true,
+    "capacity_pairs": 16384,
+    "truncation_invalidates_control": true
+  },
+  "buffers": "original selector offset0; no reset or resizing between selection and control",
+  "rotations": {
+    "path_start": "p%2",
+    "member_start": "(p/2)%2",
+    "exposure_member_start": "(p/4)%2"
+  },
+  "predictions": [
+    "Adjacent path-dependent baseline timing supports caller/entry/stack effect.",
+    "Both paths changing after fixed exposure supports earlier accumulated history.",
+    "Both path and exposure effects support an interaction.",
+    "All fast in the recompiled instrumentation alone does not establish a production fix."
+  ],
+  "limitations": [
+    "Original method entry is retained but diagnostic caller frame differs from qualification.",
+    "Retaining trace, nominee and selector buffers changes allocation lifetimes.",
+    "Optional instrumentation changes generated code; cannot substitute for production acceptance.",
+    "All original failed raw promotions and primary merged cells remain failures."
+  ]
+}

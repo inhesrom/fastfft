@@ -1,0 +1,84 @@
+{
+  "created_utc": "2026-10-06T02:45:47.747814+00:00",
+  "features": "default SIMD + measure-diagnostics/tuning; selector tracing off",
+  "acceptance": false,
+  "RUSTFLAGS": "-C llvm-args=-align-all-functions=6",
+  "commands": [
+    [
+      "build.log",
+      [
+        "cargo",
+        "build",
+        "-j1",
+        "--profile",
+        "arena",
+        "-pfastfft-arena",
+        "--features",
+        "measure-diagnostics"
+      ]
+    ],
+    [
+      "swap-tests.log",
+      [
+        "cargo",
+        "test",
+        "-j1",
+        "--release",
+        "-pfastfft",
+        "--no-default-features",
+        "--features",
+        "sse2,tuning",
+        "--lib",
+        "coefficient_swap",
+        "--",
+        "--test-threads=1"
+      ]
+    ],
+    [
+      "audit-tests.log",
+      [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "docs/benchmarks/2026-10-04-mini-ryzen-ticket19-measure",
+        "-p",
+        "test_large_coefficient_audit.py"
+      ]
+    ],
+    [
+      "clippy.log",
+      [
+        "cargo",
+        "clippy",
+        "-j1",
+        "--workspace",
+        "--all-targets",
+        "--features",
+        "fastfft-arena/measure-diagnostics",
+        "--",
+        "-D",
+        "warnings"
+      ]
+    ],
+    [
+      "formatting.log",
+      [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ]
+    ],
+    [
+      "diff-check.log",
+      [
+        "git",
+        "diff",
+        "--check"
+      ]
+    ]
+  ]
+}

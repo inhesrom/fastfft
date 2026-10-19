@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-05T21:44:48.039234+00:00",
+  "executable": "target/ticket19/selection-fix/coefficient-components/fastfft-arena",
+  "sha256": "9e9dfb4c4f8837e3471d0e935da0fa563112452f4777def65fb99ef3d2c8b350",
+  "source_files": 91,
+  "source_hashes_match": true,
+  "build": {
+    "created_utc": "2026-10-05T21:39:33.342886+00:00",
+    "build_command": "RUSTFLAGS='-C llvm-args=-align-all-functions=6' cargo build -j1 --profile arena -pfastfft-arena --features measure-diagnostics",
+    "features": "default SIMD + measure-diagnostics/tuning; selector tracing off, original sample trace on",
+    "acceptance": false
+  },
+  "acceptance": false
+}

@@ -1,0 +1,2482 @@
+
+target/ticket19/selection-fix/caller-qualification-canonical/fastfft-arena:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000049b1c0 <fastfft::measure::pick>:
+  49b1c0:	push   %rbp
+  49b1c1:	push   %r15
+  49b1c3:	push   %r14
+  49b1c5:	push   %r13
+  49b1c7:	push   %r12
+  49b1c9:	push   %rbx
+  49b1ca:	sub    $0x558,%rsp
+  49b1d1:	mov    0x598(%rsp),%r12
+  49b1d9:	mov    %r8,0x68(%rsp)
+  49b1de:	mov    %r8,0x260(%rsp)
+  49b1e6:	mov    %r9,0x18(%rsp)
+  49b1eb:	mov    %r9,0x268(%rsp)
+  49b1f3:	cmp    $0x8,%r12
+  49b1f7:	mov    $0x8,%r14d
+  49b1fd:	mov    $0x8,%eax
+  49b202:	cmovb  %r12,%rax
+  49b206:	test   %r12,%r12
+  49b209:	je     49b3a5 <fastfft::measure::pick+0x1e5>
+  49b20f:	mov    %rax,0x10(%rsp)
+  49b214:	mov    %edx,0x8(%rsp)
+  49b218:	mov    %ecx,0x80(%rsp)
+  49b21f:	mov    %rsi,0x178(%rsp)
+  49b227:	mov    %rdi,0x78(%rsp)
+  49b22c:	mov    0x590(%rsp),%rax
+  49b234:	movzbl 0x30(%rax),%r15d
+  49b239:	movzbl 0x20(%rax),%ebp
+  49b23d:	mov    0x10(%rax),%rbx
+  49b241:	movdqu 0x10(%rax),%xmm0
+  49b246:	movdqa %xmm0,0x90(%rsp)
+  49b24f:	test   %rbx,%rbx
+  49b252:	je     49b29c <fastfft::measure::pick+0xdc>
+  49b254:	mov    %bpl,0x50(%rsp)
+  49b259:	mov    %r15d,%ebp
+  49b25c:	mov    0x8(%rax),%r13
+  49b260:	lea    0x0(,%rbx,8),%r15
+  49b268:	mov    %r15,%rdi
+  49b26b:	call   *0xd9d23f(%rip)        # 12384b0 <malloc@GLIBC_2.2.5>
+  49b271:	test   %rax,%rax
+  49b274:	je     49c95e <fastfft::measure::pick+0x179e>
+  49b27a:	mov    %rax,%r14
+  49b27d:	mov    %rax,%rdi
+  49b280:	mov    %r13,%rsi
+  49b283:	mov    %r15,%rdx
+  49b286:	call   *0xd9d22c(%rip)        # 12384b8 <memcpy@GLIBC_2.14>
+  49b28c:	mov    0x590(%rsp),%rax
+  49b294:	mov    %ebp,%r15d
+  49b297:	movzbl 0x50(%rsp),%ebp
+  49b29c:	mov    %rax,0x70(%rsp)
+  49b2a1:	movq   0x28(%rax),%xmm0
+  49b2a6:	movq   %xmm0,0x50(%rsp)
+  49b2ac:	mov    $0x1,%edi
+  49b2b1:	call   10a4800 <<std::sys::pal::unix::time::Timespec>::now>
+  49b2b6:	mov    %rax,0x100(%rsp)
+  49b2be:	mov    %edx,0x2c(%rsp)
+  49b2c2:	mov    0x68(%rsp),%rax
+  49b2c7:	lock incq (%rax)
+  49b2cb:	jle    49c993 <fastfft::measure::pick+0x17d3>
+  49b2d1:	mov    %rbx,0xb0(%rsp)
+  49b2d9:	mov    %r14,0xb8(%rsp)
+  49b2e1:	movaps 0x90(%rsp),%xmm0
+  49b2e9:	movups %xmm0,0xc0(%rsp)
+  49b2f1:	mov    %bpl,0xd0(%rsp)
+  49b2f9:	movq   0x50(%rsp),%xmm0
+  49b2ff:	movq   %xmm0,0xd8(%rsp)
+  49b308:	mov    %r15b,0xe0(%rsp)
+  49b310:	mov    %rax,0xe8(%rsp)
+  49b318:	mov    0x18(%rsp),%rax
+  49b31d:	mov    %rax,0xf0(%rsp)
+  49b325:	cmp    $0x1,%r12
+  49b329:	mov    0x78(%rsp),%rbp
+  49b32e:	je     49b4d4 <fastfft::measure::pick+0x314>
+  49b334:	mov    $0x1,%edi
+  49b339:	call   10a4800 <<std::sys::pal::unix::time::Timespec>::now>
+  49b33e:	mov    %rax,0x3d0(%rsp)
+  49b346:	mov    %edx,0x3d8(%rsp)
+  49b34d:	mov    0x100(%rsp),%rax
+  49b355:	mov    %rax,0x458(%rsp)
+  49b35d:	mov    0x2c(%rsp),%eax
+  49b361:	mov    %eax,0x460(%rsp)
+  49b368:	lea    0x2b0(%rsp),%rdi
+  49b370:	lea    0x3d0(%rsp),%rsi
+  49b378:	lea    0x458(%rsp),%rdx
+  49b380:	call   10a4700 <<std::sys::pal::unix::time::Timespec>::sub_timespec>
+  49b385:	movzbl 0x2b0(%rsp),%eax
+  49b38d:	test   %al,%al
+  49b38f:	jne    49b3ca <fastfft::measure::pick+0x20a>
+  49b391:	mov    0x2b8(%rsp),%rcx
+  49b399:	cmp    0x5a0(%rsp),%rcx
+  49b3a1:	je     49b3d6 <fastfft::measure::pick+0x216>
+  49b3a3:	jmp    49b3e9 <fastfft::measure::pick+0x229>
+  49b3a5:	movabs $0x7ffffffffffffff8,%rax
+  49b3af:	add    $0x8,%rax
+  49b3b3:	mov    %rax,(%rdi)
+  49b3b6:	mov    0x68(%rsp),%rax
+  49b3bb:	lock decq (%rax)
+  49b3bf:	je     49b58b <fastfft::measure::pick+0x3cb>
+  49b3c5:	jmp    49b598 <fastfft::measure::pick+0x3d8>
+  49b3ca:	xor    %ecx,%ecx
+  49b3cc:	cmp    0x5a0(%rsp),%rcx
+  49b3d4:	jne    49b3e9 <fastfft::measure::pick+0x229>
+  49b3d6:	xor    %ecx,%ecx
+  49b3d8:	test   %al,%al
+  49b3da:	cmove  0x2c0(%rsp),%ecx
+  49b3e2:	cmp    0x5a8(%rsp),%ecx
+  49b3e9:	jae    49b4d4 <fastfft::measure::pick+0x314>
+  49b3ef:	mov    0x68(%rsp),%rax
+  49b3f4:	mov    %rax,0x270(%rsp)
+  49b3fc:	mov    0x18(%rsp),%rax
+  49b401:	mov    %rax,0x278(%rsp)
+  49b409:	mov    $0x8,%edi
+  49b40e:	call   *0xd9d09c(%rip)        # 12384b0 <malloc@GLIBC_2.2.5>
+  49b414:	test   %rax,%rax
+  49b417:	je     49c94d <fastfft::measure::pick+0x178d>
+  49b41d:	mov    0x178(%rsp),%rsi
+  49b425:	mov    %rsi,(%rax)
+  49b428:	movq   $0x1,0x108(%rsp)
+  49b434:	mov    %rax,0x110(%rsp)
+  49b43c:	movq   $0x1,0x118(%rsp)
+  49b448:	lea    -0x8(%rsi),%rdx
+  49b44c:	mov    $0x1,%ecx
+  49b451:	cmp    $0x3f8,%rdx
+  49b458:	ja     49b491 <fastfft::measure::pick+0x2d1>
+  49b45a:	lea    -0x1(%rsi),%rdx
+  49b45e:	and    %rsi,%rdx
+  49b461:	jne    49b491 <fastfft::measure::pick+0x2d1>
+  49b463:	lea    0x108(%rsp),%rdi
+  49b46b:	call   1063840 <alloc::raw_vec::RawVec<T,A>::grow_one>
+  49b470:	mov    0x110(%rsp),%rax
+  49b478:	movq   $0x100000,0x8(%rax)
+  49b480:	movq   $0x2,0x118(%rsp)
+  49b48c:	mov    $0x2,%ecx
+  49b491:	mov    $0x104,%r15d
+  49b497:	add    -0x8(%rax,%rcx,8),%r15
+  49b49c:	mov    %r15,%r14
+  49b49f:	shl    $0x4,%r14
+  49b4a3:	mov    %r15,%rax
+  49b4a6:	shr    $0x3c,%rax
+  49b4aa:	setne  %al
+  49b4ad:	movabs $0x7ffffffffffffff8,%rcx
+  49b4b7:	cmp    %rcx,%r14
+  49b4ba:	seta   %cl
+  49b4bd:	or     %al,%cl
+  49b4bf:	je     49b5aa <fastfft::measure::pick+0x3ea>
+  49b4c5:	xor    %edi,%edi
+  49b4c7:	mov    %r14,%rsi
+  49b4ca:	call   bfa980 <alloc::raw_vec::handle_error>
+  49b4cf:	jmp    49c993 <fastfft::measure::pick+0x17d3>
+  49b4d4:	mov    0xf0(%rsp),%rax
+  49b4dc:	mov    %rax,0x40(%rbp)
+  49b4e0:	mov    0xb0(%rsp),%rax
+  49b4e8:	mov    0xb8(%rsp),%rcx
+  49b4f0:	movups 0xc0(%rsp),%xmm0
+  49b4f8:	movzbl 0xd0(%rsp),%edx
+  49b500:	mov    0xd1(%rsp),%rsi
+  49b508:	mov    0xd9(%rsp),%edi
+  49b50f:	movzwl 0xdd(%rsp),%r8d
+  49b518:	movzbl 0xdf(%rsp),%r9d
+  49b521:	movzbl 0xe0(%rsp),%r10d
+  49b52a:	mov    %r10b,0x30(%rbp)
+  49b52e:	mov    0xe1(%rsp),%r10d
+  49b536:	mov    %r10d,0x31(%rbp)
+  49b53a:	movzwl 0xe5(%rsp),%r10d
+  49b543:	mov    %r10w,0x35(%rbp)
+  49b548:	movzbl 0xe7(%rsp),%r10d
+  49b551:	mov    %r10b,0x37(%rbp)
+  49b555:	mov    0xe8(%rsp),%r10
+  49b55d:	mov    %r10,0x38(%rbp)
+  49b561:	mov    %dl,0x20(%rbp)
+  49b564:	mov    %rsi,0x21(%rbp)
+  49b568:	mov    %edi,0x29(%rbp)
+  49b56b:	mov    %r8w,0x2d(%rbp)
+  49b570:	mov    %r9b,0x2f(%rbp)
+  49b574:	movups %xmm0,0x10(%rbp)
+  49b578:	mov    %rax,0x0(%rbp)
+  49b57c:	mov    %rcx,0x8(%rbp)
+  49b580:	mov    0x68(%rsp),%rax
+  49b585:	lock decq (%rax)
+  49b589:	jne    49b598 <fastfft::measure::pick+0x3d8>
+  49b58b:	lea    0x260(%rsp),%rdi
+  49b593:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49b598:	add    $0x558,%rsp
+  49b59f:	pop    %rbx
+  49b5a0:	pop    %r12
+  49b5a2:	pop    %r13
+  49b5a4:	pop    %r14
+  49b5a6:	pop    %r15
+  49b5a8:	pop    %rbp
+  49b5a9:	ret
+  49b5aa:	test   %r14,%r14
+  49b5ad:	je     49b5ee <fastfft::measure::pick+0x42e>
+  49b5af:	mov    %r14,%rdi
+  49b5b2:	call   *0xd9cef8(%rip)        # 12384b0 <malloc@GLIBC_2.2.5>
+  49b5b8:	mov    %rax,%rbx
+  49b5bb:	mov    %r15,%rax
+  49b5be:	test   %rbx,%rbx
+  49b5c1:	je     49c97c <fastfft::measure::pick+0x17bc>
+  49b5c7:	mov    %rax,0x90(%rsp)
+  49b5cf:	cmp    $0x2,%r15
+  49b5d3:	jb     49b603 <fastfft::measure::pick+0x443>
+  49b5d5:	lea    -0x10(%r14),%rdx
+  49b5d9:	mov    %rbx,%rdi
+  49b5dc:	xor    %esi,%esi
+  49b5de:	call   *0xd9ceec(%rip)        # 12384d0 <memset@GLIBC_2.2.5>
+  49b5e4:	lea    (%r14,%rbx,1),%rax
+  49b5e8:	add    $0xfffffffffffffff0,%rax
+  49b5ec:	jmp    49b60f <fastfft::measure::pick+0x44f>
+  49b5ee:	mov    $0x8,%ebx
+  49b5f3:	xor    %eax,%eax
+  49b5f5:	mov    %rax,0x90(%rsp)
+  49b5fd:	cmp    $0x2,%r15
+  49b601:	jae    49b5d5 <fastfft::measure::pick+0x415>
+  49b603:	mov    %rbx,%rax
+  49b606:	test   %r15,%r15
+  49b609:	je     49c93f <fastfft::measure::pick+0x177f>
+  49b60f:	pxor   %xmm0,%xmm0
+  49b613:	movdqu %xmm0,(%rax)
+  49b617:	test   %r14,%r14
+  49b61a:	je     49c924 <fastfft::measure::pick+0x1764>
+  49b620:	mov    %r14,%rdi
+  49b623:	call   *0xd9ce87(%rip)        # 12384b0 <malloc@GLIBC_2.2.5>
+  49b629:	mov    %rax,%r13
+  49b62c:	mov    %r15,%r12
+  49b62f:	test   %rax,%rax
+  49b632:	je     49c986 <fastfft::measure::pick+0x17c6>
+  49b638:	mov    %r13,%rax
+  49b63b:	cmp    $0x2,%r15
+  49b63f:	jb     49b658 <fastfft::measure::pick+0x498>
+  49b641:	lea    -0x10(%r14),%rdx
+  49b645:	mov    %r13,%rdi
+  49b648:	xor    %esi,%esi
+  49b64a:	call   *0xd9ce80(%rip)        # 12384d0 <memset@GLIBC_2.2.5>
+  49b650:	lea    (%r14,%r13,1),%rax
+  49b654:	add    $0xfffffffffffffff0,%rax
+  49b658:	pxor   %xmm0,%xmm0
+  49b65c:	movdqu %xmm0,(%rax)
+  49b660:	pxor   %xmm0,%xmm0
+  49b664:	movdqu %xmm0,0x1c8(%rsp)
+  49b66d:	movq   $0x0,0x1d8(%rsp)
+  49b679:	mov    0x90(%rsp),%rax
+  49b681:	mov    %rax,0x180(%rsp)
+  49b689:	mov    %rbx,0x188(%rsp)
+  49b691:	mov    %r15,0x190(%rsp)
+  49b699:	mov    %r12,0x198(%rsp)
+  49b6a1:	mov    %r13,0x1a0(%rsp)
+  49b6a9:	mov    %r15,0x1a8(%rsp)
+  49b6b1:	movq   $0x0,0x1b0(%rsp)
+  49b6bd:	movq   $0x8,0x1b8(%rsp)
+  49b6c9:	movq   $0x0,0x1c0(%rsp)
+  49b6d5:	mov    0x100(%rsp),%rax
+  49b6dd:	mov    %rax,0x1e0(%rsp)
+  49b6e5:	mov    0x2c(%rsp),%eax
+  49b6e9:	mov    %eax,0x1e8(%rsp)
+  49b6f0:	mov    0x5a0(%rsp),%rax
+  49b6f8:	mov    %rax,0x1f0(%rsp)
+  49b700:	mov    0x5a8(%rsp),%eax
+  49b707:	mov    %eax,0x1f8(%rsp)
+  49b70e:	imul   $0x38,0x10(%rsp),%rax
+  49b714:	add    0x590(%rsp),%rax
+  49b71c:	mov    %rax,0x168(%rsp)
+  49b724:	mov    0x18(%rsp),%r12
+  49b729:	mov    0x10(%r12),%rax
+  49b72e:	mov    0x50(%r12),%rcx
+  49b733:	mov    %rcx,0x258(%rsp)
+  49b73b:	dec    %rax
+  49b73e:	and    $0xfffffffffffffff0,%rax
+  49b742:	mov    0x68(%rsp),%rcx
+  49b747:	add    %rcx,%rax
+  49b74a:	add    $0x10,%rax
+  49b74e:	mov    %rax,0x90(%rsp)
+  49b756:	mov    0x58(%r12),%rax
+  49b75b:	mov    %rax,0x250(%rsp)
+  49b763:	mov    $0x1,%eax
+  49b768:	movq   -0x427080(%rip),%xmm0        # 746f0 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x1d70>
+  49b770:	movq   %xmm0,0x160(%rsp)
+  49b779:	movzbl 0x8(%rsp),%ecx
+  49b77e:	mov    %ecx,0x124(%rsp)
+  49b785:	movzbl 0x80(%rsp),%ecx
+  49b78d:	mov    %ecx,0x120(%rsp)
+  49b794:	xor    %ecx,%ecx
+  49b796:	jmp    49b81c <fastfft::measure::pick+0x65c>
+  49b79b:	nopl   0x0(%rax,%rax,1)
+  49b7a0:	mov    %r12,0xb0(%rsp)
+  49b7a8:	mov    %r13,0xb8(%rsp)
+  49b7b0:	movaps 0x80(%rsp),%xmm0
+  49b7b8:	movups %xmm0,0xc0(%rsp)
+  49b7c0:	mov    %r14b,0xd0(%rsp)
+  49b7c8:	movsd  0x10(%rsp),%xmm0
+  49b7ce:	movsd  %xmm0,0xd8(%rsp)
+  49b7d7:	mov    %bpl,0xe0(%rsp)
+  49b7df:	mov    0x20(%rsp),%rax
+  49b7e4:	mov    %rax,0xe8(%rsp)
+  49b7ec:	mov    0x8(%rsp),%rax
+  49b7f1:	mov    %rax,0xf0(%rsp)
+  49b7f9:	movdqa 0x50(%rsp),%xmm0
+  49b7ff:	movq   %xmm0,0x160(%rsp)
+  49b808:	mov    0x78(%rsp),%rbp
+  49b80d:	mov    0x18(%rsp),%r12
+  49b812:	addq   $0x38,0x70(%rsp)
+  49b818:	mov    $0x1,%cl
+  49b81a:	xor    %eax,%eax
+  49b81c:	test   $0x1,%cl
+  49b81f:	je     49c7d3 <fastfft::measure::pick+0x1613>
+  49b825:	mov    0x168(%rsp),%rax
+  49b82d:	cmp    %rax,0x70(%rsp)
+  49b832:	je     49c868 <fastfft::measure::pick+0x16a8>
+  49b838:	mov    $0x1,%edi
+  49b83d:	call   10a4800 <<std::sys::pal::unix::time::Timespec>::now>
+  49b842:	mov    %rax,0x3d0(%rsp)
+  49b84a:	mov    %edx,0x3d8(%rsp)
+  49b851:	mov    0x100(%rsp),%rax
+  49b859:	mov    %rax,0x458(%rsp)
+  49b861:	mov    0x2c(%rsp),%eax
+  49b865:	mov    %eax,0x460(%rsp)
+  49b86c:	lea    0x2b0(%rsp),%rdi
+  49b874:	lea    0x3d0(%rsp),%rsi
+  49b87c:	lea    0x458(%rsp),%rdx
+  49b884:	call   10a4700 <<std::sys::pal::unix::time::Timespec>::sub_timespec>
+  49b889:	movzbl 0x2b0(%rsp),%eax
+  49b891:	test   %al,%al
+  49b893:	jne    49b8b0 <fastfft::measure::pick+0x6f0>
+  49b895:	mov    0x2b8(%rsp),%rcx
+  49b89d:	cmp    0x5a0(%rsp),%rcx
+  49b8a5:	je     49b8bc <fastfft::measure::pick+0x6fc>
+  49b8a7:	jb     49b8da <fastfft::measure::pick+0x71a>
+  49b8a9:	jmp    49c868 <fastfft::measure::pick+0x16a8>
+  49b8ae:	xchg   %ax,%ax
+  49b8b0:	xor    %ecx,%ecx
+  49b8b2:	cmp    0x5a0(%rsp),%rcx
+  49b8ba:	jne    49b8a7 <fastfft::measure::pick+0x6e7>
+  49b8bc:	test   %al,%al
+  49b8be:	mov    0x2c0(%rsp),%eax
+  49b8c5:	mov    $0x0,%ecx
+  49b8ca:	cmovne %ecx,%eax
+  49b8cd:	cmp    0x5a8(%rsp),%eax
+  49b8d4:	jae    49c868 <fastfft::measure::pick+0x16a8>
+  49b8da:	mov    0x178(%rsp),%rdi
+  49b8e2:	mov    0x124(%rsp),%esi
+  49b8e9:	mov    0x70(%rsp),%rdx
+  49b8ee:	call   4a1900 <fastfft::planner::build_candidate>
+  49b8f3:	lea    0x2b0(%rsp),%rdi
+  49b8fb:	mov    %rax,%rsi
+  49b8fe:	mov    0x120(%rsp),%ecx
+  49b905:	call   411fc0 <fastfft::engine::batch::wrap>
+  49b90a:	mov    0x2b0(%rsp),%rax
+  49b912:	mov    0x2b8(%rsp),%rcx
+  49b91a:	mov    %rax,0x20(%rsp)
+  49b91f:	mov    %rax,0x280(%rsp)
+  49b927:	mov    %rcx,0x8(%rsp)
+  49b92c:	mov    %rcx,0x288(%rsp)
+  49b934:	mov    $0x1,%edi
+  49b939:	call   10a4800 <<std::sys::pal::unix::time::Timespec>::now>
+  49b93e:	mov    %rax,0x3d0(%rsp)
+  49b946:	mov    %edx,0x3d8(%rsp)
+  49b94d:	mov    0x100(%rsp),%rax
+  49b955:	mov    %rax,0x458(%rsp)
+  49b95d:	mov    0x2c(%rsp),%eax
+  49b961:	mov    %eax,0x460(%rsp)
+  49b968:	lea    0x2b0(%rsp),%rdi
+  49b970:	lea    0x3d0(%rsp),%rsi
+  49b978:	lea    0x458(%rsp),%rdx
+  49b980:	call   10a4700 <<std::sys::pal::unix::time::Timespec>::sub_timespec>
+  49b985:	movzbl 0x2b0(%rsp),%eax
+  49b98d:	test   %al,%al
+  49b98f:	jne    49b9b0 <fastfft::measure::pick+0x7f0>
+  49b991:	mov    0x2b8(%rsp),%rcx
+  49b999:	cmp    0x5a0(%rsp),%rcx
+  49b9a1:	je     49b9bc <fastfft::measure::pick+0x7fc>
+  49b9a3:	jb     49b9da <fastfft::measure::pick+0x81a>
+  49b9a5:	jmp    49c850 <fastfft::measure::pick+0x1690>
+  49b9aa:	nopw   0x0(%rax,%rax,1)
+  49b9b0:	xor    %ecx,%ecx
+  49b9b2:	cmp    0x5a0(%rsp),%rcx
+  49b9ba:	jne    49b9a3 <fastfft::measure::pick+0x7e3>
+  49b9bc:	test   %al,%al
+  49b9be:	mov    0x2c0(%rsp),%eax
+  49b9c5:	mov    $0x0,%ecx
+  49b9ca:	cmovne %ecx,%eax
+  49b9cd:	cmp    0x5a8(%rsp),%eax
+  49b9d4:	jae    49c850 <fastfft::measure::pick+0x1690>
+  49b9da:	mov    0x8(%rsp),%rax
+  49b9df:	mov    0x10(%rax),%r14
+  49b9e3:	mov    0x90(%rsp),%rdi
+  49b9eb:	call   *0x258(%rsp)
+  49b9f2:	mov    %rax,%rbx
+  49b9f5:	dec    %r14
+  49b9f8:	and    $0xfffffffffffffff0,%r14
+  49b9fc:	mov    0x20(%rsp),%rax
+  49ba01:	lea    (%rax,%r14,1),%rdi
+  49ba05:	add    $0x10,%rdi
+  49ba09:	mov    %rdi,0x10(%rsp)
+  49ba0e:	mov    0x8(%rsp),%rax
+  49ba13:	call   *0x50(%rax)
+  49ba16:	cmp    %rbx,%rax
+  49ba19:	cmova  %rax,%rbx
+  49ba1d:	mov    0x90(%rsp),%rdi
+  49ba25:	call   *0x250(%rsp)
+  49ba2c:	mov    %rax,%r13
+  49ba2f:	mov    0x10(%rsp),%rdi
+  49ba34:	mov    0x8(%rsp),%rax
+  49ba39:	call   *0x58(%rax)
+  49ba3c:	cmp    %r13,%rax
+  49ba3f:	cmova  %rax,%r13
+  49ba43:	cmp    %r13,%rbx
+  49ba46:	cmova  %rbx,%r13
+  49ba4a:	mov    0x90(%rsp),%rdi
+  49ba52:	call   *0x60(%r12)
+  49ba57:	mov    %rax,%rbx
+  49ba5a:	mov    0x10(%rsp),%rdi
+  49ba5f:	mov    0x8(%rsp),%rax
+  49ba64:	call   *0x60(%rax)
+  49ba67:	cmp    %rbx,%rax
+  49ba6a:	cmova  %rax,%rbx
+  49ba6e:	cmp    %rbx,%r13
+  49ba71:	cmova  %r13,%rbx
+  49ba75:	add    $0x104,%rbx
+  49ba7c:	mov    0x1c0(%rsp),%r15
+  49ba84:	mov    %rbx,%r13
+  49ba87:	sub    %r15,%r13
+  49ba8a:	jbe    49baef <fastfft::measure::pick+0x92f>
+  49ba8c:	mov    0x1b0(%rsp),%rax
+  49ba94:	sub    %r15,%rax
+  49ba97:	cmp    %rax,%r13
+  49ba9a:	ja     49c805 <fastfft::measure::pick+0x1645>
+  49baa0:	mov    0x1b8(%rsp),%rbx
+  49baa8:	mov    %r15,%rdi
+  49baab:	shl    $0x4,%rdi
+  49baaf:	add    %rbx,%rdi
+  49bab2:	cmp    $0x2,%r13
+  49bab6:	jb     49bae1 <fastfft::measure::pick+0x921>
+  49bab8:	mov    %r13,%rdx
+  49babb:	shl    $0x4,%rdx
+  49babf:	add    $0xfffffffffffffff0,%rdx
+  49bac3:	xor    %esi,%esi
+  49bac5:	call   *0xd9ca05(%rip)        # 12384d0 <memset@GLIBC_2.2.5>
+  49bacb:	lea    (%r15,%r13,1),%rax
+  49bacf:	shl    $0x4,%rax
+  49bad3:	lea    (%rbx,%rax,1),%rdi
+  49bad7:	add    $0xfffffffffffffff0,%rdi
+  49badb:	add    %r13,%r15
+  49bade:	dec    %r15
+  49bae1:	inc    %r15
+  49bae4:	pxor   %xmm0,%xmm0
+  49bae8:	movdqu %xmm0,(%rdi)
+  49baec:	mov    %r15,%rbx
+  49baef:	mov    %rbx,0x1c0(%rsp)
+  49baf7:	mov    0x110(%rsp),%rdi
+  49baff:	mov    0x118(%rsp),%rcx
+  49bb07:	movq   $0x0,0x128(%rsp)
+  49bb13:	movq   $0x8,0x130(%rsp)
+  49bb1f:	movq   $0x0,0x138(%rsp)
+  49bb2b:	movq   $0x0,0x3d0(%rsp)
+  49bb37:	movq   $0x3,0x3d8(%rsp)
+  49bb43:	movups -0x3e26da(%rip),%xmm0        # b9470 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x46af0>
+  49bb4a:	lea    0x3e0(%rsp),%rax
+  49bb52:	movups %xmm0,0x30(%rax)
+  49bb56:	movups -0x3e26fd(%rip),%xmm0        # b9460 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x46ae0>
+  49bb5d:	movups %xmm0,0x20(%rax)
+  49bb61:	movups -0x3e2718(%rip),%xmm0        # b9450 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x46ad0>
+  49bb68:	movups %xmm0,0x10(%rax)
+  49bb6c:	movups -0x3e2733(%rip),%xmm0        # b9440 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x46ac0>
+  49bb73:	movups %xmm0,(%rax)
+  49bb76:	movq   $0x400,0x40(%rax)
+  49bb7e:	movq   $0x0,0x428(%rsp)
+  49bb8a:	test   %rcx,%rcx
+  49bb8d:	je     49c650 <fastfft::measure::pick+0x1490>
+  49bb93:	mov    %rcx,0x218(%rsp)
+  49bb9b:	lea    (%rdi,%rcx,8),%rax
+  49bb9f:	mov    %rax,0x230(%rsp)
+  49bba7:	mov    $0x8,%r15d
+  49bbad:	movq   $0x0,0x80(%rsp)
+  49bbb9:	xor    %r8d,%r8d
+  49bbbc:	xor    %ecx,%ecx
+  49bbbe:	mov    %rdi,0x220(%rsp)
+  49bbc6:	mov    %rcx,%rax
+  49bbc9:	lea    (%rcx,%rcx,2),%rcx
+  49bbcd:	lea    0x3e0(%rsp),%rsi
+  49bbd5:	mov    0x10(%rsi,%rcx,8),%rdx
+  49bbda:	shr    $0x4,%rdx
+  49bbde:	cmp    $0x1,%rax
+  49bbe2:	lea    0x1(%rax),%rax
+  49bbe6:	mov    %rax,0x228(%rsp)
+  49bbee:	movdqu (%rsi,%rcx,8),%xmm0
+  49bbf3:	psrlq  $0x4,%xmm0
+  49bbf8:	movdqu %xmm0,0x1c8(%rsp)
+  49bc01:	mov    %rdx,0x1d8(%rsp)
+  49bc09:	mov    $0x0,%eax
+  49bc0e:	adc    $0x1,%rax
+  49bc12:	mov    %rax,0xf8(%rsp)
+  49bc1a:	mov    (%rdi),%rax
+  49bc1d:	mov    %rax,0x50(%rsp)
+  49bc22:	add    $0x8,%rdi
+  49bc26:	mov    %rdi,0x238(%rsp)
+  49bc2e:	movq   $0x0,0x3b8(%rsp)
+  49bc3a:	movq   $0x3,0x3c0(%rsp)
+  49bc46:	lea    0x3c8(%rsp),%rax
+  49bc4e:	movb   $0x2,0x2(%rax)
+  49bc52:	movw   $0x100,(%rax)
+  49bc57:	xor    %ecx,%ecx
+  49bc59:	mov    %r8,0x158(%rsp)
+  49bc61:	shr    $1,%r8
+  49bc64:	mov    %r8,0x240(%rsp)
+  49bc6c:	movzbl 0x3c8(%rsp,%rcx,1),%r13d
+  49bc75:	inc    %rcx
+  49bc78:	mov    %rcx,0x248(%rsp)
+  49bc80:	mov    0x90(%rsp),%rsi
+  49bc88:	mov    %rsi,0x290(%rsp)
+  49bc90:	mov    %r12,0x298(%rsp)
+  49bc98:	mov    0x10(%rsp),%rax
+  49bc9d:	mov    %rax,0x2a0(%rsp)
+  49bca5:	mov    0x8(%rsp),%rax
+  49bcaa:	mov    %rax,0x2a8(%rsp)
+  49bcb2:	lea    -0x15f9(%rip),%rax        # 49a6c0 <fastfft::measure::sample_routed>
+  49bcb9:	mov    %rax,0xa8(%rsp)
+  49bcc1:	lea    0xa8(%rsp),%rax
+  49bcc9:	pxor   %xmm0,%xmm0
+  49bccd:	movdqa %xmm0,0x390(%rsp)
+  49bcd6:	movdqa %xmm0,0x380(%rsp)
+  49bcdf:	movdqa %xmm0,0x370(%rsp)
+  49bce8:	movdqa %xmm0,0x360(%rsp)
+  49bcf1:	movdqa %xmm0,0x350(%rsp)
+  49bcfa:	movdqa %xmm0,0x340(%rsp)
+  49bd03:	movdqa %xmm0,0x330(%rsp)
+  49bd0c:	movdqa %xmm0,0x320(%rsp)
+  49bd15:	movdqa %xmm0,0x310(%rsp)
+  49bd1e:	movdqa %xmm0,0x300(%rsp)
+  49bd27:	movdqa %xmm0,0x2f0(%rsp)
+  49bd30:	movdqa %xmm0,0x2e0(%rsp)
+  49bd39:	movdqa %xmm0,0x2d0(%rsp)
+  49bd42:	movdqa %xmm0,0x2c0(%rsp)
+  49bd4b:	movdqa %xmm0,0x2b0(%rsp)
+  49bd54:	mov    0xf8(%rsp),%rax
+  49bd5c:	mov    %rax,0x3a0(%rsp)
+  49bd64:	movl   $0x0,0x3a8(%rsp)
+  49bd6f:	mov    $0x1,%ebx
+  49bd74:	xor    %ebp,%ebp
+  49bd76:	mov    %r12,%rdx
+  49bd79:	mov    %r15,0x170(%rsp)
+  49bd81:	mov    %rbp,%r12
+  49bd84:	mov    0xa8(%rsp),%r14
+  49bd8c:	mov    0x50(%rsp),%rax
+  49bd91:	mov    %rax,0x30(%rsp)
+  49bd96:	mov    %rbp,0x38(%rsp)
+  49bd9b:	movq   $0x1,0x40(%rsp)
+  49bda4:	mov    %r13b,0x48(%rsp)
+  49bda9:	movb   $0x0,0x49(%rsp)
+  49bdae:	lea    0x180(%rsp),%rdi
+  49bdb6:	lea    0x30(%rsp),%rcx
+  49bdbb:	lea    0x1e0(%rsp),%r8
+  49bdc3:	call   *%r14
+  49bdc6:	cmp    $0x3b9aca00,%edx
+  49bdcc:	je     49c260 <fastfft::measure::pick+0x10a0>
+  49bdd2:	lea    0x1(%r12),%rbp
+  49bdd7:	mov    $0x1,%r15d
+  49bddd:	nopl   (%rax)
+  49bde0:	test   %rax,%rax
+  49bde3:	jne    49be50 <fastfft::measure::pick+0xc90>
+  49bde5:	cmp    $0xc34f,%edx
+  49bdeb:	ja     49be50 <fastfft::measure::pick+0xc90>
+  49bded:	cmp    $0x100000,%r15
+  49bdf4:	je     49be50 <fastfft::measure::pick+0xc90>
+  49bdf6:	add    %r15,%r15
+  49bdf9:	mov    0x50(%rsp),%rax
+  49bdfe:	mov    %rax,0x30(%rsp)
+  49be03:	mov    %r12,0x38(%rsp)
+  49be08:	mov    %r15,0x40(%rsp)
+  49be0d:	mov    %r13b,0x48(%rsp)
+  49be12:	movb   $0x0,0x49(%rsp)
+  49be17:	lea    0x180(%rsp),%rdi
+  49be1f:	mov    0x90(%rsp),%rsi
+  49be27:	mov    0x18(%rsp),%rdx
+  49be2c:	lea    0x30(%rsp),%rcx
+  49be31:	lea    0x1e0(%rsp),%r8
+  49be39:	call   *%r14
+  49be3c:	cmp    $0x3b9aca00,%edx
+  49be42:	jne    49bde0 <fastfft::measure::pick+0xc20>
+  49be44:	jmp    49c260 <fastfft::measure::pick+0x10a0>
+  49be49:	nopl   0x0(%rax)
+  49be50:	cmp    %rbx,%r15
+  49be53:	cmova  %r15,%rbx
+  49be57:	cmp    0xf8(%rsp),%rbp
+  49be5f:	mov    0x18(%rsp),%rdx
+  49be64:	mov    0x90(%rsp),%rsi
+  49be6c:	jne    49bd81 <fastfft::measure::pick+0xbc1>
+  49be72:	mov    %rbx,0x390(%rsp)
+  49be7a:	mov    $0x1,%ebx
+  49be7f:	xor    %ebp,%ebp
+  49be81:	mov    %rbp,%r12
+  49be84:	mov    0xa8(%rsp),%r14
+  49be8c:	mov    0x50(%rsp),%rax
+  49be91:	mov    %rax,0x30(%rsp)
+  49be96:	mov    %rbp,0x38(%rsp)
+  49be9b:	movq   $0x1,0x40(%rsp)
+  49bea4:	mov    %r13b,0x48(%rsp)
+  49bea9:	movb   $0x0,0x49(%rsp)
+  49beae:	lea    0x180(%rsp),%rdi
+  49beb6:	mov    0x10(%rsp),%rsi
+  49bebb:	mov    0x8(%rsp),%rdx
+  49bec0:	lea    0x30(%rsp),%rcx
+  49bec5:	lea    0x1e0(%rsp),%r8
+  49becd:	call   *%r14
+  49bed0:	cmp    $0x3b9aca00,%edx
+  49bed6:	je     49c260 <fastfft::measure::pick+0x10a0>
+  49bedc:	lea    0x1(%r12),%rbp
+  49bee1:	mov    $0x1,%r15d
+  49bee7:	nopw   0x0(%rax,%rax,1)
+  49bef0:	test   %rax,%rax
+  49bef3:	jne    49bf56 <fastfft::measure::pick+0xd96>
+  49bef5:	cmp    $0xc34f,%edx
+  49befb:	ja     49bf56 <fastfft::measure::pick+0xd96>
+  49befd:	cmp    $0x100000,%r15
+  49bf04:	je     49bf56 <fastfft::measure::pick+0xd96>
+  49bf06:	add    %r15,%r15
+  49bf09:	mov    0x50(%rsp),%rax
+  49bf0e:	mov    %rax,0x30(%rsp)
+  49bf13:	mov    %r12,0x38(%rsp)
+  49bf18:	mov    %r15,0x40(%rsp)
+  49bf1d:	mov    %r13b,0x48(%rsp)
+  49bf22:	movb   $0x0,0x49(%rsp)
+  49bf27:	lea    0x180(%rsp),%rdi
+  49bf2f:	mov    0x10(%rsp),%rsi
+  49bf34:	mov    0x8(%rsp),%rdx
+  49bf39:	lea    0x30(%rsp),%rcx
+  49bf3e:	lea    0x1e0(%rsp),%r8
+  49bf46:	call   *%r14
+  49bf49:	cmp    $0x3b9aca00,%edx
+  49bf4f:	jne    49bef0 <fastfft::measure::pick+0xd30>
+  49bf51:	jmp    49c260 <fastfft::measure::pick+0x10a0>
+  49bf56:	cmp    %rbx,%r15
+  49bf59:	cmova  %r15,%rbx
+  49bf5d:	cmp    0xf8(%rsp),%rbp
+  49bf65:	jne    49be81 <fastfft::measure::pick+0xcc1>
+  49bf6b:	mov    %rbx,0x398(%rsp)
+  49bf73:	mov    0x158(%rsp),%rax
+  49bf7b:	mov    %rax,0x140(%rsp)
+  49bf83:	mov    0xf8(%rsp),%rcx
+  49bf8b:	xor    %esi,%esi
+  49bf8d:	test   %rcx,%rcx
+  49bf90:	je     49c23a <fastfft::measure::pick+0x107a>
+  49bf96:	mov    %rsi,%rax
+  49bf99:	shr    $1,%rax
+  49bf9c:	add    0x240(%rsp),%rax
+  49bfa4:	mov    %rax,0x200(%rsp)
+  49bfac:	mov    %rsi,%rax
+  49bfaf:	shl    $0x4,%rax
+  49bfb3:	add    %rsp,%rax
+  49bfb6:	add    $0x2b0,%rax
+  49bfbc:	mov    %rax,0x148(%rsp)
+  49bfc4:	mov    0x140(%rsp),%rax
+  49bfcc:	mov    %rsi,0x150(%rsp)
+  49bfd4:	mov    %rcx,0x208(%rsp)
+  49bfdc:	mov    %eax,%edx
+  49bfde:	and    $0x1,%edx
+  49bfe1:	cmpq   $0x1,0x3a0(%rsp)
+  49bfea:	mov    %rax,0x210(%rsp)
+  49bff2:	mov    0x200(%rsp),%rcx
+  49bffa:	lea    (%rcx,%rax,1),%rax
+  49bffe:	mov    $0x0,%ebx
+  49c003:	mov    %rdx,%r12
+  49c006:	cmovne %rdx,%rbx
+  49c00a:	mov    %rax,%rbp
+  49c00d:	mov    %rax,%rcx
+  49c010:	cmove  %rsi,%rcx
+  49c014:	and    $0x1,%ecx
+  49c017:	mov    %ecx,%eax
+  49c019:	mov    0x390(%rsp,%rax,8),%r14
+  49c021:	mov    0xa8(%rsp),%rax
+  49c029:	mov    %rcx,%r15
+  49c02c:	shl    $0x4,%ecx
+  49c02f:	mov    0x290(%rsp,%rcx,1),%rsi
+  49c037:	mov    0x298(%rsp,%rcx,1),%rdx
+  49c03f:	mov    0x50(%rsp),%rcx
+  49c044:	mov    %rcx,0x30(%rsp)
+  49c049:	mov    %r13b,0x48(%rsp)
+  49c04e:	mov    %rbx,0x38(%rsp)
+  49c053:	mov    %r14,0x40(%rsp)
+  49c058:	movb   $0x1,0x49(%rsp)
+  49c05d:	lea    0x180(%rsp),%rdi
+  49c065:	lea    0x30(%rsp),%rcx
+  49c06a:	lea    0x1e0(%rsp),%r8
+  49c072:	call   *%rax
+  49c074:	cmp    $0x3b9aca00,%edx
+  49c07a:	mov    0x150(%rsp),%rsi
+  49c082:	je     49c260 <fastfft::measure::pick+0x10a0>
+  49c088:	movq   %rax,%xmm0
+  49c08d:	movq   -0x431fa5(%rip),%xmm2        # 6a0f0 <__abi_tag+0x69df4>
+  49c095:	punpckldq %xmm2,%xmm0
+  49c099:	movapd -0x433b61(%rip),%xmm3        # 68540 <__abi_tag+0x68244>
+  49c0a1:	subpd  %xmm3,%xmm0
+  49c0a5:	movapd %xmm0,%xmm1
+  49c0a9:	unpckhpd %xmm0,%xmm1
+  49c0ad:	addsd  %xmm0,%xmm1
+  49c0b1:	xorps  %xmm0,%xmm0
+  49c0b4:	cvtsi2sd %edx,%xmm0
+  49c0b8:	divsd  -0x427f58(%rip),%xmm0        # 74168 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x17e8>
+  49c0c0:	addsd  %xmm1,%xmm0
+  49c0c4:	movq   %r14,%xmm1
+  49c0c9:	punpckldq %xmm2,%xmm1
+  49c0cd:	subpd  %xmm3,%xmm1
+  49c0d1:	movapd %xmm1,%xmm2
+  49c0d5:	unpckhpd %xmm1,%xmm2
+  49c0d9:	addsd  %xmm1,%xmm2
+  49c0dd:	divsd  %xmm2,%xmm0
+  49c0e1:	imul   $0x70,%rbx,%rax
+  49c0e5:	add    0x148(%rsp),%rax
+  49c0ed:	movsd  %xmm0,(%rax,%r15,8)
+  49c0f3:	lea    (%rsi,%rsi,1),%rax
+  49c0f7:	or     %eax,%r15d
+  49c0fa:	mov    $0x1,%eax
+  49c0ff:	mov    %r15d,%ecx
+  49c102:	shl    %cl,%eax
+  49c104:	or     %ax,0x3a8(%rsp,%rbx,2)
+  49c10c:	cmpq   $0x1,0x3a0(%rsp)
+  49c115:	mov    $0x0,%eax
+  49c11a:	cmove  %rax,%r12
+  49c11e:	mov    %rbp,%rcx
+  49c121:	cmove  %esi,%ecx
+  49c124:	not    %ecx
+  49c126:	and    $0x1,%ecx
+  49c129:	mov    0x390(%rsp,%rcx,8),%rbx
+  49c131:	mov    0xa8(%rsp),%rax
+  49c139:	mov    %rcx,%rbp
+  49c13c:	shl    $0x4,%ecx
+  49c13f:	mov    0x290(%rsp,%rcx,1),%rsi
+  49c147:	mov    0x298(%rsp,%rcx,1),%rdx
+  49c14f:	mov    0x50(%rsp),%rcx
+  49c154:	mov    %rcx,0x30(%rsp)
+  49c159:	mov    %r13b,0x48(%rsp)
+  49c15e:	mov    %r12,%r14
+  49c161:	mov    %r12,0x38(%rsp)
+  49c166:	mov    %rbx,0x40(%rsp)
+  49c16b:	movb   $0x1,0x49(%rsp)
+  49c170:	lea    0x180(%rsp),%rdi
+  49c178:	lea    0x30(%rsp),%rcx
+  49c17d:	lea    0x1e0(%rsp),%r8
+  49c185:	call   *%rax
+  49c187:	cmp    $0x3b9aca00,%edx
+  49c18d:	mov    0x150(%rsp),%rsi
+  49c195:	je     49c260 <fastfft::measure::pick+0x10a0>
+  49c19b:	movq   %rax,%xmm0
+  49c1a0:	movq   -0x4320b8(%rip),%xmm2        # 6a0f0 <__abi_tag+0x69df4>
+  49c1a8:	punpckldq %xmm2,%xmm0
+  49c1ac:	movapd -0x433c74(%rip),%xmm3        # 68540 <__abi_tag+0x68244>
+  49c1b4:	subpd  %xmm3,%xmm0
+  49c1b8:	movapd %xmm0,%xmm1
+  49c1bc:	unpckhpd %xmm0,%xmm1
+  49c1c0:	addsd  %xmm0,%xmm1
+  49c1c4:	xorps  %xmm0,%xmm0
+  49c1c7:	cvtsi2sd %edx,%xmm0
+  49c1cb:	divsd  -0x42806b(%rip),%xmm0        # 74168 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x17e8>
+  49c1d3:	addsd  %xmm1,%xmm0
+  49c1d7:	movq   %rbx,%xmm1
+  49c1dc:	punpckldq %xmm2,%xmm1
+  49c1e0:	subpd  %xmm3,%xmm1
+  49c1e4:	movapd %xmm1,%xmm2
+  49c1e8:	unpckhpd %xmm1,%xmm2
+  49c1ec:	addsd  %xmm1,%xmm2
+  49c1f0:	divsd  %xmm2,%xmm0
+  49c1f4:	imul   $0x70,%r14,%rax
+  49c1f8:	add    0x148(%rsp),%rax
+  49c200:	mov    %rbp,%rcx
+  49c203:	movsd  %xmm0,(%rax,%rbp,8)
+  49c208:	lea    (%rsi,%rsi,1),%rax
+  49c20c:	or     %eax,%ecx
+  49c20e:	mov    $0x1,%eax
+  49c213:	shl    %cl,%eax
+  49c215:	or     %ax,0x3a8(%rsp,%r14,2)
+  49c21e:	mov    0x210(%rsp),%rax
+  49c226:	inc    %rax
+  49c229:	mov    0x208(%rsp),%rcx
+  49c231:	dec    %rcx
+  49c234:	jne    49bfd4 <fastfft::measure::pick+0xe14>
+  49c23a:	inc    %rsi
+  49c23d:	cmp    $0x7,%rsi
+  49c241:	je     49c260 <fastfft::measure::pick+0x10a0>
+  49c243:	mov    0x3a0(%rsp),%rcx
+  49c24b:	incq   0x140(%rsp)
+  49c253:	test   %rcx,%rcx
+  49c256:	jne    49bf96 <fastfft::measure::pick+0xdd6>
+  49c25c:	jmp    49c23a <fastfft::measure::pick+0x107a>
+  49c25e:	xchg   %ax,%ax
+  49c260:	mov    $0x100,%edx
+  49c265:	lea    0x458(%rsp),%rdi
+  49c26d:	lea    0x2b0(%rsp),%rsi
+  49c275:	call   *0xd9c23d(%rip)        # 12384b8 <memcpy@GLIBC_2.14>
+  49c27b:	mov    0x548(%rsp),%rbx
+  49c283:	lea    -0x1(%rbx),%rax
+  49c287:	cmp    $0x1,%rax
+  49c28b:	ja     49c689 <fastfft::measure::pick+0x14c9>
+  49c291:	cmpw   $0x3fff,0x550(%rsp)
+  49c29b:	mov    0x78(%rsp),%rbp
+  49c2a0:	mov    0x18(%rsp),%r12
+  49c2a5:	mov    0x170(%rsp),%r15
+  49c2ad:	jne    49c6a0 <fastfft::measure::pick+0x14e0>
+  49c2b3:	cmp    $0x1,%rbx
+  49c2b7:	je     49c2d3 <fastfft::measure::pick+0x1113>
+  49c2b9:	cmpw   $0x3fff,0x552(%rsp)
+  49c2c3:	jne    49c6a0 <fastfft::measure::pick+0x14e0>
+  49c2c9:	cmp    $0x2,%rbx
+  49c2cd:	jne    49c6a0 <fastfft::measure::pick+0x14e0>
+  49c2d3:	lea    (%rbx,%rbx,1),%rax
+  49c2d7:	nopw   0x0(%rax,%rax,1)
+  49c2e0:	cmp    $0x4,%rax
+  49c2e4:	je     49c300 <fastfft::measure::pick+0x1140>
+  49c2e6:	cmpw   $0x0,0x550(%rsp,%rax,1)
+  49c2ef:	lea    0x2(%rax),%rax
+  49c2f3:	je     49c2e0 <fastfft::measure::pick+0x1120>
+  49c2f5:	jmp    49c6a0 <fastfft::measure::pick+0x14e0>
+  49c2fa:	nopw   0x0(%rax,%rax,1)
+  49c300:	test   %rbx,%rbx
+  49c303:	je     49c3e3 <fastfft::measure::pick+0x1223>
+  49c309:	mov    0x80(%rsp),%r14
+  49c311:	shl    $0x5,%r14
+  49c315:	xor    %r13d,%r13d
+  49c318:	jmp    49c36a <fastfft::measure::pick+0x11aa>
+  49c31a:	nopw   0x0(%rax,%rax,1)
+  49c320:	inc    %r13
+  49c323:	movdqa 0x430(%rsp),%xmm0
+  49c32c:	movapd 0x440(%rsp),%xmm1
+  49c335:	movupd %xmm1,0x10(%r15,%r14,1)
+  49c33c:	movdqu %xmm0,(%r15,%r14,1)
+  49c342:	mov    0x80(%rsp),%rcx
+  49c34a:	inc    %rcx
+  49c34d:	mov    %rcx,0x80(%rsp)
+  49c355:	mov    %rcx,0x138(%rsp)
+  49c35d:	add    $0x20,%r14
+  49c361:	cmp    %r13,%rbx
+  49c364:	je     49c3f2 <fastfft::measure::pick+0x1232>
+  49c36a:	lea    0x2b0(%rsp),%rdi
+  49c372:	lea    0x458(%rsp),%rsi
+  49c37a:	mov    %r13,%rdx
+  49c37d:	call   d5f140 <fastfft::measure::WorkloadSamples::statistics>
+  49c382:	cmpl   $0x1,0x2b0(%rsp)
+  49c38a:	jne    49c6a0 <fastfft::measure::pick+0x14e0>
+  49c390:	lea    0x2b8(%rsp),%rax
+  49c398:	movdqu (%rax),%xmm0
+  49c39c:	movupd 0x10(%rax),%xmm1
+  49c3a1:	movapd %xmm1,0x440(%rsp)
+  49c3aa:	movdqa %xmm0,0x430(%rsp)
+  49c3b3:	mov    0x80(%rsp),%rax
+  49c3bb:	cmp    0x128(%rsp),%rax
+  49c3c3:	jne    49c320 <fastfft::measure::pick+0x1160>
+  49c3c9:	lea    0x128(%rsp),%rdi
+  49c3d1:	call   354940 <alloc::raw_vec::RawVec<T,A>::grow_one>
+  49c3d6:	mov    0x130(%rsp),%r15
+  49c3de:	jmp    49c320 <fastfft::measure::pick+0x1160>
+  49c3e3:	cmpq   $0x0,0x80(%rsp)
+  49c3ec:	je     49c6a0 <fastfft::measure::pick+0x14e0>
+  49c3f2:	mov    0x80(%rsp),%rax
+  49c3fa:	shl    $0x5,%rax
+  49c3fe:	add    %r15,%rax
+  49c401:	mov    %r15,%rcx
+  49c404:	data16 data16 cs nopw 0x0(%rax,%rax,1)
+  49c410:	movsd  0x10(%rcx),%xmm1
+  49c415:	divsd  (%rcx),%xmm1
+  49c419:	movsd  0x18(%rcx),%xmm2
+  49c41e:	divsd  0x8(%rcx),%xmm2
+  49c423:	movapd %xmm1,%xmm0
+  49c427:	cmpunordsd %xmm1,%xmm0
+  49c42c:	movapd %xmm0,%xmm3
+  49c430:	andpd  %xmm2,%xmm3
+  49c434:	maxsd  %xmm1,%xmm2
+  49c438:	andnpd %xmm2,%xmm0
+  49c43c:	orpd   %xmm3,%xmm0
+  49c440:	movq   %xmm0,%rdx
+  49c445:	test   %rdx,%rdx
+  49c448:	sets   %sil
+  49c44c:	movabs $0x7fffffffffffffff,%rdi
+  49c456:	and    %rdi,%rdx
+  49c459:	movabs $0xfff0000000000000,%rdi
+  49c463:	add    %rdx,%rdi
+  49c466:	shr    $0x35,%rdi
+  49c46a:	cmp    $0x3ff,%edi
+  49c470:	setb   %dil
+  49c474:	and    %sil,%dil
+  49c477:	lea    -0x1(%rdx),%r8
+  49c47b:	movabs $0xfffffffffffff,%r9
+  49c485:	cmp    %r9,%r8
+  49c488:	setb   %r8b
+  49c48c:	and    %sil,%r8b
+  49c48f:	test   %rdx,%rdx
+  49c492:	sete   %sil
+  49c496:	movabs $0x7ff0000000000000,%r9
+  49c4a0:	cmp    %r9,%rdx
+  49c4a3:	setg   %dl
+  49c4a6:	sete   %r9b
+  49c4aa:	or     %sil,%r9b
+  49c4ad:	or     %dl,%r9b
+  49c4b0:	or     %r8b,%r9b
+  49c4b3:	or     %dil,%r9b
+  49c4b6:	jne    49c6a0 <fastfft::measure::pick+0x14e0>
+  49c4bc:	ucomisd -0x427914(%rip),%xmm0        # 74bb0 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x2230>
+  49c4c4:	ja     49c6a0 <fastfft::measure::pick+0x14e0>
+  49c4ca:	add    $0x20,%rcx
+  49c4ce:	cmp    %rax,%rcx
+  49c4d1:	jne    49c410 <fastfft::measure::pick+0x1250>
+  49c4d7:	mov    0x158(%rsp),%r8
+  49c4df:	inc    %r8
+  49c4e2:	mov    0x248(%rsp),%rcx
+  49c4ea:	cmp    $0x3,%rcx
+  49c4ee:	jne    49bc59 <fastfft::measure::pick+0xa99>
+  49c4f4:	mov    0x238(%rsp),%rdi
+  49c4fc:	cmp    0x230(%rsp),%rdi
+  49c504:	jne    49bc1a <fastfft::measure::pick+0xa5a>
+  49c50a:	mov    0x228(%rsp),%rcx
+  49c512:	cmp    $0x3,%rcx
+  49c516:	mov    0x220(%rsp),%rdi
+  49c51e:	jne    49bbc6 <fastfft::measure::pick+0xa06>
+  49c524:	mov    0x218(%rsp),%rcx
+  49c52c:	shl    $0x2,%rcx
+  49c530:	lea    (%rcx,%rcx,2),%rcx
+  49c534:	cmp    %rcx,0x80(%rsp)
+  49c53c:	jne    49c830 <fastfft::measure::pick+0x1670>
+  49c542:	xorpd  %xmm0,%xmm0
+  49c546:	movapd %xmm0,0x50(%rsp)
+  49c54c:	mov    %r15,%rcx
+  49c54f:	movsd  0x10(%rcx),%xmm1
+  49c554:	movsd  0x18(%rcx),%xmm2
+  49c559:	divsd  (%rcx),%xmm1
+  49c55d:	divsd  0x8(%rcx),%xmm2
+  49c562:	movapd %xmm1,%xmm0
+  49c566:	cmpunordsd %xmm1,%xmm0
+  49c56b:	movapd %xmm0,%xmm3
+  49c56f:	andpd  %xmm2,%xmm3
+  49c573:	maxsd  %xmm1,%xmm2
+  49c577:	andnpd %xmm2,%xmm0
+  49c57b:	orpd   %xmm3,%xmm0
+  49c57f:	movq   %xmm0,%rdx
+  49c584:	test   %rdx,%rdx
+  49c587:	sets   %sil
+  49c58b:	movabs $0x7fffffffffffffff,%rdi
+  49c595:	and    %rdi,%rdx
+  49c598:	movabs $0xfff0000000000000,%rdi
+  49c5a2:	add    %rdx,%rdi
+  49c5a5:	shr    $0x35,%rdi
+  49c5a9:	cmp    $0x3ff,%edi
+  49c5af:	setb   %dil
+  49c5b3:	and    %sil,%dil
+  49c5b6:	lea    -0x1(%rdx),%r8
+  49c5ba:	movabs $0xfffffffffffff,%r9
+  49c5c4:	cmp    %r9,%r8
+  49c5c7:	setb   %r8b
+  49c5cb:	and    %sil,%r8b
+  49c5ce:	test   %rdx,%rdx
+  49c5d1:	sete   %sil
+  49c5d5:	movabs $0x7ff0000000000000,%r9
+  49c5df:	cmp    %r9,%rdx
+  49c5e2:	setg   %dl
+  49c5e5:	sete   %r9b
+  49c5e9:	or     %sil,%r9b
+  49c5ec:	or     %dl,%r9b
+  49c5ef:	or     %r8b,%r9b
+  49c5f2:	or     %dil,%r9b
+  49c5f5:	ucomisd -0x427a4d(%rip),%xmm0        # 74bb0 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x2230>
+  49c5fd:	seta   %bl
+  49c600:	or     %r9b,%bl
+  49c603:	test   $0x1,%bl
+  49c606:	jne    49c63a <fastfft::measure::pick+0x147a>
+  49c608:	add    $0x20,%rcx
+  49c60c:	movapd %xmm0,%xmm1
+  49c610:	movapd 0x50(%rsp),%xmm2
+  49c616:	maxsd  %xmm2,%xmm1
+  49c61a:	cmpunordsd %xmm2,%xmm2
+  49c61f:	andpd  %xmm2,%xmm0
+  49c623:	andnpd %xmm1,%xmm2
+  49c627:	orpd   %xmm0,%xmm2
+  49c62b:	movapd %xmm2,0x50(%rsp)
+  49c631:	cmp    %rax,%rcx
+  49c634:	jne    49c54f <fastfft::measure::pick+0x138f>
+  49c63a:	xor    $0x1,%bl
+  49c63d:	jmp    49c832 <fastfft::measure::pick+0x1672>
+  49c642:	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+  49c650:	movq   $0x80,0x1c8(%rsp)
+  49c65c:	movq   $0xc0,0x1d0(%rsp)
+  49c668:	movq   $0x40,0x1d8(%rsp)
+  49c674:	mov    $0x8,%r15d
+  49c67a:	xor    %ebx,%ebx
+  49c67c:	cmpq   $0x0,0x128(%rsp)
+  49c685:	jne    49c6b1 <fastfft::measure::pick+0x14f1>
+  49c687:	jmp    49c6ba <fastfft::measure::pick+0x14fa>
+  49c689:	mov    0x78(%rsp),%rbp
+  49c68e:	mov    0x18(%rsp),%r12
+  49c693:	mov    0x170(%rsp),%r15
+  49c69b:	nopl   0x0(%rax,%rax,1)
+  49c6a0:	cmpq   $0x0,0x128(%rsp)
+  49c6a9:	je     49c745 <fastfft::measure::pick+0x1585>
+  49c6af:	xor    %ebx,%ebx
+  49c6b1:	mov    %r15,%rdi
+  49c6b4:	call   *0xd9be0e(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49c6ba:	mov    0x20(%rsp),%rax
+  49c6bf:	mov    %rax,0x2b0(%rsp)
+  49c6c7:	mov    0x8(%rsp),%rax
+  49c6cc:	mov    %rax,0x2b8(%rsp)
+  49c6d4:	test   $0x1,%bl
+  49c6d7:	je     49c75f <fastfft::measure::pick+0x159f>
+  49c6dd:	movsd  0x160(%rsp),%xmm0
+  49c6e6:	ucomisd 0x50(%rsp),%xmm0
+  49c6ec:	jbe    49c75f <fastfft::measure::pick+0x159f>
+  49c6ee:	mov    0x70(%rsp),%rax
+  49c6f3:	movzbl 0x30(%rax),%ebp
+  49c6f7:	movzbl 0x20(%rax),%r14d
+  49c6fc:	mov    0x10(%rax),%r12
+  49c700:	movdqu 0x10(%rax),%xmm0
+  49c705:	movdqa %xmm0,0x80(%rsp)
+  49c70e:	test   %r12,%r12
+  49c711:	je     49c780 <fastfft::measure::pick+0x15c0>
+  49c713:	mov    0x8(%rax),%r15
+  49c717:	lea    0x0(,%r12,8),%rbx
+  49c71f:	mov    %rbx,%rdi
+  49c722:	call   *0xd9bd88(%rip)        # 12384b0 <malloc@GLIBC_2.2.5>
+  49c728:	test   %rax,%rax
+  49c72b:	je     49c96d <fastfft::measure::pick+0x17ad>
+  49c731:	mov    %rax,%r13
+  49c734:	mov    %rax,%rdi
+  49c737:	mov    %r15,%rsi
+  49c73a:	mov    %rbx,%rdx
+  49c73d:	call   *0xd9bd75(%rip)        # 12384b8 <memcpy@GLIBC_2.14>
+  49c743:	jmp    49c786 <fastfft::measure::pick+0x15c6>
+  49c745:	mov    0x20(%rsp),%rax
+  49c74a:	mov    %rax,0x2b0(%rsp)
+  49c752:	mov    0x8(%rsp),%rax
+  49c757:	mov    %rax,0x2b8(%rsp)
+  49c75f:	mov    0x20(%rsp),%rax
+  49c764:	lock decq (%rax)
+  49c768:	jne    49b812 <fastfft::measure::pick+0x652>
+  49c76e:	lea    0x2b0(%rsp),%rdi
+  49c776:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49c77b:	jmp    49b812 <fastfft::measure::pick+0x652>
+  49c780:	mov    $0x8,%r13d
+  49c786:	mov    0x70(%rsp),%rax
+  49c78b:	movsd  0x28(%rax),%xmm0
+  49c790:	movsd  %xmm0,0x10(%rsp)
+  49c796:	cmpq   $0x0,0xb0(%rsp)
+  49c79f:	je     49c7af <fastfft::measure::pick+0x15ef>
+  49c7a1:	mov    0xb8(%rsp),%rdi
+  49c7a9:	call   *0xd9bd19(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49c7af:	mov    0xe8(%rsp),%rax
+  49c7b7:	lock decq (%rax)
+  49c7bb:	jne    49b7a0 <fastfft::measure::pick+0x5e0>
+  49c7c1:	lea    0xe8(%rsp),%rdi
+  49c7c9:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49c7ce:	jmp    49b7a0 <fastfft::measure::pick+0x5e0>
+  49c7d3:	mov    0x168(%rsp),%rcx
+  49c7db:	sub    0x70(%rsp),%rcx
+  49c7e0:	shr    $0x3,%rcx
+  49c7e4:	movabs $0x6db6db6db6db6db7,%rdx
+  49c7ee:	imul   %rdx,%rcx
+  49c7f2:	cmp    %rcx,%rax
+  49c7f5:	jae    49c868 <fastfft::measure::pick+0x16a8>
+  49c7f7:	imul   $0x38,%rax,%rax
+  49c7fb:	add    %rax,0x70(%rsp)
+  49c800:	jmp    49b838 <fastfft::measure::pick+0x678>
+  49c805:	mov    $0x8,%ecx
+  49c80a:	mov    $0x10,%r8d
+  49c810:	lea    0x1b0(%rsp),%rdi
+  49c818:	mov    %r15,%rsi
+  49c81b:	mov    %r13,%rdx
+  49c81e:	call   355340 <alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle>
+  49c823:	mov    0x1c0(%rsp),%r15
+  49c82b:	jmp    49baa0 <fastfft::measure::pick+0x8e0>
+  49c830:	xor    %ebx,%ebx
+  49c832:	mov    0x78(%rsp),%rbp
+  49c837:	mov    0x18(%rsp),%r12
+  49c83c:	cmpq   $0x0,0x128(%rsp)
+  49c845:	jne    49c6b1 <fastfft::measure::pick+0x14f1>
+  49c84b:	jmp    49c6ba <fastfft::measure::pick+0x14fa>
+  49c850:	mov    0x20(%rsp),%rax
+  49c855:	lock decq (%rax)
+  49c859:	jne    49c868 <fastfft::measure::pick+0x16a8>
+  49c85b:	lea    0x280(%rsp),%rdi
+  49c863:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49c868:	mov    0xf0(%rsp),%rax
+  49c870:	mov    %rax,0x40(%rbp)
+  49c874:	movups 0xb0(%rsp),%xmm0
+  49c87c:	movups 0xc0(%rsp),%xmm1
+  49c884:	movups 0xd0(%rsp),%xmm2
+  49c88c:	movups 0xe0(%rsp),%xmm3
+  49c894:	movups %xmm3,0x30(%rbp)
+  49c898:	movups %xmm2,0x20(%rbp)
+  49c89c:	movups %xmm1,0x10(%rbp)
+  49c8a0:	movups %xmm0,0x0(%rbp)
+  49c8a4:	cmpq   $0x0,0x180(%rsp)
+  49c8ad:	je     49c8bd <fastfft::measure::pick+0x16fd>
+  49c8af:	mov    0x188(%rsp),%rdi
+  49c8b7:	call   *0xd9bc0b(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49c8bd:	cmpq   $0x0,0x198(%rsp)
+  49c8c6:	je     49c8d6 <fastfft::measure::pick+0x1716>
+  49c8c8:	mov    0x1a0(%rsp),%rdi
+  49c8d0:	call   *0xd9bbf2(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49c8d6:	cmpq   $0x0,0x1b0(%rsp)
+  49c8df:	je     49c8ef <fastfft::measure::pick+0x172f>
+  49c8e1:	mov    0x1b8(%rsp),%rdi
+  49c8e9:	call   *0xd9bbd9(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49c8ef:	cmpq   $0x0,0x108(%rsp)
+  49c8f8:	je     49c908 <fastfft::measure::pick+0x1748>
+  49c8fa:	mov    0x110(%rsp),%rdi
+  49c902:	call   *0xd9bbc0(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49c908:	mov    0x68(%rsp),%rax
+  49c90d:	lock decq (%rax)
+  49c911:	jne    49b598 <fastfft::measure::pick+0x3d8>
+  49c917:	lea    0x270(%rsp),%rdi
+  49c91f:	jmp    49b593 <fastfft::measure::pick+0x3d3>
+  49c924:	xor    %r12d,%r12d
+  49c927:	mov    $0x8,%r13d
+  49c92d:	mov    %r13,%rax
+  49c930:	cmp    $0x2,%r15
+  49c934:	jae    49b641 <fastfft::measure::pick+0x481>
+  49c93a:	jmp    49b658 <fastfft::measure::pick+0x498>
+  49c93f:	mov    $0x8,%r13d
+  49c945:	xor    %r12d,%r12d
+  49c948:	jmp    49b660 <fastfft::measure::pick+0x4a0>
+  49c94d:	mov    $0x8,%edi
+  49c952:	mov    $0x8,%esi
+  49c957:	call   bfab00 <alloc::alloc::handle_alloc_error>
+  49c95c:	jmp    49c993 <fastfft::measure::pick+0x17d3>
+  49c95e:	mov    $0x8,%edi
+  49c963:	mov    %r15,%rsi
+  49c966:	call   bfa980 <alloc::raw_vec::handle_error>
+  49c96b:	jmp    49c993 <fastfft::measure::pick+0x17d3>
+  49c96d:	mov    $0x8,%edi
+  49c972:	mov    %rbx,%rsi
+  49c975:	call   bfa980 <alloc::raw_vec::handle_error>
+  49c97a:	jmp    49c993 <fastfft::measure::pick+0x17d3>
+  49c97c:	mov    $0x8,%edi
+  49c981:	jmp    49b4c7 <fastfft::measure::pick+0x307>
+  49c986:	mov    $0x8,%edi
+  49c98b:	mov    %r14,%rsi
+  49c98e:	call   bfa980 <alloc::raw_vec::handle_error>
+  49c993:	ud2
+  49c995:	jmp    49ca88 <fastfft::measure::pick+0x18c8>
+  49c99a:	jmp    49ca94 <fastfft::measure::pick+0x18d4>
+  49c99f:	jmp    49ca94 <fastfft::measure::pick+0x18d4>
+  49c9a4:	mov    %rax,%r15
+  49c9a7:	cmpq   $0x0,0x90(%rsp)
+  49c9b0:	je     49cadf <fastfft::measure::pick+0x191f>
+  49c9b6:	mov    %rbx,%rdi
+  49c9b9:	call   *0xd9bb09(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49c9bf:	jmp    49cadf <fastfft::measure::pick+0x191f>
+  49c9c4:	mov    %rax,%r15
+  49c9c7:	mov    %r12,0xb0(%rsp)
+  49c9cf:	mov    %r13,0xb8(%rsp)
+  49c9d7:	mov    %r12,0xc0(%rsp)
+  49c9df:	pshufd $0xee,0x80(%rsp),%xmm0
+  49c9e9:	movq   %xmm0,0xc8(%rsp)
+  49c9f2:	mov    %r14b,0xd0(%rsp)
+  49c9fa:	movq   0x10(%rsp),%xmm0
+  49ca00:	movq   %xmm0,0xd8(%rsp)
+  49ca09:	mov    %bpl,0xe0(%rsp)
+  49ca11:	mov    0x20(%rsp),%rax
+  49ca16:	mov    %rax,0xe8(%rsp)
+  49ca1e:	mov    0x8(%rsp),%rax
+  49ca23:	mov    %rax,0xf0(%rsp)
+  49ca2b:	jmp    49cac8 <fastfft::measure::pick+0x1908>
+  49ca30:	mov    %rax,%r15
+  49ca33:	mov    0x20(%rsp),%rax
+  49ca38:	lock decq (%rax)
+  49ca3c:	jne    49cac8 <fastfft::measure::pick+0x1908>
+  49ca42:	lea    0x2b0(%rsp),%rdi
+  49ca4a:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49ca4f:	jmp    49cac8 <fastfft::measure::pick+0x1908>
+  49ca51:	call   bff900 <core::panicking::panic_in_cleanup>
+  49ca56:	jmp    49ca88 <fastfft::measure::pick+0x18c8>
+  49ca58:	mov    %rax,%r15
+  49ca5b:	jmp    49cb4a <fastfft::measure::pick+0x198a>
+  49ca60:	jmp    49ca94 <fastfft::measure::pick+0x18d4>
+  49ca62:	mov    %rax,%r15
+  49ca65:	mov    $0x1,%bl
+  49ca67:	jmp    49cb12 <fastfft::measure::pick+0x1952>
+  49ca6c:	mov    %rax,%r15
+  49ca6f:	test   %rbx,%rbx
+  49ca72:	je     49cb4a <fastfft::measure::pick+0x198a>
+  49ca78:	mov    %r14,%rdi
+  49ca7b:	call   *0xd9ba47(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49ca81:	jmp    49cb4a <fastfft::measure::pick+0x198a>
+  49ca86:	jmp    49ca94 <fastfft::measure::pick+0x18d4>
+  49ca88:	mov    %rax,%r15
+  49ca8b:	jmp    49cac8 <fastfft::measure::pick+0x1908>
+  49ca8d:	jmp    49ca94 <fastfft::measure::pick+0x18d4>
+  49ca8f:	mov    %rax,%r15
+  49ca92:	jmp    49cab0 <fastfft::measure::pick+0x18f0>
+  49ca94:	mov    %rax,%r15
+  49ca97:	cmpq   $0x0,0x128(%rsp)
+  49caa0:	je     49cab0 <fastfft::measure::pick+0x18f0>
+  49caa2:	mov    0x130(%rsp),%rdi
+  49caaa:	call   *0xd9ba18(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49cab0:	mov    0x20(%rsp),%rax
+  49cab5:	lock decq (%rax)
+  49cab9:	jne    49cac8 <fastfft::measure::pick+0x1908>
+  49cabb:	lea    0x280(%rsp),%rdi
+  49cac3:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49cac8:	lea    0x180(%rsp),%rdi
+  49cad0:	call   337280 <core::ptr::drop_in_place<fastfft::measure::Buffers<f32>>>
+  49cad5:	jmp    49cadf <fastfft::measure::pick+0x191f>
+  49cad7:	mov    %rax,%r15
+  49cada:	jmp    49caf8 <fastfft::measure::pick+0x1938>
+  49cadc:	mov    %rax,%r15
+  49cadf:	cmpq   $0x0,0x108(%rsp)
+  49cae8:	je     49caf8 <fastfft::measure::pick+0x1938>
+  49caea:	mov    0x110(%rsp),%rdi
+  49caf2:	call   *0xd9b9d0(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49caf8:	mov    0x68(%rsp),%rax
+  49cafd:	lock decq (%rax)
+  49cb01:	jne    49cb10 <fastfft::measure::pick+0x1950>
+  49cb03:	lea    0x270(%rsp),%rdi
+  49cb0b:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49cb10:	xor    %ebx,%ebx
+  49cb12:	cmpq   $0x0,0xb0(%rsp)
+  49cb1b:	je     49cb2b <fastfft::measure::pick+0x196b>
+  49cb1d:	mov    0xb8(%rsp),%rdi
+  49cb25:	call   *0xd9b99d(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49cb2b:	mov    0xe8(%rsp),%rax
+  49cb33:	lock decq (%rax)
+  49cb37:	jne    49cb46 <fastfft::measure::pick+0x1986>
+  49cb39:	lea    0xe8(%rsp),%rdi
+  49cb41:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49cb46:	test   %bl,%bl
+  49cb48:	je     49cb62 <fastfft::measure::pick+0x19a2>
+  49cb4a:	mov    0x68(%rsp),%rax
+  49cb4f:	lock decq (%rax)
+  49cb53:	jne    49cb62 <fastfft::measure::pick+0x19a2>
+  49cb55:	lea    0x260(%rsp),%rdi
+  49cb5d:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49cb62:	mov    %r15,%rdi
+  49cb65:	call   1202170 <_Unwind_Resume@plt>
+  49cb6a:	call   bff900 <core::panicking::panic_in_cleanup>
+  49cb6f:	int3
+  49cb70:	int3
+  49cb71:	int3
+  49cb72:	int3
+  49cb73:	int3
+  49cb74:	int3
+  49cb75:	int3
+  49cb76:	int3
+  49cb77:	int3
+  49cb78:	int3
+  49cb79:	int3
+  49cb7a:	int3
+  49cb7b:	int3
+  49cb7c:	int3
+  49cb7d:	int3
+  49cb7e:	int3
+  49cb7f:	int3
+
+
+target/ticket19/selection-fix/caller-qualification-canonical/fastfft-arena:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000049cb80 <fastfft::measure::pick>:
+  49cb80:	push   %rbp
+  49cb81:	push   %r15
+  49cb83:	push   %r14
+  49cb85:	push   %r13
+  49cb87:	push   %r12
+  49cb89:	push   %rbx
+  49cb8a:	sub    $0x558,%rsp
+  49cb91:	mov    0x598(%rsp),%r12
+  49cb99:	mov    %r8,0x68(%rsp)
+  49cb9e:	mov    %r8,0x260(%rsp)
+  49cba6:	mov    %r9,0x18(%rsp)
+  49cbab:	mov    %r9,0x268(%rsp)
+  49cbb3:	cmp    $0x8,%r12
+  49cbb7:	mov    $0x8,%r14d
+  49cbbd:	mov    $0x8,%eax
+  49cbc2:	cmovb  %r12,%rax
+  49cbc6:	test   %r12,%r12
+  49cbc9:	je     49cd65 <fastfft::measure::pick+0x1e5>
+  49cbcf:	mov    %rax,0x10(%rsp)
+  49cbd4:	mov    %edx,0x8(%rsp)
+  49cbd8:	mov    %ecx,0x80(%rsp)
+  49cbdf:	mov    %rsi,0x178(%rsp)
+  49cbe7:	mov    %rdi,0x78(%rsp)
+  49cbec:	mov    0x590(%rsp),%rax
+  49cbf4:	movzbl 0x30(%rax),%r15d
+  49cbf9:	movzbl 0x20(%rax),%ebp
+  49cbfd:	mov    0x10(%rax),%rbx
+  49cc01:	movdqu 0x10(%rax),%xmm0
+  49cc06:	movdqa %xmm0,0x90(%rsp)
+  49cc0f:	test   %rbx,%rbx
+  49cc12:	je     49cc5c <fastfft::measure::pick+0xdc>
+  49cc14:	mov    %bpl,0x50(%rsp)
+  49cc19:	mov    %r15d,%ebp
+  49cc1c:	mov    0x8(%rax),%r13
+  49cc20:	lea    0x0(,%rbx,8),%r15
+  49cc28:	mov    %r15,%rdi
+  49cc2b:	call   *0xd9b87f(%rip)        # 12384b0 <malloc@GLIBC_2.2.5>
+  49cc31:	test   %rax,%rax
+  49cc34:	je     49e328 <fastfft::measure::pick+0x17a8>
+  49cc3a:	mov    %rax,%r14
+  49cc3d:	mov    %rax,%rdi
+  49cc40:	mov    %r13,%rsi
+  49cc43:	mov    %r15,%rdx
+  49cc46:	call   *0xd9b86c(%rip)        # 12384b8 <memcpy@GLIBC_2.14>
+  49cc4c:	mov    0x590(%rsp),%rax
+  49cc54:	mov    %ebp,%r15d
+  49cc57:	movzbl 0x50(%rsp),%ebp
+  49cc5c:	mov    %rax,0x70(%rsp)
+  49cc61:	movq   0x28(%rax),%xmm0
+  49cc66:	movq   %xmm0,0x50(%rsp)
+  49cc6c:	mov    $0x1,%edi
+  49cc71:	call   10a4800 <<std::sys::pal::unix::time::Timespec>::now>
+  49cc76:	mov    %rax,0x100(%rsp)
+  49cc7e:	mov    %edx,0x2c(%rsp)
+  49cc82:	mov    0x68(%rsp),%rax
+  49cc87:	lock incq (%rax)
+  49cc8b:	jle    49e35d <fastfft::measure::pick+0x17dd>
+  49cc91:	mov    %rbx,0xb0(%rsp)
+  49cc99:	mov    %r14,0xb8(%rsp)
+  49cca1:	movaps 0x90(%rsp),%xmm0
+  49cca9:	movups %xmm0,0xc0(%rsp)
+  49ccb1:	mov    %bpl,0xd0(%rsp)
+  49ccb9:	movq   0x50(%rsp),%xmm0
+  49ccbf:	movq   %xmm0,0xd8(%rsp)
+  49ccc8:	mov    %r15b,0xe0(%rsp)
+  49ccd0:	mov    %rax,0xe8(%rsp)
+  49ccd8:	mov    0x18(%rsp),%rax
+  49ccdd:	mov    %rax,0xf0(%rsp)
+  49cce5:	cmp    $0x1,%r12
+  49cce9:	mov    0x78(%rsp),%rbp
+  49ccee:	je     49ce96 <fastfft::measure::pick+0x316>
+  49ccf4:	mov    $0x1,%edi
+  49ccf9:	call   10a4800 <<std::sys::pal::unix::time::Timespec>::now>
+  49ccfe:	mov    %rax,0x3d0(%rsp)
+  49cd06:	mov    %edx,0x3d8(%rsp)
+  49cd0d:	mov    0x100(%rsp),%rax
+  49cd15:	mov    %rax,0x458(%rsp)
+  49cd1d:	mov    0x2c(%rsp),%eax
+  49cd21:	mov    %eax,0x460(%rsp)
+  49cd28:	lea    0x2b0(%rsp),%rdi
+  49cd30:	lea    0x3d0(%rsp),%rsi
+  49cd38:	lea    0x458(%rsp),%rdx
+  49cd40:	call   10a4700 <<std::sys::pal::unix::time::Timespec>::sub_timespec>
+  49cd45:	movzbl 0x2b0(%rsp),%eax
+  49cd4d:	test   %al,%al
+  49cd4f:	jne    49cd8a <fastfft::measure::pick+0x20a>
+  49cd51:	mov    0x2b8(%rsp),%rcx
+  49cd59:	cmp    0x5a0(%rsp),%rcx
+  49cd61:	je     49cd96 <fastfft::measure::pick+0x216>
+  49cd63:	jmp    49cda9 <fastfft::measure::pick+0x229>
+  49cd65:	movabs $0x7ffffffffffffffc,%rax
+  49cd6f:	add    $0x4,%rax
+  49cd73:	mov    %rax,(%rdi)
+  49cd76:	mov    0x68(%rsp),%rax
+  49cd7b:	lock decq (%rax)
+  49cd7f:	je     49cf4d <fastfft::measure::pick+0x3cd>
+  49cd85:	jmp    49cf5a <fastfft::measure::pick+0x3da>
+  49cd8a:	xor    %ecx,%ecx
+  49cd8c:	cmp    0x5a0(%rsp),%rcx
+  49cd94:	jne    49cda9 <fastfft::measure::pick+0x229>
+  49cd96:	xor    %ecx,%ecx
+  49cd98:	test   %al,%al
+  49cd9a:	cmove  0x2c0(%rsp),%ecx
+  49cda2:	cmp    0x5a8(%rsp),%ecx
+  49cda9:	jae    49ce96 <fastfft::measure::pick+0x316>
+  49cdaf:	mov    0x68(%rsp),%rax
+  49cdb4:	mov    %rax,0x270(%rsp)
+  49cdbc:	mov    0x18(%rsp),%rax
+  49cdc1:	mov    %rax,0x278(%rsp)
+  49cdc9:	mov    $0x8,%edi
+  49cdce:	call   *0xd9b6dc(%rip)        # 12384b0 <malloc@GLIBC_2.2.5>
+  49cdd4:	test   %rax,%rax
+  49cdd7:	je     49e317 <fastfft::measure::pick+0x1797>
+  49cddd:	mov    0x178(%rsp),%rsi
+  49cde5:	mov    %rsi,(%rax)
+  49cde8:	movq   $0x1,0x108(%rsp)
+  49cdf4:	mov    %rax,0x110(%rsp)
+  49cdfc:	movq   $0x1,0x118(%rsp)
+  49ce08:	lea    -0x8(%rsi),%rdx
+  49ce0c:	mov    $0x1,%ecx
+  49ce11:	cmp    $0x3f8,%rdx
+  49ce18:	ja     49ce51 <fastfft::measure::pick+0x2d1>
+  49ce1a:	lea    -0x1(%rsi),%rdx
+  49ce1e:	and    %rsi,%rdx
+  49ce21:	jne    49ce51 <fastfft::measure::pick+0x2d1>
+  49ce23:	lea    0x108(%rsp),%rdi
+  49ce2b:	call   1063840 <alloc::raw_vec::RawVec<T,A>::grow_one>
+  49ce30:	mov    0x110(%rsp),%rax
+  49ce38:	movq   $0x100000,0x8(%rax)
+  49ce40:	movq   $0x2,0x118(%rsp)
+  49ce4c:	mov    $0x2,%ecx
+  49ce51:	mov    -0x8(%rax,%rcx,8),%r14
+  49ce56:	lea    0x1040(,%r14,8),%r15
+  49ce5e:	add    $0x208,%r14
+  49ce65:	mov    %r14,%rax
+  49ce68:	shr    $0x3d,%rax
+  49ce6c:	setne  %al
+  49ce6f:	movabs $0x7ffffffffffffffc,%rcx
+  49ce79:	cmp    %rcx,%r15
+  49ce7c:	seta   %cl
+  49ce7f:	or     %al,%cl
+  49ce81:	je     49cf6c <fastfft::measure::pick+0x3ec>
+  49ce87:	xor    %edi,%edi
+  49ce89:	mov    %r15,%rsi
+  49ce8c:	call   bfa980 <alloc::raw_vec::handle_error>
+  49ce91:	jmp    49e35d <fastfft::measure::pick+0x17dd>
+  49ce96:	mov    0xf0(%rsp),%rax
+  49ce9e:	mov    %rax,0x40(%rbp)
+  49cea2:	mov    0xb0(%rsp),%rax
+  49ceaa:	mov    0xb8(%rsp),%rcx
+  49ceb2:	movups 0xc0(%rsp),%xmm0
+  49ceba:	movzbl 0xd0(%rsp),%edx
+  49cec2:	mov    0xd1(%rsp),%rsi
+  49ceca:	mov    0xd9(%rsp),%edi
+  49ced1:	movzwl 0xdd(%rsp),%r8d
+  49ceda:	movzbl 0xdf(%rsp),%r9d
+  49cee3:	movzbl 0xe0(%rsp),%r10d
+  49ceec:	mov    %r10b,0x30(%rbp)
+  49cef0:	mov    0xe1(%rsp),%r10d
+  49cef8:	mov    %r10d,0x31(%rbp)
+  49cefc:	movzwl 0xe5(%rsp),%r10d
+  49cf05:	mov    %r10w,0x35(%rbp)
+  49cf0a:	movzbl 0xe7(%rsp),%r10d
+  49cf13:	mov    %r10b,0x37(%rbp)
+  49cf17:	mov    0xe8(%rsp),%r10
+  49cf1f:	mov    %r10,0x38(%rbp)
+  49cf23:	mov    %dl,0x20(%rbp)
+  49cf26:	mov    %rsi,0x21(%rbp)
+  49cf2a:	mov    %edi,0x29(%rbp)
+  49cf2d:	mov    %r8w,0x2d(%rbp)
+  49cf32:	mov    %r9b,0x2f(%rbp)
+  49cf36:	movups %xmm0,0x10(%rbp)
+  49cf3a:	mov    %rax,0x0(%rbp)
+  49cf3e:	mov    %rcx,0x8(%rbp)
+  49cf42:	mov    0x68(%rsp),%rax
+  49cf47:	lock decq (%rax)
+  49cf4b:	jne    49cf5a <fastfft::measure::pick+0x3da>
+  49cf4d:	lea    0x260(%rsp),%rdi
+  49cf55:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49cf5a:	add    $0x558,%rsp
+  49cf61:	pop    %rbx
+  49cf62:	pop    %r12
+  49cf64:	pop    %r13
+  49cf66:	pop    %r14
+  49cf68:	pop    %r15
+  49cf6a:	pop    %rbp
+  49cf6b:	ret
+  49cf6c:	test   %r15,%r15
+  49cf6f:	je     49cfb0 <fastfft::measure::pick+0x430>
+  49cf71:	mov    %r15,%rdi
+  49cf74:	call   *0xd9b536(%rip)        # 12384b0 <malloc@GLIBC_2.2.5>
+  49cf7a:	mov    %rax,%rbx
+  49cf7d:	mov    %r14,%rax
+  49cf80:	test   %rbx,%rbx
+  49cf83:	je     49e346 <fastfft::measure::pick+0x17c6>
+  49cf89:	mov    %rax,0x90(%rsp)
+  49cf91:	cmp    $0x2,%r14
+  49cf95:	jb     49cfc5 <fastfft::measure::pick+0x445>
+  49cf97:	lea    -0x8(%r15),%rdx
+  49cf9b:	mov    %rbx,%rdi
+  49cf9e:	xor    %esi,%esi
+  49cfa0:	call   *0xd9b52a(%rip)        # 12384d0 <memset@GLIBC_2.2.5>
+  49cfa6:	lea    (%r15,%rbx,1),%rax
+  49cfaa:	add    $0xfffffffffffffff8,%rax
+  49cfae:	jmp    49cfd1 <fastfft::measure::pick+0x451>
+  49cfb0:	mov    $0x4,%ebx
+  49cfb5:	xor    %eax,%eax
+  49cfb7:	mov    %rax,0x90(%rsp)
+  49cfbf:	cmp    $0x2,%r14
+  49cfc3:	jae    49cf97 <fastfft::measure::pick+0x417>
+  49cfc5:	mov    %rbx,%rax
+  49cfc8:	test   %r14,%r14
+  49cfcb:	je     49e309 <fastfft::measure::pick+0x1789>
+  49cfd1:	movq   $0x0,(%rax)
+  49cfd8:	test   %r15,%r15
+  49cfdb:	je     49e2ee <fastfft::measure::pick+0x176e>
+  49cfe1:	mov    %r15,%rdi
+  49cfe4:	call   *0xd9b4c6(%rip)        # 12384b0 <malloc@GLIBC_2.2.5>
+  49cfea:	mov    %rax,%r13
+  49cfed:	mov    %r14,%r12
+  49cff0:	test   %rax,%rax
+  49cff3:	je     49e350 <fastfft::measure::pick+0x17d0>
+  49cff9:	mov    %r13,%rax
+  49cffc:	cmp    $0x2,%r14
+  49d000:	jb     49d019 <fastfft::measure::pick+0x499>
+  49d002:	lea    -0x8(%r15),%rdx
+  49d006:	mov    %r13,%rdi
+  49d009:	xor    %esi,%esi
+  49d00b:	call   *0xd9b4bf(%rip)        # 12384d0 <memset@GLIBC_2.2.5>
+  49d011:	lea    (%r15,%r13,1),%rax
+  49d015:	add    $0xfffffffffffffff8,%rax
+  49d019:	movq   $0x0,(%rax)
+  49d020:	pxor   %xmm0,%xmm0
+  49d024:	movdqu %xmm0,0x1c8(%rsp)
+  49d02d:	movq   $0x0,0x1d8(%rsp)
+  49d039:	mov    0x90(%rsp),%rax
+  49d041:	mov    %rax,0x180(%rsp)
+  49d049:	mov    %rbx,0x188(%rsp)
+  49d051:	mov    %r14,0x190(%rsp)
+  49d059:	mov    %r12,0x198(%rsp)
+  49d061:	mov    %r13,0x1a0(%rsp)
+  49d069:	mov    %r14,0x1a8(%rsp)
+  49d071:	movq   $0x0,0x1b0(%rsp)
+  49d07d:	movq   $0x4,0x1b8(%rsp)
+  49d089:	movq   $0x0,0x1c0(%rsp)
+  49d095:	mov    0x100(%rsp),%rax
+  49d09d:	mov    %rax,0x1e0(%rsp)
+  49d0a5:	mov    0x2c(%rsp),%eax
+  49d0a9:	mov    %eax,0x1e8(%rsp)
+  49d0b0:	mov    0x5a0(%rsp),%rax
+  49d0b8:	mov    %rax,0x1f0(%rsp)
+  49d0c0:	mov    0x5a8(%rsp),%eax
+  49d0c7:	mov    %eax,0x1f8(%rsp)
+  49d0ce:	imul   $0x38,0x10(%rsp),%rax
+  49d0d4:	add    0x590(%rsp),%rax
+  49d0dc:	mov    %rax,0x168(%rsp)
+  49d0e4:	mov    0x18(%rsp),%r12
+  49d0e9:	mov    0x10(%r12),%rax
+  49d0ee:	mov    0x50(%r12),%rcx
+  49d0f3:	mov    %rcx,0x258(%rsp)
+  49d0fb:	dec    %rax
+  49d0fe:	and    $0xfffffffffffffff0,%rax
+  49d102:	mov    0x68(%rsp),%rcx
+  49d107:	add    %rcx,%rax
+  49d10a:	add    $0x10,%rax
+  49d10e:	mov    %rax,0x90(%rsp)
+  49d116:	mov    0x58(%r12),%rax
+  49d11b:	mov    %rax,0x250(%rsp)
+  49d123:	mov    $0x1,%eax
+  49d128:	movq   -0x428a40(%rip),%xmm0        # 746f0 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x1d70>
+  49d130:	movq   %xmm0,0x160(%rsp)
+  49d139:	movzbl 0x8(%rsp),%ecx
+  49d13e:	mov    %ecx,0x124(%rsp)
+  49d145:	movzbl 0x80(%rsp),%ecx
+  49d14d:	mov    %ecx,0x120(%rsp)
+  49d154:	xor    %ecx,%ecx
+  49d156:	jmp    49d1dc <fastfft::measure::pick+0x65c>
+  49d15b:	nopl   0x0(%rax,%rax,1)
+  49d160:	mov    %r12,0xb0(%rsp)
+  49d168:	mov    %r13,0xb8(%rsp)
+  49d170:	movaps 0x80(%rsp),%xmm0
+  49d178:	movups %xmm0,0xc0(%rsp)
+  49d180:	mov    %r14b,0xd0(%rsp)
+  49d188:	movsd  0x10(%rsp),%xmm0
+  49d18e:	movsd  %xmm0,0xd8(%rsp)
+  49d197:	mov    %bpl,0xe0(%rsp)
+  49d19f:	mov    0x20(%rsp),%rax
+  49d1a4:	mov    %rax,0xe8(%rsp)
+  49d1ac:	mov    0x8(%rsp),%rax
+  49d1b1:	mov    %rax,0xf0(%rsp)
+  49d1b9:	movdqa 0x50(%rsp),%xmm0
+  49d1bf:	movq   %xmm0,0x160(%rsp)
+  49d1c8:	mov    0x78(%rsp),%rbp
+  49d1cd:	mov    0x18(%rsp),%r12
+  49d1d2:	addq   $0x38,0x70(%rsp)
+  49d1d8:	mov    $0x1,%cl
+  49d1da:	xor    %eax,%eax
+  49d1dc:	test   $0x1,%cl
+  49d1df:	je     49e183 <fastfft::measure::pick+0x1603>
+  49d1e5:	mov    0x168(%rsp),%rax
+  49d1ed:	cmp    %rax,0x70(%rsp)
+  49d1f2:	je     49e232 <fastfft::measure::pick+0x16b2>
+  49d1f8:	mov    $0x1,%edi
+  49d1fd:	call   10a4800 <<std::sys::pal::unix::time::Timespec>::now>
+  49d202:	mov    %rax,0x3d0(%rsp)
+  49d20a:	mov    %edx,0x3d8(%rsp)
+  49d211:	mov    0x100(%rsp),%rax
+  49d219:	mov    %rax,0x458(%rsp)
+  49d221:	mov    0x2c(%rsp),%eax
+  49d225:	mov    %eax,0x460(%rsp)
+  49d22c:	lea    0x2b0(%rsp),%rdi
+  49d234:	lea    0x3d0(%rsp),%rsi
+  49d23c:	lea    0x458(%rsp),%rdx
+  49d244:	call   10a4700 <<std::sys::pal::unix::time::Timespec>::sub_timespec>
+  49d249:	movzbl 0x2b0(%rsp),%eax
+  49d251:	test   %al,%al
+  49d253:	jne    49d270 <fastfft::measure::pick+0x6f0>
+  49d255:	mov    0x2b8(%rsp),%rcx
+  49d25d:	cmp    0x5a0(%rsp),%rcx
+  49d265:	je     49d27c <fastfft::measure::pick+0x6fc>
+  49d267:	jb     49d29a <fastfft::measure::pick+0x71a>
+  49d269:	jmp    49e232 <fastfft::measure::pick+0x16b2>
+  49d26e:	xchg   %ax,%ax
+  49d270:	xor    %ecx,%ecx
+  49d272:	cmp    0x5a0(%rsp),%rcx
+  49d27a:	jne    49d267 <fastfft::measure::pick+0x6e7>
+  49d27c:	test   %al,%al
+  49d27e:	mov    0x2c0(%rsp),%eax
+  49d285:	mov    $0x0,%ecx
+  49d28a:	cmovne %ecx,%eax
+  49d28d:	cmp    0x5a8(%rsp),%eax
+  49d294:	jae    49e232 <fastfft::measure::pick+0x16b2>
+  49d29a:	mov    0x178(%rsp),%rdi
+  49d2a2:	mov    0x124(%rsp),%esi
+  49d2a9:	mov    0x70(%rsp),%rdx
+  49d2ae:	call   49e540 <fastfft::planner::build_candidate>
+  49d2b3:	lea    0x2b0(%rsp),%rdi
+  49d2bb:	mov    %rax,%rsi
+  49d2be:	mov    0x120(%rsp),%ecx
+  49d2c5:	call   410c40 <fastfft::engine::batch::wrap>
+  49d2ca:	mov    0x2b0(%rsp),%rax
+  49d2d2:	mov    0x2b8(%rsp),%rcx
+  49d2da:	mov    %rax,0x20(%rsp)
+  49d2df:	mov    %rax,0x280(%rsp)
+  49d2e7:	mov    %rcx,0x8(%rsp)
+  49d2ec:	mov    %rcx,0x288(%rsp)
+  49d2f4:	mov    $0x1,%edi
+  49d2f9:	call   10a4800 <<std::sys::pal::unix::time::Timespec>::now>
+  49d2fe:	mov    %rax,0x3d0(%rsp)
+  49d306:	mov    %edx,0x3d8(%rsp)
+  49d30d:	mov    0x100(%rsp),%rax
+  49d315:	mov    %rax,0x458(%rsp)
+  49d31d:	mov    0x2c(%rsp),%eax
+  49d321:	mov    %eax,0x460(%rsp)
+  49d328:	lea    0x2b0(%rsp),%rdi
+  49d330:	lea    0x3d0(%rsp),%rsi
+  49d338:	lea    0x458(%rsp),%rdx
+  49d340:	call   10a4700 <<std::sys::pal::unix::time::Timespec>::sub_timespec>
+  49d345:	movzbl 0x2b0(%rsp),%eax
+  49d34d:	test   %al,%al
+  49d34f:	jne    49d370 <fastfft::measure::pick+0x7f0>
+  49d351:	mov    0x2b8(%rsp),%rcx
+  49d359:	cmp    0x5a0(%rsp),%rcx
+  49d361:	je     49d37c <fastfft::measure::pick+0x7fc>
+  49d363:	jb     49d39a <fastfft::measure::pick+0x81a>
+  49d365:	jmp    49e21a <fastfft::measure::pick+0x169a>
+  49d36a:	nopw   0x0(%rax,%rax,1)
+  49d370:	xor    %ecx,%ecx
+  49d372:	cmp    0x5a0(%rsp),%rcx
+  49d37a:	jne    49d363 <fastfft::measure::pick+0x7e3>
+  49d37c:	test   %al,%al
+  49d37e:	mov    0x2c0(%rsp),%eax
+  49d385:	mov    $0x0,%ecx
+  49d38a:	cmovne %ecx,%eax
+  49d38d:	cmp    0x5a8(%rsp),%eax
+  49d394:	jae    49e21a <fastfft::measure::pick+0x169a>
+  49d39a:	mov    0x8(%rsp),%rax
+  49d39f:	mov    0x10(%rax),%r14
+  49d3a3:	mov    0x90(%rsp),%rdi
+  49d3ab:	call   *0x258(%rsp)
+  49d3b2:	mov    %rax,%rbx
+  49d3b5:	dec    %r14
+  49d3b8:	and    $0xfffffffffffffff0,%r14
+  49d3bc:	mov    0x20(%rsp),%rax
+  49d3c1:	lea    (%rax,%r14,1),%rdi
+  49d3c5:	add    $0x10,%rdi
+  49d3c9:	mov    %rdi,0x10(%rsp)
+  49d3ce:	mov    0x8(%rsp),%rax
+  49d3d3:	call   *0x50(%rax)
+  49d3d6:	cmp    %rbx,%rax
+  49d3d9:	cmova  %rax,%rbx
+  49d3dd:	mov    0x90(%rsp),%rdi
+  49d3e5:	call   *0x250(%rsp)
+  49d3ec:	mov    %rax,%r13
+  49d3ef:	mov    0x10(%rsp),%rdi
+  49d3f4:	mov    0x8(%rsp),%rax
+  49d3f9:	call   *0x58(%rax)
+  49d3fc:	cmp    %r13,%rax
+  49d3ff:	cmova  %rax,%r13
+  49d403:	cmp    %r13,%rbx
+  49d406:	cmova  %rbx,%r13
+  49d40a:	mov    0x90(%rsp),%rdi
+  49d412:	call   *0x60(%r12)
+  49d417:	mov    %rax,%rbx
+  49d41a:	mov    0x10(%rsp),%rdi
+  49d41f:	mov    0x8(%rsp),%rax
+  49d424:	call   *0x60(%rax)
+  49d427:	cmp    %rbx,%rax
+  49d42a:	cmova  %rax,%rbx
+  49d42e:	cmp    %rbx,%r13
+  49d431:	cmova  %r13,%rbx
+  49d435:	add    $0x208,%rbx
+  49d43c:	mov    0x1c0(%rsp),%r15
+  49d444:	mov    %rbx,%r13
+  49d447:	sub    %r15,%r13
+  49d44a:	jbe    49d4a1 <fastfft::measure::pick+0x921>
+  49d44c:	mov    0x1b0(%rsp),%rax
+  49d454:	sub    %r15,%rax
+  49d457:	cmp    %rax,%r13
+  49d45a:	ja     49e1b9 <fastfft::measure::pick+0x1639>
+  49d460:	mov    0x1b8(%rsp),%rbx
+  49d468:	lea    (%rbx,%r15,8),%rdi
+  49d46c:	cmp    $0x2,%r13
+  49d470:	jb     49d494 <fastfft::measure::pick+0x914>
+  49d472:	lea    -0x8(,%r13,8),%rdx
+  49d47a:	xor    %esi,%esi
+  49d47c:	call   *0xd9b04e(%rip)        # 12384d0 <memset@GLIBC_2.2.5>
+  49d482:	lea    (%r15,%r13,1),%rax
+  49d486:	lea    (%rbx,%rax,8),%rdi
+  49d48a:	add    $0xfffffffffffffff8,%rdi
+  49d48e:	add    %r13,%r15
+  49d491:	dec    %r15
+  49d494:	movq   $0x0,(%rdi)
+  49d49b:	inc    %r15
+  49d49e:	mov    %r15,%rbx
+  49d4a1:	mov    %rbx,0x1c0(%rsp)
+  49d4a9:	mov    0x110(%rsp),%rdi
+  49d4b1:	mov    0x118(%rsp),%rcx
+  49d4b9:	movq   $0x0,0x128(%rsp)
+  49d4c5:	movq   $0x8,0x130(%rsp)
+  49d4d1:	movq   $0x0,0x138(%rsp)
+  49d4dd:	movq   $0x0,0x3d0(%rsp)
+  49d4e9:	movq   $0x3,0x3d8(%rsp)
+  49d4f5:	movups -0x3e408c(%rip),%xmm0        # b9470 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x46af0>
+  49d4fc:	lea    0x3e0(%rsp),%rax
+  49d504:	movups %xmm0,0x30(%rax)
+  49d508:	movups -0x3e40af(%rip),%xmm0        # b9460 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x46ae0>
+  49d50f:	movups %xmm0,0x20(%rax)
+  49d513:	movups -0x3e40ca(%rip),%xmm0        # b9450 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x46ad0>
+  49d51a:	movups %xmm0,0x10(%rax)
+  49d51e:	movups -0x3e40e5(%rip),%xmm0        # b9440 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x46ac0>
+  49d525:	movups %xmm0,(%rax)
+  49d528:	movq   $0x400,0x40(%rax)
+  49d530:	movq   $0x0,0x428(%rsp)
+  49d53c:	test   %rcx,%rcx
+  49d53f:	je     49e000 <fastfft::measure::pick+0x1480>
+  49d545:	mov    %rcx,0x218(%rsp)
+  49d54d:	lea    (%rdi,%rcx,8),%rax
+  49d551:	mov    %rax,0x230(%rsp)
+  49d559:	mov    $0x8,%r15d
+  49d55f:	movq   $0x0,0x80(%rsp)
+  49d56b:	xor    %r8d,%r8d
+  49d56e:	xor    %ecx,%ecx
+  49d570:	mov    %rdi,0x220(%rsp)
+  49d578:	mov    %rcx,%rax
+  49d57b:	lea    (%rcx,%rcx,2),%rcx
+  49d57f:	lea    0x3e0(%rsp),%rsi
+  49d587:	mov    0x10(%rsi,%rcx,8),%rdx
+  49d58c:	shr    $0x3,%rdx
+  49d590:	cmp    $0x1,%rax
+  49d594:	lea    0x1(%rax),%rax
+  49d598:	mov    %rax,0x228(%rsp)
+  49d5a0:	movdqu (%rsi,%rcx,8),%xmm0
+  49d5a5:	psrlq  $0x3,%xmm0
+  49d5aa:	movdqu %xmm0,0x1c8(%rsp)
+  49d5b3:	mov    %rdx,0x1d8(%rsp)
+  49d5bb:	mov    $0x0,%eax
+  49d5c0:	adc    $0x1,%rax
+  49d5c4:	mov    %rax,0xf8(%rsp)
+  49d5cc:	mov    (%rdi),%rax
+  49d5cf:	mov    %rax,0x50(%rsp)
+  49d5d4:	add    $0x8,%rdi
+  49d5d8:	mov    %rdi,0x238(%rsp)
+  49d5e0:	movq   $0x0,0x3b8(%rsp)
+  49d5ec:	movq   $0x3,0x3c0(%rsp)
+  49d5f8:	lea    0x3c8(%rsp),%rax
+  49d600:	movb   $0x2,0x2(%rax)
+  49d604:	movw   $0x100,(%rax)
+  49d609:	xor    %ecx,%ecx
+  49d60b:	mov    %r8,0x158(%rsp)
+  49d613:	shr    $1,%r8
+  49d616:	mov    %r8,0x240(%rsp)
+  49d61e:	movzbl 0x3c8(%rsp,%rcx,1),%r13d
+  49d627:	inc    %rcx
+  49d62a:	mov    %rcx,0x248(%rsp)
+  49d632:	mov    0x90(%rsp),%rsi
+  49d63a:	mov    %rsi,0x290(%rsp)
+  49d642:	mov    %r12,0x298(%rsp)
+  49d64a:	mov    0x10(%rsp),%rax
+  49d64f:	mov    %rax,0x2a0(%rsp)
+  49d657:	mov    0x8(%rsp),%rax
+  49d65c:	mov    %rax,0x2a8(%rsp)
+  49d664:	lea    -0x32eb(%rip),%rax        # 49a380 <fastfft::measure::sample_routed>
+  49d66b:	mov    %rax,0xa8(%rsp)
+  49d673:	lea    0xa8(%rsp),%rax
+  49d67b:	pxor   %xmm0,%xmm0
+  49d67f:	movdqa %xmm0,0x390(%rsp)
+  49d688:	movdqa %xmm0,0x380(%rsp)
+  49d691:	movdqa %xmm0,0x370(%rsp)
+  49d69a:	movdqa %xmm0,0x360(%rsp)
+  49d6a3:	movdqa %xmm0,0x350(%rsp)
+  49d6ac:	movdqa %xmm0,0x340(%rsp)
+  49d6b5:	movdqa %xmm0,0x330(%rsp)
+  49d6be:	movdqa %xmm0,0x320(%rsp)
+  49d6c7:	movdqa %xmm0,0x310(%rsp)
+  49d6d0:	movdqa %xmm0,0x300(%rsp)
+  49d6d9:	movdqa %xmm0,0x2f0(%rsp)
+  49d6e2:	movdqa %xmm0,0x2e0(%rsp)
+  49d6eb:	movdqa %xmm0,0x2d0(%rsp)
+  49d6f4:	movdqa %xmm0,0x2c0(%rsp)
+  49d6fd:	movdqa %xmm0,0x2b0(%rsp)
+  49d706:	mov    0xf8(%rsp),%rax
+  49d70e:	mov    %rax,0x3a0(%rsp)
+  49d716:	movl   $0x0,0x3a8(%rsp)
+  49d721:	mov    $0x1,%ebx
+  49d726:	xor    %ebp,%ebp
+  49d728:	mov    %r12,%rdx
+  49d72b:	mov    %r15,0x170(%rsp)
+  49d733:	mov    %rbp,%r12
+  49d736:	mov    0xa8(%rsp),%r14
+  49d73e:	mov    0x50(%rsp),%rax
+  49d743:	mov    %rax,0x30(%rsp)
+  49d748:	mov    %rbp,0x38(%rsp)
+  49d74d:	movq   $0x1,0x40(%rsp)
+  49d756:	mov    %r13b,0x48(%rsp)
+  49d75b:	movb   $0x0,0x49(%rsp)
+  49d760:	lea    0x180(%rsp),%rdi
+  49d768:	lea    0x30(%rsp),%rcx
+  49d76d:	lea    0x1e0(%rsp),%r8
+  49d775:	call   *%r14
+  49d778:	cmp    $0x3b9aca00,%edx
+  49d77e:	je     49dc10 <fastfft::measure::pick+0x1090>
+  49d784:	lea    0x1(%r12),%rbp
+  49d789:	mov    $0x1,%r15d
+  49d78f:	nop
+  49d790:	test   %rax,%rax
+  49d793:	jne    49d800 <fastfft::measure::pick+0xc80>
+  49d795:	cmp    $0xc34f,%edx
+  49d79b:	ja     49d800 <fastfft::measure::pick+0xc80>
+  49d79d:	cmp    $0x100000,%r15
+  49d7a4:	je     49d800 <fastfft::measure::pick+0xc80>
+  49d7a6:	add    %r15,%r15
+  49d7a9:	mov    0x50(%rsp),%rax
+  49d7ae:	mov    %rax,0x30(%rsp)
+  49d7b3:	mov    %r12,0x38(%rsp)
+  49d7b8:	mov    %r15,0x40(%rsp)
+  49d7bd:	mov    %r13b,0x48(%rsp)
+  49d7c2:	movb   $0x0,0x49(%rsp)
+  49d7c7:	lea    0x180(%rsp),%rdi
+  49d7cf:	mov    0x90(%rsp),%rsi
+  49d7d7:	mov    0x18(%rsp),%rdx
+  49d7dc:	lea    0x30(%rsp),%rcx
+  49d7e1:	lea    0x1e0(%rsp),%r8
+  49d7e9:	call   *%r14
+  49d7ec:	cmp    $0x3b9aca00,%edx
+  49d7f2:	jne    49d790 <fastfft::measure::pick+0xc10>
+  49d7f4:	jmp    49dc10 <fastfft::measure::pick+0x1090>
+  49d7f9:	nopl   0x0(%rax)
+  49d800:	cmp    %rbx,%r15
+  49d803:	cmova  %r15,%rbx
+  49d807:	cmp    0xf8(%rsp),%rbp
+  49d80f:	mov    0x18(%rsp),%rdx
+  49d814:	mov    0x90(%rsp),%rsi
+  49d81c:	jne    49d733 <fastfft::measure::pick+0xbb3>
+  49d822:	mov    %rbx,0x390(%rsp)
+  49d82a:	mov    $0x1,%ebx
+  49d82f:	xor    %ebp,%ebp
+  49d831:	mov    %rbp,%r12
+  49d834:	mov    0xa8(%rsp),%r14
+  49d83c:	mov    0x50(%rsp),%rax
+  49d841:	mov    %rax,0x30(%rsp)
+  49d846:	mov    %rbp,0x38(%rsp)
+  49d84b:	movq   $0x1,0x40(%rsp)
+  49d854:	mov    %r13b,0x48(%rsp)
+  49d859:	movb   $0x0,0x49(%rsp)
+  49d85e:	lea    0x180(%rsp),%rdi
+  49d866:	mov    0x10(%rsp),%rsi
+  49d86b:	mov    0x8(%rsp),%rdx
+  49d870:	lea    0x30(%rsp),%rcx
+  49d875:	lea    0x1e0(%rsp),%r8
+  49d87d:	call   *%r14
+  49d880:	cmp    $0x3b9aca00,%edx
+  49d886:	je     49dc10 <fastfft::measure::pick+0x1090>
+  49d88c:	lea    0x1(%r12),%rbp
+  49d891:	mov    $0x1,%r15d
+  49d897:	nopw   0x0(%rax,%rax,1)
+  49d8a0:	test   %rax,%rax
+  49d8a3:	jne    49d906 <fastfft::measure::pick+0xd86>
+  49d8a5:	cmp    $0xc34f,%edx
+  49d8ab:	ja     49d906 <fastfft::measure::pick+0xd86>
+  49d8ad:	cmp    $0x100000,%r15
+  49d8b4:	je     49d906 <fastfft::measure::pick+0xd86>
+  49d8b6:	add    %r15,%r15
+  49d8b9:	mov    0x50(%rsp),%rax
+  49d8be:	mov    %rax,0x30(%rsp)
+  49d8c3:	mov    %r12,0x38(%rsp)
+  49d8c8:	mov    %r15,0x40(%rsp)
+  49d8cd:	mov    %r13b,0x48(%rsp)
+  49d8d2:	movb   $0x0,0x49(%rsp)
+  49d8d7:	lea    0x180(%rsp),%rdi
+  49d8df:	mov    0x10(%rsp),%rsi
+  49d8e4:	mov    0x8(%rsp),%rdx
+  49d8e9:	lea    0x30(%rsp),%rcx
+  49d8ee:	lea    0x1e0(%rsp),%r8
+  49d8f6:	call   *%r14
+  49d8f9:	cmp    $0x3b9aca00,%edx
+  49d8ff:	jne    49d8a0 <fastfft::measure::pick+0xd20>
+  49d901:	jmp    49dc10 <fastfft::measure::pick+0x1090>
+  49d906:	cmp    %rbx,%r15
+  49d909:	cmova  %r15,%rbx
+  49d90d:	cmp    0xf8(%rsp),%rbp
+  49d915:	jne    49d831 <fastfft::measure::pick+0xcb1>
+  49d91b:	mov    %rbx,0x398(%rsp)
+  49d923:	mov    0x158(%rsp),%rax
+  49d92b:	mov    %rax,0x140(%rsp)
+  49d933:	mov    0xf8(%rsp),%rcx
+  49d93b:	xor    %esi,%esi
+  49d93d:	test   %rcx,%rcx
+  49d940:	je     49dbea <fastfft::measure::pick+0x106a>
+  49d946:	mov    %rsi,%rax
+  49d949:	shr    $1,%rax
+  49d94c:	add    0x240(%rsp),%rax
+  49d954:	mov    %rax,0x200(%rsp)
+  49d95c:	mov    %rsi,%rax
+  49d95f:	shl    $0x4,%rax
+  49d963:	add    %rsp,%rax
+  49d966:	add    $0x2b0,%rax
+  49d96c:	mov    %rax,0x148(%rsp)
+  49d974:	mov    0x140(%rsp),%rax
+  49d97c:	mov    %rsi,0x150(%rsp)
+  49d984:	mov    %rcx,0x208(%rsp)
+  49d98c:	mov    %eax,%edx
+  49d98e:	and    $0x1,%edx
+  49d991:	cmpq   $0x1,0x3a0(%rsp)
+  49d99a:	mov    %rax,0x210(%rsp)
+  49d9a2:	mov    0x200(%rsp),%rcx
+  49d9aa:	lea    (%rcx,%rax,1),%rax
+  49d9ae:	mov    $0x0,%ebx
+  49d9b3:	mov    %rdx,%r12
+  49d9b6:	cmovne %rdx,%rbx
+  49d9ba:	mov    %rax,%rbp
+  49d9bd:	mov    %rax,%rcx
+  49d9c0:	cmove  %rsi,%rcx
+  49d9c4:	and    $0x1,%ecx
+  49d9c7:	mov    %ecx,%eax
+  49d9c9:	mov    0x390(%rsp,%rax,8),%r14
+  49d9d1:	mov    0xa8(%rsp),%rax
+  49d9d9:	mov    %rcx,%r15
+  49d9dc:	shl    $0x4,%ecx
+  49d9df:	mov    0x290(%rsp,%rcx,1),%rsi
+  49d9e7:	mov    0x298(%rsp,%rcx,1),%rdx
+  49d9ef:	mov    0x50(%rsp),%rcx
+  49d9f4:	mov    %rcx,0x30(%rsp)
+  49d9f9:	mov    %r13b,0x48(%rsp)
+  49d9fe:	mov    %rbx,0x38(%rsp)
+  49da03:	mov    %r14,0x40(%rsp)
+  49da08:	movb   $0x1,0x49(%rsp)
+  49da0d:	lea    0x180(%rsp),%rdi
+  49da15:	lea    0x30(%rsp),%rcx
+  49da1a:	lea    0x1e0(%rsp),%r8
+  49da22:	call   *%rax
+  49da24:	cmp    $0x3b9aca00,%edx
+  49da2a:	mov    0x150(%rsp),%rsi
+  49da32:	je     49dc10 <fastfft::measure::pick+0x1090>
+  49da38:	movq   %rax,%xmm0
+  49da3d:	movq   -0x433955(%rip),%xmm2        # 6a0f0 <__abi_tag+0x69df4>
+  49da45:	punpckldq %xmm2,%xmm0
+  49da49:	movapd -0x435511(%rip),%xmm3        # 68540 <__abi_tag+0x68244>
+  49da51:	subpd  %xmm3,%xmm0
+  49da55:	movapd %xmm0,%xmm1
+  49da59:	unpckhpd %xmm0,%xmm1
+  49da5d:	addsd  %xmm0,%xmm1
+  49da61:	xorps  %xmm0,%xmm0
+  49da64:	cvtsi2sd %edx,%xmm0
+  49da68:	divsd  -0x429908(%rip),%xmm0        # 74168 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x17e8>
+  49da70:	addsd  %xmm1,%xmm0
+  49da74:	movq   %r14,%xmm1
+  49da79:	punpckldq %xmm2,%xmm1
+  49da7d:	subpd  %xmm3,%xmm1
+  49da81:	movapd %xmm1,%xmm2
+  49da85:	unpckhpd %xmm1,%xmm2
+  49da89:	addsd  %xmm1,%xmm2
+  49da8d:	divsd  %xmm2,%xmm0
+  49da91:	imul   $0x70,%rbx,%rax
+  49da95:	add    0x148(%rsp),%rax
+  49da9d:	movsd  %xmm0,(%rax,%r15,8)
+  49daa3:	lea    (%rsi,%rsi,1),%rax
+  49daa7:	or     %eax,%r15d
+  49daaa:	mov    $0x1,%eax
+  49daaf:	mov    %r15d,%ecx
+  49dab2:	shl    %cl,%eax
+  49dab4:	or     %ax,0x3a8(%rsp,%rbx,2)
+  49dabc:	cmpq   $0x1,0x3a0(%rsp)
+  49dac5:	mov    $0x0,%eax
+  49daca:	cmove  %rax,%r12
+  49dace:	mov    %rbp,%rcx
+  49dad1:	cmove  %esi,%ecx
+  49dad4:	not    %ecx
+  49dad6:	and    $0x1,%ecx
+  49dad9:	mov    0x390(%rsp,%rcx,8),%rbx
+  49dae1:	mov    0xa8(%rsp),%rax
+  49dae9:	mov    %rcx,%rbp
+  49daec:	shl    $0x4,%ecx
+  49daef:	mov    0x290(%rsp,%rcx,1),%rsi
+  49daf7:	mov    0x298(%rsp,%rcx,1),%rdx
+  49daff:	mov    0x50(%rsp),%rcx
+  49db04:	mov    %rcx,0x30(%rsp)
+  49db09:	mov    %r13b,0x48(%rsp)
+  49db0e:	mov    %r12,%r14
+  49db11:	mov    %r12,0x38(%rsp)
+  49db16:	mov    %rbx,0x40(%rsp)
+  49db1b:	movb   $0x1,0x49(%rsp)
+  49db20:	lea    0x180(%rsp),%rdi
+  49db28:	lea    0x30(%rsp),%rcx
+  49db2d:	lea    0x1e0(%rsp),%r8
+  49db35:	call   *%rax
+  49db37:	cmp    $0x3b9aca00,%edx
+  49db3d:	mov    0x150(%rsp),%rsi
+  49db45:	je     49dc10 <fastfft::measure::pick+0x1090>
+  49db4b:	movq   %rax,%xmm0
+  49db50:	movq   -0x433a68(%rip),%xmm2        # 6a0f0 <__abi_tag+0x69df4>
+  49db58:	punpckldq %xmm2,%xmm0
+  49db5c:	movapd -0x435624(%rip),%xmm3        # 68540 <__abi_tag+0x68244>
+  49db64:	subpd  %xmm3,%xmm0
+  49db68:	movapd %xmm0,%xmm1
+  49db6c:	unpckhpd %xmm0,%xmm1
+  49db70:	addsd  %xmm0,%xmm1
+  49db74:	xorps  %xmm0,%xmm0
+  49db77:	cvtsi2sd %edx,%xmm0
+  49db7b:	divsd  -0x429a1b(%rip),%xmm0        # 74168 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x17e8>
+  49db83:	addsd  %xmm1,%xmm0
+  49db87:	movq   %rbx,%xmm1
+  49db8c:	punpckldq %xmm2,%xmm1
+  49db90:	subpd  %xmm3,%xmm1
+  49db94:	movapd %xmm1,%xmm2
+  49db98:	unpckhpd %xmm1,%xmm2
+  49db9c:	addsd  %xmm1,%xmm2
+  49dba0:	divsd  %xmm2,%xmm0
+  49dba4:	imul   $0x70,%r14,%rax
+  49dba8:	add    0x148(%rsp),%rax
+  49dbb0:	mov    %rbp,%rcx
+  49dbb3:	movsd  %xmm0,(%rax,%rbp,8)
+  49dbb8:	lea    (%rsi,%rsi,1),%rax
+  49dbbc:	or     %eax,%ecx
+  49dbbe:	mov    $0x1,%eax
+  49dbc3:	shl    %cl,%eax
+  49dbc5:	or     %ax,0x3a8(%rsp,%r14,2)
+  49dbce:	mov    0x210(%rsp),%rax
+  49dbd6:	inc    %rax
+  49dbd9:	mov    0x208(%rsp),%rcx
+  49dbe1:	dec    %rcx
+  49dbe4:	jne    49d984 <fastfft::measure::pick+0xe04>
+  49dbea:	inc    %rsi
+  49dbed:	cmp    $0x7,%rsi
+  49dbf1:	je     49dc10 <fastfft::measure::pick+0x1090>
+  49dbf3:	mov    0x3a0(%rsp),%rcx
+  49dbfb:	incq   0x140(%rsp)
+  49dc03:	test   %rcx,%rcx
+  49dc06:	jne    49d946 <fastfft::measure::pick+0xdc6>
+  49dc0c:	jmp    49dbea <fastfft::measure::pick+0x106a>
+  49dc0e:	xchg   %ax,%ax
+  49dc10:	mov    $0x100,%edx
+  49dc15:	lea    0x458(%rsp),%rdi
+  49dc1d:	lea    0x2b0(%rsp),%rsi
+  49dc25:	call   *0xd9a88d(%rip)        # 12384b8 <memcpy@GLIBC_2.14>
+  49dc2b:	mov    0x548(%rsp),%rbx
+  49dc33:	lea    -0x1(%rbx),%rax
+  49dc37:	cmp    $0x1,%rax
+  49dc3b:	ja     49e039 <fastfft::measure::pick+0x14b9>
+  49dc41:	cmpw   $0x3fff,0x550(%rsp)
+  49dc4b:	mov    0x78(%rsp),%rbp
+  49dc50:	mov    0x18(%rsp),%r12
+  49dc55:	mov    0x170(%rsp),%r15
+  49dc5d:	jne    49e050 <fastfft::measure::pick+0x14d0>
+  49dc63:	cmp    $0x1,%rbx
+  49dc67:	je     49dc83 <fastfft::measure::pick+0x1103>
+  49dc69:	cmpw   $0x3fff,0x552(%rsp)
+  49dc73:	jne    49e050 <fastfft::measure::pick+0x14d0>
+  49dc79:	cmp    $0x2,%rbx
+  49dc7d:	jne    49e050 <fastfft::measure::pick+0x14d0>
+  49dc83:	lea    (%rbx,%rbx,1),%rax
+  49dc87:	nopw   0x0(%rax,%rax,1)
+  49dc90:	cmp    $0x4,%rax
+  49dc94:	je     49dcb0 <fastfft::measure::pick+0x1130>
+  49dc96:	cmpw   $0x0,0x550(%rsp,%rax,1)
+  49dc9f:	lea    0x2(%rax),%rax
+  49dca3:	je     49dc90 <fastfft::measure::pick+0x1110>
+  49dca5:	jmp    49e050 <fastfft::measure::pick+0x14d0>
+  49dcaa:	nopw   0x0(%rax,%rax,1)
+  49dcb0:	test   %rbx,%rbx
+  49dcb3:	je     49dd93 <fastfft::measure::pick+0x1213>
+  49dcb9:	mov    0x80(%rsp),%r14
+  49dcc1:	shl    $0x5,%r14
+  49dcc5:	xor    %r13d,%r13d
+  49dcc8:	jmp    49dd1a <fastfft::measure::pick+0x119a>
+  49dcca:	nopw   0x0(%rax,%rax,1)
+  49dcd0:	inc    %r13
+  49dcd3:	movdqa 0x430(%rsp),%xmm0
+  49dcdc:	movapd 0x440(%rsp),%xmm1
+  49dce5:	movupd %xmm1,0x10(%r15,%r14,1)
+  49dcec:	movdqu %xmm0,(%r15,%r14,1)
+  49dcf2:	mov    0x80(%rsp),%rcx
+  49dcfa:	inc    %rcx
+  49dcfd:	mov    %rcx,0x80(%rsp)
+  49dd05:	mov    %rcx,0x138(%rsp)
+  49dd0d:	add    $0x20,%r14
+  49dd11:	cmp    %r13,%rbx
+  49dd14:	je     49dda2 <fastfft::measure::pick+0x1222>
+  49dd1a:	lea    0x2b0(%rsp),%rdi
+  49dd22:	lea    0x458(%rsp),%rsi
+  49dd2a:	mov    %r13,%rdx
+  49dd2d:	call   d5f140 <fastfft::measure::WorkloadSamples::statistics>
+  49dd32:	cmpl   $0x1,0x2b0(%rsp)
+  49dd3a:	jne    49e050 <fastfft::measure::pick+0x14d0>
+  49dd40:	lea    0x2b8(%rsp),%rax
+  49dd48:	movdqu (%rax),%xmm0
+  49dd4c:	movupd 0x10(%rax),%xmm1
+  49dd51:	movapd %xmm1,0x440(%rsp)
+  49dd5a:	movdqa %xmm0,0x430(%rsp)
+  49dd63:	mov    0x80(%rsp),%rax
+  49dd6b:	cmp    0x128(%rsp),%rax
+  49dd73:	jne    49dcd0 <fastfft::measure::pick+0x1150>
+  49dd79:	lea    0x128(%rsp),%rdi
+  49dd81:	call   354940 <alloc::raw_vec::RawVec<T,A>::grow_one>
+  49dd86:	mov    0x130(%rsp),%r15
+  49dd8e:	jmp    49dcd0 <fastfft::measure::pick+0x1150>
+  49dd93:	cmpq   $0x0,0x80(%rsp)
+  49dd9c:	je     49e050 <fastfft::measure::pick+0x14d0>
+  49dda2:	mov    0x80(%rsp),%rax
+  49ddaa:	shl    $0x5,%rax
+  49ddae:	add    %r15,%rax
+  49ddb1:	mov    %r15,%rcx
+  49ddb4:	data16 data16 cs nopw 0x0(%rax,%rax,1)
+  49ddc0:	movsd  0x10(%rcx),%xmm1
+  49ddc5:	divsd  (%rcx),%xmm1
+  49ddc9:	movsd  0x18(%rcx),%xmm2
+  49ddce:	divsd  0x8(%rcx),%xmm2
+  49ddd3:	movapd %xmm1,%xmm0
+  49ddd7:	cmpunordsd %xmm1,%xmm0
+  49dddc:	movapd %xmm0,%xmm3
+  49dde0:	andpd  %xmm2,%xmm3
+  49dde4:	maxsd  %xmm1,%xmm2
+  49dde8:	andnpd %xmm2,%xmm0
+  49ddec:	orpd   %xmm3,%xmm0
+  49ddf0:	movq   %xmm0,%rdx
+  49ddf5:	test   %rdx,%rdx
+  49ddf8:	sets   %sil
+  49ddfc:	movabs $0x7fffffffffffffff,%rdi
+  49de06:	and    %rdi,%rdx
+  49de09:	movabs $0xfff0000000000000,%rdi
+  49de13:	add    %rdx,%rdi
+  49de16:	shr    $0x35,%rdi
+  49de1a:	cmp    $0x3ff,%edi
+  49de20:	setb   %dil
+  49de24:	and    %sil,%dil
+  49de27:	lea    -0x1(%rdx),%r8
+  49de2b:	movabs $0xfffffffffffff,%r9
+  49de35:	cmp    %r9,%r8
+  49de38:	setb   %r8b
+  49de3c:	and    %sil,%r8b
+  49de3f:	test   %rdx,%rdx
+  49de42:	sete   %sil
+  49de46:	movabs $0x7ff0000000000000,%r9
+  49de50:	cmp    %r9,%rdx
+  49de53:	setg   %dl
+  49de56:	sete   %r9b
+  49de5a:	or     %sil,%r9b
+  49de5d:	or     %dl,%r9b
+  49de60:	or     %r8b,%r9b
+  49de63:	or     %dil,%r9b
+  49de66:	jne    49e050 <fastfft::measure::pick+0x14d0>
+  49de6c:	ucomisd -0x4292c4(%rip),%xmm0        # 74bb0 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x2230>
+  49de74:	ja     49e050 <fastfft::measure::pick+0x14d0>
+  49de7a:	add    $0x20,%rcx
+  49de7e:	cmp    %rax,%rcx
+  49de81:	jne    49ddc0 <fastfft::measure::pick+0x1240>
+  49de87:	mov    0x158(%rsp),%r8
+  49de8f:	inc    %r8
+  49de92:	mov    0x248(%rsp),%rcx
+  49de9a:	cmp    $0x3,%rcx
+  49de9e:	jne    49d60b <fastfft::measure::pick+0xa8b>
+  49dea4:	mov    0x238(%rsp),%rdi
+  49deac:	cmp    0x230(%rsp),%rdi
+  49deb4:	jne    49d5cc <fastfft::measure::pick+0xa4c>
+  49deba:	mov    0x228(%rsp),%rcx
+  49dec2:	cmp    $0x3,%rcx
+  49dec6:	mov    0x220(%rsp),%rdi
+  49dece:	jne    49d578 <fastfft::measure::pick+0x9f8>
+  49ded4:	mov    0x218(%rsp),%rcx
+  49dedc:	shl    $0x2,%rcx
+  49dee0:	lea    (%rcx,%rcx,2),%rcx
+  49dee4:	cmp    %rcx,0x80(%rsp)
+  49deec:	jne    49e1fa <fastfft::measure::pick+0x167a>
+  49def2:	xorpd  %xmm0,%xmm0
+  49def6:	movapd %xmm0,0x50(%rsp)
+  49defc:	mov    %r15,%rcx
+  49deff:	movsd  0x10(%rcx),%xmm1
+  49df04:	movsd  0x18(%rcx),%xmm2
+  49df09:	divsd  (%rcx),%xmm1
+  49df0d:	divsd  0x8(%rcx),%xmm2
+  49df12:	movapd %xmm1,%xmm0
+  49df16:	cmpunordsd %xmm1,%xmm0
+  49df1b:	movapd %xmm0,%xmm3
+  49df1f:	andpd  %xmm2,%xmm3
+  49df23:	maxsd  %xmm1,%xmm2
+  49df27:	andnpd %xmm2,%xmm0
+  49df2b:	orpd   %xmm3,%xmm0
+  49df2f:	movq   %xmm0,%rdx
+  49df34:	test   %rdx,%rdx
+  49df37:	sets   %sil
+  49df3b:	movabs $0x7fffffffffffffff,%rdi
+  49df45:	and    %rdi,%rdx
+  49df48:	movabs $0xfff0000000000000,%rdi
+  49df52:	add    %rdx,%rdi
+  49df55:	shr    $0x35,%rdi
+  49df59:	cmp    $0x3ff,%edi
+  49df5f:	setb   %dil
+  49df63:	and    %sil,%dil
+  49df66:	lea    -0x1(%rdx),%r8
+  49df6a:	movabs $0xfffffffffffff,%r9
+  49df74:	cmp    %r9,%r8
+  49df77:	setb   %r8b
+  49df7b:	and    %sil,%r8b
+  49df7e:	test   %rdx,%rdx
+  49df81:	sete   %sil
+  49df85:	movabs $0x7ff0000000000000,%r9
+  49df8f:	cmp    %r9,%rdx
+  49df92:	setg   %dl
+  49df95:	sete   %r9b
+  49df99:	or     %sil,%r9b
+  49df9c:	or     %dl,%r9b
+  49df9f:	or     %r8b,%r9b
+  49dfa2:	or     %dil,%r9b
+  49dfa5:	ucomisd -0x4293fd(%rip),%xmm0        # 74bb0 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x2230>
+  49dfad:	seta   %bl
+  49dfb0:	or     %r9b,%bl
+  49dfb3:	test   $0x1,%bl
+  49dfb6:	jne    49dfea <fastfft::measure::pick+0x146a>
+  49dfb8:	add    $0x20,%rcx
+  49dfbc:	movapd %xmm0,%xmm1
+  49dfc0:	movapd 0x50(%rsp),%xmm2
+  49dfc6:	maxsd  %xmm2,%xmm1
+  49dfca:	cmpunordsd %xmm2,%xmm2
+  49dfcf:	andpd  %xmm2,%xmm0
+  49dfd3:	andnpd %xmm1,%xmm2
+  49dfd7:	orpd   %xmm0,%xmm2
+  49dfdb:	movapd %xmm2,0x50(%rsp)
+  49dfe1:	cmp    %rax,%rcx
+  49dfe4:	jne    49deff <fastfft::measure::pick+0x137f>
+  49dfea:	xor    $0x1,%bl
+  49dfed:	jmp    49e1fc <fastfft::measure::pick+0x167c>
+  49dff2:	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+  49e000:	movq   $0x100,0x1c8(%rsp)
+  49e00c:	movq   $0x180,0x1d0(%rsp)
+  49e018:	movq   $0x80,0x1d8(%rsp)
+  49e024:	mov    $0x8,%r15d
+  49e02a:	xor    %ebx,%ebx
+  49e02c:	cmpq   $0x0,0x128(%rsp)
+  49e035:	jne    49e061 <fastfft::measure::pick+0x14e1>
+  49e037:	jmp    49e06a <fastfft::measure::pick+0x14ea>
+  49e039:	mov    0x78(%rsp),%rbp
+  49e03e:	mov    0x18(%rsp),%r12
+  49e043:	mov    0x170(%rsp),%r15
+  49e04b:	nopl   0x0(%rax,%rax,1)
+  49e050:	cmpq   $0x0,0x128(%rsp)
+  49e059:	je     49e0f5 <fastfft::measure::pick+0x1575>
+  49e05f:	xor    %ebx,%ebx
+  49e061:	mov    %r15,%rdi
+  49e064:	call   *0xd9a45e(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49e06a:	mov    0x20(%rsp),%rax
+  49e06f:	mov    %rax,0x2b0(%rsp)
+  49e077:	mov    0x8(%rsp),%rax
+  49e07c:	mov    %rax,0x2b8(%rsp)
+  49e084:	test   $0x1,%bl
+  49e087:	je     49e10f <fastfft::measure::pick+0x158f>
+  49e08d:	movsd  0x160(%rsp),%xmm0
+  49e096:	ucomisd 0x50(%rsp),%xmm0
+  49e09c:	jbe    49e10f <fastfft::measure::pick+0x158f>
+  49e09e:	mov    0x70(%rsp),%rax
+  49e0a3:	movzbl 0x30(%rax),%ebp
+  49e0a7:	movzbl 0x20(%rax),%r14d
+  49e0ac:	mov    0x10(%rax),%r12
+  49e0b0:	movdqu 0x10(%rax),%xmm0
+  49e0b5:	movdqa %xmm0,0x80(%rsp)
+  49e0be:	test   %r12,%r12
+  49e0c1:	je     49e130 <fastfft::measure::pick+0x15b0>
+  49e0c3:	mov    0x8(%rax),%r15
+  49e0c7:	lea    0x0(,%r12,8),%rbx
+  49e0cf:	mov    %rbx,%rdi
+  49e0d2:	call   *0xd9a3d8(%rip)        # 12384b0 <malloc@GLIBC_2.2.5>
+  49e0d8:	test   %rax,%rax
+  49e0db:	je     49e337 <fastfft::measure::pick+0x17b7>
+  49e0e1:	mov    %rax,%r13
+  49e0e4:	mov    %rax,%rdi
+  49e0e7:	mov    %r15,%rsi
+  49e0ea:	mov    %rbx,%rdx
+  49e0ed:	call   *0xd9a3c5(%rip)        # 12384b8 <memcpy@GLIBC_2.14>
+  49e0f3:	jmp    49e136 <fastfft::measure::pick+0x15b6>
+  49e0f5:	mov    0x20(%rsp),%rax
+  49e0fa:	mov    %rax,0x2b0(%rsp)
+  49e102:	mov    0x8(%rsp),%rax
+  49e107:	mov    %rax,0x2b8(%rsp)
+  49e10f:	mov    0x20(%rsp),%rax
+  49e114:	lock decq (%rax)
+  49e118:	jne    49d1d2 <fastfft::measure::pick+0x652>
+  49e11e:	lea    0x2b0(%rsp),%rdi
+  49e126:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49e12b:	jmp    49d1d2 <fastfft::measure::pick+0x652>
+  49e130:	mov    $0x8,%r13d
+  49e136:	mov    0x70(%rsp),%rax
+  49e13b:	movsd  0x28(%rax),%xmm0
+  49e140:	movsd  %xmm0,0x10(%rsp)
+  49e146:	cmpq   $0x0,0xb0(%rsp)
+  49e14f:	je     49e15f <fastfft::measure::pick+0x15df>
+  49e151:	mov    0xb8(%rsp),%rdi
+  49e159:	call   *0xd9a369(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49e15f:	mov    0xe8(%rsp),%rax
+  49e167:	lock decq (%rax)
+  49e16b:	jne    49d160 <fastfft::measure::pick+0x5e0>
+  49e171:	lea    0xe8(%rsp),%rdi
+  49e179:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49e17e:	jmp    49d160 <fastfft::measure::pick+0x5e0>
+  49e183:	mov    0x168(%rsp),%rcx
+  49e18b:	sub    0x70(%rsp),%rcx
+  49e190:	shr    $0x3,%rcx
+  49e194:	movabs $0x6db6db6db6db6db7,%rdx
+  49e19e:	imul   %rdx,%rcx
+  49e1a2:	cmp    %rcx,%rax
+  49e1a5:	jae    49e232 <fastfft::measure::pick+0x16b2>
+  49e1ab:	imul   $0x38,%rax,%rax
+  49e1af:	add    %rax,0x70(%rsp)
+  49e1b4:	jmp    49d1f8 <fastfft::measure::pick+0x678>
+  49e1b9:	mov    $0x4,%ecx
+  49e1be:	mov    $0x8,%r8d
+  49e1c4:	lea    0x1b0(%rsp),%rdi
+  49e1cc:	mov    %r15,%rsi
+  49e1cf:	mov    %r13,%rdx
+  49e1d2:	call   355340 <alloc::raw_vec::RawVecInner<A>::reserve::do_reserve_and_handle>
+  49e1d7:	mov    0x1c0(%rsp),%r15
+  49e1df:	mov    0x1b8(%rsp),%rbx
+  49e1e7:	lea    (%rbx,%r15,8),%rdi
+  49e1eb:	cmp    $0x2,%r13
+  49e1ef:	jae    49d472 <fastfft::measure::pick+0x8f2>
+  49e1f5:	jmp    49d494 <fastfft::measure::pick+0x914>
+  49e1fa:	xor    %ebx,%ebx
+  49e1fc:	mov    0x78(%rsp),%rbp
+  49e201:	mov    0x18(%rsp),%r12
+  49e206:	cmpq   $0x0,0x128(%rsp)
+  49e20f:	jne    49e061 <fastfft::measure::pick+0x14e1>
+  49e215:	jmp    49e06a <fastfft::measure::pick+0x14ea>
+  49e21a:	mov    0x20(%rsp),%rax
+  49e21f:	lock decq (%rax)
+  49e223:	jne    49e232 <fastfft::measure::pick+0x16b2>
+  49e225:	lea    0x280(%rsp),%rdi
+  49e22d:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49e232:	mov    0xf0(%rsp),%rax
+  49e23a:	mov    %rax,0x40(%rbp)
+  49e23e:	movups 0xb0(%rsp),%xmm0
+  49e246:	movups 0xc0(%rsp),%xmm1
+  49e24e:	movups 0xd0(%rsp),%xmm2
+  49e256:	movups 0xe0(%rsp),%xmm3
+  49e25e:	movups %xmm3,0x30(%rbp)
+  49e262:	movups %xmm2,0x20(%rbp)
+  49e266:	movups %xmm1,0x10(%rbp)
+  49e26a:	movups %xmm0,0x0(%rbp)
+  49e26e:	cmpq   $0x0,0x180(%rsp)
+  49e277:	je     49e287 <fastfft::measure::pick+0x1707>
+  49e279:	mov    0x188(%rsp),%rdi
+  49e281:	call   *0xd9a241(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49e287:	cmpq   $0x0,0x198(%rsp)
+  49e290:	je     49e2a0 <fastfft::measure::pick+0x1720>
+  49e292:	mov    0x1a0(%rsp),%rdi
+  49e29a:	call   *0xd9a228(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49e2a0:	cmpq   $0x0,0x1b0(%rsp)
+  49e2a9:	je     49e2b9 <fastfft::measure::pick+0x1739>
+  49e2ab:	mov    0x1b8(%rsp),%rdi
+  49e2b3:	call   *0xd9a20f(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49e2b9:	cmpq   $0x0,0x108(%rsp)
+  49e2c2:	je     49e2d2 <fastfft::measure::pick+0x1752>
+  49e2c4:	mov    0x110(%rsp),%rdi
+  49e2cc:	call   *0xd9a1f6(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49e2d2:	mov    0x68(%rsp),%rax
+  49e2d7:	lock decq (%rax)
+  49e2db:	jne    49cf5a <fastfft::measure::pick+0x3da>
+  49e2e1:	lea    0x270(%rsp),%rdi
+  49e2e9:	jmp    49cf55 <fastfft::measure::pick+0x3d5>
+  49e2ee:	xor    %r12d,%r12d
+  49e2f1:	mov    $0x4,%r13d
+  49e2f7:	mov    %r13,%rax
+  49e2fa:	cmp    $0x2,%r14
+  49e2fe:	jae    49d002 <fastfft::measure::pick+0x482>
+  49e304:	jmp    49d019 <fastfft::measure::pick+0x499>
+  49e309:	mov    $0x4,%r13d
+  49e30f:	xor    %r12d,%r12d
+  49e312:	jmp    49d020 <fastfft::measure::pick+0x4a0>
+  49e317:	mov    $0x8,%edi
+  49e31c:	mov    $0x8,%esi
+  49e321:	call   bfab00 <alloc::alloc::handle_alloc_error>
+  49e326:	jmp    49e35d <fastfft::measure::pick+0x17dd>
+  49e328:	mov    $0x8,%edi
+  49e32d:	mov    %r15,%rsi
+  49e330:	call   bfa980 <alloc::raw_vec::handle_error>
+  49e335:	jmp    49e35d <fastfft::measure::pick+0x17dd>
+  49e337:	mov    $0x8,%edi
+  49e33c:	mov    %rbx,%rsi
+  49e33f:	call   bfa980 <alloc::raw_vec::handle_error>
+  49e344:	jmp    49e35d <fastfft::measure::pick+0x17dd>
+  49e346:	mov    $0x4,%edi
+  49e34b:	jmp    49ce89 <fastfft::measure::pick+0x309>
+  49e350:	mov    $0x4,%edi
+  49e355:	mov    %r15,%rsi
+  49e358:	call   bfa980 <alloc::raw_vec::handle_error>
+  49e35d:	ud2
+  49e35f:	jmp    49e452 <fastfft::measure::pick+0x18d2>
+  49e364:	jmp    49e45e <fastfft::measure::pick+0x18de>
+  49e369:	jmp    49e45e <fastfft::measure::pick+0x18de>
+  49e36e:	mov    %rax,%r15
+  49e371:	cmpq   $0x0,0x90(%rsp)
+  49e37a:	je     49e4a9 <fastfft::measure::pick+0x1929>
+  49e380:	mov    %rbx,%rdi
+  49e383:	call   *0xd9a13f(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49e389:	jmp    49e4a9 <fastfft::measure::pick+0x1929>
+  49e38e:	mov    %rax,%r15
+  49e391:	mov    %r12,0xb0(%rsp)
+  49e399:	mov    %r13,0xb8(%rsp)
+  49e3a1:	mov    %r12,0xc0(%rsp)
+  49e3a9:	pshufd $0xee,0x80(%rsp),%xmm0
+  49e3b3:	movq   %xmm0,0xc8(%rsp)
+  49e3bc:	mov    %r14b,0xd0(%rsp)
+  49e3c4:	movq   0x10(%rsp),%xmm0
+  49e3ca:	movq   %xmm0,0xd8(%rsp)
+  49e3d3:	mov    %bpl,0xe0(%rsp)
+  49e3db:	mov    0x20(%rsp),%rax
+  49e3e0:	mov    %rax,0xe8(%rsp)
+  49e3e8:	mov    0x8(%rsp),%rax
+  49e3ed:	mov    %rax,0xf0(%rsp)
+  49e3f5:	jmp    49e492 <fastfft::measure::pick+0x1912>
+  49e3fa:	mov    %rax,%r15
+  49e3fd:	mov    0x20(%rsp),%rax
+  49e402:	lock decq (%rax)
+  49e406:	jne    49e492 <fastfft::measure::pick+0x1912>
+  49e40c:	lea    0x2b0(%rsp),%rdi
+  49e414:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49e419:	jmp    49e492 <fastfft::measure::pick+0x1912>
+  49e41b:	call   bff900 <core::panicking::panic_in_cleanup>
+  49e420:	jmp    49e452 <fastfft::measure::pick+0x18d2>
+  49e422:	mov    %rax,%r15
+  49e425:	jmp    49e514 <fastfft::measure::pick+0x1994>
+  49e42a:	jmp    49e45e <fastfft::measure::pick+0x18de>
+  49e42c:	mov    %rax,%r15
+  49e42f:	mov    $0x1,%bl
+  49e431:	jmp    49e4dc <fastfft::measure::pick+0x195c>
+  49e436:	mov    %rax,%r15
+  49e439:	test   %rbx,%rbx
+  49e43c:	je     49e514 <fastfft::measure::pick+0x1994>
+  49e442:	mov    %r14,%rdi
+  49e445:	call   *0xd9a07d(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49e44b:	jmp    49e514 <fastfft::measure::pick+0x1994>
+  49e450:	jmp    49e45e <fastfft::measure::pick+0x18de>
+  49e452:	mov    %rax,%r15
+  49e455:	jmp    49e492 <fastfft::measure::pick+0x1912>
+  49e457:	jmp    49e45e <fastfft::measure::pick+0x18de>
+  49e459:	mov    %rax,%r15
+  49e45c:	jmp    49e47a <fastfft::measure::pick+0x18fa>
+  49e45e:	mov    %rax,%r15
+  49e461:	cmpq   $0x0,0x128(%rsp)
+  49e46a:	je     49e47a <fastfft::measure::pick+0x18fa>
+  49e46c:	mov    0x130(%rsp),%rdi
+  49e474:	call   *0xd9a04e(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49e47a:	mov    0x20(%rsp),%rax
+  49e47f:	lock decq (%rax)
+  49e483:	jne    49e492 <fastfft::measure::pick+0x1912>
+  49e485:	lea    0x280(%rsp),%rdi
+  49e48d:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49e492:	lea    0x180(%rsp),%rdi
+  49e49a:	call   337280 <core::ptr::drop_in_place<fastfft::measure::Buffers<f32>>>
+  49e49f:	jmp    49e4a9 <fastfft::measure::pick+0x1929>
+  49e4a1:	mov    %rax,%r15
+  49e4a4:	jmp    49e4c2 <fastfft::measure::pick+0x1942>
+  49e4a6:	mov    %rax,%r15
+  49e4a9:	cmpq   $0x0,0x108(%rsp)
+  49e4b2:	je     49e4c2 <fastfft::measure::pick+0x1942>
+  49e4b4:	mov    0x110(%rsp),%rdi
+  49e4bc:	call   *0xd9a006(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49e4c2:	mov    0x68(%rsp),%rax
+  49e4c7:	lock decq (%rax)
+  49e4cb:	jne    49e4da <fastfft::measure::pick+0x195a>
+  49e4cd:	lea    0x270(%rsp),%rdi
+  49e4d5:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49e4da:	xor    %ebx,%ebx
+  49e4dc:	cmpq   $0x0,0xb0(%rsp)
+  49e4e5:	je     49e4f5 <fastfft::measure::pick+0x1975>
+  49e4e7:	mov    0xb8(%rsp),%rdi
+  49e4ef:	call   *0xd99fd3(%rip)        # 12384c8 <free@GLIBC_2.2.5>
+  49e4f5:	mov    0xe8(%rsp),%rax
+  49e4fd:	lock decq (%rax)
+  49e501:	jne    49e510 <fastfft::measure::pick+0x1990>
+  49e503:	lea    0xe8(%rsp),%rdi
+  49e50b:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49e510:	test   %bl,%bl
+  49e512:	je     49e52c <fastfft::measure::pick+0x19ac>
+  49e514:	mov    0x68(%rsp),%rax
+  49e519:	lock decq (%rax)
+  49e51d:	jne    49e52c <fastfft::measure::pick+0x19ac>
+  49e51f:	lea    0x260(%rsp),%rdi
+  49e527:	call   354600 <alloc::sync::Arc<T,A>::drop_slow>
+  49e52c:	mov    %r15,%rdi
+  49e52f:	call   1202170 <_Unwind_Resume@plt>
+  49e534:	call   bff900 <core::panicking::panic_in_cleanup>
+  49e539:	int3
+  49e53a:	int3
+  49e53b:	int3
+  49e53c:	int3
+  49e53d:	int3
+  49e53e:	int3
+  49e53f:	int3

@@ -1,0 +1,515 @@
+    Finished `release` profile [optimized + debuginfo] target(s) in 0.04s
+    Finished `release` profile [optimized + debuginfo] target(s) in 0.00s
+     Running `fuzz/target/x86_64-unknown-linux-gnu/release/fft -artifact_prefix=/home/ianhersom/repo/fastfft/fuzz/artifacts/fft/ -max_total_time=600 -timeout=120 -rss_limit_mb=4096 -max_len=24 -seed=20261008 -print_final_stats=1 /home/ianhersom/repo/fastfft/fuzz/corpus/fft`
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 20261008
+INFO: Loaded 1 modules   (812533 inline 8-bit counters): 812533 [0x622bd6e49150, 0x622bd6f0f745), 
+INFO: Loaded 1 PC tables (812533 PCs): 812533 [0x622bd6f0f748,0x622bd7b75698), 
+INFO:      440 files found in /home/ianhersom/repo/fastfft/fuzz/corpus/fft
+INFO: seed corpus: files: 440 min: 24b max: 24b total: 10560b rss: 66Mb
+#64	pulse  cov: 6934 ft: 11215 corp: 59/1416b exec/s: 21 rss: 566Mb
+#128	pulse  cov: 9821 ft: 16450 corp: 117/2808b exec/s: 6 rss: 722Mb
+#256	pulse  cov: 14615 ft: 26357 corp: 230/5520b exec/s: 6 rss: 764Mb
+#443	INITED cov: 18479 ft: 34301 corp: 381/9144b exec/s: 5 rss: 803Mb
+	NEW_FUNC[1/1]: 0x622bd64d3bd0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x41acbd0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#444	NEW    cov: 18485 ft: 34348 corp: 382/9168b lim: 24 exec/s: 5 rss: 803Mb L: 24/24 MS: 1 ChangeBinInt-
+#445	NEW    cov: 18485 ft: 34382 corp: 383/9192b lim: 24 exec/s: 5 rss: 803Mb L: 24/24 MS: 1 ChangeByte-
+#457	NEW    cov: 18485 ft: 34418 corp: 384/9216b lim: 24 exec/s: 5 rss: 803Mb L: 24/24 MS: 2 ChangeBit-ChangeBit-
+	NEW_FUNC[1/5]: 0x622bd4f77c30  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2c50c30) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/5]: 0x622bd4faf220  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2c88220) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#465	NEW    cov: 18520 ft: 34461 corp: 385/9240b lim: 24 exec/s: 5 rss: 803Mb L: 24/24 MS: 3 CopyPart-ShuffleBytes-CrossOver-
+	NEW_FUNC[1/3]: 0x622bd5abef80  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3797f80) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/3]: 0x622bd5b38fe0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3811fe0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#468	NEW    cov: 18536 ft: 34496 corp: 386/9264b lim: 24 exec/s: 5 rss: 803Mb L: 24/24 MS: 3 ShuffleBytes-ShuffleBytes-ChangeByte-
+#484	NEW    cov: 18538 ft: 34499 corp: 387/9288b lim: 24 exec/s: 5 rss: 803Mb L: 24/24 MS: 1 CopyPart-
+#485	NEW    cov: 18538 ft: 34502 corp: 388/9312b lim: 24 exec/s: 5 rss: 803Mb L: 24/24 MS: 1 ShuffleBytes-
+#487	NEW    cov: 18541 ft: 34551 corp: 389/9336b lim: 24 exec/s: 5 rss: 803Mb L: 24/24 MS: 2 CopyPart-CMP- DE: "h\000\000\000\000\000\000\000"-
+#512	pulse  cov: 18541 ft: 34551 corp: 389/9336b lim: 24 exec/s: 5 rss: 803Mb
+	NEW_FUNC[1/1]: 0x622bd68bc180  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x4595180) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#556	NEW    cov: 18581 ft: 34606 corp: 390/9360b lim: 24 exec/s: 5 rss: 803Mb L: 24/24 MS: 5 CopyPart-PersAutoDict-ShuffleBytes-ChangeByte-ChangeBinInt- DE: "h\000\000\000\000\000\000\000"-
+#562	NEW    cov: 18581 ft: 34608 corp: 391/9384b lim: 24 exec/s: 6 rss: 803Mb L: 24/24 MS: 1 CopyPart-
+	NEW_FUNC[1/3]: 0x622bd5d2c100  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3a05100) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/3]: 0x622bd647b160  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x4154160) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#568	NEW    cov: 18661 ft: 34740 corp: 392/9408b lim: 24 exec/s: 6 rss: 803Mb L: 24/24 MS: 1 CopyPart-
+	NEW_FUNC[1/2]: 0x622bd52e07b0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2fb97b0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/2]: 0x622bd54d9b60  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x31b2b60) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#571	NEW    cov: 18688 ft: 34767 corp: 393/9432b lim: 24 exec/s: 6 rss: 803Mb L: 24/24 MS: 3 ShuffleBytes-CrossOver-CrossOver-
+#602	NEW    cov: 18688 ft: 34873 corp: 394/9456b lim: 24 exec/s: 6 rss: 867Mb L: 24/24 MS: 1 CopyPart-
+#611	NEW    cov: 18688 ft: 34886 corp: 395/9480b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 4 ChangeByte-ChangeBit-ShuffleBytes-ChangeBit-
+	NEW_FUNC[1/2]: 0x622bd53c5180  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x309e180) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/2]: 0x622bd54e7380  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x31c0380) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#622	NEW    cov: 18736 ft: 34934 corp: 396/9504b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 1 ChangeByte-
+#625	NEW    cov: 18737 ft: 34935 corp: 397/9528b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 3 ChangeBit-CopyPart-ShuffleBytes-
+#638	NEW    cov: 18737 ft: 34991 corp: 398/9552b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 3 ShuffleBytes-ChangeBit-ChangeByte-
+	NEW_FUNC[1/1]: 0x622bd386a9f0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x15439f0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#644	NEW    cov: 18741 ft: 34995 corp: 399/9576b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 1 ChangeBit-
+	NEW_FUNC[1/3]: 0x622bd60a7b00  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3d80b00) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/3]: 0x622bd60ff4d0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3dd84d0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#652	NEW    cov: 19506 ft: 35730 corp: 400/9600b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 3 ChangeBit-PersAutoDict-CrossOver- DE: "h\000\000\000\000\000\000\000"-
+#653	NEW    cov: 19506 ft: 35735 corp: 401/9624b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 1 ShuffleBytes-
+	NEW_FUNC[1/2]: 0x622bd5b35fe0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x380efe0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/2]: 0x622bd64e98d0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x41c28d0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#663	NEW    cov: 19532 ft: 35847 corp: 402/9648b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 5 EraseBytes-CopyPart-EraseBytes-CrossOver-CrossOver-
+#665	NEW    cov: 19532 ft: 35848 corp: 403/9672b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 2 ChangeBit-CopyPart-
+#666	NEW    cov: 19532 ft: 35849 corp: 404/9696b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 1 ShuffleBytes-
+#672	NEW    cov: 19532 ft: 35878 corp: 405/9720b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 1 CopyPart-
+	NEW_FUNC[1/3]: 0x622bd385e0c0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x15370c0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/3]: 0x622bd385e600  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x1537600) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#676	NEW    cov: 19555 ft: 35901 corp: 406/9744b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 4 CrossOver-ChangeByte-ChangeBit-ChangeBit-
+	NEW_FUNC[1/4]: 0x622bd51c3b40  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2e9cb40) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/4]: 0x622bd51c3c80  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2e9cc80) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#679	NEW    cov: 19561 ft: 35910 corp: 407/9768b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 3 PersAutoDict-ShuffleBytes-ChangeBit- DE: "h\000\000\000\000\000\000\000"-
+#681	NEW    cov: 19561 ft: 35951 corp: 408/9792b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 2 ChangeByte-CMP- DE: "\201\000\000\000\000\000\000\002"-
+	NEW_FUNC[1/1]: 0x622bd5217360  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2ef0360) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#683	NEW    cov: 19562 ft: 35982 corp: 409/9816b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 2 ChangeBinInt-ChangeBinInt-
+#686	NEW    cov: 19564 ft: 35989 corp: 410/9840b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 3 ChangeBinInt-ShuffleBytes-PersAutoDict- DE: "h\000\000\000\000\000\000\000"-
+#698	NEW    cov: 19564 ft: 35992 corp: 411/9864b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 2 ChangeBit-CopyPart-
+#714	NEW    cov: 19565 ft: 36007 corp: 412/9888b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 1 CopyPart-
+#717	NEW    cov: 19567 ft: 36009 corp: 413/9912b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 3 ChangeBinInt-ChangeBinInt-CrossOver-
+#724	NEW    cov: 19567 ft: 36058 corp: 414/9936b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 2 PersAutoDict-ChangeBit- DE: "h\000\000\000\000\000\000\000"-
+#730	NEW    cov: 19567 ft: 36072 corp: 415/9960b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 1 CopyPart-
+#736	NEW    cov: 19567 ft: 36074 corp: 416/9984b lim: 24 exec/s: 6 rss: 907Mb L: 24/24 MS: 1 CopyPart-
+#744	NEW    cov: 19568 ft: 36076 corp: 417/10008b lim: 24 exec/s: 6 rss: 959Mb L: 24/24 MS: 3 ChangeByte-PersAutoDict-ChangeBinInt- DE: "\201\000\000\000\000\000\000\002"-
+#745	NEW    cov: 19568 ft: 36079 corp: 418/10032b lim: 24 exec/s: 6 rss: 960Mb L: 24/24 MS: 1 ChangeBinInt-
+#768	NEW    cov: 19569 ft: 36085 corp: 419/10056b lim: 24 exec/s: 6 rss: 1113Mb L: 24/24 MS: 3 ChangeBinInt-ChangeASCIIInt-ChangeByte-
+#769	NEW    cov: 19569 ft: 36102 corp: 420/10080b lim: 24 exec/s: 6 rss: 1113Mb L: 24/24 MS: 1 ChangeBinInt-
+#772	NEW    cov: 19569 ft: 36103 corp: 421/10104b lim: 24 exec/s: 6 rss: 1113Mb L: 24/24 MS: 3 ChangeBinInt-ChangeBit-ChangeBinInt-
+#773	NEW    cov: 19569 ft: 36104 corp: 422/10128b lim: 24 exec/s: 6 rss: 1113Mb L: 24/24 MS: 1 CopyPart-
+#780	NEW    cov: 19570 ft: 36105 corp: 423/10152b lim: 24 exec/s: 6 rss: 1113Mb L: 24/24 MS: 2 ChangeBinInt-ShuffleBytes-
+#786	NEW    cov: 19570 ft: 36210 corp: 424/10176b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeBinInt-
+#788	NEW    cov: 19570 ft: 36277 corp: 425/10200b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 ShuffleBytes-ShuffleBytes-
+	NEW_FUNC[1/2]: 0x622bd50f0ed0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2dc9ed0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/2]: 0x622bd50f8620  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2dd1620) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#789	NEW    cov: 19678 ft: 36385 corp: 426/10224b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeBinInt-
+	NEW_FUNC[1/5]: 0x622bd6269680  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3f42680) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/5]: 0x622bd634db90  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x4026b90) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#790	NEW    cov: 19724 ft: 36521 corp: 427/10248b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeBit-
+	NEW_FUNC[1/7]: 0x622bd395df80  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x1636f80) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/7]: 0x622bd3967fa0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x1640fa0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#796	NEW    cov: 19800 ft: 36597 corp: 428/10272b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CopyPart-
+#802	NEW    cov: 19801 ft: 36599 corp: 429/10296b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CMP- DE: "\001LK@"-
+#804	NEW    cov: 19802 ft: 36646 corp: 430/10320b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 PersAutoDict-CopyPart- DE: "\201\000\000\000\000\000\000\002"-
+#806	NEW    cov: 19807 ft: 36670 corp: 431/10344b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 ChangeBinInt-CMP- DE: "\001\014\367\376"-
+#807	NEW    cov: 19810 ft: 36691 corp: 432/10368b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CMP- DE: "\377\377xE\000\277\364\000"-
+	NEW_FUNC[1/1]: 0x622bd5b37db0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3810db0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#813	NEW    cov: 19815 ft: 36711 corp: 433/10392b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeBit-
+#814	NEW    cov: 19819 ft: 36715 corp: 434/10416b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ShuffleBytes-
+#816	NEW    cov: 19819 ft: 36738 corp: 435/10440b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 ChangeBinInt-ShuffleBytes-
+#849	NEW    cov: 19820 ft: 36739 corp: 436/10464b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 CopyPart-ChangeBinInt-ShuffleBytes-
+#850	NEW    cov: 19823 ft: 36743 corp: 437/10488b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 CMP- DE: "\377\377\377\377\377\377\377\377"-
+#851	NEW    cov: 19823 ft: 36751 corp: 438/10512b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CopyPart-
+#868	NEW    cov: 19823 ft: 36759 corp: 439/10536b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 ChangeByte-ChangeBinInt-
+	NEW_FUNC[1/1]: 0x622bd647d5e0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x41565e0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#873	NEW    cov: 19828 ft: 36764 corp: 440/10560b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 5 CopyPart-ChangeBinInt-ShuffleBytes-ShuffleBytes-ChangeBit-
+#886	NEW    cov: 19829 ft: 36765 corp: 441/10584b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 ChangeByte-CopyPart-ShuffleBytes-
+#893	NEW    cov: 19833 ft: 36809 corp: 442/10608b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 CopyPart-CopyPart-
+#898	NEW    cov: 19835 ft: 36835 corp: 443/10632b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 5 CrossOver-ShuffleBytes-ChangeBit-ChangeBit-CopyPart-
+#906	NEW    cov: 19835 ft: 36854 corp: 444/10656b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 ChangeBinInt-ChangeBinInt-CopyPart-
+#907	NEW    cov: 19835 ft: 36869 corp: 445/10680b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 CopyPart-
+	NEW_FUNC[1/25]: 0x622bd38ae790  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x1587790) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/25]: 0x622bd38aec20  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x1587c20) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#908	NEW    cov: 19981 ft: 37078 corp: 446/10704b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ChangeByte-
+#913	NEW    cov: 19981 ft: 37079 corp: 447/10728b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 5 EraseBytes-ChangeBit-ShuffleBytes-InsertRepeatedBytes-CopyPart-
+#915	NEW    cov: 19981 ft: 37081 corp: 448/10752b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 ShuffleBytes-ChangeByte-
+#916	NEW    cov: 19982 ft: 37082 corp: 449/10776b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 PersAutoDict- DE: "h\000\000\000\000\000\000\000"-
+#922	NEW    cov: 19983 ft: 37083 corp: 450/10800b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 CrossOver-
+#923	NEW    cov: 19983 ft: 37095 corp: 451/10824b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ChangeByte-
+#927	NEW    cov: 19983 ft: 37096 corp: 452/10848b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 4 ChangeBit-CrossOver-ChangeBinInt-CopyPart-
+#928	NEW    cov: 19983 ft: 37102 corp: 453/10872b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ChangeBit-
+#929	NEW    cov: 19983 ft: 37105 corp: 454/10896b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ShuffleBytes-
+#930	NEW    cov: 19983 ft: 37108 corp: 455/10920b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 PersAutoDict- DE: "\377\377\377\377\377\377\377\377"-
+#941	NEW    cov: 19983 ft: 37115 corp: 456/10944b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 PersAutoDict- DE: "\201\000\000\000\000\000\000\002"-
+#943	NEW    cov: 20178 ft: 37308 corp: 457/10968b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 PersAutoDict-CopyPart- DE: "\377\377\377\377\377\377\377\377"-
+#950	NEW    cov: 20178 ft: 37309 corp: 458/10992b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 CopyPart-PersAutoDict- DE: "h\000\000\000\000\000\000\000"-
+#952	NEW    cov: 20178 ft: 37328 corp: 459/11016b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 PersAutoDict-ChangeBinInt- DE: "\001LK@"-
+#968	NEW    cov: 20178 ft: 37332 corp: 460/11040b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 PersAutoDict- DE: "\001\014\367\376"-
+#974	NEW    cov: 20179 ft: 37344 corp: 461/11064b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ChangeBinInt-
+#976	NEW    cov: 20179 ft: 37351 corp: 462/11088b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 CopyPart-CMP- DE: "\020\000\000\000\000\000\000\000\005\000\000\000\000\000\000\000"-
+#980	NEW    cov: 20203 ft: 37409 corp: 463/11112b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 4 ShuffleBytes-CrossOver-ShuffleBytes-ChangeByte-
+#982	NEW    cov: 20208 ft: 37418 corp: 464/11136b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 ChangeBit-ChangeBinInt-
+#983	NEW    cov: 20358 ft: 37575 corp: 465/11160b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 CopyPart-
+	NEW_FUNC[1/2]: 0x622bd5b8ffa0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3868fa0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/2]: 0x622bd5b93fa0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x386cfa0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#989	NEW    cov: 20369 ft: 37591 corp: 466/11184b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ChangeByte-
+#996	NEW    cov: 20369 ft: 37663 corp: 467/11208b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 CopyPart-CopyPart-
+#997	NEW    cov: 20369 ft: 37664 corp: 468/11232b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 CrossOver-
+#1002	NEW    cov: 20369 ft: 37690 corp: 469/11256b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 5 ShuffleBytes-EraseBytes-ChangeByte-InsertByte-CopyPart-
+#1005	NEW    cov: 20371 ft: 37692 corp: 470/11280b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 CrossOver-CopyPart-CopyPart-
+#1006	NEW    cov: 20371 ft: 37700 corp: 471/11304b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ChangeBinInt-
+#1007	NEW    cov: 20381 ft: 37894 corp: 472/11328b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 CopyPart-
+#1008	NEW    cov: 20381 ft: 37895 corp: 473/11352b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ChangeBinInt-
+#1024	pulse  cov: 20381 ft: 37895 corp: 473/11352b lim: 24 exec/s: 6 rss: 1185Mb
+	NEW_FUNC[1/2]: 0x622bd5af5d50  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x37ced50) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/2]: 0x622bd5b5a930  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3833930) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1039	NEW    cov: 20509 ft: 38022 corp: 474/11376b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ChangeBit-
+#1047	NEW    cov: 20510 ft: 38032 corp: 475/11400b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 ChangeByte-PersAutoDict-ShuffleBytes- DE: "\377\377\377\377\377\377\377\377"-
+#1050	NEW    cov: 20510 ft: 38033 corp: 476/11424b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 CrossOver-CrossOver-CMP- DE: "A\000\000\000\000\000\000\000"-
+	NEW_FUNC[1/1]: 0x622bd5ac3160  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x379c160) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1054	NEW    cov: 20540 ft: 38129 corp: 477/11448b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 4 CopyPart-ChangeBinInt-ChangeByte-ShuffleBytes-
+#1056	NEW    cov: 20541 ft: 38154 corp: 478/11472b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 ChangeByte-ShuffleBytes-
+#1058	NEW    cov: 20541 ft: 38286 corp: 479/11496b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 CrossOver-ShuffleBytes-
+#1059	NEW    cov: 20544 ft: 38315 corp: 480/11520b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 CopyPart-
+#1063	NEW    cov: 20545 ft: 38317 corp: 481/11544b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 4 CrossOver-ShuffleBytes-CrossOver-CopyPart-
+#1064	NEW    cov: 20545 ft: 38318 corp: 482/11568b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 CopyPart-
+#1076	NEW    cov: 20545 ft: 38380 corp: 483/11592b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 CrossOver-ChangeBinInt-
+#1087	NEW    cov: 20545 ft: 38383 corp: 484/11616b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 PersAutoDict- DE: "\377\377xE\000\277\364\000"-
+#1098	NEW    cov: 20550 ft: 38391 corp: 485/11640b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 CopyPart-
+#1110	NEW    cov: 20550 ft: 38392 corp: 486/11664b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 ShuffleBytes-ChangeBinInt-
+#1118	NEW    cov: 20614 ft: 38511 corp: 487/11688b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 PersAutoDict-CrossOver-ChangeByte- DE: "\001LK@"-
+	NEW_FUNC[1/1]: 0x622bd39977e0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x16707e0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1125	NEW    cov: 20616 ft: 38513 corp: 488/11712b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 CopyPart-PersAutoDict- DE: "\377\377\377\377\377\377\377\377"-
+#1126	NEW    cov: 20616 ft: 38514 corp: 489/11736b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 CopyPart-
+#1130	NEW    cov: 20617 ft: 38517 corp: 490/11760b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 4 EraseBytes-ChangeBinInt-CrossOver-ChangeBit-
+#1131	NEW    cov: 20617 ft: 38526 corp: 491/11784b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 CopyPart-
+	NEW_FUNC[1/3]: 0x622bd53b7250  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3090250) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/3]: 0x622bd54e5ad0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x31bead0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1142	NEW    cov: 20680 ft: 38589 corp: 492/11808b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 PersAutoDict- DE: "A\000\000\000\000\000\000\000"-
+#1144	NEW    cov: 20681 ft: 38606 corp: 493/11832b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 ChangeBit-PersAutoDict- DE: "\001LK@"-
+#1145	NEW    cov: 20682 ft: 38607 corp: 494/11856b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeBit-
+#1154	NEW    cov: 20682 ft: 38666 corp: 495/11880b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 4 ChangeBinInt-ShuffleBytes-ChangeByte-ChangeBit-
+#1170	NEW    cov: 20684 ft: 38693 corp: 496/11904b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ShuffleBytes-
+	NEW_FUNC[1/1]: 0x622bd653d980  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x4216980) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1177	NEW    cov: 20734 ft: 38796 corp: 497/11928b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 ShuffleBytes-PersAutoDict- DE: "\001\014\367\376"-
+#1185	NEW    cov: 20734 ft: 38805 corp: 498/11952b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 3 ChangeBinInt-ChangeByte-ChangeBit-
+#1186	NEW    cov: 20734 ft: 38837 corp: 499/11976b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeByte-
+#1187	NEW    cov: 20734 ft: 38838 corp: 500/12000b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeBinInt-
+	NEW_FUNC[1/1]: 0x622bd51cca00  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2ea5a00) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1192	NEW    cov: 20736 ft: 38840 corp: 501/12024b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 5 CopyPart-PersAutoDict-ChangeByte-ChangeBinInt-ChangeBit- DE: "\020\000\000\000\000\000\000\000\005\000\000\000\000\000\000\000"-
+#1194	NEW    cov: 20736 ft: 38850 corp: 502/12048b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 ChangeBit-ChangeBinInt-
+#1218	NEW    cov: 20737 ft: 38851 corp: 503/12072b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 4 ChangeByte-CMP-ChangeBinInt-CrossOver- DE: "\001\000\232\335"-
+#1224	NEW    cov: 20739 ft: 38855 corp: 504/12096b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeBinInt-
+#1228	NEW    cov: 20739 ft: 38960 corp: 505/12120b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 4 ChangeBinInt-CrossOver-CopyPart-ShuffleBytes-
+#1239	NEW    cov: 20740 ft: 38996 corp: 506/12144b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeByte-
+#1242	NEW    cov: 20740 ft: 39010 corp: 507/12168b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 3 ChangeBit-CopyPart-CMP- DE: "\200\377\377\377\377\377\377\361"-
+#1248	NEW    cov: 20740 ft: 39063 corp: 508/12192b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeBit-
+#1252	NEW    cov: 20740 ft: 39068 corp: 509/12216b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 4 ChangeByte-ShuffleBytes-CrossOver-CrossOver-
+#1266	NEW    cov: 20740 ft: 39107 corp: 510/12240b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 4 CopyPart-CopyPart-CopyPart-ShuffleBytes-
+#1269	NEW    cov: 20743 ft: 39110 corp: 511/12264b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 3 CopyPart-ChangeByte-CMP- DE: "\377\377\377\377\377\377\203\035"-
+#1275	NEW    cov: 20743 ft: 39112 corp: 512/12288b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CopyPart-
+#1277	NEW    cov: 20743 ft: 39132 corp: 513/12312b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 CrossOver-CopyPart-
+#1283	NEW    cov: 20743 ft: 39133 corp: 514/12336b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CMP- DE: "\022\000\000\000\000\000\000\000"-
+#1284	NEW    cov: 20937 ft: 39326 corp: 515/12360b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeByte-
+#1295	NEW    cov: 20938 ft: 39327 corp: 516/12384b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeBinInt-
+#1297	NEW    cov: 20938 ft: 39351 corp: 517/12408b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 CopyPart-CopyPart-
+#1303	NEW    cov: 20938 ft: 39408 corp: 518/12432b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ShuffleBytes-
+#1310	NEW    cov: 20938 ft: 39409 corp: 519/12456b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 CopyPart-CrossOver-
+#1312	NEW    cov: 20938 ft: 39411 corp: 520/12480b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 PersAutoDict-ChangeBit- DE: "A\000\000\000\000\000\000\000"-
+#1323	NEW    cov: 20951 ft: 39520 corp: 521/12504b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CopyPart-
+#1324	NEW    cov: 20951 ft: 39524 corp: 522/12528b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CMP- DE: "\377G\000\000\000\000\000\000"-
+#1330	NEW    cov: 20951 ft: 39536 corp: 523/12552b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 PersAutoDict- DE: "\001\014\367\376"-
+#1341	NEW    cov: 21015 ft: 39667 corp: 524/12576b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CrossOver-
+#1342	NEW    cov: 21015 ft: 39680 corp: 525/12600b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CopyPart-
+	NEW_FUNC[1/1]: 0x622bd5b31c20  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x380ac20) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1343	NEW    cov: 21023 ft: 39692 corp: 526/12624b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeByte-
+#1344	NEW    cov: 21024 ft: 39694 corp: 527/12648b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 PersAutoDict- DE: "\377\377xE\000\277\364\000"-
+#1350	NEW    cov: 21024 ft: 39698 corp: 528/12672b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CopyPart-
+#1356	NEW    cov: 21024 ft: 39971 corp: 529/12696b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CopyPart-
+#1357	NEW    cov: 21024 ft: 39974 corp: 530/12720b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeByte-
+#1362	NEW    cov: 21024 ft: 39977 corp: 531/12744b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 5 EraseBytes-CopyPart-CrossOver-InsertRepeatedBytes-InsertByte-
+#1365	NEW    cov: 21024 ft: 40045 corp: 532/12768b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 3 CMP-ChangeByte-ChangeByte- DE: "ub'vb'v\002"-
+	NEW_FUNC[1/4]: 0x622bd5b82c10  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x385bc10) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/4]: 0x622bd5f03b10  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3bdcb10) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1383	NEW    cov: 21201 ft: 40236 corp: 533/12792b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 3 EraseBytes-PersAutoDict-InsertByte- DE: "\377\377xE\000\277\364\000"-
+#1395	NEW    cov: 21201 ft: 40238 corp: 534/12816b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 CopyPart-ChangeBinInt-
+#1398	NEW    cov: 21201 ft: 40240 corp: 535/12840b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 ChangeBit-ShuffleBytes-CopyPart-
+#1403	NEW    cov: 21202 ft: 40241 corp: 536/12864b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 5 ChangeBit-ChangeBinInt-CopyPart-ChangeBinInt-PersAutoDict- DE: "\377\377\377\377\377\377\203\035"-
+#1404	NEW    cov: 21203 ft: 40243 corp: 537/12888b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ChangeByte-
+#1407	NEW    cov: 21204 ft: 40244 corp: 538/12912b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 CopyPart-ChangeByte-ShuffleBytes-
+#1414	NEW    cov: 21265 ft: 40306 corp: 539/12936b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 ChangeByte-ChangeBit-
+#1417	NEW    cov: 21266 ft: 40309 corp: 540/12960b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 3 ChangeBit-ChangeByte-CopyPart-
+#1419	NEW    cov: 21266 ft: 40443 corp: 541/12984b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 ChangeBit-PersAutoDict- DE: "h\000\000\000\000\000\000\000"-
+#1420	NEW    cov: 21266 ft: 40530 corp: 542/13008b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CrossOver-
+#1423	NEW    cov: 21267 ft: 40532 corp: 543/13032b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 3 PersAutoDict-ChangeByte-ChangeByte- DE: "\377\377\377\377\377\377\377\377"-
+	NEW_FUNC[1/2]: 0x622bd5ab5090  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x378e090) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/2]: 0x622bd5ba3780  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x387c780) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1435	NEW    cov: 21402 ft: 40728 corp: 544/13056b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 ChangeBit-ChangeByte-
+#1445	NEW    cov: 21416 ft: 40767 corp: 545/13080b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 5 EraseBytes-PersAutoDict-InsertByte-ChangeBinInt-InsertByte- DE: "\377\377\377\377\377\377\377\377"-
+#1449	NEW    cov: 21416 ft: 40780 corp: 546/13104b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 4 ShuffleBytes-EraseBytes-CopyPart-InsertByte-
+#1451	NEW    cov: 21416 ft: 40781 corp: 547/13128b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 ShuffleBytes-ChangeBinInt-
+#1458	NEW    cov: 21416 ft: 40807 corp: 548/13152b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 ChangeByte-CrossOver-
+#1460	NEW    cov: 21416 ft: 40808 corp: 549/13176b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 ChangeBinInt-PersAutoDict- DE: "\200\377\377\377\377\377\377\361"-
+	NEW_FUNC[1/2]: 0x622bd5b32810  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x380b810) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/2]: 0x622bd5b42b70  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x381bb70) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1461	NEW    cov: 21424 ft: 40842 corp: 550/13200b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ShuffleBytes-
+#1462	NEW    cov: 21425 ft: 40843 corp: 551/13224b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ShuffleBytes-
+#1467	NEW    cov: 21425 ft: 40903 corp: 552/13248b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 5 ChangeByte-CrossOver-ChangeByte-ChangeBit-CopyPart-
+#1477	NEW    cov: 21425 ft: 40905 corp: 553/13272b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 5 ChangeBit-ChangeByte-ShuffleBytes-ChangeBinInt-PersAutoDict- DE: "A\000\000\000\000\000\000\000"-
+#1478	NEW    cov: 21425 ft: 40906 corp: 554/13296b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ChangeBinInt-
+	NEW_FUNC[1/1]: 0x622bd54db1a0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x31b41a0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1494	NEW    cov: 21427 ft: 40908 corp: 555/13320b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 CrossOver-
+#1498	NEW    cov: 21427 ft: 40910 corp: 556/13344b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 4 ChangeBinInt-ChangeBinInt-ChangeBinInt-ChangeBinInt-
+	NEW_FUNC[1/3]: 0x622bd63f8730  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x40d1730) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/3]: 0x622bd6428760  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x4101760) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1511	NEW    cov: 21564 ft: 41076 corp: 557/13368b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 CMP-ShuffleBytes-CMP- DE: "\001\000\000\000\000\000\000\003"-"\377V\273}"-
+	NEW_FUNC[1/2]: 0x622bd52e1740  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2fba740) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/2]: 0x622bd54d9c80  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x31b2c80) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1512	NEW    cov: 21590 ft: 41102 corp: 558/13392b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ChangeBit-
+#1514	NEW    cov: 21590 ft: 41117 corp: 559/13416b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 ChangeByte-CrossOver-
+#1520	NEW    cov: 21590 ft: 41273 corp: 560/13440b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ChangeBit-
+#1523	NEW    cov: 21590 ft: 41280 corp: 561/13464b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 ShuffleBytes-ChangeBinInt-ChangeBinInt-
+#1530	NEW    cov: 21702 ft: 41393 corp: 562/13488b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 CopyPart-PersAutoDict- DE: "\020\000\000\000\000\000\000\000\005\000\000\000\000\000\000\000"-
+	NEW_FUNC[1/1]: 0x622bd544a810  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3123810) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1536	NEW    cov: 21776 ft: 41468 corp: 563/13512b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 CrossOver-
+#1549	NEW    cov: 21776 ft: 41570 corp: 564/13536b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 CopyPart-CrossOver-CrossOver-
+#1550	NEW    cov: 21776 ft: 41604 corp: 565/13560b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ChangeByte-
+#1578	NEW    cov: 21776 ft: 41606 corp: 566/13584b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 ChangeBinInt-ChangeBit-CMP- DE: "\377\377\377\377\377\000\000\000"-
+#1579	NEW    cov: 21777 ft: 41607 corp: 567/13608b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 PersAutoDict- DE: "\377\377\377\377\377\000\000\000"-
+#1590	NEW    cov: 21777 ft: 41619 corp: 568/13632b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ChangeBit-
+#1608	NEW    cov: 21777 ft: 41663 corp: 569/13656b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 ChangeByte-CopyPart-CopyPart-
+#1610	NEW    cov: 21777 ft: 41666 corp: 570/13680b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 2 ChangeBinInt-ChangeByte-
+	NEW_FUNC[1/1]: 0x622bd640ca60  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x40e5a60) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1626	NEW    cov: 21814 ft: 41719 corp: 571/13704b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ChangeBinInt-
+#1637	NEW    cov: 21815 ft: 41763 corp: 572/13728b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 PersAutoDict- DE: "\001LK@"-
+#1643	NEW    cov: 21815 ft: 41764 corp: 573/13752b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 1 ChangeBinInt-
+#1661	NEW    cov: 21815 ft: 41766 corp: 574/13776b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 CopyPart-ChangeByte-ChangeByte-
+#1665	NEW    cov: 21815 ft: 41767 corp: 575/13800b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 4 ChangeBit-CrossOver-InsertRepeatedBytes-CopyPart-
+#1668	NEW    cov: 21815 ft: 41773 corp: 576/13824b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 ShuffleBytes-ChangeByte-CopyPart-
+#1671	NEW    cov: 21816 ft: 41807 corp: 577/13848b lim: 24 exec/s: 6 rss: 1185Mb L: 24/24 MS: 3 ChangeByte-ChangeBit-ChangeBit-
+#1689	NEW    cov: 21816 ft: 41808 corp: 578/13872b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 3 ChangeByte-CMP-CopyPart- DE: "\001\000\000\000\000\000\000\000"-
+#1690	NEW    cov: 21816 ft: 41811 corp: 579/13896b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeBinInt-
+#1702	NEW    cov: 21816 ft: 41816 corp: 580/13920b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 ChangeBit-ChangeBit-
+#1708	NEW    cov: 21816 ft: 41827 corp: 581/13944b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ShuffleBytes-
+#1711	NEW    cov: 21816 ft: 41828 corp: 582/13968b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 3 PersAutoDict-ChangeByte-ChangeByte- DE: "\200\377\377\377\377\377\377\361"-
+	NEW_FUNC[1/1]: 0x622bd54e5dc0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x31bedc0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1720	NEW    cov: 21818 ft: 41874 corp: 583/13992b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 4 CopyPart-ChangeBinInt-ChangeBit-CopyPart-
+	NEW_FUNC[1/5]: 0x622bd59fa210  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x36d3210) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/5]: 0x622bd5a00640  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x36d9640) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1723	NEW    cov: 22032 ft: 42192 corp: 584/14016b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 3 CopyPart-ChangeBit-CopyPart-
+#1724	NEW    cov: 22032 ft: 42198 corp: 585/14040b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CrossOver-
+#1725	NEW    cov: 22066 ft: 42235 corp: 586/14064b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CMP- DE: "\001\005\015v"-
+#1727	NEW    cov: 22066 ft: 42353 corp: 587/14088b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 ChangeByte-CopyPart-
+#1761	NEW    cov: 22066 ft: 42355 corp: 588/14112b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 4 EraseBytes-PersAutoDict-ChangeBit-ChangeBit- DE: "\377\377\377\377\377\000\000\000"-
+#1762	NEW    cov: 22066 ft: 42360 corp: 589/14136b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeBinInt-
+#1763	NEW    cov: 22067 ft: 42361 corp: 590/14160b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ShuffleBytes-
+#1765	NEW    cov: 22067 ft: 42378 corp: 591/14184b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 ChangeBinInt-ChangeByte-
+#1780	NEW    cov: 22067 ft: 42386 corp: 592/14208b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 5 ChangeBit-CopyPart-ShuffleBytes-CopyPart-CopyPart-
+#1783	NEW    cov: 22069 ft: 42392 corp: 593/14232b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 3 ChangeBinInt-CMP-PersAutoDict- DE: "ub'vb'v\002"-"\001\014\367\376"-
+#1804	NEW    cov: 22109 ft: 42446 corp: 594/14256b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeBinInt-
+	NEW_FUNC[1/4]: 0x622bd5c4d2a0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x39262a0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/4]: 0x622bd5c57270  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3930270) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1811	NEW    cov: 22409 ft: 42809 corp: 595/14280b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 CrossOver-ChangeByte-
+	NEW_FUNC[1/1]: 0x622bd56eb070  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x33c4070) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1817	NEW    cov: 22427 ft: 42827 corp: 596/14304b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CMP- DE: "\010\000\000\000\000\000\000\000\020\000\000\000\000\000\000\000"-
+#1823	NEW    cov: 22428 ft: 42830 corp: 597/14328b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeBinInt-
+#1834	NEW    cov: 22428 ft: 42834 corp: 598/14352b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeBit-
+#1835	NEW    cov: 22428 ft: 42855 corp: 599/14376b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeBinInt-
+#1839	NEW    cov: 22428 ft: 42857 corp: 600/14400b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 4 ChangeBinInt-CopyPart-CrossOver-CrossOver-
+	NEW_FUNC[1/2]: 0x622bd51d38a0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2eac8a0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/2]: 0x622bd51dbdd0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2eb4dd0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1848	NEW    cov: 22558 ft: 42987 corp: 601/14424b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 4 ChangeBinInt-CopyPart-ShuffleBytes-PersAutoDict- DE: "h\000\000\000\000\000\000\000"-
+#1849	NEW    cov: 22559 ft: 42988 corp: 602/14448b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 CrossOver-
+#1866	NEW    cov: 22559 ft: 42998 corp: 603/14472b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 ChangeBit-ShuffleBytes-
+#1882	NEW    cov: 22560 ft: 43003 corp: 604/14496b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ShuffleBytes-
+#1889	NEW    cov: 22561 ft: 43005 corp: 605/14520b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 2 PersAutoDict-ChangeByte- DE: "\377\377\377\377\377\000\000\000"-
+#1890	NEW    cov: 22562 ft: 43032 corp: 606/14544b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 PersAutoDict- DE: "\377\377xE\000\277\364\000"-
+#1891	NEW    cov: 22563 ft: 43054 corp: 607/14568b lim: 24 exec/s: 5 rss: 1185Mb L: 24/24 MS: 1 ChangeByte-
+#1895	NEW    cov: 22563 ft: 43055 corp: 608/14592b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 4 CrossOver-PersAutoDict-ChangeByte-ChangeByte- DE: "\377G\000\000\000\000\000\000"-
+#1924	NEW    cov: 22563 ft: 43071 corp: 609/14616b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 4 EraseBytes-ChangeBinInt-PersAutoDict-InsertByte- DE: "\001\000\000\000\000\000\000\000"-
+#1935	NEW    cov: 22563 ft: 43090 corp: 610/14640b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 1 CopyPart-
+	NEW_FUNC[1/1]: 0x622bd635e130  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x4037130) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#1952	NEW    cov: 22567 ft: 43106 corp: 611/14664b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 2 ChangeBinInt-PersAutoDict- DE: "\377\377\377\377\377\377\203\035"-
+#1976	NEW    cov: 22567 ft: 43107 corp: 612/14688b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 4 ChangeBit-CrossOver-ChangeBinInt-CopyPart-
+#1997	NEW    cov: 22567 ft: 43165 corp: 613/14712b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 1 PersAutoDict- DE: "\001\000\000\000\000\000\000\000"-
+#2000	NEW    cov: 22567 ft: 43187 corp: 614/14736b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 3 EraseBytes-CrossOver-ChangeBinInt-
+#2005	NEW    cov: 22567 ft: 43189 corp: 615/14760b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 5 ChangeByte-ShuffleBytes-PersAutoDict-ChangeBit-ShuffleBytes- DE: "\001\014\367\376"-
+#2008	NEW    cov: 22567 ft: 43190 corp: 616/14784b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 3 ChangeByte-ChangeBit-ShuffleBytes-
+	NEW_FUNC[1/1]: 0x622bd5b2d570  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3806570) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2014	NEW    cov: 22576 ft: 43218 corp: 617/14808b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 1 CopyPart-
+	NEW_FUNC[1/6]: 0x622bd41b8790  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x1e91790) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/6]: 0x622bd516b280  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2e44280) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2022	NEW    cov: 22624 ft: 43279 corp: 618/14832b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 3 ChangeBinInt-PersAutoDict-ChangeByte- DE: "ub'vb'v\002"-
+#2024	NEW    cov: 22624 ft: 43281 corp: 619/14856b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 2 ShuffleBytes-CrossOver-
+#2026	NEW    cov: 22624 ft: 43288 corp: 620/14880b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 2 ShuffleBytes-PersAutoDict- DE: "ub'vb'v\002"-
+#2062	NEW    cov: 22624 ft: 43297 corp: 621/14904b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 1 CopyPart-
+#2068	NEW    cov: 22630 ft: 43364 corp: 622/14928b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 1 ChangeBinInt-
+	NEW_FUNC[1/1]: 0x622bd5c17f70  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x38f0f70) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2070	NEW    cov: 22635 ft: 43369 corp: 623/14952b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 2 ChangeByte-ChangeBit-
+#2072	NEW    cov: 22635 ft: 43375 corp: 624/14976b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 2 CrossOver-ShuffleBytes-
+#2077	NEW    cov: 22859 ft: 43595 corp: 625/15000b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 5 ChangeBit-CopyPart-CopyPart-ChangeBinInt-ChangeBinInt-
+#2093	NEW    cov: 22859 ft: 43596 corp: 626/15024b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 1 ChangeBinInt-
+#2098	NEW    cov: 22859 ft: 43601 corp: 627/15048b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 5 ShuffleBytes-CopyPart-CrossOver-CrossOver-InsertRepeatedBytes-
+#2100	NEW    cov: 22955 ft: 43762 corp: 628/15072b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 2 ChangeBinInt-PersAutoDict- DE: "\377G\000\000\000\000\000\000"-
+	NEW_FUNC[1/4]: 0x622bd5e36930  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3b0f930) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/4]: 0x622bd5e60980  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3b39980) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2111	NEW    cov: 23086 ft: 43914 corp: 629/15096b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 1 ChangeByte-
+#2121	NEW    cov: 23086 ft: 44032 corp: 630/15120b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 5 ChangeBit-ChangeBit-ChangeBinInt-CrossOver-ShuffleBytes-
+#2122	NEW    cov: 23086 ft: 44041 corp: 631/15144b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 1 CopyPart-
+#2124	NEW    cov: 23086 ft: 44137 corp: 632/15168b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 2 ChangeByte-ChangeBit-
+#2126	NEW    cov: 23086 ft: 44138 corp: 633/15192b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 2 CopyPart-ShuffleBytes-
+#2132	NEW    cov: 23086 ft: 44139 corp: 634/15216b lim: 24 exec/s: 5 rss: 1226Mb L: 24/24 MS: 1 CrossOver-
+#2188	NEW    cov: 23086 ft: 44141 corp: 635/15240b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ShuffleBytes-
+	NEW_FUNC[1/6]: 0x622bd395edf0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x1637df0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/6]: 0x622bd3981840  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x165a840) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2197	NEW    cov: 23104 ft: 44164 corp: 636/15264b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 4 ChangeBit-CMP-ChangeByte-ChangeBit- DE: "\000LK@"-
+	NEW_FUNC[1/2]: 0x622bd5d94ef0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3a6def0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/2]: 0x622bd5d98760  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3a71760) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2198	NEW    cov: 23195 ft: 44344 corp: 637/15288b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeBinInt-
+#2200	NEW    cov: 23195 ft: 44345 corp: 638/15312b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ChangeByte-ChangeBit-
+#2202	NEW    cov: 23195 ft: 44367 corp: 639/15336b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ChangeByte-CrossOver-
+	NEW_FUNC[1/4]: 0x622bd3b3dbe0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x1816be0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/4]: 0x622bd4f62e60  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2c3be60) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2204	NEW    cov: 23204 ft: 44376 corp: 640/15360b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 CopyPart-PersAutoDict- DE: "\001\000\000\000\000\000\000\000"-
+#2205	NEW    cov: 23204 ft: 44385 corp: 641/15384b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ShuffleBytes-
+	NEW_FUNC[1/5]: 0x622bd5ca1cc0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x397acc0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/5]: 0x622bd5ca4260  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x397d260) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2218	NEW    cov: 23254 ft: 44438 corp: 642/15408b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 3 CrossOver-ChangeByte-CrossOver-
+#2229	NEW    cov: 23255 ft: 44439 corp: 643/15432b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeBit-
+#2242	NEW    cov: 23255 ft: 44452 corp: 644/15456b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 3 ChangeBit-ChangeBit-ShuffleBytes-
+#2244	NEW    cov: 23255 ft: 44478 corp: 645/15480b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 CMP-ShuffleBytes- DE: "\377\377\377\377\377\377\377\002"-
+#2246	NEW    cov: 23255 ft: 44487 corp: 646/15504b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ShuffleBytes-CMP- DE: "\004\000\000\000\000\000\000\000\010\000\000\000\000\000\000\000"-
+#2257	NEW    cov: 23255 ft: 44495 corp: 647/15528b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeBinInt-
+#2267	NEW    cov: 23255 ft: 44497 corp: 648/15552b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 5 CopyPart-ShuffleBytes-ChangeBinInt-PersAutoDict-CopyPart- DE: "h\000\000\000\000\000\000\000"-
+	NEW_FUNC[1/6]: 0x622bd4f7a1d0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2c531d0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/6]: 0x622bd4faf780  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2c88780) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2273	NEW    cov: 23299 ft: 44542 corp: 649/15576b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 CMP- DE: "\010\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\010\000\000\000\000\000\000\000"-
+#2276	NEW    cov: 23299 ft: 44558 corp: 650/15600b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 3 ChangeByte-CopyPart-CMP- DE: "\377\377\377\377\377\377\377\007"-
+#2278	NEW    cov: 23301 ft: 44574 corp: 651/15624b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 CopyPart-CrossOver-
+#2285	NEW    cov: 23301 ft: 44575 corp: 652/15648b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ChangeByte-ShuffleBytes-
+#2293	NEW    cov: 23301 ft: 44582 corp: 653/15672b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 3 ChangeBit-ChangeBit-CopyPart-
+	NEW_FUNC[1/3]: 0x622bd39406d0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x16196d0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/3]: 0x622bd39baf20  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x1693f20) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2295	NEW    cov: 23312 ft: 44595 corp: 654/15696b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ShuffleBytes-ShuffleBytes-
+#2296	NEW    cov: 23312 ft: 44607 corp: 655/15720b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeBit-
+#2327	NEW    cov: 23312 ft: 44608 corp: 656/15744b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeBinInt-
+	NEW_FUNC[1/1]: 0x622bd54e0cc0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x31b9cc0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2330	NEW    cov: 23314 ft: 44685 corp: 657/15768b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 3 ShuffleBytes-ChangeBinInt-CopyPart-
+#2338	NEW    cov: 23315 ft: 44794 corp: 658/15792b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 3 EraseBytes-PersAutoDict-InsertRepeatedBytes- DE: "\010\000\000\000\000\000\000\000\020\000\000\000\000\000\000\000"-
+#2364	NEW    cov: 23315 ft: 44801 corp: 659/15816b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 CrossOver-
+#2377	NEW    cov: 23317 ft: 44808 corp: 660/15840b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 3 ChangeBit-ShuffleBytes-ChangeBinInt-
+#2388	NEW    cov: 23317 ft: 44809 corp: 661/15864b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 CopyPart-
+#2400	NEW    cov: 23479 ft: 45085 corp: 662/15888b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 EraseBytes-InsertRepeatedBytes-
+	NEW_FUNC[1/1]: 0x622bd5c1a280  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x38f3280) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2402	NEW    cov: 23513 ft: 45156 corp: 663/15912b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 CopyPart-CMP- DE: "\376\377\377\377\377\377\007\000"-
+#2403	NEW    cov: 23514 ft: 45190 corp: 664/15936b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 CrossOver-
+#2404	NEW    cov: 23515 ft: 45191 corp: 665/15960b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeBinInt-
+	NEW_FUNC[1/2]: 0x622bd5ea3140  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3b7c140) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/2]: 0x622bd5efaf60  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3bd3f60) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2421	NEW    cov: 23548 ft: 45229 corp: 666/15984b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ChangeBinInt-CrossOver-
+	NEW_FUNC[1/3]: 0x622bd3b44610  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x181d610) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/3]: 0x622bd51355f0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2e0e5f0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2423	NEW    cov: 23557 ft: 45240 corp: 667/16008b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ChangeBinInt-CrossOver-
+#2426	NEW    cov: 23603 ft: 45288 corp: 668/16032b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 3 ChangeBit-ChangeBinInt-ChangeBit-
+#2427	NEW    cov: 23635 ft: 45437 corp: 669/16056b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 CrossOver-
+#2438	NEW    cov: 23635 ft: 45438 corp: 670/16080b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 PersAutoDict- DE: "\001\000\000\000\000\000\000\003"-
+#2445	NEW    cov: 23651 ft: 45459 corp: 671/16104b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ChangeBit-ChangeByte-
+	NEW_FUNC[1/2]: 0x622bd5b53840  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x382c840) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/2]: 0x622bd5b6fb60  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3848b60) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2451	NEW    cov: 23667 ft: 45479 corp: 672/16128b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeByte-
+#2467	NEW    cov: 23667 ft: 45534 corp: 673/16152b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeByte-
+#2471	NEW    cov: 23667 ft: 45570 corp: 674/16176b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 4 ChangeBinInt-ChangeBinInt-ChangeBinInt-CrossOver-
+	NEW_FUNC[1/1]: 0x622bd5f298b0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3c028b0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2477	NEW    cov: 23682 ft: 45647 corp: 675/16200b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeBit-
+#2485	NEW    cov: 23683 ft: 45650 corp: 676/16224b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 3 CopyPart-CopyPart-ChangeBinInt-
+	NEW_FUNC[1/2]: 0x622bd5b92520  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x386b520) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/2]: 0x622bd5bc63c0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x389f3c0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2486	NEW    cov: 23798 ft: 45778 corp: 677/16248b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeByte-
+#2517	NEW    cov: 23798 ft: 45780 corp: 678/16272b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 CrossOver-
+#2520	NEW    cov: 23799 ft: 45781 corp: 679/16296b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 3 ChangeBit-ShuffleBytes-CopyPart-
+	NEW_FUNC[1/1]: 0x622bd54d91c0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x31b21c0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2542	NEW    cov: 23801 ft: 45850 corp: 680/16320b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ShuffleBytes-CopyPart-
+	NEW_FUNC[1/5]: 0x622bd393e8f0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x16178f0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/5]: 0x622bd3997680  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x1670680) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2563	NEW    cov: 23818 ft: 45934 corp: 681/16344b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeBinInt-
+#2569	NEW    cov: 23882 ft: 45998 corp: 682/16368b lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ShuffleBytes-
+#2590	NEW    cov: 23882 ft: 46032 corp: 683/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 PersAutoDict- DE: "\377V\273}"-
+#2597	NEW    cov: 23882 ft: 46100 corp: 684/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ShuffleBytes-ChangeBinInt-
+#2620	NEW    cov: 23882 ft: 46104 corp: 685/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 3 ChangeByte-ChangeBinInt-ChangeByte-
+#2643	NEW    cov: 23882 ft: 46107 corp: 686/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 3 ShuffleBytes-EraseBytes-CopyPart-
+#2650	NEW    cov: 23882 ft: 46189 corp: 687/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 CrossOver-ChangeByte-
+#2675	NEW    cov: 23891 ft: 46234 corp: 688/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 5 ChangeBinInt-ChangeBit-ShuffleBytes-ChangeBit-ChangeByte-
+#2692	NEW    cov: 23891 ft: 46264 corp: 689/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ChangeByte-CrossOver-
+#2693	NEW    cov: 23891 ft: 46316 corp: 690/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ShuffleBytes-
+#2695	NEW    cov: 23891 ft: 46317 corp: 691/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ChangeBit-ChangeBit-
+#2698	NEW    cov: 23892 ft: 46318 corp: 692/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 3 CopyPart-ChangeBit-PersAutoDict- DE: "\377\377xE\000\277\364\000"-
+#2704	NEW    cov: 23892 ft: 46319 corp: 693/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeByte-
+#2731	NEW    cov: 23892 ft: 46344 corp: 694/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 PersAutoDict-CopyPart- DE: "\201\000\000\000\000\000\000\002"-
+#2733	NEW    cov: 23892 ft: 46346 corp: 695/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ChangeByte-ChangeBit-
+#2735	NEW    cov: 23893 ft: 46373 corp: 696/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 CrossOver-PersAutoDict- DE: "\377\377\377\377\377\000\000\000"-
+#2739	NEW    cov: 23967 ft: 46445 corp: 697/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 4 ChangeBit-CrossOver-ChangeBinInt-ChangeByte-
+#2742	NEW    cov: 23967 ft: 46446 corp: 698/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 3 ShuffleBytes-CopyPart-ShuffleBytes-
+#2754	NEW    cov: 23968 ft: 46447 corp: 699/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ChangeBit-CrossOver-
+#2756	NEW    cov: 23969 ft: 46448 corp: 700/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 CopyPart-CrossOver-
+#2762	NEW    cov: 23969 ft: 46529 corp: 701/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeBinInt-
+#2783	NEW    cov: 23969 ft: 46535 corp: 702/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeByte-
+#2784	NEW    cov: 24035 ft: 46601 corp: 703/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeBit-
+#2786	NEW    cov: 24036 ft: 46619 corp: 704/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ChangeByte-ChangeBit-
+#2788	NEW    cov: 24066 ft: 46651 corp: 705/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 PersAutoDict-ShuffleBytes- DE: "\376\377\377\377\377\377\007\000"-
+#2804	NEW    cov: 24068 ft: 46666 corp: 706/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeBinInt-
+#2808	NEW    cov: 24068 ft: 46676 corp: 707/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 4 EraseBytes-ChangeByte-InsertRepeatedBytes-CrossOver-
+#2814	NEW    cov: 24068 ft: 46682 corp: 708/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeBinInt-
+#2820	NEW    cov: 24068 ft: 46684 corp: 709/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeByte-
+#2824	NEW    cov: 24068 ft: 46764 corp: 710/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 4 CMP-PersAutoDict-ChangeBit-CMP- DE: "\003\000\000\000\000\000\000\000"-"\377\377\377\377\377\377\377\002"-"\004\000\000\000\000\000\000\000\010\000\000\000\000\000\000\000"-
+#2843	NEW    cov: 24068 ft: 46895 corp: 711/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 4 ShuffleBytes-ChangeBinInt-ChangeByte-CopyPart-
+#2864	NEW    cov: 24068 ft: 46898 corp: 712/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeBit-
+#2866	NEW    cov: 24068 ft: 46907 corp: 713/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 PersAutoDict-ChangeBinInt- DE: "\377V\273}"-
+#2868	NEW    cov: 24069 ft: 46915 corp: 714/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ChangeBit-ChangeBit-
+	NEW_FUNC[1/1]: 0x622bd54d90a0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x31b20a0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2874	NEW    cov: 24071 ft: 46918 corp: 715/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 CopyPart-
+#2893	NEW    cov: 24071 ft: 46919 corp: 716/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 4 ChangeBit-ChangeBit-ChangeBinInt-ChangeBinInt-
+#2899	NEW    cov: 24071 ft: 46920 corp: 717/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 CopyPart-
+#2911	NEW    cov: 24071 ft: 46945 corp: 718/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ChangeBit-ChangeBinInt-
+#2912	NEW    cov: 24072 ft: 46946 corp: 719/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 CopyPart-
+#2924	NEW    cov: 24072 ft: 46972 corp: 720/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 2 ChangeBit-ShuffleBytes-
+	NEW_FUNC[1/2]: 0x622bd5b95a20  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x386ea20) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/2]: 0x622bd5bb7860  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x3890860) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#2925	NEW    cov: 24167 ft: 47088 corp: 721/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeBit-
+#2931	NEW    cov: 24167 ft: 47089 corp: 722/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 CrossOver-
+#2940	NEW    cov: 24167 ft: 47092 corp: 723/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 4 EraseBytes-InsertByte-ChangeByte-CrossOver-
+#2944	NEW    cov: 24168 ft: 47093 corp: 724/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 4 CopyPart-ShuffleBytes-ShuffleBytes-ChangeByte-
+#2945	NEW    cov: 24168 ft: 47194 corp: 725/16Kb lim: 24 exec/s: 5 rss: 1238Mb L: 24/24 MS: 1 ChangeASCIIInt-
+#2962	NEW    cov: 24168 ft: 47247 corp: 726/17Kb lim: 24 exec/s: 5 rss: 1248Mb L: 24/24 MS: 2 ChangeBit-CMP- DE: "\377\013\310\000Ey\000\000"-
+#2963	NEW    cov: 24169 ft: 47248 corp: 727/17Kb lim: 24 exec/s: 5 rss: 1248Mb L: 24/24 MS: 1 ChangeBinInt-
+#2970	NEW    cov: 24321 ft: 47401 corp: 728/17Kb lim: 24 exec/s: 5 rss: 1248Mb L: 24/24 MS: 2 CopyPart-ChangeBit-
+#2986	NEW    cov: 24321 ft: 47448 corp: 729/17Kb lim: 24 exec/s: 5 rss: 1248Mb L: 24/24 MS: 1 CrossOver-
+#3017	NEW    cov: 24321 ft: 47537 corp: 730/17Kb lim: 24 exec/s: 5 rss: 1248Mb L: 24/24 MS: 1 ShuffleBytes-
+	NEW_FUNC[1/23]: 0x622bd3c6bd30  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x1944d30) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/23]: 0x622bd3c6cc10  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x1945c10) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#3034	NEW    cov: 24457 ft: 47690 corp: 731/17Kb lim: 24 exec/s: 5 rss: 1248Mb L: 24/24 MS: 2 ChangeBit-ShuffleBytes-
+#3041	NEW    cov: 24457 ft: 47691 corp: 732/17Kb lim: 24 exec/s: 5 rss: 1248Mb L: 24/24 MS: 2 CopyPart-ChangeBit-
+#3059	NEW    cov: 24457 ft: 47694 corp: 733/17Kb lim: 24 exec/s: 5 rss: 1248Mb L: 24/24 MS: 3 ChangeBit-ChangeBit-ShuffleBytes-
+#3067	NEW    cov: 24457 ft: 47695 corp: 734/17Kb lim: 24 exec/s: 5 rss: 1248Mb L: 24/24 MS: 3 ShuffleBytes-ShuffleBytes-ChangeByte-
+	NEW_FUNC[1/3]: 0x622bd51c48a0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2e9d8a0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/3]: 0x622bd51c4c40  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2e9dc40) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#3078	NEW    cov: 24486 ft: 47767 corp: 735/17Kb lim: 24 exec/s: 5 rss: 1248Mb L: 24/24 MS: 1 CopyPart-
+#3096	NEW    cov: 24487 ft: 47874 corp: 736/17Kb lim: 24 exec/s: 5 rss: 1248Mb L: 24/24 MS: 3 CopyPart-ChangeBinInt-ChangeByte-
+	NEW_FUNC[1/10]: 0x622bd4ba53e0  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x287e3e0) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+	NEW_FUNC[2/10]: 0x622bd4f63480  (/home/ianhersom/repo/fastfft/fuzz/target/x86_64-unknown-linux-gnu/release/fft+0x2c3c480) (BuildId: b4995698be992852104577927b7c79ee1b4531b9)
+#3100	NEW    cov: 24560 ft: 47948 corp: 737/17Kb lim: 24 exec/s: 5 rss: 1248Mb L: 24/24 MS: 4 CopyPart-ChangeBinInt-ShuffleBytes-ChangeByte-
+#3121	NEW    cov: 24560 ft: 47955 corp: 738/17Kb lim: 24 exec/s: 5 rss: 1248Mb L: 24/24 MS: 1 CrossOver-
+#3121	DONE   cov: 24560 ft: 47955 corp: 738/17Kb lim: 24 exec/s: 5 rss: 1248Mb
+###### Recommended dictionary. ######
+"h\000\000\000\000\000\000\000" # Uses: 17
+"\201\000\000\000\000\000\000\002" # Uses: 11
+"\001LK@" # Uses: 14
+"\001\014\367\376" # Uses: 10
+"\377\377xE\000\277\364\000" # Uses: 9
+"\377\377\377\377\377\377\377\377" # Uses: 12
+"\020\000\000\000\000\000\000\000\005\000\000\000\000\000\000\000" # Uses: 13
+"A\000\000\000\000\000\000\000" # Uses: 7
+"\001\000\232\335" # Uses: 6
+"\200\377\377\377\377\377\377\361" # Uses: 7
+"\377\377\377\377\377\377\203\035" # Uses: 5
+"\022\000\000\000\000\000\000\000" # Uses: 5
+"\377G\000\000\000\000\000\000" # Uses: 6
+"ub'vb'v\002" # Uses: 5
+"\001\000\000\000\000\000\000\003" # Uses: 7
+"\377V\273}" # Uses: 7
+"\377\377\377\377\377\000\000\000" # Uses: 7
+"\001\000\000\000\000\000\000\000" # Uses: 7
+"\001\005\015v" # Uses: 3
+"\010\000\000\000\000\000\000\000\020\000\000\000\000\000\000\000" # Uses: 2
+"\000LK@" # Uses: 2
+"\377\377\377\377\377\377\377\002" # Uses: 2
+"\004\000\000\000\000\000\000\000\010\000\000\000\000\000\000\000" # Uses: 1
+"\010\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\010\000\000\000\000\000\000\000" # Uses: 2
+"\377\377\377\377\377\377\377\007" # Uses: 2
+"\376\377\377\377\377\377\007\000" # Uses: 2
+"\003\000\000\000\000\000\000\000" # Uses: 1
+"\377\013\310\000Ey\000\000" # Uses: 0
+###### End of recommended dictionary. ######
+Done 3121 runs in 601 second(s)
+stat::number_of_executed_units: 3121
+stat::average_exec_per_sec:     5
+stat::new_units_added:          357
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              1248

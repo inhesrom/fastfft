@@ -1,0 +1,1958 @@
+{
+  "pid": 2373,
+  "identity": {
+    "comm": "herdr",
+    "starttime": 13351
+  },
+  "owner_uid": 1000,
+  "boot_id": "cfd2c8bb-1e16-4bc1-8227-f9cfb7a26f97",
+  "pid_namespace": 4026531836,
+  "dry_run": false,
+  "restored": true,
+  "children": {},
+  "preexisting_descendants": [
+    "300038:175153613",
+    "1186695:279097058",
+    "887112:604277607",
+    "1186888:279110489",
+    "3047176:506965730",
+    "1186748:279097218",
+    "1208461:287287849",
+    "967126:606064811",
+    "1186967:279110619",
+    "301783:175227776",
+    "471714:585140955",
+    "1186722:279097204",
+    "1186915:279110560",
+    "278756:563390223",
+    "888495:604316380",
+    "640496:594135088",
+    "493304:587660507",
+    "4045564:545521048",
+    "1186941:279110603"
+  ],
+  "reserved_cpus": [
+    4,
+    12
+  ],
+  "original_mask": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "restricted_mask": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15
+  ],
+  "command": [
+    "python3",
+    "docs/benchmarks/2026-10-04-mini-ryzen-ticket19-measure/quiet-run.py",
+    "--attribute",
+    "--core",
+    "4",
+    "--log",
+    "target/ticket19/selection-fix/canonical-storage/focus-quiet.jsonl",
+    "--",
+    "target/ticket19/selection-fix/canonical-storage/fastfft-arena",
+    "run",
+    "--suite",
+    "pow2,smooth,batch",
+    "--profile",
+    "full",
+    "--libs",
+    "fastfft,fastfft/measure",
+    "--filter",
+    "suite=smooth,precision=f32,dir=inv,place=oop,n=18,batch=1;suite=smooth,precision=f32,dir=fwd,place=ip,n=80,batch=1;suite=smooth,precision=f32,dir=inv,place=ip,n=96,batch=1;suite=smooth,precision=f32,dir=inv,place=ip,n=210,batch=1;suite=smooth,precision=f32,dir=fwd,place=ip,n=75600,batch=1;suite=smooth,precision=f32,dir=fwd,place=oop,n=75600,batch=1;suite=smooth,precision=f32,dir=inv,place=ip,n=75600,batch=1;suite=smooth,precision=f32,dir=inv,place=oop,n=75600,batch=1;suite=smooth,precision=f64,dir=fwd,place=ip,n=48,batch=1;suite=smooth,precision=f64,dir=fwd,place=oop,n=48,batch=1;suite=smooth,precision=f64,dir=inv,place=ip,n=48,batch=1;suite=smooth,precision=f64,dir=inv,place=oop,n=48,batch=1;suite=pow2,precision=f32,dir=fwd,place=ip,n=4096,batch=1;suite=pow2,precision=f32,dir=fwd,place=oop,n=4096,batch=1;suite=pow2,precision=f32,dir=inv,place=ip,n=4096,batch=1;suite=pow2,precision=f32,dir=inv,place=oop,n=4096,batch=1;suite=pow2,precision=f32,dir=fwd,place=ip,n=16777216,batch=1;suite=smooth,precision=f32,dir=inv,place=ip,n=1000000,batch=1;suite=smooth,precision=f64,dir=inv,place=oop,n=165375,batch=1;suite=batch,precision=f64,dir=fwd,place=oop,n=32,batch=32768;suite=smooth,precision=f32,dir=inv,place=ip,n=15,batch=1;suite=smooth,precision=f32,dir=inv,place=oop,n=15,batch=1;suite=smooth,precision=f32,dir=inv,place=oop,n=96,batch=1;suite=smooth,precision=f32,dir=fwd,place=ip,n=120,batch=1;suite=smooth,precision=f32,dir=fwd,place=ip,n=160,batch=1;suite=smooth,precision=f32,dir=inv,place=ip,n=160,batch=1;suite=smooth,precision=f64,dir=inv,place=ip,n=210,batch=1;suite=smooth,precision=f64,dir=inv,place=oop,n=210,batch=1;suite=pow2,precision=f32,dir=fwd,place=ip,n=524288,batch=1;suite=pow2,precision=f32,dir=fwd,place=oop,n=524288,batch=1;suite=pow2,precision=f32,dir=fwd,place=ip,n=32768,batch=1;suite=pow2,precision=f32,dir=fwd,place=oop,n=32768,batch=1;suite=pow2,precision=f32,dir=inv,place=ip,n=32768,batch=1;suite=pow2,precision=f32,dir=inv,place=oop,n=32768,batch=1",
+    "--core",
+    "4",
+    "--procs",
+    "8",
+    "--out",
+    "target/ticket19/selection-fix/canonical-storage/focus"
+  ],
+  "events": [
+    {
+      "utc": "2026-10-05T17:53:09.503357+00:00",
+      "event": "prepared",
+      "dry_run": false
+    },
+    {
+      "utc": "2026-10-05T17:53:09.521762+00:00",
+      "event": "restricted",
+      "tid": 2373,
+      "starttime": 13351
+    },
+    {
+      "utc": "2026-10-05T17:53:09.527180+00:00",
+      "event": "restricted",
+      "tid": 2374,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.530458+00:00",
+      "event": "restricted",
+      "tid": 2375,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.534760+00:00",
+      "event": "restricted",
+      "tid": 2376,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.538991+00:00",
+      "event": "restricted",
+      "tid": 2377,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.542338+00:00",
+      "event": "restricted",
+      "tid": 2378,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.545358+00:00",
+      "event": "restricted",
+      "tid": 2379,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.549210+00:00",
+      "event": "restricted",
+      "tid": 2380,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.552222+00:00",
+      "event": "restricted",
+      "tid": 2381,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.556232+00:00",
+      "event": "restricted",
+      "tid": 2382,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.559220+00:00",
+      "event": "restricted",
+      "tid": 2383,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.563118+00:00",
+      "event": "restricted",
+      "tid": 2384,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.566181+00:00",
+      "event": "restricted",
+      "tid": 2385,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.570478+00:00",
+      "event": "restricted",
+      "tid": 2386,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.574341+00:00",
+      "event": "restricted",
+      "tid": 2387,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.578309+00:00",
+      "event": "restricted",
+      "tid": 2388,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.581315+00:00",
+      "event": "restricted",
+      "tid": 2389,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.585154+00:00",
+      "event": "restricted",
+      "tid": 2390,
+      "starttime": 13352
+    },
+    {
+      "utc": "2026-10-05T17:53:09.588166+00:00",
+      "event": "restricted",
+      "tid": 2442,
+      "starttime": 13359
+    },
+    {
+      "utc": "2026-10-05T17:53:09.591298+00:00",
+      "event": "restricted",
+      "tid": 1652183,
+      "starttime": 322385405
+    },
+    {
+      "utc": "2026-10-05T17:53:09.594551+00:00",
+      "event": "restricted",
+      "tid": 3047177,
+      "starttime": 506965730
+    },
+    {
+      "utc": "2026-10-05T17:53:09.598490+00:00",
+      "event": "restricted",
+      "tid": 3047178,
+      "starttime": 506965730
+    },
+    {
+      "utc": "2026-10-05T17:53:09.601185+00:00",
+      "event": "restricted",
+      "tid": 4045459,
+      "starttime": 545519566
+    },
+    {
+      "utc": "2026-10-05T17:53:09.604268+00:00",
+      "event": "restricted",
+      "tid": 4045565,
+      "starttime": 545521048
+    },
+    {
+      "utc": "2026-10-05T17:53:09.607266+00:00",
+      "event": "restricted",
+      "tid": 471715,
+      "starttime": 585140956
+    },
+    {
+      "utc": "2026-10-05T17:53:09.611350+00:00",
+      "event": "restricted",
+      "tid": 471716,
+      "starttime": 585140956
+    },
+    {
+      "utc": "2026-10-05T17:53:09.614116+00:00",
+      "event": "restricted",
+      "tid": 493306,
+      "starttime": 587660508
+    },
+    {
+      "utc": "2026-10-05T17:53:09.618146+00:00",
+      "event": "restricted",
+      "tid": 640497,
+      "starttime": 594135088
+    },
+    {
+      "utc": "2026-10-05T17:53:09.621251+00:00",
+      "event": "restricted",
+      "tid": 640498,
+      "starttime": 594135088
+    },
+    {
+      "utc": "2026-10-05T17:53:09.625298+00:00",
+      "event": "restricted",
+      "tid": 887113,
+      "starttime": 604277607
+    },
+    {
+      "utc": "2026-10-05T17:53:09.629115+00:00",
+      "event": "restricted",
+      "tid": 887114,
+      "starttime": 604277607
+    },
+    {
+      "utc": "2026-10-05T17:53:09.634086+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:53:09.640361+00:00",
+      "event": "command_started",
+      "pid": 1114539
+    },
+    {
+      "utc": "2026-10-05T17:53:14.655532+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:53:19.675325+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:53:24.697103+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:53:29.717248+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:53:34.738216+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:53:39.763537+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:53:44.794113+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:53:49.820090+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:53:54.847103+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:53:59.874720+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:54:04.900257+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:54:09.922725+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:54:14.941007+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:54:19.960657+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:54:24.980308+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:54:29.999741+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:54:35.019311+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:54:40.039055+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:54:45.058846+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:54:50.078471+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:54:55.098257+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:55:00.117572+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:55:05.136961+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:55:10.156379+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:55:15.175789+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:55:20.195252+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:55:25.214537+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:55:30.233916+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:55:35.253621+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:55:40.273356+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:55:45.292613+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:55:50.312155+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:55:55.331941+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:56:00.352891+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:56:05.372058+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:56:10.391623+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:56:15.411190+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:56:20.430606+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:56:25.450512+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:56:30.466345+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:56:35.486288+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:56:40.506515+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:56:45.524229+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:56:50.544021+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:56:55.563983+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:57:00.583945+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:57:05.599622+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:57:10.617321+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:57:15.637134+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:57:20.657322+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:57:25.679034+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:57:30.698906+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:57:35.728864+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:57:40.751406+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:57:45.771595+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:57:50.799456+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:57:55.817684+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:58:00.840104+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:58:05.857101+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:58:10.883262+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:58:15.907134+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:58:20.925155+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:58:25.943367+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:58:30.960028+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:58:35.977494+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:58:40.994324+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:58:46.011280+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:58:51.028452+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:58:56.045607+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:59:01.062584+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:59:06.079646+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:59:11.097007+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:59:16.114731+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:59:21.131765+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:59:26.148884+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:59:31.165806+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:59:36.182899+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:59:41.199813+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:59:46.216925+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:59:51.234530+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T17:59:56.249448+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:00:01.268156+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:00:06.285637+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:00:11.300584+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:00:16.315561+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:00:21.329449+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:00:26.346202+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:00:31.363700+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:00:36.381772+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:00:41.399694+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:00:46.416907+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:00:51.434022+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:00:56.450966+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:01:01.468135+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:01:06.483242+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:01:11.500905+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:01:16.518235+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:01:21.535507+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:01:26.553224+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:01:31.570259+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:01:36.587103+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:01:41.604453+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:01:46.621645+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:01:51.638387+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:01:56.655584+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:02:01.672886+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:02:06.687675+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:02:11.710597+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:02:16.732350+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:02:21.755118+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:02:26.777477+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:02:31.794904+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:02:36.816919+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:02:41.839215+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:02:46.857398+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:02:51.875148+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:02:56.895107+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:03:02.417731+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:03:07.437589+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:03:12.457620+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:03:17.477761+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:03:22.497359+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:03:27.517068+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:03:32.537026+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:03:37.557066+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:03:42.576864+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:03:47.596542+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:03:52.616222+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:03:57.635899+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:04:03.155683+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:04:08.175257+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:04:13.193313+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:04:18.213403+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:04:23.233472+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:04:28.253555+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:04:33.273421+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:04:38.295706+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:04:43.318705+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:04:48.340620+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:04:53.360700+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:04:58.380487+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:05:03.900156+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:05:08.918105+00:00",
+      "event": "reservation_verified",
+      "live_threads": 31
+    },
+    {
+      "utc": "2026-10-05T18:05:08.926669+00:00",
+      "event": "command_finished",
+      "returncode": 0
+    },
+    {
+      "utc": "2026-10-05T18:05:08.942003+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2373,
+      "starttime": 13351,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:08.945916+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2374,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:08.949200+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2375,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:08.953771+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2376,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:08.957962+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2377,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:08.962353+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2378,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:08.966095+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2379,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:08.969037+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2380,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:08.972748+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2381,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:08.976720+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2382,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:08.979848+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2383,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:08.983368+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2384,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:08.986611+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2385,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:08.989834+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2386,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:08.993738+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2387,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:08.996804+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2388,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:08.999583+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2389,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:09.002301+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2390,
+      "starttime": 13352,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:09.005819+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 2442,
+      "starttime": 13359,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:09.009807+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 1652183,
+      "starttime": 322385405,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:09.012829+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 3047177,
+      "starttime": 506965730,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:09.015719+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 3047178,
+      "starttime": 506965730,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:09.018454+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 4045459,
+      "starttime": 545519566,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:09.022216+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 4045565,
+      "starttime": 545521048,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:09.025250+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 471715,
+      "starttime": 585140956,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:09.028092+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 471716,
+      "starttime": 585140956,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:09.031071+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 493306,
+      "starttime": 587660508,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:09.034791+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 640497,
+      "starttime": 594135088,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:09.038761+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 640498,
+      "starttime": 594135088,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:09.042744+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 887113,
+      "starttime": 604277607,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:09.046708+00:00",
+      "event": "restored",
+      "pid": 2373,
+      "tid": 887114,
+      "starttime": 604277607,
+      "new_thread": false
+    },
+    {
+      "utc": "2026-10-05T18:05:09.062602+00:00",
+      "event": "restore_verified",
+      "errors": []
+    }
+  ],
+  "threads": {
+    "2373:13351": {
+      "tid": 2373,
+      "starttime": 13351,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2374:13352": {
+      "tid": 2374,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2375:13352": {
+      "tid": 2375,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2376:13352": {
+      "tid": 2376,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2377:13352": {
+      "tid": 2377,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2378:13352": {
+      "tid": 2378,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2379:13352": {
+      "tid": 2379,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2380:13352": {
+      "tid": 2380,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2381:13352": {
+      "tid": 2381,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2382:13352": {
+      "tid": 2382,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2383:13352": {
+      "tid": 2383,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2384:13352": {
+      "tid": 2384,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2385:13352": {
+      "tid": 2385,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2386:13352": {
+      "tid": 2386,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2387:13352": {
+      "tid": 2387,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2388:13352": {
+      "tid": 2388,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2389:13352": {
+      "tid": 2389,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2390:13352": {
+      "tid": 2390,
+      "starttime": 13352,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "2442:13359": {
+      "tid": 2442,
+      "starttime": 13359,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "1652183:322385405": {
+      "tid": 1652183,
+      "starttime": 322385405,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "3047177:506965730": {
+      "tid": 3047177,
+      "starttime": 506965730,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "3047178:506965730": {
+      "tid": 3047178,
+      "starttime": 506965730,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "4045459:545519566": {
+      "tid": 4045459,
+      "starttime": 545519566,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "4045565:545521048": {
+      "tid": 4045565,
+      "starttime": 545521048,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "471715:585140956": {
+      "tid": 471715,
+      "starttime": 585140956,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "471716:585140956": {
+      "tid": 471716,
+      "starttime": 585140956,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "493306:587660508": {
+      "tid": 493306,
+      "starttime": 587660508,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "640497:594135088": {
+      "tid": 640497,
+      "starttime": 594135088,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "640498:594135088": {
+      "tid": 640498,
+      "starttime": 594135088,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "887113:604277607": {
+      "tid": 887113,
+      "starttime": 604277607,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "887114:604277607": {
+      "tid": 887114,
+      "starttime": 604277607,
+      "original_mask": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    }
+  }
+}

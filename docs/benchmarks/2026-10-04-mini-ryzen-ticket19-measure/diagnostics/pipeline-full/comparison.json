@@ -1,0 +1,89 @@
+{
+  "run": "target/ticket19/pipeline-full",
+  "cells": 6,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "realworld": {
+      "cells": 6,
+      "failures": 0,
+      "worst": 1.00831017195732,
+      "geomean": 0.9901203123943753
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "realworld:f32:fwd:ip:n1024:Spectrogram",
+      "suite": "realworld",
+      "metric": "best",
+      "ratio": 0.9550955481908343,
+      "best": 0.9550955481908343,
+      "p1": 0.9550955481908343,
+      "median": 0.9606240470809787,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x8x2 scratch=3080 scratch_oop=3080 scratch_immutable=3080 batch=avx512-ymm lanes=4 batch_radices=fallback",
+      "measure": "stockham avx512-ymm split L=8 radices=8x8x2 scratch=3080 scratch_oop=3080 scratch_immutable=3080 batch=avx512-ymm lanes=4 batch_radices=fallback",
+      "same_plan": true
+    },
+    {
+      "key": "realworld:f32:fwd:ip:n4096:Spectrogram",
+      "suite": "realworld",
+      "metric": "best",
+      "ratio": 0.9921622252837706,
+      "best": 0.9921622252837706,
+      "p1": 0.9921622252837706,
+      "median": 0.9929340303183646,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224",
+      "measure": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224",
+      "same_plan": true
+    },
+    {
+      "key": "realworld:f32:fwd:ip:n16384:Spectrogram",
+      "suite": "realworld",
+      "metric": "best",
+      "ratio": 1.00831017195732,
+      "best": 1.00831017195732,
+      "p1": 1.00831017195732,
+      "median": 1.0086820436566202,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x4x8x8 scratch=33800 scratch_oop=33800 scratch_immutable=33800",
+      "measure": "stockham avx512-ymm split L=8 radices=8x4x8x8 scratch=33800 scratch_oop=33800 scratch_immutable=33800",
+      "same_plan": true
+    },
+    {
+      "key": "realworld:f32:fwd:ip:n65536:Spectrogram",
+      "suite": "realworld",
+      "metric": "best",
+      "ratio": 0.9879140078628035,
+      "best": 0.9879140078628035,
+      "p1": 0.9879140078628035,
+      "median": 0.9920366272601645,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x8x4x8x4 scratch=132104 scratch_oop=132104 scratch_immutable=132104",
+      "measure": "stockham avx512-ymm split L=8 radices=8x8x4x8x4 scratch=132104 scratch_oop=132104 scratch_immutable=132104",
+      "same_plan": true
+    },
+    {
+      "key": "realworld:f32:fwd:ip:n4096:OverlapSave",
+      "suite": "realworld",
+      "metric": "best",
+      "ratio": 1.00228355140556,
+      "best": 1.00228355140556,
+      "p1": 1.00228355140556,
+      "median": 1.0005110648581819,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224 inverse=[stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224]",
+      "measure": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224 inverse=[stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224]",
+      "same_plan": true
+    },
+    {
+      "key": "realworld:f64:fwd:ip:n4096:Spectrogram",
+      "suite": "realworld",
+      "metric": "best",
+      "ratio": 0.9958511225758521,
+      "best": 0.9958511225758521,
+      "p1": 0.9958511225758521,
+      "median": 0.9967900720505388,
+      "estimate": "stockham avx512 split L=8 radices=8x8x8 scratch=8708 scratch_oop=8708 scratch_immutable=8708",
+      "measure": "stockham avx512 split L=8 radices=8x8x8 scratch=8708 scratch_oop=8708 scratch_immutable=8708",
+      "same_plan": true
+    }
+  ]
+}

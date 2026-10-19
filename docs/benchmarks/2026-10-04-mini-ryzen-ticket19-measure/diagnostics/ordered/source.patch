@@ -1,0 +1,811 @@
+diff --git a/bench/arena/src/scenarios.rs b/bench/arena/src/scenarios.rs
+index fbac7da..d9e1e50 100644
+--- a/bench/arena/src/scenarios.rs
++++ b/bench/arena/src/scenarios.rs
+@@ -222,7 +222,17 @@ pub fn run<T: ArenaFloat>(spec: &CellSpec, scenario: Scenario) -> Vec<LibResult>
+         let lib = if runner.is_some() {
+             drop(runner);
+             match Lib::<T>::new(&res.lib, n, scenario == Scenario::OverlapSave, spec) {
+-                Ok(l) => Some(l),
++                Ok(l) => {
++                    // Measure can choose a different plan on this second
++                    // construction. Describe the runners actually verified
++                    // and timed, including overlap-save's inverse transform.
++                    res.describe = l.fwd.describe();
++                    if let Some(inverse) = l.inv.as_ref().and_then(|i| i.describe()) {
++                        let description = res.describe.get_or_insert_with(String::new);
++                        description.push_str(&format!(" inverse=[{inverse}]"));
++                    }
++                    Some(l)
++                }
+                 Err(e) => {
+                     res.status = "unsupported".into();
+                     res.reason = Some(e);
+diff --git a/crates/fastfft/README.md b/crates/fastfft/README.md
+index 02bbce4..2bfb75d 100644
+--- a/crates/fastfft/README.md
++++ b/crates/fastfft/README.md
+@@ -20,6 +20,36 @@ Transforms are unnormalized, with output in natural frequency order. A buffer
+ may contain consecutive transforms of the planned length. Mutable out-of-place
+ calls may overwrite their input; immutable calls preserve it.
+ 
++## Inspecting a plan
++
++`planner.describe_plan(n, direction)` describes the cached executable,
++creating it first if needed. It reports the engine, selected ISA tier,
++radices and caller scratch sizes in **complex elements**:
++
++- `scratch` is the in-place requirement; `scratch_oop` and
++  `scratch_immutable` cover the other placements.
++- Small leaves report their decomposition. Stockham reports its pass
++  radices and the final lane transform `L`. FourStep reports both panel
++  schedules as `radices=columns/rows`.
++- Bluestein reports its pointwise ISA and full workspace, with the
++  convolution FFT's description in `inner=[...]`. Its inner ISA can differ.
++- Identity plans have `radices=none` and zero scratch. A `batch` suffix
++  identifies the optional batch tier and radices; `batch_radices=fallback`
++  means it uses the main plan's FFT with streaming output copies.
++
++Descriptions are diagnostic text, not a stable serialization format.
++
++`PlannerOptions::with_mode(PlanMode::Measure { time_limit })` explores up to
++eight candidates, including Estimate. It compares aligned single transforms
++in all three placements, plus batches totaling 2^20 complex values for
++power-of-two lengths 8 through 1024. Alternating measurements use the same
++buffers for each candidate and Estimate. A candidate must improve both the
++minimum and median by at least 3% in every workload to replace Estimate;
++small differences and incomplete measurements keep the original plan.
++This conservative selection margin is separate from benchmark acceptance.
++The budget covers exploratory work, but an ongoing construction or FFT
++cannot be interrupted. A zero budget selects Estimate directly.
++
+ ## Alignment and scratch
+ 
+ **Prefer 64-byte-aligned input and output buffers for predictable performance.**
+diff --git a/crates/fastfft/src/engine/bluestein.rs b/crates/fastfft/src/engine/bluestein.rs
+index 07809df..d90b49b 100644
+--- a/crates/fastfft/src/engine/bluestein.rs
++++ b/crates/fastfft/src/engine/bluestein.rs
+@@ -55,6 +55,11 @@ fn pack<T: FftNum>(values: &[Complex<T>], lanes: usize) -> Vec<T> {
+ }
+ 
+ impl<T: FftNum> BluesteinPlan<T> {
++    /// Tier used by the chirp and pointwise passes; the inner FFT can differ.
++    pub(crate) fn isa(&self) -> Isa {
++        self.isa
++    }
++
+     pub(crate) fn new(n: usize, inner: Arc<dyn Fft<T>>, isa: Isa) -> Self {
+         let m = inner.len();
+         debug_assert!(m >= 2 * (n - 1));
+diff --git a/crates/fastfft/src/engine/small.rs b/crates/fastfft/src/engine/small.rs
+index 85f2993..b311663 100644
+--- a/crates/fastfft/src/engine/small.rs
++++ b/crates/fastfft/src/engine/small.rs
+@@ -622,6 +622,18 @@ pub(crate) fn interleaved_lanes(n: usize, isa: Isa, f64_: bool) -> usize {
+     }
+ }
+ 
++pub(crate) fn interleaved_decomposition(n: usize) -> (usize, usize) {
++    #[cfg(all(target_arch = "x86_64", feature = "avx2"))]
++    {
++        crate::isa::x86::interleaved::decomposition(n)
++    }
++    #[cfg(not(all(target_arch = "x86_64", feature = "avx2")))]
++    {
++        let _ = n;
++        unreachable!("no interleaved leaves compiled")
++    }
++}
++
+ /// Interleaved-complex leaves: powers of two and selected small smooth sizes,
+ /// with AVX2 and AVX-512VL entries. AVX-512 adds zmm candidates for f64 and
+ /// the f32 N=128 leaf. The builder owns the supported size/tier combinations.
+diff --git a/crates/fastfft/src/isa/x86/interleaved.rs b/crates/fastfft/src/isa/x86/interleaved.rs
+index 5ac8554..c432b51 100644
+--- a/crates/fastfft/src/isa/x86/interleaved.rs
++++ b/crates/fastfft/src/isa/x86/interleaved.rs
+@@ -893,6 +893,16 @@ const fn rows(n: usize) -> usize {
+     }
+ }
+ 
++/// Top-level leaf stages. Register width is not a radix: the 64/128/256
++/// leaves have multiple columns per register row.
++pub(crate) const fn decomposition(n: usize) -> (usize, usize) {
++    match n {
++        2 | 4 | 9 => (n, 1),
++        6 => (3, 2),
++        _ => (rows(n), n / rows(n)),
++    }
++}
++
+ /// Offset of the broadcast ω16, ω16³, ω16⁹ rows used by radix-16 stages:
+ /// 4·lanes scalars for each of the (rows - 1)·n/rows/lanes first-stage rows.
+ const fn broadcast(n: usize) -> usize {
+diff --git a/crates/fastfft/src/measure.rs b/crates/fastfft/src/measure.rs
+index edef3ff..9cef413 100644
+--- a/crates/fastfft/src/measure.rs
++++ b/crates/fastfft/src/measure.rs
+@@ -1,48 +1,337 @@
+-//! `PlanMode::Measure`: time the best predicted candidates and keep the fastest.
++//! Measure candidates against Estimate on identical public execution paths.
+ 
+-use crate::api::{FftDirection, FftNum};
++use crate::api::{Fft, FftDirection, FftNum};
++use crate::isa::Isa;
+ use crate::planner::{Candidate, build_candidate};
+ use num_complex::Complex;
++use std::sync::Arc;
+ use std::time::{Duration, Instant};
+ 
+-/// Candidates timed per plan (always including the `Estimate` choice, which
+-/// is first in the list).
++/// The first candidate is always the actual Estimate choice.
+ const MAX_CANDIDATES: usize = 8;
++const ROUNDS: usize = 7;
++const MIN_SAMPLE: Duration = Duration::from_micros(50);
++/// Close calls keep Estimate. The margin protects against timing noise and
++/// placement tradeoffs; it does not relax the external 2% regression gate.
++const PROMOTION_RATIO: f64 = 0.97;
++
++type Choice<T> = (Candidate, Arc<dyn Fft<T>>);
++
++#[derive(Clone, Copy)]
++enum Placement {
++    InPlace,
++    OutOfPlace,
++    Immutable,
++}
++
++impl Placement {
++    fn scratch<T: FftNum>(self, fft: &dyn Fft<T>) -> usize {
++        match self {
++            Self::InPlace => fft.get_inplace_scratch_len(),
++            Self::OutOfPlace => fft.get_outofplace_scratch_len(),
++            Self::Immutable => fft.get_immutable_scratch_len(),
++        }
++    }
++}
++
++const PLACEMENTS: [Placement; 3] = [
++    Placement::InPlace,
++    Placement::OutOfPlace,
++    Placement::Immutable,
++];
++
++struct Buffers<T> {
++    input: Vec<Complex<T>>,
++    output: Vec<Complex<T>>,
++    scratch: Vec<Complex<T>>,
++}
++
++impl<T: FftNum> Buffers<T> {
++    fn new(len: usize) -> Self {
++        let zero = Complex::new(T::zero(), T::zero());
++        let count = len + crate::fft::align_slack::<T>();
++        Self {
++            input: vec![zero; count],
++            output: vec![zero; count],
++            scratch: Vec::new(),
++        }
++    }
++
++    fn reserve_scratch(&mut self, a: &dyn Fft<T>, b: &dyn Fft<T>) {
++        let need = PLACEMENTS
++            .iter()
++            .map(|p| p.scratch(a).max(p.scratch(b)))
++            .max()
++            .unwrap();
++        self.scratch.resize(
++            need + crate::fft::align_slack::<T>(),
++            Complex::new(T::zero(), T::zero()),
++        );
++    }
++
++    fn sample(
++        &mut self,
++        fft: &dyn Fft<T>,
++        len: usize,
++        placement: Placement,
++        calls: usize,
++    ) -> Duration {
++        let input = &mut crate::scratch::aligned(&mut self.input)[..len];
++        let output = &mut crate::scratch::aligned(&mut self.output)[..len];
++        let scratch = &mut crate::scratch::aligned(&mut self.scratch)[..placement.scratch(fft)];
++        let start = Instant::now();
++        match placement {
++            Placement::InPlace => {
++                for _ in 0..calls {
++                    fft.process_with_scratch(input, scratch);
++                }
++            }
++            Placement::OutOfPlace => {
++                for _ in 0..calls {
++                    fft.process_outofplace_with_scratch(input, output, scratch);
++                }
++            }
++            Placement::Immutable => {
++                for _ in 0..calls {
++                    fft.process_immutable_with_scratch(input, output, scratch);
++                }
++            }
++        }
++        start.elapsed()
++    }
++
++    fn calibrate(
++        &mut self,
++        fft: &dyn Fft<T>,
++        len: usize,
++        placement: Placement,
++        budget: &Budget,
++    ) -> Option<usize> {
++        let mut calls = 1;
++        loop {
++            if budget.expired() {
++                return None;
++            }
++            let elapsed = self.sample(fft, len, placement, calls);
++            if elapsed >= MIN_SAMPLE || calls == 1 << 20 {
++                return Some(calls);
++            }
++            calls *= 2;
++        }
++    }
++}
++
++struct Budget {
++    start: Instant,
++    limit: Duration,
++}
++impl Budget {
++    fn expired(&self) -> bool {
++        self.start.elapsed() >= self.limit
++    }
++}
++
++#[derive(Clone, Copy, Debug)]
++struct Statistics {
++    best: f64,
++    median: f64,
++}
++impl Statistics {
++    fn from_samples(mut samples: [f64; ROUNDS]) -> Self {
++        samples.sort_by(f64::total_cmp);
++        Self {
++            best: samples[0],
++            median: samples[ROUNDS / 2],
++        }
++    }
++    fn ratio(self, baseline: Self) -> f64 {
++        (self.best / baseline.best).max(self.median / baseline.median)
++    }
++}
++
++/// Returns a score only after every workload has complete, improving data.
++fn improvement(samples: &[(Statistics, Statistics)], expected: usize) -> Option<f64> {
++    if samples.len() != expected || expected == 0 {
++        return None;
++    }
++    let mut worst = 0.0f64;
++    for &(baseline, contender) in samples {
++        let ratio = contender.ratio(baseline);
++        if !ratio.is_finite() || ratio <= 0.0 || ratio > PROMOTION_RATIO {
++            return None;
++        }
++        worst = worst.max(ratio);
++    }
++    Some(worst)
++}
++
++fn compare<T: FftNum>(
++    baseline: &dyn Fft<T>,
++    contender: &dyn Fft<T>,
++    buffers: &mut Buffers<T>,
++    lengths: &[usize],
++    budget: &Budget,
++) -> Option<f64> {
++    let mut results = Vec::new();
++    for &len in lengths {
++        for placement in PLACEMENTS {
++            let plans = [baseline, contender];
++            let calls = [
++                buffers.calibrate(baseline, len, placement, budget)?,
++                buffers.calibrate(contender, len, placement, budget)?,
++            ];
++            let mut samples = [[0.0; 2]; ROUNDS];
++            for (round, pair) in samples.iter_mut().enumerate() {
++                // Alternation reduces clock and cache-order bias. Both plans
++                // see the same aligned input/output and scratch addresses.
++                for offset in 0..2 {
++                    if budget.expired() {
++                        return None;
++                    }
++                    let index = (round + offset) % 2;
++                    pair[index] = buffers
++                        .sample(plans[index], len, placement, calls[index])
++                        .as_secs_f64()
++                        / calls[index] as f64;
++                }
++            }
++            results.push((
++                Statistics::from_samples(samples.map(|pair| pair[0])),
++                Statistics::from_samples(samples.map(|pair| pair[1])),
++            ));
++            // A losing workload already disqualifies this candidate.
++            improvement(&results, results.len())?;
++        }
++    }
++    improvement(&results, lengths.len() * PLACEMENTS.len())
++}
+ 
+ pub(crate) fn pick<T: FftNum>(
+     len: usize,
+     dir: FftDirection,
++    isa: Isa,
++    baseline: Arc<dyn Fft<T>>,
+     cands: &[Candidate],
+     limit: Duration,
+-) -> Option<Candidate> {
++) -> Option<Choice<T>> {
+     let cands = &cands[..cands.len().min(MAX_CANDIDATES)];
+-    if cands.len() <= 1 {
+-        return cands.first().cloned();
+-    }
+-    let per = limit / cands.len() as u32;
+-    let mut best: Option<(f64, &Candidate)> = None;
+-    for c in cands {
+-        let imp = build_candidate::<T>(len, dir, c);
+-        let mut buf = vec![Complex::new(T::zero(), T::zero()); len];
+-        let mut scratch = vec![Complex::new(T::zero(), T::zero()); imp.get_inplace_scratch_len()];
+-        // warm up, then take the minimum over short batches
+-        let start = Instant::now();
+-        let mut min = f64::INFINITY;
+-        let mut calls = 1usize;
+-        while start.elapsed() < per || min.is_infinite() {
+-            let t = Instant::now();
+-            for _ in 0..calls {
+-                imp.process_with_scratch(&mut buf, &mut scratch);
+-            }
+-            let dt = t.elapsed().as_secs_f64() / calls as f64;
+-            min = min.min(dt);
+-            if t.elapsed() < Duration::from_micros(20) {
+-                calls *= 2;
+-            }
++    let incumbent = cands.first()?.clone();
++    let start = Instant::now();
++    // Retain the original plan rather than rebuilding after exploratory
++    // allocations, which can change table placement even when Estimate wins.
++    let mut chosen = (incumbent, Arc::clone(&baseline));
++    if cands.len() == 1 || start.elapsed() >= limit {
++        return Some(chosen);
++    }
++    let timed_baseline = crate::engine::batch::wrap(baseline, isa).0;
++    let mut lengths = vec![len];
++    if (8..=1024).contains(&len) && len.is_power_of_two() {
++        // Exercise the public batch wrapper and its streaming crossover.
++        lengths.push(1 << 20);
++    }
++    let mut buffers = Buffers::new(*lengths.last().unwrap());
++    let mut best = 1.0;
++    for (index, candidate) in cands.iter().enumerate().skip(1) {
++        let Some(remaining) = limit.checked_sub(start.elapsed()) else {
++            break;
++        };
++        let budget = Budget {
++            start: Instant::now(),
++            limit: remaining / (cands.len() - index) as u32,
++        };
++        let fft = build_candidate::<T>(len, dir, candidate);
++        let timed = crate::engine::batch::wrap(Arc::clone(&fft), isa).0;
++        buffers.reserve_scratch(timed_baseline.as_ref(), timed.as_ref());
++        if let Some(score) = compare(
++            timed_baseline.as_ref(),
++            timed.as_ref(),
++            &mut buffers,
++            &lengths,
++            &budget,
++        ) && score < best
++        {
++            best = score;
++            chosen = (candidate.clone(), fft);
++        }
++    }
++    Some(chosen)
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++
++    fn stats(best: f64, median: f64) -> Statistics {
++        Statistics { best, median }
++    }
++
++    #[test]
++    fn promotion_requires_both_statistics_and_every_workload() {
++        let good = (stats(100.0, 100.0), stats(90.0, 90.0));
++        assert_eq!(improvement(&[good; 6], 6), Some(0.9));
++        for bad in [stats(103.0, 90.0), stats(90.0, 103.0), stats(99.0, 99.0)] {
++            let mut samples = [good; 6];
++            // A batch/immutable loss cannot be hidden by a fast in-place FFT.
++            samples[5].1 = bad;
++            assert_eq!(improvement(&samples, 6), None);
++        }
++        assert_eq!(improvement(&[good; 5], 6), None);
++        assert_eq!(improvement(&[], 0), None);
++    }
++
++    #[test]
++    fn zero_budget_retains_estimate() {
++        let isa = crate::isa::effective_isa(None);
++        let cands = crate::planner::candidates(64, isa, false);
++        let baseline = build_candidate::<f32>(64, FftDirection::Forward, &cands[0]);
++        let (chosen, fft) = pick::<f32>(
++            64,
++            FftDirection::Forward,
++            isa,
++            Arc::clone(&baseline),
++            &cands,
++            Duration::ZERO,
++        )
++        .unwrap();
++        assert!(Arc::ptr_eq(&fft, &baseline));
++        assert_eq!(chosen.kernel, cands[0].kernel);
++        assert_eq!(chosen.shape, cands[0].shape);
++        assert_eq!(chosen.radices, cands[0].radices);
++        assert_eq!(fft.len(), 64);
++    }
++
++    #[test]
++    fn measurement_can_promote_a_faster_public_plan() {
++        let isa = crate::isa::effective_isa(None);
++        if isa < Isa::Avx2 {
++            return;
+         }
+-        if best.is_none_or(|(b, _)| min < b) {
+-            best = Some((min, c));
++        let slow = crate::planner::estimate(4096, Isa::Scalar, false).unwrap();
++        let fast = crate::planner::estimate(4096, isa, false).unwrap();
++        if fast.shape.isa == Isa::Scalar {
++            return;
+         }
++        let (chosen, fft) = pick::<f32>(
++            4096,
++            FftDirection::Forward,
++            isa,
++            build_candidate::<f32>(4096, FftDirection::Forward, &slow),
++            &[slow, fast.clone()],
++            Duration::from_secs(1),
++        )
++        .unwrap();
++        assert_eq!(chosen.kernel, fast.kernel);
++        assert_eq!(chosen.shape, fast.shape);
++        assert_eq!(chosen.radices, fast.radices);
++        // The returned executable, not a subsequently reconstructed candidate,
++        // must implement the selected transform correctly.
++        let mut input = vec![Complex::new(0.0f32, 0.0); 4096];
++        input[0].re = 1.0;
++        fft.process(&mut input);
++        assert!(
++            input
++                .iter()
++                .all(|x| (x.re - 1.0).abs() < 1e-5 && x.im.abs() < 1e-5)
++        );
+     }
+-    best.map(|(_, c)| c.clone())
+ }
+diff --git a/crates/fastfft/src/planner.rs b/crates/fastfft/src/planner.rs
+index 7c44e80..27448ff 100644
+--- a/crates/fastfft/src/planner.rs
++++ b/crates/fastfft/src/planner.rs
+@@ -17,10 +17,14 @@ pub enum PlanMode {
+     /// Pick the plan with the lowest predicted cost (fast, deterministic).
+     #[default]
+     Estimate,
+-    /// Time the best predicted candidates for up to `time_limit` and keep
+-    /// the fastest.
++    /// Compare up to eight candidates with Estimate using aligned buffers,
++    /// all three placements, and representative batches for small powers of
++    /// two. Keep Estimate unless another candidate clearly improves every
++    /// measured workload. Choices are cached just like Estimate plans.
+     Measure {
+-        /// Total time budget for measuring candidates of one plan.
++        /// Search budget for one plan. Zero selects Estimate. An in-progress
++        /// construction or transform cannot be interrupted; a short budget
++        /// can leave too few complete measurements to change the choice.
+         time_limit: Duration,
+     },
+ }
+@@ -67,7 +71,7 @@ struct CachedPlan<T: FftNum> {
+ enum Description {
+     Identity,
+     Candidate(Candidate),
+-    Bluestein { m: usize },
++    Bluestein { m: usize, isa: Isa },
+ }
+ 
+ impl<T: FftNum> std::fmt::Debug for FftPlanner<T> {
+@@ -315,8 +319,15 @@ impl<T: FftNum> FftPlanner<T> {
+         self.plan_fft(len, FftDirection::Inverse)
+     }
+ 
+-    /// Describes the plan chosen for `len`, e.g.
+-    /// `stockham avx512-ymm L=8 radices=8x8x8 scratch=4104`.
++    /// Describes the cached plan's engine, actual ISA, radix decomposition and
++    /// scratch requirements in complex elements. `scratch` is in-place;
++    /// `scratch_oop` and `scratch_immutable` describe the other placements.
++    /// Stockham's `radices` are followed by its lane transform (`L`). FourStep
++    /// lists the two panel schedules separated by `/`. Bluestein reports its
++    /// pointwise ISA and includes the inner FFT's complete description.
++    ///
++    /// Creates the plan if necessary. The human-readable format is diagnostic
++    /// and may be extended; it is not a stable serialization format.
+     pub fn describe_plan(&mut self, len: usize, direction: FftDirection) -> String {
+         self.plan_impl(len, direction);
+         self.describe_cached(len, direction)
+@@ -324,42 +335,71 @@ impl<T: FftNum> FftPlanner<T> {
+ 
+     fn describe_cached(&self, len: usize, dir: FftDirection) -> String {
+         let p = &self.cache[&(len, dir)];
+-        let scratch = p.fft.get_inplace_scratch_len();
++        let scratch = format!(
++            "scratch={} scratch_oop={} scratch_immutable={}",
++            p.fft.get_inplace_scratch_len(),
++            p.fft.get_outofplace_scratch_len(),
++            p.fft.get_immutable_scratch_len(),
++        );
++        let radices = |rs: &[usize]| {
++            if rs.is_empty() {
++                "none".to_string()
++            } else {
++                rs.iter()
++                    .map(usize::to_string)
++                    .collect::<Vec<_>>()
++                    .join("x")
++            }
++        };
+         let mut text = match &p.description {
+-            Description::Identity => format!("identity n={len}"),
+-            Description::Bluestein { m } => format!(
+-                "bluestein n={len} m={m} inner=[{}]",
++            Description::Identity => format!("identity scalar n={len} radices=none {scratch}"),
++            Description::Bluestein { m, isa } => format!(
++                "bluestein {isa} n={len} m={m} radices=inner {scratch} inner=[{}]",
+                 self.describe_cached(*m, FftDirection::Forward)
+             ),
+             Description::Candidate(c) if c.kernel.is_small() => {
+                 let (a, b) = if c.kernel == CandidateKernel::RectangularSmall {
+                     (c.radices[0], c.radices[1])
++                } else if c.kernel == CandidateKernel::InterleavedSmall {
++                    small::interleaved_decomposition(len)
+                 } else {
+                     (len / c.shape.lanes, c.shape.lanes)
+                 };
+                 format!(
+-                    "small {} n={len} decomposition={a}x{b} scratch={scratch} kernel={}",
++                    "small {} n={len} decomposition={a}x{b} radices={a}x{b} {scratch} kernel={}",
+                     c.shape.isa,
+                     c.kernel.name()
+                 )
+             }
+             Description::Candidate(c) if c.kernel == CandidateKernel::FourStep => format!(
+-                "fourstep {} split L={} decomposition={}x{} scratch={scratch}",
+-                c.shape.isa, c.shape.lanes, c.radices[0], c.radices[1]
++                "fourstep {} split L={} decomposition={}x{} radices={}/{} {scratch}",
++                c.shape.isa,
++                c.shape.lanes,
++                c.radices[0],
++                c.radices[1],
++                radices(&choose_radices(c.radices[0], 8).expect("smooth panel")),
++                radices(&choose_radices(c.radices[1], 8).expect("smooth panel")),
+             ),
+             Description::Candidate(c) => format!(
+-                "stockham {} split L={} radices={} scratch={scratch}",
++                "stockham {} split L={} radices={} {scratch}",
+                 c.shape.isa,
+                 c.shape.lanes,
+-                c.radices
+-                    .iter()
+-                    .map(usize::to_string)
+-                    .collect::<Vec<_>>()
+-                    .join("x")
++                radices(&c.radices)
+             ),
+         };
+         if let Some(shape) = p.batch {
+-            text.push_str(&format!(" batch={} lanes={}", shape.isa, shape.lanes));
++            let stages = if len == 8 {
++                "8".to_string()
++            } else if len <= 256 {
++                let (a, b) = small::interleaved_decomposition(len);
++                format!("{a}x{b}")
++            } else {
++                "fallback".to_string()
++            };
++            text.push_str(&format!(
++                " batch={} lanes={} batch_radices={stages}",
++                shape.isa, shape.lanes
++            ));
+         }
+         text
+     }
+@@ -388,16 +428,24 @@ impl<T: FftNum> FftPlanner<T> {
+ 
+         let f64_ = T::precision() == Precision::F64;
+         if is_smooth(len) {
+-            let chosen = match self.options.mode {
+-                PlanMode::Estimate => estimate(len, self.isa, f64_),
+-                PlanMode::Measure { time_limit } => {
++            let chosen = estimate(len, self.isa, f64_).map(|c| {
++                // Construct the incumbent before exploratory allocations.
++                // Even an unchanged recipe can otherwise acquire different
++                // coefficient placement and lose to the Estimate executable.
++                let fft = build_candidate(len, dir, &c);
++                if let PlanMode::Measure { time_limit } = self.options.mode
++                    && !time_limit.is_zero()
++                {
+                     let cands = candidates(len, self.isa, f64_);
+-                    crate::measure::pick::<T>(len, dir, &cands, time_limit)
++                    crate::measure::pick::<T>(len, dir, self.isa, fft, &cands, time_limit)
++                        .expect("Estimate is included")
++                } else {
++                    (c, fft)
+                 }
+-            };
+-            if let Some(c) = chosen {
++            });
++            if let Some((c, fft)) = chosen {
+                 return CachedPlan {
+-                    fft: build_candidate(len, dir, &c),
++                    fft,
+                     description: Description::Candidate(c),
+                     batch: None,
+                 };
+@@ -407,9 +455,10 @@ impl<T: FftNum> FftPlanner<T> {
+         let m = bluestein_inner(len, self.isa, f64_);
+         let inner = self.plan_impl(m, FftDirection::Forward);
+         let b = BluesteinPlan::new(len, inner, self.isa);
++        let isa = b.isa();
+         CachedPlan {
+             fft: Arc::new(FftImpl::new(len, dir, Kernel::Bluestein(b))),
+-            description: Description::Bluestein { m },
++            description: Description::Bluestein { m, isa },
+             batch: None,
+         }
+     }
+@@ -664,6 +713,119 @@ mod cache_tests {
+     use super::*;
+     use crate::isa::cache::CacheSizes;
+ 
++    #[test]
++    fn descriptions_cover_candidate_engines_without_dispatch_assumptions() {
++        fn check<T: FftNum>() {
++            let isa = effective_isa(None);
++            let f64_ = T::precision() == Precision::F64;
++            let mut forced = vec![
++                (
++                    3,
++                    Candidate {
++                        kernel: CandidateKernel::GenericSmall,
++                        shape: Shape {
++                            isa: Isa::Scalar,
++                            lanes: 1,
++                        },
++                        radices: vec![3],
++                        cost: 0.0,
++                    },
++                    "small scalar n=3 decomposition=3x1 radices=3x1",
++                ),
++                (
++                    256,
++                    Candidate {
++                        kernel: CandidateKernel::Stockham,
++                        shape: Shape {
++                            isa: Isa::Scalar,
++                            lanes: 1,
++                        },
++                        radices: vec![16, 16],
++                        cost: 0.0,
++                    },
++                    "stockham scalar split L=1 radices=16x16",
++                ),
++                (
++                    48,
++                    Candidate {
++                        kernel: CandidateKernel::FourStep,
++                        shape: Shape {
++                            isa: Isa::Scalar,
++                            lanes: 1,
++                        },
++                        radices: vec![6, 8],
++                        cost: 0.0,
++                    },
++                    "fourstep scalar split L=1 decomposition=6x8 radices=6/8",
++                ),
++            ];
++            for n in [2, 4, 6, 8, 9, 16, 18, 24, 32, 36, 48, 64, 128, 256] {
++                for shape in small::interleaved_shapes(n, isa, f64_) {
++                    forced.push((
++                        n,
++                        Candidate {
++                            kernel: CandidateKernel::InterleavedSmall,
++                            shape,
++                            radices: vec![n / shape.lanes],
++                            cost: 0.0,
++                        },
++                        "small",
++                    ));
++                }
++            }
++            for c in small::rectangular_candidates(48, isa, f64_) {
++                forced.push((48, c, "small"));
++            }
++            for (n, c, prefix) in forced {
++                for dir in [FftDirection::Forward, FftDirection::Inverse] {
++                    let fft = build_candidate::<T>(n, dir, &c);
++                    let mut p = FftPlanner::<T>::new();
++                    p.cache.insert(
++                        (n, dir),
++                        CachedPlan {
++                            fft: Arc::clone(&fft),
++                            description: Description::Candidate(c.clone()),
++                            batch: None,
++                        },
++                    );
++                    let text = p.describe_plan(n, dir);
++                    assert!(text.starts_with(prefix), "{text}");
++                    assert!(text.contains("radices="), "{text}");
++                    if c.kernel.is_small() {
++                        assert!(
++                            text.contains(&format!("kernel={}", c.kernel.name())),
++                            "{text}"
++                        );
++                    }
++                    if c.kernel == CandidateKernel::InterleavedSmall {
++                        let expected = match n {
++                            64 => Some("radices=8x8"),
++                            128 => Some("radices=8x16"),
++                            256 => Some("radices=16x16"),
++                            _ => None,
++                        };
++                        if let Some(expected) = expected {
++                            assert!(text.split_whitespace().any(|x| x == expected), "{text}");
++                        }
++                    }
++                    for (name, need) in [
++                        ("scratch", fft.get_inplace_scratch_len()),
++                        ("scratch_oop", fft.get_outofplace_scratch_len()),
++                        ("scratch_immutable", fft.get_immutable_scratch_len()),
++                    ] {
++                        assert!(
++                            text.split_whitespace()
++                                .any(|x| x == format!("{name}={need}")),
++                            "{text}"
++                        );
++                    }
++                }
++            }
++        }
++        check::<f32>();
++        check::<f64>();
++    }
++
+     #[test]
+     fn cache_sizes_move_both_candidate_and_estimate_boundaries() {
+         let isa = effective_isa(None);
+diff --git a/docs/benchmarking.md b/docs/benchmarking.md
+index 734e616..d52cd6d 100644
+--- a/docs/benchmarking.md
++++ b/docs/benchmarking.md
+@@ -251,7 +251,9 @@ screening samples.
+ 
+ For each candidate/placement the process with the lowest p1 supplies both p1
+ and median. By default a recipe minimizes the in-place slowdown on both
+-metrics, matching the existing Measure planner. `--objective all` instead
++metrics. This is the objective chosen for the ticket 18 Estimate table;
++Measure additionally protects the other placements and representative
++batches when selecting a replacement. `--objective all` instead
+ minimizes the worst slowdown across all three placements. The output always
+ retains all-placement regressions; some lengths have no single candidate
+ within 3% in every placement. Untabulated lengths retain the established

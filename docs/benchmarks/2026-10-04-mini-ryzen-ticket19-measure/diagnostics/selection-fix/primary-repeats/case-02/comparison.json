@@ -1,0 +1,29 @@
+{
+  "run": "target/ticket19/selection-fix/primary-repeats/case-02",
+  "cells": 1,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "smooth": {
+      "cells": 1,
+      "failures": 0,
+      "worst": 0.9772778818819788,
+      "geomean": 0.9772778818819788
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "smooth:f64:inv:oop:n165375",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 0.9772778818819788,
+      "best": 0.9772778818819788,
+      "p1": 0.9798055233465881,
+      "median": 0.9761113469778413,
+      "estimate": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+      "measure": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+      "same_plan": true
+    }
+  ]
+}

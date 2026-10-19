@@ -1,0 +1,33 @@
+{
+  "kind": "unofficial-correctness-spots",
+  "performance_qualification": false,
+  "unique_cases": 12,
+  "raw_trials": 24,
+  "verified_library_rows": 72,
+  "libraries": [
+    "fastfft",
+    "rustfft",
+    "fftw"
+  ],
+  "precisions": [
+    "f32",
+    "f64"
+  ],
+  "sizes": [
+    2048,
+    8192,
+    16384
+  ],
+  "direction": "forward",
+  "placements": [
+    "inplace",
+    "outofplace"
+  ],
+  "profile": "quick",
+  "data": "zero",
+  "seed": 1592590338,
+  "affinity": "none; run-cell requests user-initiated QoS on macOS",
+  "binary_sha256": "c31ca0d32a19da3aa75a72eedfabfc2466d0ac7feca05aa3a368ffecd13828a4",
+  "raw_uncompressed_sha256": "eb91fe71a84f14ac1cbf9807bf3c325712e77382be71e210546a7a6a15e27b8c",
+  "note": "Direct run-cell diagnostics after the ordinary arena attempt aborted on drift. These do not implement the driver cross-cell drift gate; no comparative performance claim."
+}

@@ -1,0 +1,29 @@
+   Compiling fastfft v0.1.0 (/home/ianhersom/repo/fastfft/crates/fastfft)
+    Finished `release` profile [optimized] target(s) in 1m 23s
+     Running unittests src/lib.rs (target/release/deps/fastfft-91ea5b5b410d6c8a)
+
+running 21 tests
+test engine::fourstep::coefficient_swap_tests::coefficient_swap_fourstep_exchanges_full_graph_and_restores_both_precisions ... ok
+test engine::fourstep::coefficient_swap_tests::coefficient_swap_fourstep_rejects_atomically_both_precisions ... ok
+test engine::fourstep::storage::tests::miri_coefficient_swap_fourstep_storage_rejects_atomically_both_precisions ... ok
+test engine::fourstep::storage::tests::miri_coefficient_swap_fourstep_storage_restores_bits_and_owner ... ok
+test engine::small::coefficient_swap_tests::miri_small_coefficient_swap_preserves_bits_and_restores_owner ... ok
+test engine::small::coefficient_swap_tests::miri_small_coefficient_swap_rejects_capacity_length_and_bits_atomically ... ok
+test engine::stockham::storage::tests::miri_coefficient_swap_rejects_capacity_layout_and_bits_without_mutation ... ok
+test engine::stockham::storage::tests::miri_coefficient_swap_rejects_different_backing_variants ... ok
+test engine::stockham::storage::tests::miri_coefficient_swap_validates_backing_and_restores_exact_owners ... ok
+test tuning::coefficient_swap_tests::coefficient_shift_phase_b_public_outputs_contracts_both_precisions_directions ... ok
+test tuning::coefficient_swap_tests::coefficient_shift_phase_b_public_rejects_ownership_unsupported_and_mixed_scopes ... ok
+test tuning::coefficient_swap_tests::coefficient_shift_public_outputs_contracts_and_restore_both_precisions_directions ... ok
+test tuning::coefficient_swap_tests::coefficient_shift_public_rejections_preserve_ownership_and_bytes ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_fourstep_output_and_restoration_both_precisions ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_fourstep_preserves_public_scratch_contracts_both_precisions ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_fourstep_rejects_shared_weak_and_direction_without_mutation ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_rectangular_output_and_restoration_both_precisions ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_rejects_configuration_type_and_kernel_without_mutation ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_shared_and_weak_owners_are_rejected_without_mutation ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_small_output_and_restoration_both_precisions ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_stockham_output_and_restoration_both_precisions ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 99 filtered out; finished in 0.01s
+

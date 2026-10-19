@@ -1,0 +1,270 @@
+--- prior vectors
+
++++ current vectors
+
+@@ -45,20 +45,20 @@
+
+ xorps  xmm1,xmm1
+ xorpd  xmm3,xmm3
+ xorpd  xmm2,xmm2
+-movupd xmm0,XMMWORD PTR [r13+rcx*2-0x10]
+-movupd xmm1,XMMWORD PTR [r13+rcx*2+0x0]
+-movupd xmm2,XMMWORD PTR [rbp+rcx*2-0x10]
+-movupd xmm3,XMMWORD PTR [rbp+rcx*2+0x0]
++movupd xmm0,XMMWORD PTR [rbx+rcx*2-0x10]
++movupd xmm1,XMMWORD PTR [rbx+rcx*2]
++movupd xmm2,XMMWORD PTR [r14+rcx*2-0x10]
++movupd xmm3,XMMWORD PTR [r14+rcx*2]
+ movapd xmm4,xmm1
+ mulpd  xmm4,xmm3
+ movapd xmm5,xmm0
+ mulpd  xmm5,xmm2
+ subpd  xmm5,xmm4
+-movapd XMMWORD PTR [rsp+rcx*1+0x260],xmm5
++movapd XMMWORD PTR [rsp+rcx*1+0x290],xmm5
+ mulpd  xmm1,xmm2
+ mulpd  xmm0,xmm3
+ addpd  xmm0,xmm1
+-movapd XMMWORD PTR [rsp+rcx*1+0x100],xmm0
++movapd XMMWORD PTR [rsp+rcx*1+0x130],xmm0
+ movapd xmm2,XMMWORD PTR [rsp+STACK]
+ movapd xmm3,XMMWORD PTR [rsp+STACK]
+ movaps xmm0,XMMWORD PTR [rsp+STACK]
+@@ -73,10 +73,10 @@
+
+ unpckhpd xmm0,xmm1
+ movaps XMMWORD PTR [rsp+STACK],xmm2
+ movaps XMMWORD PTR [rsp+STACK],xmm0
+-movups XMMWORD PTR [r15],xmm1
+-movups XMMWORD PTR [r15+0x10],xmm0
+-movaps xmm0,XMMWORD PTR [rsp+r14*1+0x260]
+-movaps xmm2,XMMWORD PTR [rsp+r14*1+0x100]
++movups XMMWORD PTR [r13+0x0],xmm1
++movups XMMWORD PTR [r13+0x10],xmm0
++movaps xmm0,XMMWORD PTR [rsp+r15*1+0x290]
++movaps xmm2,XMMWORD PTR [rsp+r15*1+0x130]
+ movaps xmm1,xmm0
+ movlhps xmm1,xmm2
+ unpckhpd xmm0,xmm2
+@@ -115,10 +115,10 @@
+
+ mulpd  xmm3,xmm2
+ mulpd  xmm1,xmm0
+ addpd  xmm1,xmm3
+-movupd xmm9,XMMWORD PTR [r13-0x30]
+-movupd xmm10,XMMWORD PTR [r13-0x20]
+-movupd xmm5,XMMWORD PTR [r13-0x10]
+-movupd xmm7,XMMWORD PTR [r13+0x0]
++movupd xmm9,XMMWORD PTR [rbx-0x30]
++movupd xmm10,XMMWORD PTR [rbx-0x20]
++movupd xmm5,XMMWORD PTR [rbx-0x10]
++movupd xmm7,XMMWORD PTR [rbx]
+ movapd xmm3,xmm9
+ mulpd  xmm3,xmm8
+ mulpd  xmm8,xmm10
+@@ -194,20 +194,20 @@
+
+ xorps  xmm1,xmm1
+ xorpd  xmm3,xmm3
+ xorpd  xmm2,xmm2
+-movupd xmm0,XMMWORD PTR [r13+rcx*2-0x10]
+-movupd xmm1,XMMWORD PTR [r13+rcx*2+0x0]
+-movupd xmm2,XMMWORD PTR [rbp+rcx*2-0x10]
+-movupd xmm3,XMMWORD PTR [rbp+rcx*2+0x0]
++movupd xmm0,XMMWORD PTR [rbx+rcx*2-0x10]
++movupd xmm1,XMMWORD PTR [rbx+rcx*2]
++movupd xmm2,XMMWORD PTR [r14+rcx*2-0x10]
++movupd xmm3,XMMWORD PTR [r14+rcx*2]
+ movapd xmm4,xmm1
+ mulpd  xmm4,xmm3
+ movapd xmm5,xmm0
+ mulpd  xmm5,xmm2
+ subpd  xmm5,xmm4
+-movapd XMMWORD PTR [rsp+rcx*1+0x260],xmm5
++movapd XMMWORD PTR [rsp+rcx*1+0x290],xmm5
+ mulpd  xmm1,xmm2
+ mulpd  xmm0,xmm3
+ addpd  xmm0,xmm1
+-movapd XMMWORD PTR [rsp+rcx*1+0x100],xmm0
++movapd XMMWORD PTR [rsp+rcx*1+0x130],xmm0
+ movapd xmm2,XMMWORD PTR [rsp+STACK]
+ movapd xmm3,XMMWORD PTR [rsp+STACK]
+ movaps xmm0,XMMWORD PTR [rsp+STACK]
+@@ -222,10 +222,10 @@
+
+ unpckhpd xmm0,xmm1
+ movaps XMMWORD PTR [rsp+STACK],xmm2
+ movaps XMMWORD PTR [rsp+STACK],xmm0
+-movups XMMWORD PTR [r15],xmm1
+-movups XMMWORD PTR [r15+0x10],xmm0
+-movaps xmm0,XMMWORD PTR [rsp+r14*1+0x260]
+-movaps xmm2,XMMWORD PTR [rsp+r14*1+0x100]
++movups XMMWORD PTR [r13+0x0],xmm1
++movups XMMWORD PTR [r13+0x10],xmm0
++movaps xmm0,XMMWORD PTR [rsp+r15*1+0x290]
++movaps xmm2,XMMWORD PTR [rsp+r15*1+0x130]
+ movaps xmm1,xmm0
+ movlhps xmm1,xmm2
+ unpckhpd xmm0,xmm2
+@@ -264,10 +264,10 @@
+
+ mulpd  xmm3,xmm2
+ mulpd  xmm1,xmm0
+ addpd  xmm1,xmm3
+-movupd xmm9,XMMWORD PTR [r13-0x30]
+-movupd xmm10,XMMWORD PTR [r13-0x20]
+-movupd xmm5,XMMWORD PTR [r13-0x10]
+-movupd xmm7,XMMWORD PTR [r13+0x0]
++movupd xmm9,XMMWORD PTR [rbx-0x30]
++movupd xmm10,XMMWORD PTR [rbx-0x20]
++movupd xmm5,XMMWORD PTR [rbx-0x10]
++movupd xmm7,XMMWORD PTR [rbx]
+ movapd xmm3,xmm9
+ mulpd  xmm3,xmm8
+ mulpd  xmm8,xmm10
+@@ -348,35 +348,35 @@
+
+ movaps XMMWORD PTR [rsp+STACK],xmm0
+ movaps xmm0,XMMWORD PTR [rsp+STACK]
+ movaps XMMWORD PTR [rsp+STACK],xmm0
+-movups xmm0,XMMWORD PTR [r14-0x10]
+-movups xmm1,XMMWORD PTR [r14]
++movups xmm0,XMMWORD PTR [rbx-0x10]
++movups xmm1,XMMWORD PTR [rbx]
+ movaps xmm2,xmm0
+ movlhps xmm2,xmm1
+ unpckhpd xmm0,xmm1
+ movntpd XMMWORD PTR [rcx],xmm2
+ movntpd XMMWORD PTR [rdx],xmm0
+-movups XMMWORD PTR [rbx],xmm1
+-movups XMMWORD PTR [rbx+0x10],xmm0
+-movups xmm0,XMMWORD PTR [r14-0x10]
+-movups xmm2,XMMWORD PTR [r14]
++movups XMMWORD PTR [r14],xmm1
++movups XMMWORD PTR [r14+0x10],xmm0
++movups xmm0,XMMWORD PTR [rbx-0x10]
++movups xmm2,XMMWORD PTR [rbx]
+ movaps xmm1,xmm0
+ movlhps xmm1,xmm2
+ unpckhpd xmm0,xmm2
+ xorps  xmm2,xmm2
+-movaps XMMWORD PTR [r13+0xd0],xmm2
+-movaps XMMWORD PTR [r13+0xc0],xmm2
+-movaps XMMWORD PTR [r13+0xb0],xmm2
+-movaps XMMWORD PTR [r13+0xa0],xmm2
+-movaps XMMWORD PTR [r13+0x90],xmm2
+-movaps XMMWORD PTR [r13+0x80],xmm2
+-movaps XMMWORD PTR [r13+0x70],xmm2
+-movaps XMMWORD PTR [r13+0x60],xmm2
+-movaps XMMWORD PTR [r13+0x50],xmm2
+-movaps XMMWORD PTR [r13+0x40],xmm2
+-movaps XMMWORD PTR [r13+0x30],xmm2
+-movaps XMMWORD PTR [r13+0x20],xmm2
+-movaps XMMWORD PTR [r13+0x10],xmm2
+-movaps XMMWORD PTR [r13+0x0],xmm2
++movaps XMMWORD PTR [r12+0xd0],xmm2
++movaps XMMWORD PTR [r12+0xc0],xmm2
++movaps XMMWORD PTR [r12+0xb0],xmm2
++movaps XMMWORD PTR [r12+0xa0],xmm2
++movaps XMMWORD PTR [r12+0x90],xmm2
++movaps XMMWORD PTR [r12+0x80],xmm2
++movaps XMMWORD PTR [r12+0x70],xmm2
++movaps XMMWORD PTR [r12+0x60],xmm2
++movaps XMMWORD PTR [r12+0x50],xmm2
++movaps XMMWORD PTR [r12+0x40],xmm2
++movaps XMMWORD PTR [r12+0x30],xmm2
++movaps XMMWORD PTR [r12+0x20],xmm2
++movaps XMMWORD PTR [r12+0x10],xmm2
++movaps XMMWORD PTR [r12],xmm2
+ movaps XMMWORD PTR [rsp+STACK],xmm1
+ movaps XMMWORD PTR [rsp+STACK],xmm0
+ movaps xmm0,XMMWORD PTR [rsp+STACK]
+@@ -427,35 +427,35 @@
+
+ movaps XMMWORD PTR [rsp+STACK],xmm0
+ movaps xmm0,XMMWORD PTR [rsp+STACK]
+ movaps XMMWORD PTR [rsp+STACK],xmm0
+-movups xmm0,XMMWORD PTR [r14-0x10]
+-movups xmm1,XMMWORD PTR [r14]
++movups xmm0,XMMWORD PTR [rbx-0x10]
++movups xmm1,XMMWORD PTR [rbx]
+ movaps xmm2,xmm1
+ movlhps xmm2,xmm0
+ unpckhpd xmm1,xmm0
+ movntpd XMMWORD PTR [rcx],xmm2
+ movntpd XMMWORD PTR [rdx],xmm1
+-movups XMMWORD PTR [rbx],xmm1
+-movups XMMWORD PTR [rbx+0x10],xmm0
+-movups xmm2,XMMWORD PTR [r14-0x10]
+-movups xmm0,XMMWORD PTR [r14]
++movups XMMWORD PTR [r14],xmm1
++movups XMMWORD PTR [r14+0x10],xmm0
++movups xmm2,XMMWORD PTR [rbx-0x10]
++movups xmm0,XMMWORD PTR [rbx]
+ movaps xmm1,xmm0
+ movlhps xmm1,xmm2
+ unpckhpd xmm0,xmm2
+ xorps  xmm2,xmm2
+-movaps XMMWORD PTR [r13+0xd0],xmm2
+-movaps XMMWORD PTR [r13+0xc0],xmm2
+-movaps XMMWORD PTR [r13+0xb0],xmm2
+-movaps XMMWORD PTR [r13+0xa0],xmm2
+-movaps XMMWORD PTR [r13+0x90],xmm2
+-movaps XMMWORD PTR [r13+0x80],xmm2
+-movaps XMMWORD PTR [r13+0x70],xmm2
+-movaps XMMWORD PTR [r13+0x60],xmm2
+-movaps XMMWORD PTR [r13+0x50],xmm2
+-movaps XMMWORD PTR [r13+0x40],xmm2
+-movaps XMMWORD PTR [r13+0x30],xmm2
+-movaps XMMWORD PTR [r13+0x20],xmm2
+-movaps XMMWORD PTR [r13+0x10],xmm2
+-movaps XMMWORD PTR [r13+0x0],xmm2
++movaps XMMWORD PTR [r12+0xd0],xmm2
++movaps XMMWORD PTR [r12+0xc0],xmm2
++movaps XMMWORD PTR [r12+0xb0],xmm2
++movaps XMMWORD PTR [r12+0xa0],xmm2
++movaps XMMWORD PTR [r12+0x90],xmm2
++movaps XMMWORD PTR [r12+0x80],xmm2
++movaps XMMWORD PTR [r12+0x70],xmm2
++movaps XMMWORD PTR [r12+0x60],xmm2
++movaps XMMWORD PTR [r12+0x50],xmm2
++movaps XMMWORD PTR [r12+0x40],xmm2
++movaps XMMWORD PTR [r12+0x30],xmm2
++movaps XMMWORD PTR [r12+0x20],xmm2
++movaps XMMWORD PTR [r12+0x10],xmm2
++movaps XMMWORD PTR [r12],xmm2
+ movaps XMMWORD PTR [rsp+STACK],xmm1
+ movaps XMMWORD PTR [rsp+STACK],xmm0
+ movaps xmm0,XMMWORD PTR [rsp+STACK]
+@@ -488,10 +488,10 @@
+
+ mulpd  xmm3,xmm2
+ mulpd  xmm1,xmm0
+ addpd  xmm1,xmm3
+-movupd xmm9,XMMWORD PTR [r12-0x30]
+-movupd xmm10,XMMWORD PTR [r12-0x20]
+-movupd xmm5,XMMWORD PTR [r12-0x10]
+-movupd xmm7,XMMWORD PTR [r12]
++movupd xmm9,XMMWORD PTR [rbx-0x30]
++movupd xmm10,XMMWORD PTR [rbx-0x20]
++movupd xmm5,XMMWORD PTR [rbx-0x10]
++movupd xmm7,XMMWORD PTR [rbx]
+ movapd xmm3,xmm9
+ mulpd  xmm3,xmm8
+ mulpd  xmm8,xmm10
+@@ -554,10 +554,10 @@
+
+ mulpd  xmm3,xmm2
+ mulpd  xmm1,xmm0
+ addpd  xmm1,xmm3
+-movupd xmm9,XMMWORD PTR [r12-0x30]
+-movupd xmm10,XMMWORD PTR [r12-0x20]
+-movupd xmm5,XMMWORD PTR [r12-0x10]
+-movupd xmm7,XMMWORD PTR [r12]
++movupd xmm9,XMMWORD PTR [rbx-0x30]
++movupd xmm10,XMMWORD PTR [rbx-0x20]
++movupd xmm5,XMMWORD PTR [rbx-0x10]
++movupd xmm7,XMMWORD PTR [rbx]
+ movapd xmm3,xmm9
+ mulpd  xmm3,xmm8
+ mulpd  xmm8,xmm10

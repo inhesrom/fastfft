@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-05T23:16:21.038762+00:00",
+  "acceptable": false,
+  "complete": true,
+  "production_binary_sha256": "a2bbb31ba6912363132f0cabfcc1798f369ccc217d2a9f5d548214314541596f",
+  "reason": "Strict focus fails one primary cell and two raw changed-plan promotions; two dirty running samples invalidate quiet acceptance. Absolute comparisons are exploratory and cannot authorize full710.",
+  "primary_failures": [
+    {
+      "key": "smooth:f64:fwd:oop:n165375",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 1.0211370063561056,
+      "best": 1.0211370063561056,
+      "p1": 1.0099701209475418,
+      "median": 1.0145645183176495,
+      "estimate": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+      "measure": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+      "same_plan": true
+    }
+  ],
+  "raw_promotion_failures": [
+    "smooth:f32:inv:ip:n210: slower promotion in raw process trial 4 (p1 ratio 1.025254)",
+    "smooth:f64:inv:ip:n210: slower promotion in raw process trial 5 (p1 ratio 1.070003)"
+  ],
+  "all_process_comparisons": [
+    "absolute-times.json",
+    "all-absolute-times.json"
+  ],
+  "full710_launched": false
+}

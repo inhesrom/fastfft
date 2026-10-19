@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-05T15:35:54.170184+00:00",
+  "acceptance": false,
+  "result": "rejected candidate remedy: large1sec positivecontrol retainsSSE2 baseline",
+  "positive_tests": {
+    "passed": 10,
+    "failed": 1,
+    "failed_test": "large_promotion_can_use_the_remaining_global_budget",
+    "elapsed_s": 1.04,
+    "quiet_finish_returncode": 101
+  },
+  "focused_run_launched": false,
+  "full710launched": false,
+  "restoration": true,
+  "test_provenance": {
+    "executable": "target/ticket19/selection-fix/caller-qualification/fastfft-library-tests",
+    "sha256": "7952559b70ebc98af805a770ddd589ebd32968a68793e5412d88225a44395ff4",
+    "build_command": "RUSTFLAGS='-C llvm-args=-align-all-functions=6' cargo test -j 1 --release -p fastfft --lib --no-run",
+    "features": "default SIMD, no tuning",
+    "source_snapshot": "target/ticket19/selection-fix/caller-qualification/source-sha256.json"
+  },
+  "production_provenance": {
+    "executable": "target/ticket19/selection-fix/caller-qualification/fastfft-arena",
+    "sha256": "1c0ae5138be52db0491ce74da44d37d1fbc58e85c8f399c22af50e6b6bdc2941",
+    "build_command": "RUSTFLAGS='-C llvm-args=-align-all-functions=6' cargo build -j 1 --profile arena -p fastfft-arena",
+    "features": "default SIMD; no diagnostics/tuning",
+    "source_files": 83,
+    "source_hashes_match": true,
+    "acceptance": false
+  },
+  "diagnosis": "deadline-vs-ranking not yet established; no budget/margin/samples/warm changes accepted"
+}

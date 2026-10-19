@@ -1,0 +1,2272 @@
+
+target/ticket19/selection-fix/large-storage-crossover/fastfft-arena:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000384d40 <fastfft_arena::coefficient_crossover::run_fixed>:
+  384d40:	push   %rbp
+  384d41:	push   %r15
+  384d43:	push   %r14
+  384d45:	push   %r13
+  384d47:	push   %r12
+  384d49:	push   %rbx
+  384d4a:	sub    $0x7b8,%rsp
+  384d51:	mov    %r8,0x78(%rsp)
+  384d56:	mov    %rcx,0xc0(%rsp)
+  384d5e:	mov    0x38(%rsi),%rcx
+  384d62:	test   %rcx,%rcx
+  384d65:	je     387791 <fastfft_arena::coefficient_crossover::run_fixed+0x2a51>
+  384d6b:	mov    %rdx,%r12
+  384d6e:	mov    0x30(%rsi),%rax
+  384d72:	shl    $0x3,%rcx
+  384d76:	lea    (%rcx,%rcx,2),%rcx
+  384d7a:	xor    %ebx,%ebx
+  384d7c:	mov    $0x74736166,%edx
+  384d81:	mov    $0x74666674,%r11d
+  384d87:	xor    %r10d,%r10d
+  384d8a:	jmp    384da0 <fastfft_arena::coefficient_crossover::run_fixed+0x60>
+  384d8c:	nopl   0x0(%rax)
+  384d90:	inc    %rbx
+  384d93:	add    $0x18,%r10
+  384d97:	cmp    %r10,%rcx
+  384d9a:	je     387791 <fastfft_arena::coefficient_crossover::run_fixed+0x2a51>
+  384da0:	cmpq   $0x7,0x10(%rax,%r10,1)
+  384da6:	jne    384d90 <fastfft_arena::coefficient_crossover::run_fixed+0x50>
+  384da8:	mov    0x8(%rax,%r10,1),%r8
+  384dad:	mov    (%r8),%r9d
+  384db0:	xor    %edx,%r9d
+  384db3:	mov    0x3(%r8),%r8d
+  384db7:	xor    %r11d,%r8d
+  384dba:	or     %r9d,%r8d
+  384dbd:	jne    384d90 <fastfft_arena::coefficient_crossover::run_fixed+0x50>
+  384dbf:	xor    %r15d,%r15d
+  384dc2:	movabs $0x2f74666674736166,%rdx
+  384dcc:	movabs $0x6572757361656d2f,%r11
+  384dd6:	xor    %r10d,%r10d
+  384dd9:	jmp    384df0 <fastfft_arena::coefficient_crossover::run_fixed+0xb0>
+  384ddb:	nopl   0x0(%rax,%rax,1)
+  384de0:	inc    %r15
+  384de3:	add    $0x18,%r10
+  384de7:	cmp    %r10,%rcx
+  384dea:	je     387791 <fastfft_arena::coefficient_crossover::run_fixed+0x2a51>
+  384df0:	cmpq   $0xf,0x10(%rax,%r10,1)
+  384df6:	jne    384de0 <fastfft_arena::coefficient_crossover::run_fixed+0xa0>
+  384df8:	mov    0x8(%rax,%r10,1),%r8
+  384dfd:	mov    (%r8),%r9
+  384e00:	xor    %rdx,%r9
+  384e03:	mov    0x7(%r8),%r8
+  384e07:	xor    %r11,%r8
+  384e0a:	or     %r9,%r8
+  384e0d:	jne    384de0 <fastfft_arena::coefficient_crossover::run_fixed+0xa0>
+  384e0f:	mov    %rsi,0x1e0(%rsp)
+  384e17:	mov    %rdi,0x148(%rsp)
+  384e1f:	mov    %rbx,0x1f0(%rsp)
+  384e27:	mov    %r15,0x1f8(%rsp)
+  384e2f:	mov    $0xe00,%edi
+  384e34:	call   *0xfb7ba6(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  384e3a:	mov    %rax,%r14
+  384e3d:	test   %rax,%rax
+  384e40:	je     3879bf <fastfft_arena::coefficient_crossover::run_fixed+0x2c7f>
+  384e46:	mov    $0xe00,%edi
+  384e4b:	call   *0xfb7b8f(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  384e51:	test   %rax,%rax
+  384e54:	je     3879bf <fastfft_arena::coefficient_crossover::run_fixed+0x2c7f>
+  384e5a:	xorpd  %xmm0,%xmm0
+  384e5e:	movupd %xmm0,0x1b8(%rsp)
+  384e67:	movq   $0x0,0x1c8(%rsp)
+  384e73:	movq   $0x40,0x180(%rsp)
+  384e7f:	mov    %r14,0x188(%rsp)
+  384e87:	movupd %xmm0,0x190(%rsp)
+  384e90:	movq   $0x0,0x1a0(%rsp)
+  384e9c:	movq   $0x40,0x1a8(%rsp)
+  384ea8:	mov    %rax,0x1b0(%rsp)
+  384eb0:	cmp    0x78(%rsp),%rbx
+  384eb5:	jae    3879fa <fastfft_arena::coefficient_crossover::run_fixed+0x2cba>
+  384ebb:	shl    $0x4,%rbx
+  384ebf:	mov    0xc0(%rsp),%rax
+  384ec7:	mov    (%rax,%rbx,1),%rcx
+  384ecb:	mov    %rcx,0x140(%rsp)
+  384ed3:	test   %rcx,%rcx
+  384ed6:	je     3866ce <fastfft_arena::coefficient_crossover::run_fixed+0x198e>
+  384edc:	add    %rax,%rbx
+  384edf:	mov    0x8(%rbx),%rax
+  384ee3:	mov    %rax,0x158(%rsp)
+  384eeb:	mov    0x70(%rax),%rax
+  384eef:	mov    0x140(%rsp),%rdi
+  384ef7:	mov    %rdi,0x1a0(%rsp)
+  384eff:	call   *%rax
+  384f01:	test   %rax,%rax
+  384f04:	je     387774 <fastfft_arena::coefficient_crossover::run_fixed+0x2a34>
+  384f0a:	mov    (%rax),%rcx
+  384f0d:	mov    0x8(%rax),%rax
+  384f11:	mov    0x10(%rax),%rdx
+  384f15:	dec    %rdx
+  384f18:	and    $0xfffffffffffffff0,%rdx
+  384f1c:	lea    (%rcx,%rdx,1),%rdi
+  384f20:	add    $0x10,%rdi
+  384f24:	mov    %rdi,0x198(%rsp)
+  384f2c:	movq   $0x0,0x190(%rsp)
+  384f38:	lea    0x180(%rsp),%rcx
+  384f40:	mov    %rcx,0x268(%rsp)
+  384f48:	lea    0xf79121(%rip),%rdx        # 12fe070 <__frame_dummy_init_array_entry+0x7a58>
+  384f4f:	lea    0x268(%rsp),%rsi
+  384f57:	call   *0x40(%rax)
+  384f5a:	cmp    0x78(%rsp),%r15
+  384f5f:	jae    3879f7 <fastfft_arena::coefficient_crossover::run_fixed+0x2cb7>
+  384f65:	shl    $0x4,%r15
+  384f69:	mov    0xc0(%rsp),%rax
+  384f71:	mov    (%rax,%r15,1),%rbx
+  384f75:	test   %rbx,%rbx
+  384f78:	je     3866ce <fastfft_arena::coefficient_crossover::run_fixed+0x198e>
+  384f7e:	add    %rax,%r15
+  384f81:	mov    0x8(%r15),%rax
+  384f85:	mov    %rax,0x150(%rsp)
+  384f8d:	mov    0x70(%rax),%rax
+  384f91:	mov    %rbx,0x1c8(%rsp)
+  384f99:	mov    %rbx,%rdi
+  384f9c:	call   *%rax
+  384f9e:	test   %rax,%rax
+  384fa1:	je     387774 <fastfft_arena::coefficient_crossover::run_fixed+0x2a34>
+  384fa7:	lea    0x1a8(%rsp),%rsi
+  384faf:	mov    (%rax),%rcx
+  384fb2:	mov    0x8(%rax),%rax
+  384fb6:	mov    0x10(%rax),%rdx
+  384fba:	dec    %rdx
+  384fbd:	and    $0xfffffffffffffff0,%rdx
+  384fc1:	lea    (%rcx,%rdx,1),%rdi
+  384fc5:	add    $0x10,%rdi
+  384fc9:	mov    %rdi,0x1c0(%rsp)
+  384fd1:	movq   $0x0,0x1b8(%rsp)
+  384fdd:	mov    %rsi,0x268(%rsp)
+  384fe5:	lea    0xf79084(%rip),%rdx        # 12fe070 <__frame_dummy_init_array_entry+0x7a58>
+  384fec:	lea    0x268(%rsp),%rsi
+  384ff4:	call   *0x40(%rax)
+  384ff7:	mov    $0x1,%edx
+  384ffc:	mov    0xc0(%rsp),%rdi
+  385004:	mov    0x78(%rsp),%rsi
+  385009:	call   384240 <fastfft_arena::coefficient_crossover::swap>
+  38500e:	mov    %rbx,0x258(%rsp)
+  385016:	cmp    $0x6,%al
+  385018:	jne    386a0a <fastfft_arena::coefficient_crossover::run_fixed+0x1cca>
+  38501e:	mov    $0x1,%edx
+  385023:	mov    0xc0(%rsp),%rdi
+  38502b:	mov    0x78(%rsp),%rsi
+  385030:	call   384240 <fastfft_arena::coefficient_crossover::swap>
+  385035:	cmp    $0x6,%al
+  385037:	jne    3877bf <fastfft_arena::coefficient_crossover::run_fixed+0x2a7f>
+  38503d:	mov    %rbx,%rbp
+  385040:	mov    $0xe00,%edi
+  385045:	call   *0xfb7995(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  38504b:	mov    $0x1,%r15b
+  38504e:	test   %rax,%rax
+  385051:	je     387a9b <fastfft_arena::coefficient_crossover::run_fixed+0x2d5b>
+  385057:	mov    %rax,%r14
+  38505a:	mov    %r12,%r13
+  38505d:	mov    $0xe00,%edi
+  385062:	call   *0xfb7978(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  385068:	test   %rax,%rax
+  38506b:	je     387aa0 <fastfft_arena::coefficient_crossover::run_fixed+0x2d60>
+  385071:	movq   $0x40,0x268(%rsp)
+  38507d:	mov    %r14,0x270(%rsp)
+  385085:	xorpd  %xmm0,%xmm0
+  385089:	movupd %xmm0,0x278(%rsp)
+  385092:	movq   $0x0,0x288(%rsp)
+  38509e:	movq   $0x40,0x290(%rsp)
+  3850aa:	mov    %rax,0x298(%rsp)
+  3850b2:	movupd %xmm0,0x2a0(%rsp)
+  3850bb:	movq   $0x0,0x2b0(%rsp)
+  3850c7:	mov    $0xe00,%edi
+  3850cc:	call   *0xfb790e(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3850d2:	mov    $0x1,%r12d
+  3850d8:	test   %rax,%rax
+  3850db:	je     387aab <fastfft_arena::coefficient_crossover::run_fixed+0x2d6b>
+  3850e1:	mov    %rax,%rbx
+  3850e4:	mov    $0xe00,%edi
+  3850e9:	call   *0xfb78f1(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3850ef:	test   %rax,%rax
+  3850f2:	je     387a4f <fastfft_arena::coefficient_crossover::run_fixed+0x2d0f>
+  3850f8:	movq   $0x40,0x2b8(%rsp)
+  385104:	mov    %rbx,0x2c0(%rsp)
+  38510c:	xorpd  %xmm0,%xmm0
+  385110:	movupd %xmm0,0x2c8(%rsp)
+  385119:	movq   $0x0,0x2d8(%rsp)
+  385125:	movq   $0x40,0x2e0(%rsp)
+  385131:	mov    %rax,0x2e8(%rsp)
+  385139:	movupd %xmm0,0x2f0(%rsp)
+  385142:	movq   $0x0,0x300(%rsp)
+  38514e:	mov    $0xe00,%edi
+  385153:	call   *0xfb7887(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  385159:	mov    $0x2,%r12d
+  38515f:	test   %rax,%rax
+  385162:	je     387aa8 <fastfft_arena::coefficient_crossover::run_fixed+0x2d68>
+  385168:	mov    %rax,%r14
+  38516b:	mov    $0xe00,%edi
+  385170:	call   *0xfb786a(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  385176:	test   %rax,%rax
+  385179:	je     387aa3 <fastfft_arena::coefficient_crossover::run_fixed+0x2d63>
+  38517f:	movq   $0x40,0x308(%rsp)
+  38518b:	mov    %r14,0x310(%rsp)
+  385193:	xorpd  %xmm0,%xmm0
+  385197:	movupd %xmm0,0x318(%rsp)
+  3851a0:	movq   $0x0,0x328(%rsp)
+  3851ac:	movq   $0x40,0x330(%rsp)
+  3851b8:	mov    %rax,0x338(%rsp)
+  3851c0:	movupd %xmm0,0x340(%rsp)
+  3851c9:	movq   $0x0,0x350(%rsp)
+  3851d5:	mov    $0xe00,%edi
+  3851da:	call   *0xfb7800(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3851e0:	mov    $0x3,%r12d
+  3851e6:	test   %rax,%rax
+  3851e9:	je     387aab <fastfft_arena::coefficient_crossover::run_fixed+0x2d6b>
+  3851ef:	mov    %rax,%rbx
+  3851f2:	mov    $0xe00,%edi
+  3851f7:	call   *0xfb77e3(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3851fd:	test   %rax,%rax
+  385200:	je     387a4f <fastfft_arena::coefficient_crossover::run_fixed+0x2d0f>
+  385206:	movq   $0x40,0x358(%rsp)
+  385212:	mov    %rbx,0x360(%rsp)
+  38521a:	xorpd  %xmm0,%xmm0
+  38521e:	movupd %xmm0,0x368(%rsp)
+  385227:	movq   $0x0,0x378(%rsp)
+  385233:	movq   $0x40,0x380(%rsp)
+  38523f:	mov    %rax,0x388(%rsp)
+  385247:	movupd %xmm0,0x390(%rsp)
+  385250:	movq   $0x0,0x3a0(%rsp)
+  38525c:	lea    0x5b0(%rsp),%rdi
+  385264:	lea    0x268(%rsp),%rsi
+  38526c:	mov    $0x140,%edx
+  385271:	call   *0xfb7771(%rip)        # 133c9e8 <memcpy@GLIBC_2.14>
+  385277:	mov    $0xe00,%edi
+  38527c:	call   *0xfb775e(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  385282:	mov    %rax,%r14
+  385285:	test   %rax,%rax
+  385288:	je     387a57 <fastfft_arena::coefficient_crossover::run_fixed+0x2d17>
+  38528e:	mov    $0xe00,%edi
+  385293:	call   *0xfb7747(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  385299:	test   %rax,%rax
+  38529c:	je     387a57 <fastfft_arena::coefficient_crossover::run_fixed+0x2d17>
+  3852a2:	xorpd  %xmm0,%xmm0
+  3852a6:	movupd %xmm0,0x128(%rsp)
+  3852af:	movq   $0x0,0x138(%rsp)
+  3852bb:	movq   $0x40,0xf0(%rsp)
+  3852c7:	mov    %r14,0xf8(%rsp)
+  3852cf:	movupd %xmm0,0x100(%rsp)
+  3852d8:	movq   $0x0,0x110(%rsp)
+  3852e4:	movq   $0x40,0x118(%rsp)
+  3852f0:	mov    %rax,0x120(%rsp)
+  3852f8:	mov    $0x40000,%edi
+  3852fd:	call   *0xfb76dd(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  385303:	mov    $0x1,%r15b
+  385306:	test   %rax,%rax
+  385309:	je     387abc <fastfft_arena::coefficient_crossover::run_fixed+0x2d7c>
+  38530f:	mov    %rax,%r14
+  385312:	mov    $0x40000,%edi
+  385317:	call   *0xfb76c3(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  38531d:	test   %rax,%rax
+  385320:	je     387ac1 <fastfft_arena::coefficient_crossover::run_fixed+0x2d81>
+  385326:	movq   $0x8000,0x268(%rsp)
+  385332:	mov    %r14,0x270(%rsp)
+  38533a:	movq   $0x0,0x278(%rsp)
+  385346:	movq   $0x8000,0x280(%rsp)
+  385352:	mov    %rax,0x288(%rsp)
+  38535a:	movq   $0x0,0x290(%rsp)
+  385366:	mov    $0x40000,%edi
+  38536b:	call   *0xfb766f(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  385371:	mov    $0x1,%r12d
+  385377:	test   %rax,%rax
+  38537a:	je     387acc <fastfft_arena::coefficient_crossover::run_fixed+0x2d8c>
+  385380:	mov    %rax,%rbx
+  385383:	mov    $0x40000,%edi
+  385388:	call   *0xfb7652(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  38538e:	test   %rax,%rax
+  385391:	je     387a6b <fastfft_arena::coefficient_crossover::run_fixed+0x2d2b>
+  385397:	movq   $0x8000,0x298(%rsp)
+  3853a3:	mov    %rbx,0x2a0(%rsp)
+  3853ab:	movq   $0x0,0x2a8(%rsp)
+  3853b7:	movq   $0x8000,0x2b0(%rsp)
+  3853c3:	mov    %rax,0x2b8(%rsp)
+  3853cb:	movq   $0x0,0x2c0(%rsp)
+  3853d7:	mov    $0x40000,%edi
+  3853dc:	call   *0xfb75fe(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3853e2:	mov    $0x2,%r12d
+  3853e8:	test   %rax,%rax
+  3853eb:	je     387ac9 <fastfft_arena::coefficient_crossover::run_fixed+0x2d89>
+  3853f1:	mov    %rax,%r14
+  3853f4:	mov    $0x40000,%edi
+  3853f9:	call   *0xfb75e1(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3853ff:	test   %rax,%rax
+  385402:	je     387ac4 <fastfft_arena::coefficient_crossover::run_fixed+0x2d84>
+  385408:	movq   $0x8000,0x2c8(%rsp)
+  385414:	mov    %r14,0x2d0(%rsp)
+  38541c:	movq   $0x0,0x2d8(%rsp)
+  385428:	movq   $0x8000,0x2e0(%rsp)
+  385434:	mov    %rax,0x2e8(%rsp)
+  38543c:	movq   $0x0,0x2f0(%rsp)
+  385448:	mov    $0x40000,%edi
+  38544d:	call   *0xfb758d(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  385453:	mov    $0x3,%r12d
+  385459:	test   %rax,%rax
+  38545c:	je     387acc <fastfft_arena::coefficient_crossover::run_fixed+0x2d8c>
+  385462:	mov    %rax,%rbx
+  385465:	mov    $0x40000,%edi
+  38546a:	call   *0xfb7570(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  385470:	test   %rax,%rax
+  385473:	je     387a6b <fastfft_arena::coefficient_crossover::run_fixed+0x2d2b>
+  385479:	movq   $0x8000,0x2f8(%rsp)
+  385485:	mov    %rbx,0x300(%rsp)
+  38548d:	movq   $0x0,0x308(%rsp)
+  385499:	movq   $0x8000,0x310(%rsp)
+  3854a5:	mov    %rax,0x318(%rsp)
+  3854ad:	movq   $0x0,0x320(%rsp)
+  3854b9:	lea    0x428(%rsp),%rdi
+  3854c1:	lea    0x268(%rsp),%rsi
+  3854c9:	mov    $0xc0,%edx
+  3854ce:	call   *0xfb7514(%rip)        # 133c9e8 <memcpy@GLIBC_2.14>
+  3854d4:	lea    0x268(%rsp),%rdi
+  3854dc:	mov    $0x1c0,%edx
+  3854e1:	mov    %rdi,0x168(%rsp)
+  3854e9:	xor    %esi,%esi
+  3854eb:	call   *0xfb750f(%rip)        # 133ca00 <memset@GLIBC_2.2.5>
+  3854f1:	xorpd  %xmm0,%xmm0
+  3854f5:	movapd %xmm0,0x720(%rsp)
+  3854fe:	movapd %xmm0,0x710(%rsp)
+  385507:	movapd %xmm0,0x700(%rsp)
+  385510:	movapd %xmm0,0x6f0(%rsp)
+  385519:	mov    0x158(%rsp),%rax
+  385521:	mov    0x70(%rax),%rax
+  385525:	mov    0x140(%rsp),%rdi
+  38552d:	mov    %rdi,0x110(%rsp)
+  385535:	call   *%rax
+  385537:	test   %rax,%rax
+  38553a:	je     3876e5 <fastfft_arena::coefficient_crossover::run_fixed+0x29a5>
+  385540:	mov    %rbp,%r15
+  385543:	mov    %r13,%r12
+  385546:	mov    (%rax),%rcx
+  385549:	mov    0x8(%rax),%rax
+  38554d:	mov    0x10(%rax),%rdx
+  385551:	dec    %rdx
+  385554:	and    $0xfffffffffffffff0,%rdx
+  385558:	lea    (%rcx,%rdx,1),%rdi
+  38555c:	add    $0x10,%rdi
+  385560:	mov    %rdi,0x108(%rsp)
+  385568:	movq   $0x0,0x100(%rsp)
+  385574:	lea    0xf0(%rsp),%rcx
+  38557c:	mov    %rcx,0x30(%rsp)
+  385581:	lea    0xf78ae8(%rip),%rdx        # 12fe070 <__frame_dummy_init_array_entry+0x7a58>
+  385588:	lea    0x30(%rsp),%rsi
+  38558d:	call   *0x40(%rax)
+  385590:	mov    0x150(%rsp),%rax
+  385598:	mov    0x70(%rax),%rax
+  38559c:	mov    %r15,0x138(%rsp)
+  3855a4:	mov    %r15,%rdi
+  3855a7:	call   *%rax
+  3855a9:	test   %rax,%rax
+  3855ac:	je     3876e5 <fastfft_arena::coefficient_crossover::run_fixed+0x29a5>
+  3855b2:	lea    0x118(%rsp),%rsi
+  3855ba:	mov    (%rax),%rcx
+  3855bd:	mov    0x8(%rax),%rax
+  3855c1:	mov    0x10(%rax),%rdx
+  3855c5:	dec    %rdx
+  3855c8:	and    $0xfffffffffffffff0,%rdx
+  3855cc:	lea    (%rcx,%rdx,1),%rdi
+  3855d0:	add    $0x10,%rdi
+  3855d4:	mov    %rdi,0x130(%rsp)
+  3855dc:	movq   $0x0,0x128(%rsp)
+  3855e8:	mov    %rsi,0x30(%rsp)
+  3855ed:	lea    0xf78a7c(%rip),%rdx        # 12fe070 <__frame_dummy_init_array_entry+0x7a58>
+  3855f4:	lea    0x30(%rsp),%r14
+  3855f9:	mov    %r14,%rsi
+  3855fc:	call   *0x40(%rax)
+  3855ff:	lea    0x180(%rsp),%rdi
+  385607:	lea    0xf0(%rsp),%rsi
+  38560f:	xor    %edx,%edx
+  385611:	call   383ec0 <fastfft_arena::coefficient_crossover::matches_assignment>
+  385616:	mov    $0x3d,%esi
+  38561b:	lea    -0x2aaa96(%rip),%rdi        # dab8c <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e25c>
+  385622:	test   %al,%al
+  385624:	je     3877f2 <fastfft_arena::coefficient_crossover::run_fixed+0x2ab2>
+  38562a:	movupd 0x18(%r12),%xmm0
+  385631:	movupd 0x40(%r12),%xmm1
+  385638:	movupd 0x68(%r12),%xmm2
+  38563f:	movupd %xmm0,0x508(%rsp)
+  385648:	movupd %xmm1,0x518(%rsp)
+  385651:	movupd %xmm2,0x528(%rsp)
+  38565a:	mov    0x1e0(%rsp),%rax
+  385662:	mov    0x60(%rax),%rcx
+  385666:	mov    %rcx,0x1d8(%rsp)
+  38566e:	shr    $1,%ecx
+  385670:	and    $0x1,%ecx
+  385673:	mov    %rcx,%rax
+  385676:	xor    $0x1,%rax
+  38567a:	mov    %rcx,0x4e8(%rsp)
+  385682:	mov    %rax,0x4f0(%rsp)
+  38568a:	mov    %rax,0x4f8(%rsp)
+  385692:	mov    %rcx,0x240(%rsp)
+  38569a:	mov    %rcx,0x500(%rsp)
+  3856a2:	call   366980 <fastfft_arena::clock_probe::measure_ghz>
+  3856a7:	movsd  %xmm0,0x1d0(%rsp)
+  3856b0:	mov    $0x1,%edi
+  3856b5:	call   1197c40 <<std::sys::pal::unix::time::Timespec>::now>
+  3856ba:	mov    %rax,0x248(%rsp)
+  3856c2:	mov    %edx,0x17c(%rsp)
+  3856c9:	mov    0x1d8(%rsp),%rcx
+  3856d1:	shr    $0x2,%rcx
+  3856d5:	mov    %ecx,%eax
+  3856d7:	and    $0x1,%eax
+  3856da:	mov    %rax,0x238(%rsp)
+  3856e2:	mov    %ecx,%eax
+  3856e4:	xor    $0x1,%al
+  3856e6:	mov    %al,0xe(%rsp)
+  3856ea:	lea    0xf7897f(%rip),%r13        # 12fe070 <__frame_dummy_init_array_entry+0x7a58>
+  3856f1:	mov    %rcx,0x250(%rsp)
+  3856f9:	xor    %eax,%eax
+  3856fb:	mov    %rcx,0x160(%rsp)
+  385703:	xor    %edx,%edx
+  385705:	mov    %r12,0x170(%rsp)
+  38570d:	nopl   (%rax)
+  385710:	mov    %rax,0xe0(%rsp)
+  385718:	mov    0x4e8(%rsp,%rax,8),%rbp
+  385720:	xor    %rbp,%rdx
+  385723:	mov    0xc0(%rsp),%rdi
+  38572b:	mov    0x78(%rsp),%rsi
+  385730:	call   384240 <fastfft_arena::coefficient_crossover::swap>
+  385735:	cmp    $0x6,%al
+  385737:	jne    38770e <fastfft_arena::coefficient_crossover::run_fixed+0x29ce>
+  38573d:	mov    0xe0(%rsp),%rax
+  385745:	lea    (%rax,%rax,4),%rbx
+  385749:	shl    $0x4,%rbx
+  38574d:	mov    0x158(%rsp),%rax
+  385755:	mov    0x70(%rax),%rax
+  385759:	mov    0x140(%rsp),%rdi
+  385761:	mov    %rdi,0x5d0(%rsp,%rbx,1)
+  385769:	call   *%rax
+  38576b:	test   %rax,%rax
+  38576e:	je     3876e5 <fastfft_arena::coefficient_crossover::run_fixed+0x29a5>
+  385774:	add    %rsp,%rbx
+  385777:	add    $0x5b0,%rbx
+  38577e:	mov    (%rax),%rcx
+  385781:	mov    0x8(%rax),%rax
+  385785:	mov    0x10(%rax),%rdx
+  385789:	dec    %rdx
+  38578c:	and    $0xfffffffffffffff0,%rdx
+  385790:	lea    (%rcx,%rdx,1),%rdi
+  385794:	add    $0x10,%rdi
+  385798:	mov    %rdi,0x18(%rbx)
+  38579c:	movq   $0x0,0x10(%rbx)
+  3857a4:	mov    %rbx,0x30(%rsp)
+  3857a9:	mov    %r14,%rsi
+  3857ac:	mov    %r13,%rdx
+  3857af:	call   *0x40(%rax)
+  3857b2:	mov    0x150(%rsp),%rax
+  3857ba:	mov    0x70(%rax),%rax
+  3857be:	mov    %r15,0x48(%rbx)
+  3857c2:	mov    %r15,%rdi
+  3857c5:	call   *%rax
+  3857c7:	test   %rax,%rax
+  3857ca:	je     3876e5 <fastfft_arena::coefficient_crossover::run_fixed+0x29a5>
+  3857d0:	lea    0x28(%rbx),%rcx
+  3857d4:	mov    (%rax),%rdx
+  3857d7:	mov    0x8(%rax),%rax
+  3857db:	mov    0x10(%rax),%rsi
+  3857df:	dec    %rsi
+  3857e2:	and    $0xfffffffffffffff0,%rsi
+  3857e6:	lea    (%rdx,%rsi,1),%rdi
+  3857ea:	add    $0x10,%rdi
+  3857ee:	mov    %rdi,0x40(%rbx)
+  3857f2:	movq   $0x0,0x38(%rbx)
+  3857fa:	mov    %rcx,0x30(%rsp)
+  3857ff:	mov    %r14,%rsi
+  385802:	mov    %r13,%rdx
+  385805:	call   *0x40(%rax)
+  385808:	lea    0x180(%rsp),%rdi
+  385810:	mov    %rbx,%rsi
+  385813:	mov    %rbp,%rdx
+  385816:	call   383ec0 <fastfft_arena::coefficient_crossover::matches_assignment>
+  38581b:	test   %al,%al
+  38581d:	je     38773b <fastfft_arena::coefficient_crossover::run_fixed+0x29fb>
+  385823:	movupd 0x18(%r12),%xmm0
+  38582a:	movupd 0x40(%r12),%xmm1
+  385831:	movupd 0x68(%r12),%xmm2
+  385838:	movupd %xmm0,0x30(%rsp)
+  38583e:	movupd %xmm1,0x40(%rsp)
+  385844:	movupd %xmm2,0x50(%rsp)
+  38584a:	mov    $0x30,%edx
+  38584f:	mov    %r14,%rdi
+  385852:	lea    0x508(%rsp),%rsi
+  38585a:	call   *0xfb7190(%rip)        # 133c9f0 <bcmp@GLIBC_2.2.5>
+  385860:	test   %eax,%eax
+  385862:	jne    387758 <fastfft_arena::coefficient_crossover::run_fixed+0x2a18>
+  385868:	mov    0x250(%rsp),%rax
+  385870:	mov    0xe0(%rsp),%rcx
+  385878:	lea    (%rcx,%rax,1),%r14d
+  38587c:	and    $0x1,%r14d
+  385880:	mov    0x1f0(%rsp,%r14,8),%rdi
+  385888:	cmp    0x78(%rsp),%rdi
+  38588d:	jae    3879a1 <fastfft_arena::coefficient_crossover::run_fixed+0x2c61>
+  385893:	shl    $0x4,%rdi
+  385897:	mov    0xc0(%rsp),%rax
+  38589f:	mov    (%rax,%rdi,1),%rbx
+  3858a3:	test   %rbx,%rbx
+  3858a6:	je     387702 <fastfft_arena::coefficient_crossover::run_fixed+0x29c2>
+  3858ac:	mov    %rbp,0x260(%rsp)
+  3858b4:	add    %rax,%rdi
+  3858b7:	mov    0x8(%rdi),%r15
+  3858bb:	mov    %rbx,%rdi
+  3858be:	mov    %r12,%rsi
+  3858c1:	call   *0x48(%r15)
+  3858c5:	mov    %rbx,%rdi
+  3858c8:	mov    %r12,%rsi
+  3858cb:	xor    %edx,%edx
+  3858cd:	mov    $0xbebc200,%ecx
+  3858d2:	xor    %r8d,%r8d
+  3858d5:	mov    $0xc350,%r9d
+  3858db:	call   *0x30(%r15)
+  3858df:	mov    0xe0(%rsp),%rcx
+  3858e7:	shl    $0x4,%rcx
+  3858eb:	lea    (%rsp,%rcx,1),%r15
+  3858ef:	add    $0x6f0,%r15
+  3858f6:	mov    %rax,(%r15,%r14,8)
+  3858fa:	xor    $0x1,%r14
+  3858fe:	mov    0x1f0(%rsp,%r14,8),%rdi
+  385906:	cmp    0x78(%rsp),%rdi
+  38590b:	jae    3879a1 <fastfft_arena::coefficient_crossover::run_fixed+0x2c61>
+  385911:	shl    $0x4,%rdi
+  385915:	mov    0xc0(%rsp),%rax
+  38591d:	mov    (%rax,%rdi,1),%rbx
+  385921:	test   %rbx,%rbx
+  385924:	je     387702 <fastfft_arena::coefficient_crossover::run_fixed+0x29c2>
+  38592a:	mov    %r12,%rbp
+  38592d:	add    %rax,%rdi
+  385930:	mov    0x8(%rdi),%r12
+  385934:	mov    %rbx,%rdi
+  385937:	mov    %rbp,%rsi
+  38593a:	call   *0x48(%r12)
+  38593f:	mov    %rbx,%rdi
+  385942:	mov    %rbp,%rsi
+  385945:	xor    %edx,%edx
+  385947:	mov    $0xbebc200,%ecx
+  38594c:	xor    %r8d,%r8d
+  38594f:	mov    $0xc350,%r9d
+  385955:	call   *0x30(%r12)
+  38595a:	mov    %rax,(%r15,%r14,8)
+  38595e:	mov    0xe0(%rsp),%rbp
+  385966:	lea    0x0(,%rbp,2),%rax
+  38596e:	add    %rbp,%rax
+  385971:	inc    %rbp
+  385974:	mov    %rbp,0xe0(%rsp)
+  38597c:	shl    $0x4,%rax
+  385980:	add    %rsp,%rax
+  385983:	add    $0x428,%rax
+  385989:	mov    %rax,0x1e8(%rsp)
+  385991:	mov    0x160(%rsp),%rax
+  385999:	mov    %al,0xf(%rsp)
+  38599d:	movzbl 0xe(%rsp),%eax
+  3859a2:	mov    %eax,%r12d
+  3859a5:	xor    %ecx,%ecx
+  3859a7:	nopw   0x0(%rax,%rax,1)
+  3859b0:	mov    0x160(%rsp),%rax
+  3859b8:	lea    (%rax,%rcx,1),%ebp
+  3859bb:	and    $0x1,%ebp
+  3859be:	mov    0x1f0(%rsp,%rbp,8),%rdi
+  3859c6:	cmp    0x78(%rsp),%rdi
+  3859cb:	jae    3877a9 <fastfft_arena::coefficient_crossover::run_fixed+0x2a69>
+  3859d1:	shl    $0x4,%rdi
+  3859d5:	mov    0xc0(%rsp),%rax
+  3859dd:	mov    (%rax,%rdi,1),%r14
+  3859e1:	test   %r14,%r14
+  3859e4:	je     386e03 <fastfft_arena::coefficient_crossover::run_fixed+0x20c3>
+  3859ea:	mov    %rcx,0xe8(%rsp)
+  3859f2:	add    %rax,%rdi
+  3859f5:	mov    0x8(%rdi),%r13
+  3859f9:	mov    %r14,%rdi
+  3859fc:	mov    0x170(%rsp),%r15
+  385a04:	mov    %r15,%rsi
+  385a07:	call   *0x48(%r13)
+  385a0b:	lea    0x0(,%rbp,2),%rax
+  385a13:	add    %rbp,%rax
+  385a16:	mov    0x1e8(%rsp),%rcx
+  385a1e:	lea    (%rcx,%rax,8),%rbx
+  385a22:	mov    $0x1,%edx
+  385a27:	mov    %r14,%rdi
+  385a2a:	mov    %r15,%rsi
+  385a2d:	xor    %ecx,%ecx
+  385a2f:	mov    $0x5f5e100,%r8d
+  385a35:	mov    %rbx,%r9
+  385a38:	call   *0x38(%r13)
+  385a3c:	mov    (%rbx),%rax
+  385a3f:	mov    %rax,0x200(%rsp)
+  385a47:	cmp    $0x8000,%rax
+  385a4d:	jne    386e20 <fastfft_arena::coefficient_crossover::run_fixed+0x20e0>
+  385a53:	movzbl 0xf(%rsp),%eax
+  385a58:	and    $0x1,%eax
+  385a5b:	imul   $0x38,%rax,%rax
+  385a5f:	add    0x168(%rsp),%rax
+  385a67:	mov    0x10(%rbx),%rcx
+  385a6b:	mov    0xe8(%rsp),%rdx
+  385a73:	mov    %rcx,(%rax,%rdx,8)
+  385a77:	xor    $0x1,%rbp
+  385a7b:	mov    0x1f0(%rsp,%rbp,8),%rdi
+  385a83:	cmp    0x78(%rsp),%rdi
+  385a88:	jae    3877a9 <fastfft_arena::coefficient_crossover::run_fixed+0x2a69>
+  385a8e:	shl    $0x4,%rdi
+  385a92:	mov    0xc0(%rsp),%rax
+  385a9a:	mov    (%rax,%rdi,1),%r14
+  385a9e:	test   %r14,%r14
+  385aa1:	je     386e03 <fastfft_arena::coefficient_crossover::run_fixed+0x20c3>
+  385aa7:	add    %rax,%rdi
+  385aaa:	mov    0x8(%rdi),%r13
+  385aae:	mov    %r14,%rdi
+  385ab1:	mov    0x170(%rsp),%r15
+  385ab9:	mov    %r15,%rsi
+  385abc:	call   *0x48(%r13)
+  385ac0:	lea    0x0(,%rbp,2),%rax
+  385ac8:	add    %rbp,%rax
+  385acb:	mov    0x1e8(%rsp),%rcx
+  385ad3:	lea    (%rcx,%rax,8),%rbx
+  385ad7:	mov    $0x1,%edx
+  385adc:	mov    %r14,%rdi
+  385adf:	mov    %r15,%rsi
+  385ae2:	xor    %ecx,%ecx
+  385ae4:	mov    $0x5f5e100,%r8d
+  385aea:	mov    %rbx,%r9
+  385aed:	call   *0x38(%r13)
+  385af1:	mov    (%rbx),%rax
+  385af4:	mov    %rax,0x200(%rsp)
+  385afc:	cmp    $0x8000,%rax
+  385b02:	jne    386e20 <fastfft_arena::coefficient_crossover::run_fixed+0x20e0>
+  385b08:	movzbl %r12b,%r12d
+  385b0c:	mov    %r12d,%eax
+  385b0f:	and    $0x1,%eax
+  385b12:	imul   $0x38,%rax,%rax
+  385b16:	add    0x168(%rsp),%rax
+  385b1e:	mov    0x10(%rbx),%rcx
+  385b22:	mov    0xe8(%rsp),%rdx
+  385b2a:	mov    %rcx,(%rax,%rdx,8)
+  385b2e:	mov    %rdx,%rcx
+  385b31:	inc    %rcx
+  385b34:	xor    $0x1,%r12b
+  385b38:	xorb   $0x1,0xf(%rsp)
+  385b3d:	cmp    $0x7,%rcx
+  385b41:	jne    3859b0 <fastfft_arena::coefficient_crossover::run_fixed+0xc70>
+  385b47:	incq   0x160(%rsp)
+  385b4f:	addq   $0x70,0x168(%rsp)
+  385b58:	xorb   $0x1,0xe(%rsp)
+  385b5d:	mov    0xe0(%rsp),%rax
+  385b65:	cmp    $0x4,%rax
+  385b69:	mov    0x170(%rsp),%r12
+  385b71:	mov    0x258(%rsp),%r15
+  385b79:	lea    0x30(%rsp),%r14
+  385b7e:	lea    0xf784eb(%rip),%r13        # 12fe070 <__frame_dummy_init_array_entry+0x7a58>
+  385b85:	mov    0x260(%rsp),%rdx
+  385b8d:	jne    385710 <fastfft_arena::coefficient_crossover::run_fixed+0x9d0>
+  385b93:	mov    0xc0(%rsp),%rdi
+  385b9b:	mov    0x78(%rsp),%rsi
+  385ba0:	call   384240 <fastfft_arena::coefficient_crossover::swap>
+  385ba5:	cmp    $0x6,%al
+  385ba7:	jne    387812 <fastfft_arena::coefficient_crossover::run_fixed+0x2ad2>
+  385bad:	mov    $0x1,%edi
+  385bb2:	call   1197c40 <<std::sys::pal::unix::time::Timespec>::now>
+  385bb7:	mov    %rax,0x10(%rsp)
+  385bbc:	mov    %edx,0x18(%rsp)
+  385bc0:	mov    0x248(%rsp),%rax
+  385bc8:	mov    %rax,0x80(%rsp)
+  385bd0:	mov    0x17c(%rsp),%eax
+  385bd7:	mov    %eax,0x88(%rsp)
+  385bde:	lea    0x30(%rsp),%rdi
+  385be3:	lea    0x10(%rsp),%rsi
+  385be8:	lea    0x80(%rsp),%rdx
+  385bf0:	call   1197b40 <<std::sys::pal::unix::time::Timespec>::sub_timespec>
+  385bf5:	cmpb   $0x0,0x30(%rsp)
+  385bfa:	xorpd  %xmm0,%xmm0
+  385bfe:	movsd  %xmm0,0xe8(%rsp)
+  385c07:	jne    385c45 <fastfft_arena::coefficient_crossover::run_fixed+0xf05>
+  385c09:	movsd  0x38(%rsp),%xmm0
+  385c0f:	cvtsi2sdl 0x40(%rsp),%xmm2
+  385c15:	unpcklps -0x2f439c(%rip),%xmm0        # 91880 <std::thread::current::id::ID+0x91400>
+  385c1c:	subpd  -0x2f6864(%rip),%xmm0        # 8f3c0 <std::thread::current::id::ID+0x8ef40>
+  385c24:	movapd %xmm0,%xmm1
+  385c28:	unpckhpd %xmm0,%xmm1
+  385c2c:	addsd  %xmm0,%xmm1
+  385c30:	divsd  -0x2e73a8(%rip),%xmm2        # 9e890 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x1f60>
+  385c38:	addsd  %xmm1,%xmm2
+  385c3c:	movsd  %xmm2,0xe8(%rsp)
+  385c45:	call   366980 <fastfft_arena::clock_probe::measure_ghz>
+  385c4a:	movsd  %xmm0,0x78(%rsp)
+  385c50:	mov    0x158(%rsp),%rax
+  385c58:	mov    0x70(%rax),%rax
+  385c5c:	mov    0x140(%rsp),%rdi
+  385c64:	mov    %rdi,0x110(%rsp)
+  385c6c:	call   *%rax
+  385c6e:	test   %rax,%rax
+  385c71:	je     3876e5 <fastfft_arena::coefficient_crossover::run_fixed+0x29a5>
+  385c77:	mov    (%rax),%rcx
+  385c7a:	mov    0x8(%rax),%rax
+  385c7e:	mov    0x10(%rax),%rdx
+  385c82:	dec    %rdx
+  385c85:	and    $0xfffffffffffffff0,%rdx
+  385c89:	lea    (%rcx,%rdx,1),%rdi
+  385c8d:	add    $0x10,%rdi
+  385c91:	mov    %rdi,0x108(%rsp)
+  385c99:	movq   $0x0,0x100(%rsp)
+  385ca5:	lea    0xf0(%rsp),%rcx
+  385cad:	mov    %rcx,0x30(%rsp)
+  385cb2:	lea    0xf783b7(%rip),%rdx        # 12fe070 <__frame_dummy_init_array_entry+0x7a58>
+  385cb9:	lea    0x30(%rsp),%rsi
+  385cbe:	call   *0x40(%rax)
+  385cc1:	mov    0x150(%rsp),%rax
+  385cc9:	mov    0x70(%rax),%rax
+  385ccd:	mov    %r15,0x138(%rsp)
+  385cd5:	mov    %r15,%rdi
+  385cd8:	call   *%rax
+  385cda:	test   %rax,%rax
+  385cdd:	je     3876e5 <fastfft_arena::coefficient_crossover::run_fixed+0x29a5>
+  385ce3:	mov    (%rax),%rcx
+  385ce6:	mov    0x8(%rax),%rax
+  385cea:	mov    0x10(%rax),%rdx
+  385cee:	dec    %rdx
+  385cf1:	and    $0xfffffffffffffff0,%rdx
+  385cf5:	lea    (%rcx,%rdx,1),%rdi
+  385cf9:	add    $0x10,%rdi
+  385cfd:	mov    %rdi,0x130(%rsp)
+  385d05:	movq   $0x0,0x128(%rsp)
+  385d11:	lea    0x118(%rsp),%rcx
+  385d19:	mov    %rcx,0x30(%rsp)
+  385d1e:	lea    0xf7834b(%rip),%rdx        # 12fe070 <__frame_dummy_init_array_entry+0x7a58>
+  385d25:	lea    0x30(%rsp),%r14
+  385d2a:	mov    %r14,%rsi
+  385d2d:	call   *0x40(%rax)
+  385d30:	lea    0x180(%rsp),%rdi
+  385d38:	lea    0xf0(%rsp),%rsi
+  385d40:	xor    %edx,%edx
+  385d42:	call   383ec0 <fastfft_arena::coefficient_crossover::matches_assignment>
+  385d47:	test   %al,%al
+  385d49:	je     387833 <fastfft_arena::coefficient_crossover::run_fixed+0x2af3>
+  385d4f:	movupd 0x18(%r12),%xmm0
+  385d56:	movupd 0x40(%r12),%xmm1
+  385d5d:	movupd 0x68(%r12),%xmm2
+  385d64:	movupd %xmm0,0x30(%rsp)
+  385d6a:	movupd %xmm1,0x40(%rsp)
+  385d70:	movupd %xmm2,0x50(%rsp)
+  385d76:	lea    0x508(%rsp),%rsi
+  385d7e:	mov    $0x30,%edx
+  385d83:	mov    %r14,%rdi
+  385d86:	call   *0xfb6c64(%rip)        # 133c9f0 <bcmp@GLIBC_2.2.5>
+  385d8c:	test   %eax,%eax
+  385d8e:	jne    38784b <fastfft_arena::coefficient_crossover::run_fixed+0x2b0b>
+  385d94:	lea    0x570(%rsp),%rdi
+  385d9c:	call   3834c0 <fastfft_arena::coefficient_crossover::memory_mappings>
+  385da1:	mov    0x1e0(%rsp),%rax
+  385da9:	mov    0x70(%rax),%rsi
+  385dad:	mov    0x188(%rsp),%rcx
+  385db5:	mov    0x190(%rsp),%r8
+  385dbd:	lea    0x590(%rsp),%rdi
+  385dc5:	lea    0x508(%rsp),%rdx
+  385dcd:	call   387f80 <fastfft_arena::coefficient_crossover::workspace>
+  385dd2:	movq   $0x0,0x560(%rsp)
+  385dde:	movq   $0x4,0x568(%rsp)
+  385dea:	lea    0x428(%rsp),%rax
+  385df2:	mov    %rax,0x538(%rsp)
+  385dfa:	lea    0x6f0(%rsp),%rax
+  385e02:	mov    %rax,0x540(%rsp)
+  385e0a:	lea    0x268(%rsp),%rax
+  385e12:	mov    %rax,0x548(%rsp)
+  385e1a:	lea    0x5b0(%rsp),%rax
+  385e22:	mov    %rax,0x550(%rsp)
+  385e2a:	lea    0x4e8(%rsp),%rax
+  385e32:	mov    %rax,0x558(%rsp)
+  385e3a:	lea    0x220(%rsp),%rdi
+  385e42:	lea    0x538(%rsp),%rsi
+  385e4a:	call   cdb800 <<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter>
+  385e4f:	mov    0x240(%rsp),%r15
+  385e57:	movq   $0x0,0xc8(%rsp)
+  385e63:	movq   $0x0,0xd8(%rsp)
+  385e6f:	mov    $0x7,%ebx
+  385e74:	mov    $0x7,%edi
+  385e79:	call   *0xfb6b61(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  385e7f:	test   %rax,%rax
+  385e82:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  385e88:	mov    %rax,%r14
+  385e8b:	movl   $0x65727574,0x3(%rax)
+  385e92:	movl   $0x74706163,(%rax)
+  385e98:	movq   $0x7,0x10(%rsp)
+  385ea1:	mov    %rax,0x18(%rsp)
+  385ea6:	movq   $0x7,0x20(%rsp)
+  385eaf:	mov    $0x17,%edi
+  385eb4:	call   *0xfb6b26(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  385eba:	test   %rax,%rax
+  385ebd:	je     387aec <fastfft_arena::coefficient_crossover::run_fixed+0x2dac>
+  385ec3:	movupd -0x2ab384(%rip),%xmm0        # dab47 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e217>
+  385ecb:	movupd %xmm0,(%rax)
+  385ecf:	movabs $0x7265766f73736f72,%rcx
+  385ed9:	mov    %rcx,0xf(%rax)
+  385edd:	movb   $0x3,0x30(%rsp)
+  385ee2:	movq   $0x17,0x38(%rsp)
+  385eeb:	mov    %rax,0x40(%rsp)
+  385ef0:	movq   $0x17,0x48(%rsp)
+  385ef9:	lea    0x80(%rsp),%rdi
+  385f01:	lea    0xc8(%rsp),%rsi
+  385f09:	lea    0x10(%rsp),%rdx
+  385f0e:	lea    0x30(%rsp),%rcx
+  385f13:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  385f18:	cmpb   $0x6,0x80(%rsp)
+  385f20:	je     385f2f <fastfft_arena::coefficient_crossover::run_fixed+0x11ef>
+  385f22:	lea    0x80(%rsp),%rdi
+  385f2a:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  385f2f:	mov    $0xa,%ebx
+  385f34:	mov    $0xa,%edi
+  385f39:	call   *0xfb6aa1(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  385f3f:	test   %rax,%rax
+  385f42:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  385f48:	movabs $0x6e61747065636361,%rcx
+  385f52:	mov    %rcx,(%rax)
+  385f55:	movw   $0x6563,0x8(%rax)
+  385f5b:	movq   $0xa,0x80(%rsp)
+  385f67:	mov    %rax,0x88(%rsp)
+  385f6f:	movq   $0xa,0x90(%rsp)
+  385f7b:	movw   $0x1,0x730(%rsp)
+  385f85:	lea    0x30(%rsp),%rdi
+  385f8a:	lea    0xc8(%rsp),%rsi
+  385f92:	lea    0x80(%rsp),%rdx
+  385f9a:	lea    0x730(%rsp),%rcx
+  385fa2:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  385fa7:	cmpb   $0x6,0x30(%rsp)
+  385fac:	je     385fb8 <fastfft_arena::coefficient_crossover::run_fixed+0x1278>
+  385fae:	lea    0x30(%rsp),%rdi
+  385fb3:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  385fb8:	mov    $0x6,%ebx
+  385fbd:	mov    $0x6,%edi
+  385fc2:	call   *0xfb6a18(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  385fc8:	test   %rax,%rax
+  385fcb:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  385fd1:	mov    %rax,%r14
+  385fd4:	movw   $0x7375,0x4(%rax)
+  385fda:	movl   $0x74617473,(%rax)
+  385fe0:	movq   $0x6,0x10(%rsp)
+  385fe9:	mov    %rax,0x18(%rsp)
+  385fee:	movq   $0x6,0x20(%rsp)
+  385ff7:	mov    $0x8,%edi
+  385ffc:	call   *0xfb69de(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  386002:	test   %rax,%rax
+  386005:	je     387afd <fastfft_arena::coefficient_crossover::run_fixed+0x2dbd>
+  38600b:	movabs $0x6574656c706d6f63,%rcx
+  386015:	mov    %rcx,(%rax)
+  386018:	movb   $0x3,0x30(%rsp)
+  38601d:	movq   $0x8,0x38(%rsp)
+  386026:	mov    %rax,0x40(%rsp)
+  38602b:	movq   $0x8,0x48(%rsp)
+  386034:	lea    0x80(%rsp),%rdi
+  38603c:	lea    0xc8(%rsp),%rsi
+  386044:	lea    0x10(%rsp),%rdx
+  386049:	lea    0x30(%rsp),%rcx
+  38604e:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  386053:	cmpb   $0x6,0x80(%rsp)
+  38605b:	je     38606a <fastfft_arena::coefficient_crossover::run_fixed+0x132a>
+  38605d:	lea    0x80(%rsp),%rdi
+  386065:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  38606a:	mov    $0xc,%ebx
+  38606f:	mov    $0xc,%edi
+  386074:	call   *0xfb6966(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  38607a:	test   %rax,%rax
+  38607d:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  386083:	mov    %rax,%r14
+  386086:	movabs $0x6162727574726570,%rax
+  386090:	mov    %rax,(%r14)
+  386093:	movl   $0x6e6f6974,0x8(%r14)
+  38609b:	movq   $0xc,0x10(%rsp)
+  3860a4:	mov    %r14,0x18(%rsp)
+  3860a9:	movq   $0xc,0x20(%rsp)
+  3860b2:	mov    $0xa9,%edi
+  3860b7:	call   *0xfb6923(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3860bd:	test   %rax,%rax
+  3860c0:	je     387b0e <fastfft_arena::coefficient_crossover::run_fixed+0x2dce>
+  3860c6:	mov    %rax,%rbx
+  3860c9:	lea    -0x2ab4f0(%rip),%rsi        # dabe0 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e2b0>
+  3860d0:	mov    $0xa9,%edx
+  3860d5:	mov    %rax,%rdi
+  3860d8:	call   *0xfb690a(%rip)        # 133c9e8 <memcpy@GLIBC_2.14>
+  3860de:	movb   $0x3,0x30(%rsp)
+  3860e3:	movq   $0xa9,0x38(%rsp)
+  3860ec:	mov    %rbx,0x40(%rsp)
+  3860f1:	movq   $0xa9,0x48(%rsp)
+  3860fa:	lea    0x80(%rsp),%rdi
+  386102:	lea    0xc8(%rsp),%rsi
+  38610a:	lea    0x10(%rsp),%rdx
+  38610f:	lea    0x30(%rsp),%rcx
+  386114:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  386119:	cmpb   $0x6,0x80(%rsp)
+  386121:	je     386130 <fastfft_arena::coefficient_crossover::run_fixed+0x13f0>
+  386123:	lea    0x80(%rsp),%rdi
+  38612b:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  386130:	mov    $0x5,%ebx
+  386135:	mov    $0x5,%edi
+  38613a:	call   *0xfb68a0(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  386140:	test   %rax,%rax
+  386143:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  386149:	mov    %rax,%r14
+  38614c:	movb   $0x73,0x4(%rax)
+  386150:	movl   $0x74696e75,(%rax)
+  386156:	movq   $0x5,0x10(%rsp)
+  38615f:	mov    %rax,0x18(%rsp)
+  386164:	movq   $0x5,0x20(%rsp)
+  38616d:	mov    $0x1f,%edi
+  386172:	call   *0xfb6868(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  386178:	test   %rax,%rax
+  38617b:	je     387b1f <fastfft_arena::coefficient_crossover::run_fixed+0x2ddf>
+  386181:	movups -0x2ab4f0(%rip),%xmm0        # dac98 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e368>
+  386188:	movups %xmm0,0xf(%rax)
+  38618c:	movupd -0x2ab50b(%rip),%xmm0        # dac89 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e359>
+  386194:	movupd %xmm0,(%rax)
+  386198:	movb   $0x3,0x30(%rsp)
+  38619d:	movq   $0x1f,0x38(%rsp)
+  3861a6:	mov    %rax,0x40(%rsp)
+  3861ab:	movq   $0x1f,0x48(%rsp)
+  3861b4:	lea    0x80(%rsp),%rdi
+  3861bc:	lea    0xc8(%rsp),%rsi
+  3861c4:	lea    0x10(%rsp),%rdx
+  3861c9:	lea    0x30(%rsp),%rcx
+  3861ce:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  3861d3:	cmpb   $0x6,0x80(%rsp)
+  3861db:	je     3861ea <fastfft_arena::coefficient_crossover::run_fixed+0x14aa>
+  3861dd:	lea    0x80(%rsp),%rdi
+  3861e5:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  3861ea:	mov    $0xd,%ebx
+  3861ef:	mov    $0xd,%edi
+  3861f4:	call   *0xfb67e6(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3861fa:	test   %rax,%rax
+  3861fd:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  386203:	movabs $0x7865646e695f7373,%rcx
+  38620d:	mov    %rcx,0x5(%rax)
+  386211:	movabs $0x5f737365636f7270,%rcx
+  38621b:	mov    %rcx,(%rax)
+  38621e:	movq   $0xd,0x10(%rsp)
+  386227:	mov    %rax,0x18(%rsp)
+  38622c:	movq   $0xd,0x20(%rsp)
+  386235:	movb   $0x2,0x30(%rsp)
+  38623a:	movq   $0x0,0x38(%rsp)
+  386243:	mov    0x1d8(%rsp),%rax
+  38624b:	mov    %rax,0x40(%rsp)
+  386250:	lea    0x80(%rsp),%rdi
+  386258:	lea    0xc8(%rsp),%rsi
+  386260:	lea    0x10(%rsp),%rdx
+  386265:	lea    0x30(%rsp),%rcx
+  38626a:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  38626f:	cmpb   $0x6,0x80(%rsp)
+  386277:	je     386286 <fastfft_arena::coefficient_crossover::run_fixed+0x1546>
+  386279:	lea    0x80(%rsp),%rdi
+  386281:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  386286:	mov    $0x10,%ebx
+  38628b:	mov    $0x10,%edi
+  386290:	call   *0xfb674a(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  386296:	test   %rax,%rax
+  386299:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  38629f:	movupd -0x2f5247(%rip),%xmm0        # 91060 <std::thread::current::id::ID+0x90be0>
+  3862a7:	movupd %xmm0,(%rax)
+  3862ab:	movq   $0x10,0x10(%rsp)
+  3862b4:	mov    %rax,0x18(%rsp)
+  3862b9:	movq   $0x10,0x20(%rsp)
+  3862c2:	movb   $0x1,0x30(%rsp)
+  3862c7:	mov    %r15b,0x31(%rsp)
+  3862cc:	lea    0x80(%rsp),%rdi
+  3862d4:	lea    0xc8(%rsp),%rsi
+  3862dc:	lea    0x10(%rsp),%rdx
+  3862e1:	lea    0x30(%rsp),%rcx
+  3862e6:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  3862eb:	cmpb   $0x6,0x80(%rsp)
+  3862f3:	je     386302 <fastfft_arena::coefficient_crossover::run_fixed+0x15c2>
+  3862f5:	lea    0x80(%rsp),%rdi
+  3862fd:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  386302:	mov    $0xf,%ebx
+  386307:	mov    $0xf,%edi
+  38630c:	call   *0xfb66ce(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  386312:	test   %rax,%rax
+  386315:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  38631b:	movabs $0x74726174735f6e6f,%rcx
+  386325:	mov    %rcx,0x7(%rax)
+  386329:	movabs $0x6f697469646e6f63,%rcx
+  386333:	mov    %rcx,(%rax)
+  386336:	movq   $0xf,0x10(%rsp)
+  38633f:	mov    %rax,0x18(%rsp)
+  386344:	movq   $0xf,0x20(%rsp)
+  38634d:	movb   $0x2,0x30(%rsp)
+  386352:	movq   $0x0,0x38(%rsp)
+  38635b:	mov    %r15,0x40(%rsp)
+  386360:	lea    0x80(%rsp),%rdi
+  386368:	lea    0xc8(%rsp),%rsi
+  386370:	lea    0x10(%rsp),%rdx
+  386375:	lea    0x30(%rsp),%rcx
+  38637a:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  38637f:	cmpb   $0x6,0x80(%rsp)
+  386387:	je     386396 <fastfft_arena::coefficient_crossover::run_fixed+0x1656>
+  386389:	lea    0x80(%rsp),%rdi
+  386391:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  386396:	mov    $0xc,%ebx
+  38639b:	mov    $0xc,%edi
+  3863a0:	call   *0xfb663a(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3863a6:	test   %rax,%rax
+  3863a9:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  3863af:	movabs $0x735f7265626d656d,%rcx
+  3863b9:	mov    %rcx,(%rax)
+  3863bc:	movl   $0x74726174,0x8(%rax)
+  3863c3:	movq   $0xc,0x10(%rsp)
+  3863cc:	mov    %rax,0x18(%rsp)
+  3863d1:	movq   $0xc,0x20(%rsp)
+  3863da:	movb   $0x2,0x30(%rsp)
+  3863df:	movq   $0x0,0x38(%rsp)
+  3863e8:	mov    0x238(%rsp),%rax
+  3863f0:	mov    %rax,0x40(%rsp)
+  3863f5:	lea    0x80(%rsp),%rdi
+  3863fd:	lea    0xc8(%rsp),%rsi
+  386405:	lea    0x10(%rsp),%rdx
+  38640a:	lea    0x30(%rsp),%rcx
+  38640f:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  386414:	cmpb   $0x6,0x80(%rsp)
+  38641c:	je     38642b <fastfft_arena::coefficient_crossover::run_fixed+0x16eb>
+  38641e:	lea    0x80(%rsp),%rdi
+  386426:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  38642b:	mov    $0x5,%ebx
+  386430:	mov    $0x5,%edi
+  386435:	call   *0xfb65a5(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  38643b:	test   %rax,%rax
+  38643e:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  386444:	movb   $0x73,0x4(%rax)
+  386448:	movl   $0x6c6c6163,(%rax)
+  38644e:	movq   $0x5,0x10(%rsp)
+  386457:	mov    %rax,0x18(%rsp)
+  38645c:	movq   $0x5,0x20(%rsp)
+  386465:	movb   $0x2,0x30(%rsp)
+  38646a:	movq   $0x0,0x38(%rsp)
+  386473:	movq   $0x1,0x40(%rsp)
+  38647c:	lea    0x80(%rsp),%rdi
+  386484:	lea    0xc8(%rsp),%rsi
+  38648c:	lea    0x10(%rsp),%rdx
+  386491:	lea    0x30(%rsp),%rcx
+  386496:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  38649b:	cmpb   $0x6,0x80(%rsp)
+  3864a3:	je     3864b2 <fastfft_arena::coefficient_crossover::run_fixed+0x1772>
+  3864a5:	lea    0x80(%rsp),%rdi
+  3864ad:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  3864b2:	mov    $0x7,%ebx
+  3864b7:	mov    $0x7,%edi
+  3864bc:	call   *0xfb651e(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3864c2:	test   %rax,%rax
+  3864c5:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  3864cb:	mov    %rax,%r14
+  3864ce:	movl   $0x73726566,0x3(%rax)
+  3864d5:	movl   $0x66667562,(%rax)
+  3864db:	movq   $0x7,0x10(%rsp)
+  3864e4:	mov    %rax,0x18(%rsp)
+  3864e9:	movq   $0x7,0x20(%rsp)
+  3864f2:	lea    0x30(%rsp),%rdi
+  3864f7:	lea    0x508(%rsp),%rsi
+  3864ff:	call   34d780 <serde_json::value::to_value>
+  386504:	cmpb   $0x6,0x30(%rsp)
+  386509:	je     387857 <fastfft_arena::coefficient_crossover::run_fixed+0x2b17>
+  38650f:	movupd 0x30(%rsp),%xmm0
+  386515:	movupd 0x40(%rsp),%xmm1
+  38651b:	movapd %xmm1,0x90(%rsp)
+  386524:	movapd %xmm0,0x80(%rsp)
+  38652d:	lea    0x30(%rsp),%rdi
+  386532:	lea    0xc8(%rsp),%rsi
+  38653a:	lea    0x10(%rsp),%rdx
+  38653f:	lea    0x80(%rsp),%rcx
+  386547:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  38654c:	cmpb   $0x6,0x30(%rsp)
+  386551:	je     38655d <fastfft_arena::coefficient_crossover::run_fixed+0x181d>
+  386553:	lea    0x30(%rsp),%rdi
+  386558:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  38655d:	mov    $0xf,%ebx
+  386562:	mov    $0xf,%edi
+  386567:	call   *0xfb6473(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  38656d:	test   %rax,%rax
+  386570:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  386576:	mov    %rax,%r14
+  386579:	movabs $0x656761726f74735f,%rax
+  386583:	mov    %rax,0x7(%r14)
+  386587:	movabs $0x5f6c616974696e69,%rax
+  386591:	mov    %rax,(%r14)
+  386594:	movq   $0xf,0x208(%rsp)
+  3865a0:	mov    %r14,0x210(%rsp)
+  3865a8:	movq   $0xf,0x218(%rsp)
+  3865b4:	lea    0x10(%rsp),%rdi
+  3865b9:	lea    0x180(%rsp),%rsi
+  3865c1:	call   3843c0 <fastfft_arena::coefficient_crossover::Snapshot::json>
+  3865c6:	movupd 0x10(%rsp),%xmm0
+  3865cc:	movupd 0x20(%rsp),%xmm1
+  3865d2:	movapd %xmm0,0x80(%rsp)
+  3865db:	movapd %xmm1,0x90(%rsp)
+  3865e4:	movapd %xmm0,0x30(%rsp)
+  3865ea:	movapd %xmm1,0x40(%rsp)
+  3865f0:	lea    0x10(%rsp),%rdi
+  3865f5:	lea    0x1a8(%rsp),%rsi
+  3865fd:	call   3843c0 <fastfft_arena::coefficient_crossover::Snapshot::json>
+  386602:	movups 0x10(%rsp),%xmm0
+  386607:	movups 0x20(%rsp),%xmm1
+  38660c:	movaps %xmm1,0xb0(%rsp)
+  386614:	movaps %xmm0,0xa0(%rsp)
+  38661c:	movapd 0x30(%rsp),%xmm0
+  386622:	movapd 0x40(%rsp),%xmm1
+  386628:	movapd %xmm1,0x90(%rsp)
+  386631:	movapd %xmm0,0x80(%rsp)
+  38663a:	lea    0x30(%rsp),%rdi
+  38663f:	lea    0x80(%rsp),%rbx
+  386647:	mov    %rbx,%rsi
+  38664a:	call   34f880 <serde_json::value::to_value>
+  38664f:	cmpb   $0x6,0x30(%rsp)
+  386654:	je     387890 <fastfft_arena::coefficient_crossover::run_fixed+0x2b50>
+  38665a:	movupd 0x30(%rsp),%xmm0
+  386660:	movupd 0x40(%rsp),%xmm1
+  386666:	movapd %xmm1,0x20(%rsp)
+  38666c:	movapd %xmm0,0x10(%rsp)
+  386672:	lea    0x30(%rsp),%rdi
+  386677:	lea    0xc8(%rsp),%rsi
+  38667f:	lea    0x208(%rsp),%rdx
+  386687:	lea    0x10(%rsp),%rcx
+  38668c:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  386691:	cmpb   $0x6,0x30(%rsp)
+  386696:	je     3866a2 <fastfft_arena::coefficient_crossover::run_fixed+0x1962>
+  386698:	lea    0x30(%rsp),%rdi
+  38669d:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  3866a2:	xor    %r14d,%r14d
+  3866a5:	data16 cs nopw 0x0(%rax,%rax,1)
+  3866b0:	cmp    $0x2,%r14
+  3866b4:	je     386e4f <fastfft_arena::coefficient_crossover::run_fixed+0x210f>
+  3866ba:	inc    %r14
+  3866bd:	lea    0x20(%rbx),%r15
+  3866c1:	mov    %rbx,%rdi
+  3866c4:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  3866c9:	mov    %r15,%rbx
+  3866cc:	jmp    3866b0 <fastfft_arena::coefficient_crossover::run_fixed+0x1970>
+  3866ce:	movq   $0x0,0xf0(%rsp)
+  3866da:	movq   $0x0,0x100(%rsp)
+  3866e6:	mov    $0x7,%ebx
+  3866eb:	mov    $0x7,%edi
+  3866f0:	call   *0xfb62ea(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3866f6:	test   %rax,%rax
+  3866f9:	je     3879ad <fastfft_arena::coefficient_crossover::run_fixed+0x2c6d>
+  3866ff:	mov    %rax,%r14
+  386702:	movl   $0x65727574,0x3(%rax)
+  386709:	movl   $0x74706163,(%rax)
+  38670f:	movq   $0x7,0x428(%rsp)
+  38671b:	mov    %rax,0x430(%rsp)
+  386723:	movq   $0x7,0x438(%rsp)
+  38672f:	mov    $0x17,%edi
+  386734:	call   *0xfb62a6(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  38673a:	test   %rax,%rax
+  38673d:	je     387a13 <fastfft_arena::coefficient_crossover::run_fixed+0x2cd3>
+  386743:	movupd -0x2abc04(%rip),%xmm0        # dab47 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e217>
+  38674b:	movupd %xmm0,(%rax)
+  38674f:	movabs $0x7265766f73736f72,%rcx
+  386759:	mov    %rcx,0xf(%rax)
+  38675d:	movb   $0x3,0x268(%rsp)
+  386765:	movq   $0x17,0x270(%rsp)
+  386771:	mov    %rax,0x278(%rsp)
+  386779:	movq   $0x17,0x280(%rsp)
+  386785:	lea    0x5b0(%rsp),%rdi
+  38678d:	lea    0xf0(%rsp),%rsi
+  386795:	lea    0x428(%rsp),%rdx
+  38679d:	lea    0x268(%rsp),%rcx
+  3867a5:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  3867aa:	cmpb   $0x6,0x5b0(%rsp)
+  3867b2:	je     3867c1 <fastfft_arena::coefficient_crossover::run_fixed+0x1a81>
+  3867b4:	lea    0x5b0(%rsp),%rdi
+  3867bc:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  3867c1:	mov    $0xa,%ebx
+  3867c6:	mov    $0xa,%edi
+  3867cb:	call   *0xfb620f(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3867d1:	test   %rax,%rax
+  3867d4:	je     3879ad <fastfft_arena::coefficient_crossover::run_fixed+0x2c6d>
+  3867da:	movabs $0x6e61747065636361,%rcx
+  3867e4:	mov    %rcx,(%rax)
+  3867e7:	movw   $0x6563,0x8(%rax)
+  3867ed:	movq   $0xa,0x428(%rsp)
+  3867f9:	mov    %rax,0x430(%rsp)
+  386801:	movq   $0xa,0x438(%rsp)
+  38680d:	movw   $0x1,0x268(%rsp)
+  386817:	lea    0x5b0(%rsp),%rdi
+  38681f:	lea    0xf0(%rsp),%rsi
+  386827:	lea    0x428(%rsp),%rdx
+  38682f:	lea    0x268(%rsp),%rcx
+  386837:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  38683c:	cmpb   $0x6,0x5b0(%rsp)
+  386844:	je     386853 <fastfft_arena::coefficient_crossover::run_fixed+0x1b13>
+  386846:	lea    0x5b0(%rsp),%rdi
+  38684e:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  386853:	mov    $0x6,%ebx
+  386858:	mov    $0x6,%edi
+  38685d:	call   *0xfb617d(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  386863:	test   %rax,%rax
+  386866:	je     3879ad <fastfft_arena::coefficient_crossover::run_fixed+0x2c6d>
+  38686c:	mov    %rax,%r14
+  38686f:	movw   $0x7375,0x4(%rax)
+  386875:	movl   $0x74617473,(%rax)
+  38687b:	movq   $0x6,0x428(%rsp)
+  386887:	mov    %rax,0x430(%rsp)
+  38688f:	movq   $0x6,0x438(%rsp)
+  38689b:	mov    $0xb,%edi
+  3868a0:	call   *0xfb613a(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3868a6:	test   %rax,%rax
+  3868a9:	je     387a27 <fastfft_arena::coefficient_crossover::run_fixed+0x2ce7>
+  3868af:	movabs $0x726f707075736e75,%rcx
+  3868b9:	mov    %rcx,(%rax)
+  3868bc:	movl   $0x64657472,0x7(%rax)
+  3868c3:	movb   $0x3,0x268(%rsp)
+  3868cb:	movq   $0xb,0x270(%rsp)
+  3868d7:	mov    %rax,0x278(%rsp)
+  3868df:	movq   $0xb,0x280(%rsp)
+  3868eb:	lea    0x5b0(%rsp),%rdi
+  3868f3:	lea    0xf0(%rsp),%rsi
+  3868fb:	lea    0x428(%rsp),%rdx
+  386903:	lea    0x268(%rsp),%rcx
+  38690b:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  386910:	cmpb   $0x6,0x5b0(%rsp)
+  386918:	je     386927 <fastfft_arena::coefficient_crossover::run_fixed+0x1be7>
+  38691a:	lea    0x5b0(%rsp),%rdi
+  386922:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  386927:	mov    $0x6,%ebx
+  38692c:	mov    $0x6,%edi
+  386931:	call   *0xfb60a9(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  386937:	test   %rax,%rax
+  38693a:	je     3879ad <fastfft_arena::coefficient_crossover::run_fixed+0x2c6d>
+  386940:	mov    %rax,%r14
+  386943:	movw   $0x6e6f,0x4(%rax)
+  386949:	movl   $0x73616572,(%rax)
+  38694f:	movq   $0x6,0x428(%rsp)
+  38695b:	mov    %rax,0x430(%rsp)
+  386963:	movq   $0x6,0x438(%rsp)
+  38696f:	mov    $0x17,%edi
+  386974:	call   *0xfb6066(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  38697a:	test   %rax,%rax
+  38697d:	je     387a3b <fastfft_arena::coefficient_crossover::run_fixed+0x2cfb>
+  386983:	movupd -0x2abc45(%rip),%xmm0        # dad46 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e416>
+  38698b:	movupd %xmm0,(%rax)
+  38698f:	movabs $0x72656e6e75722064,%rcx
+  386999:	mov    %rcx,0xf(%rax)
+  38699d:	movb   $0x3,0x268(%rsp)
+  3869a5:	movq   $0x17,0x270(%rsp)
+  3869b1:	mov    %rax,0x278(%rsp)
+  3869b9:	movq   $0x17,0x280(%rsp)
+  3869c5:	lea    0x5b0(%rsp),%rdi
+  3869cd:	lea    0xf0(%rsp),%rsi
+  3869d5:	lea    0x428(%rsp),%rdx
+  3869dd:	lea    0x268(%rsp),%rcx
+  3869e5:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  3869ea:	cmpb   $0x6,0x5b0(%rsp)
+  3869f2:	je     386d9a <fastfft_arena::coefficient_crossover::run_fixed+0x205a>
+  3869f8:	lea    0x5b0(%rsp),%rdi
+  386a00:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  386a05:	jmp    386d9a <fastfft_arena::coefficient_crossover::run_fixed+0x205a>
+  386a0a:	mov    %al,0x30(%rsp)
+  386a0e:	movq   $0x0,0xf0(%rsp)
+  386a1a:	movq   $0x0,0x100(%rsp)
+  386a26:	mov    $0x7,%ebx
+  386a2b:	mov    $0x7,%edi
+  386a30:	call   *0xfb5faa(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  386a36:	test   %rax,%rax
+  386a39:	je     3879e5 <fastfft_arena::coefficient_crossover::run_fixed+0x2ca5>
+  386a3f:	mov    %rax,%r14
+  386a42:	movl   $0x65727574,0x3(%rax)
+  386a49:	movl   $0x74706163,(%rax)
+  386a4f:	movq   $0x7,0x428(%rsp)
+  386a5b:	mov    %rax,0x430(%rsp)
+  386a63:	movq   $0x7,0x438(%rsp)
+  386a6f:	mov    $0x17,%edi
+  386a74:	call   *0xfb5f66(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  386a7a:	test   %rax,%rax
+  386a7d:	je     387a73 <fastfft_arena::coefficient_crossover::run_fixed+0x2d33>
+  386a83:	movupd -0x2abf44(%rip),%xmm0        # dab47 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e217>
+  386a8b:	movupd %xmm0,(%rax)
+  386a8f:	movabs $0x7265766f73736f72,%rcx
+  386a99:	mov    %rcx,0xf(%rax)
+  386a9d:	movb   $0x3,0x268(%rsp)
+  386aa5:	movq   $0x17,0x270(%rsp)
+  386ab1:	mov    %rax,0x278(%rsp)
+  386ab9:	movq   $0x17,0x280(%rsp)
+  386ac5:	lea    0x5b0(%rsp),%rdi
+  386acd:	lea    0xf0(%rsp),%rsi
+  386ad5:	lea    0x428(%rsp),%rdx
+  386add:	lea    0x268(%rsp),%rcx
+  386ae5:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  386aea:	cmpb   $0x6,0x5b0(%rsp)
+  386af2:	je     386b01 <fastfft_arena::coefficient_crossover::run_fixed+0x1dc1>
+  386af4:	lea    0x5b0(%rsp),%rdi
+  386afc:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  386b01:	mov    $0xa,%ebx
+  386b06:	mov    $0xa,%edi
+  386b0b:	call   *0xfb5ecf(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  386b11:	test   %rax,%rax
+  386b14:	je     3879e5 <fastfft_arena::coefficient_crossover::run_fixed+0x2ca5>
+  386b1a:	movabs $0x6e61747065636361,%rcx
+  386b24:	mov    %rcx,(%rax)
+  386b27:	movw   $0x6563,0x8(%rax)
+  386b2d:	movq   $0xa,0x428(%rsp)
+  386b39:	mov    %rax,0x430(%rsp)
+  386b41:	movq   $0xa,0x438(%rsp)
+  386b4d:	movw   $0x1,0x268(%rsp)
+  386b57:	lea    0x5b0(%rsp),%rdi
+  386b5f:	lea    0xf0(%rsp),%rsi
+  386b67:	lea    0x428(%rsp),%rdx
+  386b6f:	lea    0x268(%rsp),%rcx
+  386b77:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  386b7c:	cmpb   $0x6,0x5b0(%rsp)
+  386b84:	je     386b93 <fastfft_arena::coefficient_crossover::run_fixed+0x1e53>
+  386b86:	lea    0x5b0(%rsp),%rdi
+  386b8e:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  386b93:	mov    $0x6,%ebx
+  386b98:	mov    $0x6,%edi
+  386b9d:	call   *0xfb5e3d(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  386ba3:	test   %rax,%rax
+  386ba6:	je     3879e5 <fastfft_arena::coefficient_crossover::run_fixed+0x2ca5>
+  386bac:	mov    %rax,%r14
+  386baf:	movw   $0x7375,0x4(%rax)
+  386bb5:	movl   $0x74617473,(%rax)
+  386bbb:	movq   $0x6,0x428(%rsp)
+  386bc7:	mov    %rax,0x430(%rsp)
+  386bcf:	movq   $0x6,0x438(%rsp)
+  386bdb:	mov    $0xb,%edi
+  386be0:	call   *0xfb5dfa(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  386be6:	test   %rax,%rax
+  386be9:	je     387a87 <fastfft_arena::coefficient_crossover::run_fixed+0x2d47>
+  386bef:	movabs $0x726f707075736e75,%rcx
+  386bf9:	mov    %rcx,(%rax)
+  386bfc:	movl   $0x64657472,0x7(%rax)
+  386c03:	movb   $0x3,0x268(%rsp)
+  386c0b:	movq   $0xb,0x270(%rsp)
+  386c17:	mov    %rax,0x278(%rsp)
+  386c1f:	movq   $0xb,0x280(%rsp)
+  386c2b:	lea    0x5b0(%rsp),%rdi
+  386c33:	lea    0xf0(%rsp),%rsi
+  386c3b:	lea    0x428(%rsp),%rdx
+  386c43:	lea    0x268(%rsp),%rcx
+  386c4b:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  386c50:	cmpb   $0x6,0x5b0(%rsp)
+  386c58:	je     386c67 <fastfft_arena::coefficient_crossover::run_fixed+0x1f27>
+  386c5a:	lea    0x5b0(%rsp),%rdi
+  386c62:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  386c67:	mov    $0x6,%ebx
+  386c6c:	mov    $0x6,%edi
+  386c71:	call   *0xfb5d69(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  386c77:	test   %rax,%rax
+  386c7a:	je     3879e5 <fastfft_arena::coefficient_crossover::run_fixed+0x2ca5>
+  386c80:	mov    %rax,%r15
+  386c83:	movw   $0x6e6f,0x4(%rax)
+  386c89:	movl   $0x73616572,(%rax)
+  386c8f:	movq   $0x6,0x428(%rsp)
+  386c9b:	mov    %rax,0x430(%rsp)
+  386ca3:	movq   $0x6,0x438(%rsp)
+  386caf:	lea    0x30(%rsp),%rax
+  386cb4:	mov    %rax,0x5b0(%rsp)
+  386cbc:	lea    0x111afd(%rip),%rax        # 4987c0 <<fastfft::tuning::CoefficientSwapError as core::fmt::Debug>::fmt>
+  386cc3:	mov    %rax,0x5b8(%rsp)
+  386ccb:	lea    -0x2b0cb0(%rip),%rsi        # d6022 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x396f2>
+  386cd2:	lea    0x268(%rsp),%rdi
+  386cda:	lea    0x5b0(%rsp),%rdx
+  386ce2:	call   ceb040 <alloc::fmt::format::format_inner>
+  386ce7:	mov    0x268(%rsp),%r13
+  386cef:	mov    0x270(%rsp),%r14
+  386cf7:	mov    0x278(%rsp),%rbx
+  386cff:	test   %rbx,%rbx
+  386d02:	je     386d2a <fastfft_arena::coefficient_crossover::run_fixed+0x1fea>
+  386d04:	mov    %rbx,%rdi
+  386d07:	call   *0xfb5cd3(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  386d0d:	test   %rax,%rax
+  386d10:	je     387add <fastfft_arena::coefficient_crossover::run_fixed+0x2d9d>
+  386d16:	mov    %rax,%r12
+  386d19:	mov    %rax,%rdi
+  386d1c:	mov    %r14,%rsi
+  386d1f:	mov    %rbx,%rdx
+  386d22:	call   *0xfb5cc0(%rip)        # 133c9e8 <memcpy@GLIBC_2.14>
+  386d28:	jmp    386d30 <fastfft_arena::coefficient_crossover::run_fixed+0x1ff0>
+  386d2a:	mov    $0x1,%r12d
+  386d30:	movb   $0x3,0x268(%rsp)
+  386d38:	mov    %rbx,0x270(%rsp)
+  386d40:	mov    %r12,0x278(%rsp)
+  386d48:	mov    %rbx,0x280(%rsp)
+  386d50:	lea    0x5b0(%rsp),%rdi
+  386d58:	lea    0xf0(%rsp),%rsi
+  386d60:	lea    0x428(%rsp),%rdx
+  386d68:	lea    0x268(%rsp),%rcx
+  386d70:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  386d75:	cmpb   $0x6,0x5b0(%rsp)
+  386d7d:	je     386d8c <fastfft_arena::coefficient_crossover::run_fixed+0x204c>
+  386d7f:	lea    0x5b0(%rsp),%rdi
+  386d87:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  386d8c:	test   %r13,%r13
+  386d8f:	je     386d9a <fastfft_arena::coefficient_crossover::run_fixed+0x205a>
+  386d91:	mov    %r14,%rdi
+  386d94:	call   *0xfb5c5e(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  386d9a:	mov    0x100(%rsp),%rax
+  386da2:	mov    0x148(%rsp),%rcx
+  386daa:	mov    %rax,0x18(%rcx)
+  386dae:	movupd 0xf0(%rsp),%xmm0
+  386db7:	movupd %xmm0,0x8(%rcx)
+  386dbc:	movb   $0x5,(%rcx)
+  386dbf:	cmpq   $0x0,0x180(%rsp)
+  386dc8:	je     386dd8 <fastfft_arena::coefficient_crossover::run_fixed+0x2098>
+  386dca:	mov    0x188(%rsp),%rdi
+  386dd2:	call   *0xfb5c20(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  386dd8:	cmpq   $0x0,0x1a8(%rsp)
+  386de1:	je     386df1 <fastfft_arena::coefficient_crossover::run_fixed+0x20b1>
+  386de3:	mov    0x1b0(%rsp),%rdi
+  386deb:	call   *0xfb5c07(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  386df1:	add    $0x7b8,%rsp
+  386df8:	pop    %rbx
+  386df9:	pop    %r12
+  386dfb:	pop    %r13
+  386dfd:	pop    %r14
+  386dff:	pop    %r15
+  386e01:	pop    %rbp
+  386e02:	ret
+  386e03:	lea    0xf773c6(%rip),%rdx        # 12fe1d0 <__frame_dummy_init_array_entry+0x7bb8>
+  386e0a:	lea    -0x2e84c1(%rip),%rdi        # 9e950 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x2020>
+  386e11:	mov    $0x8,%esi
+  386e16:	call   cefc80 <core::option::expect_failed>
+  386e1b:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  386e20:	lea    -0x2e8557(%rip),%rdx        # 9e8d0 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x1fa0>
+  386e27:	lea    -0x2ac0fb(%rip),%rcx        # dad33 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e403>
+  386e2e:	lea    0xf773b3(%rip),%r9        # 12fe1e8 <__frame_dummy_init_array_entry+0x7bd0>
+  386e35:	lea    0x200(%rsp),%rsi
+  386e3d:	mov    $0x27,%r8d
+  386e43:	xor    %edi,%edi
+  386e45:	call   cece40 <core::panicking::assert_failed::<usize, usize>>
+  386e4a:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  386e4f:	mov    $0x10,%ebx
+  386e54:	mov    $0x10,%edi
+  386e59:	call   *0xfb5b81(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  386e5f:	test   %rax,%rax
+  386e62:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  386e68:	mov    %rax,%r14
+  386e6b:	movupd -0x2f4753(%rip),%xmm0        # 92720 <std::thread::current::id::ID+0x922a0>
+  386e73:	movupd %xmm0,(%rax)
+  386e77:	movq   $0x10,0x208(%rsp)
+  386e83:	mov    %rax,0x210(%rsp)
+  386e8b:	movq   $0x10,0x218(%rsp)
+  386e97:	lea    0x10(%rsp),%rdi
+  386e9c:	lea    0xf0(%rsp),%rsi
+  386ea4:	call   3843c0 <fastfft_arena::coefficient_crossover::Snapshot::json>
+  386ea9:	movupd 0x10(%rsp),%xmm0
+  386eaf:	movupd 0x20(%rsp),%xmm1
+  386eb5:	movapd %xmm0,0x80(%rsp)
+  386ebe:	movapd %xmm1,0x90(%rsp)
+  386ec7:	movapd %xmm0,0x30(%rsp)
+  386ecd:	movapd %xmm1,0x40(%rsp)
+  386ed3:	lea    0x10(%rsp),%rdi
+  386ed8:	lea    0x118(%rsp),%rsi
+  386ee0:	call   3843c0 <fastfft_arena::coefficient_crossover::Snapshot::json>
+  386ee5:	movups 0x10(%rsp),%xmm0
+  386eea:	movups 0x20(%rsp),%xmm1
+  386eef:	movaps %xmm1,0xb0(%rsp)
+  386ef7:	movaps %xmm0,0xa0(%rsp)
+  386eff:	movapd 0x30(%rsp),%xmm0
+  386f05:	movapd 0x40(%rsp),%xmm1
+  386f0b:	movapd %xmm1,0x90(%rsp)
+  386f14:	movapd %xmm0,0x80(%rsp)
+  386f1d:	lea    0x30(%rsp),%rdi
+  386f22:	lea    0x80(%rsp),%rbx
+  386f2a:	mov    %rbx,%rsi
+  386f2d:	call   34f880 <serde_json::value::to_value>
+  386f32:	cmpb   $0x6,0x30(%rsp)
+  386f37:	je     3878c3 <fastfft_arena::coefficient_crossover::run_fixed+0x2b83>
+  386f3d:	movupd 0x30(%rsp),%xmm0
+  386f43:	movupd 0x40(%rsp),%xmm1
+  386f49:	movapd %xmm1,0x20(%rsp)
+  386f4f:	movapd %xmm0,0x10(%rsp)
+  386f55:	lea    0x30(%rsp),%rdi
+  386f5a:	lea    0xc8(%rsp),%rsi
+  386f62:	lea    0x208(%rsp),%rdx
+  386f6a:	lea    0x10(%rsp),%rcx
+  386f6f:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  386f74:	cmpb   $0x6,0x30(%rsp)
+  386f79:	je     386f85 <fastfft_arena::coefficient_crossover::run_fixed+0x2245>
+  386f7b:	lea    0x30(%rsp),%rdi
+  386f80:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  386f85:	xor    %r14d,%r14d
+  386f88:	nopl   0x0(%rax,%rax,1)
+  386f90:	cmp    $0x2,%r14
+  386f94:	je     386faa <fastfft_arena::coefficient_crossover::run_fixed+0x226a>
+  386f96:	inc    %r14
+  386f99:	lea    0x20(%rbx),%r15
+  386f9d:	mov    %rbx,%rdi
+  386fa0:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  386fa5:	mov    %r15,%rbx
+  386fa8:	jmp    386f90 <fastfft_arena::coefficient_crossover::run_fixed+0x2250>
+  386faa:	mov    $0x8,%ebx
+  386faf:	mov    $0x8,%edi
+  386fb4:	call   *0xfb5a26(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  386fba:	test   %rax,%rax
+  386fbd:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  386fc3:	movabs $0x6465726f74736572,%rcx
+  386fcd:	mov    %rcx,(%rax)
+  386fd0:	movq   $0x8,0x80(%rsp)
+  386fdc:	mov    %rax,0x88(%rsp)
+  386fe4:	movq   $0x8,0x90(%rsp)
+  386ff0:	movw   $0x101,0x750(%rsp)
+  386ffa:	lea    0x30(%rsp),%rdi
+  386fff:	lea    0xc8(%rsp),%rsi
+  387007:	lea    0x80(%rsp),%rdx
+  38700f:	lea    0x750(%rsp),%rcx
+  387017:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  38701c:	cmpb   $0x6,0x30(%rsp)
+  387021:	je     38702d <fastfft_arena::coefficient_crossover::run_fixed+0x22ed>
+  387023:	lea    0x30(%rsp),%rdi
+  387028:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  38702d:	mov    $0x12,%ebx
+  387032:	mov    $0x12,%edi
+  387037:	call   *0xfb59a3(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  38703d:	test   %rax,%rax
+  387040:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  387046:	movupd -0x2ac3a6(%rip),%xmm0        # daca8 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e378>
+  38704e:	movupd %xmm0,(%rax)
+  387052:	movw   $0x6465,0x10(%rax)
+  387058:	movq   $0x12,0x80(%rsp)
+  387064:	mov    %rax,0x88(%rsp)
+  38706c:	movq   $0x12,0x90(%rsp)
+  387078:	lea    0x30(%rsp),%rdi
+  38707d:	lea    0xc8(%rsp),%rsi
+  387085:	lea    0x80(%rsp),%rdx
+  38708d:	lea    0x750(%rsp),%rcx
+  387095:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  38709a:	cmpb   $0x6,0x30(%rsp)
+  38709f:	je     3870ab <fastfft_arena::coefficient_crossover::run_fixed+0x236b>
+  3870a1:	lea    0x30(%rsp),%rdi
+  3870a6:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  3870ab:	mov    $0xf,%ebx
+  3870b0:	mov    $0xf,%edi
+  3870b5:	call   *0xfb5925(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3870bb:	test   %rax,%rax
+  3870be:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  3870c4:	movabs $0x7974696361706163,%rcx
+  3870ce:	mov    %rcx,0x7(%rax)
+  3870d2:	movabs $0x635f656c706d6173,%rcx
+  3870dc:	mov    %rcx,(%rax)
+  3870df:	movq   $0xf,0x10(%rsp)
+  3870e8:	mov    %rax,0x18(%rsp)
+  3870ed:	movq   $0xf,0x20(%rsp)
+  3870f6:	movb   $0x2,0x30(%rsp)
+  3870fb:	movq   $0x0,0x38(%rsp)
+  387104:	movq   $0x8000,0x40(%rsp)
+  38710d:	lea    0x80(%rsp),%rdi
+  387115:	lea    0xc8(%rsp),%rsi
+  38711d:	lea    0x10(%rsp),%rdx
+  387122:	lea    0x30(%rsp),%rcx
+  387127:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  38712c:	cmpb   $0x6,0x80(%rsp)
+  387134:	je     387143 <fastfft_arena::coefficient_crossover::run_fixed+0x2403>
+  387136:	lea    0x80(%rsp),%rdi
+  38713e:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387143:	mov    $0x13,%ebx
+  387148:	mov    $0x13,%edi
+  38714d:	call   *0xfb588d(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  387153:	test   %rax,%rax
+  387156:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  38715c:	movupd -0x2ac4aa(%rip),%xmm0        # dacba <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e38a>
+  387164:	movupd %xmm0,(%rax)
+  387168:	movl   $0x77657267,0xf(%rax)
+  38716f:	movq   $0x13,0x80(%rsp)
+  38717b:	mov    %rax,0x88(%rsp)
+  387183:	movq   $0x13,0x90(%rsp)
+  38718f:	lea    0x30(%rsp),%rdi
+  387194:	lea    0xc8(%rsp),%rsi
+  38719c:	lea    0x80(%rsp),%rdx
+  3871a4:	lea    0x730(%rsp),%rcx
+  3871ac:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  3871b1:	cmpb   $0x6,0x30(%rsp)
+  3871b6:	je     3871c2 <fastfft_arena::coefficient_crossover::run_fixed+0x2482>
+  3871b8:	lea    0x30(%rsp),%rdi
+  3871bd:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  3871c2:	mov    $0x9,%ebx
+  3871c7:	mov    $0x9,%edi
+  3871cc:	call   *0xfb580e(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3871d2:	test   %rax,%rax
+  3871d5:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  3871db:	mov    %rax,%r14
+  3871de:	movabs $0x68675f6b636f6c63,%rax
+  3871e8:	mov    %rax,(%r14)
+  3871eb:	movb   $0x7a,0x8(%r14)
+  3871f0:	movq   $0x9,0x10(%rsp)
+  3871f9:	mov    %r14,0x18(%rsp)
+  3871fe:	movq   $0x9,0x20(%rsp)
+  387207:	mov    $0x40,%edi
+  38720c:	call   *0xfb57ce(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  387212:	test   %rax,%rax
+  387215:	je     3877fe <fastfft_arena::coefficient_crossover::run_fixed+0x2abe>
+  38721b:	mov    %rax,%r15
+  38721e:	movq   0x1d0(%rsp),%xmm0
+  387227:	movq   %xmm0,%rax
+  38722c:	movabs $0x7fffffffffffffff,%rbx
+  387236:	and    %rbx,%rax
+  387239:	movabs $0x7fefffffffffffff,%r12
+  387243:	movb   $0x0,0x30(%rsp)
+  387248:	cmp    %r12,%rax
+  38724b:	jle    387251 <fastfft_arena::coefficient_crossover::run_fixed+0x2511>
+  38724d:	xor    %ebp,%ebp
+  38724f:	jmp    38725e <fastfft_arena::coefficient_crossover::run_fixed+0x251e>
+  387251:	mov    $0x2,%bpl
+  387254:	lea    0x30(%rsp),%rdi
+  387259:	call   1163e40 <core::ptr::drop_in_place<serde_json::value::Value>>
+  38725e:	mov    %bpl,0x80(%rsp)
+  387266:	movq   $0x2,0x88(%rsp)
+  387272:	movsd  0x1d0(%rsp),%xmm0
+  38727b:	movsd  %xmm0,0x90(%rsp)
+  387284:	movq   0x78(%rsp),%xmm0
+  38728a:	movq   %xmm0,%rax
+  38728f:	and    %rbx,%rax
+  387292:	movb   $0x0,0x30(%rsp)
+  387297:	cmp    %r12,%rax
+  38729a:	jle    3872a0 <fastfft_arena::coefficient_crossover::run_fixed+0x2560>
+  38729c:	xor    %ebx,%ebx
+  38729e:	jmp    3872ac <fastfft_arena::coefficient_crossover::run_fixed+0x256c>
+  3872a0:	mov    $0x2,%bl
+  3872a2:	lea    0x30(%rsp),%rdi
+  3872a7:	call   1163e40 <core::ptr::drop_in_place<serde_json::value::Value>>
+  3872ac:	movups 0x80(%rsp),%xmm0
+  3872b4:	movupd 0x90(%rsp),%xmm1
+  3872bd:	movupd %xmm1,0x10(%r15)
+  3872c3:	movups %xmm0,(%r15)
+  3872c7:	mov    %bl,0x20(%r15)
+  3872cb:	movq   $0x2,0x28(%r15)
+  3872d3:	movsd  0x78(%rsp),%xmm0
+  3872d9:	movsd  %xmm0,0x30(%r15)
+  3872df:	movq   $0x2,0x38(%rsp)
+  3872e8:	mov    %r15,0x40(%rsp)
+  3872ed:	movq   $0x2,0x48(%rsp)
+  3872f6:	movb   $0x4,0x30(%rsp)
+  3872fb:	lea    0x80(%rsp),%rdi
+  387303:	lea    0xc8(%rsp),%rsi
+  38730b:	lea    0x10(%rsp),%rdx
+  387310:	lea    0x30(%rsp),%rcx
+  387315:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  38731a:	cmpb   $0x6,0x80(%rsp)
+  387322:	je     387331 <fastfft_arena::coefficient_crossover::run_fixed+0x25f1>
+  387324:	lea    0x80(%rsp),%rdi
+  38732c:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387331:	mov    $0x9,%ebx
+  387336:	mov    $0x9,%edi
+  38733b:	call   *0xfb569f(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  387341:	test   %rax,%rax
+  387344:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  38734a:	movabs $0x5f64657370616c65,%rcx
+  387354:	mov    %rcx,(%rax)
+  387357:	movb   $0x73,0x8(%rax)
+  38735b:	movq   $0x9,0x10(%rsp)
+  387364:	mov    %rax,0x18(%rsp)
+  387369:	movq   $0x9,0x20(%rsp)
+  387372:	movsd  0xe8(%rsp),%xmm0
+  38737b:	ucomisd -0x2e87cb(%rip),%xmm0        # 9ebb8 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x2288>
+  387383:	movb   $0x0,0x30(%rsp)
+  387388:	je     38739b <fastfft_arena::coefficient_crossover::run_fixed+0x265b>
+  38738a:	mov    %rax,%r14
+  38738d:	mov    $0x2,%bl
+  38738f:	lea    0x30(%rsp),%rdi
+  387394:	call   1163e40 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387399:	jmp    38739d <fastfft_arena::coefficient_crossover::run_fixed+0x265d>
+  38739b:	xor    %ebx,%ebx
+  38739d:	mov    %bl,0x30(%rsp)
+  3873a1:	movq   $0x2,0x38(%rsp)
+  3873aa:	movsd  0xe8(%rsp),%xmm0
+  3873b3:	movsd  %xmm0,0x40(%rsp)
+  3873b9:	lea    0x80(%rsp),%rdi
+  3873c1:	lea    0xc8(%rsp),%rsi
+  3873c9:	lea    0x10(%rsp),%rdx
+  3873ce:	lea    0x30(%rsp),%rcx
+  3873d3:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  3873d8:	cmpb   $0x6,0x80(%rsp)
+  3873e0:	je     3873ef <fastfft_arena::coefficient_crossover::run_fixed+0x26af>
+  3873e2:	lea    0x80(%rsp),%rdi
+  3873ea:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  3873ef:	mov    $0x6,%ebx
+  3873f4:	mov    $0x6,%edi
+  3873f9:	call   *0xfb55e1(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3873ff:	test   %rax,%rax
+  387402:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  387408:	mov    %rax,%r14
+  38740b:	movw   $0x7365,0x4(%rax)
+  387411:	movl   $0x73616870,(%rax)
+  387417:	movq   $0x6,0x10(%rsp)
+  387420:	mov    %rax,0x18(%rsp)
+  387425:	movq   $0x6,0x20(%rsp)
+  38742e:	lea    0x30(%rsp),%rdi
+  387433:	lea    0x220(%rsp),%rsi
+  38743b:	call   343a40 <serde_core::ser::Serializer::collect_seq>
+  387440:	cmpb   $0x6,0x30(%rsp)
+  387445:	je     3878f6 <fastfft_arena::coefficient_crossover::run_fixed+0x2bb6>
+  38744b:	movupd 0x30(%rsp),%xmm0
+  387451:	movupd 0x40(%rsp),%xmm1
+  387457:	movapd %xmm1,0x90(%rsp)
+  387460:	movapd %xmm0,0x80(%rsp)
+  387469:	lea    0x30(%rsp),%rdi
+  38746e:	lea    0xc8(%rsp),%rsi
+  387476:	lea    0x10(%rsp),%rdx
+  38747b:	lea    0x80(%rsp),%rcx
+  387483:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  387488:	cmpb   $0x6,0x30(%rsp)
+  38748d:	je     387499 <fastfft_arena::coefficient_crossover::run_fixed+0x2759>
+  38748f:	lea    0x30(%rsp),%rdi
+  387494:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387499:	mov    $0xf,%ebx
+  38749e:	mov    $0xf,%edi
+  3874a3:	call   *0xfb5537(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  3874a9:	test   %rax,%rax
+  3874ac:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  3874b2:	mov    %rax,%r14
+  3874b5:	movabs $0x73676e697070616d,%rax
+  3874bf:	mov    %rax,0x7(%r14)
+  3874c3:	movabs $0x6d5f79726f6d656d,%rax
+  3874cd:	mov    %rax,(%r14)
+  3874d0:	movq   $0xf,0x10(%rsp)
+  3874d9:	mov    %r14,0x18(%rsp)
+  3874de:	movq   $0xf,0x20(%rsp)
+  3874e7:	lea    0x30(%rsp),%rdi
+  3874ec:	lea    0x570(%rsp),%rsi
+  3874f4:	call   34b480 <serde_json::value::ser::<impl serde_core::ser::Serialize for serde_json::value::Value>::serialize>
+  3874f9:	cmpb   $0x6,0x30(%rsp)
+  3874fe:	je     38792f <fastfft_arena::coefficient_crossover::run_fixed+0x2bef>
+  387504:	movupd 0x30(%rsp),%xmm0
+  38750a:	movupd 0x40(%rsp),%xmm1
+  387510:	movapd %xmm1,0x90(%rsp)
+  387519:	movapd %xmm0,0x80(%rsp)
+  387522:	lea    0x30(%rsp),%rdi
+  387527:	lea    0xc8(%rsp),%rsi
+  38752f:	lea    0x10(%rsp),%rdx
+  387534:	lea    0x80(%rsp),%rcx
+  38753c:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  387541:	cmpb   $0x6,0x30(%rsp)
+  387546:	je     387552 <fastfft_arena::coefficient_crossover::run_fixed+0x2812>
+  387548:	lea    0x30(%rsp),%rdi
+  38754d:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387552:	mov    $0x9,%ebx
+  387557:	mov    $0x9,%edi
+  38755c:	call   *0xfb547e(%rip)        # 133c9e0 <malloc@GLIBC_2.2.5>
+  387562:	test   %rax,%rax
+  387565:	je     3879d3 <fastfft_arena::coefficient_crossover::run_fixed+0x2c93>
+  38756b:	mov    %rax,%r14
+  38756e:	movabs $0x636170736b726f77,%rax
+  387578:	mov    %rax,(%r14)
+  38757b:	movb   $0x65,0x8(%r14)
+  387580:	movq   $0x9,0x10(%rsp)
+  387589:	mov    %r14,0x18(%rsp)
+  38758e:	movq   $0x9,0x20(%rsp)
+  387597:	lea    0x30(%rsp),%rdi
+  38759c:	lea    0x590(%rsp),%rsi
+  3875a4:	call   34b480 <serde_json::value::ser::<impl serde_core::ser::Serialize for serde_json::value::Value>::serialize>
+  3875a9:	cmpb   $0x6,0x30(%rsp)
+  3875ae:	je     387968 <fastfft_arena::coefficient_crossover::run_fixed+0x2c28>
+  3875b4:	movupd 0x30(%rsp),%xmm0
+  3875ba:	movupd 0x40(%rsp),%xmm1
+  3875c0:	movapd %xmm1,0x90(%rsp)
+  3875c9:	movapd %xmm0,0x80(%rsp)
+  3875d2:	lea    0x30(%rsp),%rdi
+  3875d7:	lea    0xc8(%rsp),%rsi
+  3875df:	lea    0x10(%rsp),%rdx
+  3875e4:	lea    0x80(%rsp),%rcx
+  3875ec:	call   418280 <alloc::collections::btree::map::BTreeMap<K,V,A>::insert>
+  3875f1:	cmpb   $0x6,0x30(%rsp)
+  3875f6:	je     387602 <fastfft_arena::coefficient_crossover::run_fixed+0x28c2>
+  3875f8:	lea    0x30(%rsp),%rdi
+  3875fd:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387602:	mov    0xd8(%rsp),%rax
+  38760a:	mov    0x148(%rsp),%rcx
+  387612:	mov    %rax,0x18(%rcx)
+  387616:	movupd 0xc8(%rsp),%xmm0
+  38761f:	movupd %xmm0,0x8(%rcx)
+  387624:	movb   $0x5,(%rcx)
+  387627:	mov    0x228(%rsp),%r14
+  38762f:	mov    0x230(%rsp),%r12
+  387637:	inc    %r12
+  38763a:	mov    %r14,%rdi
+  38763d:	nopl   (%rax)
+  387640:	cmp    $0x1,%r12
+  387644:	je     387657 <fastfft_arena::coefficient_crossover::run_fixed+0x2917>
+  387646:	lea    0x20(%rdi),%r15
+  38764a:	dec    %r12
+  38764d:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387652:	mov    %r15,%rdi
+  387655:	jmp    387640 <fastfft_arena::coefficient_crossover::run_fixed+0x2900>
+  387657:	cmpq   $0x0,0x220(%rsp)
+  387660:	je     38766b <fastfft_arena::coefficient_crossover::run_fixed+0x292b>
+  387662:	mov    %r14,%rdi
+  387665:	call   *0xfb538d(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  38766b:	lea    0x590(%rsp),%rdi
+  387673:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387678:	lea    0x570(%rsp),%rdi
+  387680:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387685:	lea    0x428(%rsp),%rdi
+  38768d:	call   3f8680 <core::ptr::drop_in_place<[[alloc::vec::Vec<(f64,u64)>; 2]; 4]>>
+  387692:	cmpq   $0x0,0xf0(%rsp)
+  38769b:	je     3876ab <fastfft_arena::coefficient_crossover::run_fixed+0x296b>
+  38769d:	mov    0xf8(%rsp),%rdi
+  3876a5:	call   *0xfb534d(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  3876ab:	cmpq   $0x0,0x118(%rsp)
+  3876b4:	je     3876c4 <fastfft_arena::coefficient_crossover::run_fixed+0x2984>
+  3876b6:	mov    0x120(%rsp),%rdi
+  3876be:	call   *0xfb5334(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  3876c4:	lea    0x5b0(%rsp),%rdi
+  3876cc:	call   3f9000 <core::ptr::drop_in_place<[[fastfft_arena::coefficient_crossover::Snapshot; 2]; 4]>>
+  3876d1:	cmpq   $0x0,0x180(%rsp)
+  3876da:	jne    386dca <fastfft_arena::coefficient_crossover::run_fixed+0x208a>
+  3876e0:	jmp    386dd8 <fastfft_arena::coefficient_crossover::run_fixed+0x2098>
+  3876e5:	lea    -0x2acbc8(%rip),%rdi        # dab24 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e1f4>
+  3876ec:	lea    0xf76965(%rip),%rdx        # 12fe058 <__frame_dummy_init_array_entry+0x7a40>
+  3876f3:	mov    $0xe,%esi
+  3876f8:	call   cefc80 <core::option::expect_failed>
+  3876fd:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387702:	lea    0xf76b0f(%rip),%rdx        # 12fe218 <__frame_dummy_init_array_entry+0x7c00>
+  387709:	jmp    386e0a <fastfft_arena::coefficient_crossover::run_fixed+0x20ca>
+  38770e:	mov    %al,0x30(%rsp)
+  387712:	lea    0xf76a57(%rip),%r8        # 12fe170 <__frame_dummy_init_array_entry+0x7b58>
+  387719:	lea    0x30(%rsp),%rdx
+  38771e:	mov    $0x1d,%esi
+  387723:	lea    -0x2aca5d(%rip),%rdi        # daccd <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e39d>
+  38772a:	lea    0xf77c6f(%rip),%rcx        # 12ff3a0 <__frame_dummy_init_array_entry+0x8d88>
+  387731:	call   cefcc0 <core::result::unwrap_failed>
+  387736:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  38773b:	mov    $0x49,%esi
+  387740:	lea    -0x2aca5d(%rip),%rdi        # dacea <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e3ba>
+  387747:	lea    0xf76a3a(%rip),%rdx        # 12fe188 <__frame_dummy_init_array_entry+0x7b70>
+  38774e:	call   ced800 <core::panicking::panic>
+  387753:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387758:	lea    0xf76a41(%rip),%rdx        # 12fe1a0 <__frame_dummy_init_array_entry+0x7b88>
+  38775f:	lea    0x508(%rsp),%rsi
+  387767:	mov    %r14,%rdi
+  38776a:	call   4128c0 <core::panicking::assert_failed>
+  38776f:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387774:	lea    -0x2acc57(%rip),%rdi        # dab24 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e1f4>
+  38777b:	lea    0xf768d6(%rip),%rdx        # 12fe058 <__frame_dummy_init_array_entry+0x7a40>
+  387782:	mov    $0xe,%esi
+  387787:	call   cefc80 <core::option::expect_failed>
+  38778c:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387791:	lea    -0x2aca3b(%rip),%rdi        # dad5d <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e42d>
+  387798:	lea    0xf76aa9(%rip),%rdx        # 12fe248 <__frame_dummy_init_array_entry+0x7c30>
+  38779f:	mov    $0xe,%esi
+  3877a4:	call   cefc80 <core::option::expect_failed>
+  3877a9:	lea    0xf76a08(%rip),%rdx        # 12fe1b8 <__frame_dummy_init_array_entry+0x7ba0>
+  3877b0:	mov    0x78(%rsp),%rsi
+  3877b5:	call   ceda40 <core::panicking::panic_bounds_check>
+  3877ba:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  3877bf:	mov    %al,0x268(%rsp)
+  3877c6:	lea    -0x2acc63(%rip),%rdi        # dab6a <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e23a>
+  3877cd:	lea    0xf77bcc(%rip),%rcx        # 12ff3a0 <__frame_dummy_init_array_entry+0x8d88>
+  3877d4:	lea    0xf768d5(%rip),%r8        # 12fe0b0 <__frame_dummy_init_array_entry+0x7a98>
+  3877db:	lea    0x268(%rsp),%rdx
+  3877e3:	mov    $0x22,%esi
+  3877e8:	call   cefcc0 <core::result::unwrap_failed>
+  3877ed:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  3877f2:	lea    0xf768cf(%rip),%rdx        # 12fe0c8 <__frame_dummy_init_array_entry+0x7ab0>
+  3877f9:	jmp    38774e <fastfft_arena::coefficient_crossover::run_fixed+0x2a0e>
+  3877fe:	mov    $0x8,%edi
+  387803:	mov    $0x40,%esi
+  387808:	call   ceab80 <alloc::alloc::handle_alloc_error>
+  38780d:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387812:	mov    %al,0x30(%rsp)
+  387816:	lea    0xf768f3(%rip),%r8        # 12fe110 <__frame_dummy_init_array_entry+0x7af8>
+  38781d:	lea    0x30(%rsp),%rdx
+  387822:	mov    $0x17,%esi
+  387827:	lea    -0x2acc65(%rip),%rdi        # dabc9 <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e299>
+  38782e:	jmp    38772a <fastfft_arena::coefficient_crossover::run_fixed+0x29ea>
+  387833:	lea    0xf768ee(%rip),%rdx        # 12fe128 <__frame_dummy_init_array_entry+0x7b10>
+  38783a:	mov    $0x3d,%esi
+  38783f:	lea    -0x2accba(%rip),%rdi        # dab8c <serde_json::ser::Formatter::write_char_escape::HEX_DIGITS+0x3e25c>
+  387846:	jmp    38774e <fastfft_arena::coefficient_crossover::run_fixed+0x2a0e>
+  38784b:	lea    0xf768ee(%rip),%rdx        # 12fe140 <__frame_dummy_init_array_entry+0x7b28>
+  387852:	jmp    38775f <fastfft_arena::coefficient_crossover::run_fixed+0x2a1f>
+  387857:	mov    0x38(%rsp),%rax
+  38785c:	mov    %rax,0x80(%rsp)
+  387864:	lea    -0x290395(%rip),%rdi        # f74d6 <core::unicode::unicode_data::white_space::WHITESPACE_MAP+0x7ca>
+  38786b:	lea    0xf77b8e(%rip),%rcx        # 12ff400 <__frame_dummy_init_array_entry+0x8de8>
+  387872:	lea    0xf768df(%rip),%r8        # 12fe158 <__frame_dummy_init_array_entry+0x7b40>
+  387879:	lea    0x80(%rsp),%rdx
+  387881:	mov    $0x2b,%esi
+  387886:	call   cefcc0 <core::result::unwrap_failed>
+  38788b:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387890:	mov    0x38(%rsp),%rax
+  387895:	mov    %rax,0x10(%rsp)
+  38789a:	lea    -0x2903cb(%rip),%rdi        # f74d6 <core::unicode::unicode_data::white_space::WHITESPACE_MAP+0x7ca>
+  3878a1:	lea    0xf77b58(%rip),%rcx        # 12ff400 <__frame_dummy_init_array_entry+0x8de8>
+  3878a8:	lea    0xf768a9(%rip),%r8        # 12fe158 <__frame_dummy_init_array_entry+0x7b40>
+  3878af:	lea    0x10(%rsp),%rdx
+  3878b4:	mov    $0x2b,%esi
+  3878b9:	call   cefcc0 <core::result::unwrap_failed>
+  3878be:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  3878c3:	mov    0x38(%rsp),%rax
+  3878c8:	mov    %rax,0x10(%rsp)
+  3878cd:	lea    -0x2903fe(%rip),%rdi        # f74d6 <core::unicode::unicode_data::white_space::WHITESPACE_MAP+0x7ca>
+  3878d4:	lea    0xf77b25(%rip),%rcx        # 12ff400 <__frame_dummy_init_array_entry+0x8de8>
+  3878db:	lea    0xf76876(%rip),%r8        # 12fe158 <__frame_dummy_init_array_entry+0x7b40>
+  3878e2:	lea    0x10(%rsp),%rdx
+  3878e7:	mov    $0x2b,%esi
+  3878ec:	call   cefcc0 <core::result::unwrap_failed>
+  3878f1:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  3878f6:	mov    0x38(%rsp),%rax
+  3878fb:	mov    %rax,0x80(%rsp)
+  387903:	lea    -0x290434(%rip),%rdi        # f74d6 <core::unicode::unicode_data::white_space::WHITESPACE_MAP+0x7ca>
+  38790a:	lea    0xf77aef(%rip),%rcx        # 12ff400 <__frame_dummy_init_array_entry+0x8de8>
+  387911:	lea    0xf76840(%rip),%r8        # 12fe158 <__frame_dummy_init_array_entry+0x7b40>
+  387918:	lea    0x80(%rsp),%rdx
+  387920:	mov    $0x2b,%esi
+  387925:	call   cefcc0 <core::result::unwrap_failed>
+  38792a:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  38792f:	mov    0x38(%rsp),%rax
+  387934:	mov    %rax,0x80(%rsp)
+  38793c:	lea    -0x29046d(%rip),%rdi        # f74d6 <core::unicode::unicode_data::white_space::WHITESPACE_MAP+0x7ca>
+  387943:	lea    0xf77ab6(%rip),%rcx        # 12ff400 <__frame_dummy_init_array_entry+0x8de8>
+  38794a:	lea    0xf76807(%rip),%r8        # 12fe158 <__frame_dummy_init_array_entry+0x7b40>
+  387951:	lea    0x80(%rsp),%rdx
+  387959:	mov    $0x2b,%esi
+  38795e:	call   cefcc0 <core::result::unwrap_failed>
+  387963:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387968:	mov    0x38(%rsp),%rax
+  38796d:	mov    %rax,0x80(%rsp)
+  387975:	lea    -0x2904a6(%rip),%rdi        # f74d6 <core::unicode::unicode_data::white_space::WHITESPACE_MAP+0x7ca>
+  38797c:	lea    0xf77a7d(%rip),%rcx        # 12ff400 <__frame_dummy_init_array_entry+0x8de8>
+  387983:	lea    0xf767ce(%rip),%r8        # 12fe158 <__frame_dummy_init_array_entry+0x7b40>
+  38798a:	lea    0x80(%rsp),%rdx
+  387992:	mov    $0x2b,%esi
+  387997:	call   cefcc0 <core::result::unwrap_failed>
+  38799c:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  3879a1:	lea    0xf76858(%rip),%rdx        # 12fe200 <__frame_dummy_init_array_entry+0x7be8>
+  3879a8:	jmp    3877b0 <fastfft_arena::coefficient_crossover::run_fixed+0x2a70>
+  3879ad:	mov    $0x1,%edi
+  3879b2:	mov    %rbx,%rsi
+  3879b5:	call   ceaa00 <alloc::raw_vec::handle_error>
+  3879ba:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  3879bf:	mov    $0x8,%edi
+  3879c4:	mov    $0xe00,%esi
+  3879c9:	call   ceaa00 <alloc::raw_vec::handle_error>
+  3879ce:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  3879d3:	mov    $0x1,%edi
+  3879d8:	mov    %rbx,%rsi
+  3879db:	call   ceaa00 <alloc::raw_vec::handle_error>
+  3879e0:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  3879e5:	mov    $0x1,%edi
+  3879ea:	mov    %rbx,%rsi
+  3879ed:	call   ceaa00 <alloc::raw_vec::handle_error>
+  3879f2:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  3879f7:	mov    %r15,%rbx
+  3879fa:	lea    0xf7682f(%rip),%rdx        # 12fe230 <__frame_dummy_init_array_entry+0x7c18>
+  387a01:	mov    %rbx,%rdi
+  387a04:	mov    0x78(%rsp),%rsi
+  387a09:	call   ceda40 <core::panicking::panic_bounds_check>
+  387a0e:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387a13:	mov    $0x1,%edi
+  387a18:	mov    $0x17,%esi
+  387a1d:	call   ceaa00 <alloc::raw_vec::handle_error>
+  387a22:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387a27:	mov    $0x1,%edi
+  387a2c:	mov    $0xb,%esi
+  387a31:	call   ceaa00 <alloc::raw_vec::handle_error>
+  387a36:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387a3b:	mov    $0x1,%edi
+  387a40:	mov    $0x17,%esi
+  387a45:	call   ceaa00 <alloc::raw_vec::handle_error>
+  387a4a:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387a4f:	xor    %r15d,%r15d
+  387a52:	mov    %rbx,%r14
+  387a55:	jmp    387aab <fastfft_arena::coefficient_crossover::run_fixed+0x2d6b>
+  387a57:	mov    $0x8,%edi
+  387a5c:	mov    $0xe00,%esi
+  387a61:	call   ceaa00 <alloc::raw_vec::handle_error>
+  387a66:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387a6b:	xor    %r15d,%r15d
+  387a6e:	mov    %rbx,%r14
+  387a71:	jmp    387acc <fastfft_arena::coefficient_crossover::run_fixed+0x2d8c>
+  387a73:	mov    $0x1,%edi
+  387a78:	mov    $0x17,%esi
+  387a7d:	call   ceaa00 <alloc::raw_vec::handle_error>
+  387a82:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387a87:	mov    $0x1,%edi
+  387a8c:	mov    $0xb,%esi
+  387a91:	call   ceaa00 <alloc::raw_vec::handle_error>
+  387a96:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387a9b:	xor    %r12d,%r12d
+  387a9e:	jmp    387aab <fastfft_arena::coefficient_crossover::run_fixed+0x2d6b>
+  387aa0:	xor    %r12d,%r12d
+  387aa3:	xor    %r15d,%r15d
+  387aa6:	jmp    387aab <fastfft_arena::coefficient_crossover::run_fixed+0x2d6b>
+  387aa8:	mov    %rbx,%r14
+  387aab:	mov    $0x8,%edi
+  387ab0:	mov    $0xe00,%esi
+  387ab5:	call   ceaa00 <alloc::raw_vec::handle_error>
+  387aba:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387abc:	xor    %r12d,%r12d
+  387abf:	jmp    387acc <fastfft_arena::coefficient_crossover::run_fixed+0x2d8c>
+  387ac1:	xor    %r12d,%r12d
+  387ac4:	xor    %r15d,%r15d
+  387ac7:	jmp    387acc <fastfft_arena::coefficient_crossover::run_fixed+0x2d8c>
+  387ac9:	mov    %rbx,%r14
+  387acc:	mov    $0x8,%edi
+  387ad1:	mov    $0x40000,%esi
+  387ad6:	call   ceaa00 <alloc::raw_vec::handle_error>
+  387adb:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387add:	mov    $0x1,%edi
+  387ae2:	mov    %rbx,%rsi
+  387ae5:	call   ceaa00 <alloc::raw_vec::handle_error>
+  387aea:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387aec:	mov    $0x1,%edi
+  387af1:	mov    $0x17,%esi
+  387af6:	call   ceaa00 <alloc::raw_vec::handle_error>
+  387afb:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387afd:	mov    $0x1,%edi
+  387b02:	mov    $0x8,%esi
+  387b07:	call   ceaa00 <alloc::raw_vec::handle_error>
+  387b0c:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387b0e:	mov    $0x1,%edi
+  387b13:	mov    $0xa9,%esi
+  387b18:	call   ceaa00 <alloc::raw_vec::handle_error>
+  387b1d:	jmp    387b2e <fastfft_arena::coefficient_crossover::run_fixed+0x2dee>
+  387b1f:	mov    $0x1,%edi
+  387b24:	mov    $0x1f,%esi
+  387b29:	call   ceaa00 <alloc::raw_vec::handle_error>
+  387b2e:	ud2
+  387b30:	mov    %rax,%rbx
+  387b33:	lea    0x80(%rsp),%rdi
+  387b3b:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387b40:	jmp    387b45 <fastfft_arena::coefficient_crossover::run_fixed+0x2e05>
+  387b42:	mov    %rax,%rbx
+  387b45:	mov    %r15,%rdi
+  387b48:	call   *0xfb4eaa(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  387b4e:	jmp    387e99 <fastfft_arena::coefficient_crossover::run_fixed+0x3159>
+  387b53:	jmp    387b89 <fastfft_arena::coefficient_crossover::run_fixed+0x2e49>
+  387b55:	jmp    387bb5 <fastfft_arena::coefficient_crossover::run_fixed+0x2e75>
+  387b57:	jmp    387e96 <fastfft_arena::coefficient_crossover::run_fixed+0x3156>
+  387b5c:	jmp    387db9 <fastfft_arena::coefficient_crossover::run_fixed+0x3079>
+  387b61:	jmp    387e96 <fastfft_arena::coefficient_crossover::run_fixed+0x3156>
+  387b66:	jmp    387db9 <fastfft_arena::coefficient_crossover::run_fixed+0x3079>
+  387b6b:	jmp    387e96 <fastfft_arena::coefficient_crossover::run_fixed+0x3156>
+  387b70:	jmp    387db9 <fastfft_arena::coefficient_crossover::run_fixed+0x3079>
+  387b75:	jmp    387e96 <fastfft_arena::coefficient_crossover::run_fixed+0x3156>
+  387b7a:	jmp    387db9 <fastfft_arena::coefficient_crossover::run_fixed+0x3079>
+  387b7f:	jmp    387db9 <fastfft_arena::coefficient_crossover::run_fixed+0x3079>
+  387b84:	jmp    387db9 <fastfft_arena::coefficient_crossover::run_fixed+0x3079>
+  387b89:	mov    %rax,%rbx
+  387b8c:	jmp    387e41 <fastfft_arena::coefficient_crossover::run_fixed+0x3101>
+  387b91:	mov    %rax,%rbx
+  387b94:	jmp    387e38 <fastfft_arena::coefficient_crossover::run_fixed+0x30f8>
+  387b99:	mov    %rax,%rbx
+  387b9c:	lea    0x30(%rsp),%rdi
+  387ba1:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387ba6:	jmp    387e99 <fastfft_arena::coefficient_crossover::run_fixed+0x3159>
+  387bab:	call   cefe00 <core::panicking::panic_in_cleanup>
+  387bb0:	jmp    387e96 <fastfft_arena::coefficient_crossover::run_fixed+0x3156>
+  387bb5:	mov    %rax,%rbx
+  387bb8:	jmp    387e6b <fastfft_arena::coefficient_crossover::run_fixed+0x312b>
+  387bbd:	mov    %rax,%rbx
+  387bc0:	jmp    387e62 <fastfft_arena::coefficient_crossover::run_fixed+0x3122>
+  387bc5:	mov    %rax,%rbx
+  387bc8:	lea    0x30(%rsp),%rdi
+  387bcd:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387bd2:	jmp    387e99 <fastfft_arena::coefficient_crossover::run_fixed+0x3159>
+  387bd7:	call   cefe00 <core::panicking::panic_in_cleanup>
+  387bdc:	jmp    387e96 <fastfft_arena::coefficient_crossover::run_fixed+0x3156>
+  387be1:	jmp    387db9 <fastfft_arena::coefficient_crossover::run_fixed+0x3079>
+  387be6:	jmp    387e96 <fastfft_arena::coefficient_crossover::run_fixed+0x3156>
+  387beb:	jmp    387db9 <fastfft_arena::coefficient_crossover::run_fixed+0x3079>
+  387bf0:	jmp    387db9 <fastfft_arena::coefficient_crossover::run_fixed+0x3079>
+  387bf5:	jmp    387db9 <fastfft_arena::coefficient_crossover::run_fixed+0x3079>
+  387bfa:	jmp    387db9 <fastfft_arena::coefficient_crossover::run_fixed+0x3079>
+  387bff:	jmp    387db9 <fastfft_arena::coefficient_crossover::run_fixed+0x3079>
+  387c04:	jmp    387db9 <fastfft_arena::coefficient_crossover::run_fixed+0x3079>
+  387c09:	jmp    387e96 <fastfft_arena::coefficient_crossover::run_fixed+0x3156>
+  387c0e:	jmp    387db9 <fastfft_arena::coefficient_crossover::run_fixed+0x3079>
+  387c13:	jmp    387e96 <fastfft_arena::coefficient_crossover::run_fixed+0x3156>
+  387c18:	jmp    387db9 <fastfft_arena::coefficient_crossover::run_fixed+0x3079>
+  387c1d:	jmp    387e96 <fastfft_arena::coefficient_crossover::run_fixed+0x3156>
+  387c22:	jmp    387db9 <fastfft_arena::coefficient_crossover::run_fixed+0x3079>
+  387c27:	jmp    387e96 <fastfft_arena::coefficient_crossover::run_fixed+0x3156>
+  387c2c:	mov    %rax,%rbx
+  387c2f:	jmp    387ebc <fastfft_arena::coefficient_crossover::run_fixed+0x317c>
+  387c34:	jmp    387c4c <fastfft_arena::coefficient_crossover::run_fixed+0x2f0c>
+  387c36:	mov    %rax,%rbx
+  387c39:	mov    %r15,%rdi
+  387c3c:	call   *0xfb4db6(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  387c42:	jmp    387c4f <fastfft_arena::coefficient_crossover::run_fixed+0x2f0f>
+  387c44:	mov    %rax,%rbx
+  387c47:	jmp    387ec9 <fastfft_arena::coefficient_crossover::run_fixed+0x3189>
+  387c4c:	mov    %rax,%rbx
+  387c4f:	test   %r13,%r13
+  387c52:	jne    387c6d <fastfft_arena::coefficient_crossover::run_fixed+0x2f2d>
+  387c54:	jmp    387cba <fastfft_arena::coefficient_crossover::run_fixed+0x2f7a>
+  387c56:	mov    %rax,%rbx
+  387c59:	mov    %r15,%rdi
+  387c5c:	call   *0xfb4d96(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  387c62:	jmp    387cba <fastfft_arena::coefficient_crossover::run_fixed+0x2f7a>
+  387c64:	jmp    387cb7 <fastfft_arena::coefficient_crossover::run_fixed+0x2f77>
+  387c66:	jmp    387c6a <fastfft_arena::coefficient_crossover::run_fixed+0x2f2a>
+  387c68:	jmp    387cb7 <fastfft_arena::coefficient_crossover::run_fixed+0x2f77>
+  387c6a:	mov    %rax,%rbx
+  387c6d:	mov    %r14,%rdi
+  387c70:	call   *0xfb4d82(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  387c76:	jmp    387cba <fastfft_arena::coefficient_crossover::run_fixed+0x2f7a>
+  387c78:	jmp    387ee4 <fastfft_arena::coefficient_crossover::run_fixed+0x31a4>
+  387c7d:	mov    %rax,%rbx
+  387c80:	test   %r14,%r14
+  387c83:	jne    387f20 <fastfft_arena::coefficient_crossover::run_fixed+0x31e0>
+  387c89:	jmp    387f29 <fastfft_arena::coefficient_crossover::run_fixed+0x31e9>
+  387c8e:	jmp    387dc1 <fastfft_arena::coefficient_crossover::run_fixed+0x3081>
+  387c93:	jmp    387ca1 <fastfft_arena::coefficient_crossover::run_fixed+0x2f61>
+  387c95:	jmp    387dc1 <fastfft_arena::coefficient_crossover::run_fixed+0x3081>
+  387c9a:	jmp    387ca1 <fastfft_arena::coefficient_crossover::run_fixed+0x2f61>
+  387c9c:	jmp    387dc1 <fastfft_arena::coefficient_crossover::run_fixed+0x3081>
+  387ca1:	mov    %rax,%rbx
+  387ca4:	mov    %r14,%rdi
+  387ca7:	call   *0xfb4d4b(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  387cad:	jmp    387dc4 <fastfft_arena::coefficient_crossover::run_fixed+0x3084>
+  387cb2:	jmp    387ee4 <fastfft_arena::coefficient_crossover::run_fixed+0x31a4>
+  387cb7:	mov    %rax,%rbx
+  387cba:	lea    0xf0(%rsp),%rdi
+  387cc2:	call   401540 <core::ptr::drop_in_place<serde_json::map::Map<alloc::string::String,serde_json::value::Value>>>
+  387cc7:	jmp    387f36 <fastfft_arena::coefficient_crossover::run_fixed+0x31f6>
+  387ccc:	mov    %rax,%rbx
+  387ccf:	test   %r15b,%r15b
+  387cd2:	jne    387cdd <fastfft_arena::coefficient_crossover::run_fixed+0x2f9d>
+  387cd4:	mov    %r14,%rdi
+  387cd7:	call   *0xfb4d1b(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  387cdd:	lea    0x268(%rsp),%rdi
+  387ce5:	mov    %r12,%rsi
+  387ce8:	call   3f8ec0 <core::ptr::drop_in_place<core::array::Guard<[alloc::vec::Vec<(f64,u64)>; 2]>>>
+  387ced:	jmp    387ef4 <fastfft_arena::coefficient_crossover::run_fixed+0x31b4>
+  387cf2:	mov    %rax,%rbx
+  387cf5:	test   %r15b,%r15b
+  387cf8:	jne    387d03 <fastfft_arena::coefficient_crossover::run_fixed+0x2fc3>
+  387cfa:	mov    %r14,%rdi
+  387cfd:	call   *0xfb4cf5(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  387d03:	lea    0x268(%rsp),%rdi
+  387d0b:	mov    %r12,%rsi
+  387d0e:	call   3f9640 <core::ptr::drop_in_place<core::array::Guard<[fastfft_arena::coefficient_crossover::Snapshot; 2]>>>
+  387d13:	jmp    387f36 <fastfft_arena::coefficient_crossover::run_fixed+0x31f6>
+  387d18:	mov    %rax,%rbx
+  387d1b:	dec    %r12
+  387d1e:	je     387d31 <fastfft_arena::coefficient_crossover::run_fixed+0x2ff1>
+  387d20:	lea    0x20(%r15),%r13
+  387d24:	mov    %r15,%rdi
+  387d27:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387d2c:	mov    %r13,%r15
+  387d2f:	jmp    387d1b <fastfft_arena::coefficient_crossover::run_fixed+0x2fdb>
+  387d31:	cmpq   $0x0,0x220(%rsp)
+  387d3a:	je     387ebc <fastfft_arena::coefficient_crossover::run_fixed+0x317c>
+  387d40:	mov    %r14,%rdi
+  387d43:	call   *0xfb4caf(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  387d49:	jmp    387ebc <fastfft_arena::coefficient_crossover::run_fixed+0x317c>
+  387d4e:	call   cefe00 <core::panicking::panic_in_cleanup>
+  387d53:	mov    %rax,%rbx
+  387d56:	cmp    $0x2,%r14
+  387d5a:	je     387ea2 <fastfft_arena::coefficient_crossover::run_fixed+0x3162>
+  387d60:	lea    0xa0(%rsp),%rdi
+  387d68:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387d6d:	jmp    387ea2 <fastfft_arena::coefficient_crossover::run_fixed+0x3162>
+  387d72:	call   cefe00 <core::panicking::panic_in_cleanup>
+  387d77:	mov    %rax,%rbx
+  387d7a:	cmp    $0x2,%r14
+  387d7e:	je     387ea2 <fastfft_arena::coefficient_crossover::run_fixed+0x3162>
+  387d84:	lea    0xa0(%rsp),%rdi
+  387d8c:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387d91:	jmp    387ea2 <fastfft_arena::coefficient_crossover::run_fixed+0x3162>
+  387d96:	call   cefe00 <core::panicking::panic_in_cleanup>
+  387d9b:	mov    %rax,%rbx
+  387d9e:	test   %r14,%r14
+  387da1:	je     387f68 <fastfft_arena::coefficient_crossover::run_fixed+0x3228>
+  387da7:	mov    %r14,%rdi
+  387daa:	jmp    387f62 <fastfft_arena::coefficient_crossover::run_fixed+0x3222>
+  387daf:	jmp    387edf <fastfft_arena::coefficient_crossover::run_fixed+0x319f>
+  387db4:	jmp    387ee4 <fastfft_arena::coefficient_crossover::run_fixed+0x31a4>
+  387db9:	mov    %rax,%rbx
+  387dbc:	jmp    387ea2 <fastfft_arena::coefficient_crossover::run_fixed+0x3162>
+  387dc1:	mov    %rax,%rbx
+  387dc4:	lea    0xf0(%rsp),%rdi
+  387dcc:	call   401540 <core::ptr::drop_in_place<serde_json::map::Map<alloc::string::String,serde_json::value::Value>>>
+  387dd1:	jmp    387f36 <fastfft_arena::coefficient_crossover::run_fixed+0x31f6>
+  387dd6:	jmp    387ee4 <fastfft_arena::coefficient_crossover::run_fixed+0x31a4>
+  387ddb:	jmp    387ee4 <fastfft_arena::coefficient_crossover::run_fixed+0x31a4>
+  387de0:	mov    %rax,%rbx
+  387de3:	lea    0x80(%rsp),%rdi
+  387deb:	call   3fc400 <core::ptr::drop_in_place<serde_json::error::Error>>
+  387df0:	jmp    387e99 <fastfft_arena::coefficient_crossover::run_fixed+0x3159>
+  387df5:	call   cefe00 <core::panicking::panic_in_cleanup>
+  387dfa:	mov    %rax,%rbx
+  387dfd:	lea    0x80(%rsp),%rdi
+  387e05:	call   3fc400 <core::ptr::drop_in_place<serde_json::error::Error>>
+  387e0a:	jmp    387e99 <fastfft_arena::coefficient_crossover::run_fixed+0x3159>
+  387e0f:	call   cefe00 <core::panicking::panic_in_cleanup>
+  387e14:	mov    %rax,%rbx
+  387e17:	lea    0x80(%rsp),%rdi
+  387e1f:	call   3fc400 <core::ptr::drop_in_place<serde_json::error::Error>>
+  387e24:	jmp    387e99 <fastfft_arena::coefficient_crossover::run_fixed+0x3159>
+  387e26:	call   cefe00 <core::panicking::panic_in_cleanup>
+  387e2b:	mov    %rax,%rbx
+  387e2e:	lea    0x10(%rsp),%rdi
+  387e33:	call   3fc400 <core::ptr::drop_in_place<serde_json::error::Error>>
+  387e38:	mov    %r14,%rdi
+  387e3b:	call   *0xfb4bb7(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  387e41:	lea    0x80(%rsp),%rdi
+  387e49:	call   3fe680 <core::ptr::drop_in_place<[serde_json::value::Value; 2]>>
+  387e4e:	jmp    387ea2 <fastfft_arena::coefficient_crossover::run_fixed+0x3162>
+  387e50:	call   cefe00 <core::panicking::panic_in_cleanup>
+  387e55:	mov    %rax,%rbx
+  387e58:	lea    0x10(%rsp),%rdi
+  387e5d:	call   3fc400 <core::ptr::drop_in_place<serde_json::error::Error>>
+  387e62:	mov    %r14,%rdi
+  387e65:	call   *0xfb4b8d(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  387e6b:	lea    0x80(%rsp),%rdi
+  387e73:	call   3fe680 <core::ptr::drop_in_place<[serde_json::value::Value; 2]>>
+  387e78:	jmp    387ea2 <fastfft_arena::coefficient_crossover::run_fixed+0x3162>
+  387e7a:	call   cefe00 <core::panicking::panic_in_cleanup>
+  387e7f:	mov    %rax,%rbx
+  387e82:	lea    0x80(%rsp),%rdi
+  387e8a:	call   3fc400 <core::ptr::drop_in_place<serde_json::error::Error>>
+  387e8f:	jmp    387e99 <fastfft_arena::coefficient_crossover::run_fixed+0x3159>
+  387e91:	call   cefe00 <core::panicking::panic_in_cleanup>
+  387e96:	mov    %rax,%rbx
+  387e99:	mov    %r14,%rdi
+  387e9c:	call   *0xfb4b56(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  387ea2:	lea    0xc8(%rsp),%rdi
+  387eaa:	call   401540 <core::ptr::drop_in_place<serde_json::map::Map<alloc::string::String,serde_json::value::Value>>>
+  387eaf:	lea    0x220(%rsp),%rdi
+  387eb7:	call   3fea40 <core::ptr::drop_in_place<alloc::vec::Vec<serde_json::value::Value>>>
+  387ebc:	lea    0x590(%rsp),%rdi
+  387ec4:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387ec9:	lea    0x570(%rsp),%rdi
+  387ed1:	call   3fc4c0 <core::ptr::drop_in_place<serde_json::value::Value>>
+  387ed6:	jmp    387ee7 <fastfft_arena::coefficient_crossover::run_fixed+0x31a7>
+  387ed8:	call   cefe00 <core::panicking::panic_in_cleanup>
+  387edd:	jmp    387ee4 <fastfft_arena::coefficient_crossover::run_fixed+0x31a4>
+  387edf:	mov    %rax,%rbx
+  387ee2:	jmp    387f36 <fastfft_arena::coefficient_crossover::run_fixed+0x31f6>
+  387ee4:	mov    %rax,%rbx
+  387ee7:	lea    0x428(%rsp),%rdi
+  387eef:	call   3f8680 <core::ptr::drop_in_place<[[alloc::vec::Vec<(f64,u64)>; 2]; 4]>>
+  387ef4:	cmpq   $0x0,0xf0(%rsp)
+  387efd:	je     387f0d <fastfft_arena::coefficient_crossover::run_fixed+0x31cd>
+  387eff:	mov    0xf8(%rsp),%rdi
+  387f07:	call   *0xfb4aeb(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  387f0d:	cmpq   $0x0,0x118(%rsp)
+  387f16:	je     387f29 <fastfft_arena::coefficient_crossover::run_fixed+0x31e9>
+  387f18:	mov    0x120(%rsp),%r14
+  387f20:	mov    %r14,%rdi
+  387f23:	call   *0xfb4acf(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  387f29:	lea    0x5b0(%rsp),%rdi
+  387f31:	call   3f9000 <core::ptr::drop_in_place<[[fastfft_arena::coefficient_crossover::Snapshot; 2]; 4]>>
+  387f36:	cmpq   $0x0,0x180(%rsp)
+  387f3f:	je     387f4f <fastfft_arena::coefficient_crossover::run_fixed+0x320f>
+  387f41:	mov    0x188(%rsp),%rdi
+  387f49:	call   *0xfb4aa9(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  387f4f:	cmpq   $0x0,0x1a8(%rsp)
+  387f58:	je     387f68 <fastfft_arena::coefficient_crossover::run_fixed+0x3228>
+  387f5a:	mov    0x1b0(%rsp),%rdi
+  387f62:	call   *0xfb4a90(%rip)        # 133c9f8 <free@GLIBC_2.2.5>
+  387f68:	mov    %rbx,%rdi
+  387f6b:	call   12f55b0 <_Unwind_Resume@plt>
+  387f70:	int3
+  387f71:	int3
+  387f72:	int3
+  387f73:	int3
+  387f74:	int3
+  387f75:	int3
+  387f76:	int3
+  387f77:	int3
+  387f78:	int3
+  387f79:	int3
+  387f7a:	int3
+  387f7b:	int3
+  387f7c:	int3
+  387f7d:	int3
+  387f7e:	int3
+  387f7f:	int3

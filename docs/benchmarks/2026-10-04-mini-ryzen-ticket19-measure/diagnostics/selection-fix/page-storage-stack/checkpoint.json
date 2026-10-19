@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-05T19:09:38.445934+00:00",
+  "acceptance": false,
+  "status": "rejected before timing: intended generic matrix alignment optimized away",
+  "storage_tests": 21,
+  "optimized_correctness_passes": 75,
+  "workspace_and_diagnostic_clippy": "passed",
+  "alignment_verification_passed": false,
+  "kernel_findings": {
+    "n96-inverse-8x12": {
+      "passed": false,
+      "finding": "No stack realignment; stack instruction sequence is identical to frozen old kernel. Source matrix alignment did not constrain resulting stack temporaries/spills. YMM accesses remain vmovups at rsp plus multiples of32 with caller-dependent base alignment."
+    },
+    "n80-forward-8x10": {
+      "passed": false,
+      "finding": "No stack realignment; stack instruction sequence is identical to frozen old kernel. Source matrix alignment did not constrain resulting stack temporaries/spills. YMM accesses remain vmovups at rsp plus multiples of32 with caller-dependent base alignment."
+    },
+    "n80-forward-16x5": {
+      "passed": true,
+      "finding": "Matrix base is rsp after and rsp,-64 and sub rsp,0x840. Indexed rax starts0 and advances0x40, giving512-byte strides; YMM matrix displacements are multiples of32, XMM displacements multiples of16. Matrix YMM loads/stores use aligned vmovaps/vmovapd. These references do not cross64-byte boundaries."
+    }
+  },
+  "timed_stages_started": [],
+  "full710_launched": false
+}

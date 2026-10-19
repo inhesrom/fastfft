@@ -1,0 +1,11 @@
+# N16384 bounded owner crossover
+
+Implemented the single f32 inverse OOP N16384 case using the existing retained-runner crossover. Recorded replay batches use exactly4 public calls. Four owner states remain `[0,1,1,0] XOR process bit1`; construction/member order uses the existing independent bits across eight processes. No production FFT or selector source changed (all72 frozen production files match).
+
+N16384 workspace was derived from Stockham source: aligned32-byte I/O bypasses the scratch gate; four Phase-A passes alternate input/output and end at input, then Phase B writes output. The33792-complex gated reservation plus8 public alignment-slack complexes is reserved but unused. Canonical coefficients occupy37 initialized4096-byte pages; descriptors128-byte prefix, pass offsets128/192/384/2176, Phase B offset16512. Exact details and planned argv are in `protocol.json`.
+
+The new case retains the original seeded verification input via a small diagnostic-only call-site change in `cell.rs`. It compares initialized owner bytes and bitwise seeded outputs in each owner state and again after restoration. All references/sample capacity are allocated before replay timing; zero-data warmup/turns use fixed shared buffers. Geometry serialization/procfs capture occurs afterward. Existing N75600/N165375 paths stay at CALLS1 and do not retain the new verification input.
+
+The auditor now accepts `--case n16384` (default remains the legacy two-cell case). It checks fixed CALLS4, all eight processes, ownership/views, phase/round/sample coverage, source-derived workspace, live mapping coverage, bitwise restoration/output flags, controls and unchanged quiet/drift rules. Added tests reject wrong calls, missing rounds/processes, wrong workspace/view/owner, failed byte/output restoration, early/missing mappings and disabled verification.
+
+Validation here: Rustfmt parsing and Python AST syntax only; builds/tests/FFT/timing were deliberately left to the parent. No affinity changes. Run the new Python audit tests, compile/Clippy, freeze the diagnostic feature binary and then perform the one existing quiet-gated capture. This is diagnostic evidence only; the interrupted full-run miss remains failed.

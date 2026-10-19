@@ -1,0 +1,47 @@
+{
+  "run": "target/ticket19/fixed-allocator",
+  "cells": 2,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "pow2": {
+      "cells": 1,
+      "failures": 0,
+      "worst": 1.0077032079112398,
+      "geomean": 1.0077032079112398
+    },
+    "smooth": {
+      "cells": 1,
+      "failures": 0,
+      "worst": 1.0191725350549246,
+      "geomean": 1.0191725350549246
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "pow2:f64:fwd:ip:n16384",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.0077032079112398,
+      "best": 1.0077032079112398,
+      "p1": 1.0056988153643651,
+      "median": 1.0066619292947236,
+      "estimate": "stockham avx512 split L=8 radices=8x8x4x8 scratch=33284 scratch_oop=33284 scratch_immutable=33284",
+      "measure": "stockham avx512 split L=8 radices=8x8x4x8 scratch=33284 scratch_oop=33284 scratch_immutable=33284",
+      "same_plan": true
+    },
+    {
+      "key": "smooth:f64:fwd:ip:n768",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 1.0191725350549246,
+      "best": 1.0191725350549246,
+      "p1": 1.0194124209743398,
+      "median": 1.02138778193172,
+      "estimate": "stockham avx512-ymm split L=4 radices=8x6x4 scratch=2052 scratch_oop=2052 scratch_immutable=2052",
+      "measure": "stockham avx512-ymm split L=4 radices=8x6x4 scratch=2052 scratch_oop=2052 scratch_immutable=2052",
+      "same_plan": true
+    }
+  ]
+}

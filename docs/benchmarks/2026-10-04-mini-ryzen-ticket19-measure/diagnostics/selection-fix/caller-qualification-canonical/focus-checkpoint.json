@@ -1,0 +1,105 @@
+{
+  "utc": "2026-10-05T16:32:26.956470+00:00",
+  "acceptance": false,
+  "focus_passed": false,
+  "cells": 30,
+  "ordinary_trials": 240,
+  "control_rows": 3,
+  "control_trials": 24,
+  "predeclared_manifest_matches": true,
+  "audit_failures": [
+    {
+      "key": "pow2:f32:inv:ip:n4096",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.0339228412737373,
+      "best": 1.0339228412737373,
+      "p1": 1.0301791695774447,
+      "median": 1.0287569532460217,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224",
+      "measure": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224",
+      "same_plan": true
+    },
+    {
+      "key": "pow2:f32:fwd:ip:n4096",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.0325171521301508,
+      "best": 1.0325171521301508,
+      "p1": 1.0349674462000282,
+      "median": 1.0383794032531684,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224",
+      "measure": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224",
+      "same_plan": true
+    }
+  ],
+  "audit_problems": [
+    "smooth:f64:inv:ip:n210: slower promotion in raw process trial 8 (p1 ratio 1.021254)"
+  ],
+  "meta": {
+    "aborted": null,
+    "cells": 30,
+    "child_failures": 0,
+    "drift_flag": false,
+    "elapsed_s": 585.622998582,
+    "max_drift": 0.011103927026911986,
+    "official": true
+  },
+  "quiet_running_samples": 117,
+  "quiet_dirty_samples": [
+    {
+      "utc": "2026-10-05T16:11:30.066635+00:00",
+      "event": "running",
+      "quiet": false,
+      "load1": 0.90576171875,
+      "background_busy_cores": 0.501346616842089,
+      "cpu_busy": {
+        "0": 0.04930966469428011,
+        "1": 0.03607214428857719,
+        "2": 0.04990019960079839,
+        "3": 0.038000000000000034,
+        "4": 0.9880478087649402,
+        "5": 0.052000000000000046,
+        "6": 0.05988023952095811,
+        "7": 0.038000000000000034,
+        "8": 0.012024048096192397,
+        "9": 0.018036072144288595,
+        "10": 0.018000000000000016,
+        "11": 0.030060120240480992,
+        "12": 0.020000000000000018,
+        "13": 0.016000000000000014,
+        "14": 0.03206412825651306,
+        "15": 0.03200000000000003
+      }
+    },
+    {
+      "utc": "2026-10-05T16:12:05.177657+00:00",
+      "event": "running",
+      "quiet": false,
+      "load1": 1.0771484375,
+      "background_busy_cores": 1.067756161649207,
+      "cpu_busy": {
+        "0": 0.062000000000000055,
+        "1": 0.08232931726907633,
+        "2": 0.08999999999999997,
+        "3": 0.03400000000000003,
+        "4": 0.9960079840319361,
+        "5": 0.041832669322709126,
+        "6": 0.08999999999999997,
+        "7": 0.02589641434262946,
+        "8": 0.02004008016032066,
+        "9": 0.034136546184738936,
+        "10": 0.03219315895372232,
+        "11": 0.0701402805611222,
+        "12": 0.006000000000000005,
+        "13": 0.08617234468937873,
+        "14": 0.3286290322580645,
+        "15": 0.06438631790744465
+      }
+    }
+  ],
+  "completely_quiet": false,
+  "restoration": true,
+  "full710_launched": false,
+  "next": "Retain failed candidate; investigate persistent same-plan order dependence and remaining changed-plan regression before any new full attempt."
+}

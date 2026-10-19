@@ -1,0 +1,29 @@
+{
+  "run": "target/ticket19/pipeline-focus/case-24",
+  "cells": 1,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "realworld": {
+      "cells": 1,
+      "failures": 0,
+      "worst": 0.9902559214644475,
+      "geomean": 0.9902559214644475
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "realworld:f32:fwd:ip:n1024:Spectrogram",
+      "suite": "realworld",
+      "metric": "best",
+      "ratio": 0.9902559214644475,
+      "best": 0.9902559214644475,
+      "p1": 0.9902559214644475,
+      "median": 0.983225647058531,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x8x2 scratch=3080 scratch_oop=3080 scratch_immutable=3080 batch=avx512-ymm lanes=4 batch_radices=fallback",
+      "measure": "stockham avx512-ymm split L=8 radices=8x8x2 scratch=3080 scratch_oop=3080 scratch_immutable=3080 batch=avx512-ymm lanes=4 batch_radices=fallback",
+      "same_plan": true
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-05T18:45:56.816553+00:00",
+  "passed": true,
+  "executable_sha256": "e0279fd0280555258861bf931a74b77bbce1feb2996bae56cc6284dfc494d0e8",
+  "callsites": [
+    {
+      "callsite": "385424",
+      "calls": 972,
+      "turn_ns": 100000000,
+      "context": "  3853f7:\tlea    0x0(,%r13,2),%rax\n  3853ff:\tadd    %r13,%rax\n  385402:\tmov    0x1f8(%rsp),%rcx\n  38540a:\tlea    (%rcx,%rax,8),%r14\n  38540e:\tmov    $0x3cc,%edx\n  385413:\tmov    %r15,%rdi\n  385416:\tmov    %rbp,%rsi\n  385419:\txor    %ecx,%ecx\n  38541b:\tmov    $0x5f5e100,%r8d\n  385421:\tmov    %r14,%r9\n  385424:\tcall   *0x38(%r12)\n  385429:\tmov    (%r14),%rax\n  38542c:\tmov    %rax,0x210(%rsp)\n  385434:\tcmp    $0x8000,%rax\n  38543a:\tjne    3867d0 <fastfft_arena::coefficient_crossover::run_fixed+0x2090>\n  385440:\tmovzbl 0xf(%rsp),%eax\n  385445:\tand    $0x1,%eax\n  385448:\timul   $0x38,%rax,%rax\n  38544c:\tadd    0xc8(%rsp),%rax"
+    },
+    {
+      "callsite": "3854db",
+      "calls": 972,
+      "turn_ns": 100000000,
+      "context": "  3854ae:\tlea    0x0(,%r13,2),%rax\n  3854b6:\tadd    %r13,%rax\n  3854b9:\tmov    0x1f8(%rsp),%rcx\n  3854c1:\tlea    (%rcx,%rax,8),%r14\n  3854c5:\tmov    $0x3cc,%edx\n  3854ca:\tmov    %r15,%rdi\n  3854cd:\tmov    %rbp,%rsi\n  3854d0:\txor    %ecx,%ecx\n  3854d2:\tmov    $0x5f5e100,%r8d\n  3854d8:\tmov    %r14,%r9\n  3854db:\tcall   *0x38(%r12)\n  3854e0:\tmov    (%r14),%rax\n  3854e3:\tmov    %rax,0x210(%rsp)\n  3854eb:\tcmp    $0x8000,%rax\n  3854f1:\tjne    3867d0 <fastfft_arena::coefficient_crossover::run_fixed+0x2090>\n  3854f7:\tmovzbl %bl,%ebx\n  3854fa:\tmov    %ebx,%eax\n  3854fc:\tand    $0x1,%eax\n  3854ff:\timul   $0x38,%rax,%rax"
+    },
+    {
+      "callsite": "388524",
+      "calls": 1,
+      "turn_ns": 100000000,
+      "context": "  3884f7:\tlea    0x0(,%r13,2),%rax\n  3884ff:\tadd    %r13,%rax\n  388502:\tmov    0x1f8(%rsp),%rcx\n  38850a:\tlea    (%rcx,%rax,8),%r14\n  38850e:\tmov    $0x1,%edx\n  388513:\tmov    %r15,%rdi\n  388516:\tmov    %rbp,%rsi\n  388519:\txor    %ecx,%ecx\n  38851b:\tmov    $0x5f5e100,%r8d\n  388521:\tmov    %r14,%r9\n  388524:\tcall   *0x38(%r12)\n  388529:\tmov    (%r14),%rax\n  38852c:\tmov    %rax,0x210(%rsp)\n  388534:\tcmp    $0x8000,%rax\n  38853a:\tjne    3898d0 <fastfft_arena::coefficient_crossover::run_fixed+0x2090>\n  388540:\tmovzbl 0xf(%rsp),%eax\n  388545:\tand    $0x1,%eax\n  388548:\timul   $0x38,%rax,%rax\n  38854c:\tadd    0xc8(%rsp),%rax"
+    },
+    {
+      "callsite": "3885db",
+      "calls": 1,
+      "turn_ns": 100000000,
+      "context": "  3885ae:\tlea    0x0(,%r13,2),%rax\n  3885b6:\tadd    %r13,%rax\n  3885b9:\tmov    0x1f8(%rsp),%rcx\n  3885c1:\tlea    (%rcx,%rax,8),%r14\n  3885c5:\tmov    $0x1,%edx\n  3885ca:\tmov    %r15,%rdi\n  3885cd:\tmov    %rbp,%rsi\n  3885d0:\txor    %ecx,%ecx\n  3885d2:\tmov    $0x5f5e100,%r8d\n  3885d8:\tmov    %r14,%r9\n  3885db:\tcall   *0x38(%r12)\n  3885e0:\tmov    (%r14),%rax\n  3885e3:\tmov    %rax,0x210(%rsp)\n  3885eb:\tcmp    $0x8000,%rax\n  3885f1:\tjne    3898d0 <fastfft_arena::coefficient_crossover::run_fixed+0x2090>\n  3885f7:\tmovzbl %bl,%ebx\n  3885fa:\tmov    %ebx,%eax\n  3885fc:\tand    $0x1,%eax\n  3885ff:\timul   $0x38,%rax,%rax"
+    }
+  ],
+  "timing_source_sha256": "ea23111476f1bc17eb9ba4257899191d6212510765aa7b9cfb3217d239d77b18",
+  "mapping_capture_source_order": "afterclock1 and finalrestoration before sampleJSON allocation; independent noninlined reader; no timed-path edits"
+}

@@ -1,0 +1,34 @@
+{
+  "cells": 20,
+  "trials": 160,
+  "different_plan_trials": 2,
+  "different_plan_cells": 2,
+  "choices": [
+    {
+      "key": "smooth:f32:inv:ip:n96",
+      "trial": 8,
+      "order": [
+        "fastfft/measure",
+        "fastfft"
+      ],
+      "metric": "p1",
+      "ratio": 1.03122483633231,
+      "estimate": "small avx512-ymm n=96 decomposition=8x12 radices=8x12 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=rectangular",
+      "measure": "small avx512-ymm n=96 decomposition=16x6 radices=16x6 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=rectangular",
+      "verified": true
+    },
+    {
+      "key": "smooth:f64:fwd:ip:n48",
+      "trial": 6,
+      "order": [
+        "fastfft/measure",
+        "fastfft"
+      ],
+      "metric": "p1",
+      "ratio": 1.103954408832062,
+      "estimate": "small avx512-ymm n=48 decomposition=12x4 radices=12x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved",
+      "measure": "small avx512 n=48 decomposition=12x4 radices=12x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved",
+      "verified": true
+    }
+  ]
+}

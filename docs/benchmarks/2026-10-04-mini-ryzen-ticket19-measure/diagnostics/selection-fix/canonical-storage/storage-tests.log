@@ -1,0 +1,23 @@
+   Compiling fastfft v0.1.0 (/home/ianhersom/repo/fastfft/crates/fastfft)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 14.51s
+     Running unittests src/lib.rs (target/debug/deps/fastfft-ddef2173146e6089)
+
+running 15 tests
+test engine::stockham::contracts::cache_gated_public_contracts_f32 ... ok
+test engine::stockham::contracts::cache_gated_public_contracts_f64 ... ok
+test engine::stockham::scratch::tests::placed_scratch_is_aligned_bounded_and_separated ... ok
+test engine::stockham::storage::tests::miri_alignment_rounding_overflow_is_rejected - should panic ... ok
+test engine::stockham::storage::tests::miri_canonical_layout_is_aligned_disjoint_and_clone_relative_for_both_precisions ... ok
+test engine::stockham::storage::tests::miri_clone_preserves_float_bits_and_owns_independent_storage ... ok
+test engine::stockham::storage::tests::miri_coefficient_size_overflow_is_rejected_before_allocation - should panic ... ok
+test engine::stockham::storage::tests::miri_empty_descriptor_prefix_and_empty_tables_are_valid ... ok
+test engine::stockham::storage::tests::miri_non_float_scalar_is_rejected_before_typed_views - should panic ... ok
+test engine::stockham::storage::tests::miri_pass_length_overflow_is_rejected_before_allocation - should panic ... ok
+test engine::stockham::tests::cache_gate_counts_modes_tables_and_placement_slack ... ok
+test engine::stockham::tests::cache_gate_excludes_measured_zen4_l3_boundary ... ok
+test engine::stockham::tests::cache_gate_preserves_legacy_scratch_when_over_budget ... ok
+test engine::stockham::tests::canonical_tables_and_clones_match_legacy_generation_bitwise ... ok
+test engine::stockham::tests::two_pass_plans_keep_legacy_scratch ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 70 filtered out; finished in 0.70s
+

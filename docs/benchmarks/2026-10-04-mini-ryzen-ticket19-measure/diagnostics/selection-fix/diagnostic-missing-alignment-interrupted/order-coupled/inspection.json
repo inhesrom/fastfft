@@ -1,0 +1,755 @@
+{
+  "acceptance": false,
+  "cells": 3,
+  "trials": 24,
+  "problems": [
+    "driver stability failure",
+    "cell coverage differs from driver metadata"
+  ],
+  "records": [
+    {
+      "key": "pow2:f32:fwd:ip:n4096",
+      "process": 0,
+      "construction_first": "fastfft",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft": {
+          "best": 2598.6315789473683,
+          "p1": 2633.8947368421054,
+          "median": 2684.0526315789475,
+          "p10": 2656.1052631578946,
+          "p90": 2717.2631578947367,
+          "samples": 13672
+        },
+        "fastfft/measure": {
+          "best": 2685.1052631578946,
+          "p1": 2716.2105263157896,
+          "median": 2758.3684210526317,
+          "p10": 2735.157894736842,
+          "p90": 2787.3684210526317,
+          "samples": 13303
+        }
+      },
+      "original_ratios": {
+        "best": 1.0332766233240167,
+        "p1": 1.0312524978019342,
+        "median": 1.0276879032099928
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:fwd:ip:n4096",
+      "process": 1,
+      "construction_first": "fastfft/measure",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft/measure": {
+          "best": 2623.3684210526317,
+          "p1": 2656.5789473684213,
+          "median": 2707.2105263157896,
+          "p10": 2679.315789473684,
+          "p90": 2742.0526315789475,
+          "samples": 13549
+        },
+        "fastfft": {
+          "best": 2626.1111111111113,
+          "p1": 2661.1111111111113,
+          "median": 2709.0,
+          "p10": 2682.277777777778,
+          "p90": 2742.3888888888887,
+          "samples": 14295
+        }
+      },
+      "original_ratios": {
+        "best": 0.998955607762796,
+        "p1": 0.9982968904515988,
+        "median": 0.9993394338559578
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:fwd:ip:n4096",
+      "process": 2,
+      "construction_first": "fastfft",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft": {
+          "best": 2620.7368421052633,
+          "p1": 2656.6315789473683,
+          "median": 2702.2368421052633,
+          "p10": 2677.684210526316,
+          "p90": 2732.5263157894738,
+          "samples": 13562
+        },
+        "fastfft/measure": {
+          "best": 2639.7368421052633,
+          "p1": 2664.0,
+          "median": 2704.0526315789475,
+          "p10": 2681.3684210526317,
+          "p90": 2733.6315789473683,
+          "samples": 13565
+        }
+      },
+      "original_ratios": {
+        "best": 1.007249869462184,
+        "p1": 1.002773595372058,
+        "median": 1.0006719579295904
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:fwd:ip:n4096",
+      "process": 3,
+      "construction_first": "fastfft/measure",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft/measure": {
+          "best": 2623.4210526315787,
+          "p1": 2678.7368421052633,
+          "median": 2729.9473684210525,
+          "p10": 2701.4210526315787,
+          "p90": 2765.2105263157896,
+          "samples": 13441
+        },
+        "fastfft": {
+          "best": 2636.5789473684213,
+          "p1": 2670.315789473684,
+          "median": 2719.315789473684,
+          "p10": 2692.4736842105262,
+          "p90": 2753.6315789473683,
+          "samples": 13474
+        }
+      },
+      "original_ratios": {
+        "best": 0.9950094819842298,
+        "p1": 1.0031535793125197,
+        "median": 1.0039096521957922
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:fwd:ip:n4096",
+      "process": 4,
+      "construction_first": "fastfft",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft": {
+          "best": 2616.0,
+          "p1": 2641.315789473684,
+          "median": 2692.4210526315787,
+          "p10": 2664.5263157894738,
+          "p90": 2725.684210526316,
+          "samples": 13627
+        },
+        "fastfft/measure": {
+          "best": 2639.2105263157896,
+          "p1": 2671.3684210526317,
+          "median": 2716.2105263157896,
+          "p10": 2691.4210526315787,
+          "p90": 2747.2631578947367,
+          "samples": 13489
+        }
+      },
+      "original_ratios": {
+        "best": 1.0088725253500725,
+        "p1": 1.0113779017634752,
+        "median": 1.0088357181953242
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:fwd:ip:n4096",
+      "process": 5,
+      "construction_first": "fastfft/measure",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft/measure": {
+          "best": 2658.684210526316,
+          "p1": 2696.684210526316,
+          "median": 2745.7368421052633,
+          "p10": 2719.842105263158,
+          "p90": 2776.842105263158,
+          "samples": 13348
+        },
+        "fastfft": {
+          "best": 2641.315789473684,
+          "p1": 2677.684210526316,
+          "median": 2724.1052631578946,
+          "p10": 2698.2631578947367,
+          "p90": 2757.842105263158,
+          "samples": 13462
+        }
+      },
+      "original_ratios": {
+        "best": 1.0065756700209225,
+        "p1": 1.0070956836229263,
+        "median": 1.0079408014220026
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:fwd:ip:n4096",
+      "process": 6,
+      "construction_first": "fastfft",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft": {
+          "best": 2648.157894736842,
+          "p1": 2674.0,
+          "median": 2727.7894736842104,
+          "p10": 2699.315789473684,
+          "p90": 2762.6315789473683,
+          "samples": 13445
+        },
+        "fastfft/measure": {
+          "best": 2661.842105263158,
+          "p1": 2696.684210526316,
+          "median": 2744.684210526316,
+          "p10": 2718.2631578947367,
+          "p90": 2780.5263157894738,
+          "samples": 13330
+        }
+      },
+      "original_ratios": {
+        "best": 1.0051674450958958,
+        "p1": 1.0084832500098413,
+        "median": 1.0061935633248438
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:fwd:ip:n4096",
+      "process": 7,
+      "construction_first": "fastfft/measure",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft/measure": {
+          "best": 2627.0526315789475,
+          "p1": 2657.157894736842,
+          "median": 2707.7368421052633,
+          "p10": 2680.315789473684,
+          "p90": 2739.4210526315787,
+          "samples": 13527
+        },
+        "fastfft": {
+          "best": 2606.5263157894738,
+          "p1": 2654.4736842105262,
+          "median": 2700.4210526315787,
+          "p10": 2674.5263157894738,
+          "p90": 2732.5263157894738,
+          "samples": 13577
+        }
+      },
+      "original_ratios": {
+        "best": 1.007874969711655,
+        "p1": 1.00101120253792,
+        "median": 1.0027091291806347
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:fwd:oop:n4096",
+      "process": 0,
+      "construction_first": "fastfft",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft": {
+          "best": 2391.190476190476,
+          "p1": 2399.3333333333335,
+          "median": 2415.5238095238096,
+          "p10": 2406.4285714285716,
+          "p90": 2426.9523809523807,
+          "samples": 13717
+        },
+        "fastfft/measure": {
+          "best": 2440.3333333333335,
+          "p1": 2450.3333333333335,
+          "median": 2469.904761904762,
+          "p10": 2459.3809523809523,
+          "p90": 2482.809523809524,
+          "samples": 13435
+        }
+      },
+      "original_ratios": {
+        "best": 1.0205516279996019,
+        "p1": 1.021255904417894,
+        "median": 1.0225131096479123
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:fwd:oop:n4096",
+      "process": 1,
+      "construction_first": "fastfft/measure",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft/measure": {
+          "best": 2390.714285714286,
+          "p1": 2406.0,
+          "median": 2421.2380952380954,
+          "p10": 2412.6666666666665,
+          "p90": 2431.714285714286,
+          "samples": 13698
+        },
+        "fastfft": {
+          "best": 2490.25,
+          "p1": 2509.75,
+          "median": 2542.85,
+          "p10": 2524.3,
+          "p90": 2565.85,
+          "samples": 13698
+        }
+      },
+      "original_ratios": {
+        "best": 0.9600298306251525,
+        "p1": 0.958661221237175,
+        "median": 0.9521749592929569
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:fwd:oop:n4096",
+      "process": 2,
+      "construction_first": "fastfft",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft": {
+          "best": 2365.4285714285716,
+          "p1": 2377.809523809524,
+          "median": 2392.1428571428573,
+          "p10": 2384.0476190476193,
+          "p90": 2403.095238095238,
+          "samples": 13845
+        },
+        "fastfft/measure": {
+          "best": 2421.714285714286,
+          "p1": 2432.2380952380954,
+          "median": 2449.904761904762,
+          "p10": 2439.8571428571427,
+          "p90": 2463.2380952380954,
+          "samples": 13542
+        }
+      },
+      "original_ratios": {
+        "best": 1.023795144341104,
+        "p1": 1.0228902150839108,
+        "median": 1.0241465113964368
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:fwd:oop:n4096",
+      "process": 3,
+      "construction_first": "fastfft/measure",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft/measure": {
+          "best": 2397.904761904762,
+          "p1": 2409.3333333333335,
+          "median": 2426.0,
+          "p10": 2416.9523809523807,
+          "p90": 2437.4761904761904,
+          "samples": 13661
+        },
+        "fastfft": {
+          "best": 2463.2,
+          "p1": 2490.7,
+          "median": 2521.75,
+          "p10": 2504.25,
+          "p90": 2544.8,
+          "samples": 13801
+        }
+      },
+      "original_ratios": {
+        "best": 0.973491702624538,
+        "p1": 0.9673318076578206,
+        "median": 0.9620303360761376
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:fwd:oop:n4096",
+      "process": 4,
+      "construction_first": "fastfft",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft": {
+          "best": 2401.190476190476,
+          "p1": 2407.3809523809523,
+          "median": 2422.6666666666665,
+          "p10": 2414.095238095238,
+          "p90": 2432.714285714286,
+          "samples": 13694
+        },
+        "fastfft/measure": {
+          "best": 2448.15,
+          "p1": 2463.15,
+          "median": 2482.2,
+          "p10": 2471.2,
+          "p90": 2496.7,
+          "samples": 14003
+        }
+      },
+      "original_ratios": {
+        "best": 1.0195567674764503,
+        "p1": 1.0231658589654833,
+        "median": 1.0245734727572922
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:fwd:oop:n4096",
+      "process": 5,
+      "construction_first": "fastfft/measure",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft/measure": {
+          "best": 2415.0476190476193,
+          "p1": 2425.5714285714284,
+          "median": 2440.809523809524,
+          "p10": 2431.7619047619046,
+          "p90": 2451.809523809524,
+          "samples": 13594
+        },
+        "fastfft": {
+          "best": 2487.7,
+          "p1": 2504.25,
+          "median": 2530.8,
+          "p10": 2516.25,
+          "p90": 2549.8,
+          "samples": 13764
+        }
+      },
+      "original_ratios": {
+        "best": 0.9707953607941551,
+        "p1": 0.968581982059071,
+        "median": 0.964441885494517
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:fwd:oop:n4096",
+      "process": 6,
+      "construction_first": "fastfft",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft": {
+          "best": 2413.5714285714284,
+          "p1": 2425.0476190476193,
+          "median": 2440.809523809524,
+          "p10": 2431.7619047619046,
+          "p90": 2452.7619047619046,
+          "samples": 13587
+        },
+        "fastfft/measure": {
+          "best": 2440.3333333333335,
+          "p1": 2452.285714285714,
+          "median": 2469.904761904762,
+          "p10": 2460.3809523809523,
+          "p90": 2481.3809523809523,
+          "samples": 13436
+        }
+      },
+      "original_ratios": {
+        "best": 1.0110880931241986,
+        "p1": 1.0112319836625692,
+        "median": 1.0119203230778235
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:fwd:oop:n4096",
+      "process": 7,
+      "construction_first": "fastfft/measure",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft/measure": {
+          "best": 2393.5714285714284,
+          "p1": 2406.0,
+          "median": 2420.7619047619046,
+          "p10": 2412.190476190476,
+          "p90": 2430.7619047619046,
+          "samples": 13710
+        },
+        "fastfft": {
+          "best": 2452.15,
+          "p1": 2478.2,
+          "median": 2506.75,
+          "p10": 2490.25,
+          "p90": 2526.8,
+          "samples": 13901
+        }
+      },
+      "original_ratios": {
+        "best": 0.97611134252449,
+        "p1": 0.9708659510935357,
+        "median": 0.9656973789815118
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:inv:ip:n4096",
+      "process": 0,
+      "construction_first": "fastfft",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft": {
+          "best": 2629.7368421052633,
+          "p1": 2662.9473684210525,
+          "median": 2714.0526315789475,
+          "p10": 2686.157894736842,
+          "p90": 2746.2631578947367,
+          "samples": 13506
+        },
+        "fastfft/measure": {
+          "best": 2669.5,
+          "p1": 2703.4444444444443,
+          "median": 2749.6666666666665,
+          "p10": 2724.5555555555557,
+          "p90": 2781.3333333333335,
+          "samples": 14070
+        }
+      },
+      "original_ratios": {
+        "best": 1.0151205844090863,
+        "p1": 1.0152076141284774,
+        "median": 1.0131220871229014
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:inv:ip:n4096",
+      "process": 1,
+      "construction_first": "fastfft/measure",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft/measure": {
+          "best": 2615.4736842105262,
+          "p1": 2651.842105263158,
+          "median": 2700.3684210526317,
+          "p10": 2674.5263157894738,
+          "p90": 2729.8947368421054,
+          "samples": 13566
+        },
+        "fastfft": {
+          "best": 2616.0,
+          "p1": 2642.3684210526317,
+          "median": 2686.684210526316,
+          "p10": 2661.842105263158,
+          "p90": 2718.842105263158,
+          "samples": 13623
+        }
+      },
+      "original_ratios": {
+        "best": 0.9997988089489779,
+        "p1": 1.0035853002688975,
+        "median": 1.0050933453484043
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:inv:ip:n4096",
+      "process": 2,
+      "construction_first": "fastfft",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft": {
+          "best": 2629.2105263157896,
+          "p1": 2674.0,
+          "median": 2724.6315789473683,
+          "p10": 2697.2105263157896,
+          "p90": 2756.842105263158,
+          "samples": 13459
+        },
+        "fastfft/measure": {
+          "best": 2651.315789473684,
+          "p1": 2678.2105263157896,
+          "median": 2722.0,
+          "p10": 2698.2631578947367,
+          "p90": 2751.5263157894738,
+          "samples": 13468
+        }
+      },
+      "original_ratios": {
+        "best": 1.008407566810129,
+        "p1": 1.0015746171712003,
+        "median": 0.9990341523721218
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:inv:ip:n4096",
+      "process": 3,
+      "construction_first": "fastfft/measure",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft/measure": {
+          "best": 2637.1052631578946,
+          "p1": 2675.0526315789475,
+          "median": 2723.0526315789475,
+          "p10": 2697.2105263157896,
+          "p90": 2751.0,
+          "samples": 13449
+        },
+        "fastfft": {
+          "best": 2653.4210526315787,
+          "p1": 2680.3684210526317,
+          "median": 2727.2631578947367,
+          "p10": 2701.9473684210525,
+          "p90": 2756.7894736842104,
+          "samples": 13441
+        }
+      },
+      "original_ratios": {
+        "best": 0.9938510363978975,
+        "p1": 0.9980167691008699,
+        "median": 0.9984561349338069
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:inv:ip:n4096",
+      "process": 4,
+      "construction_first": "fastfft",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft": {
+          "best": 2634.4736842105262,
+          "p1": 2679.2631578947367,
+          "median": 2728.315789473684,
+          "p10": 2700.8947368421054,
+          "p90": 2758.8947368421054,
+          "samples": 13373
+        },
+        "fastfft/measure": {
+          "best": 2670.842105263158,
+          "p1": 2697.2105263157896,
+          "median": 2738.8947368421054,
+          "p10": 2715.6315789473683,
+          "p90": 2765.7894736842104,
+          "samples": 13392
+        }
+      },
+      "original_ratios": {
+        "best": 1.0138048147038259,
+        "p1": 1.006698620987703,
+        "median": 1.0038774644083492
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:inv:ip:n4096",
+      "process": 5,
+      "construction_first": "fastfft/measure",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft/measure": {
+          "best": 2642.8947368421054,
+          "p1": 2674.5263157894738,
+          "median": 2719.8947368421054,
+          "p10": 2694.5789473684213,
+          "p90": 2747.315789473684,
+          "samples": 13491
+        },
+        "fastfft": {
+          "best": 2651.8947368421054,
+          "p1": 2691.9473684210525,
+          "median": 2738.315789473684,
+          "p10": 2713.5263157894738,
+          "p90": 2771.0526315789475,
+          "samples": 13367
+        }
+      },
+      "original_ratios": {
+        "best": 0.9966062001349582,
+        "p1": 0.9935284571920152,
+        "median": 0.9932728530791113
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:inv:ip:n4096",
+      "process": 6,
+      "construction_first": "fastfft",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft": {
+          "best": 2604.8947368421054,
+          "p1": 2642.8947368421054,
+          "median": 2690.8947368421054,
+          "p10": 2665.5789473684213,
+          "p90": 2722.0,
+          "samples": 13594
+        },
+        "fastfft/measure": {
+          "best": 2646.0526315789475,
+          "p1": 2677.684210526316,
+          "median": 2720.4210526315787,
+          "p10": 2697.157894736842,
+          "p90": 2748.842105263158,
+          "samples": 13484
+        }
+      },
+      "original_ratios": {
+        "best": 1.015800214171701,
+        "p1": 1.0131633973912177,
+        "median": 1.0109726758855397
+      },
+      "metric": "best"
+    },
+    {
+      "key": "pow2:f32:inv:ip:n4096",
+      "process": 7,
+      "construction_first": "fastfft/measure",
+      "execution_rotation": 0,
+      "changed_plan": false,
+      "original_stats": {
+        "fastfft/measure": {
+          "best": 2638.684210526316,
+          "p1": 2681.8947368421054,
+          "median": 2733.0526315789475,
+          "p10": 2706.157894736842,
+          "p90": 2762.6315789473683,
+          "samples": 13409
+        },
+        "fastfft": {
+          "best": 2624.4210526315787,
+          "p1": 2657.157894736842,
+          "median": 2703.5263157894738,
+          "p10": 2677.157894736842,
+          "p90": 2734.684210526316,
+          "samples": 13573
+        }
+      },
+      "original_ratios": {
+        "best": 1.0054347826086958,
+        "p1": 1.009309511547756,
+        "median": 1.0109214086865108
+      },
+      "metric": "best"
+    }
+  ]
+}

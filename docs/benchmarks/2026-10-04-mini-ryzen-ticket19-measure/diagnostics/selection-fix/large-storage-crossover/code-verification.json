@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-05T19:56:32.284863+00:00",
+  "passed": true,
+  "executable_sha256": "99c32d116272e48941a837af95054b7294a06b4c4ff1c2f2bf1ac220fa5cfd69",
+  "callsites": [
+    {
+      "callsite": "385a38",
+      "calls": 1,
+      "turn_ns": 100000000,
+      "context": "  385a04:\tmov    %r15,%rsi\n  385a07:\tcall   *0x48(%r13)\n  385a0b:\tlea    0x0(,%rbp,2),%rax\n  385a13:\tadd    %rbp,%rax\n  385a16:\tmov    0x1e8(%rsp),%rcx\n  385a1e:\tlea    (%rcx,%rax,8),%rbx\n  385a22:\tmov    $0x1,%edx\n  385a27:\tmov    %r14,%rdi\n  385a2a:\tmov    %r15,%rsi\n  385a2d:\txor    %ecx,%ecx\n  385a2f:\tmov    $0x5f5e100,%r8d\n  385a35:\tmov    %rbx,%r9\n  385a38:\tcall   *0x38(%r13)\n  385a3c:\tmov    (%rbx),%rax\n  385a3f:\tmov    %rax,0x200(%rsp)\n  385a47:\tcmp    $0x8000,%rax\n  385a4d:\tjne    386e20 <fastfft_arena::coefficient_crossover::run_fixed+0x20e0>\n  385a53:\tmovzbl 0xf(%rsp),%eax"
+    },
+    {
+      "callsite": "385aed",
+      "calls": 1,
+      "turn_ns": 100000000,
+      "context": "  385ab9:\tmov    %r15,%rsi\n  385abc:\tcall   *0x48(%r13)\n  385ac0:\tlea    0x0(,%rbp,2),%rax\n  385ac8:\tadd    %rbp,%rax\n  385acb:\tmov    0x1e8(%rsp),%rcx\n  385ad3:\tlea    (%rcx,%rax,8),%rbx\n  385ad7:\tmov    $0x1,%edx\n  385adc:\tmov    %r14,%rdi\n  385adf:\tmov    %r15,%rsi\n  385ae2:\txor    %ecx,%ecx\n  385ae4:\tmov    $0x5f5e100,%r8d\n  385aea:\tmov    %rbx,%r9\n  385aed:\tcall   *0x38(%r13)\n  385af1:\tmov    (%rbx),%rax\n  385af4:\tmov    %rax,0x200(%rsp)\n  385afc:\tcmp    $0x8000,%rax\n  385b02:\tjne    386e20 <fastfft_arena::coefficient_crossover::run_fixed+0x20e0>\n  385b08:\tmovzbl %r12b,%r12d"
+    }
+  ],
+  "shared_replay_function": true,
+  "entry_callers": "  3f3244:\tcall   384d40 <fastfft_arena::coefficient_crossover::run_fixed>\n",
+  "mapping_capture_source_order": "after original/replay endpoints and final restoration, before sample JSON; caller workspace geometry derived after timing",
+  "timing_source_sha256": "a261b3e2213e659db0ba33d9b2343d7cb4cf7468cfea5f8a7cad10cae8c3c6b4"
+}

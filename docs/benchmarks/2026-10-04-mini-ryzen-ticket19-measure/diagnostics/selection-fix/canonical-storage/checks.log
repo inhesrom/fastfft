@@ -1,0 +1,4 @@
+cargo fmt --all --check: PASS
+git diff --check: PASS
+cargo clippy -j1 --workspace --all-targets -- -D warnings: PASS (5.56 s)
+python3 -m unittest discover -s scripts -p test_measure_audit.py: 24 tests PASS (2.241 s)

@@ -1,0 +1,35 @@
+{
+  "utc": "2026-10-05T16:02:40.568967+00:00",
+  "acceptance": false,
+  "positive_tests": {
+    "passed": 13,
+    "failed": 0,
+    "elapsed_s": 1.03,
+    "large_candidate1_qualified_ns": 769705637,
+    "large_qualified_score": 0.6455203384145944,
+    "large_retained_baseline": false,
+    "later_partial_candidate_retains_qualified_winner": true,
+    "ledger_overflow": false
+  },
+  "quiet_waiting_samples": 12,
+  "running_quiet": [
+    true
+  ],
+  "restoration": true,
+  "test_provenance": {
+    "utc": "2026-10-05T16:00:30.011476+00:00",
+    "executable": "target/ticket19/selection-fix/caller-qualification-canonical/fastfft-library-tests",
+    "sha256": "203348f33a7b96c8e2d6bff1e86f7cf5fe3814c244b67137adaf166a7a9c32bf",
+    "built_executable": "target/release/deps/fastfft-3951b14be042c9bc",
+    "build_command": "RUSTFLAGS='-C llvm-args=-align-all-functions=6' cargo test -j1 --release -pfastfft --lib --no-run",
+    "features": "default SIMD, no tuning",
+    "source_files_verified": 83,
+    "source_snapshot": "target/ticket19/selection-fix/caller-qualification-canonical/source-sha256.json"
+  },
+  "scalar_measure_tests_passed": 17,
+  "trace_tests_passed": 5,
+  "audit_fixtures_passed": 70,
+  "focus_launched": false,
+  "full710launched": false,
+  "next": "Build frozen default-feature production arena, verify sampler routes and fresh quiet gate, then unchanged fixed30cells/8processes."
+}

@@ -1,0 +1,178 @@
+{
+  "assembly": "/home/ianhersom/repo/fastfft/target/ticket19/selection-fix/vector-stack-scope/all-fused-inventory-current/F32x8-36-6-6-false-false.asm",
+  "instructions": 256,
+  "reachable_instructions": 256,
+  "iterations": 256,
+  "jump_tables": [],
+  "unsupported_control_flow": [],
+  "local_vector_memory_checks": [
+    {
+      "address": "0x6c7384",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x40],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c7395",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0xa0],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c73aa",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x80],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c73cf",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x60],ymm3",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c73e5",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x20],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c7425",
+      "instruction": "vmovaps ymm9,YMMWORD PTR [rsp+0xa0]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c742e",
+      "instruction": "vmovaps ymm5,YMMWORD PTR [rsp+0x80]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c743b",
+      "instruction": "vmovaps ymm13,YMMWORD PTR [rsp+0x40]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c7464",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x40],ymm3",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c74a1",
+      "instruction": "vmovaps ymm4,YMMWORD PTR [rsp+0x60]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c74a7",
+      "instruction": "vsubps ymm4,ymm4,YMMWORD PTR [rsp+0x20]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c74e3",
+      "instruction": "vsubps ymm6,ymm2,YMMWORD PTR [rsp+0x40]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c7545",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x20],ymm2",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c7686",
+      "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x20]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c7690",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x60],ymm3",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c76ac",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x20],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c7745",
+      "instruction": "vmovaps ymm14,YMMWORD PTR [rsp+0x60]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6c774b",
+      "instruction": "vmovaps ymm3,YMMWORD PTR [rsp+0x20]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    }
+  ],
+  "unproved_local_vector_memory": [],
+  "unresolved_stack_pointer_stores": [],
+  "derived_scalar_stack_loads_to_review": [],
+  "calls_with_stack_arguments_to_review": [],
+  "passed": true,
+  "limitations": "Low-bit/alias model covers recorded instruction families; review transfer semantics and all unsupported constructs. Caller-clobbered registers lose aliases; RAX conservatively may return an argument-derived stack alias. Escaping stack-pointer stores fail; source review must establish that local-array copying calls do not introduce pointer values into vector storage. Does not prove arithmetic equivalence."
+}

@@ -1,0 +1,36 @@
+[package]
+name = "fastfft-fuzz"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[package.metadata]
+cargo-fuzz = true
+
+[workspace]
+members = ["."]
+resolver = "3"
+
+[features]
+libfuzzer = ["dep:libfuzzer-sys"]
+
+[dependencies]
+fastfft = { path = "../crates/fastfft" }
+fastfft-testkit = { path = "../crates/fastfft-testkit" }
+libfuzzer-sys = { version = "0.4", optional = true }
+
+[[bin]]
+name = "fft"
+path = "fuzz_targets/fft.rs"
+required-features = ["libfuzzer"]
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "replay"
+path = "src/bin/replay.rs"
+
+[profile.release]
+debug = 1
+overflow-checks = true

@@ -1,0 +1,29 @@
+{
+  "run": "target/ticket19/selection-fix/primary-repeats/case-01",
+  "cells": 1,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "batch": {
+      "cells": 1,
+      "failures": 0,
+      "worst": 0.9983266927431307,
+      "geomean": 0.9983266927431307
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "batch:f64:fwd:oop:n32:b32768",
+      "suite": "batch",
+      "metric": "best",
+      "ratio": 0.9983266927431307,
+      "best": 0.9983266927431307,
+      "p1": 1.0368148215670656,
+      "median": 1.0102244471484498,
+      "estimate": "small avx512-ymm n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512 lanes=4 batch_radices=8x4",
+      "measure": "small avx512-ymm n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512 lanes=4 batch_radices=8x4",
+      "same_plan": true
+    }
+  ]
+}

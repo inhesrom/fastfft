@@ -1,0 +1,1358 @@
+{
+  "metric": "median_ns",
+  "baseline": "rustfft",
+  "libraries": [
+    "fastfft",
+    "rustfft",
+    "fftw",
+    "phastft/interleaved"
+  ],
+  "selected_lengths": [
+    16,
+    64,
+    256,
+    1024,
+    4096,
+    16384,
+    65536,
+    1048576
+  ],
+  "panels": [
+    {
+      "precision": "f32",
+      "direction": "forward",
+      "shared_lengths": [
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        32768,
+        65536,
+        131072,
+        262144,
+        524288,
+        1048576
+      ],
+      "geomean_speedups": {
+        "fastfft": 1.3576380944445376,
+        "rustfft": 1.0,
+        "fftw": 1.1492785910845247,
+        "phastft/interleaved": 0.5774834563552428
+      },
+      "cells": [
+        {
+          "n": 2,
+          "median_ns": {
+            "fastfft": 3.1207056638811514,
+            "rustfft": 1.4579496623695518,
+            "fftw": 2.5022479126525368,
+            "phastft/interleaved": 26.565464895635674
+          },
+          "speedups": {
+            "fastfft": 0.46718589299970464,
+            "rustfft": 1.0,
+            "fftw": 0.5826559610650391,
+            "phastft/interleaved": 0.05488139086205384
+          }
+        },
+        {
+          "n": 4,
+          "median_ns": {
+            "fastfft": 3.4561895852821953,
+            "rustfft": 7.11045609680422,
+            "fftw": 3.2873376623376624,
+            "phastft/interleaved": 31.321184510250568
+          },
+          "speedups": {
+            "fastfft": 2.057310781527529,
+            "rustfft": 1.0,
+            "fftw": 2.162983187966123,
+            "phastft/interleaved": 0.22701747101796746
+          }
+        },
+        {
+          "n": 8,
+          "median_ns": {
+            "fastfft": 5.230243902439025,
+            "rustfft": 9.331869510664994,
+            "fftw": 5.117449664429531,
+            "phastft/interleaved": 35.44288224956063
+          },
+          "speedups": {
+            "fastfft": 1.7842130662994997,
+            "rustfft": 1.0,
+            "fftw": 1.8235390912643725,
+            "phastft/interleaved": 0.26329318944654045
+          }
+        },
+        {
+          "n": 16,
+          "median_ns": {
+            "fastfft": 10.298211382113822,
+            "rustfft": 8.997386475008167,
+            "fftw": 10.40166908563135,
+            "phastft/interleaved": 46.285377358490564
+          },
+          "speedups": {
+            "fastfft": 0.8736843847112171,
+            "rustfft": 1.0,
+            "fftw": 0.8649944928008689,
+            "phastft/interleaved": 0.19438939441546307
+          }
+        },
+        {
+          "n": 32,
+          "median_ns": {
+            "fastfft": 17.93633952254642,
+            "rustfft": 13.448212983223923,
+            "fftw": 25.854628921193573,
+            "phastft/interleaved": 45.81927710843374
+          },
+          "speedups": {
+            "fastfft": 0.7497746664707807,
+            "rustfft": 1.0,
+            "fftw": 0.5201472055241971,
+            "phastft/interleaved": 0.29350556865831856
+          }
+        },
+        {
+          "n": 64,
+          "median_ns": {
+            "fastfft": 29.74946770759404,
+            "rustfft": 41.79872881355932,
+            "fftw": 42.466139954853276,
+            "phastft/interleaved": 93.55828220858896
+          },
+          "speedups": {
+            "fastfft": 1.405024426803089,
+            "rustfft": 1.0,
+            "fftw": 0.9842836871445464,
+            "phastft/interleaved": 0.44676674076132256
+          }
+        },
+        {
+          "n": 128,
+          "median_ns": {
+            "fastfft": 55.28274173806609,
+            "rustfft": 86.5146771037182,
+            "fftw": 79.48490230905861,
+            "phastft/interleaved": 143.85626911314984
+          },
+          "speedups": {
+            "fastfft": 1.5649491031691487,
+            "rustfft": 1.0,
+            "fftw": 1.0884416359640972,
+            "phastft/interleaved": 0.6013966415024309
+          }
+        },
+        {
+          "n": 256,
+          "median_ns": {
+            "fastfft": 122.5219638242894,
+            "rustfft": 204.96595744680852,
+            "fftw": 171.04710144927537,
+            "phastft/interleaved": 259.3582887700535
+          },
+          "speedups": {
+            "fastfft": 1.672891545721168,
+            "rustfft": 1.0,
+            "fftw": 1.1983012615246913,
+            "phastft/interleaved": 0.7902811142794472
+          }
+        },
+        {
+          "n": 512,
+          "median_ns": {
+            "fastfft": 301.5031055900621,
+            "rustfft": 443.31531531531533,
+            "fftw": 301.7577639751553,
+            "phastft/interleaved": 495.0
+          },
+          "speedups": {
+            "fastfft": 1.4703507429806306,
+            "rustfft": 1.0,
+            "fftw": 1.4691098895861878,
+            "phastft/interleaved": 0.8955864955864956
+          }
+        },
+        {
+          "n": 1024,
+          "median_ns": {
+            "fastfft": 627.0875,
+            "rustfft": 1036.4583333333333,
+            "fftw": 638.7105263157895,
+            "phastft/interleaved": 1027.7708333333333
+          },
+          "speedups": {
+            "fastfft": 1.6528129381200125,
+            "rustfft": 1.0,
+            "fftw": 1.6227356378668643,
+            "phastft/interleaved": 1.0084527598159447
+          }
+        },
+        {
+          "n": 2048,
+          "median_ns": {
+            "fastfft": 1327.7027027027027,
+            "rustfft": 2204.7391304347825,
+            "fftw": 1338.972972972973,
+            "phastft/interleaved": 2182.9565217391305
+          },
+          "speedups": {
+            "fastfft": 1.66056687686691,
+            "rustfft": 1.0,
+            "fftw": 1.6465897183417495,
+            "phastft/interleaved": 1.0099784894837476
+          }
+        },
+        {
+          "n": 4096,
+          "median_ns": {
+            "fastfft": 3137.235294117647,
+            "rustfft": 4973.454545454545,
+            "fftw": 3190.125,
+            "phastft/interleaved": 4852.272727272727
+          },
+          "speedups": {
+            "fastfft": 1.5852985444795393,
+            "rustfft": 1.0,
+            "fftw": 1.5590155700652937,
+            "phastft/interleaved": 1.0249742388758782
+          }
+        },
+        {
+          "n": 8192,
+          "median_ns": {
+            "fastfft": 6395.875,
+            "rustfft": 11183.2,
+            "fftw": 7791.714285714285,
+            "phastft/interleaved": 10833.4
+          },
+          "speedups": {
+            "fastfft": 1.7485019641565853,
+            "rustfft": 1.0,
+            "fftw": 1.4352682336547984,
+            "phastft/interleaved": 1.0322890320674951
+          }
+        },
+        {
+          "n": 16384,
+          "median_ns": {
+            "fastfft": 14781.25,
+            "rustfft": 25604.5,
+            "fftw": 18777.666666666668,
+            "phastft/interleaved": 24597.333333333332
+          },
+          "speedups": {
+            "fastfft": 1.7322283298097252,
+            "rustfft": 1.0,
+            "fftw": 1.363561322848064,
+            "phastft/interleaved": 1.0409461730268865
+          }
+        },
+        {
+          "n": 32768,
+          "median_ns": {
+            "fastfft": 39145.5,
+            "rustfft": 53958.0,
+            "fftw": 45646.0,
+            "phastft/interleaved": 58250.0
+          },
+          "speedups": {
+            "fastfft": 1.3783959842127447,
+            "rustfft": 1.0,
+            "fftw": 1.182097007404811,
+            "phastft/interleaved": 0.9263175965665236
+          }
+        },
+        {
+          "n": 65536,
+          "median_ns": {
+            "fastfft": 80625.0,
+            "rustfft": 123375.0,
+            "fftw": 101125.0,
+            "phastft/interleaved": 143375.0
+          },
+          "speedups": {
+            "fastfft": 1.5302325581395348,
+            "rustfft": 1.0,
+            "fftw": 1.2200247218788627,
+            "phastft/interleaved": 0.8605056669572798
+          }
+        },
+        {
+          "n": 131072,
+          "median_ns": {
+            "fastfft": 178833.0,
+            "rustfft": 254416.0,
+            "fftw": 241125.0,
+            "phastft/interleaved": 288042.0
+          },
+          "speedups": {
+            "fastfft": 1.4226457085660924,
+            "rustfft": 1.0,
+            "fftw": 1.055120787973043,
+            "phastft/interleaved": 0.8832600801272037
+          }
+        },
+        {
+          "n": 262144,
+          "median_ns": {
+            "fastfft": 447166.0,
+            "rustfft": 590166.0,
+            "fftw": 564625.0,
+            "phastft/interleaved": 672917.0
+          },
+          "speedups": {
+            "fastfft": 1.3197917551871117,
+            "rustfft": 1.0,
+            "fftw": 1.0452353331857427,
+            "phastft/interleaved": 0.8770264386246743
+          }
+        },
+        {
+          "n": 524288,
+          "median_ns": {
+            "fastfft": 961125.0,
+            "rustfft": 1141792.0,
+            "fftw": 1398541.5,
+            "phastft/interleaved": 1403834.0
+          },
+          "speedups": {
+            "fastfft": 1.1879745090388867,
+            "rustfft": 1.0,
+            "fftw": 0.8164162450667356,
+            "phastft/interleaved": 0.8133383291756717
+          }
+        },
+        {
+          "n": 1048576,
+          "median_ns": {
+            "fastfft": 2098270.5,
+            "rustfft": 2520833.5,
+            "fftw": 3219916.5,
+            "phastft/interleaved": 2970937.5
+          },
+          "speedups": {
+            "fastfft": 1.2013863322197973,
+            "rustfft": 1.0,
+            "fftw": 0.7828878481786717,
+            "phastft/interleaved": 0.8484976543599453
+          }
+        }
+      ]
+    },
+    {
+      "precision": "f32",
+      "direction": "inverse",
+      "shared_lengths": [
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        32768,
+        65536,
+        131072,
+        262144,
+        524288,
+        1048576
+      ],
+      "geomean_speedups": {
+        "fastfft": 1.3515308299581728,
+        "rustfft": 1.0,
+        "fftw": 1.1848132831890366,
+        "phastft/interleaved": 0.560048160581947
+      },
+      "cells": [
+        {
+          "n": 2,
+          "median_ns": {
+            "fastfft": 3.12360594795539,
+            "rustfft": 1.4544331170837195,
+            "fftw": 2.5083708950418546,
+            "phastft/interleaved": 26.228846153846153
+          },
+          "speedups": {
+            "fastfft": 0.46562631180662967,
+            "rustfft": 1.0,
+            "fftw": 0.5798317625031488,
+            "phastft/interleaved": 0.055451662210098555
+          }
+        },
+        {
+          "n": 4,
+          "median_ns": {
+            "fastfft": 3.878374185541421,
+            "rustfft": 7.108250620347395,
+            "fftw": 3.2699446434386195,
+            "phastft/interleaved": 32.10141509433962
+          },
+          "speedups": {
+            "fastfft": 1.8327913399503724,
+            "rustfft": 1.0,
+            "fftw": 2.173813747768059,
+            "phastft/interleaved": 0.2214310677413339
+          }
+        },
+        {
+          "n": 8,
+          "median_ns": {
+            "fastfft": 5.232177894048398,
+            "rustfft": 9.327770780856422,
+            "fftw": 5.124664879356568,
+            "phastft/interleaved": 35.07773851590106
+          },
+          "speedups": {
+            "fastfft": 1.7827701904911837,
+            "rustfft": 1.0,
+            "fftw": 1.8201718552233563,
+            "phastft/interleaved": 0.2659171079865385
+          }
+        },
+        {
+          "n": 16,
+          "median_ns": {
+            "fastfft": 10.29124633908233,
+            "rustfft": 8.991008991008991,
+            "fftw": 10.286867204695525,
+            "phastft/interleaved": 44.48924731182796
+          },
+          "speedups": {
+            "fastfft": 0.8736559882804943,
+            "rustfft": 1.0,
+            "fftw": 0.8740279049101529,
+            "phastft/interleaved": 0.20209397852902383
+          }
+        },
+        {
+          "n": 32,
+          "median_ns": {
+            "fastfft": 17.94530953285226,
+            "rustfft": 13.423423423423424,
+            "fftw": 20.46521287642783,
+            "phastft/interleaved": 49.36594202898551
+          },
+          "speedups": {
+            "fastfft": 0.7480184946851614,
+            "rustfft": 1.0,
+            "fftw": 0.6559141849379316,
+            "phastft/interleaved": 0.2719166873295314
+          }
+        },
+        {
+          "n": 64,
+          "median_ns": {
+            "fastfft": 29.740767045454547,
+            "rustfft": 41.79978813559322,
+            "fftw": 41.298787210584344,
+            "phastft/interleaved": 89.20204081632653
+          },
+          "speedups": {
+            "fastfft": 1.4054710852517074,
+            "rustfft": 1.0,
+            "fftw": 1.0121311292376274,
+            "phastft/interleaved": 0.4685967692338117
+          }
+        },
+        {
+          "n": 128,
+          "median_ns": {
+            "fastfft": 55.28113440197287,
+            "rustfft": 86.59491193737769,
+            "fftw": 78.3929203539823,
+            "phastft/interleaved": 151.32899022801303
+          },
+          "speedups": {
+            "fastfft": 1.5664460014099728,
+            "rustfft": 1.0,
+            "fftw": 1.1046266875421835,
+            "phastft/interleaved": 0.5722294968525324
+          }
+        },
+        {
+          "n": 256,
+          "median_ns": {
+            "fastfft": 122.5219638242894,
+            "rustfft": 205.12820512820514,
+            "fftw": 158.55704697986576,
+            "phastft/interleaved": 272.81564245810057
+          },
+          "speedups": {
+            "fastfft": 1.6742157791592582,
+            "rustfft": 1.0,
+            "fftw": 1.2937186270519605,
+            "phastft/interleaved": 0.7518931219631552
+          }
+        },
+        {
+          "n": 512,
+          "median_ns": {
+            "fastfft": 300.525,
+            "rustfft": 443.31531531531533,
+            "fftw": 286.49068322981367,
+            "phastft/interleaved": 523.0531914893617
+          },
+          "speedups": {
+            "fastfft": 1.475136229316414,
+            "rustfft": 1.0,
+            "fftw": 1.5473987157889597,
+            "phastft/interleaved": 0.8475530262094422
+          }
+        },
+        {
+          "n": 1024,
+          "median_ns": {
+            "fastfft": 629.1625,
+            "rustfft": 1037.3333333333333,
+            "fftw": 634.7402597402597,
+            "phastft/interleaved": 1081.5217391304348
+          },
+          "speedups": {
+            "fastfft": 1.648752640745965,
+            "rustfft": 1.0,
+            "fftw": 1.6342642796248934,
+            "phastft/interleaved": 0.9591423785594639
+          }
+        },
+        {
+          "n": 2048,
+          "median_ns": {
+            "fastfft": 1300.421052631579,
+            "rustfft": 2172.086956521739,
+            "fftw": 1307.0263157894738,
+            "phastft/interleaved": 2299.2727272727275
+          },
+          "speedups": {
+            "fastfft": 1.6702951341230792,
+            "rustfft": 1.0,
+            "fftw": 1.6618540348284792,
+            "phastft/interleaved": 0.9446843476885627
+          }
+        },
+        {
+          "n": 4096,
+          "median_ns": {
+            "fastfft": 3024.529411764706,
+            "rustfft": 4931.818181818182,
+            "fftw": 3192.6875,
+            "phastft/interleaved": 5075.0
+          },
+          "speedups": {
+            "fastfft": 1.6306067855166404,
+            "rustfft": 1.0,
+            "fftw": 1.5447231155000865,
+            "phastft/interleaved": 0.9717868338557994
+          }
+        },
+        {
+          "n": 8192,
+          "median_ns": {
+            "fastfft": 6401.0,
+            "rustfft": 11175.0,
+            "fftw": 7517.857142857143,
+            "phastft/interleaved": 11283.4
+          },
+          "speedups": {
+            "fastfft": 1.7458209654741446,
+            "rustfft": 1.0,
+            "fftw": 1.48646080760095,
+            "phastft/interleaved": 0.9903929666589858
+          }
+        },
+        {
+          "n": 16384,
+          "median_ns": {
+            "fastfft": 15406.25,
+            "rustfft": 25854.0,
+            "fftw": 19305.666666666668,
+            "phastft/interleaved": 26083.5
+          },
+          "speedups": {
+            "fastfft": 1.6781501014198783,
+            "rustfft": 1.0,
+            "fftw": 1.3391922924184607,
+            "phastft/interleaved": 0.9912013341767785
+          }
+        },
+        {
+          "n": 32768,
+          "median_ns": {
+            "fastfft": 39291.5,
+            "rustfft": 54000.0,
+            "fftw": 43958.0,
+            "phastft/interleaved": 60625.0
+          },
+          "speedups": {
+            "fastfft": 1.374343051296082,
+            "rustfft": 1.0,
+            "fftw": 1.228445334182629,
+            "phastft/interleaved": 0.8907216494845361
+          }
+        },
+        {
+          "n": 65536,
+          "median_ns": {
+            "fastfft": 80416.0,
+            "rustfft": 123458.5,
+            "fftw": 96042.0,
+            "phastft/interleaved": 145541.0
+          },
+          "speedups": {
+            "fastfft": 1.5352479606048548,
+            "rustfft": 1.0,
+            "fftw": 1.2854636513192146,
+            "phastft/interleaved": 0.8482729952384551
+          }
+        },
+        {
+          "n": 131072,
+          "median_ns": {
+            "fastfft": 178167.0,
+            "rustfft": 254167.0,
+            "fftw": 232750.0,
+            "phastft/interleaved": 300834.0
+          },
+          "speedups": {
+            "fastfft": 1.4265660868735512,
+            "rustfft": 1.0,
+            "fftw": 1.0920171858216972,
+            "phastft/interleaved": 0.8448745819953861
+          }
+        },
+        {
+          "n": 262144,
+          "median_ns": {
+            "fastfft": 447583.5,
+            "rustfft": 591250.0,
+            "fftw": 536791.0,
+            "phastft/interleaved": 695125.0
+          },
+          "speedups": {
+            "fastfft": 1.3209825652643585,
+            "rustfft": 1.0,
+            "fftw": 1.101452893211697,
+            "phastft/interleaved": 0.8505664448840137
+          }
+        },
+        {
+          "n": 524288,
+          "median_ns": {
+            "fastfft": 891646.0,
+            "rustfft": 1117541.0,
+            "fftw": 1403270.5,
+            "phastft/interleaved": 1459542.0
+          },
+          "speedups": {
+            "fastfft": 1.253346058861925,
+            "rustfft": 1.0,
+            "fftw": 0.796383163474184,
+            "phastft/interleaved": 0.7656792336226022
+          }
+        },
+        {
+          "n": 1048576,
+          "median_ns": {
+            "fastfft": 2193666.5,
+            "rustfft": 2559458.0,
+            "fftw": 3202937.5,
+            "phastft/interleaved": 3060250.0
+          },
+          "speedups": {
+            "fastfft": 1.1667489110126812,
+            "rustfft": 1.0,
+            "fftw": 0.7990970788533963,
+            "phastft/interleaved": 0.8363558532799608
+          }
+        }
+      ]
+    },
+    {
+      "precision": "f64",
+      "direction": "forward",
+      "shared_lengths": [
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        32768,
+        65536,
+        131072,
+        262144,
+        524288,
+        1048576
+      ],
+      "geomean_speedups": {
+        "fastfft": 1.2454922972362112,
+        "rustfft": 1.0,
+        "fftw": 1.5171809729074053,
+        "phastft/interleaved": 0.5805776111888641
+      },
+      "cells": [
+        {
+          "n": 2,
+          "median_ns": {
+            "fastfft": 4.402423865755128,
+            "rustfft": 4.413793103448276,
+            "fftw": 2.270236220472441,
+            "phastft/interleaved": 26.75310254735467
+          },
+          "speedups": {
+            "fastfft": 1.0025824950163444,
+            "rustfft": 1.0,
+            "fftw": 1.944199931111026,
+            "phastft/interleaved": 0.16498247616834666
+          }
+        },
+        {
+          "n": 4,
+          "median_ns": {
+            "fastfft": 3.4572676232064876,
+            "rustfft": 5.978383458646617,
+            "fftw": 3.675796178343949,
+            "phastft/interleaved": 30.474452554744527
+          },
+          "speedups": {
+            "fastfft": 1.7292220649964862,
+            "rustfft": 1.0,
+            "fftw": 1.6264186501603168,
+            "phastft/interleaved": 0.19617689433163746
+          }
+        },
+        {
+          "n": 8,
+          "median_ns": {
+            "fastfft": 5.24762839385018,
+            "rustfft": 10.94448051948052,
+            "fftw": 5.623089430894309,
+            "phastft/interleaved": 46.863945578231295
+          },
+          "speedups": {
+            "fastfft": 2.085605095876571,
+            "rustfft": 1.0,
+            "fftw": 1.9463465153780926,
+            "phastft/interleaved": 0.23353732564430776
+          }
+        },
+        {
+          "n": 16,
+          "median_ns": {
+            "fastfft": 11.734488315874295,
+            "rustfft": 14.623324882289026,
+            "fftw": 7.670371656825287,
+            "phastft/interleaved": 52.03504672897196
+          },
+          "speedups": {
+            "fastfft": 1.2461834285954116,
+            "rustfft": 1.0,
+            "fftw": 1.906468882674913,
+            "phastft/interleaved": 0.2810283799389207
+          }
+        },
+        {
+          "n": 32,
+          "median_ns": {
+            "fastfft": 26.311580294305823,
+            "rustfft": 22.60079840319361,
+            "fftw": 14.779949022939677,
+            "phastft/interleaved": 71.16051364365971
+          },
+          "speedups": {
+            "fastfft": 0.8589677301931091,
+            "rustfft": 1.0,
+            "fftw": 1.529152662713203,
+            "phastft/interleaved": 0.3176030813432346
+          }
+        },
+        {
+          "n": 64,
+          "median_ns": {
+            "fastfft": 47.87632135306554,
+            "rustfft": 70.11353032659409,
+            "fftw": 33.340050377833755,
+            "phastft/interleaved": 133.3793103448276
+          },
+          "speedups": {
+            "fastfft": 1.4644719632809609,
+            "rustfft": 1.0,
+            "fftw": 2.102982135060279,
+            "phastft/interleaved": 0.5256702118591594
+          }
+        },
+        {
+          "n": 128,
+          "median_ns": {
+            "fastfft": 104.02895322939867,
+            "rustfft": 157.56291390728478,
+            "fftw": 85.32504780114722,
+            "phastft/interleaved": 233.65686274509804
+          },
+          "speedups": {
+            "fastfft": 1.514606357326658,
+            "rustfft": 1.0,
+            "fftw": 1.846619696885377,
+            "phastft/interleaved": 0.6743346292343829
+          }
+        },
+        {
+          "n": 256,
+          "median_ns": {
+            "fastfft": 427.63157894736844,
+            "rustfft": 355.8201438848921,
+            "fftw": 241.12871287128712,
+            "phastft/interleaved": 434.7345132743363
+          },
+          "speedups": {
+            "fastfft": 0.8320717210846708,
+            "rustfft": 1.0,
+            "fftw": 1.4756440228452863,
+            "phastft/interleaved": 0.8184768704120673
+          }
+        },
+        {
+          "n": 512,
+          "median_ns": {
+            "fastfft": 556.4777777777778,
+            "rustfft": 794.968253968254,
+            "fftw": 505.050505050505,
+            "phastft/interleaved": 900.7636363636364
+          },
+          "speedups": {
+            "fastfft": 1.4285714285714286,
+            "rustfft": 1.0,
+            "fftw": 1.574037142857143,
+            "phastft/interleaved": 0.8825492303147626
+          }
+        },
+        {
+          "n": 1024,
+          "median_ns": {
+            "fastfft": 1160.860465116279,
+            "rustfft": 1772.9655172413793,
+            "fftw": 1101.8444444444444,
+            "phastft/interleaved": 1916.6538461538462
+          },
+          "speedups": {
+            "fastfft": 1.5272856389883067,
+            "rustfft": 1.0,
+            "fftw": 1.6090887658242155,
+            "phastft/interleaved": 0.925031674759213
+          }
+        },
+        {
+          "n": 2048,
+          "median_ns": {
+            "fastfft": 2651.315789473684,
+            "rustfft": 3842.285714285714,
+            "fftw": 2445.85,
+            "phastft/interleaved": 4309.0
+          },
+          "speedups": {
+            "fastfft": 1.4491995746189295,
+            "rustfft": 1.0,
+            "fftw": 1.570940864846869,
+            "phastft/interleaved": 0.8916884925239532
+          }
+        },
+        {
+          "n": 4096,
+          "median_ns": {
+            "fastfft": 6236.111111111111,
+            "rustfft": 8965.333333333334,
+            "fftw": 5810.222222222223,
+            "phastft/interleaved": 9923.666666666666
+          },
+          "speedups": {
+            "fastfft": 1.4376481069042317,
+            "rustfft": 1.0,
+            "fftw": 1.5430276141666028,
+            "phastft/interleaved": 0.903429511941151
+          }
+        },
+        {
+          "n": 8192,
+          "median_ns": {
+            "fastfft": 15385.25,
+            "rustfft": 20583.333333333332,
+            "fftw": 13906.25,
+            "phastft/interleaved": 22805.666666666668
+          },
+          "speedups": {
+            "fastfft": 1.3378614798806214,
+            "rustfft": 1.0,
+            "fftw": 1.4801498127340824,
+            "phastft/interleaved": 0.9025534589356445
+          }
+        },
+        {
+          "n": 16384,
+          "median_ns": {
+            "fastfft": 38187.5,
+            "rustfft": 49917.0,
+            "fftw": 29229.0,
+            "phastft/interleaved": 54958.0
+          },
+          "speedups": {
+            "fastfft": 1.3071554828150573,
+            "rustfft": 1.0,
+            "fftw": 1.7077902083547163,
+            "phastft/interleaved": 0.9082754103133301
+          }
+        },
+        {
+          "n": 32768,
+          "median_ns": {
+            "fastfft": 79292.0,
+            "rustfft": 98500.0,
+            "fftw": 68625.0,
+            "phastft/interleaved": 126792.0
+          },
+          "speedups": {
+            "fastfft": 1.2422438581445796,
+            "rustfft": 1.0,
+            "fftw": 1.4353369763205828,
+            "phastft/interleaved": 0.7768628935579532
+          }
+        },
+        {
+          "n": 65536,
+          "median_ns": {
+            "fastfft": 176833.0,
+            "rustfft": 233250.0,
+            "fftw": 168917.0,
+            "phastft/interleaved": 292750.0
+          },
+          "speedups": {
+            "fastfft": 1.3190411292009976,
+            "rustfft": 1.0,
+            "fftw": 1.380855686520599,
+            "phastft/interleaved": 0.7967549103330487
+          }
+        },
+        {
+          "n": 131072,
+          "median_ns": {
+            "fastfft": 377542.0,
+            "rustfft": 436750.0,
+            "fftw": 391000.0,
+            "phastft/interleaved": 637812.5
+          },
+          "speedups": {
+            "fastfft": 1.156824936033607,
+            "rustfft": 1.0,
+            "fftw": 1.117007672634271,
+            "phastft/interleaved": 0.6847623713865753
+          }
+        },
+        {
+          "n": 262144,
+          "median_ns": {
+            "fastfft": 934938.0,
+            "rustfft": 1065833.0,
+            "fftw": 853375.0,
+            "phastft/interleaved": 1339250.0
+          },
+          "speedups": {
+            "fastfft": 1.1400039360898797,
+            "rustfft": 1.0,
+            "fftw": 1.248962062399297,
+            "phastft/interleaved": 0.7958431958185551
+          }
+        },
+        {
+          "n": 524288,
+          "median_ns": {
+            "fastfft": 2228167.0,
+            "rustfft": 1981041.0,
+            "fftw": 1987916.0,
+            "phastft/interleaved": 2896375.0
+          },
+          "speedups": {
+            "fastfft": 0.8890900008841348,
+            "rustfft": 1.0,
+            "fftw": 0.9965416043736255,
+            "phastft/interleaved": 0.6839725518967675
+          }
+        },
+        {
+          "n": 1048576,
+          "median_ns": {
+            "fastfft": 6387208.0,
+            "rustfft": 4723917.0,
+            "fftw": 4973875.0,
+            "phastft/interleaved": 6074875.0
+          },
+          "speedups": {
+            "fastfft": 0.7395902873368144,
+            "rustfft": 1.0,
+            "fftw": 0.9497458219195295,
+            "phastft/interleaved": 0.7776155064919031
+          }
+        }
+      ]
+    },
+    {
+      "precision": "f64",
+      "direction": "inverse",
+      "shared_lengths": [
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        32768,
+        65536,
+        131072,
+        262144,
+        524288,
+        1048576
+      ],
+      "geomean_speedups": {
+        "fastfft": 1.2411598511292996,
+        "rustfft": 1.0,
+        "fftw": 1.517180170659402,
+        "phastft/interleaved": 0.5605002514354538
+      },
+      "cells": [
+        {
+          "n": 2,
+          "median_ns": {
+            "fastfft": 4.402423865755128,
+            "rustfft": 4.4186046511627906,
+            "fftw": 2.231568998109641,
+            "phastft/interleaved": 27.24736842105263
+          },
+          "speedups": {
+            "fastfft": 1.003675426515272,
+            "rustfft": 1.0,
+            "fftw": 1.980043930931907,
+            "phastft/interleaved": 0.1621662900755129
+          }
+        },
+        {
+          "n": 4,
+          "median_ns": {
+            "fastfft": 3.344159900062461,
+            "rustfft": 5.965549936788875,
+            "fftw": 3.3088235294117645,
+            "phastft/interleaved": 30.880754716981134
+          },
+          "speedups": {
+            "fastfft": 1.7838710214417237,
+            "rustfft": 1.0,
+            "fftw": 1.8029217586739712,
+            "phastft/interleaved": 0.19318018589450006
+          }
+        },
+        {
+          "n": 8,
+          "median_ns": {
+            "fastfft": 5.2657980456026054,
+            "rustfft": 10.950097213220998,
+            "fftw": 5.6563819421890225,
+            "phastft/interleaved": 42.84548422198041
+          },
+          "speedups": {
+            "fastfft": 2.0794753460712894,
+            "rustfft": 1.0,
+            "fftw": 1.9358836311154946,
+            "phastft/interleaved": 0.25557179273524055
+          }
+        },
+        {
+          "n": 16,
+          "median_ns": {
+            "fastfft": 11.575129533678757,
+            "rustfft": 14.623324882289026,
+            "fftw": 7.428369296073576,
+            "phastft/interleaved": 47.476571428571425
+          },
+          "speedups": {
+            "fastfft": 1.263340063689249,
+            "rustfft": 1.0,
+            "fftw": 1.9685780686776704,
+            "phastft/interleaved": 0.30801139261477295
+          }
+        },
+        {
+          "n": 32,
+          "median_ns": {
+            "fastfft": 26.347826086956523,
+            "rustfft": 22.604,
+            "fftw": 15.344887348353552,
+            "phastft/interleaved": 77.40070298769771
+          },
+          "speedups": {
+            "fastfft": 0.8579075907590759,
+            "rustfft": 1.0,
+            "fftw": 1.4730639259091936,
+            "phastft/interleaved": 0.2920386912195454
+          }
+        },
+        {
+          "n": 64,
+          "median_ns": {
+            "fastfft": 48.04646251319958,
+            "rustfft": 70.141065830721,
+            "fftw": 33.43145500420521,
+            "phastft/interleaved": 148.02875399361022
+          },
+          "speedups": {
+            "fastfft": 1.4598591064108306,
+            "rustfft": 1.0,
+            "fftw": 2.098056032018296,
+            "phastft/interleaved": 0.47383406222380753
+          }
+        },
+        {
+          "n": 128,
+          "median_ns": {
+            "fastfft": 104.02672605790646,
+            "rustfft": 157.69867549668874,
+            "fftw": 85.63428571428571,
+            "phastft/interleaved": 249.78238341968913
+          },
+          "speedups": {
+            "fastfft": 1.5159438489769042,
+            "rustfft": 1.0,
+            "fftw": 1.8415366483331463,
+            "phastft/interleaved": 0.6313442659073375
+          }
+        },
+        {
+          "n": 256,
+          "median_ns": {
+            "fastfft": 426.9035087719298,
+            "rustfft": 355.9782608695652,
+            "fftw": 241.12871287128712,
+            "phastft/interleaved": 463.04716981132077
+          },
+          "speedups": {
+            "fastfft": 0.8338611736727235,
+            "rustfft": 1.0,
+            "fftw": 1.4762997597037892,
+            "phastft/interleaved": 0.7687732137842819
+          }
+        },
+        {
+          "n": 512,
+          "median_ns": {
+            "fastfft": 555.875,
+            "rustfft": 794.3174603174604,
+            "fftw": 514.1752577319587,
+            "phastft/interleaved": 959.1346153846154
+          },
+          "speedups": {
+            "fastfft": 1.4289497824465218,
+            "rustfft": 1.0,
+            "fftw": 1.5448379679357125,
+            "phastft/interleaved": 0.828160560130485
+          }
+        },
+        {
+          "n": 1024,
+          "median_ns": {
+            "fastfft": 1209.3023255813953,
+            "rustfft": 1771.551724137931,
+            "fftw": 1105.9782608695652,
+            "phastft/interleaved": 2023.36
+          },
+          "speedups": {
+            "fastfft": 1.46493700265252,
+            "rustfft": 1.0,
+            "fftw": 1.6017961535202914,
+            "phastft/interleaved": 0.875549444556545
+          }
+        },
+        {
+          "n": 2048,
+          "median_ns": {
+            "fastfft": 2653.5263157894738,
+            "rustfft": 3848.214285714286,
+            "fftw": 2675.4210526315787,
+            "phastft/interleaved": 4613.636363636364
+          },
+          "speedups": {
+            "fastfft": 1.4502265392342153,
+            "rustfft": 1.0,
+            "fftw": 1.4383583779940479,
+            "phastft/interleaved": 0.8340957072484165
+          }
+        },
+        {
+          "n": 4096,
+          "median_ns": {
+            "fastfft": 6239.5,
+            "rustfft": 8958.333333333334,
+            "fftw": 5819.444444444444,
+            "phastft/interleaved": 10325.0
+          },
+          "speedups": {
+            "fastfft": 1.4357453855811098,
+            "rustfft": 1.0,
+            "fftw": 1.5393794749403342,
+            "phastft/interleaved": 0.867635189669088
+          }
+        },
+        {
+          "n": 8192,
+          "median_ns": {
+            "fastfft": 15437.5,
+            "rustfft": 20555.333333333332,
+            "fftw": 13677.0,
+            "phastft/interleaved": 24264.0
+          },
+          "speedups": {
+            "fastfft": 1.331519568151147,
+            "rustfft": 1.0,
+            "fftw": 1.5029124320635616,
+            "phastft/interleaved": 0.8471535333553137
+          }
+        },
+        {
+          "n": 16384,
+          "median_ns": {
+            "fastfft": 38208.5,
+            "rustfft": 49958.0,
+            "fftw": 29333.0,
+            "phastft/interleaved": 57250.0
+          },
+          "speedups": {
+            "fastfft": 1.3075101090071581,
+            "rustfft": 1.0,
+            "fftw": 1.7031329901476153,
+            "phastft/interleaved": 0.8726288209606987
+          }
+        },
+        {
+          "n": 32768,
+          "median_ns": {
+            "fastfft": 79542.0,
+            "rustfft": 98500.0,
+            "fftw": 68625.0,
+            "phastft/interleaved": 132125.0
+          },
+          "speedups": {
+            "fastfft": 1.238339493600865,
+            "rustfft": 1.0,
+            "fftw": 1.4353369763205828,
+            "phastft/interleaved": 0.7455061494796594
+          }
+        },
+        {
+          "n": 65536,
+          "median_ns": {
+            "fastfft": 177291.0,
+            "rustfft": 233625.0,
+            "fftw": 170958.0,
+            "phastft/interleaved": 306125.0
+          },
+          "speedups": {
+            "fastfft": 1.317748785894377,
+            "rustfft": 1.0,
+            "fftw": 1.3665637174042746,
+            "phastft/interleaved": 0.7631686402613311
+          }
+        },
+        {
+          "n": 131072,
+          "median_ns": {
+            "fastfft": 383792.0,
+            "rustfft": 437792.0,
+            "fftw": 382542.0,
+            "phastft/interleaved": 660687.0
+          },
+          "speedups": {
+            "fastfft": 1.1407012131571268,
+            "rustfft": 1.0,
+            "fftw": 1.1444285856193568,
+            "phastft/interleaved": 0.662631472997047
+          }
+        },
+        {
+          "n": 262144,
+          "median_ns": {
+            "fastfft": 958250.0,
+            "rustfft": 1075645.5,
+            "fftw": 854834.0,
+            "phastft/interleaved": 1382959.0
+          },
+          "speedups": {
+            "fastfft": 1.1225103052439342,
+            "rustfft": 1.0,
+            "fftw": 1.2583092155903954,
+            "phastft/interleaved": 0.777785530879802
+          }
+        },
+        {
+          "n": 524288,
+          "median_ns": {
+            "fastfft": 2252000.0,
+            "rustfft": 1977917.0,
+            "fftw": 2072833.0,
+            "phastft/interleaved": 2994479.0
+          },
+          "speedups": {
+            "fastfft": 0.8782935168738899,
+            "rustfft": 1.0,
+            "fftw": 0.9542095286981633,
+            "phastft/interleaved": 0.6605212459329319
+          }
+        },
+        {
+          "n": 1048576,
+          "median_ns": {
+            "fastfft": 6543291.5,
+            "rustfft": 4748708.0,
+            "fftw": 4913583.0,
+            "phastft/interleaved": 6309917.0
+          },
+          "speedups": {
+            "fastfft": 0.7257368863973124,
+            "rustfft": 1.0,
+            "fftw": 0.9664450564893277,
+            "phastft/interleaved": 0.7525785204464654
+          }
+        }
+      ]
+    }
+  ]
+}

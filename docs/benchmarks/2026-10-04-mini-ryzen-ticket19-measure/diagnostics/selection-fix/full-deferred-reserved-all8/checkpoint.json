@@ -1,0 +1,187 @@
+{
+  "utc": "2026-10-05T12:05:55.294142+00:00",
+  "acceptance": "failed",
+  "cells": 710,
+  "raw_noncontrol_trials": 5680,
+  "primary_failures": [
+    {
+      "key": "smooth:f32:inv:ip:n1000000",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 1.0412986457030229,
+      "best": 1.0412986457030229,
+      "p1": 1.0306430170920569,
+      "median": 0.994428672891296,
+      "estimate": "stockham avx512-ymm split L=8 radices=10x5x10x5x5x10 scratch=1000008 scratch_oop=0 scratch_immutable=1000008",
+      "measure": "stockham avx512-ymm split L=8 radices=10x5x10x5x5x10 scratch=1000008 scratch_oop=0 scratch_immutable=1000008",
+      "same_plan": true
+    },
+    {
+      "key": "batch:f64:fwd:oop:n32:b32768",
+      "suite": "batch",
+      "metric": "best",
+      "ratio": 1.0302187742435998,
+      "best": 1.0302187742435998,
+      "p1": 1.0068318248058077,
+      "median": 0.9920960183494704,
+      "estimate": "small avx512-ymm n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512 lanes=4 batch_radices=8x4",
+      "measure": "small avx512-ymm n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512 lanes=4 batch_radices=8x4",
+      "same_plan": true
+    },
+    {
+      "key": "smooth:f64:inv:oop:n165375",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 1.0273872280905474,
+      "best": 1.0273872280905474,
+      "p1": 1.014640561640568,
+      "median": 1.0044802219877733,
+      "estimate": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+      "measure": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+      "same_plan": true
+    },
+    {
+      "key": "pow2:f32:fwd:ip:n4096",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.0260088207411073,
+      "best": 1.0260088207411073,
+      "p1": 1.0090409750621443,
+      "median": 1.0070828496665158,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224",
+      "measure": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224",
+      "same_plan": true
+    },
+    {
+      "key": "pow2:f32:fwd:ip:n16777216",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.0233906874537047,
+      "best": 1.0233906874537047,
+      "p1": 1.0233906874537047,
+      "median": 0.9984934141371826,
+      "estimate": "fourstep avx512 split L=16 decomposition=4096x4096 radices=8x8x8x8/8x8x8x8 scratch=17170856 scratch_oop=17170856 scratch_immutable=17170856",
+      "measure": "fourstep avx512 split L=16 decomposition=4096x4096 radices=8x8x8x8/8x8x8x8 scratch=17170856 scratch_oop=17170856 scratch_immutable=17170856",
+      "same_plan": true
+    }
+  ],
+  "audit_problems": [
+    "smooth:f32:inv:oop:n18: slower promotion in raw process trial 5 (p1 ratio 1.130426)",
+    "smooth:f32:fwd:ip:n80: slower promotion in raw process trial 7 (p1 ratio 1.031495)",
+    "smooth:f32:inv:ip:n96: slower promotion in raw process trial 7 (p1 ratio 1.024284)",
+    "smooth:f32:inv:ip:n210: slower promotion in raw process trial 1 (p1 ratio 1.020772)",
+    "smooth:f32:fwd:ip:n75600: slower promotion in raw process trial 7 (best ratio 1.040640)",
+    "smooth:f64:fwd:oop:n48: slower promotion in raw process trial 6 (p1 ratio 1.060860)"
+  ],
+  "different_plan_trials": 30,
+  "slower_promotions": [
+    {
+      "key": "smooth:f32:inv:oop:n18",
+      "trial": 5,
+      "order": [
+        "fastfft",
+        "fastfft/measure"
+      ],
+      "metric": "p1",
+      "ratio": 1.1304262558519305,
+      "estimate": "small avx2 n=18 decomposition=6x3 radices=6x3 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=rectangular",
+      "measure": "small avx512-ymm n=18 decomposition=6x3 radices=6x3 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=rectangular",
+      "verified": true
+    },
+    {
+      "key": "smooth:f32:fwd:ip:n80",
+      "trial": 7,
+      "order": [
+        "fastfft",
+        "fastfft/measure"
+      ],
+      "metric": "p1",
+      "ratio": 1.0314945458728342,
+      "estimate": "small avx512-ymm n=80 decomposition=8x10 radices=8x10 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=rectangular",
+      "measure": "small avx512-ymm n=80 decomposition=16x5 radices=16x5 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=rectangular",
+      "verified": true
+    },
+    {
+      "key": "smooth:f32:inv:ip:n96",
+      "trial": 7,
+      "order": [
+        "fastfft",
+        "fastfft/measure"
+      ],
+      "metric": "p1",
+      "ratio": 1.024283517566572,
+      "estimate": "small avx512-ymm n=96 decomposition=8x12 radices=8x12 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=rectangular",
+      "measure": "small avx512-ymm n=96 decomposition=16x6 radices=16x6 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=rectangular",
+      "verified": true
+    },
+    {
+      "key": "smooth:f32:inv:ip:n210",
+      "trial": 1,
+      "order": [
+        "fastfft",
+        "fastfft/measure"
+      ],
+      "metric": "p1",
+      "ratio": 1.020772252315872,
+      "estimate": "small avx512 n=210 decomposition=14x15 radices=14x15 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=rectangular",
+      "measure": "small avx512 n=210 decomposition=15x14 radices=15x14 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=rectangular",
+      "verified": true
+    },
+    {
+      "key": "smooth:f32:fwd:ip:n75600",
+      "trial": 7,
+      "order": [
+        "fastfft",
+        "fastfft/measure"
+      ],
+      "metric": "best",
+      "ratio": 1.040640062269856,
+      "estimate": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+      "measure": "stockham avx512-ymm split L=8 radices=7x5x5x6x9 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+      "verified": true
+    },
+    {
+      "key": "smooth:f64:fwd:oop:n48",
+      "trial": 6,
+      "order": [
+        "fastfft/measure",
+        "fastfft"
+      ],
+      "metric": "p1",
+      "ratio": 1.0608603092265194,
+      "estimate": "small avx512-ymm n=48 decomposition=12x4 radices=12x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved",
+      "measure": "small avx512 n=48 decomposition=12x4 radices=12x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved",
+      "verified": true
+    }
+  ],
+  "max_drift": 0.014205159030969527,
+  "elapsed_s": 13115.527348491,
+  "frozen_executable": "target/ticket19/selection-fix/deferred/fastfft-arena",
+  "executable_sha256": "2ca33a64e4813ccc7acb2fc524219c01a0f91b782651bdb1754e3938db4f56ab",
+  "original_selection_cells": [
+    {
+      "key": "pow2:f32:fwd:ip:n524288",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 0.9977738007574981,
+      "best": 0.9977738007574981,
+      "p1": 0.9995354264353162,
+      "median": 1.0013050194554278,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x4x8x8x4x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "measure": "stockham avx512-ymm split L=8 radices=8x4x8x8x4x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "same_plan": true
+    },
+    {
+      "key": "pow2:f32:fwd:oop:n524288",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 0.9952636162082577,
+      "best": 0.9952636162082577,
+      "p1": 0.997502770742103,
+      "median": 0.9992362761880341,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x4x8x8x4x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "measure": "stockham avx512-ymm split L=8 radices=8x4x8x8x4x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "same_plan": true
+    }
+  ]
+}

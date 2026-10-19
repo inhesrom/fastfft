@@ -1,0 +1,64 @@
+--- prior vectors
+
++++ current vectors
+
+@@ -623,8 +623,8 @@
+
+ vperm2f128 ymm0,ymm0,ymm1,0x31
+ vunpcklpd ymm1,ymm2,ymm0
+ vunpckhpd ymm0,ymm2,ymm0
+-vmovupd YMMWORD PTR [rsp+r12*1+0xb40],ymm0
+-vmovupd YMMWORD PTR [rsp+r12*1+0x220],ymm1
++vmovupd YMMWORD PTR [rsp+r12*1+0xb60],ymm0
++vmovupd YMMWORD PTR [rsp+r12*1+0x200],ymm1
+ vmovupd ymm0,YMMWORD PTR [rsp+STACK]
+ vmovupd ymm1,YMMWORD PTR [rsp+STACK]
+ vmovupd ymm2,YMMWORD PTR [rsp+STACK]
+@@ -1813,8 +1813,8 @@
+
+ vperm2f128 ymm0,ymm0,ymm1,0x31
+ vunpcklpd ymm1,ymm2,ymm0
+ vunpckhpd ymm0,ymm2,ymm0
+-vmovupd YMMWORD PTR [rsp+r12*1+0xb40],ymm0
+-vmovupd YMMWORD PTR [rsp+r12*1+0x220],ymm1
++vmovupd YMMWORD PTR [rsp+r12*1+0xb60],ymm0
++vmovupd YMMWORD PTR [rsp+r12*1+0x200],ymm1
+ vmovupd ymm1,YMMWORD PTR [rsp+STACK]
+ vmovupd ymm2,YMMWORD PTR [rsp+STACK]
+ vmovupd ymm4,YMMWORD PTR [rsp+STACK]
+@@ -4612,8 +4612,8 @@
+
+ vperm2f128 ymm0,ymm0,ymm1,0x31
+ vunpcklpd ymm1,ymm2,ymm0
+ vunpckhpd ymm0,ymm2,ymm0
+-vmovupd YMMWORD PTR [rsp+rsi*1+0xb40],ymm0
+-vmovupd YMMWORD PTR [rsp+rsi*1+0x220],ymm1
++vmovupd YMMWORD PTR [rsp+rsi*1+0xb60],ymm0
++vmovupd YMMWORD PTR [rsp+rsi*1+0x200],ymm1
+ vmovups ymm0,YMMWORD PTR [rsp+STACK]
+ vmovups YMMWORD PTR [rsp+STACK],ymm0
+ vmovupd ymm2,YMMWORD PTR [rsp+STACK]
+@@ -5098,8 +5098,8 @@
+
+ vperm2f128 ymm0,ymm0,ymm1,0x31
+ vunpcklpd ymm1,ymm2,ymm0
+ vunpckhpd ymm0,ymm2,ymm0
+-vmovupd YMMWORD PTR [rsp+r12*1+0xb40],ymm0
+-vmovupd YMMWORD PTR [rsp+r12*1+0x220],ymm1
++vmovupd YMMWORD PTR [rsp+r12*1+0xb60],ymm0
++vmovupd YMMWORD PTR [rsp+r12*1+0x200],ymm1
+ vmovups ymm0,YMMWORD PTR [rsp+STACK]
+ vmovups YMMWORD PTR [rsp+STACK],ymm0
+ vmovupd ymm2,YMMWORD PTR [rsp+STACK]
+@@ -6290,8 +6290,8 @@
+
+ vperm2f128 ymm0,ymm0,ymm1,0x31
+ vunpcklpd ymm1,ymm2,ymm0
+ vunpckhpd ymm0,ymm2,ymm0
+-vmovupd YMMWORD PTR [rsp+r12*1+0xb40],ymm0
+-vmovupd YMMWORD PTR [rsp+r12*1+0x220],ymm1
++vmovupd YMMWORD PTR [rsp+r12*1+0xb60],ymm0
++vmovupd YMMWORD PTR [rsp+r12*1+0x200],ymm1
+ vmovupd ymm0,YMMWORD PTR [rsp+STACK]
+ vmovupd ymm4,YMMWORD PTR [rsp+STACK]
+ vmovupd ymm1,YMMWORD PTR [rsp+STACK]

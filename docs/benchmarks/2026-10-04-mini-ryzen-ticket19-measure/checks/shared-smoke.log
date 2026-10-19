@@ -1,0 +1,21 @@
+arena: 18 cells, profile quick, core 2 (sibling 2,10), output target/ticket19/shared-smoke
+[1/18] pow2:f32:fwd:ip:n64 (0.4s) fastfft=17.5ns fastfft/measure=17.5ns rustfft=21.4ns
+[2/18] pow2:f32:fwd:ip:n4096 (0.4s) fastfft=2.51us fastfft/measure=2.38us rustfft=3.25us
+[3/18] pow2:f32:fwd:ip:n16384 (0.5s) fastfft=11.85us fastfft/measure=11.55us rustfft=15.58us
+[4/18] pow2:f64:fwd:ip:n64 (0.5s) fastfft=29.2ns fastfft/measure=29.8ns rustfft=38.6ns
+[5/18] pow2:f64:fwd:ip:n4096 (0.4s) fastfft=4.61us fastfft/measure=4.57us rustfft=6.47us
+[6/18] pow2:f64:fwd:ip:n16384 (0.5s) fastfft=22.49us fastfft/measure=22.45us rustfft=33.07us
+[7/18] smooth:f32:fwd:ip:n768 (0.4s) fastfft=348.7ns fastfft/measure=348.1ns rustfft=416.7ns
+[8/18] smooth:f64:fwd:ip:n768 (0.4s) fastfft=687.3ns fastfft/measure=710.9ns rustfft=946.4ns
+[9/18] rough:f32:fwd:ip:n17 (0.4s) fastfft=46.9ns fastfft/measure=46.6ns rustfft=26.8ns
+[10/18] rough:f64:fwd:ip:n17 (0.5s) fastfft=56.6ns fastfft/measure=57.2ns rustfft=31.3ns
+[11/18] datacheck:f32:fwd:imm:n64 (0.4s) fastfft=16.0ns fastfft/measure=16.2ns rustfft=20.4ns
+[12/18] datacheck:f64:fwd:imm:n64 (0.5s) fastfft=27.4ns fastfft/measure=27.4ns rustfft=38.8ns
+[13/18] datacheck:f32:fwd:imm:n64:random (0.4s) fastfft=16.2ns fastfft/measure=16.0ns rustfft=20.4ns
+[14/18] datacheck:f64:fwd:imm:n64:random (0.5s) fastfft=27.4ns fastfft/measure=27.6ns rustfft=39.0ns
+[15/18] datacheck:f32:fwd:imm:n4096 (0.4s) fastfft=2.69us fastfft/measure=2.59us rustfft=3.43us
+[16/18] datacheck:f64:fwd:imm:n4096 (0.4s) fastfft=4.58us fastfft/measure=4.57us rustfft=6.67us
+[17/18] datacheck:f32:fwd:imm:n4096:random (0.4s) fastfft=2.68us fastfft/measure=2.61us rustfft=3.41us
+[18/18] datacheck:f64:fwd:imm:n4096:random (0.4s) fastfft=4.57us fastfft/measure=4.56us rustfft=6.98us
+arena: done in 10s, max clock drift 0.09%, 0 child failures
+target/ticket19/shared-smoke

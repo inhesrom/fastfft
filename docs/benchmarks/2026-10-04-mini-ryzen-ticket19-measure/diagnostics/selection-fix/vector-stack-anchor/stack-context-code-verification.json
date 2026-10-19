@@ -1,0 +1,878 @@
+{
+  "utc": "2026-10-05T23:36:55.997884+00:00",
+  "passed": false,
+  "acceptance": false,
+  "binary_sha256": "2badd5bb28e3b05fe9a93a4798ca87ae8174bb694a291893726d8deccfcea16d",
+  "prior_sha256": "a2bbb31ba6912363132f0cabfcc1798f369ccc217d2a9f5d548214314541596f",
+  "decision": "Do not time unconditional candidate. Restrict FourStep by vector-byte-width>16; one-panel exemption is supported but insufficient to promise all spill-free tiny leaves unchanged.",
+  "blocking_reasons": [
+    "Unnecessary narrowFourStep overhead includingS64+35vectorinstructions.",
+    "Spill-free representativeN6 gains192-byte frame/+10scalarinstructions.",
+    "Complete derived/indexed alias proof and exact vector-dataflow equivalence not claimed for allFourStep variants."
+  ],
+  "subgates": {
+    "six_tiled_controls": true,
+    "indexed_empty_range": true,
+    "fused_N210_effective_alignment_and_vector_identity": true,
+    "FourStep_direct_RSP_alignment": true,
+    "FourStep_full_derived_address_gate": false,
+    "unconditional_costs_acceptable": false
+  },
+  "comparisons": {
+    "Small-F32x16-n210-14x15-inverse": {
+      "prior": {
+        "start": "0xa141c0",
+        "end": "0xa1625a",
+        "bytes": 8346,
+        "symbol": "<fastfft::isa::x86::F32x16 as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "Small-F32x16-n210-14x15-inverse.asm",
+        "assembly_sha256": "bea89cfc5aea598488a4818c4e78507553d479f832dd3bff08db9712f84b4200"
+      },
+      "current": {
+        "start": "0xa16d00",
+        "end": "0xa18dc6",
+        "bytes": 8390,
+        "symbol": "<fastfft::isa::x86::F32x16 as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "Small-F32x16-n210-14x15-inverse.asm",
+        "assembly_sha256": "e0ec71a660b35535ef370c51cb84709724adac8c4f04f1b5e7b753ba40503a7f"
+      },
+      "delta": {
+        "instructions": 8,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 312
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {
+        "vmovaps": 238,
+        "vmovups": -238
+      }
+    },
+    "Small-F32x16-n210-15x14-inverse": {
+      "prior": {
+        "start": "0xa0c4c0",
+        "end": "0xa0e5ad",
+        "bytes": 8429,
+        "symbol": "<fastfft::isa::x86::F32x16 as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "Small-F32x16-n210-15x14-inverse.asm",
+        "assembly_sha256": "5c80d3636e9225d5c2f24c2a035a0e45c5c235de0c0032f508a8daf7d7a1151b"
+      },
+      "current": {
+        "start": "0xa0f0c0",
+        "end": "0xa111d0",
+        "bytes": 8464,
+        "symbol": "<fastfft::isa::x86::F32x16 as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "Small-F32x16-n210-15x14-inverse.asm",
+        "assembly_sha256": "0dfa7869adfbb58fac5d31b190e74bb24fe5660413526a71273ccd16f15f1fbd"
+      },
+      "delta": {
+        "instructions": 8,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 312
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {
+        "vmovaps": 246,
+        "vmovups": -246
+      }
+    },
+    "Small-F64x4v-n210-14x15-inverse": {
+      "prior": {
+        "start": "0xbb7540",
+        "end": "0xbb946c",
+        "bytes": 7980,
+        "symbol": "<fastfft::isa::x86::F64x4v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "Small-F64x4v-n210-14x15-inverse.asm",
+        "assembly_sha256": "d2ce02f075e2560cb2502528329844010adea6fe9ed408a86a6b07b168dc768d"
+      },
+      "current": {
+        "start": "0xbbb740",
+        "end": "0xbbd66c",
+        "bytes": 7980,
+        "symbol": "<fastfft::isa::x86::F64x4v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "Small-F64x4v-n210-14x15-inverse.asm",
+        "assembly_sha256": "5115011819d99ec911f495b510439d758562b7d86641aa9d349bd0676fda32bd"
+      },
+      "delta": {
+        "instructions": 0,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "full_normalized_identity": true,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {}
+    },
+    "Small-F64x4v-n210-15x14-inverse": {
+      "prior": {
+        "start": "0xb78cc0",
+        "end": "0xb7ad26",
+        "bytes": 8294,
+        "symbol": "<fastfft::isa::x86::F64x4v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "Small-F64x4v-n210-15x14-inverse.asm",
+        "assembly_sha256": "1537014fd58a02292d580e351b47d823ca5e7e098f65f35af48b9b586ccd30a1"
+      },
+      "current": {
+        "start": "0xb7cd80",
+        "end": "0xb7ede6",
+        "bytes": 8294,
+        "symbol": "<fastfft::isa::x86::F64x4v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "Small-F64x4v-n210-15x14-inverse.asm",
+        "assembly_sha256": "8cbd1a0e749f9ca83696e774284195895b813381cb1c34646c9a4e23aed27b9f"
+      },
+      "delta": {
+        "instructions": 0,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "full_normalized_identity": true,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {}
+    },
+    "control-n80-forward-8x10": {
+      "prior": {
+        "start": "0xb193c0",
+        "end": "0xb19fdb",
+        "bytes": 3099,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n80-forward-8x10.asm",
+        "assembly_sha256": "69d26da39a014a0f7cfd41434b3711088534f5f5727ec5afa85ae31fab9a7047"
+      },
+      "current": {
+        "start": "0xb1d240",
+        "end": "0xb1de5b",
+        "bytes": 3099,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n80-forward-8x10.asm",
+        "assembly_sha256": "4273671c08de9a69e8f776a4c8675e5f91064ffbe32b7bc603cfd4f014fef1ec"
+      },
+      "delta": {
+        "instructions": 0,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "full_normalized_identity": true,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {}
+    },
+    "control-n80-forward-8x10-batch": {
+      "prior": {
+        "start": "0xb07c80",
+        "end": "0xb088de",
+        "bytes": 3166,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n80-forward-8x10-batch.asm",
+        "assembly_sha256": "bf3c36e2cab13c4c280299299769440b684186c92fad541de75d04dd3fe34f7c"
+      },
+      "current": {
+        "start": "0xb0b9c0",
+        "end": "0xb0c61e",
+        "bytes": 3166,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n80-forward-8x10-batch.asm",
+        "assembly_sha256": "12214d92f5ab622db1b1daac9f6e4b3690f5a1390cc3111f1a1286d072c605ef"
+      },
+      "delta": {
+        "instructions": 0,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "full_normalized_identity": true,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {}
+    },
+    "control-n80-forward-16x5": {
+      "prior": {
+        "start": "0xad9e40",
+        "end": "0xada867",
+        "bytes": 2599,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n80-forward-16x5.asm",
+        "assembly_sha256": "d27e8aff778b77cb254a6ac29038c4f04629042d6d7c21702edf75fed0665f36"
+      },
+      "current": {
+        "start": "0xadd940",
+        "end": "0xade367",
+        "bytes": 2599,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n80-forward-16x5.asm",
+        "assembly_sha256": "8621c6ca2b6205ca1604501972ce069ae0fa297f70514d0ef3e266d7d72b154c"
+      },
+      "delta": {
+        "instructions": 0,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "full_normalized_identity": true,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {}
+    },
+    "control-n80-forward-16x5-batch": {
+      "prior": {
+        "start": "0xad0cc0",
+        "end": "0xad179a",
+        "bytes": 2778,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n80-forward-16x5-batch.asm",
+        "assembly_sha256": "038cc0de423baa4d8b4192e98be22244c844f0d851942e434e8c7c7902b2819f"
+      },
+      "current": {
+        "start": "0xad4700",
+        "end": "0xad51da",
+        "bytes": 2778,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n80-forward-16x5-batch.asm",
+        "assembly_sha256": "3a8229b6a05dbad0c48571519a656cc85c49f3b5a963acc8272f7e06e7a0697a"
+      },
+      "delta": {
+        "instructions": 0,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "full_normalized_identity": true,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {}
+    },
+    "control-n96-inverse-8x12": {
+      "prior": {
+        "start": "0xb05900",
+        "end": "0xb066b0",
+        "bytes": 3504,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n96-inverse-8x12.asm",
+        "assembly_sha256": "03644875925148499c3e7eb1bb05b3e39fdf231835169331faa25a3dfc41806f"
+      },
+      "current": {
+        "start": "0xb09600",
+        "end": "0xb0a3b0",
+        "bytes": 3504,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n96-inverse-8x12.asm",
+        "assembly_sha256": "91aab4271defb65c7db31ac9cc1d5feed94a2443ffbf7ff4029183781bccb5d5"
+      },
+      "delta": {
+        "instructions": 0,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "full_normalized_identity": true,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {}
+    },
+    "control-n96-inverse-8x12-batch": {
+      "prior": {
+        "start": "0xaf8000",
+        "end": "0xaf8e1a",
+        "bytes": 3610,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n96-inverse-8x12-batch.asm",
+        "assembly_sha256": "9ab7ef1ffe3ab1c28f87d2189df766617af7cd830650961e0b99628c02c24dda"
+      },
+      "current": {
+        "start": "0xafbc40",
+        "end": "0xafca5a",
+        "bytes": 3610,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n96-inverse-8x12-batch.asm",
+        "assembly_sha256": "486768036e4dd3aa7a3ed69c29e2ebf9c5b19bd26ff04c387d16e817d7b1df77"
+      },
+      "delta": {
+        "instructions": 0,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "full_normalized_identity": true,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {}
+    },
+    "representative-F32x8-n6-2x3": {
+      "prior": {
+        "start": "0x6cb940",
+        "end": "0x6cbab4",
+        "bytes": 372,
+        "symbol": "<fastfft::isa::x86::F32x8 as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "representative-F32x8-n6-2x3.asm",
+        "assembly_sha256": "ae253ee052064c8fe538c267d90af2cbc2831601f2347d72617566e292c9be1b"
+      },
+      "current": {
+        "start": "0x6ccc40",
+        "end": "0x6ccddb",
+        "bytes": 411,
+        "symbol": "<fastfft::isa::x86::F32x8 as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "representative-F32x8-n6-2x3.asm",
+        "assembly_sha256": "10d6196b9b5f4690f9009f258c0ec7fed2b5e1e4b48e8a00188429bf3bed7148"
+      },
+      "delta": {
+        "instructions": 10,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 192
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {}
+    },
+    "representative-F64x4-n6-2x3": {
+      "prior": {
+        "start": "0x8ae540",
+        "end": "0x8ae699",
+        "bytes": 345,
+        "symbol": "<fastfft::isa::x86::F64x4 as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "representative-F64x4-n6-2x3.asm",
+        "assembly_sha256": "7d4541297fecd40bb1313058a1699254d394e3a907dcea1b584827dddfa7a237"
+      },
+      "current": {
+        "start": "0x8b0480",
+        "end": "0x8b0600",
+        "bytes": 384,
+        "symbol": "<fastfft::isa::x86::F64x4 as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "representative-F64x4-n6-2x3.asm",
+        "assembly_sha256": "24ad37f98eec310b98d2a70b15b5a0421bbf2f82e57acdfb8e2c36ae09e7a999"
+      },
+      "delta": {
+        "instructions": 10,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 192
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {}
+    },
+    "representative-F32x8v-n6-2x3": {
+      "prior": {
+        "start": "0xab8980",
+        "end": "0xab8af5",
+        "bytes": 373,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "representative-F32x8v-n6-2x3.asm",
+        "assembly_sha256": "7e83b12726a9d92440adbbb01a21ff91ee1613112c593ecd74700f2dd68d397f"
+      },
+      "current": {
+        "start": "0xabc180",
+        "end": "0xabc31c",
+        "bytes": 412,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "representative-F32x8v-n6-2x3.asm",
+        "assembly_sha256": "173e30562d8a4a6928b3c96f567dd9fd33a366ca6a60688eaaee2a665d1bc124"
+      },
+      "delta": {
+        "instructions": 10,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 192
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {}
+    },
+    "representative-F64x4v-n6-2x3": {
+      "prior": {
+        "start": "0xb6ee80",
+        "end": "0xb6efc5",
+        "bytes": 325,
+        "symbol": "<fastfft::isa::x86::F64x4v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "representative-F64x4v-n6-2x3.asm",
+        "assembly_sha256": "70e04ae67960c8929ce66b8dca8fd0e74b22ec01629e0b27b8f63b7102e69dba"
+      },
+      "current": {
+        "start": "0xb72f00",
+        "end": "0xb7306c",
+        "bytes": 364,
+        "symbol": "<fastfft::isa::x86::F64x4v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "representative-F64x4v-n6-2x3.asm",
+        "assembly_sha256": "78cce7cc024da2700730a372f82d30cfd06e6601f6ecad9f1464dd7e3d35b295"
+      },
+      "delta": {
+        "instructions": 10,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 192
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {}
+    },
+    "representative-F32x16-n6-2x3": {
+      "prior": {
+        "start": "0xa0fd00",
+        "end": "0xa0fefc",
+        "bytes": 508,
+        "symbol": "<fastfft::isa::x86::F32x16 as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "representative-F32x16-n6-2x3.asm",
+        "assembly_sha256": "af8601abec8d49ca0f05abe21dcb5047f5725b7839f03781566a2622c6afa93f"
+      },
+      "current": {
+        "start": "0xa12800",
+        "end": "0xa12a23",
+        "bytes": 547,
+        "symbol": "<fastfft::isa::x86::F32x16 as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "representative-F32x16-n6-2x3.asm",
+        "assembly_sha256": "cf552c66b5cd9a47965eb73e96a3cc9f128d1cd16fae55b9d42e6ebc0b2ea0eb"
+      },
+      "delta": {
+        "instructions": 10,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 192
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {}
+    },
+    "representative-F64x8-n6-2x3": {
+      "prior": {
+        "start": "0x971f00",
+        "end": "0x9720f5",
+        "bytes": 501,
+        "symbol": "<fastfft::isa::x86::F64x8 as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "representative-F64x8-n6-2x3.asm",
+        "assembly_sha256": "04c52b49bee1061c832fe01324df9dfbe7c83c26a9379ee78cea5ef848d50065"
+      },
+      "current": {
+        "start": "0x9745c0",
+        "end": "0x9747dc",
+        "bytes": 540,
+        "symbol": "<fastfft::isa::x86::F64x8 as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "representative-F64x8-n6-2x3.asm",
+        "assembly_sha256": "ffa8853e16b124e64a8edf10855b8faf4f85ffc01d51272ec267f2bbc02ab3bc"
+      },
+      "delta": {
+        "instructions": 10,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 192
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {}
+    },
+    "FourStep-F32x4": {
+      "prior": {
+        "start": "0xda2ec0",
+        "end": "0xda9094",
+        "bytes": 25044,
+        "symbol": "<fastfft::isa::x86::F32x4 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F32x4.asm",
+        "assembly_sha256": "380a50efee2d248c3296f9cf2dc1c3e86c264a4282675a5812a353d27799a3f8"
+      },
+      "current": {
+        "start": "0xda70c0",
+        "end": "0xdad897",
+        "bytes": 26583,
+        "symbol": "<fastfft::isa::x86::F32x4 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F32x4.asm",
+        "assembly_sha256": "4912c7205f5fbfda91f61c5d10586b9142641c2bbaccd853db94c1bd76a4fc48"
+      },
+      "delta": {
+        "instructions": 60,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 184
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": false,
+      "vector_opcode_delta": {}
+    },
+    "FourStep-F32x8": {
+      "prior": {
+        "start": "0xdb9940",
+        "end": "0xde0edc",
+        "bytes": 161180,
+        "symbol": "<fastfft::isa::x86::F32x8 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F32x8.asm",
+        "assembly_sha256": "0ddd379050e865427d70f30aa916415a6822189cde9e9fef8f33f8dc586c0650"
+      },
+      "current": {
+        "start": "0xdbe140",
+        "end": "0xde572c",
+        "bytes": 161260,
+        "symbol": "<fastfft::isa::x86::F32x8 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F32x8.asm",
+        "assembly_sha256": "ee3a89c3c4670af30c1668533bfab353ef1e95665f220a3c84f87ab77b369bd6"
+      },
+      "delta": {
+        "instructions": 13,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 128
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": false,
+      "vector_opcode_delta": {}
+    },
+    "FourStep-F64x2": {
+      "prior": {
+        "start": "0xe0e280",
+        "end": "0xe13c0a",
+        "bytes": 22922,
+        "symbol": "<fastfft::isa::x86::F64x2 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F64x2.asm",
+        "assembly_sha256": "63ecd3d686627d9f3803ea93c16ea3b52975de0e510736651b143dcd89cf4cde"
+      },
+      "current": {
+        "start": "0xe12ac0",
+        "end": "0xe1878a",
+        "bytes": 23754,
+        "symbol": "<fastfft::isa::x86::F64x2 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F64x2.asm",
+        "assembly_sha256": "0d5376429adf64cd9acb84e267b1a9f993fdffef666ab21a2c2f58528eabe4a3"
+      },
+      "delta": {
+        "instructions": -71,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 184
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": false,
+      "vector_opcode_delta": {}
+    },
+    "FourStep-F64x4": {
+      "prior": {
+        "start": "0xe24b40",
+        "end": "0xe49b63",
+        "bytes": 151587,
+        "symbol": "<fastfft::isa::x86::F64x4 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F64x4.asm",
+        "assembly_sha256": "5dd21b3d57ace796588aab61a98618b1873b3ca484ffdcc6c40f7473aa2a237c"
+      },
+      "current": {
+        "start": "0xe296c0",
+        "end": "0xe4e733",
+        "bytes": 151667,
+        "symbol": "<fastfft::isa::x86::F64x4 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F64x4.asm",
+        "assembly_sha256": "f5d77b9f4e4875b436b268b35ab2394801a8a1d8200e385cdbdbd6fc2b4d6b97"
+      },
+      "delta": {
+        "instructions": 10,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 128
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": false,
+      "vector_opcode_delta": {}
+    },
+    "FourStep-F64x8": {
+      "prior": {
+        "start": "0xe58040",
+        "end": "0xe7ad57",
+        "bytes": 142615,
+        "symbol": "<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F64x8.asm",
+        "assembly_sha256": "eb7536ea91f42a95191eb0c8bb3943db2e4412c9b306db0bf87c630ef2301b96"
+      },
+      "current": {
+        "start": "0xe5cc00",
+        "end": "0xe7f861",
+        "bytes": 142433,
+        "symbol": "<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F64x8.asm",
+        "assembly_sha256": "8a1dd45e7eb1f079349c7d71e1e102a690b99099f6121c32499525dd45769201"
+      },
+      "delta": {
+        "instructions": -107,
+        "vector_instructions": 2,
+        "vector_memory_instructions": -46,
+        "direct_rsp_vector_memory_sites": -49,
+        "direct_rsp_vector_bytes_static": -3136,
+        "explicit_frame_bytes": 312
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": false,
+      "vector_opcode_delta": {
+        "vbroadcastsd": 1,
+        "vmovapd": 414,
+        "vmovaps": 11,
+        "vmovupd": -413,
+        "vmovups": -11
+      }
+    },
+    "FourStep-S32": {
+      "prior": {
+        "start": "0xe86bc0",
+        "end": "0xecaa53",
+        "bytes": 278163,
+        "symbol": "<fastfft::isa::scalar::S32 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-S32.asm",
+        "assembly_sha256": "cb85b432e11c83a28ed2b3744495baf9049320b7c88c4d99f21328b6cc0ce33d"
+      },
+      "current": {
+        "start": "0xe8b6c0",
+        "end": "0xecfef0",
+        "bytes": 280624,
+        "symbol": "<fastfft::isa::scalar::S32 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-S32.asm",
+        "assembly_sha256": "1d315dfa19e0d0ffa1abdc6d5db4120744ab445f60f3a3d3de6a47c739464e73"
+      },
+      "delta": {
+        "instructions": 26,
+        "vector_instructions": -9,
+        "vector_memory_instructions": -9,
+        "direct_rsp_vector_memory_sites": -12,
+        "direct_rsp_vector_bytes_static": -192,
+        "explicit_frame_bytes": 136
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": false,
+      "vector_opcode_delta": {
+        "movaps": -9
+      }
+    },
+    "FourStep-S64": {
+      "prior": {
+        "start": "0xed6780",
+        "end": "0xf21076",
+        "bytes": 305398,
+        "symbol": "<fastfft::isa::scalar::S64 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-S64.asm",
+        "assembly_sha256": "21fb08a736707c7411cb4a97486657903f2de425a57c0884441c36f0d9b70eb1"
+      },
+      "current": {
+        "start": "0xedbc00",
+        "end": "0xf27c53",
+        "bytes": 311379,
+        "symbol": "<fastfft::isa::scalar::S64 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-S64.asm",
+        "assembly_sha256": "b64c9155036d491af5c992bd421fcde8d85ee447ab3ae9912b6e705f3378394f"
+      },
+      "delta": {
+        "instructions": 211,
+        "vector_instructions": 35,
+        "vector_memory_instructions": 34,
+        "direct_rsp_vector_memory_sites": 35,
+        "direct_rsp_vector_bytes_static": 576,
+        "explicit_frame_bytes": 168
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": false,
+      "vector_opcode_delta": {
+        "movapd": 19,
+        "movaps": 16,
+        "movlhps": 2,
+        "movlpd": -2,
+        "movsd": 2,
+        "movupd": -6,
+        "movups": 6,
+        "unpcklpd": -2
+      }
+    },
+    "FourStep-F32x16": {
+      "prior": {
+        "start": "0xf2f540",
+        "end": "0xf5389c",
+        "bytes": 148316,
+        "symbol": "<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F32x16.asm",
+        "assembly_sha256": "a8a9b3fd59d49d53c4352a975b5d0b2b69f41bd69fc7193f793f4447ff191273"
+      },
+      "current": {
+        "start": "0xf36140",
+        "end": "0xf5a4dc",
+        "bytes": 148380,
+        "symbol": "<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F32x16.asm",
+        "assembly_sha256": "a8b170a43a89876ea72f7038a95058a25fb90b029768d532aafe1314b3ef0b3a"
+      },
+      "delta": {
+        "instructions": 8,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 64
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": true,
+      "vector_opcode_delta": {}
+    },
+    "FourStep-F32x8v": {
+      "prior": {
+        "start": "0xf613c0",
+        "end": "0xf81f45",
+        "bytes": 134021,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F32x8v.asm",
+        "assembly_sha256": "9a5f42935c24b19ba72324b3f5d404925087538d16b4d22c9c947ee379670d94"
+      },
+      "current": {
+        "start": "0xf68000",
+        "end": "0xf892c3",
+        "bytes": 135875,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F32x8v.asm",
+        "assembly_sha256": "0ea99b433d5867b8a5a1aba72407e6787aaccf32c14d7232a1700f4184f96758"
+      },
+      "delta": {
+        "instructions": 136,
+        "vector_instructions": 20,
+        "vector_memory_instructions": 10,
+        "direct_rsp_vector_memory_sites": 8,
+        "direct_rsp_vector_bytes_static": 256,
+        "explicit_frame_bytes": 264
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": false,
+      "vector_opcode_delta": {
+        "vbroadcastss": 2,
+        "vmovaps": 426,
+        "vmovups": -408
+      }
+    },
+    "FourStep-F64x4v": {
+      "prior": {
+        "start": "0xf8fa40",
+        "end": "0xfaed57",
+        "bytes": 127767,
+        "symbol": "<fastfft::isa::x86::F64x4v as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F64x4v.asm",
+        "assembly_sha256": "4873828a5779c5350a35b198b346f218869cd77b39ea39a8c1eb6a009d0ea28d"
+      },
+      "current": {
+        "start": "0xf96dc0",
+        "end": "0xfb631c",
+        "bytes": 128348,
+        "symbol": "<fastfft::isa::x86::F64x4v as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F64x4v.asm",
+        "assembly_sha256": "2665c29934131bfbbaf21006b3ad659fa8eac6bd3f9c8fcee678aa364ee19585"
+      },
+      "delta": {
+        "instructions": -81,
+        "vector_instructions": 7,
+        "vector_memory_instructions": 18,
+        "direct_rsp_vector_memory_sites": 15,
+        "direct_rsp_vector_bytes_static": 480,
+        "explicit_frame_bytes": 152
+      },
+      "full_normalized_identity": false,
+      "vector_sequence_identity_after_erasing_stack_offsets_and_aligned_move_names": false,
+      "vector_opcode_delta": {
+        "vbroadcastsd": 3,
+        "vfmadd132pd": 3,
+        "vfmadd213pd": -3,
+        "vfmsub132pd": -1,
+        "vfmsub213pd": 1,
+        "vfnmadd132pd": 1,
+        "vfnmadd213pd": -1,
+        "vinsertf128": -10,
+        "vinsertf32x4": 10,
+        "vmovapd": 425,
+        "vmovaps": 6,
+        "vmovupd": -425,
+        "vmovups": -2,
+        "vperm2f128": -13,
+        "vshuff64x2": 13
+      }
+    }
+  },
+  "one_panel_exemption": {
+    "binary_sha256": "a2bbb31ba6912363132f0cabfcc1798f369ccc217d2a9f5d548214314541596f",
+    "scope": "Every N=M*B<=V::LANES fused rectangle specialization identifiable in all1228 frozen prior SmallVector rectangle symbols, both directions and single/batch variants present. Compiler inventory, not a proof for uninstantiated generic parameters/future toolchains.",
+    "rectangle_symbols_total": 1228,
+    "rectangle_symbols_probed": 1228,
+    "rectangle_symbols_with_identity": 1228,
+    "unclassified_symbols": [],
+    "qualifying_specializations": 36,
+    "all_qualifying_have_no_vector_stack_sites": true,
+    "all_qualifying_have_no_stack_memory_or_derived_stack_bases": true
+  },
+  "all_fused_counts": {
+    "F32x16": {
+      "total": 156,
+      "with_vector_stack_sites": 85
+    },
+    "F32x8": {
+      "total": 60,
+      "with_vector_stack_sites": 43
+    },
+    "F32x8v": {
+      "total": 60,
+      "with_vector_stack_sites": 0
+    },
+    "F64x4": {
+      "total": 16,
+      "with_vector_stack_sites": 0
+    },
+    "F64x4v": {
+      "total": 16,
+      "with_vector_stack_sites": 0
+    },
+    "F64x8": {
+      "total": 60,
+      "with_vector_stack_sites": 0
+    }
+  },
+  "one_panel_limitation": "F64x4/F64x4vN6 is spill-free but6>W4, so remains newly framed under this condition. No wider pressure threshold inferred.",
+  "compiler_sources": [
+    {
+      "url": "https://llvm.org/docs/LangRef.html#function-attributes",
+      "finding": "alignstack documents forced stack alignment, not a spill-only conditional contract."
+    },
+    {
+      "url": "https://doc.rust-lang.org/rustc/codegen-options/index.html#llvm-args",
+      "finding": "llvm-args is a backend interface outside usual stable rustc CLI guarantees."
+    }
+  ],
+  "no_benchmark_build_source_or_affinity_mutation": true,
+  "analysis_processes_finished": true,
+  "artifact_sha256": {
+    "stack-context-code-verification.md": "774f328e456d6cc4bd2fabb3562c761df6a5110461fb13b895511a61f5a2121b",
+    "stack-context-comparison.json": "9eeaebe54034995d71dedf58e529198847dc59f98480a3127f2e19868795492d",
+    "one-panel-inventory.json": "99bd90c814f1f00666b879bd5ed5296df425822834edf36a5e951ff7b2a4dd18",
+    "all-fused-inventory.json": "a581f5c2aa3e47d44d9e84efe3a1717b7349e124100f5e93c0604c8d514675ad",
+    "alignment-verification.json": "b26bbe6fe1cfde11d5a0b0e5c68ce49dd594db5b51e72b99ba81cf8c3be2e793",
+    "iterator-code-verification.json": "a2d23f7b78875b6c12ea5deab63925ffbcc065e400d2e2587440961e1079493c"
+  }
+}

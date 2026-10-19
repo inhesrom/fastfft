@@ -1,0 +1,737 @@
+{
+  "evidence_valid": false,
+  "acceptance": false,
+  "reason": "Exactly one dirty running-monitor sample invalidates the whole capture under the fixed quiet rule. No process/sample exclusion or quiet waiver.",
+  "role": "Exploratory hypothesis selection only.",
+  "effects": [
+    {
+      "key": "pow2:f32:fwd:oop:n4096",
+      "role": "estimate",
+      "p1_percent_64": {
+        "all_processes": [
+          0.6598123377919762,
+          1.002029551047623,
+          0.7572850824935973,
+          0.6157598833923306,
+          0.38144852883790215,
+          0.39769337840525054,
+          0.8366454689984204,
+          0.5135939748821761
+        ],
+        "min": 0.38144852883790215,
+        "median": 0.6377861105921534,
+        "max": 1.002029551047623
+      },
+      "p1_percent_1024": {
+        "all_processes": [
+          -3.1603114394090692,
+          -3.427686213759751,
+          -2.752478846503348,
+          -3.1700231033901516,
+          -3.6944899711230716,
+          -3.227281765758605,
+          -3.3147853736089083,
+          -3.3181522446323997
+        ],
+        "min": -3.6944899711230716,
+        "median": -3.2710335696837567,
+        "max": -2.752478846503348
+      },
+      "zero_endpoint_p1_percent": [
+        0.13984616921387527,
+        0.11968763489385026,
+        0.0606011635423398,
+        0.03768644874642124,
+        -0.01950953040560366,
+        0.21897083706579057,
+        0.019874788830365198,
+        0.01971764334727233
+      ]
+    },
+    {
+      "key": "pow2:f32:fwd:oop:n4096",
+      "role": "measure",
+      "p1_percent_64": {
+        "all_processes": [
+          1.250730914460707,
+          0.5036864724204504,
+          0.8257323100413938,
+          1.195068602107785,
+          0.9353515682629654,
+          0.3783353245718768,
+          0.8959078267779086,
+          0.6140723262678671
+        ],
+        "min": 0.3783353245718768,
+        "median": 0.8608200684096512,
+        "max": 1.250730914460707
+      },
+      "p1_percent_1024": {
+        "all_processes": [
+          -4.447924202931597,
+          -3.230098963056427,
+          -2.9191947603166124,
+          -3.2571087691389944,
+          -3.3509387939767543,
+          -3.312425328554369,
+          -3.3631307111640862,
+          -3.6301349576961517
+        ],
+        "min": -4.447924202931597,
+        "median": -3.3316820612655618,
+        "max": -2.9191947603166124
+      },
+      "zero_endpoint_p1_percent": [
+        0.10114030738721524,
+        0.11835253274419255,
+        0.04018969536210282,
+        0.01988664611713986,
+        0.001967109922085264,
+        0.25919649087826624,
+        0.05961251862891537,
+        0.0019745285813055347
+      ]
+    },
+    {
+      "key": "pow2:f32:inv:ip:n4096",
+      "role": "estimate",
+      "p1_percent_64": {
+        "all_processes": [
+          0.16047146704705195,
+          0.3966538208478365,
+          0.08505812305075189,
+          0.20099449408448322,
+          0.0472500472500581,
+          0.6027669875045438,
+          0.23629489603025355,
+          0.4552337686920316
+        ],
+        "min": 0.0472500472500581,
+        "median": 0.2186446950573684,
+        "max": 0.6027669875045438
+      },
+      "p1_percent_1024": {
+        "all_processes": [
+          1.7023113521832611,
+          1.9494313375317152,
+          2.7180795765995747,
+          2.3109603917011112,
+          2.300132300132307,
+          4.3131326661436376,
+          2.2826086956521774,
+          4.8268029528676815
+        ],
+        "min": 1.7023113521832611,
+        "median": 2.305546345916709,
+        "max": 4.8268029528676815
+      },
+      "zero_endpoint_p1_percent": [
+        0.035666685438595636,
+        -0.09394964299135333,
+        0.1324002269718072,
+        -0.0761774172046703,
+        -0.1888217522658664,
+        0.1915378574575355,
+        -0.1511144692104227,
+        0.07574323044878817
+      ]
+    },
+    {
+      "key": "pow2:f32:inv:ip:n4096",
+      "role": "measure",
+      "p1_percent_64": {
+        "all_processes": [
+          0.5305891238670757,
+          0.5861720131226988,
+          0.4492756382189045,
+          0.25856804824060386,
+          0.48404361128739914,
+          0.45889978775883744,
+          -0.047462611560389334,
+          0.335724095833978
+        ],
+        "min": -0.047462611560389334,
+        "median": 0.45408771298887096,
+        "max": 0.5861720131226988
+      },
+      "p1_percent_1024": {
+        "all_processes": [
+          1.9297583081570924,
+          2.007166425579787,
+          2.3282377353461836,
+          5.640790779329818,
+          2.4126400742642273,
+          1.981873458383543,
+          2.8058779187179583,
+          2.3500686708378016
+        ],
+        "min": 1.9297583081570924,
+        "median": 2.3391532030919926,
+        "max": 5.640790779329818
+      },
+      "zero_endpoint_p1_percent": [
+        0.0755572346052169,
+        0.017019345322499824,
+        0.11428789119791727,
+        -0.019080692247519515,
+        -0.09657261882219936,
+        0.15308367936623934,
+        -0.09488019050453156,
+        0.05724207674253634
+      ]
+    },
+    {
+      "key": "pow2:f32:inv:oop:n4096",
+      "role": "estimate",
+      "p1_percent_64": {
+        "all_processes": [
+          0.8727388130752134,
+          0.7354765709521427,
+          0.9649905782009194,
+          0.713512646811254,
+          0.546034437513887,
+          0.9142363870005887,
+          0.700271835480426,
+          1.0331429916995205
+        ],
+        "min": 0.546034437513887,
+        "median": 0.804107692013678,
+        "max": 1.0331429916995205
+      },
+      "p1_percent_1024": {
+        "all_processes": [
+          -3.756743890828318,
+          -3.340909767644995,
+          -2.8503421600714063,
+          -2.8610654587725937,
+          -3.0339732332101854,
+          -3.5676799780269275,
+          -3.4836307765039654,
+          -4.2944604697710105
+        ],
+        "min": -4.2944604697710105,
+        "median": -3.41227027207448,
+        "max": -2.8503421600714063
+      },
+      "zero_endpoint_p1_percent": [
+        -0.07930843048615799,
+        0.11718905176179018,
+        0.0,
+        0.040093015796638376,
+        -0.18151016456922076,
+        -0.10000588269897248,
+        0.0,
+        0.05888587916618171
+      ]
+    },
+    {
+      "key": "pow2:f32:inv:oop:n4096",
+      "role": "measure",
+      "p1_percent_64": {
+        "all_processes": [
+          0.5924871427282596,
+          0.4770850105853208,
+          0.8780487804878057,
+          0.7212957312498158,
+          0.675254727787955,
+          0.7617017917751934,
+          1.1551542160197048,
+          0.507917538093805
+        ],
+        "min": 0.4770850105853208,
+        "median": 0.6982752295188854,
+        "max": 1.1551542160197048
+      },
+      "p1_percent_1024": {
+        "all_processes": [
+          -3.5158247200473114,
+          -3.0682529743268683,
+          -2.872075659532103,
+          -3.6474954731439913,
+          -2.9803653610402048,
+          -3.5884837003709924,
+          -3.3384152300535597,
+          -3.4120107559008073
+        ],
+        "min": -3.6474954731439913,
+        "median": -3.3752129929771835,
+        "max": -2.872075659532103
+      },
+      "zero_endpoint_p1_percent": [
+        -0.03808836500680535,
+        0.11735221576893995,
+        -0.03981287946650536,
+        -0.06200620062006834,
+        -0.18070837683720198,
+        -0.11832919181161694,
+        0.019547666985952894,
+        0.039844606036454344
+      ]
+    },
+    {
+      "key": "smooth:f64:inv:ip:n210",
+      "role": "estimate",
+      "p1_percent_64": {
+        "all_processes": [
+          0.026993316827073066,
+          0.4642585762737017,
+          -0.48777033187856755,
+          0.2486653970258823,
+          -0.14129051575717533,
+          0.03297304252718458,
+          0.12800063015694363,
+          0.43212594957613426
+        ],
+        "min": -0.48777033187856755,
+        "median": 0.0804868363420641,
+        "max": 0.4642585762737017
+      },
+      "p1_percent_1024": {
+        "all_processes": [
+          0.26993316827075287,
+          -0.10193302073873145,
+          -0.14075405221177784,
+          2.017939432214,
+          -0.22456770716371421,
+          -0.32892620472237954,
+          -0.19692404639530814,
+          -0.06330507541560948
+        ],
+        "min": -0.32892620472237954,
+        "median": -0.12134353647525464,
+        "max": 2.017939432214
+      },
+      "zero_endpoint_p1_percent": [
+        -0.018614347939394094,
+        -0.3515133575075824,
+        -0.3022963918892563,
+        -0.21882269447621727,
+        -0.24298611240911594,
+        -0.14465499783017366,
+        -0.17707472553417647,
+        -0.49420679808906964
+      ]
+    },
+    {
+      "key": "smooth:f64:inv:ip:n210",
+      "role": "measure",
+      "p1_percent_64": {
+        "all_processes": [
+          0.04081840910250545,
+          -0.032547139106475775,
+          -0.054629004788075974,
+          -0.0432834851862296,
+          -0.11816486709161911,
+          -0.08688663466341895,
+          0.06491750067623148,
+          0.04706620646377502
+        ],
+        "min": -0.11816486709161911,
+        "median": -0.03791531214635269,
+        "max": 0.06491750067623148
+      },
+      "p1_percent_1024": {
+        "all_processes": [
+          0.15408949436195307,
+          0.0,
+          -0.04284627826515175,
+          -0.0108208712965574,
+          -0.06504488096786831,
+          -0.06516497599756699,
+          0.05301595888558275,
+          0.04706620646377502
+        ],
+        "min": -0.06516497599756699,
+        "median": -0.0054104356482787,
+        "max": 0.15408949436195307
+      },
+      "zero_endpoint_p1_percent": [
+        -0.022447605248665514,
+        0.0,
+        -0.04069568197396789,
+        0.0,
+        -0.02167927677932946,
+        -0.04343388277194826,
+        0.02380591685242628,
+        0.09810269389998183
+      ]
+    },
+    {
+      "key": "smooth:f64:inv:oop:n210",
+      "role": "estimate",
+      "p1_percent_64": {
+        "all_processes": [
+          0.0009735771170360508,
+          0.054836085800191725,
+          0.02234964086438307,
+          0.15982383861343763,
+          -0.37277748502058117,
+          -0.23432008123096537,
+          0.027950397361475865,
+          -0.346654457453055
+        ],
+        "min": -0.37277748502058117,
+        "median": 0.01166160899070956,
+        "max": 0.15982383861343763
+      },
+      "p1_percent_1024": {
+        "all_processes": [
+          1.3552193469244855,
+          1.5482054890921804,
+          0.06088350442368107,
+          0.10654922574229175,
+          -0.10734430196928102,
+          0.18550339764118462,
+          0.4388212385752821,
+          0.7297496799753445
+        ],
+        "min": -0.10734430196928102,
+        "median": 0.31216231810823336,
+        "max": 1.5482054890921804
+      },
+      "zero_endpoint_p1_percent": [
+        -0.27223054037762706,
+        -0.2391645671303788,
+        0.01541473340218591,
+        -0.30143447346490104,
+        0.2344803329620726,
+        -0.17558577365043293,
+        0.12865453460622067,
+        -0.2221351104142233
+      ]
+    },
+    {
+      "key": "smooth:f64:inv:oop:n210",
+      "role": "measure",
+      "p1_percent_64": {
+        "all_processes": [
+          0.021718221587918585,
+          0.021388195752924943,
+          -0.054416438117621535,
+          -0.06656191349133644,
+          0.04085968783198446,
+          -0.1025073292740486,
+          0.01087500271874653,
+          0.010920249418489014
+        ],
+        "min": -0.1025073292740486,
+        "median": 0.010897626068617772,
+        "max": 0.04085968783198446
+      },
+      "p1_percent_1024": {
+        "all_processes": [
+          -0.011376211307934092,
+          -0.08046035545143937,
+          -0.010883287623519866,
+          -0.04364715638776051,
+          -0.07252594590178019,
+          0.011275806220156781,
+          0.04350001087500832,
+          -0.031668723313638125
+        ],
+        "min": -0.08046035545143937,
+        "median": -0.02152246731078611,
+        "max": 0.04350001087500832
+      },
+      "zero_endpoint_p1_percent": [
+        0.022755011274067094,
+        0.0020369917705709284,
+        0.021768944423894432,
+        -0.021821197110871715,
+        -0.020427757236529676,
+        0.06152331733726424,
+        0.0,
+        0.04587556798321124
+      ]
+    }
+  ],
+  "N210_recorded_geometry": [
+    {
+      "key": "smooth:f64:inv:ip:n210",
+      "process": 0,
+      "object_mod4096": 3232,
+      "descriptor_mod4096": 0,
+      "backing_mod4096": 0,
+      "cross_mod4096": 576,
+      "input_output_scratch_mod4096": [
+        704,
+        192,
+        3968
+      ],
+      "work1_offset": 3392,
+      "work2_offset": 5312,
+      "work1_mod4096": 3264,
+      "work2_mod4096": 1088
+    },
+    {
+      "key": "smooth:f64:inv:ip:n210",
+      "process": 1,
+      "object_mod4096": 3232,
+      "descriptor_mod4096": 0,
+      "backing_mod4096": 0,
+      "cross_mod4096": 576,
+      "input_output_scratch_mod4096": [
+        704,
+        192,
+        3968
+      ],
+      "work1_offset": 3392,
+      "work2_offset": 5312,
+      "work1_mod4096": 3264,
+      "work2_mod4096": 1088
+    },
+    {
+      "key": "smooth:f64:inv:ip:n210",
+      "process": 2,
+      "object_mod4096": 3232,
+      "descriptor_mod4096": 0,
+      "backing_mod4096": 0,
+      "cross_mod4096": 576,
+      "input_output_scratch_mod4096": [
+        704,
+        192,
+        3968
+      ],
+      "work1_offset": 3392,
+      "work2_offset": 5312,
+      "work1_mod4096": 3264,
+      "work2_mod4096": 1088
+    },
+    {
+      "key": "smooth:f64:inv:ip:n210",
+      "process": 3,
+      "object_mod4096": 3232,
+      "descriptor_mod4096": 0,
+      "backing_mod4096": 0,
+      "cross_mod4096": 576,
+      "input_output_scratch_mod4096": [
+        704,
+        192,
+        3968
+      ],
+      "work1_offset": 3392,
+      "work2_offset": 5312,
+      "work1_mod4096": 3264,
+      "work2_mod4096": 1088
+    },
+    {
+      "key": "smooth:f64:inv:ip:n210",
+      "process": 4,
+      "object_mod4096": 3232,
+      "descriptor_mod4096": 0,
+      "backing_mod4096": 0,
+      "cross_mod4096": 576,
+      "input_output_scratch_mod4096": [
+        704,
+        192,
+        3968
+      ],
+      "work1_offset": 3392,
+      "work2_offset": 5312,
+      "work1_mod4096": 3264,
+      "work2_mod4096": 1088
+    },
+    {
+      "key": "smooth:f64:inv:ip:n210",
+      "process": 5,
+      "object_mod4096": 3232,
+      "descriptor_mod4096": 0,
+      "backing_mod4096": 0,
+      "cross_mod4096": 576,
+      "input_output_scratch_mod4096": [
+        704,
+        192,
+        3968
+      ],
+      "work1_offset": 3392,
+      "work2_offset": 5312,
+      "work1_mod4096": 3264,
+      "work2_mod4096": 1088
+    },
+    {
+      "key": "smooth:f64:inv:ip:n210",
+      "process": 6,
+      "object_mod4096": 3232,
+      "descriptor_mod4096": 0,
+      "backing_mod4096": 0,
+      "cross_mod4096": 576,
+      "input_output_scratch_mod4096": [
+        704,
+        192,
+        3968
+      ],
+      "work1_offset": 3392,
+      "work2_offset": 5312,
+      "work1_mod4096": 3264,
+      "work2_mod4096": 1088
+    },
+    {
+      "key": "smooth:f64:inv:ip:n210",
+      "process": 7,
+      "object_mod4096": 3232,
+      "descriptor_mod4096": 0,
+      "backing_mod4096": 0,
+      "cross_mod4096": 576,
+      "input_output_scratch_mod4096": [
+        704,
+        192,
+        3968
+      ],
+      "work1_offset": 3392,
+      "work2_offset": 5312,
+      "work1_mod4096": 3264,
+      "work2_mod4096": 1088
+    },
+    {
+      "key": "smooth:f64:inv:oop:n210",
+      "process": 0,
+      "object_mod4096": 3232,
+      "descriptor_mod4096": 0,
+      "backing_mod4096": 0,
+      "cross_mod4096": 576,
+      "input_output_scratch_mod4096": [
+        704,
+        192,
+        3968
+      ],
+      "work1_offset": 3392,
+      "work2_offset": 5312,
+      "work1_mod4096": 3264,
+      "work2_mod4096": 1088
+    },
+    {
+      "key": "smooth:f64:inv:oop:n210",
+      "process": 1,
+      "object_mod4096": 3232,
+      "descriptor_mod4096": 0,
+      "backing_mod4096": 0,
+      "cross_mod4096": 576,
+      "input_output_scratch_mod4096": [
+        704,
+        192,
+        3968
+      ],
+      "work1_offset": 3392,
+      "work2_offset": 5312,
+      "work1_mod4096": 3264,
+      "work2_mod4096": 1088
+    },
+    {
+      "key": "smooth:f64:inv:oop:n210",
+      "process": 2,
+      "object_mod4096": 3232,
+      "descriptor_mod4096": 0,
+      "backing_mod4096": 0,
+      "cross_mod4096": 576,
+      "input_output_scratch_mod4096": [
+        704,
+        192,
+        3968
+      ],
+      "work1_offset": 3392,
+      "work2_offset": 5312,
+      "work1_mod4096": 3264,
+      "work2_mod4096": 1088
+    },
+    {
+      "key": "smooth:f64:inv:oop:n210",
+      "process": 3,
+      "object_mod4096": 3232,
+      "descriptor_mod4096": 0,
+      "backing_mod4096": 0,
+      "cross_mod4096": 576,
+      "input_output_scratch_mod4096": [
+        704,
+        192,
+        3968
+      ],
+      "work1_offset": 3392,
+      "work2_offset": 5312,
+      "work1_mod4096": 3264,
+      "work2_mod4096": 1088
+    },
+    {
+      "key": "smooth:f64:inv:oop:n210",
+      "process": 4,
+      "object_mod4096": 3232,
+      "descriptor_mod4096": 0,
+      "backing_mod4096": 0,
+      "cross_mod4096": 576,
+      "input_output_scratch_mod4096": [
+        704,
+        192,
+        3968
+      ],
+      "work1_offset": 3392,
+      "work2_offset": 5312,
+      "work1_mod4096": 3264,
+      "work2_mod4096": 1088
+    },
+    {
+      "key": "smooth:f64:inv:oop:n210",
+      "process": 5,
+      "object_mod4096": 3232,
+      "descriptor_mod4096": 0,
+      "backing_mod4096": 0,
+      "cross_mod4096": 576,
+      "input_output_scratch_mod4096": [
+        704,
+        192,
+        3968
+      ],
+      "work1_offset": 3392,
+      "work2_offset": 5312,
+      "work1_mod4096": 3264,
+      "work2_mod4096": 1088
+    },
+    {
+      "key": "smooth:f64:inv:oop:n210",
+      "process": 6,
+      "object_mod4096": 3232,
+      "descriptor_mod4096": 0,
+      "backing_mod4096": 0,
+      "cross_mod4096": 576,
+      "input_output_scratch_mod4096": [
+        704,
+        192,
+        3968
+      ],
+      "work1_offset": 3392,
+      "work2_offset": 5312,
+      "work1_mod4096": 3264,
+      "work2_mod4096": 1088
+    },
+    {
+      "key": "smooth:f64:inv:oop:n210",
+      "process": 7,
+      "object_mod4096": 3232,
+      "descriptor_mod4096": 0,
+      "backing_mod4096": 0,
+      "cross_mod4096": 576,
+      "input_output_scratch_mod4096": [
+        704,
+        192,
+        3968
+      ],
+      "work1_offset": 3392,
+      "work2_offset": 5312,
+      "work1_mod4096": 3264,
+      "work2_mod4096": 1088
+    }
+  ],
+  "N210_code_findings": {
+    "review_scope": "Retained frozen production F64x8 current/prior assembly, not freshly disassembled coefficient-position binary. Hotpath source unchanged by tuning seam; code placement in a new binary is not assumed identical.",
+    "shape": "N210 a14 b15 lanes8, counts[1,1], unblocked, groups1: two column panels and two row panels, one full and one partial each. No second Stockham pass or panel coefficient table load occurs; cross coefficients do execute.",
+    "empty_remainder_overhead": "complete() iter().enumerate().skip(1) now uses24-byte Pass records. Current e69afa\u2013e69b1a computes remaining count by SUB, SHR3, MOVABS 0xaaaaaaaaaaaaaaab, IMUL then CMP/JAE. Old e71dbf\u2013e71dce uses SUB, SHR3 then CMP/JAE for8-byte radices. The extra constant multiply is executed even when count1 causes immediate skip exit. Similar sites occur in full/partial and row/group variants.",
+    "causality_limit": "This is concrete extra dependency-chain work, not proof it explains the full6\u20137% absolute loss. Changed register allocation, entry hoisting and code placement remain confounds. No new allocator, graph scan or timing instrumentation was found in prior scoped review.",
+    "minimal_code_control": "Use count-based indexed iteration over1..panel.passes.len() in complete(), or a generic one-pass early return. Prefer indexed iteration to remove stride-derived iterator distance generally. Preserve coefficient storage, layout, scratch and algorithm; review compiled code then run quiet focused comparisons and neighbor controls."
+  },
+  "next_N4096": "Fixed PhaseB-only1024 versus all-coefficients1024 and zero, retaining inverseIP negative control and both OOP directions. Existing initialized slack suffices. Restore each scope tozero before switching. Only timing with a fresh fully clean quiet capture can establish valid evidence.",
+  "N4096_interpretation": "All-coefficient1024 OOP gain and IP harm make blanket1KiB layout unjustified. PhaseB-only can distinguish composition while owner/descriptors/pass coefficients stay fixed. If its OOP gain remains and IP harm disappears, it narrows the remedy but does not prove PhaseA independently caused harm; cross-table interaction can explain the contrast.",
+  "whole_owner_alternative": {
+    "design": "One prepared64-aligned Small(Vec<Block>) alternate of same initialized byte length (N2108192) copied once before timing, plus retained original Paged owner. Swap whole Backing into the same live FFT object and restore. No allocation or drop during replay, no new production fields or exec branch. Existing whole-owner swap helper rejects differing layouts, so this needs an explicit tuning-only counterfactual owner handle.",
+    "checks": "Validate equal initialized byte span, complete descriptor/coefficient bit identity, canonical offsets, uniqueArc, effective buffer/scratch identity; record original and alternate descriptor and coefficient bases, len/cap/type and mappings. One predetermined allocation, no retry or favorable-address search. Drop only after original restored.",
+    "blindspots": "Moves descriptors and coefficients onto other physical pages together; does not isolate a cache mechanism. A naturally page-aligned alternate may provide no low-page-offset treatment and must be reported, not rerolled. Same8192 span isolates backing/base policy better than shrinking to4160, which changes both size and placement.",
+    "priority": "Second N210 option if the narrow iterator control is unhelpful, or if preserving executable code is preferred for the immediate location experiment."
+  }
+}

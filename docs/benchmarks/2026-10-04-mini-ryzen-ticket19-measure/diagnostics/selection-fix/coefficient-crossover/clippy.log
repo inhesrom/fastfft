@@ -1,0 +1,56 @@
+   Compiling fastfft-arena v0.0.0 (/home/ianhersom/repo/fastfft/bench/arena)
+    Checking fastfft v0.1.0 (/home/ianhersom/repo/fastfft/crates/fastfft)
+error: manual implementation of `.is_multiple_of()`
+   --> bench/arena/src/coefficient_crossover.rs:179:28
+    |
+179 |     let assignment_start = (spec.diagnostics.process_index / 2) % 2 != 0;
+    |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace with: `!(spec.diagnostics.process_index / 2).is_multiple_of(2)`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#manual_is_multiple_of
+    = note: `-D clippy::manual-is-multiple-of` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::manual_is_multiple_of)]`
+
+error: the loop variable `round` is used to index `ends`
+   --> bench/arena/src/coefficient_crossover.rs:213:22
+    |
+213 |         for round in 0..profile.rounds {
+    |                      ^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#needless_range_loop
+    = note: `-D clippy::needless-range-loop` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::needless_range_loop)]`
+help: consider using an iterator and enumerate()
+    |
+213 -         for round in 0..profile.rounds {
+213 +         for (round, <item>) in ends.iter_mut().enumerate().take(profile.rounds) {
+    |
+
+error: very complex type used. Consider factoring parts into `type` definitions
+  --> bench/arena/src/measure_context.rs:36:6
+   |
+36 |   ) -> (
+   |  ______^
+37 | |     &'a mut [Complex<T>],
+38 | |     &'a mut [Complex<T>],
+39 | |     &'a mut [Complex<T>],
+40 | | ) {
+   | |_^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#type_complexity
+   = note: `-D clippy::type-complexity` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::type_complexity)]`
+
+error: the loop variable `round` is used to index `ends`
+   --> bench/arena/src/measure_diagnostics.rs:269:26
+    |
+269 |             for round in 0..7 {
+    |                          ^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#needless_range_loop
+help: consider using an iterator and enumerate()
+    |
+269 -             for round in 0..7 {
+269 +             for (round, <item>) in ends.iter_mut().enumerate() {
+    |
+
+error: could not compile `fastfft-arena` (bin "fastfft-arena") due to 4 previous errors

@@ -1,0 +1,842 @@
+{
+  "passed": true,
+  "scope": "Effective local vector stack alignment only for six exact located production rectangular kernels. Does not certify performance, caller alignment, physical cache behavior, or FourStep spill alignment.",
+  "production_binary_sha256": "80c7736fff9d6c7ac7e06c7867fae860e6c78b9bfa70d0ff406eade8e7815071",
+  "normalization": "Full instructions excluding int3 padding; normalize RIP displacements and direct branch addresses to function-relative offsets.",
+  "kernels": [
+    {
+      "kernel": "n80-forward-16x5-batch",
+      "production_sha256": "23dff8b03f120edbe4f615fdbeaf9257189cbb5362809c303d06d89d6998e698",
+      "prior": {
+        "instructions": 433,
+        "vector_instructions": 400,
+        "stack_vector_instructions": 42,
+        "explicit_frame_bytes": 1920
+      },
+      "diagnostic_anchor": {
+        "instructions": 437,
+        "vector_instructions": 400,
+        "stack_vector_instructions": 42,
+        "explicit_frame_bytes": 2112
+      },
+      "production": {
+        "instructions": 437,
+        "vector_instructions": 400,
+        "stack_vector_instructions": 42,
+        "explicit_frame_bytes": 2112
+      },
+      "full_normalized_production_equals_diagnostic": true,
+      "passed": true,
+      "distinct_local_vector_operands": [
+        {
+          "operand": "[rsp+0x100]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x120]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x140]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x160]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x180]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x1a0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x1c0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x1e0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x200]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x20]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x220]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x240]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x260]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x60]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x80]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xa0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0xc0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xe0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x100]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+r10*8+0x120]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x140]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+r10*8+0x160]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x180]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+r10*8+0x1a0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x1c0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+r10*8+0x1e0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x20]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x20]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x30]",
+          "width_bytes": 16,
+          "offset_mod64": 48
+        },
+        {
+          "operand": "[rsp+r10*8+0x40]",
+          "width_bytes": 16,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+r10*8+0x40]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+r10*8+0x50]",
+          "width_bytes": 16,
+          "offset_mod64": 16
+        },
+        {
+          "operand": "[rsp+r10*8+0x60]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x60]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x70]",
+          "width_bytes": 16,
+          "offset_mod64": 48
+        },
+        {
+          "operand": "[rsp+r10*8+0x80]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+r10*8+0xa0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0xc0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+r10*8+0xe0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        }
+      ],
+      "derived_base_proof": "Full normalized instruction identity preserves previously reviewed base provenance. Generic rax(single)/r8,r9(batch) anchor addresses are never memory bases; rbp only restores rsp. Packed indexed rax(single)/r10(batch) takes0/64, scaled8 gives0/512. Packed caller-derived bases remain caller pointers.",
+      "stack_alignment_bytes": 64
+    },
+    {
+      "kernel": "n80-forward-16x5",
+      "production_sha256": "1d7a76ab8b2a47c03f821adbef8332b6fc6087017494a7d2931dc771300673b6",
+      "prior": {
+        "instructions": 419,
+        "vector_instructions": 399,
+        "stack_vector_instructions": 42,
+        "explicit_frame_bytes": 1920
+      },
+      "diagnostic_anchor": {
+        "instructions": 423,
+        "vector_instructions": 399,
+        "stack_vector_instructions": 42,
+        "explicit_frame_bytes": 2112
+      },
+      "production": {
+        "instructions": 423,
+        "vector_instructions": 399,
+        "stack_vector_instructions": 42,
+        "explicit_frame_bytes": 2112
+      },
+      "full_normalized_production_equals_diagnostic": true,
+      "passed": true,
+      "distinct_local_vector_operands": [
+        {
+          "operand": "[rsp+0x100]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x120]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x140]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x160]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x180]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x1a0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x1c0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x1e0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x200]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x20]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x220]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x240]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x260]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x60]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x80]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xa0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0xc0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xe0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x100]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+rax*8+0x120]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x140]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+rax*8+0x160]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x180]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+rax*8+0x1a0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x1c0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+rax*8+0x1e0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x20]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x20]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x30]",
+          "width_bytes": 16,
+          "offset_mod64": 48
+        },
+        {
+          "operand": "[rsp+rax*8+0x40]",
+          "width_bytes": 16,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+rax*8+0x40]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+rax*8+0x50]",
+          "width_bytes": 16,
+          "offset_mod64": 16
+        },
+        {
+          "operand": "[rsp+rax*8+0x60]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x60]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x70]",
+          "width_bytes": 16,
+          "offset_mod64": 48
+        },
+        {
+          "operand": "[rsp+rax*8+0x80]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+rax*8+0xa0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0xc0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+rax*8+0xe0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        }
+      ],
+      "derived_base_proof": "Full normalized instruction identity preserves previously reviewed base provenance. Generic rax(single)/r8,r9(batch) anchor addresses are never memory bases; rbp only restores rsp. Packed indexed rax(single)/r10(batch) takes0/64, scaled8 gives0/512. Packed caller-derived bases remain caller pointers.",
+      "stack_alignment_bytes": 64
+    },
+    {
+      "kernel": "n80-forward-8x10-batch",
+      "production_sha256": "9de10528f67c4ff921a2546d15bc921fbd0da209a50faac3f476c89721c8efdf",
+      "prior": {
+        "instructions": 524,
+        "vector_instructions": 514,
+        "stack_vector_instructions": 34,
+        "explicit_frame_bytes": 136
+      },
+      "diagnostic_anchor": {
+        "instructions": 514,
+        "vector_instructions": 496,
+        "stack_vector_instructions": 14,
+        "explicit_frame_bytes": 256
+      },
+      "production": {
+        "instructions": 514,
+        "vector_instructions": 496,
+        "stack_vector_instructions": 14,
+        "explicit_frame_bytes": 256
+      },
+      "full_normalized_production_equals_diagnostic": true,
+      "passed": true,
+      "distinct_local_vector_operands": [
+        {
+          "operand": "[rsp+0x20]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x60]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        }
+      ],
+      "derived_base_proof": "Full normalized instruction identity preserves previously reviewed base provenance. Generic rax(single)/r8,r9(batch) anchor addresses are never memory bases; rbp only restores rsp. Packed indexed rax(single)/r10(batch) takes0/64, scaled8 gives0/512. Packed caller-derived bases remain caller pointers.",
+      "stack_alignment_bytes": 64
+    },
+    {
+      "kernel": "n80-forward-8x10",
+      "production_sha256": "cc3985e45b4d1f6679abbb2075549bcc4efb75060ff1406d21e7c14dfefb3765",
+      "prior": {
+        "instructions": 506,
+        "vector_instructions": 503,
+        "stack_vector_instructions": 30,
+        "explicit_frame_bytes": 264
+      },
+      "diagnostic_anchor": {
+        "instructions": 514,
+        "vector_instructions": 503,
+        "stack_vector_instructions": 30,
+        "explicit_frame_bytes": 576
+      },
+      "production": {
+        "instructions": 514,
+        "vector_instructions": 503,
+        "stack_vector_instructions": 30,
+        "explicit_frame_bytes": 576
+      },
+      "full_normalized_production_equals_diagnostic": true,
+      "passed": true,
+      "distinct_local_vector_operands": [
+        {
+          "operand": "[rsp+0x100]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x120]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x140]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x160]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x180]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x1a0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x60]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x80]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xa0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0xc0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xe0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        }
+      ],
+      "derived_base_proof": "Full normalized instruction identity preserves previously reviewed base provenance. Generic rax(single)/r8,r9(batch) anchor addresses are never memory bases; rbp only restores rsp. Packed indexed rax(single)/r10(batch) takes0/64, scaled8 gives0/512. Packed caller-derived bases remain caller pointers.",
+      "stack_alignment_bytes": 64
+    },
+    {
+      "kernel": "n96-inverse-8x12-batch",
+      "production_sha256": "170b0287a3c636a7bfe29c826396d758cfe37d2a841c7f10adee7b93332d3e8f",
+      "prior": {
+        "instructions": 555,
+        "vector_instructions": 545,
+        "stack_vector_instructions": 24,
+        "explicit_frame_bytes": 72
+      },
+      "diagnostic_anchor": {
+        "instructions": 576,
+        "vector_instructions": 558,
+        "stack_vector_instructions": 30,
+        "explicit_frame_bytes": 448
+      },
+      "production": {
+        "instructions": 576,
+        "vector_instructions": 558,
+        "stack_vector_instructions": 30,
+        "explicit_frame_bytes": 448
+      },
+      "full_normalized_production_equals_diagnostic": true,
+      "passed": true,
+      "distinct_local_vector_operands": [
+        {
+          "operand": "[rsp+0x100]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x120]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x60]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x80]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xa0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0xc0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xe0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        }
+      ],
+      "derived_base_proof": "Full normalized instruction identity preserves previously reviewed base provenance. Generic rax(single)/r8,r9(batch) anchor addresses are never memory bases; rbp only restores rsp. Packed indexed rax(single)/r10(batch) takes0/64, scaled8 gives0/512. Packed caller-derived bases remain caller pointers.",
+      "stack_alignment_bytes": 64
+    },
+    {
+      "kernel": "n96-inverse-8x12",
+      "production_sha256": "5e3fdfedcf73bdacfd1bd4c43dcad07f146e7edf544f00830fdad55d8d597674",
+      "prior": {
+        "instructions": 570,
+        "vector_instructions": 567,
+        "stack_vector_instructions": 52,
+        "explicit_frame_bytes": 424
+      },
+      "diagnostic_anchor": {
+        "instructions": 578,
+        "vector_instructions": 567,
+        "stack_vector_instructions": 52,
+        "explicit_frame_bytes": 704
+      },
+      "production": {
+        "instructions": 578,
+        "vector_instructions": 567,
+        "stack_vector_instructions": 52,
+        "explicit_frame_bytes": 704
+      },
+      "full_normalized_production_equals_diagnostic": true,
+      "passed": true,
+      "distinct_local_vector_operands": [
+        {
+          "operand": "[rsp+0x100]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x120]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x120]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x140]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x160]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x160]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x180]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x1a0]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x1a0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x1c0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x1e0]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x1e0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x200]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x20]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x20]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x220]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x220]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 16,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x60]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x80]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xa0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0xc0]",
+          "width_bytes": 16,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xc0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xe0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        }
+      ],
+      "derived_base_proof": "Full normalized instruction identity preserves previously reviewed base provenance. Generic rax(single)/r8,r9(batch) anchor addresses are never memory bases; rbp only restores rsp. Packed indexed rax(single)/r10(batch) takes0/64, scaled8 gives0/512. Packed caller-derived bases remain caller pointers.",
+      "stack_alignment_bytes": 64
+    }
+  ],
+  "batch_cost_caveats": [
+    "N96 batch vector stack accesses24\u219230 and vector instructions545\u2192558 versus canonical: performance concern, not automatic failure from static counts.",
+    "N80 generic batch vector stack accesses34\u219214; this alone does not prove a speedup.",
+    "Two scalar anchor stores repeat per generic transform; frame setup/two LEAs are once per batch.",
+    "Detailed per-batch and per-transform accounting: stack-anchor-batch-diagnostic-review.json/md."
+  ]
+}

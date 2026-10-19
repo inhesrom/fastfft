@@ -1,0 +1,34 @@
+{
+  "cells": 80,
+  "trials": 640,
+  "different_plan_trials": 2,
+  "different_plan_cells": 2,
+  "choices": [
+    {
+      "key": "pow2:f32:fwd:ip:n524288",
+      "trial": 5,
+      "order": [
+        "fastfft",
+        "fastfft/measure"
+      ],
+      "metric": "best",
+      "ratio": 1.045966965479206,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x4x8x8x4x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "measure": "stockham avx512-ymm split L=8 radices=8x2x8x8x8x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "verified": true
+    },
+    {
+      "key": "pow2:f32:fwd:oop:n524288",
+      "trial": 3,
+      "order": [
+        "fastfft",
+        "fastfft/measure"
+      ],
+      "metric": "best",
+      "ratio": 1.0460867546827413,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x4x8x8x4x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "measure": "stockham avx512-ymm split L=8 radices=8x2x8x8x8x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "verified": true
+    }
+  ]
+}

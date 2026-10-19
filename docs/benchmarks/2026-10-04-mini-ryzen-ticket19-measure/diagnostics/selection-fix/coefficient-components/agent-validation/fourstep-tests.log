@@ -1,0 +1,28 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.04s
+     Running unittests src/lib.rs (target/debug/deps/fastfft-454abd5a52368c6d)
+
+running 21 tests
+test engine::fourstep::coefficient_swap_tests::coefficient_swap_fourstep_exchanges_full_graph_and_restores_both_precisions ... ok
+test engine::fourstep::coefficient_swap_tests::coefficient_swap_fourstep_rejects_atomically_both_precisions ... ok
+test engine::fourstep::storage::tests::coefficient_shift_fourstep_preserves_bits_owner_and_restore_both_precisions ... ok
+test engine::fourstep::storage::tests::coefficient_shift_fourstep_rejects_invalid_storage_atomically ... ok
+test engine::fourstep::storage::tests::fourstep_storage_matches_legacy_coefficient_bits_both_precisions ... ok
+test engine::fourstep::storage::tests::fourstep_storage_overflow_rejected_before_allocation ... ok
+test engine::fourstep::storage::tests::miri_coefficient_swap_fourstep_storage_rejects_atomically_both_precisions ... ok
+test engine::fourstep::storage::tests::miri_coefficient_swap_fourstep_storage_restores_bits_and_owner ... ok
+test engine::fourstep::storage::tests::miri_fourstep_storage_boundaries_empty_views_and_independent_clone ... ok
+test engine::fourstep::tests::cache_scaled_groups_preserve_public_execution_contracts ... ok
+test engine::fourstep::tests::fourstep_bounded_prefixes ... ok
+test engine::fourstep::tests::fourstep_contracts_f32 ... ok
+test engine::fourstep::tests::fourstep_contracts_f64 ... ok
+test engine::fourstep::tests::fourstep_planner_candidates ... ok
+test engine::fourstep::tests::fourstep_references_f32 ... ok
+test engine::fourstep::tests::fourstep_references_f64 ... ok
+test engine::fourstep::tests::miri_fourstep_panels ... ok
+test engine::fourstep::tests::panel_groups_use_l1_l2_and_last_level_capacity ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_fourstep_output_and_restoration_both_precisions ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_fourstep_preserves_public_scratch_contracts_both_precisions ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_fourstep_rejects_shared_weak_and_direction_without_mutation ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 99 filtered out; finished in 13.83s
+

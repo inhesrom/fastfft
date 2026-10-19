@@ -1,0 +1,52 @@
+{
+  "assembly": "/home/ianhersom/repo/fastfft/target/ticket19/selection-fix/vector-stack-scope/all-fused-inventory-current/F32x16-48-12-4-false-true.asm",
+  "instructions": 286,
+  "reachable_instructions": 286,
+  "iterations": 288,
+  "jump_tables": [],
+  "unsupported_control_flow": [],
+  "local_vector_memory_checks": [
+    {
+      "address": "0xa02b01",
+      "instruction": "vmovaps ZMMWORD PTR [rsp+0x80],zmm3",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa02b33",
+      "instruction": "vmovaps ZMMWORD PTR [rsp+0x40],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa02c69",
+      "instruction": "vmulps zmm3,zmm5,ZMMWORD PTR [rsp+0x80]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa02c7d",
+      "instruction": "vmulps zmm0,zmm5,ZMMWORD PTR [rsp+0x40]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    }
+  ],
+  "unproved_local_vector_memory": [],
+  "unresolved_stack_pointer_stores": [],
+  "derived_scalar_stack_loads_to_review": [],
+  "calls_with_stack_arguments_to_review": [],
+  "passed": true,
+  "limitations": "Low-bit/alias model covers recorded instruction families; review transfer semantics and all unsupported constructs. Caller-clobbered registers lose aliases; RAX conservatively may return an argument-derived stack alias. Escaping stack-pointer stores fail; source review must establish that local-array copying calls do not introduce pointer values into vector storage. Does not prove arithmetic equivalence."
+}

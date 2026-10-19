@@ -1,0 +1,35 @@
+{
+  "utc": "2026-10-05T15:50:56.136094+00:00",
+  "acceptance": false,
+  "test_exit": 101,
+  "test_count": 1,
+  "quiet_waiting_samples": 12,
+  "running_quiet": [
+    true
+  ],
+  "test_provenance": {
+    "utc": "2026-10-05T15:48:24.424545+00:00",
+    "executable": "target/ticket19/selection-fix/budget-diagnosis/fastfft-library-tests",
+    "sha256": "2268d55d1bf63803a66c985d45e883240f259ccfb4fd9214b4b06dc10d027610",
+    "built_executable": "target/release/deps/fastfft-3951b14be042c9bc",
+    "build_command": "RUSTFLAGS='-C llvm-args=-align-all-functions=6' cargo test -j1 --release -pfastfft --lib --no-run",
+    "features": "default SIMD, no tuning",
+    "source_files_verified": 83,
+    "source_snapshot": "target/ticket19/selection-fix/budget-diagnosis/source-sha256.json"
+  },
+  "restoration": true,
+  "ledger_entries": 14,
+  "ledger_overflow": false,
+  "candidate1_completed_workloads": 8,
+  "candidate1_completed_routes": 16,
+  "exit_reason": "SamplingDeadline during workload 8 Immutable third offset; incomplete candidate discarded",
+  "ranking_rejected": false,
+  "elapsed_ns_at_expiry": 1000001775,
+  "partial_masks": [
+    3,
+    2
+  ],
+  "retained_baseline": true,
+  "remedy_accepted": false,
+  "next": "Reduced general guard: original route all workloads plus helper canonical-offset all placements/lengths; validate without reducing samples or changing budget/margin."
+}

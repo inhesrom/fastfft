@@ -1,0 +1,45 @@
+[package]
+name = "fastfft"
+version = "0.1.0"
+description = "Fast SIMD complex FFTs for Rust (AVX-512, AVX2, SSE2, scalar) with a RustFFT-compatible API"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+readme = "README.md"
+keywords = ["fft", "dft", "simd", "avx512", "signal"]
+categories = ["algorithms", "science", "mathematics"]
+
+[features]
+default = ["avx512", "avx2", "sse2"]
+# Instruction-set tiers compiled into the library (x86_64 only; ignored elsewhere).
+# Disabling a tier reduces compile time and binary size.
+avx512 = []
+avx2 = []
+sse2 = []
+# Developer-only access to production candidates and pass measurements.
+tuning = []
+
+[dependencies]
+num-complex = { workspace = true, features = ["std"] }
+num-traits = { workspace = true, features = ["std"] }
+
+[dev-dependencies]
+fastfft-testkit.workspace = true
+rustfft = "6.4.1"
+proptest = "1.11"
+criterion = { version = "0.8.2", default-features = false, features = ["cargo_bench_support"] }
+serde.workspace = true
+serde_json.workspace = true
+
+[[example]]
+name = "tune"
+required-features = ["tuning"]
+
+[[bench]]
+name = "fft"
+harness = false
+
+[lints]
+workspace = true

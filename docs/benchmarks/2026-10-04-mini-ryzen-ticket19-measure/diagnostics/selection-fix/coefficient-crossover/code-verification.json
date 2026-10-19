@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-05T18:27:50.396688+00:00",
+  "passed": true,
+  "executable_sha256": "78b548e01487929de19c8676fd2a15764df36af1566e860faa0b0c90552be12c",
+  "callsites": [
+    {
+      "callsite": "0x384724",
+      "calls": 972,
+      "turn_ns": 100000000,
+      "vtable_offset": "0x38",
+      "capacity_checked": 32768,
+      "context": "  38470a:\tlea    (%rcx,%rax,8),%r14\n  38470e:\tmov    $0x3cc,%edx\n  384713:\tmov    %r15,%rdi\n  384716:\tmov    %rbp,%rsi\n  384719:\txor    %ecx,%ecx\n  38471b:\tmov    $0x5f5e100,%r8d\n  384721:\tmov    %r14,%r9\n  384724:\tcall   *0x38(%r12)\n  384729:\tmov    (%r14),%rax\n  38472c:\tmov    %rax,0x210(%rsp)\n  384734:\tcmp    $0x8000,%rax\n  38473a:\tjne    385ac0 <fastfft_arena::coefficient_crossover::run_fixed+0x2080>\n  384740:\tmovzbl 0xf(%rsp),%eax\n  384745:\tand    $0x1,%eax"
+    },
+    {
+      "callsite": "0x3847db",
+      "calls": 972,
+      "turn_ns": 100000000,
+      "vtable_offset": "0x38",
+      "capacity_checked": 32768,
+      "context": "  3847c1:\tlea    (%rcx,%rax,8),%r14\n  3847c5:\tmov    $0x3cc,%edx\n  3847ca:\tmov    %r15,%rdi\n  3847cd:\tmov    %rbp,%rsi\n  3847d0:\txor    %ecx,%ecx\n  3847d2:\tmov    $0x5f5e100,%r8d\n  3847d8:\tmov    %r14,%r9\n  3847db:\tcall   *0x38(%r12)\n  3847e0:\tmov    (%r14),%rax\n  3847e3:\tmov    %rax,0x210(%rsp)\n  3847eb:\tcmp    $0x8000,%rax\n  3847f1:\tjne    385ac0 <fastfft_arena::coefficient_crossover::run_fixed+0x2080>\n  3847f7:\tmovzbl %bl,%ebx\n  3847fa:\tmov    %ebx,%eax"
+    },
+    {
+      "callsite": "0x3876e4",
+      "calls": 1,
+      "turn_ns": 100000000,
+      "vtable_offset": "0x38",
+      "capacity_checked": 32768,
+      "context": "  3876ca:\tlea    (%rcx,%rax,8),%r14\n  3876ce:\tmov    $0x1,%edx\n  3876d3:\tmov    %r15,%rdi\n  3876d6:\tmov    %rbp,%rsi\n  3876d9:\txor    %ecx,%ecx\n  3876db:\tmov    $0x5f5e100,%r8d\n  3876e1:\tmov    %r14,%r9\n  3876e4:\tcall   *0x38(%r12)\n  3876e9:\tmov    (%r14),%rax\n  3876ec:\tmov    %rax,0x210(%rsp)\n  3876f4:\tcmp    $0x8000,%rax\n  3876fa:\tjne    388a80 <fastfft_arena::coefficient_crossover::run_fixed+0x2080>\n  387700:\tmovzbl 0xf(%rsp),%eax\n  387705:\tand    $0x1,%eax"
+    },
+    {
+      "callsite": "0x38779b",
+      "calls": 1,
+      "turn_ns": 100000000,
+      "vtable_offset": "0x38",
+      "capacity_checked": 32768,
+      "context": "  387781:\tlea    (%rcx,%rax,8),%r14\n  387785:\tmov    $0x1,%edx\n  38778a:\tmov    %r15,%rdi\n  38778d:\tmov    %rbp,%rsi\n  387790:\txor    %ecx,%ecx\n  387792:\tmov    $0x5f5e100,%r8d\n  387798:\tmov    %r14,%r9\n  38779b:\tcall   *0x38(%r12)\n  3877a0:\tmov    (%r14),%rax\n  3877a3:\tmov    %rax,0x210(%rsp)\n  3877ab:\tcmp    $0x8000,%rax\n  3877b1:\tjne    388a80 <fastfft_arena::coefficient_crossover::run_fixed+0x2080>\n  3877b7:\tmovzbl %bl,%ebx\n  3877ba:\tmov    %ebx,%eax"
+    }
+  ],
+  "timing_source": "source/bench/arena/src/timing.rs",
+  "timing_source_sha256": "ea23111476f1bc17eb9ba4257899191d6212510765aa7b9cfb3217d239d77b18",
+  "verification": "Generated crossover callsites pass fixed counts1/972 and Duration100ms to Runner::turn; fixed sample capacity checked aftereach. Frozen timer executes exactlyk calls, divides elapsed byk, repeats untilturn elapsed. Swap/snapshot/warmup outside turns. No claim that rawsample sums independently provewall duration."
+}

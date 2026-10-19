@@ -1,0 +1,85 @@
+
+running 80 tests
+test engine::batch::tests::streaming_batches_f32_preserve_public_contracts ... ok
+test engine::batch::tests::streaming_batches_f64_preserve_public_contracts ... ok
+test engine::fourstep::storage::tests::fourstep_storage_matches_legacy_coefficient_bits_both_precisions ... ok
+test engine::fourstep::storage::tests::fourstep_storage_overflow_rejected_before_allocation ... ok
+test engine::fourstep::storage::tests::miri_fourstep_storage_boundaries_empty_views_and_independent_clone ... ok
+test engine::fourstep::tests::cache_scaled_groups_preserve_public_execution_contracts ... ok
+test engine::fourstep::tests::fourstep_bounded_prefixes ... ok
+test engine::fourstep::tests::fourstep_contracts_f32 ... ok
+test engine::fourstep::tests::fourstep_contracts_f64 ... ok
+test engine::fourstep::tests::fourstep_planner_candidates ... ok
+test engine::fourstep::tests::fourstep_references_f32 ... ok
+test engine::fourstep::tests::fourstep_references_f64 ... ok
+test engine::fourstep::tests::miri_fourstep_panels ... ok
+test engine::fourstep::tests::panel_groups_use_l1_l2_and_last_level_capacity ... ok
+test engine::stockham::contracts::cache_gated_public_contracts_f32 ... ok
+test engine::stockham::contracts::cache_gated_public_contracts_f64 ... ok
+test engine::stockham::scratch::tests::placed_scratch_is_aligned_bounded_and_separated ... ok
+test engine::stockham::storage::tests::miri_alignment_rounding_overflow_is_rejected - should panic ... ok
+test engine::stockham::storage::tests::miri_backing_threshold_preserves_small_footprint_and_rounds_pages ... ok
+test engine::stockham::storage::tests::miri_canonical_layout_is_aligned_disjoint_and_clone_relative_for_both_precisions ... ok
+test engine::stockham::storage::tests::miri_clone_preserves_float_bits_and_owns_independent_storage ... ok
+test engine::stockham::storage::tests::miri_coefficient_size_overflow_is_rejected_before_allocation - should panic ... ok
+test engine::stockham::storage::tests::miri_empty_descriptor_prefix_and_empty_tables_are_valid ... ok
+test engine::stockham::storage::tests::miri_non_float_scalar_is_rejected_before_typed_views - should panic ... ok
+test engine::stockham::storage::tests::miri_paged_allocation_layout_overflow_is_rejected_before_allocation - should panic ... ok
+test engine::stockham::storage::tests::miri_paged_clone_preserves_bits_and_alignment_both_precisions ... ok
+test engine::stockham::storage::tests::miri_pass_length_overflow_is_rejected_before_allocation - should panic ... ok
+test engine::stockham::tests::cache_gate_counts_modes_tables_and_placement_slack ... ok
+test engine::stockham::tests::cache_gate_excludes_measured_zen4_l3_boundary ... ok
+test engine::stockham::tests::cache_gate_preserves_legacy_scratch_when_over_budget ... ok
+test engine::stockham::tests::canonical_tables_and_clones_match_legacy_generation_bitwise ... ok
+test engine::stockham::tests::two_pass_plans_keep_legacy_scratch ... ok
+test isa::cache::tests::amd_extended_topology_reports_all_data_levels ... ok
+test isa::cache::tests::basic_topology_ignores_instruction_cache_and_counts_partitions ... ok
+test isa::cache::tests::duplicate_levels_choose_largest_and_stop_at_null ... ok
+test isa::cache::tests::extended_leaf_requires_topology_extensions_flag ... ok
+test isa::cache::tests::host_sizes_are_cached_and_nonzero ... ok
+test isa::cache::tests::malformed_topology_is_bounded_and_size_overflow_is_rejected ... ok
+test isa::cache::tests::masked_extended_topology_falls_back_to_basic ... ok
+test isa::cache::tests::missing_l2_default_does_not_replace_observed_llc ... ok
+test isa::cache::tests::missing_topology_never_queries_unsupported_leaves ... ok
+test isa::cache::tests::partial_topology_falls_back_per_level_and_prefers_extended ... ok
+test isa::roots::tests::reusable_roots_match_double_double_reference ... ok
+test measure::tests::both_caller_routes_must_pass_best_and_median_separately ... ok
+test measure::tests::canonical_helper_covers_every_placement_and_length_only_at_offset_zero ... ok
+test measure::tests::deadline_during_warmup_prevents_a_timed_sample ... ok
+test measure::tests::primary_only_workload_calibrates_no_helper_and_cannot_hide_expiry ... ok
+test measure::tests::promotion_requires_both_statistics_and_every_workload ... ok
+test measure::tests::rejected_and_tied_scores_retain_actual_executable_identity ... ok
+test measure::tests::route_calibration_uses_max_per_plan_and_preserves_partial_state ... ok
+test measure::tests::route_collection_balances_order_and_keeps_seven_samples_each ... ok
+test measure::tests::second_route_expiry_keeps_first_route_and_no_invented_samples ... ok
+test measure::tests::warmup_does_not_enter_timing_statistics ... ok
+test measure::tests::zero_budget_retains_estimate ... ok
+test plan::tests::calibrated_recipes_are_ordered_and_have_valid_decompositions ... ok
+test plan::tests::radix_search_rejects_rough_lengths_and_preserves_smooth_lengths ... ok
+test planner::cache_tests::cache_policy_preserves_zen4_splits_and_lower_tier_estimates ... ok
+test planner::cache_tests::cache_sizes_move_both_candidate_and_estimate_boundaries ... ok
+test planner::cache_tests::descriptions_cover_candidate_engines_without_dispatch_assumptions ... ok
+test planner::cache_tests::odd_simd_panels_do_not_depend_on_cache_thresholds ... ok
+test scratch::tests::scalar_aligned_scratch_gets_a_simd_aligned_tail ... ok
+test specialized_tests::all_specialized_contracts_f32 ... ok
+test specialized_tests::all_specialized_contracts_f64 ... ok
+test specialized_tests::latency_planner_contracts ... ok
+test specialized_tests::preserved_incumbent_dispatch ... ok
+test tests::every_tier_f32 ... ok
+test tests::every_tier_f64 ... ok
+test tests::fixed_kernels_with_exact_offset_scratch ... ok
+test tests::fixed_scratch_aligned_to_real_but_not_complex_stride ... ok
+test tests::m3_smooth_every_shape ... ignored, exhaustive M3 checkpoint across every supported vector shape and placement
+test tests::miri_scalar_small ... ok
+test tests::radix_choice_covers_smooth_sizes ... ok
+test tests::small_candidate_timings ... ignored, focused timing on an idle pinned core, not a correctness test
+test tests::small_every_kernel_f32 ... ok
+test tests::small_every_kernel_f64 ... ok
+test tests::small_measure_candidates_include_estimate_and_stockham ... ok
+test tests::smooth_transition_candidate_orders ... ok
+test tests::stockham_offsets_f32 ... ok
+test tests::stockham_offsets_f64 ... ok
+test twiddle::tests::matches_double_double_reference ... ok
+
+test result: ok. 78 passed; 0 failed; 2 ignored; 0 measured; 2 filtered out; finished in 9.47s
+

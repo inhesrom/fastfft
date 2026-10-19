@@ -1,0 +1,29 @@
+    Checking fastfft v0.1.0 (/home/ianhersom/repo/fastfft/crates/fastfft)
+    Checking fastfft-arena v0.0.0 (/home/ianhersom/repo/fastfft/bench/arena)
+error: items after a test module
+   --> bench/arena/src/driver.rs:218:1
+    |
+218 | mod process_order_tests {
+    | ^^^^^^^^^^^^^^^^^^^^^^^
+...
+241 | fn clock_drift(base: f64, r: &CellResult) -> f64 {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+248 | fn filter_matches(spec: &CellSpec, filter: &str) -> bool {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+268 | pub fn run(args: &RunArgs) -> Result<PathBuf, String> {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+470 | pub fn fmt_ns(ns: f64) -> String {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+482 | pub fn write_json(path: &Path, v: &serde_json::Value) -> Result<(), String> {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.95.0/index.html#items_after_test_module
+    = note: `-D clippy::items-after-test-module` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::items_after_test_module)]`
+    = help: move the items to before the test module was defined
+
+error: could not compile `fastfft-arena` (bin "fastfft-arena" test) due to 1 previous error

@@ -1,0 +1,24 @@
+statistic: median; times in ns; x rf = rustfft time / fastfft time
+cell                                  ff m0      ff m8 ff m8/m0 rf m8/m0  x rf m0  x rf m8  plan
+batch:f32:fwd:ip:n256:b4096            88.3       90.7    1.027    1.068    1.207    1.255  small avx512-ymm n=256 decomposition=64x4 scratch=0 kernel=interleaved
+batch:f32:fwd:oop:n256:b4096          184.5      207.5    1.124    1.262    0.651    0.731  small avx512-ymm n=256 decomposition=64x4 scratch=0 kernel=interleaved
+batch:f32:fwd:ip:n512:b2048           259.9      279.5    1.075    1.083    1.062    1.070  stockham avx512-ymm split L=8 radices=8x8 scratch=520
+batch:f32:fwd:oop:n512:b2048          394.4      410.0    1.039    0.848    1.342    1.096  stockham avx512-ymm split L=8 radices=8x8 scratch=520
+batch:f32:fwd:ip:n1024:b1024          577.9      603.8    1.045    1.047    1.164    1.166  stockham avx512-ymm split L=8 radices=8x2x8 scratch=3080
+batch:f32:fwd:oop:n1024:b1024         894.5      971.6    1.086    1.072    1.035    1.022  stockham avx512-ymm split L=8 radices=8x2x8 scratch=3080
+batch:f64:fwd:ip:n256:b4096           288.5      257.7    0.893    1.059    1.305    1.548  small avx512 n=256 decomposition=64x4 scratch=0 kernel=interleaved
+batch:f64:fwd:oop:n256:b4096          680.9      640.6    0.941    1.130    0.888    1.066  small avx512 n=256 decomposition=64x4 scratch=0 kernel=interleaved
+batch:f64:fwd:ip:n512:b2048           694.1      712.7    1.027    1.059    1.245    1.283  stockham avx512 split L=8 radices=8x8 scratch=516
+batch:f64:fwd:oop:n512:b2048         1212.7     1309.5    1.080    1.070    1.271    1.259  stockham avx512 split L=8 radices=8x8 scratch=516
+batch:f64:fwd:ip:n1024:b1024         1476.6     1469.4    0.995    1.033    1.084    1.125  stockham avx512 split L=8 radices=8x2x8 scratch=2564
+batch:f64:fwd:oop:n1024:b1024        2412.5     2655.1    1.101    1.037    1.113    1.048  stockham avx512 split L=8 radices=8x2x8 scratch=2564
+
+prec  band      place cells  ff m8/m0   worst  rf m8/m0  x rf m0  x rf m8
+f32   batch     all       6     1.066   1.124     1.056    1.051    1.042
+f32   batch     ip        3     1.049   1.075     1.066    1.143    1.161
+f32   batch     oop       3     1.083   1.124     1.047    0.967    0.935
+f32   all       all       6     1.066   1.124     1.056    1.051    1.042
+f64   batch     all       6     1.003   1.101     1.064    1.141    1.210
+f64   batch     ip        3     0.970   1.027     1.050    1.207    1.307
+f64   batch     oop       3     1.038   1.101     1.078    1.079    1.121
+f64   all       all       6     1.003   1.101     1.064    1.141    1.210

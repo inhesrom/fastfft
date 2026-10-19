@@ -1,0 +1,40 @@
+quiet-run: sustained quiet period and environment check passed; launching
+
+running 1 test
+test measure::tests::large_promotion_can_use_the_remaining_global_budget ... measure-ledger entries=14 capacity=160 overflow=false
+measure-ledger event=BuildBegin candidate=1 workload=None len=0 placement=None offsets_complex=[0, 0, 0] elapsed_ns=2880139 calls=[0, 0] masks=[0, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[None, None] score=None
+measure-ledger event=BuildComplete candidate=1 workload=None len=0 placement=None offsets_complex=[0, 0, 0] elapsed_ns=6711818 calls=[0, 0] masks=[0, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[None, None] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(0) len=524288 placement=InPlace offsets_complex=[0, 0, 0] elapsed_ns=125168499 calls=[1, 1] masks=[16383, 16383] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1200742.0, 656883.0, 1212374.0, 663936.0]), Some([1200271.0, 658486.0, 1211713.0, 673925.0])] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(1) len=524288 placement=OutOfPlace offsets_complex=[0, 0, 0] elapsed_ns=247699107 calls=[1, 1] masks=[16383, 16383] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1206563.0, 727015.0, 1214267.0, 732186.0]), Some([1215810.0, 733527.0, 1243293.0, 747454.0])] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(2) len=524288 placement=Immutable offsets_complex=[0, 0, 0] elapsed_ns=387599409 calls=[1, 1] masks=[16383, 16383] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1337330.0, 842003.0, 1393246.0, 849367.0]), Some([1335227.0, 842073.0, 1361396.0, 856220.0])] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(3) len=524288 placement=InPlace offsets_complex=[128, 256, 384] elapsed_ns=501770330 calls=[1, 1] masks=[16383, 16383] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1178260.0, 631234.0, 1185513.0, 646423.0]), Some([1170805.0, 625543.0, 1207114.0, 641183.0])] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(4) len=524288 placement=OutOfPlace offsets_complex=[128, 256, 384] elapsed_ns=617586525 calls=[1, 1] masks=[16383, 16383] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1176836.0, 660029.0, 1196995.0, 668355.0]), Some([1182287.0, 661973.0, 1196113.0, 667653.0])] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(5) len=524288 placement=Immutable offsets_complex=[128, 256, 384] elapsed_ns=752067533 calls=[1, 1] masks=[16383, 16383] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1324736.0, 781649.0, 1347610.0, 789353.0]), Some([1323354.0, 776780.0, 1343091.0, 785656.0])] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(6) len=524288 placement=InPlace offsets_complex=[256, 384, 128] elapsed_ns=865258962 calls=[1, 1] masks=[16383, 16383] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1175113.0, 619773.0, 1192106.0, 637697.0]), Some([1176175.0, 624963.0, 1192907.0, 640381.0])] score=None
+measure-ledger event=WorkloadPassed candidate=1 workload=Some(7) len=524288 placement=OutOfPlace offsets_complex=[256, 384, 128] elapsed_ns=981148665 calls=[1, 1] masks=[16383, 16383] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[Some([1180904.0, 653987.0, 1196795.0, 667553.0]), Some([1191394.0, 655320.0, 1198227.0, 684415.0])] score=None
+measure-ledger event=SamplingDeadline candidate=1 workload=Some(8) len=524288 placement=Immutable offsets_complex=[256, 384, 128] elapsed_ns=1000001775 calls=[1, 1] masks=[3, 2] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[None, None] score=None
+measure-ledger event=CompareDeadline candidate=1 workload=None len=0 placement=None offsets_complex=[0, 0, 0] elapsed_ns=1000003078 calls=[0, 0] masks=[0, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[None, None] score=None
+measure-ledger event=SearchDeadline candidate=1 workload=None len=0 placement=None offsets_complex=[0, 0, 0] elapsed_ns=1000333593 calls=[0, 0] masks=[0, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[None, None] score=None
+measure-ledger event=ChoiceComplete candidate=1 workload=None len=0 placement=None offsets_complex=[0, 0, 0] elapsed_ns=1000333813 calls=[0, 0] masks=[0, 0] stats_ns_Bbest_Cbest_Bmedian_Cmedian=[None, None] score=Some(1.0)
+measure-ledger candidate=0 configuration=Candidate { kernel: Stockham, shape: Shape { isa: Sse2, lanes: 4 }, radices: [4, 4, 2, 4, 4, 4, 4, 4, 4], cost: 2.3177947998046875 }
+measure-ledger candidate=1 configuration=Candidate { kernel: Stockham, shape: Shape { isa: Avx512Ymm, lanes: 8 }, radices: [8, 4, 8, 8, 4, 8], cost: 1.2366065979003906 }
+measure-ledger candidate=2 configuration=Candidate { kernel: Stockham, shape: Shape { isa: Avx512Ymm, lanes: 8 }, radices: [8, 2, 8, 8, 8, 8], cost: 1.2166143057446153 }
+measure-ledger candidate=3 configuration=Candidate { kernel: FourStep, shape: Shape { isa: Avx512, lanes: 16 }, radices: [512, 1024], cost: 0.0 }
+measure-ledger candidate=4 configuration=Candidate { kernel: FourStep, shape: Shape { isa: Avx512Ymm, lanes: 8 }, radices: [512, 1024], cost: 0.0 }
+measure-ledger candidate=5 configuration=Candidate { kernel: FourStep, shape: Shape { isa: Sse2, lanes: 4 }, radices: [512, 1024], cost: 0.0 }
+measure-ledger candidate=6 configuration=Candidate { kernel: Stockham, shape: Shape { isa: Avx512, lanes: 16 }, radices: [8, 4, 4, 4, 4, 4, 4], cost: 1.4431731411084836 }
+measure-ledger candidate=7 configuration=Candidate { kernel: Stockham, shape: Shape { isa: Avx2, lanes: 8 }, radices: [8, 4, 4, 8, 8, 8], cost: 1.538679524261542 }
+measure-ledger retained_baseline=true chosen=Candidate { kernel: Stockham, shape: Shape { isa: Sse2, lanes: 4 }, radices: [4, 4, 2, 4, 4, 4, 4, 4, 4], cost: 2.3177947998046875 }
+
+thread 'measure::tests::large_promotion_can_use_the_remaining_global_budget' (1097267) panicked at crates/fastfft/src/measure.rs:1748:9:
+assertion failed: !Arc::ptr_eq(&fft, &baseline)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+
+failures:
+
+failures:
+    measure::tests::large_promotion_can_use_the_remaining_global_budget
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 65 filtered out; finished in 1.01s
+

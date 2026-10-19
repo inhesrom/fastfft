@@ -1,0 +1,41 @@
+{
+  "run": "target/ticket19/pipeline-focus/case-26",
+  "cells": 2,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "datacheck": {
+      "cells": 2,
+      "failures": 0,
+      "worst": 1.0045155110737534,
+      "geomean": 1.0003550113608977
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "datacheck:f64:fwd:imm:n4096",
+      "suite": "datacheck",
+      "metric": "best",
+      "ratio": 0.9962117435948558,
+      "best": 0.9962117435948558,
+      "p1": 0.9926645049035115,
+      "median": 0.9899717403249864,
+      "estimate": "stockham avx512 split L=8 radices=8x8x8 scratch=8708 scratch_oop=8708 scratch_immutable=8708",
+      "measure": "stockham avx512 split L=8 radices=8x8x8 scratch=8708 scratch_oop=8708 scratch_immutable=8708",
+      "same_plan": true
+    },
+    {
+      "key": "datacheck:f64:fwd:imm:n4096:random",
+      "suite": "datacheck",
+      "metric": "best",
+      "ratio": 1.0045155110737534,
+      "best": 1.0045155110737534,
+      "p1": 1.003521606319435,
+      "median": 1.0054302664888786,
+      "estimate": "stockham avx512 split L=8 radices=8x8x8 scratch=8708 scratch_oop=8708 scratch_immutable=8708",
+      "measure": "stockham avx512 split L=8 radices=8x8x8 scratch=8708 scratch_oop=8708 scratch_immutable=8708",
+      "same_plan": true
+    }
+  ]
+}

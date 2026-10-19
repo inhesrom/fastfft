@@ -1,0 +1,21 @@
+{
+  "source_hashes_verified": 84,
+  "executable_sha256": "6f59c8a77cf5a50ff2657dc8333522b326f73146a466fdbe055777d354e233bd",
+  "build_profile": "arena",
+  "rustflags": "-C llvm-args=-align-all-functions=6",
+  "target_cpu_native": false,
+  "tuning_perturbation": true,
+  "crossover_functions": [
+    "0x30da40",
+    "0x310900"
+  ],
+  "generated_turn_calls": [
+    "0x30ed54",
+    "0x30ee0b",
+    "0x311c14",
+    "0x311ccb"
+  ],
+  "turn_vtable_offset": "0x38",
+  "note": "Compiler unrolls the two member turns; each assignment retains both generated sites and the same member-order schedule. Existing Runner::turn is called with k=19 and 100ms. Storage exchange and snapshot verification happen before warmup/calibration and recorded turns; no exchange occurs inside an FFT timing bracket. This does not claim identical code layout to the production executable.",
+  "selection_ledger_present": false
+}

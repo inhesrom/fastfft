@@ -1,0 +1,74 @@
+{
+  "source_build": "shortlist",
+  "inputs": [
+    "audit-shortlist-1.jsonl.gz",
+    "audit-shortlist-misses-2.jsonl.gz",
+    "audit-shortlist-misses-3.jsonl.gz"
+  ],
+  "objective": "inplace",
+  "note": "Training refinements from the same frozen executable; final independent validation is required.",
+  "changes": [
+    {
+      "prior_rust": "Recipe { n: 160, f64_: false, cap: Isa::Avx512, kernel: CandidateKernel::RectangularSmall, isa: Isa::Avx512Ymm, lanes: 8, radices: &[16, 10], ns: 79.525391 },",
+      "new_recipe": {
+        "precision": "f32",
+        "n": 160,
+        "cap": "avx512",
+        "kernel": "rectangular",
+        "isa": "avx512",
+        "lanes": 16,
+        "radices": [
+          16,
+          10
+        ],
+        "ns": 79.0546875,
+        "winner_worst_ratio": 1.0,
+        "winner_objective_ratio": 1.0
+      },
+      "prior_objective_ratio": 1.1061863820535627
+    },
+    {
+      "prior_rust": "Recipe { n: 1000000, f64_: false, cap: Isa::Avx512, kernel: CandidateKernel::Stockham, isa: Isa::Avx512Ymm, lanes: 8, radices: &[10, 5, 5, 10, 5, 10], ns: 2998905.000000 },",
+      "new_recipe": {
+        "precision": "f32",
+        "n": 1000000,
+        "cap": "avx512",
+        "kernel": "stockham",
+        "isa": "avx512-ymm",
+        "lanes": 8,
+        "radices": [
+          10,
+          5,
+          10,
+          5,
+          5,
+          10
+        ],
+        "ns": 2792384.0,
+        "winner_worst_ratio": 1.0750705323609653,
+        "winner_objective_ratio": 1.0
+      },
+      "prior_objective_ratio": 1.1297992603423066
+    },
+    {
+      "prior_rust": "Recipe { n: 768, f64_: true, cap: Isa::Avx512, kernel: CandidateKernel::Stockham, isa: Isa::Avx512, lanes: 8, radices: &[8, 12], ns: 694.453125 },",
+      "new_recipe": {
+        "precision": "f64",
+        "n": 768,
+        "cap": "avx512",
+        "kernel": "stockham",
+        "isa": "avx512-ymm",
+        "lanes": 4,
+        "radices": [
+          8,
+          6,
+          4
+        ],
+        "ns": 680.65625,
+        "winner_worst_ratio": 1.0133111480865225,
+        "winner_objective_ratio": 1.0
+      },
+      "prior_objective_ratio": 1.0495625486693234
+    }
+  ]
+}

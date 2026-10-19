@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-05T22:42:04.767015+00:00",
+  "previous_attempt": "target/ticket19/selection-fix/fourstep-indexed-completion",
+  "previous_archive": "docs/benchmarks/2026-10-04-mini-ryzen-ticket19-measure/diagnostics/selection-fix/fourstep-indexed-completion",
+  "reason": "Prior attempt interrupted30/51 by external activity; no acceptance. Capture requires complete clean evidence.",
+  "binary": {
+    "utc": "2026-10-05T22:08:49.631258+00:00",
+    "executable": "target/ticket19/selection-fix/fourstep-indexed-completion/fastfft-arena",
+    "sha256": "a2bbb31ba6912363132f0cabfcc1798f369ccc217d2a9f5d548214314541596f",
+    "build_command": "RUSTFLAGS='-C llvm-args=-align-all-functions=6' cargo build -j1 --profile arena -pfastfft-arena",
+    "features": "default SIMD; no diagnostics/tuning",
+    "source_files": 96,
+    "source_hashes_match": true,
+    "caller_route_coverage": "canonical-offset",
+    "acceptance": false
+  },
+  "proofs": {
+    "source-sha256.json": "3a951d20dd7616ab6c9070f3f1cd98792431a577947c9f09db1d910a7ee4d8ca",
+    "audit-source-sha256.json": "5fd0fc5482a045d8d0da6b13ccb501abbaca69e2f62db914d801e702dccc3ab9",
+    "provenance.json": "db9d05ec8a2066ea050d21c0e293e62169f39c0f0a4af5eb3631fc3d90d677b8",
+    "test-provenance.json": "41e0640969fd7900a92b816d0447f9a67e03880ed4c9a1a1b92610c47d02222f",
+    "library-tests.log": "bd41d0ed91a2e0228d7c0f0f4efe87d5a985fb17a6ab9cf2eae18f4e1afc5aca",
+    "description-tests.log": "c976f647eb40b33895d46adc33ad6410c867d1afb3fc856d227fef14fa469efb",
+    "checks.log": "4b6a4dac9836abef72bde2522fbb63761e028f5e545988247905a70fb57e33c8",
+    "diagnostic-check.log": "8dc1603e42ec2f73580c4eda80df9df14977110a0d297e29b36fc4190ed696db",
+    "diagnostic-clippy.log": "736e2582f563605dd272e5fb977840b0c0767377d27b6940c440caf75eec7157",
+    "storage-verification.json": "40688bc16e771b87994ead1b0b082798e6c548d10a4cb251429b08b0a5ec7ef3",
+    "alignment-verification.json": "73dca47f1926c25ee0f492c73f1d239d16a92f89b6c8b243ab22380e67abc573",
+    "alignment-verification.md": "1453219b66d57529e7e660322b9a17da8e2cbb334adf033072bf55fcd0e77608",
+    "iterator-code-verification.json": "1d0d301aa5df91aa6a165367bc1b7250179762fc24aa6c0c4bd027a279d0ec79",
+    "iterator-code-verification.md": "2f784d295e5d00bf6c18f3a5924c4c3e53ac44a5fa3c97f3aa5578a37649ac2e",
+    "positive-checkpoint.json": "ba1a53804883b4225e672e1041c2f3557ecf8be227c54df3fa578e4ace0fcd94",
+    "positive-affinity-proof.json": "f595bd3048e7b1ff079f8f2a86bde6445a742f2fc461c65cc7aeda9de93ef001",
+    "positive-quiet.jsonl": "38c54afa58cd8907f87cd65dcb34d1e304ee54afd60a3b00d3333cd3397e19d7",
+    "positive.log": "fe620df71e71d1acca1776cb0d0ae51d98c23dbff98abda0bb466dddca261892",
+    "HEAD.txt": "e63d847ca080e044cf7ff0835112db5738acf88d5ac30869982eb5c8bb83f57d",
+    "tracked.patch": "f6bf1c89204f486871381fab0327f7bc8aea493e30b600890c5910f0b5aabff7",
+    "build-env.json": "c598f28b2dcd1fbe4d152a0b2cc0cb99a5906d5918979ffe5bd370030be5ec6d",
+    "review-sha256.json": "7718eaeaecbdf7942f58b58f1eee74efaf1efbdd2a1acbafd0d5d5d6a08338d4"
+  }
+}

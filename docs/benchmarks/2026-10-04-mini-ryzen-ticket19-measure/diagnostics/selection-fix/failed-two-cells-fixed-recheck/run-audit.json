@@ -1,0 +1,60 @@
+{
+  "run": "target/ticket19/selection-fix/failed-two-cells-fixed-recheck/run",
+  "cells": 2,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "batch": {
+      "cells": 1,
+      "failures": 1,
+      "worst": 1.0218804920913884,
+      "geomean": 1.0218804920913884
+    },
+    "pow2": {
+      "cells": 1,
+      "failures": 0,
+      "worst": 1.0040237574650002,
+      "geomean": 1.0040237574650002
+    }
+  },
+  "failures": [
+    {
+      "key": "batch:f32:fwd:oop:n32:b32768",
+      "suite": "batch",
+      "metric": "best",
+      "ratio": 1.0218804920913884,
+      "best": 1.0218804920913884,
+      "p1": 1.0233894006082123,
+      "median": 1.020692232038172,
+      "estimate": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+      "measure": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+      "same_plan": true
+    }
+  ],
+  "comparisons": [
+    {
+      "key": "pow2:f32:fwd:oop:n262144",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.0040237574650002,
+      "best": 1.0040237574650002,
+      "p1": 1.002053001214909,
+      "median": 1.0038240491617978,
+      "estimate": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+      "measure": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+      "same_plan": true
+    },
+    {
+      "key": "batch:f32:fwd:oop:n32:b32768",
+      "suite": "batch",
+      "metric": "best",
+      "ratio": 1.0218804920913884,
+      "best": 1.0218804920913884,
+      "p1": 1.0233894006082123,
+      "median": 1.020692232038172,
+      "estimate": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+      "measure": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+      "same_plan": true
+    }
+  ]
+}

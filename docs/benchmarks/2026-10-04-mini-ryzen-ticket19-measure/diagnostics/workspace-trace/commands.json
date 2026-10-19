@@ -1,0 +1,44 @@
+[
+  {
+    "command": [
+      "target/ticket19/pipeline/fastfft-arena",
+      "run",
+      "--suite",
+      "pow2",
+      "--profile",
+      "full",
+      "--libs",
+      "fastfft,fastfft/measure",
+      "--filter",
+      "precision=f32,n=32768,place=ip",
+      "--core",
+      "2",
+      "--procs",
+      "4",
+      "--out",
+      "target/ticket19/workspace-trace/pipeline"
+    ],
+    "LD_PRELOAD": "/home/ianhersom/repo/fastfft/target/ticket19/trace-workspace.so"
+  },
+  {
+    "command": [
+      "target/ticket19/preflight/fastfft-arena",
+      "run",
+      "--suite",
+      "pow2",
+      "--profile",
+      "full",
+      "--libs",
+      "fastfft,fastfft/measure",
+      "--filter",
+      "precision=f32,n=32768,place=ip",
+      "--core",
+      "2",
+      "--procs",
+      "4",
+      "--out",
+      "target/ticket19/workspace-trace/preflight"
+    ],
+    "LD_PRELOAD": "/home/ianhersom/repo/fastfft/target/ticket19/trace-workspace.so"
+  }
+]

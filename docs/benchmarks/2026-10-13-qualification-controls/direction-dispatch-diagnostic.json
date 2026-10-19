@@ -1,0 +1,156 @@
+{
+  "schema": 1,
+  "adopted": false,
+  "baseline_revision": "4332e48",
+  "candidate_patch_sha256": "ba552c5464685b8a7f50cabde29c4ea27cf51df358cb75ea445022a468247ad9",
+  "candidate_patch": "direction-dispatch-candidate.patch",
+  "g9": {
+    "builds": [
+      {
+        "cargo_timings": "/tmp/fastfft-build-time-421958-1791938397429838462/target-rustfft/cargo-timings",
+        "command": "cd \"/tmp/fastfft-build-time-421958-1791938397429838462/rf\" && env -u CARGO_ENCODED_RUSTFLAGS CARGO_BUILD_JOBS=\"1\" CARGO_INCREMENTAL=\"0\" RUSTFLAGS=\"\" \"/home/ianhersom/.rustup/toolchains/1.95.0-x86_64-unknown-linux-gnu/bin/cargo\" \"build\" \"--release\" \"--locked\" \"--offline\" \"--timings\" \"--target-dir\" \"/tmp/fastfft-build-time-421958-1791938397429838462/target-rustfft\"",
+        "library": "rustfft",
+        "seconds": 3.369397043,
+        "target_dir": "/tmp/fastfft-build-time-421958-1791938397429838462/target-rustfft"
+      },
+      {
+        "cargo_timings": "/tmp/fastfft-build-time-421958-1791938397429838462/target-fastfft/cargo-timings",
+        "command": "cd \"/tmp/fastfft-g9-direction-4332e48\" && env -u CARGO_ENCODED_RUSTFLAGS CARGO_BUILD_JOBS=\"1\" CARGO_INCREMENTAL=\"0\" RUSTFLAGS=\"\" \"/home/ianhersom/.rustup/toolchains/1.95.0-x86_64-unknown-linux-gnu/bin/cargo\" \"build\" \"--release\" \"--locked\" \"--offline\" \"--timings\" \"--target-dir\" \"/tmp/fastfft-build-time-421958-1791938397429838462/target-fastfft\" \"-p\" \"fastfft\"",
+        "library": "fastfft",
+        "seconds": 2.843351702,
+        "target_dir": "/tmp/fastfft-build-time-421958-1791938397429838462/target-fastfft"
+      }
+    ],
+    "cargo": "cargo 1.95.0 (f2d3ce0bd 2026-03-21)\n",
+    "evidence_dir": "/tmp/fastfft-build-time-421958-1791938397429838462",
+    "fastfft_seconds": 2.843351702,
+    "gate": "G9",
+    "incremental": false,
+    "jobs": 1,
+    "passed": true,
+    "profile": "release",
+    "ratio": 0.843875526010545,
+    "revision": "4332e484e993cdc5c7637a1ed9b088ae00f5d0f5",
+    "rustc": "rustc 1.95.0 (59807616e 2026-04-14)\nbinary: rustc\ncommit-hash: 59807616e1fa2540724bfbac14d7976d7e4a3860\ncommit-date: 2026-04-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.95.0\nLLVM version: 22.1.2\n",
+    "rustfft_seconds": 3.369397043,
+    "rustflags": "",
+    "schema": 1,
+    "threshold": 2.0,
+    "working_tree": " M crates/fastfft/src/engine/fourstep.rs\n M crates/fastfft/src/engine/mod.rs\n M crates/fastfft/src/engine/timing.rs\n M crates/fastfft/src/fft.rs\n M crates/fastfft/src/tuning/stockham.rs\n M crates/fastfft/src/tuning/stockham/tests.rs\n"
+  },
+  "g9_monitor": {
+    "returncode": 0,
+    "contaminated": false,
+    "reasons": [],
+    "supervised_elapsed_s": 8.093776378998882
+  },
+  "consumer_attempt": {
+    "returncode": -15,
+    "contaminated": true,
+    "reasons": [
+      "background CPU activity exceeds 5%"
+    ],
+    "supervised_elapsed_s": 9.118025652001961
+  },
+  "linux_validation": {
+    "unit_tests": {
+      "passed": 126,
+      "failed": 0,
+      "ignored": 3,
+      "profile": "test-release",
+      "features": "tuning",
+      "compiler": "1.95.0"
+    },
+    "clippy_lib_all_features": "pass",
+    "msrv_1_89_lib_all_features": "pass",
+    "no_default_features_lib_check": "pass",
+    "aarch64_apple_lib_tuning_check": "pass",
+    "aarch64_apple_all_targets": "blocked: Apple C compiler unavailable for alloca test dependency",
+    "native_neon": "deferred by maintainer",
+    "public_integration_sweep": "pending",
+    "runtime_ab": "pending"
+  },
+  "host_trace": {
+    "samples": 100,
+    "violations": [
+      {
+        "time": 1791938617.6211493,
+        "busy": {
+          "0": 1.0,
+          "1": 8.0,
+          "2": 2.0,
+          "3": 2.9411764705882355,
+          "4": 0.0,
+          "5": 7.070707070707071,
+          "6": 3.9603960396039604,
+          "7": 3.9603960396039604,
+          "8": 0.0,
+          "9": 5.05050505050505,
+          "10": 1.0,
+          "11": 0.9900990099009901,
+          "12": 0.0,
+          "13": 0.0,
+          "14": 3.0,
+          "15": 0.0
+        },
+        "processes": [
+          {
+            "pid": 4792,
+            "comm": "Paseo Daemon",
+            "ticks": 15
+          },
+          {
+            "pid": 423374,
+            "comm": "python3",
+            "ticks": 1
+          }
+        ]
+      }
+    ],
+    "tool_read_start_times": {
+      "tool-read-start": 1791938635.0,
+      "tool-read-2-start": 1791938669.0
+    },
+    "clock_ticks_per_second": 100,
+    "pi_and_sync_paused": true,
+    "pi_and_sync_resumed": true
+  },
+  "limitations": [
+    "One candidate G9 pass, not independently confirmed.",
+    "Consumer comparison stopped on continuous-monitor violation; no completed consumer timing and no comparison claim.",
+    "No candidate production FFT changes adopted before runtime confirmation.",
+    "Do not splice a replacement consumer build into the interrupted comparison.",
+    "Native NEON deferred; cross-check is compilation only."
+  ],
+  "sha256": {
+    "target/qualification/candidate-build-comparison/f32-0-baseline/command.json": "01ee59525eec31aa8597e9ee90c079752b36f69c26b21d0744d842de817ea5fd",
+    "target/qualification/candidate-build-comparison/f32-0-baseline/environment-checks.jsonl": "35dd258a2ef626bd24e89a35bae3119b2adf921104eecb9b8e90a9ecd749334b",
+    "target/qualification/candidate-build-comparison/f32-0-baseline/idle-monitor.jsonl": "e94258968f27c65d96d4f55a186a3d648f7bb883e63382b1c67662a360d3348c",
+    "target/qualification/candidate-build-comparison/f32-0-baseline/monitor.jsonl": "7d5702d44c881e4b049a74d5f57ccca00df1886fd804bba29437e3ac4ab1e9fa",
+    "target/qualification/candidate-build-comparison/f32-0-baseline/status.json": "f2d997fc454fc9c8f01293a5f06d6e57e489310f26e3b722184dbe37bbebc772",
+    "target/qualification/candidate-build-comparison/g9-1/command.json": "b989229a43bc0a3e3a12a37edbf129b980909cad01e4d06bb71af6a80f157386",
+    "target/qualification/candidate-build-comparison/g9-1/duration.json": "fd5d548c701a6b59f22613ea1bd1ff9ccfc91446055ba0b2c3ac88ed5be0990e",
+    "target/qualification/candidate-build-comparison/g9-1/environment-checks.jsonl": "6c1db32c59831e1de1f98511c2de613a1b53ddcbfe5e8ca1d958803f2de38441",
+    "target/qualification/candidate-build-comparison/g9-1/idle-monitor.jsonl": "de6777da5bb59506996e4e4a7a4d5aa5015bfe0a582199a0b85e1d081667b99e",
+    "target/qualification/candidate-build-comparison/g9-1/monitor.jsonl": "81043bfb00b0ae8bef0bc34c133d30751852b011244827b4d4a06c22d21c34b9",
+    "target/qualification/candidate-build-comparison/g9-1/status.json": "f782fa75d2e1cdc76fab195b7240a598f1f717aedaacd181792fabc2c1c5b0f8",
+    "target/qualification/candidate-build-comparison/g9-1.json": "18b79f33d7871a9d5ee5ae3e59ba6b1c7779d8433df756de30b919ae3c94c155",
+    "target/qualification/candidate-build-comparison/manifest.json": "a5517389e290af8e4fd901cc187b6717f4bf1cef59480f532dc2492b681b3dee",
+    "target/qualification/candidate-build-comparison/pause.jsonl": "a6ceb88326d4b38851c10255c009f397f77cd2b233a1f84c06830ef99544181c",
+    "target/qualification/candidate-build-window.log": "f4a28561a2a0905cc91c8af8ac2009dbac0f8ce331b1b8b2f8db47e5aaa7e77f",
+    "target/qualification/candidate-build-window.py": "73de8f1a181b2740279cdd9b8bef74a008fb3e6549ec1a3497eea9445a014de9",
+    "target/qualification/direction-aarch64-check.log": "ac7ff6f4ca97ccadcd7a1002f5880304ac0ed9d250acb3e7a186cd0b5a3ef652",
+    "target/qualification/direction-aarch64-lib-check.log": "8172c6898adfdefc12c6220ca9cc47803b6677440a1817cf7b9054e8790b1c2b",
+    "target/qualification/direction-arena-build.log": "8db9b23ed4820107b39ea012ecc6681b0dc3c84f86d95a6fdc69216705ccc50d",
+    "target/qualification/direction-clippy.log": "d7b318d1c6799747005077a9b39a1ab9de0285b2450016ac1b498176e60b726b",
+    "target/qualification/direction-correctness-final.log": "145030f405a93f2b410cc40e0165ed040b8ea44db749110dfe6c9364ed034456",
+    "target/qualification/direction-msrv-check.log": "ba28d78a4d2f1692eb3327aa5053e3c0170f4c8861ee0e0f794b4c4529e77eda",
+    "target/qualification/direction-restricted-check.log": "eac8d6723bf475bc59e6cae76a7f7f938402187afed1f249c175e0f5f5993c2b",
+    "target/qualification/g9-direction-dispatch.log": "8659439f39217e52c8833c4100e49ec04e8914d895657399f86b0859cacb64d7",
+    "target/qualification/g9-fourstep-direction.log": "a5932d12c3b7818f92319d9832a75cf5a329eee944bcd5ba768d423682179aba",
+    "target/qualification/g9-stages-1.95.log": "9d30b351c5313737301d82b49c128fb1dfabd335a9acd554f555fccea1f6264e",
+    "target/qualification/measure-build-command.py": "d33b858ebad192283aebd63a06bd3f1445102c6e330a6c4ea47918ad5855fbe9",
+    "target/qualification/tool-interference/trace.jsonl": "d2c9030a661b50803b4e5f9407830cc63ba314858ffeac5cf1c20a8d76182d60",
+    "target/qualification/trace-idle-tools.py": "6387aafd04d5f5d3eb78110b357fafa5a1baefdc946fdddc3f8df1585c3c9d55"
+  }
+}

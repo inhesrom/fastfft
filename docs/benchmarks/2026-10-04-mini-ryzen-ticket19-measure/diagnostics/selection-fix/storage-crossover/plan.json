@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-05T16:42:07.427349+00:00",
+  "acceptance": false,
+  "purpose": "Causal exchange of equal-valued existing Phase-B Vec storage between retained same-plan Estimate/Measure objects",
+  "suites": [
+    "pow2"
+  ],
+  "filter": "precision=f32,n=4096",
+  "cells": 4,
+  "procs": 8,
+  "core": 4,
+  "features": "measure-diagnostics; no selector trace",
+  "calls_per_recorded_batch": 19,
+  "phases": "ABBA or BAAB from process bit1; A original storage, B exchanged; construction bit0 and member start bit2 independent",
+  "rounds": 7,
+  "turn_ms": 100,
+  "warmup_ms_per_phase_member": 200,
+  "invariants": [
+    "Arc/runner object locations fixed",
+    "input/output/scratch unchanged",
+    "all non-target diagnostic regions unchanged",
+    "same FFT shape, direction, all metadata and bitwise coefficient values",
+    "existing Vec pointer ownership only; no coefficient allocation or copy",
+    "unique strong/weak ownership checked before every swap",
+    "original owners restored and independently audited"
+  ],
+  "decision": "A repeatable reversal or reduction of the instance gap after table exchange identifies a contribution from that storage location; absent/inconsistent reversal is negative or inconclusive and does not justify alignment changes. Must inspect both repeated assignments and all processes/placements/directions.",
+  "fixed_rule": "one fixed four-cell/eight-process diagnostic, preserve all failures; no retry-until-pass",
+  "gate": "fresh60s sustained quiet plus envcheck, core4/SMT12 reservation, continuous monitoring; no concurrent builds/tests",
+  "limitations": [
+    "tuning vtable/code layout differs from production",
+    "original timing and secondary planning precede replay",
+    "sham swaps perform two equality scans vs one for changed assignment, followed by equal200ms warmup",
+    "cannot establish physical cache mechanism",
+    "not acceptance and cannot waive prior failures"
+  ]
+}

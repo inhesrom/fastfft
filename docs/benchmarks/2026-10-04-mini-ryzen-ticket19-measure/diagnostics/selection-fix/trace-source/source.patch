@@ -1,0 +1,1809 @@
+diff --git a/.scratch/fastfft-v1/issues/19-measure-mode-validation.md b/.scratch/fastfft-v1/issues/19-measure-mode-validation.md
+index ef44150..7cfdefc 100644
+--- a/.scratch/fastfft-v1/issues/19-measure-mode-validation.md
++++ b/.scratch/fastfft-v1/issues/19-measure-mode-validation.md
+@@ -2,7 +2,7 @@
+ 
+ Type: task
+ Status: open
+-Blocked by: 18
++Blocked by: none (18 resolved)
+ Roadmap: FFT-052
+ 
+ ## Question
+@@ -12,3 +12,52 @@ Is Measure mode (`measure.rs`: times up to 8 candidates within `time_limit`) nev
+ ## Done when
+ 
+ The arena `fastfft/measure` row vs `fastfft` shows ≤ 2% loss on every cell (or deviations are explained and fixed).
++
++## Progress (2026-10-05)
++
++Ticket 18 is resolved. The maintainer confirmed the six benchmark suites
++(pow2, smooth, rough, batch, realworld, datacheck); exhaustive N=2..4096
++coverage remains with ticket 20. G8 follow-ups remain tickets 37–39.
++
++Description fixes report engine, actual ISA tier, executed radices and all
++three scratch requirements, including identity, Bluestein and batch wrappers.
++Tests cover every engine, both precisions/directions, cached descriptions
++and five ISA caps. Library tests, arena tests, audit tests and workspace
++Clippy pass.
++
++The selector now constructs Estimate before exploring candidates and retains
++the actual timed executable. Promotion requires a 3% improvement in both
++minimum and median across all placements, three buffer-offset triples and
++representative batches; incomplete comparisons retain Estimate.
++
++A/A controls exposed benchmark context bias as well as selector failures.
++The harness now uses a verified register-dependent clock probe, rotates
++construction order, retains every raw process trial, shares caller buffers
++and scratch, and retains the actual timed pipeline runners. The parent
++sizes scratch so each fresh child can allocate it before mode-specific
++planning. This changes allocation layout and does not establish G8 planning
++acceptance. Rejected coefficient-alignment experiments were reverted.
++
++The latest eight-process full comparison automatically aborted at 80/710
++cells after 55.60% clock drift. All 80 completed ratios pass (worst 1.015136x)
++and all correctness checks pass, but the attempt is invalid and incomplete.
++A fresh-process clock control reproduces clustered excursions, and host
++inspection finds unrelated Cargo tests using several cores. A quiet 3–4
++hour window has been requested before another full attempt. No unrelated
++process was stopped and no system power setting was changed.
++
++The full attempt's 640 raw trials also expose two slower Measure promotions
++at f32 forward N=524288 (in place and out of place): approximately 4.6%
++losses with ordinary endpoint clocks. The merged winners hide these trials.
++They remain an unresolved selector issue requiring focused diagnosis and
++correction before acceptance.
++
++The latest 29-cell focused run passes 28 cells; its batch miss also occurs
++in A/A, while a fixed eight-process Measure repeat passes. That does not
++waive the primary miss. The 2% ceiling, timing statistics and drift gates
++remain unchanged. The [validation checkpoint](../../../docs/benchmarks/2026-10-04-mini-ryzen-ticket19-measure/README.md)
++records what is verified and what remains. This ticket is open.
++
++Raw runs, failed attempts, source/executable provenance and the
++[method](../../../docs/benchmarks/2026-10-04-mini-ryzen-ticket19-measure/method.md)
++are retained under the ticket 19 benchmark directory.
+diff --git a/bench/arena/src/adapters.rs b/bench/arena/src/adapters.rs
+index 04bf18e..ccbe748 100644
+--- a/bench/arena/src/adapters.rs
++++ b/bench/arena/src/adapters.rs
+@@ -87,9 +87,31 @@ pub trait Runner<T: ArenaFloat> {
+ 
+ // ---------------------------------------------------------------- rustfft
+ 
++/// Workspace sizing in the parent process; other adapters own their workspace.
++pub fn estimate_workspace<T: ArenaFloat + fastfft::FftNum>(
++    lib: &str,
++    cell: &CellSpec,
++) -> Result<usize, String> {
++    if lib.starts_with("fastfft") {
++        return crate::fastfft_adapter::estimate_workspace::<T>(lib, cell);
++    }
++    if lib != "rustfft" {
++        return Ok(0);
++    }
++    let mut planner = rustfft::FftPlanner::<T>::new();
++    let fft = match cell.direction {
++        Direction::Forward => planner.plan_fft_forward(cell.n),
++        Direction::Inverse => planner.plan_fft_inverse(cell.n),
++    };
++    Ok(match cell.placement {
++        Placement::InPlace => fft.get_inplace_scratch_len(),
++        Placement::OutOfPlace => fft.get_outofplace_scratch_len(),
++        Placement::Immutable => fft.get_immutable_scratch_len(),
++    })
++}
++
+ struct RustFftRunner<T: ArenaFloat> {
+     fft: Arc<dyn rustfft::Fft<T>>,
+-    scratch: Vec<Complex<T>>,
+     placement: Placement,
+ }
+ 
+@@ -98,22 +120,23 @@ impl<T: ArenaFloat> Runner<T> for RustFftRunner<T> {
+         self.placement
+     }
+     fn run(&mut self, bufs: &mut Buffers<T>) {
+-        let (input, output) = bufs.io_mut();
++        let (input, output, scratch) = bufs.io_scratch_mut();
+         match self.placement {
+-            Placement::InPlace => self.fft.process_with_scratch(input, &mut self.scratch),
+-            Placement::OutOfPlace => {
+-                self.fft
+-                    .process_outofplace_with_scratch(input, output, &mut self.scratch)
+-            }
+-            Placement::Immutable => {
+-                self.fft
+-                    .process_immutable_with_scratch(input, output, &mut self.scratch)
+-            }
++            Placement::InPlace => self.fft.process_with_scratch(input, scratch),
++            Placement::OutOfPlace => self
++                .fft
++                .process_outofplace_with_scratch(input, output, scratch),
++            Placement::Immutable => self
++                .fft
++                .process_immutable_with_scratch(input, output, scratch),
+         }
+     }
+ }
+ 
+-fn rustfft_runner<T: ArenaFloat>(cell: &CellSpec) -> Result<Box<dyn Runner<T>>, String> {
++fn rustfft_runner<T: ArenaFloat>(
++    cell: &CellSpec,
++    bufs: &mut Buffers<T>,
++) -> Result<Box<dyn Runner<T>>, String> {
+     let mut planner = rustfft::FftPlanner::<T>::new();
+     let fft = match cell.direction {
+         Direction::Forward => planner.plan_fft_forward(cell.n),
+@@ -124,9 +147,9 @@ fn rustfft_runner<T: ArenaFloat>(cell: &CellSpec) -> Result<Box<dyn Runner<T>>,
+         Placement::OutOfPlace => fft.get_outofplace_scratch_len(),
+         Placement::Immutable => fft.get_immutable_scratch_len(),
+     };
++    bufs.reserve_scratch(len);
+     Ok(Box::new(RustFftRunner {
+         fft,
+-        scratch: vec![Complex::new(T::default(), T::default()); len],
+         placement: cell.placement,
+     }))
+ }
+@@ -501,7 +524,7 @@ impl ArenaFloat for f32 {
+         bufs: &mut Buffers<f32>,
+     ) -> Result<Box<dyn Runner<f32>>, String> {
+         match lib {
+-            "rustfft" => rustfft_runner(cell),
++            "rustfft" => rustfft_runner(cell, bufs),
+             "phastft/split" => {
+                 phastft_check(cell)?;
+                 let len = cell.n * cell.batch;
+@@ -524,7 +547,7 @@ impl ArenaFloat for f32 {
+             "tfhe-fft" => Err("f64 only".into()),
+             "oxifft" => oxi_runner::<f32>(cell),
+             "fftw" => crate::fftw::runner_f32(cell, bufs),
+-            l if l.starts_with("fastfft") => crate::fastfft_adapter::runner::<f32>(l, cell),
++            l if l.starts_with("fastfft") => crate::fastfft_adapter::runner::<f32>(l, cell, bufs),
+             l if l.starts_with("lab/") => lab_runner::<f32>(l, cell),
+             other => Err(unknown(other)),
+         }
+@@ -545,7 +568,7 @@ impl ArenaFloat for f64 {
+         bufs: &mut Buffers<f64>,
+     ) -> Result<Box<dyn Runner<f64>>, String> {
+         match lib {
+-            "rustfft" => rustfft_runner(cell),
++            "rustfft" => rustfft_runner(cell, bufs),
+             "phastft/split" => {
+                 phastft_check(cell)?;
+                 let len = cell.n * cell.batch;
+@@ -568,7 +591,7 @@ impl ArenaFloat for f64 {
+             "tfhe-fft" => tfhe_runner(cell),
+             "oxifft" => oxi_runner::<f64>(cell),
+             "fftw" => crate::fftw::runner_f64(cell, bufs),
+-            l if l.starts_with("fastfft") => crate::fastfft_adapter::runner::<f64>(l, cell),
++            l if l.starts_with("fastfft") => crate::fastfft_adapter::runner::<f64>(l, cell, bufs),
+             l if l.starts_with("lab/") => lab_runner::<f64>(l, cell),
+             other => Err(unknown(other)),
+         }
+diff --git a/bench/arena/src/buffers.rs b/bench/arena/src/buffers.rs
+index 858c661..a069b53 100644
+--- a/bench/arena/src/buffers.rs
++++ b/bench/arena/src/buffers.rs
+@@ -69,23 +69,49 @@ impl<T: Copy> Drop for AlignedVec<T> {
+     }
+ }
+ 
+-/// Input and output buffers of one cell.
++/// Caller buffers for sequential runners of one cell. Sharing scratch keeps
++/// a planner's temporary allocation history out of workspace placement.
+ pub struct Buffers<T: Copy> {
+     pub input: AlignedVec<Complex<T>>,
+     pub output: AlignedVec<Complex<T>>,
++    scratch: AlignedVec<Complex<T>>,
+ }
+ 
++/// Mutable I/O and workspace views from disjoint allocations.
++pub type WorkSlices<'a, T> = (
++    &'a mut [Complex<T>],
++    &'a mut [Complex<T>],
++    &'a mut [Complex<T>],
++);
++
+ impl<T: Copy> Buffers<T> {
+     pub fn new(len: usize, misalign: usize) -> Self {
+         Buffers {
+             input: AlignedVec::zeroed(len, misalign),
+             output: AlignedVec::zeroed(len, misalign),
++            scratch: AlignedVec::zeroed(0, 0),
+         }
+     }
+ 
+     pub fn io_mut(&mut self) -> (&mut [Complex<T>], &mut [Complex<T>]) {
+         (self.input.as_mut_slice(), self.output.as_mut_slice())
+     }
++
++    /// Called only during planning. Growing workspace preserves I/O addresses,
++    /// including those retained by foreign-library plans.
++    pub fn reserve_scratch(&mut self, len: usize) {
++        if self.scratch.len() < len {
++            self.scratch = AlignedVec::zeroed(len, 0);
++        }
++    }
++
++    pub fn io_scratch_mut(&mut self) -> WorkSlices<'_, T> {
++        (
++            self.input.as_mut_slice(),
++            self.output.as_mut_slice(),
++            self.scratch.as_mut_slice(),
++        )
++    }
+ }
+ 
+ /// Zero-sets a complex slice.
+diff --git a/bench/arena/src/cell.rs b/bench/arena/src/cell.rs
+index 3f778d6..3269108 100644
+--- a/bench/arena/src/cell.rs
++++ b/bench/arena/src/cell.rs
+@@ -78,29 +78,6 @@ fn one() -> usize {
+     1
+ }
+ 
+-/// Core clock in GHz from a dependent chain of 1-cycle integer adds (~10 ms).
+-pub fn measure_clock_ghz() -> f64 {
+-    let mut best = 0.0f64;
+-    for _ in 0..3 {
+-        let iters: u64 = 10_000_000;
+-        let t = Instant::now();
+-        let mut x = std::hint::black_box(0u64);
+-        for _ in 0..iters {
+-            // four dependent adds per iteration; black_box keeps the chain.
+-            x = std::hint::black_box(
+-                x.wrapping_add(1)
+-                    .wrapping_add(1)
+-                    .wrapping_add(1)
+-                    .wrapping_add(1),
+-            );
+-        }
+-        std::hint::black_box(x);
+-        let ghz = (iters * 4) as f64 / t.elapsed().as_secs_f64() / 1e9;
+-        best = best.max(ghz);
+-    }
+-    best
+-}
+-
+ pub fn mflops(n: usize, ns: f64) -> f64 {
+     if n < 2 {
+         return 0.0;
+@@ -110,7 +87,7 @@ pub fn mflops(n: usize, ns: f64) -> f64 {
+ 
+ pub fn run_cell(spec: &CellSpec, cpu: Option<usize>) -> CellResult {
+     let t0 = Instant::now();
+-    let clock0 = measure_clock_ghz();
++    let clock0 = crate::clock_probe::measure_ghz();
+     let results = match (spec.precision, spec.scenario) {
+         (crate::spec::Precision::F32, None) => run_typed::<f32>(spec),
+         (crate::spec::Precision::F64, None) => run_typed::<f64>(spec),
+@@ -118,7 +95,7 @@ pub fn run_cell(spec: &CellSpec, cpu: Option<usize>) -> CellResult {
+         (crate::spec::Precision::F64, Some(s)) => crate::scenarios::run::<f64>(spec, s),
+     };
+     crate::fftw::save_wisdom();
+-    let clock1 = measure_clock_ghz();
++    let clock1 = crate::clock_probe::measure_ghz();
+     CellResult {
+         key: spec.key(),
+         spec: spec.clone(),
+@@ -144,6 +121,10 @@ pub type Planned<T> = (LibResult, Option<Box<dyn Runner<T>>>);
+ 
+ /// Plans every library of the cell.
+ pub fn plan_all<T: ArenaFloat>(spec: &CellSpec, bufs: &mut Buffers<T>) -> Vec<Planned<T>> {
++    // The parent sizes workspace before spawning this fresh process. Reserve
++    // it before mode-specific planning changes allocator state. A selected
++    // engine may grow it, and legacy direct run-cell specs size it lazily.
++    bufs.reserve_scratch(spec.caller_scratch.unwrap_or(0));
+     let mut out = Vec::new();
+     for lib in &spec.libs {
+         let mut res = LibResult {
+diff --git a/bench/arena/src/driver.rs b/bench/arena/src/driver.rs
+index 153bef7..5334199 100644
+--- a/bench/arena/src/driver.rs
++++ b/bench/arena/src/driver.rs
+@@ -143,14 +143,26 @@ pub fn spawn_cell(spec: &CellSpec, core: usize, timeout: Duration) -> ChildOutco
+ /// keeps the process with its best 1st-percentile time (`p1`; the minimum
+ /// alone can follow a single outlier batch). Library timings of a single
+ /// process depend on address placement (ASLR); best-of-K removes that luck
+-/// for every library alike.
+-pub fn spawn_merged(spec: &CellSpec, core: usize, timeout: Duration, procs: usize) -> ChildOutcome {
++/// for every library alike. Construction order rotates too: repeating one
++/// order can systematically favor one row even in an Estimate/Estimate test.
++pub fn spawn_merged(
++    spec: &CellSpec,
++    core: usize,
++    timeout: Duration,
++    procs: usize,
++    trials: &mut impl Write,
++) -> ChildOutcome {
++    let prepared = prepare_workspace(spec);
++    let spec = &prepared;
+     let mut merged: Option<CellResult> = None;
+     let mut clocks: Vec<f64> = Vec::new();
+     let mut errors = Vec::new();
+-    for _ in 0..procs.max(1) {
+-        match spawn_cell(spec, core, timeout) {
++    for process in 0..procs.max(1) {
++        match spawn_cell(&process_spec(spec, process), core, timeout) {
+             ChildOutcome::Done(r) => {
++                if let Err(e) = writeln!(trials, "{}", serde_json::to_string(&*r).expect("json")) {
++                    return ChildOutcome::Failed(format!("write trial: {e}"));
++                }
+                 if let Some(c) = r.clock_ghz {
+                     clocks.extend(c);
+                 }
+@@ -183,6 +195,9 @@ pub fn spawn_merged(spec: &CellSpec, core: usize, timeout: Duration, procs: usiz
+     }
+     match merged {
+         Some(mut m) => {
++            // Keep the requested order in the merged record; each raw trial
++            // records the actual order used in that child process.
++            m.spec = spec.clone();
+             if !clocks.is_empty() {
+                 let lo = clocks.iter().copied().fold(f64::MAX, f64::min);
+                 let hi = clocks.iter().copied().fold(0.0, f64::max);
+@@ -194,6 +209,44 @@ pub fn spawn_merged(spec: &CellSpec, core: usize, timeout: Duration, procs: usiz
+     }
+ }
+ 
++fn process_spec(spec: &CellSpec, process: usize) -> CellSpec {
++    let mut trial = spec.clone();
++    let offset = process % trial.libs.len().max(1);
++    trial.libs.rotate_left(offset);
++    trial
++}
++
++fn prepare_workspace(spec: &CellSpec) -> CellSpec {
++    let mut prepared = spec.clone();
++    if prepared.caller_scratch.is_some() {
++        return prepared;
++    }
++    let mut rows: Vec<_> = spec
++        .libs
++        .iter()
++        .map(|lib| match lib.as_str() {
++            "fastfft/measure" => "fastfft",
++            other => other,
++        })
++        .filter(|lib| *lib == "rustfft" || lib.starts_with("fastfft"))
++        .collect();
++    rows.sort_unstable();
++    rows.dedup();
++    let mut need = 0;
++    for lib in rows {
++        // Unsupported/panicking plans are reported by the actual child.
++        let requirement = std::panic::catch_unwind(|| match spec.precision {
++            Precision::F32 => crate::adapters::estimate_workspace::<f32>(lib, spec),
++            Precision::F64 => crate::adapters::estimate_workspace::<f64>(lib, spec),
++        });
++        if let Ok(Ok(len)) = requirement {
++            need = need.max(len);
++        }
++    }
++    prepared.caller_scratch = Some(need);
++    prepared
++}
++
+ /// Clock drift of a result against the reference clock: worst relative change.
+ fn clock_drift(base: f64, r: &CellResult) -> f64 {
+     match r.clock_ghz {
+@@ -270,6 +323,8 @@ pub fn run(args: &RunArgs) -> Result<PathBuf, String> {
+             "filter": args.filter,
+             "label": args.label,
+             "procs": args.procs,
++            "process_order": "rotating",
++            "caller_scratch": "parent-planned-shared-aligned",
+             "official": official,
+             "cells": cells.len(),
+         }),
+@@ -277,6 +332,8 @@ pub fn run(args: &RunArgs) -> Result<PathBuf, String> {
+     write_json(&dir.join("env.json"), &env)?;
+     let mut out = std::fs::File::create(dir.join("results.jsonl"))
+         .map_err(|e| format!("results.jsonl: {e}"))?;
++    let mut trials = std::fs::File::create(dir.join("trials.jsonl"))
++        .map_err(|e| format!("trials.jsonl: {e}"))?;
+     let timeout = Duration::from_secs(args.timeout_s);
+     let control = control_cell(&args.libs, &args.profile);
+     eprintln!(
+@@ -301,10 +358,11 @@ pub fn run(args: &RunArgs) -> Result<PathBuf, String> {
+     let mut failures = 0usize;
+     let started = Instant::now();
+     let run_control = |out: &mut std::fs::File,
++                       trials: &mut std::fs::File,
+                        max_drift: &mut f64,
+                        base_clock: &mut Option<f64>|
+      -> Result<f64, String> {
+-        match spawn_merged(&control, args.core, timeout, args.procs.max(3)) {
++        match spawn_merged(&control, args.core, timeout, args.procs.max(3), trials) {
+             ChildOutcome::Done(r) => {
+                 writeln!(out, "{}", serde_json::to_string(&*r).expect("json"))
+                     .map_err(|e| e.to_string())?;
+@@ -324,10 +382,10 @@ pub fn run(args: &RunArgs) -> Result<PathBuf, String> {
+             ChildOutcome::Failed(e) => Err(format!("control cell failed: {e}")),
+         }
+     };
+-    run_control(&mut out, &mut max_drift, &mut base_clock)?;
++    run_control(&mut out, &mut trials, &mut max_drift, &mut base_clock)?;
+     for (i, cell) in cells.iter().enumerate() {
+         if i > 0 && args.control_every > 0 && i % args.control_every == 0 {
+-            let d = run_control(&mut out, &mut max_drift, &mut base_clock)?;
++            let d = run_control(&mut out, &mut trials, &mut max_drift, &mut base_clock)?;
+             if d > 0.10 {
+                 aborted = Some(format!("drift {:.1}% > 10% at cell {i}", d * 100.0));
+                 eprintln!("arena: ABORT: {}", aborted.as_deref().unwrap_or_default());
+@@ -338,13 +396,26 @@ pub fn run(args: &RunArgs) -> Result<PathBuf, String> {
+             }
+         }
+         let t0 = Instant::now();
+-        match spawn_merged(cell, args.core, timeout, args.procs) {
++        match spawn_merged(cell, args.core, timeout, args.procs, &mut trials) {
+             ChildOutcome::Done(r) => {
+                 if let Some(b) = base_clock {
+                     let d = clock_drift(b, &r);
+                     max_drift = max_drift.max(d);
+                     if d > 0.03 {
+                         drift_flag = true;
++                        eprintln!(
++                            "arena: clock drift warning {:.1}% at {}",
++                            d * 100.0,
++                            cell.key()
++                        );
++                    }
++                    if d > 0.10 {
++                        aborted = Some(format!(
++                            "clock drift {:.1}% > 10% at {}",
++                            d * 100.0,
++                            cell.key()
++                        ));
++                        eprintln!("arena: ABORT: {}", aborted.as_deref().unwrap_or_default());
+                     }
+                 }
+                 let summary: Vec<String> = r
+@@ -375,9 +446,12 @@ pub fn run(args: &RunArgs) -> Result<PathBuf, String> {
+             }
+         }
+         out.flush().ok();
++        if aborted.is_some() {
++            break;
++        }
+     }
+     if aborted.is_none() {
+-        let d = run_control(&mut out, &mut max_drift, &mut base_clock)?;
++        let d = run_control(&mut out, &mut trials, &mut max_drift, &mut base_clock)?;
+         if d > 0.03 {
+             drift_flag = true;
+         }
+@@ -393,7 +467,7 @@ pub fn run(args: &RunArgs) -> Result<PathBuf, String> {
+     });
+     write_json(&dir.join("meta.json"), &meta)?;
+     eprintln!(
+-        "arena: done in {:.0}s, max control drift {:.2}%, {} child failures",
++        "arena: done in {:.0}s, max clock drift {:.2}%, {} child failures",
+         started.elapsed().as_secs_f64(),
+         max_drift * 100.0,
+         failures
+@@ -420,3 +494,26 @@ pub fn write_json(path: &Path, v: &serde_json::Value) -> Result<(), String> {
+     std::fs::write(path, serde_json::to_string_pretty(v).expect("json"))
+         .map_err(|e| format!("write {}: {e}", path.display()))
+ }
++
++#[cfg(test)]
++mod process_order_tests {
++    use super::*;
++
++    #[test]
++    fn each_library_gets_each_construction_position_equally() {
++        let labels = vec!["a".to_string(), "b".to_string(), "c".to_string()];
++        let mut spec = control_cell(&["fastfft".into()], &Profile::QUICK);
++        spec.libs = labels.clone();
++        let mut counts = [[0; 3]; 3];
++        for process in 0..6 {
++            let trial = process_spec(&spec, process);
++            assert_eq!(trial.key(), spec.key());
++            for (position, lib) in trial.libs.iter().enumerate() {
++                let library = labels.iter().position(|l| l == lib).unwrap();
++                counts[library][position] += 1;
++            }
++        }
++        assert_eq!(counts, [[2; 3]; 3]);
++        assert_eq!(spec.libs, labels);
++    }
++}
+diff --git a/bench/arena/src/fastfft_adapter.rs b/bench/arena/src/fastfft_adapter.rs
+index 90c765b..8c9c27d 100644
+--- a/bench/arena/src/fastfft_adapter.rs
++++ b/bench/arena/src/fastfft_adapter.rs
+@@ -5,13 +5,11 @@ use crate::adapters::{ArenaFloat, Runner};
+ use crate::buffers::Buffers;
+ use crate::spec::{CellSpec, Direction, Placement};
+ use fastfft::{Fft, FftDirection, FftPlanner, Isa, PlanMode, PlannerOptions};
+-use num_complex::Complex;
+ use std::sync::Arc;
+ use std::time::Duration;
+ 
+ struct FastRunner<T: ArenaFloat + fastfft::FftNum> {
+     fft: Arc<dyn Fft<T>>,
+-    scratch: Vec<Complex<T>>,
+     placement: Placement,
+     describe: String,
+ }
+@@ -21,17 +19,15 @@ impl<T: ArenaFloat + fastfft::FftNum> Runner<T> for FastRunner<T> {
+         self.placement
+     }
+     fn run(&mut self, bufs: &mut Buffers<T>) {
+-        let (input, output) = bufs.io_mut();
++        let (input, output, scratch) = bufs.io_scratch_mut();
+         match self.placement {
+-            Placement::InPlace => self.fft.process_with_scratch(input, &mut self.scratch),
+-            Placement::OutOfPlace => {
+-                self.fft
+-                    .process_outofplace_with_scratch(input, output, &mut self.scratch)
+-            }
+-            Placement::Immutable => {
+-                self.fft
+-                    .process_immutable_with_scratch(input, output, &mut self.scratch)
+-            }
++            Placement::InPlace => self.fft.process_with_scratch(input, scratch),
++            Placement::OutOfPlace => self
++                .fft
++                .process_outofplace_with_scratch(input, output, scratch),
++            Placement::Immutable => self
++                .fft
++                .process_immutable_with_scratch(input, output, scratch),
+         }
+     }
+     fn describe(&self) -> Option<String> {
+@@ -58,9 +54,27 @@ pub fn options_for(lib: &str) -> Result<PlannerOptions, String> {
+     })
+ }
+ 
++/// Called by the parent driver, so workspace sizing cannot perturb the
++/// allocator or root caches used by a timing child's actual planning.
++pub fn estimate_workspace<T: fastfft::FftNum>(lib: &str, cell: &CellSpec) -> Result<usize, String> {
++    let mut planner =
++        FftPlanner::<T>::with_options(options_for(lib)?.with_mode(PlanMode::Estimate));
++    let dir = match cell.direction {
++        Direction::Forward => FftDirection::Forward,
++        Direction::Inverse => FftDirection::Inverse,
++    };
++    let fft = planner.plan_fft(cell.n, dir);
++    Ok(match cell.placement {
++        Placement::InPlace => fft.get_inplace_scratch_len(),
++        Placement::OutOfPlace => fft.get_outofplace_scratch_len(),
++        Placement::Immutable => fft.get_immutable_scratch_len(),
++    })
++}
++
+ pub fn runner<T: ArenaFloat + fastfft::FftNum>(
+     lib: &str,
+     cell: &CellSpec,
++    bufs: &mut Buffers<T>,
+ ) -> Result<Box<dyn Runner<T>>, String> {
+     let mut planner = FftPlanner::<T>::with_options(options_for(lib)?);
+     let dir = match cell.direction {
+@@ -74,9 +88,9 @@ pub fn runner<T: ArenaFloat + fastfft::FftNum>(
+         Placement::Immutable => fft.get_immutable_scratch_len(),
+     };
+     let describe = planner.describe_plan(cell.n, dir);
++    bufs.reserve_scratch(len);
+     Ok(Box::new(FastRunner {
+         fft,
+-        scratch: vec![Complex::new(T::default(), T::default()); len],
+         placement: cell.placement,
+         describe,
+     }))
+diff --git a/bench/arena/src/main.rs b/bench/arena/src/main.rs
+index a447b96..6fdf638 100644
+--- a/bench/arena/src/main.rs
++++ b/bench/arena/src/main.rs
+@@ -13,6 +13,7 @@
+ mod adapters;
+ mod buffers;
+ mod cell;
++mod clock_probe;
+ mod driver;
+ mod env;
+ mod fastfft_adapter;
+diff --git a/bench/arena/src/report.rs b/bench/arena/src/report.rs
+index 2ba4a1a..6f7d5f5 100644
+--- a/bench/arena/src/report.rs
++++ b/bench/arena/src/report.rs
+@@ -1008,10 +1008,16 @@ pub fn publish(run: &Path, label: &str) -> Result<PathBuf, String> {
+                 .map_err(|e| e.to_string())?;
+         }
+     }
+-    let raw = std::fs::read(run.join("results.jsonl")).map_err(|e| e.to_string())?;
+-    let f = std::fs::File::create(dest.join("results.jsonl.gz")).map_err(|e| e.to_string())?;
+-    let mut gz = flate2::write::GzEncoder::new(f, flate2::Compression::best());
+-    std::io::Write::write_all(&mut gz, &raw).map_err(|e| e.to_string())?;
+-    gz.finish().map_err(|e| e.to_string())?;
++    for name in ["results.jsonl", "trials.jsonl"] {
++        if name == "trials.jsonl" && !run.join(name).exists() {
++            continue; // Runs before process-trial retention remain publishable.
++        }
++        let raw = std::fs::read(run.join(name)).map_err(|e| e.to_string())?;
++        let f =
++            std::fs::File::create(dest.join(format!("{name}.gz"))).map_err(|e| e.to_string())?;
++        let mut gz = flate2::write::GzEncoder::new(f, flate2::Compression::best());
++        std::io::Write::write_all(&mut gz, &raw).map_err(|e| e.to_string())?;
++        gz.finish().map_err(|e| e.to_string())?;
++    }
+     Ok(dest)
+ }
+diff --git a/bench/arena/src/scenarios.rs b/bench/arena/src/scenarios.rs
+index fbac7da..ac631b6 100644
+--- a/bench/arena/src/scenarios.rs
++++ b/bench/arena/src/scenarios.rs
+@@ -18,41 +18,39 @@ pub const OVERLAP_SAVE_BYTES: usize = 64 << 20;
+ /// FIR length of the overlap-save scenario.
+ pub const TAPS: usize = 1025;
+ 
+-/// A library prepared for a scenario: forward (and inverse) in-place FFTs on
+-/// a work area it owns.
++/// A library prepared for a scenario. Sequential libraries use the same
++/// caller buffers, including scratch, just like ordinary arena cells.
+ struct Lib<T: ArenaFloat> {
+-    bufs: Buffers<T>,
+     fwd: Box<dyn Runner<T>>,
+     inv: Option<Box<dyn Runner<T>>>,
+     split: bool,
+ }
+ 
+ impl<T: ArenaFloat> Lib<T> {
+-    fn new(lib: &str, n: usize, need_inverse: bool, prec_cell: &CellSpec) -> Result<Self, String> {
+-        let mut bufs = Buffers::<T>::new(n, prec_cell.misalign);
++    fn new(
++        lib: &str,
++        mut fwd: Box<dyn Runner<T>>,
++        need_inverse: bool,
++        prec_cell: &CellSpec,
++        bufs: &mut Buffers<T>,
++    ) -> Result<Self, String> {
+         let mut cell = prec_cell.clone();
+         cell.placement = Placement::InPlace;
+         cell.batch = 1;
+         cell.direction = Direction::Forward;
+-        let mut fwd = T::make_runner(lib, &cell, &mut bufs)?;
+         let split = fwd.split_arrays().is_some();
+         let inv = if need_inverse {
+             if split {
+                 None // split runners flip direction in place (see `inverse`)
+             } else {
+                 cell.direction = Direction::Inverse;
+-                Some(T::make_runner(lib, &cell, &mut bufs)?)
++                Some(T::make_runner(lib, &cell, bufs)?)
+             }
+         } else {
+             None
+         };
+-        fwd.zero(&mut bufs);
+-        Ok(Lib {
+-            bufs,
+-            fwd,
+-            inv,
+-            split,
+-        })
++        fwd.zero(bufs);
++        Ok(Lib { fwd, inv, split })
+     }
+ 
+     fn inv_scale(&self) -> f64 {
+@@ -63,18 +61,18 @@ impl<T: ArenaFloat> Lib<T> {
+         }
+     }
+ 
+-    fn forward(&mut self) {
+-        self.fwd.run(&mut self.bufs);
++    fn forward(&mut self, bufs: &mut Buffers<T>) {
++        self.fwd.run(bufs);
+     }
+ 
+-    fn inverse(&mut self) {
++    fn inverse(&mut self, bufs: &mut Buffers<T>) {
+         if let Some(i) = self.inv.as_mut() {
+-            i.run(&mut self.bufs);
++            i.run(bufs);
+         } else {
+             // Split layout: conj(FFT(conj(x))) == N * normalized inverse.
+             // phastft's inverse normalizes; we use its forward with conjugation
+             // folded into the (shared) multiply step instead (see overlap_save).
+-            self.fwd.run(&mut self.bufs);
++            self.fwd.run(bufs);
+         }
+     }
+ }
+@@ -100,6 +98,7 @@ fn stream<T: ArenaFloat>(samples: usize, seed: u64) -> AlignedVec<Complex<T>> {
+ /// One full spectrogram pass. Returns nothing; writes rows into `out`.
+ fn spectrogram_pass<T: ArenaFloat>(
+     lib: &mut Lib<T>,
++    bufs: &mut Buffers<T>,
+     x: &[Complex<T>],
+     win: &[T],
+     out: &mut [T],
+@@ -115,18 +114,18 @@ fn spectrogram_pass<T: ArenaFloat>(
+                 re[i] = src[i].re * win[i];
+                 im[i] = src[i].im * win[i];
+             }
+-            lib.forward();
++            lib.forward(bufs);
+             let (re, im) = lib.fwd.split_arrays().expect("split");
+             for i in 0..n {
+                 row[i] = re[i] * re[i] + im[i] * im[i];
+             }
+         } else {
+-            let w = lib.bufs.input.as_mut_slice();
++            let w = bufs.input.as_mut_slice();
+             for i in 0..n {
+                 w[i] = Complex::new(src[i].re * win[i], src[i].im * win[i]);
+             }
+-            lib.forward();
+-            let w = lib.bufs.input.as_slice();
++            lib.forward(bufs);
++            let w = bufs.input.as_slice();
+             for i in 0..n {
+                 row[i] = w[i].re * w[i].re + w[i].im * w[i].im;
+             }
+@@ -137,6 +136,7 @@ fn spectrogram_pass<T: ArenaFloat>(
+ /// One full overlap-save pass over `xpad` (P-1 leading zeros + stream).
+ fn overlap_save_pass<T: ArenaFloat>(
+     lib: &mut Lib<T>,
++    bufs: &mut Buffers<T>,
+     xpad: &[Complex<T>],
+     h: &[Complex<T>],
+     y: &mut [Complex<T>],
+@@ -155,7 +155,7 @@ fn overlap_save_pass<T: ArenaFloat>(
+                 re[i] = src[i].re;
+                 im[i] = src[i].im;
+             }
+-            lib.forward();
++            lib.forward(bufs);
+             let (re, im) = lib.fwd.split_arrays().expect("split");
+             for i in 0..n {
+                 let (a, bb) = (re[i], im[i]);
+@@ -163,21 +163,21 @@ fn overlap_save_pass<T: ArenaFloat>(
+                 re[i] = a * h[i].re - bb * h[i].im;
+                 im[i] = -(a * h[i].im + bb * h[i].re);
+             }
+-            lib.inverse();
++            lib.inverse(bufs);
+             let (re, im) = lib.fwd.split_arrays().expect("split");
+             for i in 0..step {
+                 dst[i] = Complex::new(re[TAPS - 1 + i], -im[TAPS - 1 + i]);
+             }
+         } else {
+-            let w = lib.bufs.input.as_mut_slice();
++            let w = bufs.input.as_mut_slice();
+             w.copy_from_slice(src);
+-            lib.forward();
+-            let w = lib.bufs.input.as_mut_slice();
++            lib.forward(bufs);
++            let w = bufs.input.as_mut_slice();
+             for i in 0..n {
+                 w[i] = w[i] * h[i];
+             }
+-            lib.inverse();
+-            let w = lib.bufs.input.as_slice();
++            lib.inverse(bufs);
++            let w = bufs.input.as_slice();
+             dst.copy_from_slice(&w[TAPS - 1..TAPS - 1 + step]);
+         }
+     }
+@@ -210,19 +210,35 @@ pub fn run<T: ArenaFloat>(spec: &CellSpec, scenario: Scenario) -> Vec<LibResult>
+     let n = spec.n;
+     let profile = Profile::by_name(&spec.profile).unwrap_or(Profile::QUICK);
+     let elem = std::mem::size_of::<Complex<T>>();
+-    // Reuse plan_all for planning-time bookkeeping on a scratch buffer.
+-    let mut scratch = Buffers::<T>::new(n, 0);
+-    let mut planned = plan_all::<T>(spec, &mut scratch);
+-    drop(scratch);
++    let mut bufs = Buffers::<T>::new(n, spec.misalign);
++    let mut forward_spec = spec.clone();
++    forward_spec.placement = Placement::InPlace;
++    forward_spec.batch = 1;
++    forward_spec.direction = Direction::Forward;
++    let mut planned = plan_all::<T>(&forward_spec, &mut bufs);
+ 
+     let mut results = Vec::new();
+     let mut libs: Vec<Option<Lib<T>>> = Vec::new();
+     for (res, runner) in planned.drain(..) {
+         let mut res = res;
+-        let lib = if runner.is_some() {
+-            drop(runner);
+-            match Lib::<T>::new(&res.lib, n, scenario == Scenario::OverlapSave, spec) {
+-                Ok(l) => Some(l),
++        let lib = if let Some(runner) = runner {
++            match Lib::<T>::new(
++                &res.lib,
++                runner,
++                scenario == Scenario::OverlapSave,
++                &forward_spec,
++                &mut bufs,
++            ) {
++                Ok(l) => {
++                    // Describe the runners actually verified and timed,
++                    // including overlap-save's inverse transform.
++                    res.describe = l.fwd.describe();
++                    if let Some(inverse) = l.inv.as_ref().and_then(|i| i.describe()) {
++                        let description = res.describe.get_or_insert_with(String::new);
++                        description.push_str(&format!(" inverse=[{inverse}]"));
++                    }
++                    Some(l)
++                }
+                 Err(e) => {
+                     res.status = "unsupported".into();
+                     res.reason = Some(e);
+@@ -264,7 +280,7 @@ pub fn run<T: ArenaFloat>(spec: &CellSpec, scenario: Scenario) -> Vec<LibResult>
+             for (res, lib) in results.iter_mut().zip(libs.iter_mut()) {
+                 let Some(l) = lib.as_mut() else { continue };
+                 let outcome = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+-                    spectrogram_pass(l, x.as_slice(), &win, out.as_mut_slice(), rows);
++                    spectrogram_pass(l, &mut bufs, x.as_slice(), &win, out.as_mut_slice(), rows);
+                     let mut worst = 0.0f64;
+                     for (k, &r) in check_rows.iter().enumerate() {
+                         let got: Vec<f64> = out.as_slice()[r * n..(r + 1) * n]
+@@ -278,7 +294,7 @@ pub fn run<T: ArenaFloat>(spec: &CellSpec, scenario: Scenario) -> Vec<LibResult>
+                 finish_verify(res, lib, outcome, spec.precision.eps(), n);
+             }
+             let mut f = |_: usize, l: &mut Lib<T>| {
+-                spectrogram_pass(l, x.as_slice(), &win, out.as_mut_slice(), rows)
++                spectrogram_pass(l, &mut bufs, x.as_slice(), &win, out.as_mut_slice(), rows)
+             };
+             time_libs(&mut results, &mut libs, &mut f, &profile, (rows * n) as f64);
+         }
+@@ -323,7 +339,7 @@ pub fn run<T: ArenaFloat>(spec: &CellSpec, scenario: Scenario) -> Vec<LibResult>
+                     .map(|c| Complex::new(T::lit(c.re * k), T::lit(c.im * k)))
+                     .collect();
+                 let outcome = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+-                    overlap_save_pass(l, xpad.as_slice(), &h, y.as_mut_slice());
++                    overlap_save_pass(l, &mut bufs, xpad.as_slice(), &h, y.as_mut_slice());
+                     let got: Vec<f64> = y.as_slice()[..check]
+                         .iter()
+                         .flat_map(|c| [c.re.val(), c.im.val()])
+@@ -335,7 +351,7 @@ pub fn run<T: ArenaFloat>(spec: &CellSpec, scenario: Scenario) -> Vec<LibResult>
+                 hs.push(h);
+             }
+             let mut f = |i: usize, l: &mut Lib<T>| {
+-                overlap_save_pass(l, xpad.as_slice(), &hs[i], y.as_mut_slice());
++                overlap_save_pass(l, &mut bufs, xpad.as_slice(), &hs[i], y.as_mut_slice());
+             };
+             time_libs(
+                 &mut results,
+diff --git a/bench/arena/src/spec.rs b/bench/arena/src/spec.rs
+index 850d0e4..f479068 100644
+--- a/bench/arena/src/spec.rs
++++ b/bench/arena/src/spec.rs
+@@ -160,6 +160,10 @@ pub struct CellSpec {
+     pub batch: usize,
+     /// Byte offset from 64-byte alignment for all buffers (0 or 8).
+     pub misalign: usize,
++    /// Caller workspace reserved before planning in the timing child, in
++    /// complex elements. The driver sizes it outside the child process.
++    #[serde(default, skip_serializing_if = "Option::is_none")]
++    pub caller_scratch: Option<usize>,
+     /// `Some` for real-world scenario cells.
+     pub scenario: Option<Scenario>,
+     /// Library rows to run, e.g. `rustfft`, `phastft/split`, `fastfft/avx2`.
+@@ -281,6 +285,7 @@ fn fft_cells(
+                         n,
+                         batch: 1,
+                         misalign: o.misalign,
++                        caller_scratch: None,
+                         scenario: None,
+                         libs: o.libs.clone(),
+                         profile: o.profile.name.to_string(),
+@@ -358,6 +363,7 @@ pub fn suite_cells(suite: &str, o: &SuiteOptions) -> Result<Vec<CellSpec>, Strin
+                 n,
+                 batch: 1,
+                 misalign: o.misalign,
++                caller_scratch: None,
+                 scenario: Some(s),
+                 libs: o.libs.clone(),
+                 profile: o.profile.name.to_string(),
+@@ -418,6 +424,7 @@ pub fn control_cell(libs: &[String], profile: &Profile) -> CellSpec {
+         n: 4096,
+         batch: 1,
+         misalign: 0,
++        caller_scratch: None,
+         scenario: None,
+         libs: if control_libs.is_empty() {
+             vec!["rustfft".into()]
+diff --git a/crates/fastfft/README.md b/crates/fastfft/README.md
+index 02bbce4..e6d17b9 100644
+--- a/crates/fastfft/README.md
++++ b/crates/fastfft/README.md
+@@ -20,6 +20,37 @@ Transforms are unnormalized, with output in natural frequency order. A buffer
+ may contain consecutive transforms of the planned length. Mutable out-of-place
+ calls may overwrite their input; immutable calls preserve it.
+ 
++## Inspecting a plan
++
++`planner.describe_plan(n, direction)` describes the cached executable,
++creating it first if needed. It reports the engine, selected ISA tier,
++radices and caller scratch sizes in **complex elements**:
++
++- `scratch` is the in-place requirement; `scratch_oop` and
++  `scratch_immutable` cover the other placements.
++- Small leaves report their decomposition. Stockham reports its pass
++  radices and the final lane transform `L`. FourStep reports both panel
++  schedules as `radices=columns/rows`.
++- Bluestein reports its pointwise ISA and full workspace, with the
++  convolution FFT's description in `inner=[...]`. Its inner ISA can differ.
++- Identity plans have `radices=none` and zero scratch. A `batch` suffix
++  identifies the optional batch tier and radices; `batch_radices=fallback`
++  means it uses the main plan's FFT with streaming output copies.
++
++Descriptions are diagnostic text, not a stable serialization format.
++
++`PlannerOptions::with_mode(PlanMode::Measure { time_limit })` explores up to
++eight candidates, including Estimate. It compares aligned single transforms
++in all three placements, plus batches totaling 2^20 complex values for
++power-of-two lengths 8 through 1024. Alternating measurements use the same
++buffers for each candidate and Estimate, at three aligned buffer offsets.
++A candidate must improve both the
++minimum and median by at least 3% in every workload to replace Estimate;
++small differences and incomplete measurements keep the original plan.
++This conservative selection margin is separate from benchmark acceptance.
++The budget covers exploratory work, but an ongoing construction or FFT
++cannot be interrupted. A zero budget selects Estimate directly.
++
+ ## Alignment and scratch
+ 
+ **Prefer 64-byte-aligned input and output buffers for predictable performance.**
+diff --git a/crates/fastfft/src/engine/bluestein.rs b/crates/fastfft/src/engine/bluestein.rs
+index 07809df..d90b49b 100644
+--- a/crates/fastfft/src/engine/bluestein.rs
++++ b/crates/fastfft/src/engine/bluestein.rs
+@@ -55,6 +55,11 @@ fn pack<T: FftNum>(values: &[Complex<T>], lanes: usize) -> Vec<T> {
+ }
+ 
+ impl<T: FftNum> BluesteinPlan<T> {
++    /// Tier used by the chirp and pointwise passes; the inner FFT can differ.
++    pub(crate) fn isa(&self) -> Isa {
++        self.isa
++    }
++
+     pub(crate) fn new(n: usize, inner: Arc<dyn Fft<T>>, isa: Isa) -> Self {
+         let m = inner.len();
+         debug_assert!(m >= 2 * (n - 1));
+diff --git a/crates/fastfft/src/engine/small.rs b/crates/fastfft/src/engine/small.rs
+index 85f2993..b311663 100644
+--- a/crates/fastfft/src/engine/small.rs
++++ b/crates/fastfft/src/engine/small.rs
+@@ -622,6 +622,18 @@ pub(crate) fn interleaved_lanes(n: usize, isa: Isa, f64_: bool) -> usize {
+     }
+ }
+ 
++pub(crate) fn interleaved_decomposition(n: usize) -> (usize, usize) {
++    #[cfg(all(target_arch = "x86_64", feature = "avx2"))]
++    {
++        crate::isa::x86::interleaved::decomposition(n)
++    }
++    #[cfg(not(all(target_arch = "x86_64", feature = "avx2")))]
++    {
++        let _ = n;
++        unreachable!("no interleaved leaves compiled")
++    }
++}
++
+ /// Interleaved-complex leaves: powers of two and selected small smooth sizes,
+ /// with AVX2 and AVX-512VL entries. AVX-512 adds zmm candidates for f64 and
+ /// the f32 N=128 leaf. The builder owns the supported size/tier combinations.
+diff --git a/crates/fastfft/src/isa/x86/interleaved.rs b/crates/fastfft/src/isa/x86/interleaved.rs
+index 5ac8554..c432b51 100644
+--- a/crates/fastfft/src/isa/x86/interleaved.rs
++++ b/crates/fastfft/src/isa/x86/interleaved.rs
+@@ -893,6 +893,16 @@ const fn rows(n: usize) -> usize {
+     }
+ }
+ 
++/// Top-level leaf stages. Register width is not a radix: the 64/128/256
++/// leaves have multiple columns per register row.
++pub(crate) const fn decomposition(n: usize) -> (usize, usize) {
++    match n {
++        2 | 4 | 9 => (n, 1),
++        6 => (3, 2),
++        _ => (rows(n), n / rows(n)),
++    }
++}
++
+ /// Offset of the broadcast ω16, ω16³, ω16⁹ rows used by radix-16 stages:
+ /// 4·lanes scalars for each of the (rows - 1)·n/rows/lanes first-stage rows.
+ const fn broadcast(n: usize) -> usize {
+diff --git a/crates/fastfft/src/measure.rs b/crates/fastfft/src/measure.rs
+index edef3ff..628b034 100644
+--- a/crates/fastfft/src/measure.rs
++++ b/crates/fastfft/src/measure.rs
+@@ -1,48 +1,366 @@
+-//! `PlanMode::Measure`: time the best predicted candidates and keep the fastest.
++//! Measure candidates against Estimate on identical public execution paths.
+ 
+-use crate::api::{FftDirection, FftNum};
++use crate::api::{Fft, FftDirection, FftNum};
++use crate::isa::Isa;
+ use crate::planner::{Candidate, build_candidate};
+ use num_complex::Complex;
++use std::sync::Arc;
+ use std::time::{Duration, Instant};
+ 
+-/// Candidates timed per plan (always including the `Estimate` choice, which
+-/// is first in the list).
++/// The first candidate is always the actual Estimate choice.
+ const MAX_CANDIDATES: usize = 8;
++const ROUNDS: usize = 7;
++const MIN_SAMPLE: Duration = Duration::from_micros(50);
++/// Close calls keep Estimate. The margin protects against timing noise and
++/// placement tradeoffs; it does not relax the external 2% regression gate.
++const PROMOTION_RATIO: f64 = 0.97;
++const PLACEMENT_BYTES: usize = 4096;
++const OFFSETS: [[usize; 3]; 3] = [[0, 0, 0], [1024, 2048, 3072], [2048, 3072, 1024]];
+ 
++type Choice<T> = (Candidate, Arc<dyn Fft<T>>);
++
++#[derive(Clone, Copy, Debug)]
++enum Placement {
++    InPlace,
++    OutOfPlace,
++    Immutable,
++}
++
++impl Placement {
++    fn scratch<T: FftNum>(self, fft: &dyn Fft<T>) -> usize {
++        match self {
++            Self::InPlace => fft.get_inplace_scratch_len(),
++            Self::OutOfPlace => fft.get_outofplace_scratch_len(),
++            Self::Immutable => fft.get_immutable_scratch_len(),
++        }
++    }
++}
++
++const PLACEMENTS: [Placement; 3] = [
++    Placement::InPlace,
++    Placement::OutOfPlace,
++    Placement::Immutable,
++];
++
++struct Buffers<T> {
++    input: Vec<Complex<T>>,
++    output: Vec<Complex<T>>,
++    scratch: Vec<Complex<T>>,
++    offsets: [usize; 3],
++}
++
++impl<T: FftNum> Buffers<T> {
++    fn new(len: usize) -> Self {
++        let zero = Complex::new(T::zero(), T::zero());
++        let count =
++            len + crate::fft::align_slack::<T>() + PLACEMENT_BYTES / size_of::<Complex<T>>();
++        Self {
++            input: vec![zero; count],
++            output: vec![zero; count],
++            scratch: Vec::new(),
++            offsets: [0; 3],
++        }
++    }
++
++    fn reserve_scratch(&mut self, a: &dyn Fft<T>, b: &dyn Fft<T>) {
++        let need = PLACEMENTS
++            .iter()
++            .map(|p| p.scratch(a).max(p.scratch(b)))
++            .max()
++            .unwrap();
++        self.scratch.resize(
++            need + crate::fft::align_slack::<T>() + PLACEMENT_BYTES / size_of::<Complex<T>>(),
++            Complex::new(T::zero(), T::zero()),
++        );
++    }
++
++    fn sample(
++        &mut self,
++        fft: &dyn Fft<T>,
++        len: usize,
++        placement: Placement,
++        calls: usize,
++    ) -> Duration {
++        let [i, o, s] = self.offsets;
++        let input = &mut crate::scratch::aligned(&mut self.input)[i..i + len];
++        let output = &mut crate::scratch::aligned(&mut self.output)[o..o + len];
++        let scratch =
++            &mut crate::scratch::aligned(&mut self.scratch)[s..s + placement.scratch(fft)];
++        let start = Instant::now();
++        match placement {
++            Placement::InPlace => {
++                for _ in 0..calls {
++                    fft.process_with_scratch(input, scratch);
++                }
++            }
++            Placement::OutOfPlace => {
++                for _ in 0..calls {
++                    fft.process_outofplace_with_scratch(input, output, scratch);
++                }
++            }
++            Placement::Immutable => {
++                for _ in 0..calls {
++                    fft.process_immutable_with_scratch(input, output, scratch);
++                }
++            }
++        }
++        start.elapsed()
++    }
++
++    fn calibrate(
++        &mut self,
++        fft: &dyn Fft<T>,
++        len: usize,
++        placement: Placement,
++        budget: &Budget,
++    ) -> Option<usize> {
++        let mut calls = 1;
++        loop {
++            if budget.expired() {
++                return None;
++            }
++            let elapsed = self.sample(fft, len, placement, calls);
++            if elapsed >= MIN_SAMPLE || calls == 1 << 20 {
++                return Some(calls);
++            }
++            calls *= 2;
++        }
++    }
++}
++
++struct Budget {
++    start: Instant,
++    limit: Duration,
++}
++impl Budget {
++    fn expired(&self) -> bool {
++        self.start.elapsed() >= self.limit
++    }
++}
++
++#[derive(Clone, Copy, Debug)]
++struct Statistics {
++    best: f64,
++    median: f64,
++}
++impl Statistics {
++    fn from_samples(mut samples: [f64; ROUNDS]) -> Self {
++        samples.sort_by(f64::total_cmp);
++        Self {
++            best: samples[0],
++            median: samples[ROUNDS / 2],
++        }
++    }
++    fn ratio(self, baseline: Self) -> f64 {
++        (self.best / baseline.best).max(self.median / baseline.median)
++    }
++}
++
++/// Returns a score only after every workload has complete, improving data.
++fn improvement(samples: &[(Statistics, Statistics)], expected: usize) -> Option<f64> {
++    if samples.len() != expected || expected == 0 {
++        return None;
++    }
++    let mut worst = 0.0f64;
++    for &(baseline, contender) in samples {
++        let ratio = contender.ratio(baseline);
++        if !ratio.is_finite() || ratio <= 0.0 || ratio > PROMOTION_RATIO {
++            return None;
++        }
++        worst = worst.max(ratio);
++    }
++    Some(worst)
++}
++
++fn compare<T: FftNum>(
++    baseline: &dyn Fft<T>,
++    contender: &dyn Fft<T>,
++    buffers: &mut Buffers<T>,
++    lengths: &[usize],
++    budget: &Budget,
++) -> Option<f64> {
++    let mut results = Vec::new();
++    let trace = std::env::var_os("FASTFFT_MEASURE_TRACE").is_some();
++    let warm_calls: usize = std::env::var("FASTFFT_MEASURE_WARM_CALLS")
++        .ok().and_then(|s| s.parse().ok()).unwrap_or(0);
++    // A plan must win at several page offsets, not just one accidental
++    // alias between the caller buffers, scratch and coefficient tables.
++    for offsets in OFFSETS {
++        buffers.offsets = offsets.map(|bytes| bytes / size_of::<Complex<T>>());
++        for &len in lengths {
++            for placement in PLACEMENTS {
++                let plans = [baseline, contender];
++                let calls = [
++                    buffers.calibrate(baseline, len, placement, budget)?,
++                    buffers.calibrate(contender, len, placement, budget)?,
++                ];
++                let mut samples = [[0.0; 2]; ROUNDS];
++                for (round, pair) in samples.iter_mut().enumerate() {
++                    // Alternation reduces clock and cache-order bias. Both plans
++                    // see the same aligned input/output and scratch addresses.
++                    for offset in 0..2 {
++                        if budget.expired() {
++                            return None;
++                        }
++                        let index = (round + offset) % 2;
++                        if warm_calls > 0 {
++                            buffers.sample(plans[index], len, placement, warm_calls);
++                        }
++                        pair[index] = buffers
++                            .sample(plans[index], len, placement, calls[index])
++                            .as_secs_f64()
++                            / calls[index] as f64;
++                    }
++                }
++                if trace {
++                    eprintln!("[DEBUG-ticket19] len={len} placement={placement:?} offsets={offsets:?} calls={calls:?} warm_calls={warm_calls} samples={samples:?}");
++                }
++                results.push((
++                    Statistics::from_samples(samples.map(|pair| pair[0])),
++                    Statistics::from_samples(samples.map(|pair| pair[1])),
++                ));
++                // A losing workload already disqualifies this candidate.
++                improvement(&results, results.len())?;
++            }
++        }
++    }
++    improvement(&results, OFFSETS.len() * lengths.len() * PLACEMENTS.len())
++}
++
++/// `baseline` is the complete public plan, including its batch wrapper.
++/// Return that same executable if no contender earns promotion.
+ pub(crate) fn pick<T: FftNum>(
+     len: usize,
+     dir: FftDirection,
++    isa: Isa,
++    baseline: Arc<dyn Fft<T>>,
+     cands: &[Candidate],
+     limit: Duration,
+-) -> Option<Candidate> {
++) -> Option<Choice<T>> {
+     let cands = &cands[..cands.len().min(MAX_CANDIDATES)];
+-    if cands.len() <= 1 {
+-        return cands.first().cloned();
+-    }
+-    let per = limit / cands.len() as u32;
+-    let mut best: Option<(f64, &Candidate)> = None;
+-    for c in cands {
+-        let imp = build_candidate::<T>(len, dir, c);
+-        let mut buf = vec![Complex::new(T::zero(), T::zero()); len];
+-        let mut scratch = vec![Complex::new(T::zero(), T::zero()); imp.get_inplace_scratch_len()];
+-        // warm up, then take the minimum over short batches
+-        let start = Instant::now();
+-        let mut min = f64::INFINITY;
+-        let mut calls = 1usize;
+-        while start.elapsed() < per || min.is_infinite() {
+-            let t = Instant::now();
+-            for _ in 0..calls {
+-                imp.process_with_scratch(&mut buf, &mut scratch);
+-            }
+-            let dt = t.elapsed().as_secs_f64() / calls as f64;
+-            min = min.min(dt);
+-            if t.elapsed() < Duration::from_micros(20) {
+-                calls *= 2;
+-            }
++    let incumbent = cands.first()?.clone();
++    let start = Instant::now();
++    // Retain the original plan rather than rebuilding after exploratory
++    // allocations, which can change table placement even when Estimate wins.
++    let mut chosen = (incumbent, Arc::clone(&baseline));
++    if cands.len() == 1 || start.elapsed() >= limit {
++        return Some(chosen);
++    }
++    let timed_baseline = baseline;
++    let mut lengths = vec![len];
++    if (8..=1024).contains(&len) && len.is_power_of_two() {
++        // Exercise the public batch wrapper and its streaming crossover.
++        lengths.push(1 << 20);
++    }
++    let mut buffers = Buffers::new(*lengths.last().unwrap());
++    let mut best = 1.0;
++    for (index, candidate) in cands.iter().enumerate().skip(1) {
++        let Some(remaining) = limit.checked_sub(start.elapsed()) else {
++            break;
++        };
++        let budget = Budget {
++            start: Instant::now(),
++            limit: remaining / (cands.len() - index) as u32,
++        };
++        if std::env::var_os("FASTFFT_MEASURE_TRACE").is_some() {
++            eprintln!("[DEBUG-ticket19] candidate={index} len={len} dir={dir:?} choice={candidate:?}");
++        }
++        let fft = crate::engine::batch::wrap(build_candidate::<T>(len, dir, candidate), isa).0;
++        buffers.reserve_scratch(timed_baseline.as_ref(), fft.as_ref());
++        if let Some(score) = compare(
++            timed_baseline.as_ref(),
++            fft.as_ref(),
++            &mut buffers,
++            &lengths,
++            &budget,
++        ) && score < best
++        {
++            best = score;
++            chosen = (candidate.clone(), fft);
++        }
++    }
++    Some(chosen)
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++
++    fn stats(best: f64, median: f64) -> Statistics {
++        Statistics { best, median }
++    }
++
++    #[test]
++    fn promotion_requires_both_statistics_and_every_workload() {
++        let good = (stats(100.0, 100.0), stats(90.0, 90.0));
++        assert_eq!(improvement(&[good; 6], 6), Some(0.9));
++        for bad in [stats(103.0, 90.0), stats(90.0, 103.0), stats(99.0, 99.0)] {
++            let mut samples = [good; 6];
++            // A batch/immutable loss cannot be hidden by a fast in-place FFT.
++            samples[5].1 = bad;
++            assert_eq!(improvement(&samples, 6), None);
++        }
++        assert_eq!(improvement(&[good; 5], 6), None);
++        assert_eq!(improvement(&[], 0), None);
++    }
++
++    #[test]
++    fn zero_budget_retains_estimate() {
++        let isa = crate::isa::effective_isa(None);
++        let cands = crate::planner::candidates(64, isa, false);
++        let baseline = crate::engine::batch::wrap(
++            build_candidate::<f32>(64, FftDirection::Forward, &cands[0]),
++            isa,
++        )
++        .0;
++        let (chosen, fft) = pick::<f32>(
++            64,
++            FftDirection::Forward,
++            isa,
++            Arc::clone(&baseline),
++            &cands,
++            Duration::ZERO,
++        )
++        .unwrap();
++        assert!(Arc::ptr_eq(&fft, &baseline));
++        assert_eq!(chosen.kernel, cands[0].kernel);
++        assert_eq!(chosen.shape, cands[0].shape);
++        assert_eq!(chosen.radices, cands[0].radices);
++        assert_eq!(fft.len(), 64);
++    }
++
++    #[test]
++    fn measurement_can_promote_a_faster_public_plan() {
++        let isa = crate::isa::effective_isa(None);
++        if isa < Isa::Avx2 {
++            return;
+         }
+-        if best.is_none_or(|(b, _)| min < b) {
+-            best = Some((min, c));
++        let slow = crate::planner::estimate(4096, Isa::Scalar, false).unwrap();
++        let fast = crate::planner::estimate(4096, isa, false).unwrap();
++        if fast.shape.isa == Isa::Scalar {
++            return;
+         }
++        let (chosen, fft) = pick::<f32>(
++            4096,
++            FftDirection::Forward,
++            isa,
++            build_candidate::<f32>(4096, FftDirection::Forward, &slow),
++            &[slow, fast.clone()],
++            Duration::from_secs(1),
++        )
++        .unwrap();
++        assert_eq!(chosen.kernel, fast.kernel);
++        assert_eq!(chosen.shape, fast.shape);
++        assert_eq!(chosen.radices, fast.radices);
++        // The returned executable, not a subsequently reconstructed candidate,
++        // must implement the selected transform correctly.
++        let mut input = vec![Complex::new(0.0f32, 0.0); 4096];
++        input[0].re = 1.0;
++        fft.process(&mut input);
++        assert!(
++            input
++                .iter()
++                .all(|x| (x.re - 1.0).abs() < 1e-5 && x.im.abs() < 1e-5)
++        );
+     }
+-    best.map(|(_, c)| c.clone())
+ }
+diff --git a/crates/fastfft/src/planner.rs b/crates/fastfft/src/planner.rs
+index 7c44e80..d6b9104 100644
+--- a/crates/fastfft/src/planner.rs
++++ b/crates/fastfft/src/planner.rs
+@@ -17,10 +17,14 @@ pub enum PlanMode {
+     /// Pick the plan with the lowest predicted cost (fast, deterministic).
+     #[default]
+     Estimate,
+-    /// Time the best predicted candidates for up to `time_limit` and keep
+-    /// the fastest.
++    /// Compare up to eight candidates with Estimate using aligned buffers,
++    /// all three placements, and representative batches for small powers of
++    /// two. Keep Estimate unless another candidate clearly improves every
++    /// measured workload. Choices are cached just like Estimate plans.
+     Measure {
+-        /// Total time budget for measuring candidates of one plan.
++        /// Search budget for one plan. Zero selects Estimate. An in-progress
++        /// construction or transform cannot be interrupted; a short budget
++        /// can leave too few complete measurements to change the choice.
+         time_limit: Duration,
+     },
+ }
+@@ -67,7 +71,7 @@ struct CachedPlan<T: FftNum> {
+ enum Description {
+     Identity,
+     Candidate(Candidate),
+-    Bluestein { m: usize },
++    Bluestein { m: usize, isa: Isa },
+ }
+ 
+ impl<T: FftNum> std::fmt::Debug for FftPlanner<T> {
+@@ -315,8 +319,15 @@ impl<T: FftNum> FftPlanner<T> {
+         self.plan_fft(len, FftDirection::Inverse)
+     }
+ 
+-    /// Describes the plan chosen for `len`, e.g.
+-    /// `stockham avx512-ymm L=8 radices=8x8x8 scratch=4104`.
++    /// Describes the cached plan's engine, actual ISA, radix decomposition and
++    /// scratch requirements in complex elements. `scratch` is in-place;
++    /// `scratch_oop` and `scratch_immutable` describe the other placements.
++    /// Stockham's `radices` are followed by its lane transform (`L`). FourStep
++    /// lists the two panel schedules separated by `/`. Bluestein reports its
++    /// pointwise ISA and includes the inner FFT's complete description.
++    ///
++    /// Creates the plan if necessary. The human-readable format is diagnostic
++    /// and may be extended; it is not a stable serialization format.
+     pub fn describe_plan(&mut self, len: usize, direction: FftDirection) -> String {
+         self.plan_impl(len, direction);
+         self.describe_cached(len, direction)
+@@ -324,42 +335,71 @@ impl<T: FftNum> FftPlanner<T> {
+ 
+     fn describe_cached(&self, len: usize, dir: FftDirection) -> String {
+         let p = &self.cache[&(len, dir)];
+-        let scratch = p.fft.get_inplace_scratch_len();
++        let scratch = format!(
++            "scratch={} scratch_oop={} scratch_immutable={}",
++            p.fft.get_inplace_scratch_len(),
++            p.fft.get_outofplace_scratch_len(),
++            p.fft.get_immutable_scratch_len(),
++        );
++        let radices = |rs: &[usize]| {
++            if rs.is_empty() {
++                "none".to_string()
++            } else {
++                rs.iter()
++                    .map(usize::to_string)
++                    .collect::<Vec<_>>()
++                    .join("x")
++            }
++        };
+         let mut text = match &p.description {
+-            Description::Identity => format!("identity n={len}"),
+-            Description::Bluestein { m } => format!(
+-                "bluestein n={len} m={m} inner=[{}]",
++            Description::Identity => format!("identity scalar n={len} radices=none {scratch}"),
++            Description::Bluestein { m, isa } => format!(
++                "bluestein {isa} n={len} m={m} radices=inner {scratch} inner=[{}]",
+                 self.describe_cached(*m, FftDirection::Forward)
+             ),
+             Description::Candidate(c) if c.kernel.is_small() => {
+                 let (a, b) = if c.kernel == CandidateKernel::RectangularSmall {
+                     (c.radices[0], c.radices[1])
++                } else if c.kernel == CandidateKernel::InterleavedSmall {
++                    small::interleaved_decomposition(len)
+                 } else {
+                     (len / c.shape.lanes, c.shape.lanes)
+                 };
+                 format!(
+-                    "small {} n={len} decomposition={a}x{b} scratch={scratch} kernel={}",
++                    "small {} n={len} decomposition={a}x{b} radices={a}x{b} {scratch} kernel={}",
+                     c.shape.isa,
+                     c.kernel.name()
+                 )
+             }
+             Description::Candidate(c) if c.kernel == CandidateKernel::FourStep => format!(
+-                "fourstep {} split L={} decomposition={}x{} scratch={scratch}",
+-                c.shape.isa, c.shape.lanes, c.radices[0], c.radices[1]
++                "fourstep {} split L={} decomposition={}x{} radices={}/{} {scratch}",
++                c.shape.isa,
++                c.shape.lanes,
++                c.radices[0],
++                c.radices[1],
++                radices(&choose_radices(c.radices[0], 8).expect("smooth panel")),
++                radices(&choose_radices(c.radices[1], 8).expect("smooth panel")),
+             ),
+             Description::Candidate(c) => format!(
+-                "stockham {} split L={} radices={} scratch={scratch}",
++                "stockham {} split L={} radices={} {scratch}",
+                 c.shape.isa,
+                 c.shape.lanes,
+-                c.radices
+-                    .iter()
+-                    .map(usize::to_string)
+-                    .collect::<Vec<_>>()
+-                    .join("x")
++                radices(&c.radices)
+             ),
+         };
+         if let Some(shape) = p.batch {
+-            text.push_str(&format!(" batch={} lanes={}", shape.isa, shape.lanes));
++            let stages = if len == 8 {
++                "8".to_string()
++            } else if len <= 256 {
++                let (a, b) = small::interleaved_decomposition(len);
++                format!("{a}x{b}")
++            } else {
++                "fallback".to_string()
++            };
++            text.push_str(&format!(
++                " batch={} lanes={} batch_radices={stages}",
++                shape.isa, shape.lanes
++            ));
+         }
+         text
+     }
+@@ -368,10 +408,7 @@ impl<T: FftNum> FftPlanner<T> {
+         if let Some(p) = self.cache.get(&(len, dir)) {
+             return Arc::clone(&p.fft);
+         }
+-        let mut plan = self.build(len, dir);
+-        let (fft, batch_shape) = crate::engine::batch::wrap(plan.fft, self.isa);
+-        plan.fft = fft;
+-        plan.batch = batch_shape;
++        let plan = self.build(len, dir);
+         let fft = Arc::clone(&plan.fft);
+         self.cache.insert((len, dir), plan);
+         fft
+@@ -387,29 +424,36 @@ impl<T: FftNum> FftPlanner<T> {
+         }
+ 
+         let f64_ = T::precision() == Precision::F64;
+-        if is_smooth(len) {
+-            let chosen = match self.options.mode {
+-                PlanMode::Estimate => estimate(len, self.isa, f64_),
+-                PlanMode::Measure { time_limit } => {
+-                    let cands = candidates(len, self.isa, f64_);
+-                    crate::measure::pick::<T>(len, dir, &cands, time_limit)
+-                }
++        if is_smooth(len)
++            && let Some(c) = estimate(len, self.isa, f64_)
++        {
++            // Construct the incumbent before exploratory allocations.
++            // Even an unchanged recipe can otherwise acquire different
++            // coefficient placement and lose to the Estimate executable.
++            let (fft, batch) = crate::engine::batch::wrap(build_candidate(len, dir, &c), self.isa);
++            let (c, fft) = if let PlanMode::Measure { time_limit } = self.options.mode
++                && !time_limit.is_zero()
++            {
++                let cands = candidates(len, self.isa, f64_);
++                crate::measure::pick::<T>(len, dir, self.isa, fft, &cands, time_limit)
++                    .expect("Estimate is included")
++            } else {
++                (c, fft)
++            };
++            return CachedPlan {
++                fft,
++                description: Description::Candidate(c),
++                batch,
+             };
+-            if let Some(c) = chosen {
+-                return CachedPlan {
+-                    fft: build_candidate(len, dir, &c),
+-                    description: Description::Candidate(c),
+-                    batch: None,
+-                };
+-            }
+         }
+         // Bluestein over a fast inner length.
+         let m = bluestein_inner(len, self.isa, f64_);
+         let inner = self.plan_impl(m, FftDirection::Forward);
+         let b = BluesteinPlan::new(len, inner, self.isa);
++        let isa = b.isa();
+         CachedPlan {
+             fft: Arc::new(FftImpl::new(len, dir, Kernel::Bluestein(b))),
+-            description: Description::Bluestein { m },
++            description: Description::Bluestein { m, isa },
+             batch: None,
+         }
+     }
+@@ -664,6 +708,119 @@ mod cache_tests {
+     use super::*;
+     use crate::isa::cache::CacheSizes;
+ 
++    #[test]
++    fn descriptions_cover_candidate_engines_without_dispatch_assumptions() {
++        fn check<T: FftNum>() {
++            let isa = effective_isa(None);
++            let f64_ = T::precision() == Precision::F64;
++            let mut forced = vec![
++                (
++                    3,
++                    Candidate {
++                        kernel: CandidateKernel::GenericSmall,
++                        shape: Shape {
++                            isa: Isa::Scalar,
++                            lanes: 1,
++                        },
++                        radices: vec![3],
++                        cost: 0.0,
++                    },
++                    "small scalar n=3 decomposition=3x1 radices=3x1",
++                ),
++                (
++                    256,
++                    Candidate {
++                        kernel: CandidateKernel::Stockham,
++                        shape: Shape {
++                            isa: Isa::Scalar,
++                            lanes: 1,
++                        },
++                        radices: vec![16, 16],
++                        cost: 0.0,
++                    },
++                    "stockham scalar split L=1 radices=16x16",
++                ),
++                (
++                    48,
++                    Candidate {
++                        kernel: CandidateKernel::FourStep,
++                        shape: Shape {
++                            isa: Isa::Scalar,
++                            lanes: 1,
++                        },
++                        radices: vec![6, 8],
++                        cost: 0.0,
++                    },
++                    "fourstep scalar split L=1 decomposition=6x8 radices=6/8",
++                ),
++            ];
++            for n in [2, 4, 6, 8, 9, 16, 18, 24, 32, 36, 48, 64, 128, 256] {
++                for shape in small::interleaved_shapes(n, isa, f64_) {
++                    forced.push((
++                        n,
++                        Candidate {
++                            kernel: CandidateKernel::InterleavedSmall,
++                            shape,
++                            radices: vec![n / shape.lanes],
++                            cost: 0.0,
++                        },
++                        "small",
++                    ));
++                }
++            }
++            for c in small::rectangular_candidates(48, isa, f64_) {
++                forced.push((48, c, "small"));
++            }
++            for (n, c, prefix) in forced {
++                for dir in [FftDirection::Forward, FftDirection::Inverse] {
++                    let fft = build_candidate::<T>(n, dir, &c);
++                    let mut p = FftPlanner::<T>::new();
++                    p.cache.insert(
++                        (n, dir),
++                        CachedPlan {
++                            fft: Arc::clone(&fft),
++                            description: Description::Candidate(c.clone()),
++                            batch: None,
++                        },
++                    );
++                    let text = p.describe_plan(n, dir);
++                    assert!(text.starts_with(prefix), "{text}");
++                    assert!(text.contains("radices="), "{text}");
++                    if c.kernel.is_small() {
++                        assert!(
++                            text.contains(&format!("kernel={}", c.kernel.name())),
++                            "{text}"
++                        );
++                    }
++                    if c.kernel == CandidateKernel::InterleavedSmall {
++                        let expected = match n {
++                            64 => Some("radices=8x8"),
++                            128 => Some("radices=8x16"),
++                            256 => Some("radices=16x16"),
++                            _ => None,
++                        };
++                        if let Some(expected) = expected {
++                            assert!(text.split_whitespace().any(|x| x == expected), "{text}");
++                        }
++                    }
++                    for (name, need) in [
++                        ("scratch", fft.get_inplace_scratch_len()),
++                        ("scratch_oop", fft.get_outofplace_scratch_len()),
++                        ("scratch_immutable", fft.get_immutable_scratch_len()),
++                    ] {
++                        assert!(
++                            text.split_whitespace()
++                                .any(|x| x == format!("{name}={need}")),
++                            "{text}"
++                        );
++                    }
++                }
++            }
++        }
++        check::<f32>();
++        check::<f64>();
++    }
++
+     #[test]
+     fn cache_sizes_move_both_candidate_and_estimate_boundaries() {
+         let isa = effective_isa(None);
+diff --git a/docs/benchmarking.md b/docs/benchmarking.md
+index 734e616..ffb55f3 100644
+--- a/docs/benchmarking.md
++++ b/docs/benchmarking.md
+@@ -76,7 +76,17 @@ alignment (× scenario).
+    `bench-env.sh check` requires them idle. Each child has a 600 s timeout.
+ 2. **Planning:** every library is planned; planning time is recorded (the
+    minimum of five fresh plans for the cheap planners, fastfft `Estimate` and
+-   rustfft).
++   rustfft). The fastfft and RustFFT runners sharing a cell's buffers also
++   share aligned caller scratch, grown during planning to the largest reported
++   requirement. This prevents per-row workspace placement from depending on
++   temporary planner allocations. The parent driver sizes this workspace
++   using Estimate/RustFFT, and the fresh child reserves it before measured
++   planning begins; an actual plan can grow it if its selected engine needs
++   more. Each saved cell specification includes `caller_scratch` in complex
++   elements. Legacy direct `run-cell` specifications without that field size
++   scratch lazily. Realworld scenarios likewise share caller
++   buffers between libraries and retain the forward runners created during
++   planning; overlap-save additionally constructs each inverse runner.
+ 3. **Correctness:** every library transforms seeded random input and is
+    compared with the testkit reference: the double-double mixed-radix FFT for
+    N ≤ 2^20, and rustfft in f64 plus a forward-then-inverse roundtrip above
+@@ -103,10 +113,18 @@ alignment (× scenario).
+    cannot set; the small-N gate uses it in place of best), *median*, 10th and
+    90th percentiles. Times are per transform (per-call time ÷ batch count).
+    With `--procs K` each cell runs in K child processes, and each library keeps
+-   the process with its lowest p1.
+-8. **Drift control:** before the first cell, every 25 cells, and at the end,
++   the process with its lowest p1. Library construction order rotates across
++   processes to vary allocator context fairly. Choose K as a multiple of the
++   number of libraries for equal exposure to every position (for example,
++   four processes for two rows). `env.json` records `process_order: rotating`;
++   older runs used a fixed construction order. Every child result is retained
++   in `trials.jsonl`, including its actual library order and verification.
++8. **Drift control:** a dependent-register addition probe measures the core
++   clock before and after each cell. Before the first cell, every 25 cells,
++   and at the end,
+    the driver re-runs a control cell (f32 forward in-place N = 4096 with
+-   fastfft and rustfft). A change of more than 3% against the first control
++   fastfft and rustfft when available). A clock change of more than 3%
++   against the first control
+    flags the run; more than 10% aborts it.
+ 
+ | Profile | Warm-up | Rounds | Turn | Cells |
+@@ -145,6 +163,7 @@ release-gate table (G1–G8) whenever fastfft rows are present.
+ A run writes `target/arena/runs/<UTC>-<host>[-label]/`:
+ 
+ - `results.jsonl`: one JSON object per cell (plus control cells);
++- `trials.jsonl`: every individual child process before best-of-K merging;
+ - `env.json`: CPU model/family/stepping/microcode/flags/caches, governor,
+   energy-performance preference, boost, SMT, kernel, virtualization, AC
+   power, pinned core and siblings, `rustc -vV`, build profile and RUSTFLAGS,
+@@ -155,7 +174,7 @@ A run writes `target/arena/runs/<UTC>-<host>[-label]/`:
+ 
+ `arena compare A B` prints per-cell ratios and per-suite geomeans for spotting
+ regressions. `arena publish <run> --label L` copies the report, plots,
+-`env.json`, `meta.json` and the gzipped JSONL to
++`env.json`, `meta.json` and both gzipped JSONL files to
+ `docs/benchmarks/<date>-<host>-<label>/`.
+ 
+ ## Accuracy
+@@ -251,7 +270,9 @@ screening samples.
+ 
+ For each candidate/placement the process with the lowest p1 supplies both p1
+ and median. By default a recipe minimizes the in-place slowdown on both
+-metrics, matching the existing Measure planner. `--objective all` instead
++metrics. This is the objective chosen for the ticket 18 Estimate table;
++Measure additionally protects the other placements and representative
++batches when selecting a replacement. `--objective all` instead
+ minimizes the worst slowdown across all three placements. The output always
+ retains all-placement regressions; some lengths have no single candidate
+ within 3% in every placement. Untabulated lengths retain the established

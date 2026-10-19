@@ -1,0 +1,45 @@
+{
+  "acceptance": false,
+  "case": "smooth:f32:inv:ip:n96",
+  "raw_ordinary_trials": 8,
+  "raw_controls": 16,
+  "meta": {
+    "aborted": null,
+    "cells": 1,
+    "child_failures": 0,
+    "drift_flag": false,
+    "elapsed_s": 99.933188707,
+    "max_drift": 0.006870669441670696,
+    "official": false
+  },
+  "ratio_p1": 1.0010376789823812,
+  "chosen_indices": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+  ],
+  "slower_promotions": [
+    {
+      "process": 6,
+      "ratio_p1": 1.0273675849708594,
+      "chosen_index": 1
+    }
+  ],
+  "planning_problems": [],
+  "running_quiet_samples": 20,
+  "dirty_running_samples": 0,
+  "restoration": true,
+  "provenance": {
+    "executable": "target/ticket19/selection-fix/caller-controls/fastfft-arena",
+    "sha256": "1a913859ef19a13cda01f63f93611b42d25bd7225fc173d33cdf7592658a445f",
+    "build_command": "RUSTFLAGS='-C llvm-args=-align-all-functions=6' cargo build -j 1 --profile arena -p fastfft-arena --features measure-diagnostics",
+    "source_files": 83,
+    "source_hashes_match": true,
+    "acceptance": false
+  }
+}

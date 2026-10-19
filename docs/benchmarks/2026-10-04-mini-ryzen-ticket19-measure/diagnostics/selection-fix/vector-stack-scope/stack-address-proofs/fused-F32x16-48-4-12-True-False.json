@@ -1,0 +1,196 @@
+{
+  "assembly": "/home/ianhersom/repo/fastfft/target/ticket19/selection-fix/vector-stack-scope/all-fused-inventory-current/F32x16-48-4-12-true-false.asm",
+  "instructions": 395,
+  "reachable_instructions": 395,
+  "iterations": 395,
+  "jump_tables": [],
+  "unsupported_control_flow": [],
+  "local_vector_memory_checks": [
+    {
+      "address": "0xa657e8",
+      "instruction": "vmovaps ZMMWORD PTR [rsp+0x80],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65824",
+      "instruction": "vmovaps ZMMWORD PTR [rsp+0xc0],zmm1",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65958",
+      "instruction": "vmovaps ZMMWORD PTR [rsp+0x40],zmm0",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65b14",
+      "instruction": "vmovaps zmm5,ZMMWORD PTR [rsp+0x80]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65b46",
+      "instruction": "vmovaps ZMMWORD PTR [rsp+0x100],zmm4",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65b72",
+      "instruction": "vmovaps zmm2,ZMMWORD PTR [rsp+0xc0]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65b92",
+      "instruction": "vmovaps ZMMWORD PTR [rsp+0x180],zmm4",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65bc4",
+      "instruction": "vmovaps ZMMWORD PTR [rsp+0x1c0],zmm7",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65c02",
+      "instruction": "vmovaps zmm7,ZMMWORD PTR [rsp+0x40]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65c34",
+      "instruction": "vmovaps ZMMWORD PTR [rsp+0x140],zmm21",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65c78",
+      "instruction": "vmovaps ZMMWORD PTR [rsp+0x80],zmm13",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65c8c",
+      "instruction": "vmovaps ZMMWORD PTR [rsp+0xc0],zmm17",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65cda",
+      "instruction": "vmovaps ZMMWORD PTR [rsp+0x40],zmm27",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65d0a",
+      "instruction": "vmovaps zmm1,ZMMWORD PTR [rsp+0x100]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65dee",
+      "instruction": "vmovaps zmm4,ZMMWORD PTR [rsp+0x140]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65dfb",
+      "instruction": "vmovaps zmm6,ZMMWORD PTR [rsp+0x180]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65e03",
+      "instruction": "vsubps xmm6,xmm6,XMMWORD PTR [rsp+0x1c0]",
+      "bytes": 16,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65e7d",
+      "instruction": "vmovaps zmm9,ZMMWORD PTR [rsp+0x80]",
+      "bytes": 64,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65e85",
+      "instruction": "vaddps ymm9,ymm9,YMMWORD PTR [rsp+0xc0]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0xa65e8e",
+      "instruction": "vaddps xmm3,xmm3,XMMWORD PTR [rsp+0x40]",
+      "bytes": 16,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    }
+  ],
+  "unproved_local_vector_memory": [],
+  "unresolved_stack_pointer_stores": [],
+  "derived_scalar_stack_loads_to_review": [],
+  "calls_with_stack_arguments_to_review": [],
+  "passed": true,
+  "limitations": "Low-bit/alias model covers recorded instruction families; review transfer semantics and all unsupported constructs. Caller-clobbered registers lose aliases; RAX conservatively may return an argument-derived stack alias. Escaping stack-pointer stores fail; source review must establish that local-array copying calls do not introduce pointer values into vector storage. Does not prove arithmetic equivalence."
+}

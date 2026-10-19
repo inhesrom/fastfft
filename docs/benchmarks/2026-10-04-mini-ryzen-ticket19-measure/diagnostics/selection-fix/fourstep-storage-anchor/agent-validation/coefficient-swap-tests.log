@@ -1,0 +1,25 @@
+   Compiling fastfft v0.1.0 (/home/ianhersom/repo/fastfft/crates/fastfft)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.44s
+     Running unittests src/lib.rs (target/debug/deps/fastfft-454abd5a52368c6d)
+
+running 17 tests
+test engine::fourstep::storage::tests::miri_coefficient_swap_fourstep_storage_restores_bits_and_owner ... ok
+test engine::small::coefficient_swap_tests::miri_small_coefficient_swap_preserves_bits_and_restores_owner ... ok
+test engine::small::coefficient_swap_tests::miri_small_coefficient_swap_rejects_capacity_length_and_bits_atomically ... ok
+test engine::stockham::storage::tests::miri_coefficient_swap_rejects_capacity_layout_and_bits_without_mutation ... ok
+test engine::stockham::storage::tests::miri_coefficient_swap_rejects_different_backing_variants ... ok
+test engine::fourstep::storage::tests::miri_coefficient_swap_fourstep_storage_rejects_atomically_both_precisions ... ok
+test engine::stockham::storage::tests::miri_coefficient_swap_validates_backing_and_restores_exact_owners ... ok
+test engine::fourstep::coefficient_swap_tests::coefficient_swap_fourstep_exchanges_full_graph_and_restores_both_precisions ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_fourstep_output_and_restoration_both_precisions ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_fourstep_rejects_shared_weak_and_direction_without_mutation ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_rejects_configuration_type_and_kernel_without_mutation ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_shared_and_weak_owners_are_rejected_without_mutation ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_small_output_and_restoration_both_precisions ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_rectangular_output_and_restoration_both_precisions ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_stockham_output_and_restoration_both_precisions ... ok
+test tuning::coefficient_swap_tests::coefficient_swap_fourstep_preserves_public_scratch_contracts_both_precisions ... ok
+test engine::fourstep::coefficient_swap_tests::coefficient_swap_fourstep_rejects_atomically_both_precisions ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 91 filtered out; finished in 0.01s
+

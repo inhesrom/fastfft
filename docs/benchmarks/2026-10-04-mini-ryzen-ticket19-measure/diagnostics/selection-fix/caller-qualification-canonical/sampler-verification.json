@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-05T16:09:17.659979+00:00",
+  "acceptance": false,
+  "production_sha256": "e554e0a21845fd223dd1aba686abb879f50dac17eb1f76ed4ba19d55c5819f7c",
+  "dispatchers": [
+    "0x49a380",
+    "0x49a6c0"
+  ],
+  "direct_samplers": [
+    "0x49aa00",
+    "0x49adc0"
+  ],
+  "helpers": [
+    "0x49a300",
+    "0x49a340"
+  ],
+  "helper_target_samplers": [
+    "0x49aa00",
+    "0x49adc0"
+  ],
+  "helper_local_stack_bytes": 24,
+  "helper_return_address_bytes": 8,
+  "helpers_are_non_tail_calls": true,
+  "same_route_pointer_selected_before_warm_timing_branches": true,
+  "same_routed_pointer_for_calibration_and_timing": true,
+  "qualification_pointer_slot": "0xa8(%rsp) in both pick implementations",
+  "routing_pointer_slot": "0x28(%rsp) in both dispatchers",
+  "timing_inside_actual_sampler": true,
+  "dispatch_and_budget_checks_outside_returned_duration": true,
+  "production_has_no_test_ledger": true,
+  "limitations": "Three warms unrolled; both routes share each respective callsite/frame. Helper tested only at canonical offset. Neither independence nor hardware cause established."
+}

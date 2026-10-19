@@ -1,0 +1,29 @@
+{
+  "run": "target/ticket19/alignment-controls/batch-aligned",
+  "cells": 1,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "batch": {
+      "cells": 1,
+      "failures": 0,
+      "worst": 0.9948800664073661,
+      "geomean": 0.9948800664073661
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "batch:f64:fwd:oop:n256:b4096",
+      "suite": "batch",
+      "metric": "best",
+      "ratio": 0.9948800664073661,
+      "best": 0.9948800664073661,
+      "p1": 0.9840714273896243,
+      "median": 1.0149059334298118,
+      "estimate": "small avx512 n=256 decomposition=16x16 radices=16x16 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512 lanes=4 batch_radices=16x16",
+      "measure": "small avx512 n=256 decomposition=16x16 radices=16x16 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512 lanes=4 batch_radices=16x16",
+      "same_plan": true
+    }
+  ]
+}

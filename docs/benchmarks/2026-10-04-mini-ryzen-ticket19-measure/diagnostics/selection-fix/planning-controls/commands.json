@@ -1,0 +1,3 @@
+{
+  "run": "python3 docs/benchmarks/2026-10-04-mini-ryzen-ticket19-measure/reserve-core.py --journal target/ticket19/selection-fix/planning-controls/n96-affinity.json --pid 2373 --starttime 13351 --expect-comm herdr --core 4 -- python3 docs/benchmarks/2026-10-04-mini-ryzen-ticket19-measure/quiet-run.py --attribute --core 4 --log target/ticket19/selection-fix/planning-controls/n96-quiet.jsonl -- target/ticket19/selection-fix/planning-controls/fastfft-arena run --suite smooth --profile full --libs fastfft,fastfft/measure --filter 'precision=f32,dir=inv,place=ip,n=96,batch=1' --core 4 --procs 8 --out target/ticket19/selection-fix/planning-controls/n96 --measure-context"
+}

@@ -1,0 +1,34 @@
+quiet-run: sustained quiet period and environment check passed; launching
+arena: 51 cells, profile full, core 4 (sibling 4,12), output target/ticket19/selection-fix/fourstep-indexed-completion/focus
+[1/51] pow2:f32:fwd:ip:n4096 (15.0s) fastfft=2.54us fastfft/measure=2.56us
+[2/51] pow2:f32:fwd:oop:n4096 (15.1s) fastfft=2.48us fastfft/measure=2.47us
+[3/51] pow2:f32:inv:ip:n4096 (15.1s) fastfft=2.59us fastfft/measure=2.59us
+[4/51] pow2:f32:inv:oop:n4096 (15.1s) fastfft=2.49us fastfft/measure=2.49us
+[5/51] pow2:f32:fwd:ip:n32768 (15.5s) fastfft=25.28us fastfft/measure=25.26us
+[6/51] pow2:f32:fwd:oop:n32768 (15.4s) fastfft=27.70us fastfft/measure=28.05us
+[7/51] pow2:f32:inv:ip:n32768 (15.4s) fastfft=25.13us fastfft/measure=25.21us
+[8/51] pow2:f32:inv:oop:n32768 (15.5s) fastfft=27.77us fastfft/measure=27.90us
+[9/51] pow2:f32:fwd:ip:n262144 (20.3s) fastfft=302.95us fastfft/measure=306.69us
+[10/51] pow2:f32:inv:oop:n262144 (20.4s) fastfft=307.28us fastfft/measure=306.83us
+[11/51] pow2:f32:fwd:ip:n524288 (25.2s) fastfft=656.47us fastfft/measure=660.61us
+[12/51] pow2:f32:fwd:oop:n524288 (25.0s) fastfft=714.92us fastfft/measure=709.65us
+[13/51] pow2:f32:fwd:ip:n16777216 (79.3s) fastfft=48.83ms fastfft/measure=49.02ms
+[14/51] pow2:f64:fwd:ip:n524288 (26.8s) fastfft=1.73ms fastfft/measure=1.72ms
+[15/51] pow2:f64:inv:oop:n524288 (26.8s) fastfft=1.66ms fastfft/measure=1.66ms
+[16/51] smooth:f32:inv:ip:n15 (15.4s) fastfft=21.7ns fastfft/measure=14.4ns
+[17/51] smooth:f32:inv:oop:n15 (15.4s) fastfft=15.9ns fastfft/measure=11.3ns
+[18/51] smooth:f32:inv:oop:n18 (15.1s) fastfft=10.6ns fastfft/measure=10.6ns
+[19/51] smooth:f32:fwd:ip:n80 (15.1s) fastfft=35.3ns fastfft/measure=35.1ns
+[20/51] smooth:f32:inv:ip:n96 (15.1s) fastfft=34.8ns fastfft/measure=34.8ns
+[21/51] smooth:f32:inv:oop:n96 (15.1s) fastfft=32.9ns fastfft/measure=32.9ns
+[22/51] smooth:f32:fwd:ip:n120 (15.1s) fastfft=57.8ns fastfft/measure=58.1ns
+[23/51] smooth:f32:fwd:ip:n160 (15.1s) fastfft=76.2ns fastfft/measure=76.2ns
+[24/51] smooth:f32:inv:ip:n160 (15.1s) fastfft=76.0ns fastfft/measure=76.5ns
+[25/51] smooth:f32:inv:ip:n210 (15.1s) fastfft=114.7ns fastfft/measure=114.1ns
+[26/51] smooth:f32:fwd:ip:n4725 (15.1s) fastfft=4.61us fastfft/measure=4.61us
+[27/51] smooth:f32:inv:oop:n4725 (15.1s) fastfft=4.65us fastfft/measure=4.64us
+[28/51] smooth:f32:fwd:ip:n75600 (16.2s) fastfft=64.63us fastfft/measure=65.32us
+[29/51] smooth:f32:fwd:oop:n75600 (16.3s) fastfft=70.21us fastfft/measure=69.50us
+arena: clock drift warning 5.1% at smooth:f32:inv:ip:n75600
+[30/51] smooth:f32:inv:ip:n75600 (16.3s) fastfft=66.19us fastfft/measure=66.32us
+quiet-run: competing activity; stopping benchmark group

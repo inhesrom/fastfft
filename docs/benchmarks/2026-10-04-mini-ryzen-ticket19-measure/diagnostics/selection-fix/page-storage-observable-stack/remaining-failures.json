@@ -1,0 +1,962 @@
+[
+  {
+    "key": "smooth:f32:inv:oop:n75600",
+    "process": 0,
+    "construction": "E-first",
+    "ratios": {
+      "best": 1.0235349424848317,
+      "p1": 1.0258238299492015,
+      "median": 1.0131880077812108
+    },
+    "members": {
+      "fastfft": {
+        "lib": "fastfft",
+        "status": "ok",
+        "describe": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+        "plan_ns": 376022.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.225814015746626,
+          "max_eps": 1.6010413582076606,
+          "passed": true
+        },
+        "time": {
+          "best": 68069.0,
+          "p1": 68309.0,
+          "median": 69912.0,
+          "p10": 68780.0,
+          "p90": 74011.0,
+          "samples": 9876
+        },
+        "calls_per_batch": 1,
+        "mflops": 89995.52330856062
+      },
+      "fastfft/measure": {
+        "lib": "fastfft/measure",
+        "status": "ok",
+        "describe": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+        "plan_ns": 81833147.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.225814015746626,
+          "max_eps": 1.6010413582076606,
+          "passed": true
+        },
+        "time": {
+          "best": 69671.0,
+          "p1": 70073.0,
+          "median": 70834.0,
+          "p10": 70373.0,
+          "p90": 75853.0,
+          "samples": 9665
+        },
+        "calls_per_batch": 1,
+        "mflops": 87926.18558784015
+      }
+    },
+    "clock_ghz": [
+      5.030330377008171,
+      5.027504850599524
+    ]
+  },
+  {
+    "key": "smooth:f32:inv:oop:n75600",
+    "process": 1,
+    "construction": "M-first",
+    "ratios": {
+      "best": 1.001148567162465,
+      "p1": 1.0007101970086503,
+      "median": 0.9975088918720677
+    },
+    "members": {
+      "fastfft/measure": {
+        "lib": "fastfft/measure",
+        "status": "ok",
+        "describe": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+        "plan_ns": 82246801.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.225814015746626,
+          "max_eps": 1.6010413582076606,
+          "passed": true
+        },
+        "time": {
+          "best": 69732.0,
+          "p1": 70453.0,
+          "median": 72077.0,
+          "p10": 71495.0,
+          "p90": 75774.0,
+          "samples": 9584
+        },
+        "calls_per_batch": 1,
+        "mflops": 87849.26971964682
+      },
+      "fastfft": {
+        "lib": "fastfft",
+        "status": "ok",
+        "describe": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+        "plan_ns": 363147.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.225814015746626,
+          "max_eps": 1.6010413582076606,
+          "passed": true
+        },
+        "time": {
+          "best": 69652.0,
+          "p1": 70403.0,
+          "median": 72257.0,
+          "p10": 71255.0,
+          "p90": 75252.0,
+          "samples": 9607
+        },
+        "calls_per_batch": 1,
+        "mflops": 87950.17050609333
+      }
+    },
+    "clock_ghz": [
+      5.027910560007421,
+      5.029018695125548
+    ]
+  },
+  {
+    "key": "smooth:f32:inv:oop:n75600",
+    "process": 2,
+    "construction": "E-first",
+    "ratios": {
+      "best": 0.9936739112098293,
+      "p1": 0.9963603275705186,
+      "median": 0.9966729510923811
+    },
+    "members": {
+      "fastfft": {
+        "lib": "fastfft",
+        "status": "ok",
+        "describe": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+        "plan_ns": 375320.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.225814015746626,
+          "max_eps": 1.6010413582076606,
+          "passed": true
+        },
+        "time": {
+          "best": 71134.0,
+          "p1": 71435.0,
+          "median": 72136.0,
+          "p10": 71706.0,
+          "p90": 76024.0,
+          "samples": 9565
+        },
+        "calls_per_batch": 1,
+        "mflops": 86117.82377049529
+      },
+      "fastfft/measure": {
+        "lib": "fastfft/measure",
+        "status": "ok",
+        "describe": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+        "plan_ns": 81895476.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.225814015746626,
+          "max_eps": 1.6010413582076606,
+          "passed": true
+        },
+        "time": {
+          "best": 70684.0,
+          "p1": 71175.0,
+          "median": 71896.0,
+          "p10": 71466.0,
+          "p90": 75794.0,
+          "samples": 9605
+        },
+        "calls_per_batch": 1,
+        "mflops": 86666.08109459584
+      }
+    },
+    "clock_ghz": [
+      5.032048487812819,
+      5.024904683839278
+    ]
+  },
+  {
+    "key": "smooth:f32:inv:oop:n75600",
+    "process": 3,
+    "construction": "M-first",
+    "ratios": {
+      "best": 0.9973788403437858,
+      "p1": 0.9980972831922151,
+      "median": 0.9959565293319541
+    },
+    "members": {
+      "fastfft/measure": {
+        "lib": "fastfft/measure",
+        "status": "ok",
+        "describe": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+        "plan_ns": 82413476.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.225814015746626,
+          "max_eps": 1.6010413582076606,
+          "passed": true
+        },
+        "time": {
+          "best": 72297.0,
+          "p1": 73439.0,
+          "median": 74140.0,
+          "p10": 73739.0,
+          "p90": 78058.0,
+          "samples": 9305
+        },
+        "calls_per_batch": 1,
+        "mflops": 84732.49617674887
+      },
+      "fastfft": {
+        "lib": "fastfft",
+        "status": "ok",
+        "describe": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+        "plan_ns": 375690.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.225814015746626,
+          "max_eps": 1.6010413582076606,
+          "passed": true
+        },
+        "time": {
+          "best": 72487.0,
+          "p1": 73579.0,
+          "median": 74441.0,
+          "p10": 73940.0,
+          "p90": 79480.0,
+          "samples": 9189
+        },
+        "calls_per_batch": 1,
+        "mflops": 84510.39877620005
+      }
+    },
+    "clock_ghz": [
+      5.026024756187539,
+      5.028917533044388
+    ]
+  },
+  {
+    "key": "smooth:f32:inv:oop:n75600",
+    "process": 4,
+    "construction": "E-first",
+    "ratios": {
+      "best": 0.9974414791360398,
+      "p1": 0.9976101778308849,
+      "median": 0.9923765780211716
+    },
+    "members": {
+      "fastfft": {
+        "lib": "fastfft",
+        "status": "ok",
+        "describe": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+        "plan_ns": 378075.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.225814015746626,
+          "max_eps": 1.6010413582076606,
+          "passed": true
+        },
+        "time": {
+          "best": 70744.0,
+          "p1": 71135.0,
+          "median": 73589.0,
+          "p10": 71495.0,
+          "p90": 77507.0,
+          "samples": 9425
+        },
+        "calls_per_batch": 1,
+        "mflops": 86592.57712442627
+      },
+      "fastfft/measure": {
+        "lib": "fastfft/measure",
+        "status": "ok",
+        "describe": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+        "plan_ns": 82553871.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.225814015746626,
+          "max_eps": 1.6010413582076606,
+          "passed": true
+        },
+        "time": {
+          "best": 70563.0,
+          "p1": 70965.0,
+          "median": 73028.0,
+          "p10": 71445.0,
+          "p90": 77236.0,
+          "samples": 9435
+        },
+        "calls_per_batch": 1,
+        "mflops": 86814.6943311709
+      }
+    },
+    "clock_ghz": [
+      5.014743345435582,
+      5.020911468653007
+    ]
+  },
+  {
+    "key": "smooth:f32:inv:oop:n75600",
+    "process": 5,
+    "construction": "M-first",
+    "ratios": {
+      "best": 0.9973464000898573,
+      "p1": 0.9984610003497727,
+      "median": 0.9983378580530777
+    },
+    "members": {
+      "fastfft/measure": {
+        "lib": "fastfft/measure",
+        "status": "ok",
+        "describe": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+        "plan_ns": 83678449.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.225814015746626,
+          "max_eps": 1.6010413582076606,
+          "passed": true
+        },
+        "time": {
+          "best": 71035.0,
+          "p1": 71365.0,
+          "median": 72076.0,
+          "p10": 71655.0,
+          "p90": 76084.0,
+          "samples": 9570
+        },
+        "calls_per_batch": 1,
+        "mflops": 86237.8443878428
+      },
+      "fastfft": {
+        "lib": "fastfft",
+        "status": "ok",
+        "describe": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+        "plan_ns": 367335.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.225814015746626,
+          "max_eps": 1.6010413582076606,
+          "passed": true
+        },
+        "time": {
+          "best": 71224.0,
+          "p1": 71475.0,
+          "median": 72196.0,
+          "p10": 71766.0,
+          "p90": 75854.0,
+          "samples": 9584
+        },
+        "calls_per_batch": 1,
+        "mflops": 86009.00365172431
+      }
+    },
+    "clock_ghz": [
+      5.028125448210245,
+      5.026366433422321
+    ]
+  },
+  {
+    "key": "smooth:f32:inv:oop:n75600",
+    "process": 6,
+    "construction": "E-first",
+    "ratios": {
+      "best": 1.00244140625,
+      "p1": 0.9982914014779377,
+      "median": 0.9977462884187396
+    },
+    "members": {
+      "fastfft": {
+        "lib": "fastfft",
+        "status": "ok",
+        "describe": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+        "plan_ns": 378325.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.225814015746626,
+          "max_eps": 1.6010413582076606,
+          "passed": true
+        },
+        "time": {
+          "best": 69632.0,
+          "p1": 70233.0,
+          "median": 70994.0,
+          "p10": 70534.0,
+          "p90": 74822.0,
+          "samples": 9714
+        },
+        "calls_per_batch": 1,
+        "mflops": 87975.43192914769
+      },
+      "fastfft/measure": {
+        "lib": "fastfft/measure",
+        "status": "ok",
+        "describe": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+        "plan_ns": 82113929.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.225814015746626,
+          "max_eps": 1.6010413582076606,
+          "passed": true
+        },
+        "time": {
+          "best": 69802.0,
+          "p1": 70113.0,
+          "median": 70834.0,
+          "p10": 70403.0,
+          "p90": 74401.0,
+          "samples": 9761
+        },
+        "calls_per_batch": 1,
+        "mflops": 87761.1712571332
+      }
+    },
+    "clock_ghz": [
+      5.033216080370393,
+      5.029462591863134
+    ]
+  },
+  {
+    "key": "smooth:f32:inv:oop:n75600",
+    "process": 7,
+    "construction": "M-first",
+    "ratios": {
+      "best": 1.0032233307751344,
+      "p1": 1.003908966975489,
+      "median": 1.0017766637285148
+    },
+    "members": {
+      "fastfft/measure": {
+        "lib": "fastfft/measure",
+        "status": "ok",
+        "describe": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+        "plan_ns": 83224169.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.225814015746626,
+          "max_eps": 1.6010413582076606,
+          "passed": true
+        },
+        "time": {
+          "best": 71896.0,
+          "p1": 72167.0,
+          "median": 72737.0,
+          "p10": 72387.0,
+          "p90": 76685.0,
+          "samples": 9453
+        },
+        "calls_per_batch": 1,
+        "mflops": 85205.09174488724
+      },
+      "fastfft": {
+        "lib": "fastfft",
+        "status": "ok",
+        "describe": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+        "plan_ns": 371243.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.225814015746626,
+          "max_eps": 1.6010413582076606,
+          "passed": true
+        },
+        "time": {
+          "best": 71665.0,
+          "p1": 71886.0,
+          "median": 72608.0,
+          "p10": 72116.0,
+          "p90": 76034.0,
+          "samples": 9508
+        },
+        "calls_per_batch": 1,
+        "mflops": 85479.73593930666
+      }
+    },
+    "clock_ghz": [
+      5.039505312079555,
+      5.024519024776029
+    ]
+  },
+  {
+    "key": "smooth:f64:inv:oop:n165375",
+    "process": 0,
+    "construction": "E-first",
+    "ratios": {
+      "best": 1.0357715666346443,
+      "p1": 1.0260709185860157,
+      "median": 1.0272348392858541
+    },
+    "members": {
+      "fastfft": {
+        "lib": "fastfft",
+        "status": "ok",
+        "describe": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+        "plan_ns": 2354604.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.37035891199014,
+          "max_eps": 1.5653273693220964,
+          "passed": true
+        },
+        "time": {
+          "best": 485078.0,
+          "p1": 492311.0,
+          "median": 510596.0,
+          "p10": 498723.0,
+          "p90": 586870.0,
+          "samples": 1327
+        },
+        "calls_per_batch": 1,
+        "mflops": 29550.28611086082
+      },
+      "fastfft/measure": {
+        "lib": "fastfft/measure",
+        "status": "ok",
+        "describe": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+        "plan_ns": 252223474.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.37035891199014,
+          "max_eps": 1.5653273693220964,
+          "passed": true
+        },
+        "time": {
+          "best": 502430.0,
+          "p1": 505146.0,
+          "median": 524502.0,
+          "p10": 511588.0,
+          "p90": 589495.0,
+          "samples": 1302
+        },
+        "calls_per_batch": 1,
+        "mflops": 28529.732870418055
+      }
+    },
+    "clock_ghz": [
+      5.023405932014479,
+      5.026163063556963
+    ]
+  },
+  {
+    "key": "smooth:f64:inv:oop:n165375",
+    "process": 1,
+    "construction": "M-first",
+    "ratios": {
+      "best": 0.9999174014058704,
+      "p1": 1.004352948057048,
+      "median": 1.004344354972706
+    },
+    "members": {
+      "fastfft/measure": {
+        "lib": "fastfft/measure",
+        "status": "ok",
+        "describe": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+        "plan_ns": 249114673.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.37035891199014,
+          "max_eps": 1.5653273693220964,
+          "passed": true
+        },
+        "time": {
+          "best": 472124.0,
+          "p1": 480840.0,
+          "median": 495658.0,
+          "p10": 486330.0,
+          "p90": 541464.0,
+          "samples": 1383
+        },
+        "calls_per_batch": 1,
+        "mflops": 30361.078204209367
+      },
+      "fastfft": {
+        "lib": "fastfft",
+        "status": "ok",
+        "describe": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+        "plan_ns": 2339175.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.37035891199014,
+          "max_eps": 1.5653273693220964,
+          "passed": true
+        },
+        "time": {
+          "best": 472163.0,
+          "p1": 478756.0,
+          "median": 493514.0,
+          "p10": 484366.0,
+          "p90": 549008.0,
+          "samples": 1383
+        },
+        "calls_per_batch": 1,
+        "mflops": 30358.570421833443
+      }
+    },
+    "clock_ghz": [
+      5.037572736253345,
+      5.027999041160583
+    ]
+  },
+  {
+    "key": "smooth:f64:inv:oop:n165375",
+    "process": 2,
+    "construction": "E-first",
+    "ratios": {
+      "best": 1.0019909124144775,
+      "p1": 0.9866864927013379,
+      "median": 0.9909746758864229
+    },
+    "members": {
+      "fastfft": {
+        "lib": "fastfft",
+        "status": "ok",
+        "describe": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+        "plan_ns": 2351418.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.37035891199014,
+          "max_eps": 1.5653273693220964,
+          "passed": true
+        },
+        "time": {
+          "best": 478675.0,
+          "p1": 492282.0,
+          "median": 507461.0,
+          "p10": 497782.0,
+          "p90": 569037.0,
+          "samples": 1345
+        },
+        "calls_per_batch": 1,
+        "mflops": 29945.565751468417
+      },
+      "fastfft/measure": {
+        "lib": "fastfft/measure",
+        "status": "ok",
+        "describe": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+        "plan_ns": 251003646.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.37035891199014,
+          "max_eps": 1.5653273693220964,
+          "passed": true
+        },
+        "time": {
+          "best": 479628.0,
+          "p1": 485728.0,
+          "median": 502881.0,
+          "p10": 492602.0,
+          "p90": 576110.0,
+          "samples": 1343
+        },
+        "calls_per_batch": 1,
+        "mflops": 29886.06521321554
+      }
+    },
+    "clock_ghz": [
+      5.023071595723105,
+      5.0273475136373085
+    ]
+  },
+  {
+    "key": "smooth:f64:inv:oop:n165375",
+    "process": 3,
+    "construction": "M-first",
+    "ratios": {
+      "best": 1.0253940686931378,
+      "p1": 1.0183159988596027,
+      "median": 1.014778584644433
+    },
+    "members": {
+      "fastfft/measure": {
+        "lib": "fastfft/measure",
+        "status": "ok",
+        "describe": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+        "plan_ns": 253898613.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.37035891199014,
+          "max_eps": 1.5653273693220964,
+          "passed": true
+        },
+        "time": {
+          "best": 465250.0,
+          "p1": 467905.0,
+          "median": 481551.0,
+          "p10": 473325.0,
+          "p90": 530033.0,
+          "samples": 1423
+        },
+        "calls_per_batch": 1,
+        "mflops": 30809.658648219545
+      },
+      "fastfft": {
+        "lib": "fastfft",
+        "status": "ok",
+        "describe": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+        "plan_ns": 2336781.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.37035891199014,
+          "max_eps": 1.5653273693220964,
+          "passed": true
+        },
+        "time": {
+          "best": 453728.0,
+          "p1": 459489.0,
+          "median": 474538.0,
+          "p10": 464418.0,
+          "p90": 537146.0,
+          "samples": 1434
+        },
+        "calls_per_batch": 1,
+        "mflops": 31592.04123634456
+      }
+    },
+    "clock_ghz": [
+      5.038907927562676,
+      5.0286836113189635
+    ]
+  },
+  {
+    "key": "smooth:f64:inv:oop:n165375",
+    "process": 4,
+    "construction": "E-first",
+    "ratios": {
+      "best": 0.982129358234687,
+      "p1": 0.9788186699373682,
+      "median": 0.9785482123510293
+    },
+    "members": {
+      "fastfft": {
+        "lib": "fastfft",
+        "status": "ok",
+        "describe": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+        "plan_ns": 2343784.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.37035891199014,
+          "max_eps": 1.5653273693220964,
+          "passed": true
+        },
+        "time": {
+          "best": 485489.0,
+          "p1": 490007.0,
+          "median": 507650.0,
+          "p10": 495638.0,
+          "p90": 573775.0,
+          "samples": 1345
+        },
+        "calls_per_batch": 1,
+        "mflops": 29525.269750878277
+      },
+      "fastfft/measure": {
+        "lib": "fastfft/measure",
+        "status": "ok",
+        "describe": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+        "plan_ns": 248931837.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.37035891199014,
+          "max_eps": 1.5653273693220964,
+          "passed": true
+        },
+        "time": {
+          "best": 476813.0,
+          "p1": 479628.0,
+          "median": 496760.0,
+          "p10": 486210.0,
+          "p90": 564508.0,
+          "samples": 1372
+        },
+        "calls_per_batch": 1,
+        "mflops": 30062.506026648065
+      }
+    },
+    "clock_ghz": [
+      5.022142626841744,
+      5.029152108842922
+    ]
+  },
+  {
+    "key": "smooth:f64:inv:oop:n165375",
+    "process": 5,
+    "construction": "M-first",
+    "ratios": {
+      "best": 1.0191859460865744,
+      "p1": 1.0254744110686018,
+      "median": 1.027380824320858
+    },
+    "members": {
+      "fastfft/measure": {
+        "lib": "fastfft/measure",
+        "status": "ok",
+        "describe": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+        "plan_ns": 254270207.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.37035891199014,
+          "max_eps": 1.5653273693220964,
+          "passed": true
+        },
+        "time": {
+          "best": 477934.0,
+          "p1": 483544.0,
+          "median": 496640.0,
+          "p10": 488013.0,
+          "p90": 532878.0,
+          "samples": 1384
+        },
+        "calls_per_batch": 1,
+        "mflops": 29991.994053748305
+      },
+      "fastfft": {
+        "lib": "fastfft",
+        "status": "ok",
+        "describe": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+        "plan_ns": 2336721.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.37035891199014,
+          "max_eps": 1.5653273693220964,
+          "passed": true
+        },
+        "time": {
+          "best": 468937.0,
+          "p1": 471532.0,
+          "median": 483404.0,
+          "p10": 475670.0,
+          "p90": 517339.0,
+          "samples": 1423
+        },
+        "calls_per_batch": 1,
+        "mflops": 30567.418834692387
+      }
+    },
+    "clock_ghz": [
+      5.04021207196314,
+      5.02469575153181
+    ]
+  },
+  {
+    "key": "smooth:f64:inv:oop:n165375",
+    "process": 6,
+    "construction": "E-first",
+    "ratios": {
+      "best": 1.0035445725198648,
+      "p1": 0.9897820531466207,
+      "median": 0.9955304306378578
+    },
+    "members": {
+      "fastfft": {
+        "lib": "fastfft",
+        "status": "ok",
+        "describe": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+        "plan_ns": 2348583.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.37035891199014,
+          "max_eps": 1.5653273693220964,
+          "passed": true
+        },
+        "time": {
+          "best": 469168.0,
+          "p1": 481310.0,
+          "median": 495126.0,
+          "p10": 486090.0,
+          "p90": 541144.0,
+          "samples": 1385
+        },
+        "calls_per_batch": 1,
+        "mflops": 30552.368631458547
+      },
+      "fastfft/measure": {
+        "lib": "fastfft/measure",
+        "status": "ok",
+        "describe": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+        "plan_ns": 254653983.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.37035891199014,
+          "max_eps": 1.5653273693220964,
+          "passed": true
+        },
+        "time": {
+          "best": 470831.0,
+          "p1": 476392.0,
+          "median": 492913.0,
+          "p10": 483465.0,
+          "p90": 550031.0,
+          "samples": 1383
+        },
+        "calls_per_batch": 1,
+        "mflops": 30444.45604916444
+      }
+    },
+    "clock_ghz": [
+      5.033438389581588,
+      5.025562523777193
+    ]
+  },
+  {
+    "key": "smooth:f64:inv:oop:n165375",
+    "process": 7,
+    "construction": "M-first",
+    "ratios": {
+      "best": 1.0259703848310524,
+      "p1": 1.014598226876433,
+      "median": 1.0056590021589142
+    },
+    "members": {
+      "fastfft/measure": {
+        "lib": "fastfft/measure",
+        "status": "ok",
+        "describe": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+        "plan_ns": 253997450.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.37035891199014,
+          "max_eps": 1.5653273693220964,
+          "passed": true
+        },
+        "time": {
+          "best": 494015.0,
+          "p1": 496449.0,
+          "median": 509138.0,
+          "p10": 501569.0,
+          "p90": 545422.0,
+          "samples": 1352
+        },
+        "calls_per_batch": 1,
+        "mflops": 29015.70536539203
+      },
+      "fastfft": {
+        "lib": "fastfft",
+        "status": "ok",
+        "describe": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+        "plan_ns": 2338685.0,
+        "verify": {
+          "method": "dd",
+          "rel_l2_eps": 1.37035891199014,
+          "max_eps": 1.5653273693220964,
+          "passed": true
+        },
+        "time": {
+          "best": 481510.0,
+          "p1": 489306.0,
+          "median": 506273.0,
+          "p10": 496149.0,
+          "p90": 564247.0,
+          "samples": 1350
+        },
+        "calls_per_batch": 1,
+        "mflops": 29769.254399875692
+      }
+    },
+    "clock_ghz": [
+      5.020821976338624,
+      5.027315921057063
+    ]
+  }
+]

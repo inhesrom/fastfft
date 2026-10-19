@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-06T02:32:29.701475+00:00",
+  "acceptance": false,
+  "interrupted": true,
+  "driver_exit": 75,
+  "cells": 323,
+  "ordinary_trials": 2590,
+  "control_trials": 104,
+  "running_samples": 1339,
+  "dirty_samples": 9,
+  "peak_background_busy_cores": 2.286176022063268,
+  "start": "2026-10-06T00:34:58.428534+00:00",
+  "end": "2026-10-06T02:27:01.062833+00:00",
+  "failures": [
+    {
+      "key": "pow2:f32:inv:oop:n16384",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.020155288248783,
+      "best": 1.020155288248783,
+      "p1": 1.0199940137683328,
+      "median": 1.0183587440412876,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x4x8x8 scratch=33800 scratch_oop=33800 scratch_immutable=33800",
+      "measure": "stockham avx512-ymm split L=8 radices=8x4x8x8 scratch=33800 scratch_oop=33800 scratch_immutable=33800",
+      "same_plan": true
+    }
+  ],
+  "audit_problems": [
+    "smooth:f32:inv:oop:n6144: raw process workspace reservation differs",
+    "smooth:f32:inv:oop:n6144: raw process workspace reservation differs",
+    "smooth:f32:inv:oop:n6144: raw process workspace reservation differs",
+    "smooth:f32:inv:oop:n6144: raw process workspace reservation differs",
+    "smooth:f32:inv:oop:n6144: raw process workspace reservation differs",
+    "smooth:f32:inv:oop:n6144: raw process workspace reservation differs",
+    "raw process trial coverage is incomplete",
+    "expected 710 cells, found 323 valid pairs",
+    "run has not completed (missing meta.json)",
+    "environment check did not pass",
+    "full completion cells: expected 710, got None",
+    "full completion official: expected True, got None",
+    "full completion child_failures: expected 0, got None",
+    "full completion aborted: expected None, got None",
+    "full completion drift_flag: expected False, got None",
+    "full completion max_drift is missing, invalid or exceeds 3%",
+    "full cell/control sequence differs from the frozen 710-cell manifest",
+    "full raw trial sequence/repetition coverage differs from the frozen protocol",
+    "smooth:f32:fwd:oop:n4800: raw clock drift exceeds 3% (including initial control)"
+  ],
+  "affinity_proof": "full-affinity-proof.json",
+  "frozen_executable_sha256": "42f7c2a3c18bf844420749fc5fdc325e7025f802d1ae64ad93c95df1fd846a5a",
+  "policy": "All raw results retained. Full710 remains required; the interrupted capture cannot close ticket 19."
+}

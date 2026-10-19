@@ -1,0 +1,45 @@
+{
+  "run": "target/ticket19/selection-fix/native-cold",
+  "cells": 2,
+  "problems": [
+    "pow2:f32:fwd:ip:n524288: slower promotion in raw process trial 11 (best ratio 1.030890)",
+    "pow2:f32:fwd:ip:n524288: slower promotion in raw process trial 15 (best ratio 1.031176)",
+    "pow2:f32:fwd:oop:n524288: slower promotion in raw process trial 13 (best ratio 1.044269)"
+  ],
+  "threshold": 1.02,
+  "suites": {
+    "pow2": {
+      "cells": 2,
+      "failures": 0,
+      "worst": 1.0005326832508719,
+      "geomean": 0.9977152489481375
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "pow2:f32:fwd:ip:n524288",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.0005326832508719,
+      "best": 1.0005326832508719,
+      "p1": 0.9966818837695293,
+      "median": 0.994555904934256,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x4x8x8x4x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "measure": "stockham avx512-ymm split L=8 radices=8x4x8x8x4x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "same_plan": true
+    },
+    {
+      "key": "pow2:f32:fwd:oop:n524288",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 0.994905748355299,
+      "best": 0.994905748355299,
+      "p1": 0.9984067039881558,
+      "median": 0.998611892439244,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x4x8x8x4x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "measure": "stockham avx512-ymm split L=8 radices=8x4x8x8x4x8 scratch=524296 scratch_oop=0 scratch_immutable=524296",
+      "same_plan": true
+    }
+  ]
+}

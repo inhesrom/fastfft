@@ -1,0 +1,2018 @@
+{
+  "full": {
+    "path": "target/ticket19/selection-fix/vector-stack-scope-full-idle-window/full",
+    "records": {
+      "trials.jsonl": [
+        {
+          "line": 5537,
+          "offset": 7492786,
+          "sha256": "41adc7dbdc30234cd52ab3c23bdfb35f09207ee190aae882e7753322aac9da47",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft",
+                "fastfft/measure"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 1.919311098,
+            "clock_ghz": [
+              5.004770797762967,
+              5.026996858252639
+            ],
+            "procs": 1,
+            "results": [
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 992.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.224365234375,
+                  "p1": 7.267181396484375,
+                  "median": 7.398345947265625,
+                  "p10": 7.3038330078125,
+                  "p90": 9.0919189453125,
+                  "samples": 2745
+                },
+                "calls_per_batch": 1,
+                "mflops": 110736.37254570646
+              },
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 29158807.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.289794921875,
+                  "p1": 7.34423828125,
+                  "median": 7.4715576171875,
+                  "p10": 7.373565673828125,
+                  "p90": 9.110870361328123,
+                  "samples": 2728
+                },
+                "calls_per_batch": 1,
+                "mflops": 109742.4562108577
+              }
+            ]
+          }
+        },
+        {
+          "line": 5538,
+          "offset": 7494213,
+          "sha256": "f93154ce74440bd617b97c6ea34bc592d502cff4b6143b90d41cb850fcdd3edf",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft/measure",
+                "fastfft"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 1.919082515,
+            "clock_ghz": [
+              5.020820715906273,
+              5.02723125489998
+            ],
+            "procs": 1,
+            "results": [
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 28390243.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.1644287109375,
+                  "p1": 7.201751708984375,
+                  "median": 7.3643798828125,
+                  "p10": 7.233551025390625,
+                  "p90": 8.3856201171875,
+                  "samples": 2800
+                },
+                "calls_per_batch": 1,
+                "mflops": 111662.77623485713
+              },
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 801.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.00634765625,
+                  "p1": 7.021636962890625,
+                  "median": 7.1783599853515625,
+                  "p10": 7.051300048828125,
+                  "p90": 8.36541748046875,
+                  "samples": 2864
+                },
+                "calls_per_batch": 1,
+                "mflops": 114182.1729737264
+              }
+            ]
+          }
+        },
+        {
+          "line": 5539,
+          "offset": 7495645,
+          "sha256": "dce0c8d3c295f0133a647391f87621acf39c9173f065ed0ad8a4e9ac5b05fb1b",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft",
+                "fastfft/measure"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 1.919145224,
+            "clock_ghz": [
+              5.021180595045049,
+              5.024655986927854
+            ],
+            "procs": 1,
+            "results": [
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 882.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.1396484375,
+                  "p1": 7.174224853515625,
+                  "median": 7.29681396484375,
+                  "p10": 7.19134521484375,
+                  "p90": 8.7115478515625,
+                  "samples": 2797
+                },
+                "calls_per_batch": 1,
+                "mflops": 112050.33511147586
+              },
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 28563260.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.21734619140625,
+                  "p1": 7.234466552734375,
+                  "median": 7.3662261962890625,
+                  "p10": 7.24853515625,
+                  "p90": 9.186981201171877,
+                  "samples": 2750
+                },
+                "calls_per_batch": 1,
+                "mflops": 110844.06633459905
+              }
+            ]
+          }
+        },
+        {
+          "line": 5540,
+          "offset": 7497076,
+          "sha256": "e393c7759d60dfac20fe983e8cf2e1b8e03102f45311a577b8a2207b7fce66e4",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft/measure",
+                "fastfft"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 1.919491409,
+            "clock_ghz": [
+              5.023328336796082,
+              5.0259906541703785
+            ],
+            "procs": 1,
+            "results": [
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 29283263.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.244232177734375,
+                  "p1": 7.2952880859375,
+                  "median": 7.450164794921875,
+                  "p10": 7.331695556640625,
+                  "p90": 8.408538818359375,
+                  "samples": 2772
+                },
+                "calls_per_batch": 1,
+                "mflops": 110432.68359880192
+              },
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 752.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.082794189453125,
+                  "p1": 7.110626220703125,
+                  "median": 7.2540283203125,
+                  "p10": 7.140594482421875,
+                  "p90": 8.264251708984375,
+                  "samples": 2829
+                },
+                "calls_per_batch": 1,
+                "mflops": 112949.7735782394
+              }
+            ]
+          }
+        },
+        {
+          "line": 5541,
+          "offset": 7498516,
+          "sha256": "dd5b9adfbb73372d1e65c058c13a84710c5555469b85ca87294552e310e5568c",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft",
+                "fastfft/measure"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 1.919807457,
+            "clock_ghz": [
+              5.017091348816161,
+              5.02399838428212
+            ],
+            "procs": 1,
+            "results": [
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 812.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.181549072265625,
+                  "p1": 7.2127685546875,
+                  "median": 7.345733642578125,
+                  "p10": 7.22802734375,
+                  "p90": 9.246002197265623,
+                  "samples": 2761
+                },
+                "calls_per_batch": 1,
+                "mflops": 111396.57919898014
+              },
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 29394062.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.216094970703125,
+                  "p1": 7.249114990234375,
+                  "median": 7.367767333984375,
+                  "p10": 7.26165771484375,
+                  "p90": 9.010284423828123,
+                  "samples": 2759
+                },
+                "calls_per_batch": 1,
+                "mflops": 110863.2859251365
+              }
+            ]
+          }
+        },
+        {
+          "line": 5542,
+          "offset": 7499951,
+          "sha256": "7db647c3e7e222c71543a6c738d8b3c9d32f512af506866fff7f81254d3a60e3",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft/measure",
+                "fastfft"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 1.919908899,
+            "clock_ghz": [
+              5.018592631049882,
+              5.01559096451319
+            ],
+            "procs": 1,
+            "results": [
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 29042246.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.172393798828125,
+                  "p1": 7.199615478515625,
+                  "median": 7.337493896484375,
+                  "p10": 7.214599609375,
+                  "p90": 8.4510498046875,
+                  "samples": 2805
+                },
+                "calls_per_batch": 1,
+                "mflops": 111538.77247101373
+              },
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 831.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.007598876953125,
+                  "p1": 7.0421142578125,
+                  "median": 7.15081787109375,
+                  "p10": 7.05316162109375,
+                  "p90": 8.06915283203125,
+                  "samples": 2888
+                },
+                "calls_per_batch": 1,
+                "mflops": 114161.78551986936
+              }
+            ]
+          }
+        },
+        {
+          "line": 5543,
+          "offset": 7501384,
+          "sha256": "3ea40e72de4d008bc20b4de6e1ff09e227756f32eac159957d8ce3ea649f156b",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft",
+                "fastfft/measure"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 1.919136618,
+            "clock_ghz": [
+              5.023404039419656,
+              5.016366522826537
+            ],
+            "procs": 1,
+            "results": [
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 852.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.2298583984375,
+                  "p1": 7.268402099609375,
+                  "median": 7.423126220703125,
+                  "p10": 7.300811767578125,
+                  "p90": 8.86749267578125,
+                  "samples": 2753
+                },
+                "calls_per_batch": 1,
+                "mflops": 110652.23631114188
+              },
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 29041786.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.299285888671875,
+                  "p1": 7.328948974609375,
+                  "median": 7.4734039306640625,
+                  "p10": 7.35919189453125,
+                  "p90": 8.67822265625,
+                  "samples": 2748
+                },
+                "calls_per_batch": 1,
+                "mflops": 109599.76252492862
+              }
+            ]
+          }
+        },
+        {
+          "line": 5544,
+          "offset": 7502821,
+          "sha256": "526da161ee9c5dcf4b545f559a1d89e4629849201eabeaf7ed1724197e419251",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft/measure",
+                "fastfft"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 1.918617034,
+            "clock_ghz": [
+              5.020050080019598,
+              5.02793394400943
+            ],
+            "procs": 1,
+            "results": [
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 28720968.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.133270263671875,
+                  "p1": 7.154022216796875,
+                  "median": 7.279083251953125,
+                  "p10": 7.177001953125,
+                  "p90": 8.31134033203125,
+                  "samples": 2829
+                },
+                "calls_per_batch": 1,
+                "mflops": 112150.52429377564
+              },
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 791.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 6.98712158203125,
+                  "p1": 6.99505615234375,
+                  "median": 7.117950439453125,
+                  "p10": 7.011260986328125,
+                  "p90": 8.2825927734375,
+                  "samples": 2889
+                },
+                "calls_per_batch": 1,
+                "mflops": 114496.3617145802
+              }
+            ]
+          }
+        }
+      ],
+      "results.jsonl": [
+        {
+          "line": 693,
+          "offset": 939333,
+          "sha256": "29ebab7386537b0e583a1533fe6715e20201cdfefab204b89f156df322ff9e0e",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft",
+                "fastfft/measure"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 15.354500254,
+            "clock_ghz": [
+              5.004770797762967,
+              5.02793394400943
+            ],
+            "procs": 8,
+            "results": [
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 791.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 6.98712158203125,
+                  "p1": 6.99505615234375,
+                  "median": 7.117950439453125,
+                  "p10": 7.011260986328125,
+                  "p90": 8.2825927734375,
+                  "samples": 2889
+                },
+                "calls_per_batch": 1,
+                "mflops": 114496.3617145802
+              },
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 28390243.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.133270263671875,
+                  "p1": 7.154022216796875,
+                  "median": 7.279083251953125,
+                  "p10": 7.177001953125,
+                  "p90": 8.31134033203125,
+                  "samples": 2829
+                },
+                "calls_per_batch": 1,
+                "mflops": 112150.52429377564
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "summaries": [
+      {
+        "ordinal": 0,
+        "order": [
+          "fastfft",
+          "fastfft/measure"
+        ],
+        "estimate": {
+          "best": 7.224365234375,
+          "p1": 7.267181396484375,
+          "median": 7.398345947265625,
+          "p10": 7.3038330078125,
+          "p90": 9.0919189453125,
+          "samples": 2745
+        },
+        "measure": {
+          "best": 7.289794921875,
+          "p1": 7.34423828125,
+          "median": 7.4715576171875,
+          "p10": 7.373565673828125,
+          "p90": 9.110870361328123,
+          "samples": 2728
+        },
+        "calls": [
+          1,
+          1
+        ],
+        "ratios": {
+          "best": 1.0090568078131865,
+          "p1": 1.0106034073682133,
+          "median": 1.0098956807972643
+        }
+      },
+      {
+        "ordinal": 1,
+        "order": [
+          "fastfft/measure",
+          "fastfft"
+        ],
+        "estimate": {
+          "best": 7.00634765625,
+          "p1": 7.021636962890625,
+          "median": 7.1783599853515625,
+          "p10": 7.051300048828125,
+          "p90": 8.36541748046875,
+          "samples": 2864
+        },
+        "measure": {
+          "best": 7.1644287109375,
+          "p1": 7.201751708984375,
+          "median": 7.3643798828125,
+          "p10": 7.233551025390625,
+          "p90": 8.3856201171875,
+          "samples": 2800
+        },
+        "calls": [
+          1,
+          1
+        ],
+        "ratios": {
+          "best": 1.0225625479127465,
+          "p1": 1.025651389703805,
+          "median": 1.0259139828373802
+        }
+      },
+      {
+        "ordinal": 2,
+        "order": [
+          "fastfft",
+          "fastfft/measure"
+        ],
+        "estimate": {
+          "best": 7.1396484375,
+          "p1": 7.174224853515625,
+          "median": 7.29681396484375,
+          "p10": 7.19134521484375,
+          "p90": 8.7115478515625,
+          "samples": 2797
+        },
+        "measure": {
+          "best": 7.21734619140625,
+          "p1": 7.234466552734375,
+          "median": 7.3662261962890625,
+          "p10": 7.24853515625,
+          "p90": 9.186981201171877,
+          "samples": 2750
+        },
+        "calls": [
+          1,
+          1
+        ],
+        "ratios": {
+          "best": 1.0108825742032554,
+          "p1": 1.008396962800689,
+          "median": 1.0095126765982718
+        }
+      },
+      {
+        "ordinal": 3,
+        "order": [
+          "fastfft/measure",
+          "fastfft"
+        ],
+        "estimate": {
+          "best": 7.082794189453125,
+          "p1": 7.110626220703125,
+          "median": 7.2540283203125,
+          "p10": 7.140594482421875,
+          "p90": 8.264251708984375,
+          "samples": 2829
+        },
+        "measure": {
+          "best": 7.244232177734375,
+          "p1": 7.2952880859375,
+          "median": 7.450164794921875,
+          "p10": 7.331695556640625,
+          "p90": 8.408538818359375,
+          "samples": 2772
+        },
+        "calls": [
+          1,
+          1
+        ],
+        "ratios": {
+          "best": 1.0227929802791171,
+          "p1": 1.0259698456229802,
+          "median": 1.0270382835506942
+        }
+      },
+      {
+        "ordinal": 4,
+        "order": [
+          "fastfft",
+          "fastfft/measure"
+        ],
+        "estimate": {
+          "best": 7.181549072265625,
+          "p1": 7.2127685546875,
+          "median": 7.345733642578125,
+          "p10": 7.22802734375,
+          "p90": 9.246002197265623,
+          "samples": 2761
+        },
+        "measure": {
+          "best": 7.216094970703125,
+          "p1": 7.249114990234375,
+          "median": 7.367767333984375,
+          "p10": 7.26165771484375,
+          "p90": 9.010284423828123,
+          "samples": 2759
+        },
+        "calls": [
+          1,
+          1
+        ],
+        "ratios": {
+          "best": 1.004810368639116,
+          "p1": 1.0050391795149525,
+          "median": 1.002999522236763
+        }
+      },
+      {
+        "ordinal": 5,
+        "order": [
+          "fastfft/measure",
+          "fastfft"
+        ],
+        "estimate": {
+          "best": 7.007598876953125,
+          "p1": 7.0421142578125,
+          "median": 7.15081787109375,
+          "p10": 7.05316162109375,
+          "p90": 8.06915283203125,
+          "samples": 2888
+        },
+        "measure": {
+          "best": 7.172393798828125,
+          "p1": 7.199615478515625,
+          "median": 7.337493896484375,
+          "p10": 7.214599609375,
+          "p90": 8.4510498046875,
+          "samples": 2805
+        },
+        "calls": [
+          1,
+          1
+        ],
+        "ratios": {
+          "best": 1.0235166031573217,
+          "p1": 1.0223656156286294,
+          "median": 1.026105548869485
+        }
+      },
+      {
+        "ordinal": 6,
+        "order": [
+          "fastfft",
+          "fastfft/measure"
+        ],
+        "estimate": {
+          "best": 7.2298583984375,
+          "p1": 7.268402099609375,
+          "median": 7.423126220703125,
+          "p10": 7.300811767578125,
+          "p90": 8.86749267578125,
+          "samples": 2753
+        },
+        "measure": {
+          "best": 7.299285888671875,
+          "p1": 7.328948974609375,
+          "median": 7.4734039306640625,
+          "p10": 7.35919189453125,
+          "p90": 8.67822265625,
+          "samples": 2748
+        },
+        "calls": [
+          1,
+          1
+        ],
+        "ratios": {
+          "best": 1.0096028838198794,
+          "p1": 1.008330149346478,
+          "median": 1.0067731180187551
+        }
+      },
+      {
+        "ordinal": 7,
+        "order": [
+          "fastfft/measure",
+          "fastfft"
+        ],
+        "estimate": {
+          "best": 6.98712158203125,
+          "p1": 6.99505615234375,
+          "median": 7.117950439453125,
+          "p10": 7.011260986328125,
+          "p90": 8.2825927734375,
+          "samples": 2889
+        },
+        "measure": {
+          "best": 7.133270263671875,
+          "p1": 7.154022216796875,
+          "median": 7.279083251953125,
+          "p10": 7.177001953125,
+          "p90": 8.31134033203125,
+          "samples": 2829
+        },
+        "calls": [
+          1,
+          1
+        ],
+        "ratios": {
+          "best": 1.0209168653965426,
+          "p1": 1.022725487971939,
+          "median": 1.022637529422357
+        }
+      }
+    ],
+    "provenance": {
+      "utc": "2026-10-05T23:51:24.833723+00:00",
+      "executable": "target/ticket19/selection-fix/vector-stack-scope/fastfft-arena",
+      "sha256": "42f7c2a3c18bf844420749fc5fdc325e7025f802d1ae64ad93c95df1fd846a5a",
+      "build_command": "RUSTFLAGS='-C llvm-args=-align-all-functions=6' cargo build -j1 --profile arena -pfastfft-arena",
+      "features": "default SIMD; no diagnostics/tuning",
+      "source_files": 96,
+      "source_hashes_match": true,
+      "caller_route_coverage": "canonical-offset",
+      "acceptance": false,
+      "capture_prepared_utc": "2026-10-06T20:20:44.652828+00:00"
+    }
+  },
+  "recheck": {
+    "path": "target/ticket19/selection-fix/failed-two-cells-fixed-recheck/run",
+    "records": {
+      "trials.jsonl": [
+        {
+          "line": 17,
+          "offset": 16419,
+          "sha256": "4e890f5d790f2ece897632b3a2f85130255ba7e9592770c4e8601498632342e1",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft",
+                "fastfft/measure"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 1.917585326,
+            "clock_ghz": [
+              5.026091698529993,
+              5.024434452798264
+            ],
+            "procs": 1,
+            "results": [
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 831.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.144256591796875,
+                  "p1": 7.19134521484375,
+                  "median": 7.36346435546875,
+                  "p10": 7.233856201171875,
+                  "p90": 8.633270263671875,
+                  "samples": 2790
+                },
+                "calls_per_batch": 1,
+                "mflops": 111978.0609389884
+              },
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 28047013.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.218231201171875,
+                  "p1": 7.25921630859375,
+                  "median": 7.424179077148437,
+                  "p10": 7.298065185546875,
+                  "p90": 8.700531005859375,
+                  "samples": 2764
+                },
+                "calls_per_batch": 1,
+                "mflops": 110830.47601330926
+              }
+            ]
+          }
+        },
+        {
+          "line": 18,
+          "offset": 17859,
+          "sha256": "840408600104522f6e0d3d00d8222331578634ab3fe6d67571781398b6f22d2e",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft/measure",
+                "fastfft"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 1.918802169,
+            "clock_ghz": [
+              5.021022393132245,
+              5.027972496487647
+            ],
+            "procs": 1,
+            "results": [
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 27741694.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.0977783203125,
+                  "p1": 7.117034912109375,
+                  "median": 7.252777099609375,
+                  "p10": 7.13079833984375,
+                  "p90": 8.23638916015625,
+                  "samples": 2843
+                },
+                "calls_per_batch": 1,
+                "mflops": 112711.32513543726
+              },
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 832.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 6.94580078125,
+                  "p1": 6.954376220703125,
+                  "median": 7.105743408203125,
+                  "p10": 6.96630859375,
+                  "p90": 8.20001220703125,
+                  "samples": 2907
+                },
+                "calls_per_batch": 1,
+                "mflops": 115177.50439367312
+              }
+            ]
+          }
+        },
+        {
+          "line": 19,
+          "offset": 19290,
+          "sha256": "d08e9474d7409b6c1bbac448d66b4c48876229ebd3f42087c1b3b3e36faa5821",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft",
+                "fastfft/measure"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 1.918699976,
+            "clock_ghz": [
+              5.028978862070323,
+              5.0260222300963235
+            ],
+            "procs": 1,
+            "results": [
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 892.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.207550048828125,
+                  "p1": 7.246673583984375,
+                  "median": 7.464080810546875,
+                  "p10": 7.28521728515625,
+                  "p90": 9.122802734375,
+                  "samples": 2733
+                },
+                "calls_per_batch": 1,
+                "mflops": 110994.72006164868
+              },
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 28492055.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.2503662109375,
+                  "p1": 7.302642822265625,
+                  "median": 7.526153564453125,
+                  "p10": 7.337799072265625,
+                  "p90": 9.367706298828123,
+                  "samples": 2699
+                },
+                "calls_per_batch": 1,
+                "mflops": 110339.25414597188
+              }
+            ]
+          }
+        },
+        {
+          "line": 20,
+          "offset": 20729,
+          "sha256": "179fe3ff676480737d3bad71a8632cc70e2496b5a222262a400f9cf950a0d0f7",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft/measure",
+                "fastfft"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 1.918169302,
+            "clock_ghz": [
+              5.015736245503236,
+              5.027959224256283
+            ],
+            "procs": 1,
+            "results": [
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 28308066.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.216705322265625,
+                  "p1": 7.2830810546875,
+                  "median": 7.438079833984375,
+                  "p10": 7.3280029296875,
+                  "p90": 8.359344482421875,
+                  "samples": 2781
+                },
+                "calls_per_batch": 1,
+                "mflops": 110853.9096825484
+              },
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 782.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.06719970703125,
+                  "p1": 7.093780517578125,
+                  "median": 7.216583251953125,
+                  "p10": 7.11920166015625,
+                  "p90": 8.3443603515625,
+                  "samples": 2856
+                },
+                "calls_per_batch": 1,
+                "mflops": 113199.00854139858
+              }
+            ]
+          }
+        },
+        {
+          "line": 21,
+          "offset": 22164,
+          "sha256": "44472782f1f6a56981454e1fb27d2fd8827cfa95089bfd75706056dfc8ddf640",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft",
+                "fastfft/measure"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 1.918886379,
+            "clock_ghz": [
+              5.02430886235328,
+              5.029352558871715
+            ],
+            "procs": 1,
+            "results": [
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 831.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.172393798828125,
+                  "p1": 7.202056884765625,
+                  "median": 7.47845458984375,
+                  "p10": 7.25799560546875,
+                  "p90": 9.1839599609375,
+                  "samples": 2713
+                },
+                "calls_per_batch": 1,
+                "mflops": 111538.77247101373
+              },
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 28181036.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.234161376953125,
+                  "p1": 7.25311279296875,
+                  "median": 7.491912841796875,
+                  "p10": 7.304168701171875,
+                  "p90": 9.149993896484377,
+                  "samples": 2710
+                },
+                "calls_per_batch": 1,
+                "mflops": 110586.41884167408
+              }
+            ]
+          }
+        },
+        {
+          "line": 22,
+          "offset": 23602,
+          "sha256": "c89579f1e61314f9348506cfaf62518f145d6251f8b27e76be5036c8a2bbe45b",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft/measure",
+                "fastfft"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 1.91894538,
+            "clock_ghz": [
+              5.030169700320095,
+              5.026452333712705
+            ],
+            "procs": 1,
+            "results": [
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 28411102.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.112762451171875,
+                  "p1": 7.12225341796875,
+                  "median": 7.250656127929688,
+                  "p10": 7.13720703125,
+                  "p90": 8.250152587890625,
+                  "samples": 2844
+                },
+                "calls_per_batch": 1,
+                "mflops": 112473.88134946005
+              },
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 802.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 6.96905517578125,
+                  "p1": 6.975189208984375,
+                  "median": 7.0947265625,
+                  "p10": 6.988037109375,
+                  "p90": 8.085662841796875,
+                  "samples": 2912
+                },
+                "calls_per_batch": 1,
+                "mflops": 114793.17925048826
+              }
+            ]
+          }
+        },
+        {
+          "line": 23,
+          "offset": 25031,
+          "sha256": "a857006000a398333d7f589221a3e7a87b2d5faabdb1a5dc1d4c2bd9bfc060cf",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft",
+                "fastfft/measure"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 1.920653372,
+            "clock_ghz": [
+              5.031063673770738,
+              5.022766316173848
+            ],
+            "procs": 1,
+            "results": [
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 811.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.150970458984375,
+                  "p1": 7.15863037109375,
+                  "median": 7.310134887695312,
+                  "p10": 7.179718017578125,
+                  "p90": 8.721038818359375,
+                  "samples": 2800
+                },
+                "calls_per_batch": 1,
+                "mflops": 111872.92754019024
+              },
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 29038979.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.205718994140625,
+                  "p1": 7.216400146484375,
+                  "median": 7.357666015625,
+                  "p10": 7.234161376953125,
+                  "p90": 8.471527099609375,
+                  "samples": 2800
+                },
+                "calls_per_batch": 1,
+                "mflops": 111022.92507528048
+              }
+            ]
+          }
+        },
+        {
+          "line": 24,
+          "offset": 26471,
+          "sha256": "f100ce78c3982404ecfa6f60e89dcb331305d345009125f4168d1f58e1f38631",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft/measure",
+                "fastfft"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 1.920571708,
+            "clock_ghz": [
+              5.024251433638745,
+              5.02810459060921
+            ],
+            "procs": 1,
+            "results": [
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 29497797.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.242095947265625,
+                  "p1": 7.2830810546875,
+                  "median": 7.4552001953125,
+                  "p10": 7.32342529296875,
+                  "p90": 8.67822265625,
+                  "samples": 2759
+                },
+                "calls_per_batch": 1,
+                "mflops": 110465.25837620992
+              },
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 821.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.082489013671875,
+                  "p1": 7.110626220703125,
+                  "median": 7.2564697265625,
+                  "p10": 7.14239501953125,
+                  "p90": 8.170684814453125,
+                  "samples": 2853
+                },
+                "calls_per_batch": 1,
+                "mflops": 112954.64044571028
+              }
+            ]
+          }
+        }
+      ],
+      "results.jsonl": [
+        {
+          "line": 3,
+          "offset": 2065,
+          "sha256": "6bb566225c5e2c5188ae97047e64e14eb4001879d55916a19820e4072a718af1",
+          "row": {
+            "spec": {
+              "suite": "batch",
+              "precision": "f32",
+              "direction": "forward",
+              "placement": "outofplace",
+              "n": 32,
+              "batch": 32768,
+              "misalign": 0,
+              "caller_scratch": 0,
+              "scenario": null,
+              "libs": [
+                "fastfft",
+                "fastfft/measure"
+              ],
+              "profile": "full",
+              "data": "zero",
+              "verify": true,
+              "seed": 1592590368,
+              "control": false
+            },
+            "key": "batch:f32:fwd:oop:n32:b32768",
+            "cpu": 4,
+            "wall_s": 15.352313612,
+            "clock_ghz": [
+              5.015736245503236,
+              5.031063673770738
+            ],
+            "procs": 8,
+            "results": [
+              {
+                "lib": "fastfft",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 831.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 6.94580078125,
+                  "p1": 6.954376220703125,
+                  "median": 7.105743408203125,
+                  "p10": 6.96630859375,
+                  "p90": 8.20001220703125,
+                  "samples": 2907
+                },
+                "calls_per_batch": 1,
+                "mflops": 115177.50439367312
+              },
+              {
+                "lib": "fastfft/measure",
+                "status": "ok",
+                "describe": "small avx2 n=32 decomposition=8x4 radices=8x4 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x4",
+                "plan_ns": 27741694.0,
+                "verify": {
+                  "method": "dd",
+                  "rel_l2_eps": 0.6622715701947409,
+                  "max_eps": 0.7034892537475209,
+                  "passed": true
+                },
+                "time": {
+                  "best": 7.0977783203125,
+                  "p1": 7.117034912109375,
+                  "median": 7.252777099609375,
+                  "p10": 7.13079833984375,
+                  "p90": 8.23638916015625,
+                  "samples": 2843
+                },
+                "calls_per_batch": 1,
+                "mflops": 112711.32513543726
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "summaries": [
+      {
+        "ordinal": 0,
+        "order": [
+          "fastfft",
+          "fastfft/measure"
+        ],
+        "estimate": {
+          "best": 7.144256591796875,
+          "p1": 7.19134521484375,
+          "median": 7.36346435546875,
+          "p10": 7.233856201171875,
+          "p90": 8.633270263671875,
+          "samples": 2790
+        },
+        "measure": {
+          "best": 7.218231201171875,
+          "p1": 7.25921630859375,
+          "median": 7.424179077148437,
+          "p10": 7.298065185546875,
+          "p90": 8.700531005859375,
+          "samples": 2764
+        },
+        "calls": [
+          1,
+          1
+        ],
+        "ratios": {
+          "best": 1.0103544166456646,
+          "p1": 1.0094378856420223,
+          "median": 1.0082454017224372
+        }
+      },
+      {
+        "ordinal": 1,
+        "order": [
+          "fastfft/measure",
+          "fastfft"
+        ],
+        "estimate": {
+          "best": 6.94580078125,
+          "p1": 6.954376220703125,
+          "median": 7.105743408203125,
+          "p10": 6.96630859375,
+          "p90": 8.20001220703125,
+          "samples": 2907
+        },
+        "measure": {
+          "best": 7.0977783203125,
+          "p1": 7.117034912109375,
+          "median": 7.252777099609375,
+          "p10": 7.13079833984375,
+          "p90": 8.23638916015625,
+          "samples": 2843
+        },
+        "calls": [
+          1,
+          1
+        ],
+        "ratios": {
+          "best": 1.0218804920913884,
+          "p1": 1.0233894006082123,
+          "median": 1.020692232038172
+        }
+      },
+      {
+        "ordinal": 2,
+        "order": [
+          "fastfft",
+          "fastfft/measure"
+        ],
+        "estimate": {
+          "best": 7.207550048828125,
+          "p1": 7.246673583984375,
+          "median": 7.464080810546875,
+          "p10": 7.28521728515625,
+          "p90": 9.122802734375,
+          "samples": 2733
+        },
+        "measure": {
+          "best": 7.2503662109375,
+          "p1": 7.302642822265625,
+          "median": 7.526153564453125,
+          "p10": 7.337799072265625,
+          "p90": 9.367706298828123,
+          "samples": 2699
+        },
+        "calls": [
+          1,
+          1
+        ],
+        "ratios": {
+          "best": 1.0059404599093054,
+          "p1": 1.0077234385725535,
+          "median": 1.008316195320198
+        }
+      },
+      {
+        "ordinal": 3,
+        "order": [
+          "fastfft/measure",
+          "fastfft"
+        ],
+        "estimate": {
+          "best": 7.06719970703125,
+          "p1": 7.093780517578125,
+          "median": 7.216583251953125,
+          "p10": 7.11920166015625,
+          "p90": 8.3443603515625,
+          "samples": 2856
+        },
+        "measure": {
+          "best": 7.216705322265625,
+          "p1": 7.2830810546875,
+          "median": 7.438079833984375,
+          "p10": 7.3280029296875,
+          "p90": 8.359344482421875,
+          "samples": 2781
+        },
+        "calls": [
+          1,
+          1
+        ],
+        "ratios": {
+          "best": 1.021154859269879,
+          "p1": 1.0266854234692342,
+          "median": 1.0306927217906483
+        }
+      },
+      {
+        "ordinal": 4,
+        "order": [
+          "fastfft",
+          "fastfft/measure"
+        ],
+        "estimate": {
+          "best": 7.172393798828125,
+          "p1": 7.202056884765625,
+          "median": 7.47845458984375,
+          "p10": 7.25799560546875,
+          "p90": 9.1839599609375,
+          "samples": 2713
+        },
+        "measure": {
+          "best": 7.234161376953125,
+          "p1": 7.25311279296875,
+          "median": 7.491912841796875,
+          "p10": 7.304168701171875,
+          "p90": 9.149993896484377,
+          "samples": 2710
+        },
+        "calls": [
+          1,
+          1
+        ],
+        "ratios": {
+          "best": 1.0086118498032124,
+          "p1": 1.0070890731661843,
+          "median": 1.0017996033527303
+        }
+      },
+      {
+        "ordinal": 5,
+        "order": [
+          "fastfft/measure",
+          "fastfft"
+        ],
+        "estimate": {
+          "best": 6.96905517578125,
+          "p1": 6.975189208984375,
+          "median": 7.0947265625,
+          "p10": 6.988037109375,
+          "p90": 8.085662841796875,
+          "samples": 2912
+        },
+        "measure": {
+          "best": 7.112762451171875,
+          "p1": 7.12225341796875,
+          "median": 7.250656127929688,
+          "p10": 7.13720703125,
+          "p90": 8.250152587890625,
+          "samples": 2844
+        },
+        "calls": [
+          1,
+          1
+        ],
+        "ratios": {
+          "best": 1.0206207687793942,
+          "p1": 1.0210839024689036,
+          "median": 1.021978234686855
+        }
+      },
+      {
+        "ordinal": 6,
+        "order": [
+          "fastfft",
+          "fastfft/measure"
+        ],
+        "estimate": {
+          "best": 7.150970458984375,
+          "p1": 7.15863037109375,
+          "median": 7.310134887695312,
+          "p10": 7.179718017578125,
+          "p90": 8.721038818359375,
+          "samples": 2800
+        },
+        "measure": {
+          "best": 7.205718994140625,
+          "p1": 7.216400146484375,
+          "median": 7.357666015625,
+          "p10": 7.234161376953125,
+          "p90": 8.471527099609375,
+          "samples": 2800
+        },
+        "calls": [
+          1,
+          1
+        ],
+        "ratios": {
+          "best": 1.0076560986330834,
+          "p1": 1.0080699480760869,
+          "median": 1.0065020863034544
+        }
+      },
+      {
+        "ordinal": 7,
+        "order": [
+          "fastfft/measure",
+          "fastfft"
+        ],
+        "estimate": {
+          "best": 7.082489013671875,
+          "p1": 7.110626220703125,
+          "median": 7.2564697265625,
+          "p10": 7.14239501953125,
+          "p90": 8.170684814453125,
+          "samples": 2853
+        },
+        "measure": {
+          "best": 7.242095947265625,
+          "p1": 7.2830810546875,
+          "median": 7.4552001953125,
+          "p10": 7.32342529296875,
+          "p90": 8.67822265625,
+          "samples": 2759
+        },
+        "calls": [
+          1,
+          1
+        ],
+        "ratios": {
+          "best": 1.0225354297459055,
+          "p1": 1.0242531147934988,
+          "median": 1.0273866599377577
+        }
+      }
+    ],
+    "provenance": {
+      "utc": "2026-10-05T23:51:24.833723+00:00",
+      "executable": "target/ticket19/selection-fix/vector-stack-scope/fastfft-arena",
+      "sha256": "42f7c2a3c18bf844420749fc5fdc325e7025f802d1ae64ad93c95df1fd846a5a",
+      "build_command": "RUSTFLAGS='-C llvm-args=-align-all-functions=6' cargo build -j1 --profile arena -pfastfft-arena",
+      "features": "default SIMD; no diagnostics/tuning",
+      "source_files": 96,
+      "source_hashes_match": true,
+      "caller_route_coverage": "canonical-offset",
+      "acceptance": false,
+      "capture_prepared_utc": "2026-10-06T20:20:44.652828+00:00"
+    }
+  }
+}

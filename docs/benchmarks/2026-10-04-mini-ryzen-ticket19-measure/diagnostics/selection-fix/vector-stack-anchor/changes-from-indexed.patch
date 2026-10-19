@@ -1,0 +1,53 @@
+--- prior/crates/fastfft/src/engine/fourstep.rs
++++ candidate/crates/fastfft/src/engine/fourstep.rs
+@@ -536,6 +536,14 @@
+ ) where
+     V::S: FftNum,
+ {
++    // Keep a tiny aligned stack object observable without exposing the vector
++    // arrays. Generated-code checks must also verify the resulting spill slots.
++    #[repr(align(64))]
++    struct StackAnchor {
++        _byte: u8,
++    }
++    let anchor = StackAnchor { _byte: 0 };
++    let _ = std::hint::black_box(&anchor);
+     debug_assert_eq!(L, V::LANES);
+     debug_assert_eq!(L, plan.lanes);
+     if plan.groups > 1 {
+--- prior/crates/fastfft/src/engine/small/rectangular.rs
++++ candidate/crates/fastfft/src/engine/small/rectangular.rs
+@@ -3,6 +3,11 @@
+ //! Generated split codelets handle general shapes; selected shapes use packed
+ //! complex butterflies. No path requires caller scratch.
+ use super::*;
++
++#[repr(align(64))]
++struct StackAnchor {
++    _byte: u8,
++}
+ 
+ const fn uses_packed_six(m: usize, b: usize, lanes: usize, scalar_bytes: usize) -> bool {
+     cfg!(feature = "avx2") && m == 6 && b == 6 && lanes == 4 && scalar_bytes == 8
+@@ -66,6 +71,10 @@
+     // inputs are read before the first output store. The table holds
+     // M.div_ceil(W) panels of B split W-wide cross twiddles.
+     unsafe {
++        // Make the stack alignment independent of the caller without making
++        // the vector arrays escape. Verify the spill layout in generated code.
++        let anchor = StackAnchor { _byte: 0 };
++        let _ = std::hint::black_box(&anchor);
+         let zero = V::splat_f64(0.);
+         let mut a = [zero; M];
+         let mut b = [zero; M];
+@@ -116,10 +125,6 @@
+         // Keep a small aligned stack object observable without making the
+         // intermediate matrix escape, so its values can remain in registers.
+         // Generated-code checks still need to verify unrelated spill slots.
+-        #[repr(align(64))]
+-        struct StackAnchor {
+-            _byte: u8,
+-        }
+         let anchor = StackAnchor { _byte: 0 };
+         let _ = std::hint::black_box(&anchor);
+         let zero = V::splat_f64(0.);

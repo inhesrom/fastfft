@@ -1,0 +1,26 @@
+quiet-run: sustained quiet period and environment check passed; launching
+
+running 11 tests
+test measure::tests::both_caller_routes_must_pass_best_and_median_separately ... ok
+test measure::tests::deadline_during_warmup_prevents_a_timed_sample ... ok
+test measure::tests::large_promotion_can_use_the_remaining_global_budget ... 
+thread 'measure::tests::large_promotion_can_use_the_remaining_global_budget' (1095771) panicked at crates/fastfft/src/measure.rs:1502:9:
+assertion failed: !Arc::ptr_eq(&fft, &baseline)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+test measure::tests::measurement_can_promote_a_faster_public_plan ... ok
+test measure::tests::promotion_requires_both_statistics_and_every_workload ... ok
+test measure::tests::rejected_and_tied_scores_retain_actual_executable_identity ... ok
+test measure::tests::route_calibration_uses_max_per_plan_and_preserves_partial_state ... ok
+test measure::tests::route_collection_balances_order_and_keeps_seven_samples_each ... ok
+test measure::tests::second_route_expiry_keeps_first_route_and_no_invented_samples ... ok
+test measure::tests::warmup_does_not_enter_timing_statistics ... ok
+test measure::tests::zero_budget_retains_estimate ... ok
+
+failures:
+
+failures:
+    measure::tests::large_promotion_can_use_the_remaining_global_budget
+
+test result: FAILED. 10 passed; 1 failed; 0 ignored; 0 measured; 55 filtered out; finished in 1.04s
+

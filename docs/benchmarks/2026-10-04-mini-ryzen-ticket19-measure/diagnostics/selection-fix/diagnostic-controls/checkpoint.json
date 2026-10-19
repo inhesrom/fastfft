@@ -1,0 +1,76 @@
+{
+  "acceptance": false,
+  "ticket19": "open",
+  "executable_sha256": "6e9db2bda50e7f9a52a0d606e622d779f942fc7958f9941e06b9bb60ec0396ce",
+  "runs": [
+    {
+      "name": "order-coupled",
+      "meta": {
+        "aborted": null,
+        "cells": 8,
+        "child_failures": 0,
+        "drift_flag": false,
+        "elapsed_s": 219.765243516,
+        "max_drift": 0.007387927431299013,
+        "official": false
+      },
+      "inspected_cells": 8,
+      "inspected_trials": 64,
+      "evidence_problems": []
+    },
+    {
+      "name": "order-factorial",
+      "meta": {
+        "aborted": null,
+        "cells": 8,
+        "child_failures": 0,
+        "drift_flag": false,
+        "elapsed_s": 219.722254056,
+        "max_drift": 0.008690716549091038,
+        "official": false
+      },
+      "inspected_cells": 8,
+      "inspected_trials": 64,
+      "evidence_problems": []
+    },
+    {
+      "name": "three-arc",
+      "meta": {
+        "aborted": null,
+        "cells": 20,
+        "child_failures": 0,
+        "drift_flag": false,
+        "elapsed_s": 1813.182609425,
+        "max_drift": 0.026423137118725237,
+        "official": false
+      },
+      "inspected_cells": 20,
+      "inspected_trials": 160,
+      "evidence_problems": []
+    }
+  ],
+  "three_arc_failures": {
+    "matching_plan_merged": [
+      {
+        "key": "pow2:f32:fwd:oop:n4096",
+        "ratio": 1.0443019656711017
+      },
+      {
+        "key": "pow2:f32:inv:oop:n4096",
+        "ratio": 1.0434261384225147
+      }
+    ],
+    "slower_changed_plan_raw": [
+      {
+        "key": "smooth:f32:inv:ip:n96",
+        "process_index": 7,
+        "p1_ratio": 1.03122483633231
+      },
+      {
+        "key": "smooth:f64:fwd:ip:n48",
+        "process_index": 5,
+        "p1_ratio": 1.103954408832062
+      }
+    ]
+  }
+}

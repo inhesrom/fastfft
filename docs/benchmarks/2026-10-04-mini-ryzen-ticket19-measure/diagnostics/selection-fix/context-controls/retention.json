@@ -1,0 +1,985 @@
+{
+  "acceptance": false,
+  "executable": {
+    "executable": "target/ticket19/selection-fix/context-controls/fastfft-arena",
+    "sha256": "ff9d0f213dc9c3d0606726ae0eed93ccc255a3a247e4f1a8e82df13d89fbfdf0",
+    "build_command": "RUSTFLAGS='-C llvm-args=-align-all-functions=6' cargo build -j 1 --profile arena -p fastfft-arena --features measure-diagnostics",
+    "source_files": 83,
+    "source_hashes_match": true,
+    "acceptance": false
+  },
+  "files": [
+    {
+      "original": "HEAD.txt",
+      "retained": "HEAD.txt",
+      "original_sha256": "e63d847ca080e044cf7ff0835112db5738acf88d5ac30869982eb5c8bb83f57d",
+      "retained_sha256": "e63d847ca080e044cf7ff0835112db5738acf88d5ac30869982eb5c8bb83f57d",
+      "bytes": 41,
+      "gzip": false
+    },
+    {
+      "original": "all-buffer-tests.log",
+      "retained": "all-buffer-tests.log",
+      "original_sha256": "3e47ceaecfc1f6184e060a22d888900625662dd0aa31f376408a1b901fcb9745",
+      "retained_sha256": "3e47ceaecfc1f6184e060a22d888900625662dd0aa31f376408a1b901fcb9745",
+      "bytes": 384,
+      "gzip": false
+    },
+    {
+      "original": "arena-tests.log",
+      "retained": "arena-tests.log",
+      "original_sha256": "35b7135a7e260c61602cba0d2a8462b9ef0919e3ef4a325f12b761d5b305923b",
+      "retained_sha256": "35b7135a7e260c61602cba0d2a8462b9ef0919e3ef4a325f12b761d5b305923b",
+      "bytes": 946,
+      "gzip": false
+    },
+    {
+      "original": "audit-tests.log",
+      "retained": "audit-tests.log",
+      "original_sha256": "d764fe26ea50f9f59b0fe3dd23ae62d9f5caed2bc53c1f5555695baecda0af5a",
+      "retained_sha256": "d764fe26ea50f9f59b0fe3dd23ae62d9f5caed2bc53c1f5555695baecda0af5a",
+      "bytes": 690,
+      "gzip": false
+    },
+    {
+      "original": "buffer-tests.log",
+      "retained": "buffer-tests.log",
+      "original_sha256": "2a23be142d2dcdd19894d13f8d7193da7551671996ade273bd760bd595e306fa",
+      "retained_sha256": "2a23be142d2dcdd19894d13f8d7193da7551671996ade273bd760bd595e306fa",
+      "bytes": 347,
+      "gzip": false
+    },
+    {
+      "original": "build-env.json",
+      "retained": "build-env.json",
+      "original_sha256": "423742cbb084a76186a47f88939b35e30a81fefedeadb1bc57b5090fe358f94c",
+      "retained_sha256": "423742cbb084a76186a47f88939b35e30a81fefedeadb1bc57b5090fe358f94c",
+      "bytes": 3285,
+      "gzip": false
+    },
+    {
+      "original": "build-final.log",
+      "retained": "build-final.log",
+      "original_sha256": "125436ed20986739f665e75a39e5da0bde6841ede71b581f002f4966b3decf04",
+      "retained_sha256": "125436ed20986739f665e75a39e5da0bde6841ede71b581f002f4966b3decf04",
+      "bytes": 150,
+      "gzip": false
+    },
+    {
+      "original": "build.log",
+      "retained": "build.log",
+      "original_sha256": "3ff67f4cc41f526741551501b2a4677f81c05071d09f433b32b4481b316e185b",
+      "retained_sha256": "3ff67f4cc41f526741551501b2a4677f81c05071d09f433b32b4481b316e185b",
+      "bytes": 224,
+      "gzip": false
+    },
+    {
+      "original": "commands.json",
+      "retained": "commands.json",
+      "original_sha256": "4ad9c2b3f594e4ea263511ff0c5e56840d4ea8587827c1d1655339c0d90c56aa",
+      "retained_sha256": "4ad9c2b3f594e4ea263511ff0c5e56840d4ea8587827c1d1655339c0d90c56aa",
+      "bytes": 674,
+      "gzip": false
+    },
+    {
+      "original": "context-audit-tests.log",
+      "retained": "context-audit-tests.log",
+      "original_sha256": "c4b12b24c6a080999d4b9d2962cb2c8de5d4b47dd118f31953d9685463db8009",
+      "retained_sha256": "c4b12b24c6a080999d4b9d2962cb2c8de5d4b47dd118f31953d9685463db8009",
+      "bytes": 120,
+      "gzip": false
+    },
+    {
+      "original": "deadline-test.log",
+      "retained": "deadline-test.log",
+      "original_sha256": "1590b1cad1afd2bcee382d9c896337300f09f55b7100c4f71242e6cbf7ffc2b1",
+      "retained_sha256": "1590b1cad1afd2bcee382d9c896337300f09f55b7100c4f71242e6cbf7ffc2b1",
+      "bytes": 206,
+      "gzip": false
+    },
+    {
+      "original": "library-tests-serial.log",
+      "retained": "library-tests-serial.log",
+      "original_sha256": "b2ccf23284dabb5494219008f374105c25ae19d1b007ce2ab26c66cf0f44af2e",
+      "retained_sha256": "b2ccf23284dabb5494219008f374105c25ae19d1b007ce2ab26c66cf0f44af2e",
+      "bytes": 809,
+      "gzip": false
+    },
+    {
+      "original": "library-tests.log",
+      "retained": "library-tests.log",
+      "original_sha256": "97140a4831d3fc68968bb1b3f2348a86cf88d44b9ec783cc99dd60e60df43b82",
+      "retained_sha256": "97140a4831d3fc68968bb1b3f2348a86cf88d44b9ec783cc99dd60e60df43b82",
+      "bytes": 7964,
+      "gzip": false
+    },
+    {
+      "original": "measure-audit-tests.log",
+      "retained": "measure-audit-tests.log",
+      "original_sha256": "2bcdf8cd66ff4faa3b8e5820bb3ac6c71db76d5df404344179080aaa765a7543",
+      "retained_sha256": "2bcdf8cd66ff4faa3b8e5820bb3ac6c71db76d5df404344179080aaa765a7543",
+      "bytes": 123,
+      "gzip": false
+    },
+    {
+      "original": "n96/context-inspection.json",
+      "retained": "n96/context-inspection.json",
+      "original_sha256": "d5383cc524fc1d80178fa2d41b62d9486133b8c6dbea9fe3c5fe3b97f6a59864",
+      "retained_sha256": "d5383cc524fc1d80178fa2d41b62d9486133b8c6dbea9fe3c5fe3b97f6a59864",
+      "bytes": 1085,
+      "gzip": false
+    },
+    {
+      "original": "n96/context-summary.json",
+      "retained": "n96/context-summary.json",
+      "original_sha256": "ad72a5d1be9be996bd3eb66dfcf319fcff642512f3d09474d5b42ef43346f315",
+      "retained_sha256": "ad72a5d1be9be996bd3eb66dfcf319fcff642512f3d09474d5b42ef43346f315",
+      "bytes": 21589,
+      "gzip": false
+    },
+    {
+      "original": "n96/env.json",
+      "retained": "n96/env.json",
+      "original_sha256": "6cfc9ad4f54c040fb8533697f3f270203e21fe20cc7cc073d0a2d453ca9a0c93",
+      "retained_sha256": "6cfc9ad4f54c040fb8533697f3f270203e21fe20cc7cc073d0a2d453ca9a0c93",
+      "bytes": 3999,
+      "gzip": false
+    },
+    {
+      "original": "n96/meta.json",
+      "retained": "n96/meta.json",
+      "original_sha256": "1f35155db981f23cdc3d87b243ac1d9b1c270261231a61106e9265356d342917",
+      "retained_sha256": "1f35155db981f23cdc3d87b243ac1d9b1c270261231a61106e9265356d342917",
+      "bytes": 168,
+      "gzip": false
+    },
+    {
+      "original": "n96/plots/smooth-f32-accuracy.svg",
+      "retained": "n96/plots/smooth-f32-accuracy.svg",
+      "original_sha256": "091c7341c9b939a9e953f192eb8b84b326fed35cd656540abe526ca657fb16a4",
+      "retained_sha256": "091c7341c9b939a9e953f192eb8b84b326fed35cd656540abe526ca657fb16a4",
+      "bytes": 3171,
+      "gzip": false
+    },
+    {
+      "original": "n96/report.md",
+      "retained": "n96/report.md",
+      "original_sha256": "11426c276d9ed1edda409224a9628a68ceb39214a3b9ea9a53df8683c9fec925",
+      "retained_sha256": "11426c276d9ed1edda409224a9628a68ceb39214a3b9ea9a53df8683c9fec925",
+      "bytes": 2917,
+      "gzip": false
+    },
+    {
+      "original": "n96/results.jsonl",
+      "retained": "n96/results.jsonl.gz",
+      "original_sha256": "df1138282abaace55438c95d2387cbf35d4d734e59b4ff6d7cb2f5d8082aa011",
+      "retained_sha256": "c1f75347c70f2051fe37b213cbac449398031be30d0dc687ece919dea510d61e",
+      "bytes": 51856,
+      "gzip": true
+    },
+    {
+      "original": "n96/trials.jsonl",
+      "retained": "n96/trials.jsonl.gz",
+      "original_sha256": "dd4e3981ab52c9c4d7648015058368d91b0010f464dd2d4be70989d5fa897b3f",
+      "retained_sha256": "b0138f5c0836d5c8044d687493fde31a6ec7d8372192e539a09c97de44be1036",
+      "bytes": 2699430,
+      "gzip": true
+    },
+    {
+      "original": "n96-affinity-proof.json",
+      "retained": "n96-affinity-proof.json",
+      "original_sha256": "e0d54f5f5093de1f98af4875fb5e82df9623b25a8f9a4a6386fc87ae8dc8eef6",
+      "retained_sha256": "e0d54f5f5093de1f98af4875fb5e82df9623b25a8f9a4a6386fc87ae8dc8eef6",
+      "bytes": 15723,
+      "gzip": false
+    },
+    {
+      "original": "n96-affinity.json",
+      "retained": "n96-affinity.json",
+      "original_sha256": "bad15ee679349dbf325f8dc050e205a05bb22b043851aae1f1502c2999bc1d25",
+      "retained_sha256": "bad15ee679349dbf325f8dc050e205a05bb22b043851aae1f1502c2999bc1d25",
+      "bytes": 25389,
+      "gzip": false
+    },
+    {
+      "original": "n96-progress.json",
+      "retained": "n96-progress.json",
+      "original_sha256": "b180cbaf72ebbef6489c81779b26e5963979b4656cbc1b582f3d725494c5f07b",
+      "retained_sha256": "b180cbaf72ebbef6489c81779b26e5963979b4656cbc1b582f3d725494c5f07b",
+      "bytes": 325,
+      "gzip": false
+    },
+    {
+      "original": "n96-quiet.jsonl",
+      "retained": "n96-quiet.jsonl.gz",
+      "original_sha256": "4f6c2b91c5eb477d91b485d3e9d79f9b4e6132998aabe5f2225582f99ae92a31",
+      "retained_sha256": "7af0c15b8fd69fcf3aaee86e536efacd3133ae6077e65e40544bd4c3962d2064",
+      "bytes": 9730,
+      "gzip": true
+    },
+    {
+      "original": "n96.log",
+      "retained": "n96.log",
+      "original_sha256": "b4c3ae3e1dccba5f1c2636d24342d9fe791e48f3d3a2bb3fcf0d700947b563f5",
+      "retained_sha256": "b4c3ae3e1dccba5f1c2636d24342d9fe791e48f3d3a2bb3fcf0d700947b563f5",
+      "bytes": 394,
+      "gzip": false
+    },
+    {
+      "original": "original-sampler-disassembly.txt",
+      "retained": "original-sampler-disassembly.txt.gz",
+      "original_sha256": "b4c927540a96edddff97a69b3761885e768086e354f87135f170feb30de4dbf3",
+      "retained_sha256": "fec9210f5000ddb42fa6beaf6a4d162a0019b84850b7f9888572687308438c93",
+      "bytes": 5307,
+      "gzip": true
+    },
+    {
+      "original": "plan.json",
+      "retained": "plan.json",
+      "original_sha256": "cda1f670e4fd2efde1d749855382b10d931df0980ee3fa5bd06b35e3bd576cb9",
+      "retained_sha256": "cda1f670e4fd2efde1d749855382b10d931df0980ee3fa5bd06b35e3bd576cb9",
+      "bytes": 2909,
+      "gzip": false
+    },
+    {
+      "original": "provenance.json",
+      "retained": "provenance.json",
+      "original_sha256": "a9ccf1e2acb2d6118d8b91de99f24c2aa04807aa4b431b39e04b8883f60b66c4",
+      "retained_sha256": "a9ccf1e2acb2d6118d8b91de99f24c2aa04807aa4b431b39e04b8883f60b66c4",
+      "bytes": 390,
+      "gzip": false
+    },
+    {
+      "original": "sampler-disassembly.txt",
+      "retained": "sampler-disassembly.txt.gz",
+      "original_sha256": "d3528644abe6312e39ad40bfb9cc890b82c29f189ae3f79722f63f1f5acdd03d",
+      "retained_sha256": "b2c112e5b75363f014d46da8cc6ad345c976c4569f65d52908162dd940c18314",
+      "bytes": 117074,
+      "gzip": true
+    },
+    {
+      "original": "source/.cargo/config.toml",
+      "retained": "source/.cargo/config.toml",
+      "original_sha256": "716b49c90c25aeeebc4b0359b111a62927d166a1d7f02c4fe83b89d55fb74887",
+      "retained_sha256": "716b49c90c25aeeebc4b0359b111a62927d166a1d7f02c4fe83b89d55fb74887",
+      "bytes": 49,
+      "gzip": false
+    },
+    {
+      "original": "source/Cargo.lock",
+      "retained": "source/Cargo.lock",
+      "original_sha256": "d189ac7846ba7367ff6639203365143680db7cb8939e349ea9c08030c7ae0da0",
+      "retained_sha256": "d189ac7846ba7367ff6639203365143680db7cb8939e349ea9c08030c7ae0da0",
+      "bytes": 30595,
+      "gzip": false
+    },
+    {
+      "original": "source/Cargo.toml",
+      "retained": "source/Cargo.toml",
+      "original_sha256": "9d485fa981c4eac50f263c9247d132b38047b1ccc39a3e317c51369e356061e5",
+      "retained_sha256": "9d485fa981c4eac50f263c9247d132b38047b1ccc39a3e317c51369e356061e5",
+      "bytes": 1475,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/Cargo.toml",
+      "retained": "source/bench/arena/Cargo.toml",
+      "original_sha256": "f9c17a9d3fd4625f3175866fb5d006b70b464cf54c5204606ea815082ae3b018",
+      "retained_sha256": "f9c17a9d3fd4625f3175866fb5d006b70b464cf54c5204606ea815082ae3b018",
+      "bytes": 1242,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/build.rs",
+      "retained": "source/bench/arena/build.rs",
+      "original_sha256": "6c2583ddaddcf055c0afbe0a4b7304c6d71c93732c8ea7de75b9bfa91a015656",
+      "retained_sha256": "6c2583ddaddcf055c0afbe0a4b7304c6d71c93732c8ea7de75b9bfa91a015656",
+      "bytes": 2165,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/src/adapters.rs",
+      "retained": "source/bench/arena/src/adapters.rs",
+      "original_sha256": "ed4d1182bc15fa72f843e75937dcccbe4576b7007c3fa70fe9cc877a7bfd5873",
+      "retained_sha256": "ed4d1182bc15fa72f843e75937dcccbe4576b7007c3fa70fe9cc877a7bfd5873",
+      "bytes": 20602,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/src/buffers.rs",
+      "retained": "source/bench/arena/src/buffers.rs",
+      "original_sha256": "b7a767a87c39af42cd002d9b3235f41fdf7cdfd85691014380066f6d5ce6e0d4",
+      "retained_sha256": "b7a767a87c39af42cd002d9b3235f41fdf7cdfd85691014380066f6d5ce6e0d4",
+      "bytes": 3944,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/src/cell.rs",
+      "retained": "source/bench/arena/src/cell.rs",
+      "original_sha256": "e82deb49ae5dc1949ca2436a5b4e0db369cc61097c87f8a17b5a97fa1f7ba0ae",
+      "retained_sha256": "e82deb49ae5dc1949ca2436a5b4e0db369cc61097c87f8a17b5a97fa1f7ba0ae",
+      "bytes": 18816,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/src/clock_probe.rs",
+      "retained": "source/bench/arena/src/clock_probe.rs",
+      "original_sha256": "f6bc07a6d534f068e85a1232bb2b07e1a98396825951879bda57d52d6a045ccd",
+      "retained_sha256": "f6bc07a6d534f068e85a1232bb2b07e1a98396825951879bda57d52d6a045ccd",
+      "bytes": 5732,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/src/driver.rs",
+      "retained": "source/bench/arena/src/driver.rs",
+      "original_sha256": "443f46266c50c04a7983d3c2000403613eb337f4c857628ab1cfa523a2a1c6a8",
+      "retained_sha256": "443f46266c50c04a7983d3c2000403613eb337f4c857628ab1cfa523a2a1c6a8",
+      "bytes": 21551,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/src/env.rs",
+      "retained": "source/bench/arena/src/env.rs",
+      "original_sha256": "c8aaaf679860fba468cec534e36ad018b6609c0b3fc68a65190fd858db5b30b3",
+      "retained_sha256": "c8aaaf679860fba468cec534e36ad018b6609c0b3fc68a65190fd858db5b30b3",
+      "bytes": 6880,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/src/fastfft_adapter.rs",
+      "retained": "source/bench/arena/src/fastfft_adapter.rs",
+      "original_sha256": "437f388b6867b353abfdd62404bcec2d73cb80b78f4482ee931b35471d031c64",
+      "retained_sha256": "437f388b6867b353abfdd62404bcec2d73cb80b78f4482ee931b35471d031c64",
+      "bytes": 3979,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/src/fftw.rs",
+      "retained": "source/bench/arena/src/fftw.rs",
+      "original_sha256": "2ccdb058df225bc6e5b2573ff9e784f1e1019ad33bbccd8463a9f13fa4f918c5",
+      "retained_sha256": "2ccdb058df225bc6e5b2573ff9e784f1e1019ad33bbccd8463a9f13fa4f918c5",
+      "bytes": 7586,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/src/main.rs",
+      "retained": "source/bench/arena/src/main.rs",
+      "original_sha256": "062df8727919d404bcd02b6aad17b798702032a007e0c43243c79d8760a19cda",
+      "retained_sha256": "062df8727919d404bcd02b6aad17b798702032a007e0c43243c79d8760a19cda",
+      "bytes": 8351,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/src/measure_context.rs",
+      "retained": "source/bench/arena/src/measure_context.rs",
+      "original_sha256": "b12bd6b9d803e8bf84caa67a42230ef95255abe7f03bf5c61e7e1aa4ff1e0768",
+      "retained_sha256": "b12bd6b9d803e8bf84caa67a42230ef95255abe7f03bf5c61e7e1aa4ff1e0768",
+      "bytes": 12463,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/src/measure_diagnostics.rs",
+      "retained": "source/bench/arena/src/measure_diagnostics.rs",
+      "original_sha256": "299c2d45a404132013dee6c6a94db291c0ceb3606edbf975cfd285c9b1552a72",
+      "retained_sha256": "299c2d45a404132013dee6c6a94db291c0ceb3606edbf975cfd285c9b1552a72",
+      "bytes": 16097,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/src/report.rs",
+      "retained": "source/bench/arena/src/report.rs",
+      "original_sha256": "bc9822b1f65ceaf18c20efe076b0bafbc686eafc60d9fd78cee437e73b0207a7",
+      "retained_sha256": "bc9822b1f65ceaf18c20efe076b0bafbc686eafc60d9fd78cee437e73b0207a7",
+      "bytes": 33741,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/src/scenarios.rs",
+      "retained": "source/bench/arena/src/scenarios.rs",
+      "original_sha256": "163c06b11bc482ddfd2bfd8ad19ab732715597139ef315070cd23a6f96376f38",
+      "retained_sha256": "163c06b11bc482ddfd2bfd8ad19ab732715597139ef315070cd23a6f96376f38",
+      "bytes": 16191,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/src/spec.rs",
+      "retained": "source/bench/arena/src/spec.rs",
+      "original_sha256": "704a053108674a2c1c7b423950883153a047bb07bb81e61ba1f05154d6d11f0c",
+      "retained_sha256": "704a053108674a2c1c7b423950883153a047bb07bb81e61ba1f05154d6d11f0c",
+      "bytes": 14226,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/src/timing.rs",
+      "retained": "source/bench/arena/src/timing.rs",
+      "original_sha256": "ea23111476f1bc17eb9ba4257899191d6212510765aa7b9cfb3217d239d77b18",
+      "retained_sha256": "ea23111476f1bc17eb9ba4257899191d6212510765aa7b9cfb3217d239d77b18",
+      "bytes": 4290,
+      "gzip": false
+    },
+    {
+      "original": "source/bench/arena/src/usage.txt",
+      "retained": "source/bench/arena/src/usage.txt",
+      "original_sha256": "150348ec38ba91d51ef820ba7e141b04eef5b6524dd8de8c700e15e5c21bc398",
+      "retained_sha256": "150348ec38ba91d51ef820ba7e141b04eef5b6524dd8de8c700e15e5c21bc398",
+      "bytes": 923,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/Cargo.toml",
+      "retained": "source/crates/fastfft/Cargo.toml",
+      "original_sha256": "9ed808b645e12ba59c7f4e442e5bda1c5cc0bf4270ee426e2cf305c2b007c35d",
+      "retained_sha256": "9ed808b645e12ba59c7f4e442e5bda1c5cc0bf4270ee426e2cf305c2b007c35d",
+      "bytes": 1206,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/api.rs",
+      "retained": "source/crates/fastfft/src/api.rs",
+      "original_sha256": "4b3ea2619846bb78c6abd29e21c6bd1685845d1890acd808636b1a126475c56b",
+      "retained_sha256": "4b3ea2619846bb78c6abd29e21c6bd1685845d1890acd808636b1a126475c56b",
+      "bytes": 5564,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/mod.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/mod.rs",
+      "original_sha256": "bcec64d86e49d7f67bf42b9d9088a82dcfb76f3c424603645479d1ab0d324440",
+      "retained_sha256": "bcec64d86e49d7f67bf42b9d9088a82dcfb76f3c424603645479d1ab0d324440",
+      "bytes": 17535,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/r10.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/r10.rs",
+      "original_sha256": "3cc0908095fe3136ef6b41991b2002ef353d5a4b2da64a060c057935b76f7d88",
+      "retained_sha256": "3cc0908095fe3136ef6b41991b2002ef353d5a4b2da64a060c057935b76f7d88",
+      "bytes": 24436,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/r11.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/r11.rs",
+      "original_sha256": "c612bc6fe416f5e301b712a99b7cff0019f96a45f8a0137a2627047a56c00255",
+      "retained_sha256": "c612bc6fe416f5e301b712a99b7cff0019f96a45f8a0137a2627047a56c00255",
+      "bytes": 37376,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/r12.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/r12.rs",
+      "original_sha256": "e3078712b710eeb837c2e8ab7e09a539dd630f890f30f22ec6ac41162b33556d",
+      "retained_sha256": "e3078712b710eeb837c2e8ab7e09a539dd630f890f30f22ec6ac41162b33556d",
+      "bytes": 27379,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/r13.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/r13.rs",
+      "original_sha256": "329bd461963514affeab51b26c7c094e385175da2d599c1bba610ff53ecc8369",
+      "retained_sha256": "329bd461963514affeab51b26c7c094e385175da2d599c1bba610ff53ecc8369",
+      "bytes": 49136,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/r14.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/r14.rs",
+      "original_sha256": "27695a624de604b623818b538e70b3f46b12cf219df24d54036235aa1a807fbc",
+      "retained_sha256": "27695a624de604b623818b538e70b3f46b12cf219df24d54036235aa1a807fbc",
+      "bytes": 39799,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/r15.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/r15.rs",
+      "original_sha256": "89f7d315d7a1a4630efc6a91183624260e03ef905f4bab6f773dc225b8623c6f",
+      "retained_sha256": "89f7d315d7a1a4630efc6a91183624260e03ef905f4bab6f773dc225b8623c6f",
+      "bytes": 43347,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/r16.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/r16.rs",
+      "original_sha256": "f6d6373ebcc6b17250acaf1f115f5f770417ece1be64de113804c3ee2c99417e",
+      "retained_sha256": "f6d6373ebcc6b17250acaf1f115f5f770417ece1be64de113804c3ee2c99417e",
+      "bytes": 40329,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/r2.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/r2.rs",
+      "original_sha256": "6bbe20566576ca03dc1bf6875ad2ff75fff0591fa64862811218ea880ea4f6b2",
+      "retained_sha256": "6bbe20566576ca03dc1bf6875ad2ff75fff0591fa64862811218ea880ea4f6b2",
+      "bytes": 3313,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/r3.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/r3.rs",
+      "original_sha256": "6eb836399ad40f3906a4de06a901da0c7c59a1093c4e8d5683bb5ea040167264",
+      "retained_sha256": "6eb836399ad40f3906a4de06a901da0c7c59a1093c4e8d5683bb5ea040167264",
+      "bytes": 5942,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/r32.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/r32.rs",
+      "original_sha256": "76c1ca3613de85539ce6f578489c5ec640e4b6d01020f59b2af4c6555a1dec8b",
+      "retained_sha256": "76c1ca3613de85539ce6f578489c5ec640e4b6d01020f59b2af4c6555a1dec8b",
+      "bytes": 98451,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/r4.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/r4.rs",
+      "original_sha256": "3ffec464e8e9a8cb42c5289808d2294680d5f2e081f6b9ce6fbd2aeff344a932",
+      "retained_sha256": "3ffec464e8e9a8cb42c5289808d2294680d5f2e081f6b9ce6fbd2aeff344a932",
+      "bytes": 6680,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/r5.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/r5.rs",
+      "original_sha256": "e50c6afaf204edf4bfec8b38a09c5af0ec531e2a8f21a680d842f4a68f124e28",
+      "retained_sha256": "e50c6afaf204edf4bfec8b38a09c5af0ec531e2a8f21a680d842f4a68f124e28",
+      "bytes": 11486,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/r6.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/r6.rs",
+      "original_sha256": "b964a015b8a9e9999d9614da9826e1d8e6d9ff14ef5e88144ca5882a3c05e07a",
+      "retained_sha256": "b964a015b8a9e9999d9614da9826e1d8e6d9ff14ef5e88144ca5882a3c05e07a",
+      "bytes": 12183,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/r7.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/r7.rs",
+      "original_sha256": "208ca97e0dac29a27d847ba55d6f0ff18c439cccba8d6be8139ede6bf27eb520",
+      "retained_sha256": "208ca97e0dac29a27d847ba55d6f0ff18c439cccba8d6be8139ede6bf27eb520",
+      "bytes": 18314,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/r8.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/r8.rs",
+      "original_sha256": "3d5ba01e92fcbe0a34d77a3053ed2c3dc8bffb99db9c6f5ad89667df15c4507d",
+      "retained_sha256": "3d5ba01e92fcbe0a34d77a3053ed2c3dc8bffb99db9c6f5ad89667df15c4507d",
+      "bytes": 16049,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/generated/r9.rs",
+      "retained": "source/crates/fastfft/src/codelets/generated/r9.rs",
+      "original_sha256": "87f3d33343d376fa0981f293733c73520df76fdbe34767a4baec516eaeada1bb",
+      "retained_sha256": "87f3d33343d376fa0981f293733c73520df76fdbe34767a4baec516eaeada1bb",
+      "bytes": 25452,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/codelets/mod.rs",
+      "retained": "source/crates/fastfft/src/codelets/mod.rs",
+      "original_sha256": "2c6e44c77c511a8e0a97baa5f4e707d746fc9359b401f6935a32137b77d63097",
+      "retained_sha256": "2c6e44c77c511a8e0a97baa5f4e707d746fc9359b401f6935a32137b77d63097",
+      "bytes": 507,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/diagnostic.rs",
+      "retained": "source/crates/fastfft/src/diagnostic.rs",
+      "original_sha256": "a85dac836b0ada83b21fc91e67ef7f57fbd86c4307bbe91246b78d4938b756be",
+      "retained_sha256": "a85dac836b0ada83b21fc91e67ef7f57fbd86c4307bbe91246b78d4938b756be",
+      "bytes": 15516,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/batch/interleaved.rs",
+      "retained": "source/crates/fastfft/src/engine/batch/interleaved.rs",
+      "original_sha256": "7dae6779492cc0b644906edf9b4ee54b6eeb1b404909b4e3d71801f8f32e6f44",
+      "retained_sha256": "7dae6779492cc0b644906edf9b4ee54b6eeb1b404909b4e3d71801f8f32e6f44",
+      "bytes": 8418,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/batch.rs",
+      "retained": "source/crates/fastfft/src/engine/batch.rs",
+      "original_sha256": "3af3c68e484d0d24c58debaa8b12d9cea2c94b912e3323881a3bccae4e3d7f24",
+      "retained_sha256": "3af3c68e484d0d24c58debaa8b12d9cea2c94b912e3323881a3bccae4e3d7f24",
+      "bytes": 19619,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/bluestein.rs",
+      "retained": "source/crates/fastfft/src/engine/bluestein.rs",
+      "original_sha256": "2f02a6f1f16922c9514b82864dcb7a474b40c1d1636ffef5391e8d437e202ba8",
+      "retained_sha256": "2f02a6f1f16922c9514b82864dcb7a474b40c1d1636ffef5391e8d437e202ba8",
+      "bytes": 13343,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/fixed/timing.rs",
+      "retained": "source/crates/fastfft/src/engine/fixed/timing.rs",
+      "original_sha256": "4d71cafcd67f5675e4927f29b7c08136157c780e8634d949e3486577f8e3210d",
+      "retained_sha256": "4d71cafcd67f5675e4927f29b7c08136157c780e8634d949e3486577f8e3210d",
+      "bytes": 2653,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/fixed.rs",
+      "retained": "source/crates/fastfft/src/engine/fixed.rs",
+      "original_sha256": "a01494462c89e9845e8732be9a748220d43e1a17e594ddb90a7d4af776205eba",
+      "retained_sha256": "a01494462c89e9845e8732be9a748220d43e1a17e594ddb90a7d4af776205eba",
+      "bytes": 14962,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/fourstep/grouped.rs",
+      "retained": "source/crates/fastfft/src/engine/fourstep/grouped.rs",
+      "original_sha256": "f83cb31e90b1eca9948825b5b93d84a7016d48d7bed93d373a1b04e117c97fbf",
+      "retained_sha256": "f83cb31e90b1eca9948825b5b93d84a7016d48d7bed93d373a1b04e117c97fbf",
+      "bytes": 6176,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/fourstep/tests.rs",
+      "retained": "source/crates/fastfft/src/engine/fourstep/tests.rs",
+      "original_sha256": "8bef61add5b1e135fcc15bd92360b44774d443273defeb498ff5328a22aa6212",
+      "retained_sha256": "8bef61add5b1e135fcc15bd92360b44774d443273defeb498ff5328a22aa6212",
+      "bytes": 13146,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/fourstep.rs",
+      "retained": "source/crates/fastfft/src/engine/fourstep.rs",
+      "original_sha256": "99465da226b911c97b1e84017d6b1cc38d1f04a9cbdac594d57681cc74800862",
+      "retained_sha256": "99465da226b911c97b1e84017d6b1cc38d1f04a9cbdac594d57681cc74800862",
+      "bytes": 28700,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/mod.rs",
+      "retained": "source/crates/fastfft/src/engine/mod.rs",
+      "original_sha256": "0fbbbc65198df862065ed5029280583d5653b7f707d1f21a424bc3e9ea1bf51d",
+      "retained_sha256": "0fbbbc65198df862065ed5029280583d5653b7f707d1f21a424bc3e9ea1bf51d",
+      "bytes": 7368,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/small/interleaved.rs",
+      "retained": "source/crates/fastfft/src/engine/small/interleaved.rs",
+      "original_sha256": "dd899cf175176a230593dec871d95b932d44e7e8639edbfa3330e44be1ee2d93",
+      "retained_sha256": "dd899cf175176a230593dec871d95b932d44e7e8639edbfa3330e44be1ee2d93",
+      "bytes": 11570,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/small/rectangular.rs",
+      "retained": "source/crates/fastfft/src/engine/small/rectangular.rs",
+      "original_sha256": "9a951ba0aaccaf109c0e1fe6da119540fa0c2bdb7517154551f344d10b154091",
+      "retained_sha256": "9a951ba0aaccaf109c0e1fe6da119540fa0c2bdb7517154551f344d10b154091",
+      "bytes": 15172,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/small/timing.rs",
+      "retained": "source/crates/fastfft/src/engine/small/timing.rs",
+      "original_sha256": "73f036160ee35c4d0000f6d9d70f60c07ad4e1fdf87efeff4fb8d384187e0858",
+      "retained_sha256": "73f036160ee35c4d0000f6d9d70f60c07ad4e1fdf87efeff4fb8d384187e0858",
+      "bytes": 2369,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/small.rs",
+      "retained": "source/crates/fastfft/src/engine/small.rs",
+      "original_sha256": "628d79edb24db38e5a24520a0f1ddb661f8b7404e3128abb62005af0c7e31826",
+      "retained_sha256": "628d79edb24db38e5a24520a0f1ddb661f8b7404e3128abb62005af0c7e31826",
+      "bytes": 25949,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/stockham/contracts.rs",
+      "retained": "source/crates/fastfft/src/engine/stockham/contracts.rs",
+      "original_sha256": "8b7c0432881047c69111b23409188ace1c8463b7099d819735f82d7c38e51b5d",
+      "retained_sha256": "8b7c0432881047c69111b23409188ace1c8463b7099d819735f82d7c38e51b5d",
+      "bytes": 6217,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/stockham/scratch.rs",
+      "retained": "source/crates/fastfft/src/engine/stockham/scratch.rs",
+      "original_sha256": "ad15c5ecfb9ecbf0d9b48cbb0621626c04294f40b0fea9c42615f01dfb14f14e",
+      "retained_sha256": "ad15c5ecfb9ecbf0d9b48cbb0621626c04294f40b0fea9c42615f01dfb14f14e",
+      "bytes": 2288,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/stockham.rs",
+      "retained": "source/crates/fastfft/src/engine/stockham.rs",
+      "original_sha256": "0603218fc8145cd711ed13dfa8b8aa2bd8f83edd78c309c287249eb12cc3b5bc",
+      "retained_sha256": "0603218fc8145cd711ed13dfa8b8aa2bd8f83edd78c309c287249eb12cc3b5bc",
+      "bytes": 27011,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/timing.rs",
+      "retained": "source/crates/fastfft/src/engine/timing.rs",
+      "original_sha256": "7948cf8cbfbae80d3ab73138a5e8d6dbaf14bc32d331949ce78e927c081e8519",
+      "retained_sha256": "7948cf8cbfbae80d3ab73138a5e8d6dbaf14bc32d331949ce78e927c081e8519",
+      "bytes": 3265,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/engine/tuning.rs",
+      "retained": "source/crates/fastfft/src/engine/tuning.rs",
+      "original_sha256": "0bfd3d17f73f240691ba416bbe05e965f476457caf7c0fc1ee88031fd6db6c96",
+      "retained_sha256": "0bfd3d17f73f240691ba416bbe05e965f476457caf7c0fc1ee88031fd6db6c96",
+      "bytes": 7139,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/fft.rs",
+      "retained": "source/crates/fastfft/src/fft.rs",
+      "original_sha256": "53cf135295b1f0a5c78bd52bc0a5e4a961b49b28afb499cc50d02cd4fdfed481",
+      "retained_sha256": "53cf135295b1f0a5c78bd52bc0a5e4a961b49b28afb499cc50d02cd4fdfed481",
+      "bytes": 9502,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/isa/cache.rs",
+      "retained": "source/crates/fastfft/src/isa/cache.rs",
+      "original_sha256": "00bb8868d03b857119759c6c9451055b1a5b7bf131ffd7b8d08c09376358499e",
+      "retained_sha256": "00bb8868d03b857119759c6c9451055b1a5b7bf131ffd7b8d08c09376358499e",
+      "bytes": 10375,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/isa/mod.rs",
+      "retained": "source/crates/fastfft/src/isa/mod.rs",
+      "original_sha256": "51cf51b9c1715d45f464fd28db9fc71e95695f9244b78006c96437dfdc9091f1",
+      "retained_sha256": "51cf51b9c1715d45f464fd28db9fc71e95695f9244b78006c96437dfdc9091f1",
+      "bytes": 8710,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/isa/roots/coefficients.rs",
+      "retained": "source/crates/fastfft/src/isa/roots/coefficients.rs",
+      "original_sha256": "43701fb7dd974bcb71efc4ce3c1e64c6404c8f12178f7f4acc62e8c5f37e199d",
+      "retained_sha256": "43701fb7dd974bcb71efc4ce3c1e64c6404c8f12178f7f4acc62e8c5f37e199d",
+      "bytes": 3291,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/isa/roots/mod.rs",
+      "retained": "source/crates/fastfft/src/isa/roots/mod.rs",
+      "original_sha256": "3c6f05267d14b1d4452f591b267f5dd5982bee61839298f8d2feef64fe414707",
+      "retained_sha256": "3c6f05267d14b1d4452f591b267f5dd5982bee61839298f8d2feef64fe414707",
+      "bytes": 10926,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/isa/roots/small_roots.rs",
+      "retained": "source/crates/fastfft/src/isa/roots/small_roots.rs",
+      "original_sha256": "d0790947410a08f301d9237109b5bc85c8392981a67c2cb8ddde2d24b4628f31",
+      "retained_sha256": "d0790947410a08f301d9237109b5bc85c8392981a67c2cb8ddde2d24b4628f31",
+      "bytes": 1719,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/isa/scalar.rs",
+      "retained": "source/crates/fastfft/src/isa/scalar.rs",
+      "original_sha256": "e9a20dbbbe4b176f0e844668f57765930482ff444b2718289489d0d1fa91286c",
+      "retained_sha256": "e9a20dbbbe4b176f0e844668f57765930482ff444b2718289489d0d1fa91286c",
+      "bytes": 3555,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/isa/x86/interleaved/odd.rs",
+      "retained": "source/crates/fastfft/src/isa/x86/interleaved/odd.rs",
+      "original_sha256": "717b369d682dfbe1835728d175f3ef731b520b20714b84a545c898d2e5d37dbf",
+      "retained_sha256": "717b369d682dfbe1835728d175f3ef731b520b20714b84a545c898d2e5d37dbf",
+      "bytes": 14479,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/isa/x86/interleaved.rs",
+      "retained": "source/crates/fastfft/src/isa/x86/interleaved.rs",
+      "original_sha256": "5afb87dfc803462f9ce8b2ec326136b8d0e79b45e1b45f82e126ae2ea6333302",
+      "retained_sha256": "5afb87dfc803462f9ce8b2ec326136b8d0e79b45e1b45f82e126ae2ea6333302",
+      "bytes": 50084,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/isa/x86.rs",
+      "retained": "source/crates/fastfft/src/isa/x86.rs",
+      "original_sha256": "8bc8635382dcf2ef325e3d91083bace07e79884ef1caeed3fa57f3c64e44099e",
+      "retained_sha256": "8bc8635382dcf2ef325e3d91083bace07e79884ef1caeed3fa57f3c64e44099e",
+      "bytes": 26374,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/large_dispatch.rs",
+      "retained": "source/crates/fastfft/src/large_dispatch.rs",
+      "original_sha256": "13934cb177c7b8dc677dfa00065593332e3ce0254b53ff5f5f268fb871a08e94",
+      "retained_sha256": "13934cb177c7b8dc677dfa00065593332e3ce0254b53ff5f5f268fb871a08e94",
+      "bytes": 1772,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/lib.rs",
+      "retained": "source/crates/fastfft/src/lib.rs",
+      "original_sha256": "2eb81e1f4143ff891ad61012d91032bde3af4845c1101896106dc6d4dc24507b",
+      "retained_sha256": "2eb81e1f4143ff891ad61012d91032bde3af4845c1101896106dc6d4dc24507b",
+      "bytes": 3314,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/measure.rs",
+      "retained": "source/crates/fastfft/src/measure.rs",
+      "original_sha256": "644fab21b9084cf7aaeae5b73c252985e004c535927e23e1363f816e89b04621",
+      "retained_sha256": "644fab21b9084cf7aaeae5b73c252985e004c535927e23e1363f816e89b04621",
+      "bytes": 32537,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/plan/mod.rs",
+      "retained": "source/crates/fastfft/src/plan/mod.rs",
+      "original_sha256": "6b8c457265dd1099b904f9d64dba1f021ad24fba5b31f2caa12ab6e792d48787",
+      "retained_sha256": "6b8c457265dd1099b904f9d64dba1f021ad24fba5b31f2caa12ab6e792d48787",
+      "bytes": 8825,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/plan/tables/zen4.rs",
+      "retained": "source/crates/fastfft/src/plan/tables/zen4.rs",
+      "original_sha256": "439e91d89e607ece263db77d0b8f6d031f5fc3ecc0e32d9aa363eac28fe2d19e",
+      "retained_sha256": "439e91d89e607ece263db77d0b8f6d031f5fc3ecc0e32d9aa363eac28fe2d19e",
+      "bytes": 148902,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/planner.rs",
+      "retained": "source/crates/fastfft/src/planner.rs",
+      "original_sha256": "bd10e0c6e099273e4be1b0c5edec6e5bcd947119657e76bf052db7f9731197f6",
+      "retained_sha256": "bd10e0c6e099273e4be1b0c5edec6e5bcd947119657e76bf052db7f9731197f6",
+      "bytes": 32694,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/scratch.rs",
+      "retained": "source/crates/fastfft/src/scratch.rs",
+      "original_sha256": "a7b2e08bbfe8abc9ff70f57f9f7cd5dd929acd86c1b781a1c707584a9673a0da",
+      "retained_sha256": "a7b2e08bbfe8abc9ff70f57f9f7cd5dd929acd86c1b781a1c707584a9673a0da",
+      "bytes": 4144,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/small_dispatch.rs",
+      "retained": "source/crates/fastfft/src/small_dispatch.rs",
+      "original_sha256": "3f25635cf351e87d913269c9a1f7ca089409bf61de69698632ddf75d76887f3e",
+      "retained_sha256": "3f25635cf351e87d913269c9a1f7ca089409bf61de69698632ddf75d76887f3e",
+      "bytes": 4617,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/smooth_dispatch.rs",
+      "retained": "source/crates/fastfft/src/smooth_dispatch.rs",
+      "original_sha256": "858c7feeb0bd56819e20b8d820907a271c493da5126cf77bd0771f31047741fd",
+      "retained_sha256": "858c7feeb0bd56819e20b8d820907a271c493da5126cf77bd0771f31047741fd",
+      "bytes": 2043,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/specialized_tests.rs",
+      "retained": "source/crates/fastfft/src/specialized_tests.rs",
+      "original_sha256": "a0d697dbf74a036530db883ebbac41ce096a8608b78f3fa97354aa49f5f701d9",
+      "retained_sha256": "a0d697dbf74a036530db883ebbac41ce096a8608b78f3fa97354aa49f5f701d9",
+      "bytes": 12152,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/tests.rs",
+      "retained": "source/crates/fastfft/src/tests.rs",
+      "original_sha256": "00ace1fa67f977604236371fd585f9cc5bcca19cbd3bdee365e6f5d710e1064c",
+      "retained_sha256": "00ace1fa67f977604236371fd585f9cc5bcca19cbd3bdee365e6f5d710e1064c",
+      "bytes": 25812,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/tuning.rs",
+      "retained": "source/crates/fastfft/src/tuning.rs",
+      "original_sha256": "113ea88b25e9bdc5bff0b19c389188698a25ef60141d87c0dfcffb6052553995",
+      "retained_sha256": "113ea88b25e9bdc5bff0b19c389188698a25ef60141d87c0dfcffb6052553995",
+      "bytes": 28110,
+      "gzip": false
+    },
+    {
+      "original": "source/crates/fastfft/src/twiddle.rs",
+      "retained": "source/crates/fastfft/src/twiddle.rs",
+      "original_sha256": "47f3a691fd314931dfb309201b94c5fc8c1bcdb5dcc9c654d1a4771f0bb9b31e",
+      "retained_sha256": "47f3a691fd314931dfb309201b94c5fc8c1bcdb5dcc9c654d1a4771f0bb9b31e",
+      "bytes": 3153,
+      "gzip": false
+    },
+    {
+      "original": "source-sha256.json",
+      "retained": "source-sha256.json",
+      "original_sha256": "61d8d03d8c89921613f7ae760b976a9f0ba1f93b9e1edd771ea553307ff7a5ef",
+      "retained_sha256": "61d8d03d8c89921613f7ae760b976a9f0ba1f93b9e1edd771ea553307ff7a5ef",
+      "bytes": 11650,
+      "gzip": false
+    },
+    {
+      "original": "status.txt",
+      "retained": "status.txt",
+      "original_sha256": "e5a5bf7de8b336fa55d54659553b7a0166b14e459f6d0cb2a6401f6baeb3aa61",
+      "retained_sha256": "e5a5bf7de8b336fa55d54659553b7a0166b14e459f6d0cb2a6401f6baeb3aa61",
+      "bytes": 1257,
+      "gzip": false
+    },
+    {
+      "original": "tracked.patch",
+      "retained": "tracked.patch",
+      "original_sha256": "80f1d046f087aa0876c29859b02b3b2446a750936939927cc9535104cecbbd19",
+      "retained_sha256": "80f1d046f087aa0876c29859b02b3b2446a750936939927cc9535104cecbbd19",
+      "bytes": 160713,
+      "gzip": false
+    },
+    {
+      "retained": "audit-source/inspect-context.py",
+      "retained_sha256": "1145c8ac4ec18b24f97fde9fad93d2d65722319e0f501b39094711e17fa779c1",
+      "bytes": 17683
+    },
+    {
+      "retained": "audit-source/test_context_audit.py",
+      "retained_sha256": "0715765fee8a6330f0de232d4c6f31427e7c111ef46e97963850336da87d31a2",
+      "bytes": 10982
+    },
+    {
+      "retained": "audit-source/inspect-replay.py",
+      "retained_sha256": "8d1d7e1130121acd6fa2b77149bedab03ca5c64c9ebc921686cd41e1a94e4d24",
+      "bytes": 10322
+    },
+    {
+      "retained": "audit-source/test_replay_audit.py",
+      "retained_sha256": "b9b56eebe40cf0a4df414fb8e4fc13d4822ca62e6ba6363fb9f6a991cdc08b58",
+      "bytes": 2444
+    },
+    {
+      "retained": "audit-source/quiet-run.py",
+      "retained_sha256": "bc67ed56644dd9d7cba6d56c4f1d5705b41c3404d8bced329564f03028dee528",
+      "bytes": 7787
+    },
+    {
+      "retained": "audit-source/reserve-core.py",
+      "retained_sha256": "86281d050ebbe6fa085bd10c4b1632b63171df79d723c41df16ca098829d389b",
+      "bytes": 15380
+    },
+    {
+      "retained": "audit-source/progress.py",
+      "retained_sha256": "a8a9f6cb6abff81473d17d2cdea95da8b52ae7a265b5b295372d2a2298fde375",
+      "bytes": 3771
+    }
+  ],
+  "note": "Fixed eight-process caller-location/count/post-arena-exposure control; no production remedy established."
+}

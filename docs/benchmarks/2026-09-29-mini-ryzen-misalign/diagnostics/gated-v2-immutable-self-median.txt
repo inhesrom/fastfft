@@ -1,0 +1,38 @@
+statistic: median; times in ns; x rf = rustfft time / fastfft time
+cell                                  ff m0      ff m8 ff m8/m0 rf m8/m0  x rf m0  x rf m8  plan
+datacheck:f32:fwd:imm:n64              15.3       15.9    1.045    1.006    1.332    1.283  small avx512-ymm n=64 decomposition=16x4 scratch=0 kernel=interleaved
+datacheck:f32:fwd:imm:n64:random       15.3       16.0    1.046    1.001    1.336    1.279  small avx512-ymm n=64 decomposition=16x4 scratch=0 kernel=interleaved
+datacheck:f32:fwd:imm:n4096          3294.9     2713.0    0.823    1.025    1.045    1.301  stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224
+datacheck:f32:fwd:imm:n4096:random     3312.5     2734.1    0.825    1.005    1.051    1.280  stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224
+datacheck:f32:fwd:imm:n65536        70013.0    63520.0    0.907    1.006    1.341    1.487  stockham avx512-ymm split L=8 radices=8x2x8x8x8 scratch=132104
+datacheck:f32:fwd:imm:n65536:random    70283.0    63671.0    0.906    1.002    1.343    1.486  stockham avx512-ymm split L=8 radices=8x2x8x8x8 scratch=132104
+datacheck:f32:fwd:imm:n1048576    4121179.5  4599204.0    1.116    1.008    0.879    0.793  stockham avx512-ymm split L=8 radices=8x4x8x8x8x8 scratch=1048584
+datacheck:f32:fwd:imm:n1048576:random  4067273.0  4476417.0    1.101    1.007    0.886    0.811  stockham avx512-ymm split L=8 radices=8x4x8x8x8x8 scratch=1048584
+datacheck:f64:fwd:imm:n64              28.5       28.6    1.003    1.018    1.372    1.392  small avx512 n=64 decomposition=16x4 scratch=0 kernel=interleaved
+datacheck:f64:fwd:imm:n64:random       28.5       28.7    1.009    1.013    1.377    1.384  small avx512 n=64 decomposition=16x4 scratch=0 kernel=interleaved
+datacheck:f64:fwd:imm:n4096          4696.2     5317.1    1.132    1.060    1.480    1.386  stockham avx512 split L=8 radices=8x8x8 scratch=8708
+datacheck:f64:fwd:imm:n4096:random     4637.9     5295.0    1.142    1.004    1.635    1.437  stockham avx512 split L=8 radices=8x8x8 scratch=8708
+datacheck:f64:fwd:imm:n65536       136358.0   124846.0    0.916    1.002    1.374    1.504  stockham avx512 split L=8 radices=8x2x8x8x8 scratch=131588
+datacheck:f64:fwd:imm:n65536:random   137229.0   124295.0    0.906    1.001    1.373    1.517  stockham avx512 split L=8 radices=8x2x8x8x8 scratch=131588
+datacheck:f64:fwd:imm:n1048576   13433718.5 13353091.0    0.994    0.998    0.634    0.637  stockham avx512 split L=8 radices=8x4x8x8x8x8 scratch=1048580
+datacheck:f64:fwd:imm:n1048576:random 13274653.0 13181661.5    0.993    0.997    0.640    0.643  stockham avx512 split L=8 radices=8x4x8x8x8x8 scratch=1048580
+
+prec  band      place cells  ff m8/m0   worst  rf m8/m0  x rf m0  x rf m8
+f32   2-256     all       2     1.045   1.046     1.004    1.334    1.281
+f32   2-256     imm       2     1.045   1.046     1.004    1.334    1.281
+f32   512-16K   all       2     0.824   0.825     1.015    1.048    1.291
+f32   512-16K   imm       2     0.824   0.825     1.015    1.048    1.291
+f32   32K-128K  all       2     0.907   0.907     1.004    1.342    1.486
+f32   32K-128K  imm       2     0.907   0.907     1.004    1.342    1.486
+f32   256K-1M   all       2     1.108   1.116     1.007    0.882    0.802
+f32   256K-1M   imm       2     1.108   1.116     1.007    0.882    0.802
+f32   all       all       8     0.965   1.116     1.008    1.134    1.185
+f64   2-256     all       2     1.006   1.009     1.016    1.374    1.388
+f64   2-256     imm       2     1.006   1.009     1.016    1.374    1.388
+f64   512-16K   all       2     1.137   1.142     1.032    1.556    1.411
+f64   512-16K   imm       2     1.137   1.142     1.032    1.556    1.411
+f64   32K-128K  all       2     0.911   0.916     1.001    1.374    1.511
+f64   32K-128K  imm       2     0.911   0.916     1.001    1.374    1.511
+f64   256K-1M   all       2     0.993   0.994     0.998    0.637    0.640
+f64   256K-1M   imm       2     0.993   0.994     0.998    0.637    0.640
+f64   all       all       8     1.009   1.142     1.012    1.170    1.173

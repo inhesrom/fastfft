@@ -1,0 +1,25 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.04s
+     Running unittests src/lib.rs (target/debug/deps/fastfft-454abd5a52368c6d)
+
+running 18 tests
+test engine::fourstep::storage::tests::miri_coefficient_swap_fourstep_storage_restores_bits_and_owner ... ok
+test engine::fourstep::storage::tests::fourstep_storage_overflow_rejected_before_allocation ... ok
+test engine::stockham::storage::tests::miri_alignment_rounding_overflow_is_rejected - should panic ... ok
+test engine::stockham::storage::tests::miri_backing_threshold_preserves_small_footprint_and_rounds_pages ... ok
+test engine::fourstep::storage::tests::miri_fourstep_storage_boundaries_empty_views_and_independent_clone ... ok
+test engine::fourstep::storage::tests::miri_coefficient_swap_fourstep_storage_rejects_atomically_both_precisions ... ok
+test engine::stockham::storage::tests::miri_clone_preserves_float_bits_and_owns_independent_storage ... ok
+test engine::stockham::storage::tests::miri_canonical_layout_is_aligned_disjoint_and_clone_relative_for_both_precisions ... ok
+test engine::stockham::storage::tests::miri_coefficient_size_overflow_is_rejected_before_allocation - should panic ... ok
+test engine::stockham::storage::tests::miri_coefficient_swap_rejects_different_backing_variants ... ok
+test engine::stockham::storage::tests::miri_coefficient_swap_rejects_capacity_layout_and_bits_without_mutation ... ok
+test engine::stockham::storage::tests::miri_coefficient_swap_validates_backing_and_restores_exact_owners ... ok
+test engine::stockham::storage::tests::miri_non_float_scalar_is_rejected_before_typed_views - should panic ... ok
+test engine::stockham::storage::tests::miri_paged_allocation_layout_overflow_is_rejected_before_allocation - should panic ... ok
+test engine::stockham::storage::tests::miri_empty_descriptor_prefix_and_empty_tables_are_valid ... ok
+test engine::stockham::storage::tests::miri_pass_length_overflow_is_rejected_before_allocation - should panic ... ok
+test engine::stockham::storage::tests::miri_paged_clone_preserves_bits_and_alignment_both_precisions ... ok
+test engine::fourstep::storage::tests::fourstep_storage_matches_legacy_coefficient_bits_both_precisions ... ok
+
+test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 90 filtered out; finished in 0.04s
+

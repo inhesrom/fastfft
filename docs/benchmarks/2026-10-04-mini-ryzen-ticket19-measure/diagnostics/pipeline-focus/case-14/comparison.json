@@ -1,0 +1,29 @@
+{
+  "run": "target/ticket19/pipeline-focus/case-14",
+  "cells": 1,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "smooth": {
+      "cells": 1,
+      "failures": 0,
+      "worst": 0.997894180999466,
+      "geomean": 0.997894180999466
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "smooth:f64:fwd:oop:n768",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 0.997894180999466,
+      "best": 0.997894180999466,
+      "p1": 1.0005301655507117,
+      "median": 1.0004732454712715,
+      "estimate": "stockham avx512-ymm split L=4 radices=8x6x4 scratch=2052 scratch_oop=2052 scratch_immutable=2052",
+      "measure": "stockham avx512-ymm split L=4 radices=8x6x4 scratch=2052 scratch_oop=2052 scratch_immutable=2052",
+      "same_plan": true
+    }
+  ]
+}

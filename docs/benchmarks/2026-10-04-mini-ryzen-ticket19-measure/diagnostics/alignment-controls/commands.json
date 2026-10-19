@@ -1,0 +1,86 @@
+[
+  {
+    "command": [
+      "target/ticket19/pipeline/fastfft-arena",
+      "run",
+      "--suite",
+      "pow2",
+      "--profile",
+      "full",
+      "--libs",
+      "fastfft,fastfft/measure",
+      "--filter",
+      "precision=f32,n=32768,place=ip",
+      "--core",
+      "2",
+      "--procs",
+      "8",
+      "--out",
+      "target/ticket19/alignment-controls/pow2-normal"
+    ],
+    "LD_PRELOAD": "/home/ianhersom/repo/fastfft/target/ticket19/trace-alloc.so"
+  },
+  {
+    "command": [
+      "target/ticket19/pipeline/fastfft-arena",
+      "run",
+      "--suite",
+      "pow2",
+      "--profile",
+      "full",
+      "--libs",
+      "fastfft,fastfft/measure",
+      "--filter",
+      "precision=f32,n=32768,place=ip",
+      "--core",
+      "2",
+      "--procs",
+      "8",
+      "--out",
+      "target/ticket19/alignment-controls/pow2-aligned"
+    ],
+    "LD_PRELOAD": "/home/ianhersom/repo/fastfft/target/ticket19/align-alloc.so"
+  },
+  {
+    "command": [
+      "target/ticket19/pipeline/fastfft-arena",
+      "run",
+      "--suite",
+      "batch",
+      "--profile",
+      "full",
+      "--libs",
+      "fastfft,fastfft/measure",
+      "--filter",
+      "precision=f64,dir=fwd,place=oop,n=256",
+      "--core",
+      "2",
+      "--procs",
+      "8",
+      "--out",
+      "target/ticket19/alignment-controls/batch-normal"
+    ],
+    "LD_PRELOAD": "/home/ianhersom/repo/fastfft/target/ticket19/trace-alloc.so"
+  },
+  {
+    "command": [
+      "target/ticket19/pipeline/fastfft-arena",
+      "run",
+      "--suite",
+      "batch",
+      "--profile",
+      "full",
+      "--libs",
+      "fastfft,fastfft/measure",
+      "--filter",
+      "precision=f64,dir=fwd,place=oop,n=256",
+      "--core",
+      "2",
+      "--procs",
+      "8",
+      "--out",
+      "target/ticket19/alignment-controls/batch-aligned"
+    ],
+    "LD_PRELOAD": "/home/ianhersom/repo/fastfft/target/ticket19/align-alloc.so"
+  }
+]

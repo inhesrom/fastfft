@@ -1,0 +1,40 @@
+--- prior vectors
+
++++ current vectors
+
+@@ -626,8 +626,8 @@
+
+ vpermpd ymm2,ymm2,0xd8
+ vshufps ymm0,ymm0,ymm1,0xdd
+ vpermpd ymm0,ymm0,0xd8
+-vmovups YMMWORD PTR [rsp+r12*1+0xba0],ymm0
+-vmovups YMMWORD PTR [rsp+r12*1+0x360],ymm2
++vmovups YMMWORD PTR [rsp+r12*1+0xbc0],ymm0
++vmovups YMMWORD PTR [rsp+r12*1+0x340],ymm2
+ vmovups ymm0,YMMWORD PTR [rsp+STACK]
+ vmovups ymm1,YMMWORD PTR [rsp+STACK]
+ vmovups ymm2,YMMWORD PTR [rsp+STACK]
+@@ -1785,8 +1785,8 @@
+
+ vpermpd ymm2,ymm2,0xd8
+ vshufps ymm0,ymm0,ymm1,0xdd
+ vpermpd ymm0,ymm0,0xd8
+-vmovups YMMWORD PTR [rsp+r12*1+0xba0],ymm0
+-vmovups YMMWORD PTR [rsp+r12*1+0x360],ymm2
++vmovups YMMWORD PTR [rsp+r12*1+0xbc0],ymm0
++vmovups YMMWORD PTR [rsp+r12*1+0x340],ymm2
+ vmovups ymm1,YMMWORD PTR [rsp+STACK]
+ vmovups ymm2,YMMWORD PTR [rsp+STACK]
+ vmovups ymm4,YMMWORD PTR [rsp+STACK]
+@@ -4939,8 +4939,8 @@
+
+ vpermpd ymm2,ymm2,0xd8
+ vshufps ymm0,ymm0,ymm1,0xdd
+ vpermpd ymm0,ymm0,0xd8
+-vmovups YMMWORD PTR [rsp+r12*1+0xba0],ymm0
+-vmovups YMMWORD PTR [rsp+r12*1+0x360],ymm2
++vmovups YMMWORD PTR [rsp+r12*1+0xbc0],ymm0
++vmovups YMMWORD PTR [rsp+r12*1+0x340],ymm2
+ vmovups ymm0,YMMWORD PTR [rsp+STACK]
+ vmovups YMMWORD PTR [rsp+STACK],ymm0
+ vmovups ymm2,YMMWORD PTR [rsp+STACK]

@@ -1,0 +1,41 @@
+{
+  "run": "target/ticket19/workspace-trace/preflight",
+  "cells": 2,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "pow2": {
+      "cells": 2,
+      "failures": 0,
+      "worst": 1.0003905716015389,
+      "geomean": 0.9992152977884113
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "pow2:f32:fwd:ip:n32768",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 0.9980414047045459,
+      "best": 0.9980414047045459,
+      "p1": 0.9997861503168863,
+      "median": 0.9984452676634868,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=66568 scratch_oop=66568 scratch_immutable=66568",
+      "measure": "stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=66568 scratch_oop=66568 scratch_immutable=66568",
+      "same_plan": true
+    },
+    {
+      "key": "pow2:f32:inv:ip:n32768",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.0003905716015389,
+      "best": 1.0003905716015389,
+      "p1": 1.0005619283831964,
+      "median": 1.00076615142983,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=66568 scratch_oop=66568 scratch_immutable=66568",
+      "measure": "stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=66568 scratch_oop=66568 scratch_immutable=66568",
+      "same_plan": true
+    }
+  ]
+}

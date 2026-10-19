@@ -1,0 +1,19 @@
+# Canonical FourStep storage implementation
+
+FourStep now owns one initialized allocation containing both panels' pass descriptors, their original coefficients, cross twiddles and fine twiddles. Every coefficient region starts on a 64-byte boundary; large backing spans use the existing 4096-byte-aligned Page allocation. Radix order, coefficient generation and initialized tail lanes are preserved bit for bit. Constructors populate the allocation directly, without full temporary coefficient Vecs. Panel views borrow their owner and cache its base pointer; all panel/cross/fine views are formed before outer execution loops. Descriptors hold offsets, not self-references.
+
+Stockham's backing implementation was extracted unchanged apart from visibility, formatting and the requested generic panic wording. The remaining Stockham storage source is identical to the archived diagnostic except its expected-panic string. Its allocation geometry and scratch lengths are unchanged. The preservation comparison initially failed because rustfmt inserted whitespace before a wrapped `.expect` call; the retained JSON explicitly records whitespace normalization. One initial storage test failed solely on the changed expected panic wording; that assertion was updated and the final suite passes.
+
+The new full-owner diagnostic exchange validates scalar configuration, storage layout and initialized backing bytes before mutation. It exchanges only backing ownership; sham scans and rejection paths do not mutate either plan. Diagnostics report the backing owner plus borrowed descriptor, radix and coefficient views. Old owning outer Vec regions are gone.
+
+## Measured non-test layout
+
+The retained default-feature+tuning debug constructor probe executed no FFT. FftImpl object size decreases from 272 to 192 bytes for both examined kernels. FourStepPlan decreases from 240 to 160 bytes; StockhamPlan remains 112 bytes. Embedded offsets remain 0 for FourStep and 8 for Stockham. No padding was added to preserve old sizes.
+
+For f64 N165375 (375x441, eight lanes), backing is 660 pages = 2,703,360 initialized bytes. Descriptor arrays start at 0 and 72; column coefficients at 192,448,1408; row coefficients at 6208,6336,7040; cross coefficients at 13312 (1024 modulo 4096), length 336000 scalars. Fine table remains empty. All scratch lengths remain 172436 complex values; all previously reported scalar metadata is unchanged. Stockham N75600 retains 167 pages and exactly its previous coefficient offsets and 152232 advertised scratch lengths; aligned OOP still bypasses scratch.
+
+## Validation and remaining risks
+
+Filtered SSE2+tuning correctness tests: FourStep 19/19, storage 18/18, coefficient exchange 17/17 (overlapping filters). Both tuning and no-tuning SSE2 Clippy compile checks pass with warnings denied. Tests cover legacy coefficient-bit oracles for both precisions through unblocked, blocked and grouped shapes (including N165375), independent double-double references, public scratch/immutability contracts, checked overflow, empty/small/page-boundary storage, clone independence, and atomic owner exchange/rejection including initialized padding and unused-tail bits. These are host tests; no Miri interpreter run is claimed.
+
+No promotion controls or benchmarks ran. The production executable still needs independent default-feature numeric checks, generated-loop inspection and fresh quiet timing. The smaller common FftImpl object can change allocation placement even for Stockham. Descriptor traversal now uses 24-byte records and base-plus-offset pointer formation; despite hoisted borrowed views, register allocation, frame use and bounds-check elimination need optimized-code review. Canonical placement fixes relative virtual geometry and low address bits, not physical pages, and does not by itself establish a speed improvement or hardware cause.

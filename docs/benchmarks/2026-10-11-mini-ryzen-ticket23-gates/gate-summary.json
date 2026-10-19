@@ -1,0 +1,1992 @@
+{
+  "schema_version": 1,
+  "publication_date": "2026-10-11",
+  "protocol": "ticket-23-aligned-full-procs3",
+  "evaluation_complete": true,
+  "release_qualified": false,
+  "gates": {
+    "G1": {
+      "status": "FAIL",
+      "expected_supported": 192,
+      "valid_verified_pairs": 192,
+      "adapter_or_direction_exclusions": 0,
+      "invalid_or_missing": 0,
+      "invalid_or_missing_examples": [],
+      "metrics": {
+        "best": {
+          "geomean": 1.3551404406618142,
+          "minimum": 0.5910719213081247,
+          "fraction_at_floor": 0.96875,
+          "worst_cells": [
+            {
+              "cell": "pow2:f64:fwd:oop:n8",
+              "best": 0.5910719213081247,
+              "median": 0.5913572271214774,
+              "p1": 0.591108078620051
+            },
+            {
+              "cell": "pow2:f64:inv:oop:n8",
+              "best": 0.6196288261160046,
+              "median": 0.6191965346570644,
+              "p1": 0.6190794883341351
+            },
+            {
+              "cell": "pow2:f32:inv:oop:n8",
+              "best": 0.723005963751742,
+              "median": 0.7221748886215082,
+              "p1": 0.7257545512456012
+            }
+          ]
+        },
+        "median": {
+          "geomean": 1.3482180790386502,
+          "minimum": 0.5913572271214774,
+          "fraction_at_floor": 0.9791666666666666,
+          "worst_cells": [
+            {
+              "cell": "pow2:f64:fwd:oop:n8",
+              "best": 0.5910719213081247,
+              "median": 0.5913572271214774,
+              "p1": 0.591108078620051
+            },
+            {
+              "cell": "pow2:f64:inv:oop:n8",
+              "best": 0.6196288261160046,
+              "median": 0.6191965346570644,
+              "p1": 0.6190794883341351
+            },
+            {
+              "cell": "pow2:f32:inv:oop:n8",
+              "best": 0.723005963751742,
+              "median": 0.7221748886215082,
+              "p1": 0.7257545512456012
+            }
+          ]
+        }
+      },
+      "joint_fraction_at_floor": null,
+      "thresholds": {
+        "geomean": 1.5,
+        "floor": 0.95,
+        "fraction": null
+      },
+      "library": "fastfft",
+      "comparator": "rustfft"
+    },
+    "G2": {
+      "status": "FAIL",
+      "expected_supported": 328,
+      "valid_verified_pairs": 328,
+      "adapter_or_direction_exclusions": 0,
+      "invalid_or_missing": 0,
+      "invalid_or_missing_examples": [],
+      "metrics": {
+        "best": {
+          "geomean": 1.3243808168169502,
+          "minimum": 0.5220131749675616,
+          "fraction_at_floor": 0.9512195121951219,
+          "worst_cells": [
+            {
+              "cell": "smooth:f32:fwd:oop:n12",
+              "best": 0.5220131749675616,
+              "median": 0.5282278875963266,
+              "p1": 0.5200778213345522
+            },
+            {
+              "cell": "smooth:f32:inv:oop:n12",
+              "best": 0.5302088458322394,
+              "median": 0.5409451212415396,
+              "p1": 0.5326505222347597
+            },
+            {
+              "cell": "smooth:f32:fwd:oop:n9",
+              "best": 0.5975219513635824,
+              "median": 0.6182868095179747,
+              "p1": 0.5972858429422374
+            }
+          ]
+        },
+        "median": {
+          "geomean": 1.3215798091819897,
+          "minimum": 0.5282278875963266,
+          "fraction_at_floor": 0.9512195121951219,
+          "worst_cells": [
+            {
+              "cell": "smooth:f32:fwd:oop:n12",
+              "best": 0.5220131749675616,
+              "median": 0.5282278875963266,
+              "p1": 0.5200778213345522
+            },
+            {
+              "cell": "smooth:f32:inv:oop:n12",
+              "best": 0.5302088458322394,
+              "median": 0.5409451212415396,
+              "p1": 0.5326505222347597
+            },
+            {
+              "cell": "smooth:f32:inv:oop:n9",
+              "best": 0.6104981520951653,
+              "median": 0.6156887315832955,
+              "p1": 0.610478311672195
+            }
+          ]
+        }
+      },
+      "joint_fraction_at_floor": null,
+      "thresholds": {
+        "geomean": 1.3,
+        "floor": 0.95,
+        "fraction": null
+      },
+      "library": "fastfft",
+      "comparator": "rustfft"
+    },
+    "G3": {
+      "status": "PASS",
+      "expected_supported": 136,
+      "valid_verified_pairs": 136,
+      "adapter_or_direction_exclusions": 0,
+      "invalid_or_missing": 0,
+      "invalid_or_missing_examples": [],
+      "metrics": {
+        "best": {
+          "geomean": 1.178567006233596,
+          "minimum": 0.5375217655584208,
+          "fraction_at_floor": 1.0,
+          "worst_cells": [
+            {
+              "cell": "rough:f64:inv:ip:n17",
+              "best": 0.5375217655584208,
+              "median": 0.5327203939179895,
+              "p1": 0.5339099527981873
+            },
+            {
+              "cell": "rough:f64:fwd:ip:n17",
+              "best": 0.54118093590068,
+              "median": 0.5426384338919177,
+              "p1": 0.5409160451465721
+            },
+            {
+              "cell": "rough:f32:inv:ip:n17",
+              "best": 0.5633634002541591,
+              "median": 0.5637867066720172,
+              "p1": 0.5659488848262654
+            }
+          ]
+        },
+        "median": {
+          "geomean": 1.1719349221955992,
+          "minimum": 0.5327203939179895,
+          "fraction_at_floor": 1.0,
+          "worst_cells": [
+            {
+              "cell": "rough:f64:inv:ip:n17",
+              "best": 0.5375217655584208,
+              "median": 0.5327203939179895,
+              "p1": 0.5339099527981873
+            },
+            {
+              "cell": "rough:f64:fwd:ip:n17",
+              "best": 0.54118093590068,
+              "median": 0.5426384338919177,
+              "p1": 0.5409160451465721
+            },
+            {
+              "cell": "rough:f32:inv:ip:n17",
+              "best": 0.5633634002541591,
+              "median": 0.5637867066720172,
+              "p1": 0.5659488848262654
+            }
+          ]
+        }
+      },
+      "joint_fraction_at_floor": null,
+      "thresholds": {
+        "geomean": 0.75,
+        "floor": 0.5,
+        "fraction": null
+      },
+      "library": "fastfft",
+      "comparator": "rustfft"
+    },
+    "G4": {
+      "status": "FAIL",
+      "parts": {
+        "phastft/split": {
+          "status": "PASS",
+          "expected_supported": 48,
+          "valid_verified_pairs": 48,
+          "adapter_or_direction_exclusions": 608,
+          "invalid_or_missing": 0,
+          "invalid_or_missing_examples": [],
+          "metrics": {
+            "best": {
+              "geomean": 2.34515295637039,
+              "minimum": 1.2996761153769938,
+              "fraction_at_floor": 1.0,
+              "worst_cells": [
+                {
+                  "cell": "pow2:f32:fwd:ip:n1048576",
+                  "best": 1.2996761153769938,
+                  "median": 1.2965267574966441,
+                  "p1": 1.2954948727805817
+                },
+                {
+                  "cell": "pow2:f64:fwd:ip:n524288",
+                  "best": 1.313959347935887,
+                  "median": 1.3156418071350713,
+                  "p1": 1.3130481134404397
+                },
+                {
+                  "cell": "pow2:f64:fwd:ip:n2048",
+                  "best": 1.3901086848140392,
+                  "median": 1.3825912926886976,
+                  "p1": 1.3889700765483648
+                }
+              ]
+            },
+            "median": {
+              "geomean": 2.333421834577883,
+              "minimum": 1.2965267574966441,
+              "fraction_at_floor": 1.0,
+              "worst_cells": [
+                {
+                  "cell": "pow2:f32:fwd:ip:n1048576",
+                  "best": 1.2996761153769938,
+                  "median": 1.2965267574966441,
+                  "p1": 1.2954948727805817
+                },
+                {
+                  "cell": "pow2:f64:fwd:ip:n524288",
+                  "best": 1.313959347935887,
+                  "median": 1.3156418071350713,
+                  "p1": 1.3130481134404397
+                },
+                {
+                  "cell": "pow2:f64:fwd:ip:n262144",
+                  "best": 1.4096167845257903,
+                  "median": 1.3755581757061863,
+                  "p1": 1.4043344573687875
+                }
+              ]
+            }
+          },
+          "joint_fraction_at_floor": 1.0,
+          "thresholds": {
+            "geomean": 1.1,
+            "floor": 0.97,
+            "fraction": 0.9
+          },
+          "library": "fastfft",
+          "comparator": "phastft/split"
+        },
+        "phastft/interleaved": {
+          "status": "PASS",
+          "expected_supported": 48,
+          "valid_verified_pairs": 48,
+          "adapter_or_direction_exclusions": 608,
+          "invalid_or_missing": 0,
+          "invalid_or_missing_examples": [],
+          "metrics": {
+            "best": {
+              "geomean": 3.847433375201504,
+              "minimum": 2.0196615045183712,
+              "fraction_at_floor": 1.0,
+              "worst_cells": [
+                {
+                  "cell": "pow2:f32:fwd:ip:n262144",
+                  "best": 2.0196615045183712,
+                  "median": 2.2102313775885327,
+                  "p1": 2.020442919100927
+                },
+                {
+                  "cell": "pow2:f64:fwd:ip:n2048",
+                  "best": 2.0518855319573235,
+                  "median": 2.249972395299314,
+                  "p1": 2.0532021075653644
+                },
+                {
+                  "cell": "pow2:f64:fwd:ip:n65536",
+                  "best": 2.0710714821630245,
+                  "median": 2.7013957176227326,
+                  "p1": 2.0875088436443674
+                }
+              ]
+            },
+            "median": {
+              "geomean": 3.995733717929858,
+              "minimum": 2.0805972993575086,
+              "fraction_at_floor": 1.0,
+              "worst_cells": [
+                {
+                  "cell": "pow2:f32:fwd:ip:n131072",
+                  "best": 2.079510406631412,
+                  "median": 2.0805972993575086,
+                  "p1": 2.0822784810126582
+                },
+                {
+                  "cell": "pow2:f32:fwd:ip:n262144",
+                  "best": 2.0196615045183712,
+                  "median": 2.2102313775885327,
+                  "p1": 2.020442919100927
+                },
+                {
+                  "cell": "pow2:f32:fwd:ip:n524288",
+                  "best": 2.1934340329880255,
+                  "median": 2.2240622862396036,
+                  "p1": 2.1865361256764064
+                }
+              ]
+            }
+          },
+          "joint_fraction_at_floor": 1.0,
+          "thresholds": {
+            "geomean": 1.1,
+            "floor": 0.97,
+            "fraction": 0.9
+          },
+          "library": "fastfft",
+          "comparator": "phastft/interleaved"
+        },
+        "tfhe-fft": {
+          "status": "FAIL",
+          "expected_supported": 20,
+          "valid_verified_pairs": 20,
+          "adapter_or_direction_exclusions": 636,
+          "invalid_or_missing": 0,
+          "invalid_or_missing_examples": [],
+          "metrics": {
+            "best": {
+              "geomean": 1.1820914380608512,
+              "minimum": 0.8926750126034135,
+              "fraction_at_floor": 0.8,
+              "worst_cells": [
+                {
+                  "cell": "pow2:f64:inv:ip:n1024",
+                  "best": 0.8926750126034135,
+                  "median": 0.8930382387626369,
+                  "p1": 0.8932205878504701
+                },
+                {
+                  "cell": "pow2:f64:fwd:ip:n1024",
+                  "best": 0.9225986986777791,
+                  "median": 0.9233902341400195,
+                  "p1": 0.923214375235844
+                },
+                {
+                  "cell": "pow2:f64:fwd:ip:n512",
+                  "best": 0.9519969111998271,
+                  "median": 0.9355791012056994,
+                  "p1": 0.9413397281341793
+                }
+              ]
+            },
+            "median": {
+              "geomean": 1.1691036257651957,
+              "minimum": 0.8930382387626369,
+              "fraction_at_floor": 0.75,
+              "worst_cells": [
+                {
+                  "cell": "pow2:f64:inv:ip:n1024",
+                  "best": 0.8926750126034135,
+                  "median": 0.8930382387626369,
+                  "p1": 0.8932205878504701
+                },
+                {
+                  "cell": "pow2:f64:fwd:ip:n1024",
+                  "best": 0.9225986986777791,
+                  "median": 0.9233902341400195,
+                  "p1": 0.923214375235844
+                },
+                {
+                  "cell": "pow2:f64:fwd:ip:n512",
+                  "best": 0.9519969111998271,
+                  "median": 0.9355791012056994,
+                  "p1": 0.9413397281341793
+                }
+              ]
+            }
+          },
+          "joint_fraction_at_floor": 0.75,
+          "thresholds": {
+            "geomean": 1.1,
+            "floor": 0.97,
+            "fraction": 0.9
+          },
+          "library": "fastfft",
+          "comparator": "tfhe-fft"
+        },
+        "oxifft": {
+          "status": "INCOMPLETE",
+          "expected_supported": 656,
+          "valid_verified_pairs": 616,
+          "adapter_or_direction_exclusions": 0,
+          "invalid_or_missing": 40,
+          "invalid_or_missing_examples": [
+            "pow2:f32:fwd:ip:n8388608",
+            "pow2:f32:fwd:oop:n8388608",
+            "pow2:f32:inv:ip:n8388608"
+          ],
+          "metrics": {
+            "best": {
+              "geomean": 8.998095897129392,
+              "minimum": 0.9997951267482517,
+              "fraction_at_floor": 1.0,
+              "worst_cells": [
+                {
+                  "cell": "smooth:f32:fwd:ip:n9",
+                  "best": 0.9997951267482517,
+                  "median": 1.0132567869286757,
+                  "p1": 1.0087685238694768
+                },
+                {
+                  "cell": "smooth:f32:inv:ip:n9",
+                  "best": 1.0138321387046905,
+                  "median": 1.0172398550083988,
+                  "p1": 1.0183295641841388
+                },
+                {
+                  "cell": "pow2:f32:inv:ip:n8",
+                  "best": 1.1292246520874751,
+                  "median": 1.1312407995912617,
+                  "p1": 1.136772495825184
+                }
+              ]
+            },
+            "median": {
+              "geomean": 8.962492914578055,
+              "minimum": 1.0132567869286757,
+              "fraction_at_floor": 1.0,
+              "worst_cells": [
+                {
+                  "cell": "smooth:f32:fwd:ip:n9",
+                  "best": 0.9997951267482517,
+                  "median": 1.0132567869286757,
+                  "p1": 1.0087685238694768
+                },
+                {
+                  "cell": "smooth:f32:inv:ip:n9",
+                  "best": 1.0138321387046905,
+                  "median": 1.0172398550083988,
+                  "p1": 1.0183295641841388
+                },
+                {
+                  "cell": "pow2:f32:fwd:ip:n8",
+                  "best": 1.148484218789684,
+                  "median": 1.127192956821764,
+                  "p1": 1.131929520030859
+                }
+              ]
+            }
+          },
+          "joint_fraction_at_floor": 1.0,
+          "thresholds": {
+            "geomean": 1.1,
+            "floor": 0.97,
+            "fraction": 0.9
+          },
+          "library": "fastfft",
+          "comparator": "oxifft"
+        }
+      }
+    },
+    "G5": {
+      "status": "FAIL",
+      "parts": {
+        "pow2": {
+          "status": "FAIL",
+          "expected_supported": 192,
+          "valid_verified_pairs": 192,
+          "adapter_or_direction_exclusions": 0,
+          "invalid_or_missing": 0,
+          "invalid_or_missing_examples": [],
+          "metrics": {
+            "best": {
+              "geomean": 1.1424785148442502,
+              "minimum": 0.5943559927389948,
+              "fraction_at_floor": 1.0,
+              "worst_cells": [
+                {
+                  "cell": "pow2:f64:fwd:oop:n8",
+                  "best": 0.5943559927389948,
+                  "median": 0.5916894742137565,
+                  "p1": 0.5914437962504195
+                },
+                {
+                  "cell": "pow2:f64:inv:oop:n8",
+                  "best": 0.6191636445907316,
+                  "median": 0.6194052658072972,
+                  "p1": 0.619199465616186
+                },
+                {
+                  "cell": "pow2:f32:inv:oop:n8",
+                  "best": 0.7341542238058236,
+                  "median": 0.7254996355033492,
+                  "p1": 0.7287441920555162
+                }
+              ]
+            },
+            "median": {
+              "geomean": 1.1377310021353189,
+              "minimum": 0.5916894742137565,
+              "fraction_at_floor": 1.0,
+              "worst_cells": [
+                {
+                  "cell": "pow2:f64:fwd:oop:n8",
+                  "best": 0.5943559927389948,
+                  "median": 0.5916894742137565,
+                  "p1": 0.5914437962504195
+                },
+                {
+                  "cell": "pow2:f64:inv:oop:n8",
+                  "best": 0.6191636445907316,
+                  "median": 0.6194052658072972,
+                  "p1": 0.619199465616186
+                },
+                {
+                  "cell": "pow2:f32:inv:oop:n2",
+                  "best": 1.139970211164905,
+                  "median": 0.7093094129698614,
+                  "p1": 1.003798751374477
+                }
+              ]
+            }
+          },
+          "joint_fraction_at_floor": null,
+          "thresholds": {
+            "geomean": 1.2,
+            "floor": 0,
+            "fraction": null
+          },
+          "library": "fastfft/avx2",
+          "comparator": "rustfft"
+        },
+        "smooth": {
+          "status": "PASS",
+          "expected_supported": 328,
+          "valid_verified_pairs": 328,
+          "adapter_or_direction_exclusions": 0,
+          "invalid_or_missing": 0,
+          "invalid_or_missing_examples": [],
+          "metrics": {
+            "best": {
+              "geomean": 1.1229178031586002,
+              "minimum": 0.5248098095002475,
+              "fraction_at_floor": 1.0,
+              "worst_cells": [
+                {
+                  "cell": "smooth:f32:fwd:oop:n12",
+                  "best": 0.5248098095002475,
+                  "median": 0.5281499627624697,
+                  "p1": 0.5200313245177571
+                },
+                {
+                  "cell": "smooth:f32:inv:oop:n12",
+                  "best": 0.5299259673694726,
+                  "median": 0.5411067879389265,
+                  "p1": 0.5324066043458133
+                },
+                {
+                  "cell": "smooth:f32:fwd:oop:n9",
+                  "best": 0.5977945199713792,
+                  "median": 0.6201836974239716,
+                  "p1": 0.5971318616663737
+                }
+              ]
+            },
+            "median": {
+              "geomean": 1.1222025248251812,
+              "minimum": 0.5281499627624697,
+              "fraction_at_floor": 1.0,
+              "worst_cells": [
+                {
+                  "cell": "smooth:f32:fwd:oop:n12",
+                  "best": 0.5248098095002475,
+                  "median": 0.5281499627624697,
+                  "p1": 0.5200313245177571
+                },
+                {
+                  "cell": "smooth:f32:inv:oop:n12",
+                  "best": 0.5299259673694726,
+                  "median": 0.5411067879389265,
+                  "p1": 0.5324066043458133
+                },
+                {
+                  "cell": "smooth:f32:inv:oop:n9",
+                  "best": 0.6113035002543206,
+                  "median": 0.6150635379442856,
+                  "p1": 0.6102915781268001
+                }
+              ]
+            }
+          },
+          "joint_fraction_at_floor": null,
+          "thresholds": {
+            "geomean": 1.1,
+            "floor": 0,
+            "fraction": null
+          },
+          "library": "fastfft/avx2",
+          "comparator": "rustfft"
+        }
+      }
+    },
+    "G6": {
+      "status": "FAIL",
+      "parts": {
+        "realworld": {
+          "status": "FAIL",
+          "expected_supported": 6,
+          "valid_verified_pairs": 6,
+          "adapter_or_direction_exclusions": 0,
+          "invalid_or_missing": 0,
+          "invalid_or_missing_examples": [],
+          "metrics": {
+            "best": {
+              "geomean": 1.1481310089392105,
+              "minimum": 1.042196288341332,
+              "fraction_at_floor": 0.0,
+              "worst_cells": [
+                {
+                  "cell": "realworld:f32:fwd:ip:n1024:Spectrogram",
+                  "best": 1.042196288341332,
+                  "median": 1.0526252274882633,
+                  "p1": 1.042196288341332
+                },
+                {
+                  "cell": "realworld:f32:fwd:ip:n4096:Spectrogram",
+                  "best": 1.1511740080233757,
+                  "median": 1.155790136252719,
+                  "p1": 1.1511740080233757
+                },
+                {
+                  "cell": "realworld:f32:fwd:ip:n16384:Spectrogram",
+                  "best": 1.165562815392678,
+                  "median": 1.164149968267204,
+                  "p1": 1.165562815392678
+                }
+              ]
+            },
+            "median": {
+              "geomean": 1.1468934122585914,
+              "minimum": 1.0526252274882633,
+              "fraction_at_floor": 0.0,
+              "worst_cells": [
+                {
+                  "cell": "realworld:f32:fwd:ip:n1024:Spectrogram",
+                  "best": 1.042196288341332,
+                  "median": 1.0526252274882633,
+                  "p1": 1.042196288341332
+                },
+                {
+                  "cell": "realworld:f32:fwd:ip:n4096:Spectrogram",
+                  "best": 1.1511740080233757,
+                  "median": 1.155790136252719,
+                  "p1": 1.1511740080233757
+                },
+                {
+                  "cell": "realworld:f32:fwd:ip:n65536:Spectrogram",
+                  "best": 1.1673247312925557,
+                  "median": 1.1572456027757494,
+                  "p1": 1.1673247312925557
+                }
+              ]
+            }
+          },
+          "joint_fraction_at_floor": null,
+          "thresholds": {
+            "geomean": 0,
+            "floor": 1.3,
+            "fraction": null
+          },
+          "library": "fastfft",
+          "comparator": "rustfft"
+        },
+        "batch": {
+          "status": "FAIL",
+          "expected_supported": 32,
+          "valid_verified_pairs": 32,
+          "adapter_or_direction_exclusions": 0,
+          "invalid_or_missing": 0,
+          "invalid_or_missing_examples": [],
+          "metrics": {
+            "best": {
+              "geomean": 1.2843603968454333,
+              "minimum": 0.6261196753437374,
+              "fraction_at_floor": 1.0,
+              "worst_cells": [
+                {
+                  "cell": "batch:f64:fwd:ip:n8:b131072",
+                  "best": 0.6261196753437374,
+                  "median": 0.6450892684399112,
+                  "p1": 0.6300488391551954
+                },
+                {
+                  "cell": "batch:f64:fwd:ip:n1024:b1024",
+                  "best": 1.0547632352583882,
+                  "median": 1.0538925530558705,
+                  "p1": 1.0582483302030044
+                },
+                {
+                  "cell": "batch:f32:fwd:ip:n512:b2048",
+                  "best": 1.0709611718633132,
+                  "median": 1.0732419769427919,
+                  "p1": 1.071142518359853
+                }
+              ]
+            },
+            "median": {
+              "geomean": 1.2861194163383847,
+              "minimum": 0.6450892684399112,
+              "fraction_at_floor": 1.0,
+              "worst_cells": [
+                {
+                  "cell": "batch:f64:fwd:ip:n8:b131072",
+                  "best": 0.6261196753437374,
+                  "median": 0.6450892684399112,
+                  "p1": 0.6300488391551954
+                },
+                {
+                  "cell": "batch:f64:fwd:ip:n32:b32768",
+                  "best": 1.0762853351844854,
+                  "median": 0.9296237834589366,
+                  "p1": 1.0685148945422918
+                },
+                {
+                  "cell": "batch:f64:fwd:ip:n1024:b1024",
+                  "best": 1.0547632352583882,
+                  "median": 1.0538925530558705,
+                  "p1": 1.0582483302030044
+                }
+              ]
+            }
+          },
+          "joint_fraction_at_floor": null,
+          "thresholds": {
+            "geomean": 1.5,
+            "floor": 0,
+            "fraction": null
+          },
+          "library": "fastfft",
+          "comparator": "rustfft"
+        }
+      }
+    },
+    "G7": {
+      "status": "INCOMPLETE",
+      "strict_violation_count": 0,
+      "gaps": {
+        "above_dd_reference_and_true_relative_error": 256,
+        "batch_unsampled_chunks": 8355072,
+        "scenario_pipeline_not_complex_fft_dd": 48,
+        "invalid_suite:sweep": 1
+      },
+      "rejected_attempt_diagnostic_strict_violation_count": 0,
+      "rule": "Both fastfft rows, all raw trials: DD <= actual engine bound and <= 1.5 * same-trial RustFFT DD error + 1 epsilon. Merged relative errors are diagnostics. Above-DD, scenario-reference and sampled batch gaps prevent complete universal coverage."
+    },
+    "G8": {
+      "status": "OPEN",
+      "reason": "Ticket 39 must establish every-length fresh planning; arena warmed minimum-of-five plan_ns cannot establish G8."
+    },
+    "G9": {
+      "status": "FAIL",
+      "fastfft_seconds_printed": 44.4,
+      "rustfft_seconds_printed": 3.4,
+      "recomputed_ratio_from_rounded_durations": 13.058823529411764,
+      "printed_ratio": 13.1,
+      "compatible_ratio_interval": [
+        13.094999999999999,
+        13.105
+      ],
+      "printed_values_consistent": true,
+      "limitation": "Durations are rounded to 0.1s and ratio to 0.01; a boundary interval is incomplete. The launch manifest must attest empty RUSTFLAGS, normal release, clean targets, equal jobs and CPU 2; stdout cannot attest them."
+    }
+  },
+  "coverage": {
+    "observed_noncontrol_cells": 8900,
+    "expected_noncontrol_cells": 8900,
+    "controls": 367,
+    "merged_records": 9267,
+    "raw_trials": 27801,
+    "admissible_noncontrol_cells": 710,
+    "admissible_controls": 38,
+    "admissible_raw_trials": 2244,
+    "all_suites_admissible": false
+  },
+  "suites": {
+    "pow2": {
+      "directory": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/pow2-fa95b3fc098a4cab952142837cb41d1d/arena",
+      "admissible": true,
+      "rejection_reasons": [],
+      "ordinary_cells": 192,
+      "controls": 9,
+      "raw_trials": 603,
+      "clock_drift": {
+        "maximum": 0.02808343196408658,
+        "merged_at_least_3percent": 0,
+        "raw_at_least_3percent": 0,
+        "control_at_least_3percent": 0,
+        "worst_merged": {
+          "cell": "pow2:f32:inv:oop:n4096",
+          "control": false,
+          "drift": 0.02808343196408658
+        },
+        "worst_control": {
+          "cell": "control:f32:fwd:ip:n4096",
+          "control": true,
+          "drift": 0.00742717334388876
+        }
+      },
+      "row_counts": {
+        "raw:fastfft:ok": 576,
+        "raw:fastfft/avx2:ok": 576,
+        "raw:rustfft:ok": 576,
+        "raw:phastft/split:ok": 288,
+        "raw:phastft/interleaved:ok": 288,
+        "raw:tfhe-fft:unsupported": 516,
+        "raw:oxifft:ok": 456,
+        "raw:fftw:ok": 576,
+        "merged:fastfft:ok": 192,
+        "merged:fastfft/avx2:ok": 192,
+        "merged:rustfft:ok": 192,
+        "merged:phastft/split:ok": 96,
+        "merged:phastft/interleaved:ok": 96,
+        "merged:tfhe-fft:unsupported": 172,
+        "merged:oxifft:ok": 152,
+        "merged:fftw:ok": 192,
+        "raw:phastft/split:unsupported": 288,
+        "raw:phastft/interleaved:unsupported": 288,
+        "merged:phastft/split:unsupported": 96,
+        "merged:phastft/interleaved:unsupported": 96,
+        "raw:oxifft:failed-verify": 24,
+        "merged:oxifft:failed-verify": 8,
+        "raw:tfhe-fft:ok": 60,
+        "merged:tfhe-fft:ok": 20,
+        "raw:oxifft:error": 96,
+        "merged:oxifft:error": 32
+      },
+      "accuracy_gap_counters_raw_plus_merged": {
+        "above_dd_reference_and_true_relative_error": 256
+      }
+    },
+    "smooth": {
+      "directory": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/smooth-be88fc5d36e44238a6963fc5be455b4d/arena",
+      "admissible": true,
+      "rejection_reasons": [],
+      "ordinary_cells": 328,
+      "controls": 15,
+      "raw_trials": 1029,
+      "clock_drift": {
+        "maximum": 0.021847435337967624,
+        "merged_at_least_3percent": 0,
+        "raw_at_least_3percent": 0,
+        "control_at_least_3percent": 0,
+        "worst_merged": {
+          "cell": "smooth:f32:fwd:oop:n10368",
+          "control": false,
+          "drift": 0.021847435337967624
+        },
+        "worst_control": {
+          "cell": "control:f32:fwd:ip:n4096",
+          "control": true,
+          "drift": 0.00699044948646399
+        }
+      },
+      "row_counts": {
+        "raw:fastfft:ok": 984,
+        "raw:fastfft/avx2:ok": 984,
+        "raw:rustfft:ok": 984,
+        "raw:phastft/split:unsupported": 984,
+        "raw:phastft/interleaved:unsupported": 984,
+        "raw:tfhe-fft:unsupported": 984,
+        "raw:oxifft:ok": 984,
+        "raw:fftw:ok": 984,
+        "merged:fastfft:ok": 328,
+        "merged:fastfft/avx2:ok": 328,
+        "merged:rustfft:ok": 328,
+        "merged:phastft/split:unsupported": 328,
+        "merged:phastft/interleaved:unsupported": 328,
+        "merged:tfhe-fft:unsupported": 328,
+        "merged:oxifft:ok": 328,
+        "merged:fftw:ok": 328
+      },
+      "accuracy_gap_counters_raw_plus_merged": {}
+    },
+    "rough": {
+      "directory": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/rough-2987ec09d23946cdbcf84d781f160d2f/arena",
+      "admissible": true,
+      "rejection_reasons": [],
+      "ordinary_cells": 136,
+      "controls": 7,
+      "raw_trials": 429,
+      "clock_drift": {
+        "maximum": 0.009672520571506138,
+        "merged_at_least_3percent": 0,
+        "raw_at_least_3percent": 0,
+        "control_at_least_3percent": 0,
+        "worst_merged": {
+          "cell": "rough:f32:inv:oop:n65524",
+          "control": false,
+          "drift": 0.009672520571506138
+        },
+        "worst_control": {
+          "cell": "control:f32:fwd:ip:n4096",
+          "control": true,
+          "drift": 0.008272157149665005
+        }
+      },
+      "row_counts": {
+        "raw:fastfft:ok": 408,
+        "raw:fastfft/avx2:ok": 408,
+        "raw:rustfft:ok": 408,
+        "raw:phastft/split:unsupported": 408,
+        "raw:phastft/interleaved:unsupported": 408,
+        "raw:tfhe-fft:unsupported": 408,
+        "raw:oxifft:ok": 408,
+        "raw:fftw:ok": 408,
+        "merged:fastfft:ok": 136,
+        "merged:fastfft/avx2:ok": 136,
+        "merged:rustfft:ok": 136,
+        "merged:phastft/split:unsupported": 136,
+        "merged:phastft/interleaved:unsupported": 136,
+        "merged:tfhe-fft:unsupported": 136,
+        "merged:oxifft:ok": 136,
+        "merged:fftw:ok": 136
+      },
+      "accuracy_gap_counters_raw_plus_merged": {}
+    },
+    "batch": {
+      "directory": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/batch-7212027faa714feaa489668d7066bbc9/arena",
+      "admissible": true,
+      "rejection_reasons": [],
+      "ordinary_cells": 32,
+      "controls": 3,
+      "raw_trials": 105,
+      "clock_drift": {
+        "maximum": 0.011062031229486347,
+        "merged_at_least_3percent": 0,
+        "raw_at_least_3percent": 0,
+        "control_at_least_3percent": 0,
+        "worst_merged": {
+          "cell": "batch:f64:fwd:ip:n16:b65536",
+          "control": false,
+          "drift": 0.011062031229486347
+        },
+        "worst_control": {
+          "cell": "control:f32:fwd:ip:n4096",
+          "control": true,
+          "drift": 0.009583719166652238
+        }
+      },
+      "row_counts": {
+        "raw:fastfft:ok": 96,
+        "raw:fastfft/avx2:ok": 96,
+        "raw:rustfft:ok": 96,
+        "raw:phastft/split:ok": 48,
+        "raw:phastft/interleaved:ok": 48,
+        "raw:tfhe-fft:unsupported": 72,
+        "raw:oxifft:ok": 96,
+        "raw:fftw:ok": 96,
+        "merged:fastfft:ok": 32,
+        "merged:fastfft/avx2:ok": 32,
+        "merged:rustfft:ok": 32,
+        "merged:phastft/split:ok": 16,
+        "merged:phastft/interleaved:ok": 16,
+        "merged:tfhe-fft:unsupported": 24,
+        "merged:oxifft:ok": 32,
+        "merged:fftw:ok": 32,
+        "raw:phastft/split:unsupported": 48,
+        "raw:phastft/interleaved:unsupported": 48,
+        "merged:phastft/split:unsupported": 16,
+        "merged:phastft/interleaved:unsupported": 16,
+        "raw:tfhe-fft:ok": 24,
+        "merged:tfhe-fft:ok": 8
+      },
+      "accuracy_gap_counters_raw_plus_merged": {
+        "batch_unsampled_chunks": 8355072
+      }
+    },
+    "realworld": {
+      "directory": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/realworld-240e7e6ee7564ab2bc6e5b230082deef/arena",
+      "admissible": true,
+      "rejection_reasons": [],
+      "ordinary_cells": 6,
+      "controls": 2,
+      "raw_trials": 24,
+      "clock_drift": {
+        "maximum": 0.008076647915329582,
+        "merged_at_least_3percent": 0,
+        "raw_at_least_3percent": 0,
+        "control_at_least_3percent": 0,
+        "worst_merged": {
+          "cell": "realworld:f32:fwd:ip:n65536:Spectrogram",
+          "control": false,
+          "drift": 0.008076647915329582
+        },
+        "worst_control": {
+          "cell": "control:f32:fwd:ip:n4096",
+          "control": true,
+          "drift": 0.00733327572047715
+        }
+      },
+      "row_counts": {
+        "raw:fastfft:ok": 18,
+        "raw:fastfft/avx2:ok": 18,
+        "raw:rustfft:ok": 18,
+        "raw:phastft/split:ok": 18,
+        "raw:phastft/interleaved:ok": 18,
+        "raw:tfhe-fft:unsupported": 18,
+        "raw:oxifft:ok": 18,
+        "raw:fftw:ok": 18,
+        "merged:fastfft:ok": 6,
+        "merged:fastfft/avx2:ok": 6,
+        "merged:rustfft:ok": 6,
+        "merged:phastft/split:ok": 6,
+        "merged:phastft/interleaved:ok": 6,
+        "merged:tfhe-fft:unsupported": 6,
+        "merged:oxifft:ok": 6,
+        "merged:fftw:ok": 6
+      },
+      "accuracy_gap_counters_raw_plus_merged": {
+        "scenario_pipeline_not_complex_fft_dd": 48
+      }
+    },
+    "datacheck": {
+      "directory": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/datacheck-f90b5f8f387346b0a14cb70846f1f984/arena",
+      "admissible": true,
+      "rejection_reasons": [],
+      "ordinary_cells": 16,
+      "controls": 2,
+      "raw_trials": 54,
+      "clock_drift": {
+        "maximum": 0.01078525553891485,
+        "merged_at_least_3percent": 0,
+        "raw_at_least_3percent": 0,
+        "control_at_least_3percent": 0,
+        "worst_merged": {
+          "cell": "datacheck:f32:fwd:imm:n64",
+          "control": false,
+          "drift": 0.01078525553891485
+        },
+        "worst_control": {
+          "cell": "control:f32:fwd:ip:n4096",
+          "control": true,
+          "drift": 0.00595135021257942
+        }
+      },
+      "row_counts": {
+        "raw:fastfft:ok": 48,
+        "raw:fastfft/avx2:ok": 48,
+        "raw:rustfft:ok": 48,
+        "raw:phastft/split:unsupported": 48,
+        "raw:phastft/interleaved:unsupported": 48,
+        "raw:tfhe-fft:unsupported": 48,
+        "raw:oxifft:ok": 42,
+        "raw:fftw:ok": 48,
+        "merged:fastfft:ok": 16,
+        "merged:fastfft/avx2:ok": 16,
+        "merged:rustfft:ok": 16,
+        "merged:phastft/split:unsupported": 16,
+        "merged:phastft/interleaved:unsupported": 16,
+        "merged:tfhe-fft:unsupported": 16,
+        "merged:oxifft:ok": 14,
+        "merged:fftw:ok": 16,
+        "raw:oxifft:error": 6,
+        "merged:oxifft:error": 2
+      },
+      "accuracy_gap_counters_raw_plus_merged": {}
+    },
+    "sweep": {
+      "directory": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/sweep-1657591d49b147af8d2f8ebca120e278/arena",
+      "admissible": false,
+      "rejection_reasons": [
+        "clock drift must be < 3%",
+        "clock drift flagged",
+        "recomputed raw/merged clock drift 8.263039709% >= 3%"
+      ],
+      "ordinary_cells": 8190,
+      "controls": 329,
+      "raw_trials": 25557,
+      "clock_drift": {
+        "maximum": 0.08263039709058395,
+        "merged_at_least_3percent": 53,
+        "raw_at_least_3percent": 71,
+        "control_at_least_3percent": 2,
+        "worst_merged": {
+          "cell": "sweep:f64:fwd:ip:n798",
+          "control": false,
+          "drift": 0.08263039709058395
+        },
+        "worst_control": {
+          "cell": "control:f32:fwd:ip:n4096",
+          "control": true,
+          "drift": 0.04267896182723885
+        }
+      },
+      "row_counts": {
+        "raw:fastfft:ok": 24570,
+        "raw:fastfft/avx2:ok": 24570,
+        "raw:rustfft:ok": 24570,
+        "raw:phastft/split:ok": 72,
+        "raw:phastft/interleaved:ok": 72,
+        "raw:tfhe-fft:unsupported": 24540,
+        "raw:oxifft:ok": 24570,
+        "raw:fftw:ok": 24570,
+        "merged:fastfft:ok": 8190,
+        "merged:fastfft/avx2:ok": 8190,
+        "merged:rustfft:ok": 8190,
+        "merged:phastft/split:ok": 24,
+        "merged:phastft/interleaved:ok": 24,
+        "merged:tfhe-fft:unsupported": 8180,
+        "merged:oxifft:ok": 8190,
+        "merged:fftw:ok": 8190,
+        "raw:phastft/split:unsupported": 24498,
+        "raw:phastft/interleaved:unsupported": 24498,
+        "merged:phastft/split:unsupported": 8166,
+        "merged:phastft/interleaved:unsupported": 8166,
+        "raw:tfhe-fft:ok": 30,
+        "merged:tfhe-fft:ok": 10
+      },
+      "accuracy_gap_counters_raw_plus_merged": {}
+    }
+  },
+  "rejected_attempts": [
+    {
+      "suite": "sweep",
+      "directory": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/supervised/sweep-1657591d49b147af8d2f8ebca120e278/arena",
+      "reasons": [
+        "clock drift must be < 3%",
+        "clock drift flagged",
+        "recomputed raw/merged clock drift 8.263039709% >= 3%"
+      ]
+    }
+  ],
+  "datacheck": {
+    "status": "INCOMPLETE",
+    "verified_supported_pairs": 39,
+    "invalid_or_missing_pairs": 1,
+    "violation_count": 13,
+    "violation_examples": [
+      {
+        "cell": "datacheck:f32:fwd:imm:n64",
+        "lib": "fastfft/avx2",
+        "metric": "best",
+        "random_over_zero": 1.0336410581854056
+      },
+      {
+        "cell": "datacheck:f32:fwd:imm:n64",
+        "lib": "fastfft/avx2",
+        "metric": "median",
+        "random_over_zero": 1.0408982381286083
+      },
+      {
+        "cell": "datacheck:f32:fwd:imm:n64",
+        "lib": "rustfft",
+        "metric": "best",
+        "random_over_zero": 1.0299898176512234
+      },
+      {
+        "cell": "datacheck:f32:fwd:imm:n64",
+        "lib": "oxifft",
+        "metric": "best",
+        "random_over_zero": 1.0207498503062964
+      },
+      {
+        "cell": "datacheck:f32:fwd:imm:n4096",
+        "lib": "fastfft/avx2",
+        "metric": "best",
+        "random_over_zero": 1.1137327012315035
+      },
+      {
+        "cell": "datacheck:f32:fwd:imm:n4096",
+        "lib": "fastfft/avx2",
+        "metric": "median",
+        "random_over_zero": 1.1179816884340918
+      },
+      {
+        "cell": "datacheck:f32:fwd:imm:n4096",
+        "lib": "rustfft",
+        "metric": "median",
+        "random_over_zero": 1.0209892456568999
+      },
+      {
+        "cell": "datacheck:f32:fwd:imm:n4096",
+        "lib": "fftw",
+        "metric": "median",
+        "random_over_zero": 1.0202122080122644
+      },
+      {
+        "cell": "datacheck:f64:fwd:imm:n4096",
+        "lib": "fastfft/avx2",
+        "metric": "best",
+        "random_over_zero": 0.968189248604874
+      },
+      {
+        "cell": "datacheck:f64:fwd:imm:n4096",
+        "lib": "fastfft/avx2",
+        "metric": "median",
+        "random_over_zero": 0.9796431498174775
+      },
+      {
+        "cell": "datacheck:f32:fwd:imm:n1048576",
+        "lib": "fastfft/avx2",
+        "metric": "best",
+        "random_over_zero": 1.020739194535738
+      },
+      {
+        "cell": "datacheck:f32:fwd:imm:n1048576",
+        "lib": "rustfft",
+        "metric": "best",
+        "random_over_zero": 0.9718744172127699
+      }
+    ],
+    "tolerance": 0.02,
+    "observed_criterion_failures": true,
+    "known_violating_metric_count": 13,
+    "by_library": {
+      "fastfft": {
+        "valid_pairs": 8,
+        "unsupported_pairs": 0,
+        "unavailable_pairs": 0,
+        "violating_metrics": [],
+        "pair_ratios": [
+          {
+            "cell": "datacheck:f32:fwd:imm:n64",
+            "best": 0.9905795814846734,
+            "median": 0.9931125471232072
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n64",
+            "best": 0.9966660823838738,
+            "median": 1.0087215887385714
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n4096",
+            "best": 1.0037983494083722,
+            "median": 1.0042840250450695
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n4096",
+            "best": 1.0005938712487132,
+            "median": 0.9994114877589453
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n65536",
+            "best": 1.0034213554788343,
+            "median": 1.0061099796334012
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n65536",
+            "best": 0.9999216620186131,
+            "median": 1.0027119037486942
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n1048576",
+            "best": 1.0170413803771114,
+            "median": 1.0153129041930908
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n1048576",
+            "best": 1.0007317224905423,
+            "median": 1.0099473631662352
+          }
+        ]
+      },
+      "fastfft/avx2": {
+        "valid_pairs": 8,
+        "unsupported_pairs": 0,
+        "unavailable_pairs": 0,
+        "violating_metrics": [
+          {
+            "cell": "datacheck:f32:fwd:imm:n64",
+            "metric": "best",
+            "ratio": 1.0336410581854056
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n64",
+            "metric": "median",
+            "ratio": 1.0408982381286083
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n4096",
+            "metric": "best",
+            "ratio": 1.1137327012315035
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n4096",
+            "metric": "median",
+            "ratio": 1.1179816884340918
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n4096",
+            "metric": "best",
+            "ratio": 0.968189248604874
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n4096",
+            "metric": "median",
+            "ratio": 0.9796431498174775
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n1048576",
+            "metric": "best",
+            "ratio": 1.020739194535738
+          }
+        ],
+        "pair_ratios": [
+          {
+            "cell": "datacheck:f32:fwd:imm:n64",
+            "best": 1.0336410581854056,
+            "median": 1.0408982381286083
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n64",
+            "best": 1.0043390592471275,
+            "median": 1.005988370994821
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n4096",
+            "best": 1.1137327012315035,
+            "median": 1.1179816884340918
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n4096",
+            "best": 0.968189248604874,
+            "median": 0.9796431498174775
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n65536",
+            "best": 1.0049013779345515,
+            "median": 1.010517317306945
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n65536",
+            "best": 1.0076357949243648,
+            "median": 1.0116879075857956
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n1048576",
+            "best": 1.020739194535738,
+            "median": 1.0180631781624963
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n1048576",
+            "best": 0.9899716318971128,
+            "median": 1.016831761672214
+          }
+        ]
+      },
+      "rustfft": {
+        "valid_pairs": 8,
+        "unsupported_pairs": 0,
+        "unavailable_pairs": 0,
+        "violating_metrics": [
+          {
+            "cell": "datacheck:f32:fwd:imm:n64",
+            "metric": "best",
+            "ratio": 1.0299898176512234
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n4096",
+            "metric": "median",
+            "ratio": 1.0209892456568999
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n1048576",
+            "metric": "best",
+            "ratio": 0.9718744172127699
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n1048576",
+            "metric": "median",
+            "ratio": 0.9788166391928121
+          }
+        ],
+        "pair_ratios": [
+          {
+            "cell": "datacheck:f32:fwd:imm:n64",
+            "best": 1.0299898176512234,
+            "median": 1.0084557077816882
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n64",
+            "best": 1.0045319965394777,
+            "median": 1.0029949442623323
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n4096",
+            "best": 1.0137711864406778,
+            "median": 1.0209892456568999
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n4096",
+            "best": 0.9952132672321046,
+            "median": 0.9940416693710651
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n65536",
+            "best": 1.0054451500736483,
+            "median": 1.004842843812381
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n65536",
+            "best": 1.005385293764644,
+            "median": 1.0043687053958514
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n1048576",
+            "best": 0.9718744172127699,
+            "median": 0.9788166391928121
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n1048576",
+            "best": 1.0065790470390688,
+            "median": 1.0119697673370256
+          }
+        ]
+      },
+      "phastft/split": {
+        "valid_pairs": 0,
+        "unsupported_pairs": 8,
+        "unavailable_pairs": 0,
+        "violating_metrics": [],
+        "pair_ratios": []
+      },
+      "phastft/interleaved": {
+        "valid_pairs": 0,
+        "unsupported_pairs": 8,
+        "unavailable_pairs": 0,
+        "violating_metrics": [],
+        "pair_ratios": []
+      },
+      "tfhe-fft": {
+        "valid_pairs": 0,
+        "unsupported_pairs": 8,
+        "unavailable_pairs": 0,
+        "violating_metrics": [],
+        "pair_ratios": []
+      },
+      "oxifft": {
+        "valid_pairs": 7,
+        "unsupported_pairs": 0,
+        "unavailable_pairs": 1,
+        "violating_metrics": [
+          {
+            "cell": "datacheck:f32:fwd:imm:n64",
+            "metric": "best",
+            "ratio": 1.0207498503062964
+          }
+        ],
+        "pair_ratios": [
+          {
+            "cell": "datacheck:f32:fwd:imm:n64",
+            "best": 1.0207498503062964,
+            "median": 1.0013054252588725
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n64",
+            "best": 1.009552531268811,
+            "median": 1.008856976199507
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n4096",
+            "best": 1.0004563292872137,
+            "median": 1.0007826057368403
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n4096",
+            "best": 1.0020259319286873,
+            "median": 1.015715880872623
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n65536",
+            "best": 1.007452342890936,
+            "median": 1.0015388919977617
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n65536",
+            "best": 1.014500281897136,
+            "median": 1.01345000509821
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n1048576",
+            "best": 1.0033075249267007,
+            "median": 0.9996909871493693
+          }
+        ]
+      },
+      "fftw": {
+        "valid_pairs": 8,
+        "unsupported_pairs": 0,
+        "unavailable_pairs": 0,
+        "violating_metrics": [
+          {
+            "cell": "datacheck:f32:fwd:imm:n4096",
+            "metric": "median",
+            "ratio": 1.0202122080122644
+          }
+        ],
+        "pair_ratios": [
+          {
+            "cell": "datacheck:f32:fwd:imm:n64",
+            "best": 1.001873132083497,
+            "median": 1.0055631868374832
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n64",
+            "best": 1.0110265068308562,
+            "median": 1.0130863675131736
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n4096",
+            "best": 1.0163292764968503,
+            "median": 1.0202122080122644
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n4096",
+            "best": 0.9856297233907896,
+            "median": 0.9880359472920075
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n65536",
+            "best": 1.003082838486565,
+            "median": 1.0003351992759695
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n65536",
+            "best": 1.016707543374729,
+            "median": 1.0117305037627944
+          },
+          {
+            "cell": "datacheck:f32:fwd:imm:n1048576",
+            "best": 1.0184217689139172,
+            "median": 1.0021717694081915
+          },
+          {
+            "cell": "datacheck:f64:fwd:imm:n1048576",
+            "best": 1.0138076385464037,
+            "median": 1.0000474967336572
+          }
+        ]
+      }
+    },
+    "effect_on_performance_verdicts": "G1–G6 remain suite-specific; no all-campaign datacheck validation pass."
+  },
+  "accuracy": {
+    "admissible_raw_dd_row_checks": 4032,
+    "admissible_strict_violation_count": 0,
+    "raw_above_dd_proxy_checks": 192,
+    "raw_scenario_reference_checks": 36,
+    "raw_batch_dd_row_checks": 192,
+    "raw_batch_sampled_chunk_observations": 576,
+    "distinct_batch_row_chunk_conditions_sampled": 192,
+    "distinct_batch_row_chunk_positions_unsampled": 2088768,
+    "rejected_sweep_diagnostic_raw_dd_checks": 49140,
+    "rejected_sweep_diagnostic_strict_violation_count": 0,
+    "g7_gap_count_units": "Audit gap counters include raw plus merged row observations, not independent/unique cases.",
+    "raw_methods_by_suite": {
+      "pow2": {
+        "admissible": true,
+        "counts": {
+          "fastfft:dd": 480,
+          "fastfft:strict_violations": 0,
+          "fastfft/avx2:dd": 480,
+          "fastfft/avx2:strict_violations": 0,
+          "fastfft:proxy": 96,
+          "fastfft:finite_roundtrip": 96,
+          "fastfft/avx2:proxy": 96,
+          "fastfft/avx2:finite_roundtrip": 96
+        },
+        "methods": {
+          "fastfft:dd": 480,
+          "fastfft/avx2:dd": 480,
+          "fastfft:rustfft-f64+roundtrip": 96,
+          "fastfft/avx2:rustfft-f64+roundtrip": 96
+        },
+        "worst": [
+          {
+            "cell": "pow2:f32:fwd:ip:n1048576",
+            "process": 0,
+            "library": "fastfft/avx2",
+            "error_eps": 1.417059324092283,
+            "bound_eps": 42.0,
+            "relative_bound_eps": 3.0360661803554256,
+            "bound_fraction": 0.03373950771648293,
+            "relative_fraction": 0.46674190874402843
+          }
+        ]
+      },
+      "smooth": {
+        "admissible": true,
+        "counts": {
+          "fastfft:dd": 984,
+          "fastfft:strict_violations": 0,
+          "fastfft/avx2:dd": 984,
+          "fastfft/avx2:strict_violations": 0
+        },
+        "methods": {
+          "fastfft:dd": 984,
+          "fastfft/avx2:dd": 984
+        },
+        "worst": [
+          {
+            "cell": "smooth:f32:fwd:ip:n1000000",
+            "process": 0,
+            "library": "fastfft",
+            "error_eps": 1.4080724582480069,
+            "bound_eps": 41.86313713864835,
+            "relative_bound_eps": 3.1253267144060635,
+            "bound_fraction": 0.03363513951628972,
+            "relative_fraction": 0.4505360837180815
+          }
+        ]
+      },
+      "rough": {
+        "admissible": true,
+        "counts": {
+          "fastfft:dd": 408,
+          "fastfft:strict_violations": 0,
+          "fastfft/avx2:dd": 408,
+          "fastfft/avx2:strict_violations": 0
+        },
+        "methods": {
+          "fastfft:dd": 408,
+          "fastfft/avx2:dd": 408
+        },
+        "worst": [
+          {
+            "cell": "rough:f32:inv:ip:n31",
+            "process": 0,
+            "library": "fastfft",
+            "error_eps": 1.470632959847881,
+            "bound_eps": 56.0,
+            "relative_bound_eps": 1.9784310510813126,
+            "bound_fraction": 0.026261302854426443,
+            "relative_fraction": 0.7433329349759779
+          }
+        ]
+      },
+      "batch": {
+        "admissible": true,
+        "counts": {
+          "fastfft:dd": 96,
+          "fastfft:strict_violations": 0,
+          "fastfft/avx2:dd": 96,
+          "fastfft/avx2:strict_violations": 0
+        },
+        "methods": {
+          "fastfft:dd": 96,
+          "fastfft/avx2:dd": 96
+        },
+        "worst": [
+          {
+            "cell": "batch:f32:fwd:ip:n1024:b1024",
+            "process": 0,
+            "library": "fastfft/avx2",
+            "error_eps": 0.9384971278701888,
+            "bound_eps": 22.0,
+            "relative_bound_eps": 2.4135467817461027,
+            "bound_fraction": 0.04265896035773586,
+            "relative_fraction": 0.38884563372383624
+          }
+        ]
+      },
+      "realworld": {
+        "admissible": true,
+        "counts": {
+          "fastfft:proxy": 18,
+          "fastfft/avx2:proxy": 18
+        },
+        "methods": {
+          "fastfft:scenario-reference": 18,
+          "fastfft/avx2:scenario-reference": 18
+        },
+        "worst": []
+      },
+      "datacheck": {
+        "admissible": true,
+        "counts": {
+          "fastfft:dd": 48,
+          "fastfft:strict_violations": 0,
+          "fastfft/avx2:dd": 48,
+          "fastfft/avx2:strict_violations": 0
+        },
+        "methods": {
+          "fastfft:dd": 48,
+          "fastfft/avx2:dd": 48
+        },
+        "worst": [
+          {
+            "cell": "datacheck:f32:fwd:imm:n1048576",
+            "process": 0,
+            "library": "fastfft/avx2",
+            "error_eps": 1.417059324092283,
+            "bound_eps": 42.0,
+            "relative_bound_eps": 3.0360661803554256,
+            "bound_fraction": 0.03373950771648293,
+            "relative_fraction": 0.46674190874402843
+          }
+        ]
+      },
+      "sweep": {
+        "admissible": false,
+        "counts": {
+          "fastfft:dd": 24570,
+          "fastfft:strict_violations": 0,
+          "fastfft/avx2:dd": 24570,
+          "fastfft/avx2:strict_violations": 0
+        },
+        "methods": {
+          "fastfft:dd": 24570,
+          "fastfft/avx2:dd": 24570
+        },
+        "worst": [
+          {
+            "cell": "sweep:f64:fwd:ip:n34",
+            "process": 0,
+            "library": "fastfft",
+            "error_eps": 1.904138116954889,
+            "bound_eps": 57.3594000115385,
+            "relative_bound_eps": 2.1748733469115424,
+            "bound_fraction": 0.03319661845437452,
+            "relative_fraction": 0.8755167833836786
+          }
+        ]
+      }
+    }
+  },
+  "small_n_p1": {
+    "all:all": {
+      "count": 64,
+      "geomean": 1.1789193608258426,
+      "minimum": 0.591108078620051,
+      "worst": {
+        "cell": "pow2:f64:fwd:oop:n8",
+        "best": 0.5910719213081247,
+        "median": 0.5913572271214774,
+        "p1": 0.591108078620051
+      },
+      "below_095": 4
+    },
+    "all:forward-inplace": {
+      "count": 16,
+      "geomean": 1.1867703557613032,
+      "minimum": 0.9994617624362059,
+      "worst": {
+        "cell": "pow2:f64:fwd:ip:n2",
+        "best": 0.9275151798124167,
+        "median": 1.000839094238591,
+        "p1": 0.9994617624362059
+      },
+      "below_095": 0
+    },
+    "all:inverse-inplace": {
+      "count": 16,
+      "geomean": 1.1887576035409821,
+      "minimum": 0.9998925357655911,
+      "worst": {
+        "cell": "pow2:f64:inv:ip:n2",
+        "best": 0.9260368371010872,
+        "median": 0.999907930032598,
+        "p1": 0.9998925357655911
+      },
+      "below_095": 0
+    },
+    "all:forward-outofplace": {
+      "count": 16,
+      "geomean": 1.1564770567687244,
+      "minimum": 0.591108078620051,
+      "worst": {
+        "cell": "pow2:f64:fwd:oop:n8",
+        "best": 0.5910719213081247,
+        "median": 0.5913572271214774,
+        "p1": 0.591108078620051
+      },
+      "below_095": 2
+    },
+    "all:inverse-outofplace": {
+      "count": 16,
+      "geomean": 1.1839664097994418,
+      "minimum": 0.6190794883341351,
+      "worst": {
+        "cell": "pow2:f64:inv:oop:n8",
+        "best": 0.6196288261160046,
+        "median": 0.6191965346570644,
+        "p1": 0.6190794883341351
+      },
+      "below_095": 2
+    },
+    "f32:all": {
+      "count": 32,
+      "geomean": 1.1573798059216325,
+      "minimum": 0.7257545512456012,
+      "worst": {
+        "cell": "pow2:f32:inv:oop:n8",
+        "best": 0.723005963751742,
+        "median": 0.7221748886215082,
+        "p1": 0.7257545512456012
+      },
+      "below_095": 2
+    },
+    "f32:forward-inplace": {
+      "count": 8,
+      "geomean": 1.175077836577278,
+      "minimum": 1.0572019829573855,
+      "worst": {
+        "cell": "pow2:f32:fwd:ip:n16",
+        "best": 1.0647364542725128,
+        "median": 1.0642445303476145,
+        "p1": 1.0572019829573855
+      },
+      "below_095": 0
+    },
+    "f32:inverse-inplace": {
+      "count": 8,
+      "geomean": 1.173392014706197,
+      "minimum": 1.0593107318799584,
+      "worst": {
+        "cell": "pow2:f32:inv:ip:n16",
+        "best": 1.0664383251657208,
+        "median": 1.058595975185761,
+        "p1": 1.0593107318799584
+      },
+      "below_095": 0
+    },
+    "f32:forward-outofplace": {
+      "count": 8,
+      "geomean": 1.1312786409993643,
+      "minimum": 0.7260671515685843,
+      "worst": {
+        "cell": "pow2:f32:fwd:oop:n8",
+        "best": 0.7261827489498242,
+        "median": 0.7251259266492526,
+        "p1": 0.7260671515685843
+      },
+      "below_095": 1
+    },
+    "f32:inverse-outofplace": {
+      "count": 8,
+      "geomean": 1.1503347806234214,
+      "minimum": 0.7257545512456012,
+      "worst": {
+        "cell": "pow2:f32:inv:oop:n8",
+        "best": 0.723005963751742,
+        "median": 0.7221748886215082,
+        "p1": 0.7257545512456012
+      },
+      "below_095": 1
+    },
+    "f64:all": {
+      "count": 32,
+      "geomean": 1.200859780185349,
+      "minimum": 0.591108078620051,
+      "worst": {
+        "cell": "pow2:f64:fwd:oop:n8",
+        "best": 0.5910719213081247,
+        "median": 0.5913572271214774,
+        "p1": 0.591108078620051
+      },
+      "below_095": 2
+    },
+    "f64:forward-inplace": {
+      "count": 8,
+      "geomean": 1.1985792204337828,
+      "minimum": 0.9994617624362059,
+      "worst": {
+        "cell": "pow2:f64:fwd:ip:n2",
+        "best": 0.9275151798124167,
+        "median": 1.000839094238591,
+        "p1": 0.9994617624362059
+      },
+      "below_095": 0
+    },
+    "f64:inverse-inplace": {
+      "count": 8,
+      "geomean": 1.2043244050287265,
+      "minimum": 0.9998925357655911,
+      "worst": {
+        "cell": "pow2:f64:inv:ip:n2",
+        "best": 0.9260368371010872,
+        "median": 0.999907930032598,
+        "p1": 0.9998925357655911
+      },
+      "below_095": 0
+    },
+    "f64:forward-outofplace": {
+      "count": 8,
+      "geomean": 1.1822367490744508,
+      "minimum": 0.591108078620051,
+      "worst": {
+        "cell": "pow2:f64:fwd:oop:n8",
+        "best": 0.5910719213081247,
+        "median": 0.5913572271214774,
+        "p1": 0.591108078620051
+      },
+      "below_095": 1
+    },
+    "f64:inverse-outofplace": {
+      "count": 8,
+      "geomean": 1.2185813061947843,
+      "minimum": 0.6190794883341351,
+      "worst": {
+        "cell": "pow2:f64:inv:oop:n8",
+        "best": 0.6196288261160046,
+        "median": 0.6191965346570644,
+        "p1": 0.6190794883341351
+      },
+      "below_095": 1
+    }
+  },
+  "realworld_cases": [
+    {
+      "cell": "realworld:f32:fwd:ip:n1024:Spectrogram",
+      "best": 1.042196288341332,
+      "median": 1.0526252274882633,
+      "p1": 1.042196288341332
+    },
+    {
+      "cell": "realworld:f32:fwd:ip:n4096:Spectrogram",
+      "best": 1.1511740080233757,
+      "median": 1.155790136252719,
+      "p1": 1.1511740080233757
+    },
+    {
+      "cell": "realworld:f32:fwd:ip:n16384:Spectrogram",
+      "best": 1.165562815392678,
+      "median": 1.164149968267204,
+      "p1": 1.165562815392678
+    },
+    {
+      "cell": "realworld:f32:fwd:ip:n65536:Spectrogram",
+      "best": 1.1673247312925557,
+      "median": 1.1572456027757494,
+      "p1": 1.1673247312925557
+    },
+    {
+      "cell": "realworld:f32:fwd:ip:n4096:OverlapSave",
+      "best": 1.191335819843633,
+      "median": 1.1869015653980495,
+      "p1": 1.191335819843633
+    },
+    {
+      "cell": "realworld:f64:fwd:ip:n4096:Spectrogram",
+      "best": 1.1778679693459382,
+      "median": 1.1698668060876407,
+      "p1": 1.1778679693459382
+    }
+  ],
+  "limitations": [
+    "Clock probe is an uncalibrated throughput proxy (ticket 32).",
+    "Three processes rotate construction order across only three of eight positions; this does not balance all row positions.",
+    "Arena metadata cannot attest all launch variables, idle history, executable hash or source identity; retain the frozen-run manifest.",
+    "Only explicitly supplied attempts are audited; rejected earlier attempts must also be retained in the evidence manifest."
+  ],
+  "full_audit": {
+    "path": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/audit-final.json",
+    "sha256": "d7eb622888c1b5ead581daf8afa872c47e32738907632c0dc59e77e9d54bd54b"
+  },
+  "independent_crosscheck": {
+    "path": "/home/ianhersom/repo/fastfft/target/ticket23-worktree/target/ticket23-evidence/campaign-20261009T180520Z/postprocess/independent-crosscheck.json",
+    "sha256": "0a1e04127aa9991ca2c97f620577608ed3ea45c4649c278e093a9e0045405f27"
+  }
+}

@@ -1,0 +1,55 @@
+[workspace]
+resolver = "3"
+exclude = ["vendor/oxifft"]
+members = [
+    "crates/fastfft",
+    "crates/fastfft-codegen",
+    "crates/fastfft-testkit",
+    "bench/arena",
+    "experiments/kernel-lab",
+    "xtask",
+]
+default-members = ["crates/fastfft", "crates/fastfft-codegen", "crates/fastfft-testkit"]
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.89"
+license = "MPL-2.0"
+repository = "https://github.com/inhesrom/fastfft"
+authors = ["Ian Hersom <ian.hersom@gmail.com>"]
+
+[workspace.dependencies]
+fastfft = { path = "crates/fastfft", version = "0.1.0" }
+fastfft-testkit = { path = "crates/fastfft-testkit" }
+fastfft-codegen = { path = "crates/fastfft-codegen" }
+num-complex = { version = "0.4.6", default-features = false }
+num-traits = { version = "0.2.19", default-features = false }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+libc = "0.2"
+
+[workspace.lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+missing_debug_implementations = "warn"
+
+[workspace.lints.clippy]
+undocumented_unsafe_blocks = "deny"
+
+# Benchmark profile used by the arena: release + fat LTO, one codegen unit,
+# line tables for profilers. Always built for the default target CPU; a
+# `-C target-cpu=native` run is recorded separately and never mixed in.
+[profile.arena]
+inherits = "release"
+lto = "fat"
+codegen-units = 1
+debug = "line-tables-only"
+
+# Tests run in release-like mode for the exhaustive accuracy sweep.
+[profile.test-release]
+inherits = "release"
+debug-assertions = true
+overflow-checks = true
+
+# Qualification-only correctness repair; see vendor/oxifft/FASTFFT-PATCH.md.
+[patch.crates-io]
+oxifft = { path = "vendor/oxifft" }

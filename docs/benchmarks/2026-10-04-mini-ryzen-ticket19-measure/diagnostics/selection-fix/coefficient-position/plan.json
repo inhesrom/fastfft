@@ -1,0 +1,59 @@
+{
+  "created_utc": "2026-10-05T21:11:07.141498+00:00",
+  "acceptance": false,
+  "cells": 5,
+  "procs": 8,
+  "core": 4,
+  "filters": [
+    "precision=f32,dir=fwd,place=oop,n=4096",
+    "precision=f32,dir=inv,place=ip,n=4096",
+    "precision=f32,dir=inv,place=oop,n=4096",
+    "precision=f64,dir=inv,place=ip,n=210",
+    "precision=f64,dir=inv,place=oop,n=210"
+  ],
+  "source_candidate": "fourstep-storage-anchor (archived; focus passes, full held for absolute concerns)",
+  "hypothesis": [
+    "Coefficient placement causes repeatable slowdown: moving slab inside fixed owner changes speed and restoration recovers original speed.",
+    "Plan object/caller geometry causes slowdown: coefficient-only movement is insufficient.",
+    "Compiled execution overhead causes slowdown: coefficient-only movement is insufficient; distinguish from caller by later code control if necessary."
+  ],
+  "positions": [
+    [
+      0,
+      64,
+      1024,
+      1024,
+      64,
+      0
+    ],
+    [
+      0,
+      1024,
+      64,
+      64,
+      1024,
+      0
+    ]
+  ],
+  "calls": {
+    "f32_n4096": 20,
+    "f64_n210": 160
+  },
+  "rounds": 7,
+  "turn_ms": 100,
+  "warmup_ms": 200,
+  "balancing": "process bit0=original plan construction, bit1=middle displacement order, bit2=first timed member; each appears once per cell",
+  "targets": "N4096: both real original Stockham plans. N210: Estimate FourStep only; original Measure retained unchanged as reference regardless of its recipe.",
+  "invariants": [
+    "Original plan/runner/backing/descriptor addresses and buffers retained",
+    "No growth, replacement allocation or address hunting",
+    "Every phase exact coefficient and verified-output equality",
+    "Original complete backing bytes restored",
+    "Preallocated sample and snapshot storage",
+    "Original selector untraced and primary arena samples retained",
+    "All phases, samples, descriptions and failures retained"
+  ],
+  "interpretation": "Use all eight processes and both occurrences of each displacement, check first/final0 drift. Separate each member, especially unshifted N210 Measure. No lucky-phase selection. Reversible effects support a coefficient-address contribution only; physical cache/TLB causes and a universal best offset are not established.",
+  "gate": "Own fresh60s sustainedquiet +envcheck; journaled CPU4/12 reservation;continuousmonitor; allrunningquietrequired; independent restoration proof",
+  "fixed_attempt": true
+}

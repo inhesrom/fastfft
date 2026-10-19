@@ -1,0 +1,29 @@
+{
+  "run": "target/ticket19/parent-focus/case-05",
+  "cells": 1,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "pow2": {
+      "cells": 1,
+      "failures": 0,
+      "worst": 0.995695729428344,
+      "geomean": 0.995695729428344
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "pow2:f64:fwd:ip:n16384",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 0.995695729428344,
+      "best": 0.995695729428344,
+      "p1": 0.9972363880660824,
+      "median": 0.996680510504138,
+      "estimate": "stockham avx512 split L=8 radices=8x8x4x8 scratch=33284 scratch_oop=33284 scratch_immutable=33284",
+      "measure": "stockham avx512 split L=8 radices=8x8x4x8 scratch=33284 scratch_oop=33284 scratch_immutable=33284",
+      "same_plan": true
+    }
+  ]
+}

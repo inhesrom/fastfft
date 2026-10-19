@@ -1,0 +1,44 @@
+statistic: p1; times in ns; x rf = rustfft time / fastfft time
+cell                                  ff m0      ff m8 ff m8/m0 rf m8/m0  x rf m0  x rf m8  plan
+batch:f32:fwd:ip:n8:b131072             1.4        1.5    1.076    1.025    1.164    1.108  small avx2 n=8 decomposition=2x4 scratch=0 kernel=interleaved
+batch:f32:fwd:oop:n8:b131072            1.8        1.9    1.050    1.028    1.070    1.048  small avx2 n=8 decomposition=2x4 scratch=0 kernel=interleaved
+batch:f32:fwd:ip:n16:b65536             2.8        3.0    1.059    1.017    1.186    1.138  small avx2 n=16 decomposition=4x4 scratch=0 kernel=interleaved
+batch:f32:fwd:oop:n16:b65536            3.7        3.9    1.047    1.035    1.067    1.054  small avx2 n=16 decomposition=4x4 scratch=0 kernel=interleaved
+batch:f32:fwd:ip:n32:b32768             7.2        7.8    1.082    1.011    1.257    1.175  small avx2 n=32 decomposition=8x4 scratch=0 kernel=interleaved
+batch:f32:fwd:oop:n32:b32768            8.6        9.0    1.046    1.006    1.146    1.102  small avx2 n=32 decomposition=8x4 scratch=0 kernel=interleaved
+batch:f32:fwd:ip:n64:b16384            15.3       16.3    1.071    1.022    1.309    1.249  small avx512-ymm n=64 decomposition=16x4 scratch=0 kernel=interleaved
+batch:f32:fwd:oop:n64:b16384           18.1       19.0    1.046    1.035    1.214    1.201  small avx512-ymm n=64 decomposition=16x4 scratch=0 kernel=interleaved
+batch:f32:fwd:ip:n128:b8192            34.7       35.9    1.035    1.051    1.404    1.426  small avx512 n=128 decomposition=16x8 scratch=0 kernel=interleaved
+batch:f32:fwd:oop:n128:b8192           42.6       48.4    1.137    1.058    1.192    1.109  small avx512 n=128 decomposition=16x8 scratch=0 kernel=interleaved
+batch:f32:fwd:ip:n256:b4096            82.3       91.5    1.112    1.077    1.283    1.242  small avx512-ymm n=256 decomposition=64x4 scratch=0 kernel=interleaved
+batch:f32:fwd:oop:n256:b4096          190.9      216.3    1.133    1.169    0.610    0.630  small avx512-ymm n=256 decomposition=64x4 scratch=0 kernel=interleaved
+batch:f32:fwd:ip:n512:b2048           251.9      270.0    1.072    1.093    1.084    1.106  stockham avx512-ymm split L=8 radices=8x8 scratch=520
+batch:f32:fwd:oop:n512:b2048          342.1      457.2    1.337    1.091    1.190    0.972  stockham avx512-ymm split L=8 radices=8x8 scratch=520
+batch:f32:fwd:ip:n1024:b1024          555.2      589.5    1.062    1.074    1.177    1.190  stockham avx512-ymm split L=8 radices=8x2x8 scratch=2056
+batch:f32:fwd:oop:n1024:b1024         868.5      930.2    1.071    1.081    1.030    1.039  stockham avx512-ymm split L=8 radices=8x2x8 scratch=2056
+batch:f64:fwd:ip:n8:b131072             2.4        2.5    1.057    1.057    1.010    1.010  small avx2 n=8 decomposition=2x4 scratch=0 kernel=interleaved
+batch:f64:fwd:oop:n8:b131072            7.9        7.9    1.005    1.005    1.003    1.003  small avx2 n=8 decomposition=2x4 scratch=0 kernel=interleaved
+batch:f64:fwd:ip:n16:b65536             5.1        5.7    1.112    1.053    1.198    1.134  small avx2 n=16 decomposition=4x4 scratch=0 kernel=interleaved
+batch:f64:fwd:oop:n16:b65536           15.8       16.0    1.011    1.009    1.000    0.998  small avx2 n=16 decomposition=4x4 scratch=0 kernel=interleaved
+batch:f64:fwd:ip:n32:b32768            14.0       16.0    1.142    1.048    1.079    0.990  small avx512-ymm n=32 decomposition=8x4 scratch=0 kernel=interleaved
+batch:f64:fwd:oop:n32:b32768           33.1       33.7    1.018    1.012    0.983    0.977  small avx512-ymm n=32 decomposition=8x4 scratch=0 kernel=interleaved
+batch:f64:fwd:ip:n64:b16384            31.3       40.1    1.282    1.103    1.319    1.135  small avx512 n=64 decomposition=16x4 scratch=0 kernel=interleaved
+batch:f64:fwd:oop:n64:b16384          109.6      104.1    0.949    0.980    0.657    0.678  small avx512 n=64 decomposition=16x4 scratch=0 kernel=interleaved
+batch:f64:fwd:ip:n128:b8192            90.7       98.5    1.086    1.112    1.173    1.201  small avx512 n=128 decomposition=32x4 scratch=0 kernel=interleaved
+batch:f64:fwd:oop:n128:b8192          296.2      334.8    1.130    0.982    0.535    0.464  small avx512 n=128 decomposition=32x4 scratch=0 kernel=interleaved
+batch:f64:fwd:ip:n256:b4096           235.7      231.4    0.982    1.093    1.493    1.663  small avx512 n=256 decomposition=64x4 scratch=0 kernel=interleaved
+batch:f64:fwd:oop:n256:b4096          609.8      785.0    1.287    1.105    0.941    0.807  small avx512 n=256 decomposition=64x4 scratch=0 kernel=interleaved
+batch:f64:fwd:ip:n512:b2048           682.1      691.6    1.014    1.052    1.213    1.259  stockham avx512 split L=8 radices=8x8 scratch=516
+batch:f64:fwd:oop:n512:b2048         1188.4     1475.1    1.241    1.065    1.263    1.084  stockham avx512 split L=8 radices=8x8 scratch=516
+batch:f64:fwd:ip:n1024:b1024         1412.1     1443.4    1.022    1.061    1.109    1.150  stockham avx512 split L=8 radices=8x2x8 scratch=2052
+batch:f64:fwd:oop:n1024:b1024        2392.4     2578.0    1.078    1.021    1.113    1.054  stockham avx512 split L=8 radices=8x2x8 scratch=2052
+
+prec  band      place cells  ff m8/m0   worst  rf m8/m0  x rf m0  x rf m8
+f32   batch     all      16     1.088   1.337     1.054    1.133    1.098
+f32   batch     ip        8     1.071   1.112     1.046    1.229    1.201
+f32   batch     oop       8     1.105   1.337     1.062    1.044    1.004
+f32   all       all      16     1.088   1.337     1.054    1.133    1.098
+f64   batch     all      16     1.084   1.287     1.047    1.039    1.004
+f64   batch     ip        8     1.084   1.282     1.072    1.191    1.179
+f64   batch     oop       8     1.084   1.287     1.022    0.907    0.855
+f64   all       all      16     1.084   1.287     1.047    1.039    1.004

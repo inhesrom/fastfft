@@ -1,0 +1,60 @@
+{
+  "utc": "2026-10-06T03:00:20.368362+00:00",
+  "passed": true,
+  "acceptance": false,
+  "executable_sha256": "d53258c740f718fbbc9aa98c68bb7749414a56bcc37c9c05d9e1ce911bbe5b94",
+  "routines": [
+    {
+      "entry": "00000000003b2640 <fastfft_arena::coefficient_crossover::run_fixed>:",
+      "sites": [
+        {
+          "address": "3b3338",
+          "calls": 1,
+          "turn_ns": 100000000,
+          "context": "  3b32f5:\tmov    0x8(%rdi),%r13\n  3b32f9:\tmov    %r14,%rdi\n  3b32fc:\tmov    0x170(%rsp),%r15\n  3b3304:\tmov    %r15,%rsi\n  3b3307:\tcall   *0x48(%r13)\n  3b330b:\tlea    0x0(,%rbp,2),%rax\n  3b3313:\tadd    %rbp,%rax\n  3b3316:\tmov    0x1e8(%rsp),%rcx\n  3b331e:\tlea    (%rcx,%rax,8),%rbx\n  3b3322:\tmov    $0x1,%edx\n  3b3327:\tmov    %r14,%rdi\n  3b332a:\tmov    %r15,%rsi\n  3b332d:\txor    %ecx,%ecx\n  3b332f:\tmov    $0x5f5e100,%r8d\n  3b3335:\tmov    %rbx,%r9\n  3b3338:\tcall   *0x38(%r13)\n  3b333c:\tmov    (%rbx),%rax\n  3b333f:\tmov    %rax,0x200(%rsp)"
+        },
+        {
+          "address": "3b33ed",
+          "calls": 1,
+          "turn_ns": 100000000,
+          "context": "  3b33aa:\tmov    0x8(%rdi),%r13\n  3b33ae:\tmov    %r14,%rdi\n  3b33b1:\tmov    0x170(%rsp),%r15\n  3b33b9:\tmov    %r15,%rsi\n  3b33bc:\tcall   *0x48(%r13)\n  3b33c0:\tlea    0x0(,%rbp,2),%rax\n  3b33c8:\tadd    %rbp,%rax\n  3b33cb:\tmov    0x1e8(%rsp),%rcx\n  3b33d3:\tlea    (%rcx,%rax,8),%rbx\n  3b33d7:\tmov    $0x1,%edx\n  3b33dc:\tmov    %r14,%rdi\n  3b33df:\tmov    %r15,%rsi\n  3b33e2:\txor    %ecx,%ecx\n  3b33e4:\tmov    $0x5f5e100,%r8d\n  3b33ea:\tmov    %rbx,%r9\n  3b33ed:\tcall   *0x38(%r13)\n  3b33f1:\tmov    (%rbx),%rax\n  3b33f4:\tmov    %rax,0x200(%rsp)"
+        }
+      ]
+    },
+    {
+      "entry": "00000000003b5880 <fastfft_arena::coefficient_crossover::run_fixed>:",
+      "sites": [
+        {
+          "address": "3b7626",
+          "calls": 4,
+          "turn_ns": 100000000,
+          "context": "  3b75e7:\tadd    %rcx,%rax\n  3b75ea:\tmov    0x8(%rax),%r13\n  3b75ee:\tmov    %rbp,%rdi\n  3b75f1:\tmov    0x88(%rsp),%r12\n  3b75f9:\tmov    %r12,%rsi\n  3b75fc:\tcall   *0x48(%r13)\n  3b7600:\tlea    (%r14,%r14,2),%rax\n  3b7604:\tmov    0x2e8(%rsp),%rcx\n  3b760c:\tlea    (%rcx,%rax,8),%r15\n  3b7610:\tmov    $0x4,%edx\n  3b7615:\tmov    %rbp,%rdi\n  3b7618:\tmov    %r12,%rsi\n  3b761b:\txor    %ecx,%ecx\n  3b761d:\tmov    $0x5f5e100,%r8d\n  3b7623:\tmov    %r15,%r9\n  3b7626:\tcall   *0x38(%r13)\n  3b762a:\tmov    (%r15),%rax\n  3b762d:\tmov    %rax,0x308(%rsp)"
+        },
+        {
+          "address": "3b76d7",
+          "calls": 4,
+          "turn_ns": 100000000,
+          "context": "  3b7698:\tadd    %rcx,%rax\n  3b769b:\tmov    0x8(%rax),%r13\n  3b769f:\tmov    %rbp,%rdi\n  3b76a2:\tmov    0x88(%rsp),%r12\n  3b76aa:\tmov    %r12,%rsi\n  3b76ad:\tcall   *0x48(%r13)\n  3b76b1:\tlea    (%r14,%r14,2),%rax\n  3b76b5:\tmov    0x2e8(%rsp),%rcx\n  3b76bd:\tlea    (%rcx,%rax,8),%r15\n  3b76c1:\tmov    $0x4,%edx\n  3b76c6:\tmov    %rbp,%rdi\n  3b76c9:\tmov    %r12,%rsi\n  3b76cc:\txor    %ecx,%ecx\n  3b76ce:\tmov    $0x5f5e100,%r8d\n  3b76d4:\tmov    %r15,%r9\n  3b76d7:\tcall   *0x38(%r13)\n  3b76db:\tmov    (%r15),%rax\n  3b76de:\tmov    %rax,0x308(%rsp)"
+        }
+      ]
+    },
+    {
+      "entry": "00000000003b9ec0 <fastfft_arena::coefficient_crossover::run_fixed>:",
+      "sites": [
+        {
+          "address": "3bbba1",
+          "calls": 4,
+          "turn_ns": 100000000,
+          "context": "  3bbb65:\tadd    %rcx,%rax\n  3bbb68:\tmov    0x8(%rax),%r13\n  3bbb6c:\tmov    %r15,%rdi\n  3bbb6f:\tmov    0x78(%rsp),%r12\n  3bbb74:\tmov    %r12,%rsi\n  3bbb77:\tcall   *0x48(%r13)\n  3bbb7b:\tlea    (%rbx,%rbx,2),%rax\n  3bbb7f:\tmov    0x2c8(%rsp),%rcx\n  3bbb87:\tlea    (%rcx,%rax,8),%rbp\n  3bbb8b:\tmov    $0x4,%edx\n  3bbb90:\tmov    %r15,%rdi\n  3bbb93:\tmov    %r12,%rsi\n  3bbb96:\txor    %ecx,%ecx\n  3bbb98:\tmov    $0x5f5e100,%r8d\n  3bbb9e:\tmov    %rbp,%r9\n  3bbba1:\tcall   *0x38(%r13)\n  3bbba5:\tmov    0x0(%rbp),%rax\n  3bbba9:\tmov    %rax,0x2f0(%rsp)"
+        },
+        {
+          "address": "3bbc50",
+          "calls": 4,
+          "turn_ns": 100000000,
+          "context": "  3bbc14:\tadd    %rcx,%rax\n  3bbc17:\tmov    0x8(%rax),%r13\n  3bbc1b:\tmov    %r15,%rdi\n  3bbc1e:\tmov    0x78(%rsp),%r12\n  3bbc23:\tmov    %r12,%rsi\n  3bbc26:\tcall   *0x48(%r13)\n  3bbc2a:\tlea    (%rbx,%rbx,2),%rax\n  3bbc2e:\tmov    0x2c8(%rsp),%rcx\n  3bbc36:\tlea    (%rcx,%rax,8),%rbp\n  3bbc3a:\tmov    $0x4,%edx\n  3bbc3f:\tmov    %r15,%rdi\n  3bbc42:\tmov    %r12,%rsi\n  3bbc45:\txor    %ecx,%ecx\n  3bbc47:\tmov    $0x5f5e100,%r8d\n  3bbc4d:\tmov    %rbp,%r9\n  3bbc50:\tcall   *0x38(%r13)\n  3bbc54:\tmov    0x0(%rbp),%rax\n  3bbc58:\tmov    %rax,0x2f0(%rsp)"
+        }
+      ]
+    }
+  ],
+  "scope": "Both compiled const-four replay routines have two measured member calls through the shared Runner::turn route, with four calls and 100ms per turn. Legacy const-one routine retains its two one-call sites. This diagnostic build is a distinct code context and supplies no production acceptance."
+}

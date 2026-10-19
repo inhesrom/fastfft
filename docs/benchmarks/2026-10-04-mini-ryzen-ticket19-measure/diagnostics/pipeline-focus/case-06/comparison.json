@@ -1,0 +1,29 @@
+{
+  "run": "target/ticket19/pipeline-focus/case-06",
+  "cells": 1,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "pow2": {
+      "cells": 1,
+      "failures": 0,
+      "worst": 1.0,
+      "geomean": 1.0
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "pow2:f64:inv:ip:n16384",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.0,
+      "best": 1.0,
+      "p1": 0.9973201125552726,
+      "median": 0.9976390036595444,
+      "estimate": "stockham avx512 split L=8 radices=8x8x4x8 scratch=33284 scratch_oop=33284 scratch_immutable=33284",
+      "measure": "stockham avx512 split L=8 radices=8x8x4x8 scratch=33284 scratch_oop=33284 scratch_immutable=33284",
+      "same_plan": true
+    }
+  ]
+}

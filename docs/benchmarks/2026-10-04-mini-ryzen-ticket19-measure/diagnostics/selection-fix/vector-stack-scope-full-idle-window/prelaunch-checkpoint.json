@@ -1,0 +1,123 @@
+{
+  "utc": "2026-10-06T20:21:17.627063+00:00",
+  "benchmark_started": false,
+  "accepted": false,
+  "reason": "Prelaunch read-only observations show competing host activity; no benchmark or affinity change performed.",
+  "checks": 190,
+  "quiet_checks": 158,
+  "latest_observation": {
+    "utc": "2026-10-06T20:16:48.917210+00:00",
+    "event": "five-minute-host-check",
+    "quiet_observation": false,
+    "total_busy_cores": 4.053678214910839,
+    "load1": 4.1025390625,
+    "core4_busy": 0.009960159362549792,
+    "sibling12_busy": 0.001988071570576566,
+    "top_threads": [
+      {
+        "pid": 1260692,
+        "tid": 1260692,
+        "starttime": 621713974,
+        "comm": "ice_codec_bench",
+        "last_cpu": 1,
+        "pgrp": 1252485,
+        "affinity": [
+          1
+        ],
+        "busy_cores": 1.0056687920400347
+      },
+      {
+        "pid": 1260693,
+        "tid": 1260693,
+        "starttime": 621713974,
+        "comm": "ice_codec_bench",
+        "last_cpu": 2,
+        "pgrp": 1252485,
+        "affinity": [
+          2
+        ],
+        "busy_cores": 1.0056687920400347
+      },
+      {
+        "pid": 1260694,
+        "tid": 1260694,
+        "starttime": 621713974,
+        "comm": "ice_codec_bench",
+        "last_cpu": 3,
+        "pgrp": 1252485,
+        "affinity": [
+          3
+        ],
+        "busy_cores": 1.0056687920400347
+      },
+      {
+        "pid": 1260691,
+        "tid": 1260691,
+        "starttime": 621713974,
+        "comm": "ice_codec_bench",
+        "last_cpu": 0,
+        "pgrp": 1252485,
+        "affinity": [
+          0
+        ],
+        "busy_cores": 1.0016701089702928
+      },
+      {
+        "pid": 1207862,
+        "tid": 1207862,
+        "starttime": 615254814,
+        "comm": "nvim",
+        "last_cpu": 10,
+        "pgrp": 1207862,
+        "affinity": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "busy_cores": 0.017994073813837597
+      },
+      {
+        "pid": 2373,
+        "tid": 2386,
+        "starttime": 13352,
+        "comm": "tokio-rt-worker",
+        "last_cpu": 5,
+        "pgrp": 2373,
+        "affinity": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "busy_cores": 0.005998024604612532
+      }
+    ],
+    "scope": "Single observation; fresh sustained quiet/envcheck still required before timing."
+  },
+  "automatic_benchmark_retry_queued": false
+}

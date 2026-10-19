@@ -1,0 +1,33 @@
+{
+  "created_utc": "2026-10-05T18:41:00.318062+00:00",
+  "acceptance": false,
+  "purpose": "Capture live Linux smaps after timing existing owner exchange; determine whether observed address/page-offset regime corresponds to heap versus anonymous VMA and hugepage backing.",
+  "cells": [
+    "smooth:f32:inv:ip:n96",
+    "smooth:f32:inv:ip:n1000000"
+  ],
+  "procs": 8,
+  "core": 4,
+  "profile": "full",
+  "capture": "coefficient-crossover",
+  "selector_trace": false,
+  "original_sample_trace": true,
+  "fixed_calls": {
+    "96": 972,
+    "1000000": 1
+  },
+  "phase_assignments": "[0,1,1,0] XOR ((process/2)%2)",
+  "construction": "process bit0",
+  "first_timed_member": "process bit2 plus phase plus round modulo2",
+  "rounds": 7,
+  "turn_ms": 100,
+  "warmup_ms": 200,
+  "sample_capacity": 32768,
+  "intervention": "Swap only Small.tw Vec atN96; swap only canonical Storage.blocks Vec atN1000000; both existing same-value owners; false performs identical validation",
+  "preserved": "original FFT/runner objects, all non-target regions, caller I/O/scratch, arithmetic, Measure decisions",
+  "restore": "preflight twice; per-condition snapshot; original assignment restored afterlastphase",
+  "interpretation": "same-object reversible absolute-cost transfer identifies existing storage contribution; does not identify virtual/physical/cache/hugepage mechanism; absent reproduction cannot explain production miss",
+  "fixed_rule": "one run all2cells8processes; retain unsupported cases/failures and chronological samples, no retriesuntilpass",
+  "quiet": "fresh60s/envcheck/journaledreservation and continuousmonitor; restoreindependently",
+  "observation": "Full procfs smaps read after both clock endpoints and restoration, while both original coefficient owners/caller buffers live; no allocator or THP intervention."
+}

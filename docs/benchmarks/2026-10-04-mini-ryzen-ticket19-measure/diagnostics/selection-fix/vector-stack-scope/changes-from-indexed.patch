@@ -1,0 +1,181 @@
+--- prior/crates/fastfft/src/engine/fourstep.rs
++++ candidate/crates/fastfft/src/engine/fourstep.rs
+@@ -536,6 +536,16 @@
+ ) where
+     V::S: FftNum,
+ {
++    // Wider local vectors can cross a cache line as the caller's stack phase
++    // changes. Keep the arrays private and verify actual spill slots in code.
++    if V::LANES * size_of::<V::S>() > 16 {
++        #[repr(align(64))]
++        struct StackAnchor {
++            _byte: u8,
++        }
++        let anchor = StackAnchor { _byte: 0 };
++        let _ = std::hint::black_box(&anchor);
++    }
+     debug_assert_eq!(L, V::LANES);
+     debug_assert_eq!(L, plan.lanes);
+     if plan.groups > 1 {
+--- prior/crates/fastfft/src/engine/small.rs
++++ candidate/crates/fastfft/src/engine/small.rs
+@@ -28,6 +28,15 @@
+ 
+ /// Target-feature boundary enclosing the entire batch loop.
+ trait SmallVector: Vector + Send + Sync + 'static {
++    /// SIMD registers available to the target-feature implementation. Used to
++    /// identify fused row families whose nominal capacity can exhaust them;
++    /// this is not an exact compiler-liveness or spill-count prediction.
++    #[cfg(all(
++        target_arch = "x86_64",
++        any(feature = "sse2", feature = "avx2", feature = "avx512")
++    ))]
++    const VECTOR_REGISTERS: usize = 16;
++
+     /// A fixed rectangular transform, using bounded loads at panel edges.
+     /// Same buffer contract as `run`; M and B are the two codelet dimensions.
+     #[cfg(all(
+@@ -247,8 +256,10 @@
+ 
+ #[allow(unused_macros)]
+ macro_rules! vector {
+-    ($v:ty, $features:literal $(, $half:ident)?) => {
++    ($v:ty, $features:literal, $registers:literal $(, $half:ident)?) => {
+         impl SmallVector for $v {
++            const VECTOR_REGISTERS: usize = $registers;
++
+             #[target_feature(enable = $features)]
+             unsafe fn rectangle<const N: usize, const M: usize, const B: usize, const INV: bool, const BATCH: bool>(
+                 input: *const Self::S, output: *mut Self::S, count: usize, tw: *const Self::S,
+@@ -290,49 +301,55 @@
+     };
+ }
+ #[cfg(all(target_arch = "x86_64", feature = "sse2"))]
+-vector!(crate::isa::x86::F32x4, "sse2");
++vector!(crate::isa::x86::F32x4, "sse2", 16);
+ #[cfg(all(target_arch = "x86_64", feature = "sse2"))]
+-vector!(crate::isa::x86::F64x2, "sse2");
++vector!(crate::isa::x86::F64x2, "sse2", 16);
+ #[cfg(all(target_arch = "x86_64", feature = "avx2"))]
+-vector!(crate::isa::x86::F32x8, "avx2,fma", fused_4x8);
++vector!(crate::isa::x86::F32x8, "avx2,fma", 16, fused_4x8);
+ #[cfg(all(target_arch = "x86_64", feature = "avx2"))]
+-vector!(crate::isa::x86::F64x4, "avx2,fma");
++vector!(crate::isa::x86::F64x4, "avx2,fma", 16);
+ #[cfg(all(target_arch = "x86_64", feature = "avx512"))]
+ vector!(
+     crate::isa::x86::F32x16,
+-    "avx512f,avx512vl,avx512dq,avx512bw,avx512cd,avx2,fma"
++    "avx512f,avx512vl,avx512dq,avx512bw,avx512cd,avx2,fma",
++    32
+ );
+ #[cfg(all(target_arch = "x86_64", feature = "avx512"))]
+ vector!(
+     crate::isa::x86::F32x8v,
+     "avx512f,avx512vl,avx512dq,avx512bw,avx512cd,avx2,fma",
++    32,
+     fused_4x8
+ );
+ #[cfg(all(target_arch = "x86_64", feature = "avx512"))]
+ vector!(
+     crate::isa::x86::F64x4v,
+-    "avx512f,avx512vl,avx512dq,avx512bw,avx512cd,avx2,fma"
++    "avx512f,avx512vl,avx512dq,avx512bw,avx512cd,avx2,fma",
++    32
+ );
+ #[cfg(all(target_arch = "x86_64", feature = "avx512"))]
+ vector!(
+     crate::isa::x86::F64x8,
+     "avx512f,avx512vl,avx512dq,avx512bw,avx512cd,avx2,fma",
++    32,
+     fused_4x8
+ );
+ 
+ #[cfg(all(target_arch = "x86_64", feature = "avx2"))]
+-vector!(scalar::A32, "avx2,fma");
++vector!(scalar::A32, "avx2,fma", 16);
+ #[cfg(all(target_arch = "x86_64", feature = "avx2"))]
+-vector!(scalar::A64, "avx2,fma");
++vector!(scalar::A64, "avx2,fma", 16);
+ #[cfg(all(target_arch = "x86_64", feature = "avx512"))]
+ vector!(
+     scalar::Z32,
+-    "avx512f,avx512vl,avx512dq,avx512bw,avx512cd,avx2,fma"
++    "avx512f,avx512vl,avx512dq,avx512bw,avx512cd,avx2,fma",
++    32
+ );
+ #[cfg(all(target_arch = "x86_64", feature = "avx512"))]
+ vector!(
+     scalar::Z64,
+-    "avx512f,avx512vl,avx512dq,avx512bw,avx512cd,avx2,fma"
++    "avx512f,avx512vl,avx512dq,avx512bw,avx512cd,avx2,fma",
++    32
+ );
+ 
+ trait Kernel<V: SmallVector>: Send + Sync + 'static {
+--- prior/crates/fastfft/src/engine/small/rectangular.rs
++++ candidate/crates/fastfft/src/engine/small/rectangular.rs
+@@ -3,6 +3,11 @@
+ //! Generated split codelets handle general shapes; selected shapes use packed
+ //! complex butterflies. No path requires caller scratch.
+ use super::*;
++
++#[repr(align(64))]
++struct StackAnchor {
++    _byte: u8,
++}
+ 
+ const fn uses_packed_six(m: usize, b: usize, lanes: usize, scalar_bytes: usize) -> bool {
+     cfg!(feature = "avx2") && m == 6 && b == 6 && lanes == 4 && scalar_bytes == 8
+@@ -57,7 +62,7 @@
+ }
+ 
+ #[inline(always)]
+-unsafe fn fused<V: Vector, const M: usize, const B: usize, const W: usize, const INV: bool>(
++unsafe fn fused<V: SmallVector, const M: usize, const B: usize, const W: usize, const INV: bool>(
+     input: *const V::S,
+     output: *mut V::S,
+     tw: *const V::S,
+@@ -66,6 +71,13 @@
+     // inputs are read before the first output store. The table holds
+     // M.div_ceil(W) panels of B split W-wide cross twiddles.
+     unsafe {
++        // Nominal split-row capacity can exhaust this ISA's register file.
++        // One-panel leaves stay unanchored; generated-code checks must verify
++        // actual spills and the costs of this family-level alignment policy.
++        if 2 * W >= V::VECTOR_REGISTERS && M * B > W {
++            let anchor = StackAnchor { _byte: 0 };
++            let _ = std::hint::black_box(&anchor);
++        }
+         let zero = V::splat_f64(0.);
+         let mut a = [zero; M];
+         let mut b = [zero; M];
+@@ -116,10 +128,6 @@
+         // Keep a small aligned stack object observable without making the
+         // intermediate matrix escape, so its values can remain in registers.
+         // Generated-code checks still need to verify unrelated spill slots.
+-        #[repr(align(64))]
+-        struct StackAnchor {
+-            _byte: u8,
+-        }
+         let anchor = StackAnchor { _byte: 0 };
+         let _ = std::hint::black_box(&anchor);
+         let zero = V::splat_f64(0.);
+@@ -176,7 +184,7 @@
+ }
+ 
+ #[inline(always)]
+-unsafe fn one<V: Vector, const M: usize, const B: usize, const W: usize, const INV: bool>(
++unsafe fn one<V: SmallVector, const M: usize, const B: usize, const W: usize, const INV: bool>(
+     input: *const V::S,
+     output: *mut V::S,
+     tw: *const V::S,
+@@ -193,7 +201,7 @@
+ 
+ #[inline(always)]
+ pub(super) unsafe fn run<
+-    V: Vector,
++    V: SmallVector,
+     const N: usize,
+     const M: usize,
+     const B: usize,

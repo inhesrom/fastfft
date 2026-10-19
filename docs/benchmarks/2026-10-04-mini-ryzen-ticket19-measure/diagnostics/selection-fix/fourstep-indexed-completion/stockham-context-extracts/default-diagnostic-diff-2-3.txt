@@ -1,0 +1,93 @@
+--- 
+
++++ 
+
+@@ -7,7 +7,7 @@
+
+ sub    rsp,0x18
+ mov    r15,QWORD PTR [rdi+0xb0]
+ test   r15,r15
+-je     LOCAL+0x16c
++je     LOCAL+0x17c
+ mov    r10,r9
+ mov    r14,rcx
+ mov    r13,rdx
+@@ -25,7 +25,7 @@
+
+ lea    rbx,[rax+0x8]
+ test   rax,rax
+ cmove  rbx,rax
+-jmp    LOCAL+0xd4
++jmp    LOCAL+0xd7
+ mov    rax,QWORD PTR [rdi+0x80]
+ mov    rcx,QWORD PTR [rdi+0x88]
+ add    rax,rax
+@@ -37,7 +37,7 @@
+
+ add    rax,QWORD PTR [rdi+0x78]
+ lea    rbx,[rsi+rax*1]
+ add    rbx,0x8
+-jmp    LOCAL+0xd4
++jmp    LOCAL+0xd7
+ mov    rax,QWORD PTR [rdi+0x50]
+ mov    QWORD PTR [rsp+0x8],rax
+ mov    rax,QWORD PTR [rdi+0x38]
+@@ -49,7 +49,7 @@
+
+ add    rdi,0x10
+ mov    rbx,r8
+ mov    rbp,r10
+-call   QWORD PTR [rcx+0x50]
++call   QWORD PTR [rcx+0x80]
+ mov    r10,rbp
+ mov    r8,rbx
+ mov    rcx,QWORD PTR [rsp+0x8]
+@@ -57,29 +57,29 @@
+
+ add    rbx,0x8
+ mov    r9,QWORD PTR [rsp+0x50]
+ cmp    r13,r8
+-jne    LOCAL+0x17b
++jne    LOCAL+0x18b
+ mov    rax,r13
+ or     rax,r15
+ shr    rax,0x20
+-je     LOCAL+0x100
++je     LOCAL+0x103
+ mov    rax,r13
+ xor    edx,edx
+ div    r15
+ cmp    r9,rbx
+-jae    LOCAL+0x10d
+-jmp    LOCAL+0x17b
++jae    LOCAL+0x110
++jmp    LOCAL+0x18b
+ mov    eax,r13d
+ xor    edx,edx
+ div    r15d
+ cmp    r9,rbx
+-jb     LOCAL+0x17b
++jb     LOCAL+0x18b
+ cmp    r13,r15
+-jb     LOCAL+0x17b
++jb     LOCAL+0x18b
+ test   rdx,rdx
+-jne    LOCAL+0x17b
++jne    LOCAL+0x18b
+ shl    r15,0x3
+ xor    r13d,r13d
+-xchg   ax,ax
++data16 data16 data16 data16 data16 cs nop WORD PTR [rax+rax*1+0x0]
+ mov    QWORD PTR [rsp+0x8],r12
+ inc    r13
+ mov    rdi,QWORD PTR [rsp+0x10]
+@@ -101,7 +101,7 @@
+
+ add    r14,r15
+ add    r12,r15
+ cmp    r13,rax
+-jb     LOCAL+0x120
++jb     LOCAL+0x130
+ add    rsp,0x18
+ pop    rbx
+ pop    r12

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="690" viewBox="0 0 1600 690" role="img">
+<title>f64 · inverse median speedups</title>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="DejaVu Sans, sans-serif" fill="#182533">
+<text x="36.000" y="43.000" font-size="27" text-anchor="start" font-weight="bold" fill="#182533">f64 · inverse — speedup relative to RustFFT</text>
+<text x="36.000" y="74.000" font-size="17" text-anchor="start" font-weight="normal" fill="#182533">Median latency; in-place; one transform per call; higher is faster.</text>
+<rect x="110.000" y="99.000" width="18.000" height="18.000" fill="#0072B2"/>
+<text x="137.000" y="114.000" font-size="17" text-anchor="start" font-weight="normal" fill="#182533">fastfft</text>
+<rect x="430.000" y="99.000" width="18.000" height="18.000" fill="#777777"/>
+<text x="457.000" y="114.000" font-size="17" text-anchor="start" font-weight="normal" fill="#182533">RustFFT</text>
+<rect x="750.000" y="99.000" width="18.000" height="18.000" fill="#D55E00"/>
+<text x="777.000" y="114.000" font-size="17" text-anchor="start" font-weight="normal" fill="#182533">FFTW</text>
+<rect x="1070.000" y="99.000" width="18.000" height="18.000" fill="#009E73"/>
+<text x="1097.000" y="114.000" font-size="17" text-anchor="start" font-weight="normal" fill="#182533">PhastFT / interleaved</text>
+<line x1="90.000" y1="558.000" x2="1530.000" y2="558.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="78.000" y="563.000" font-size="16" text-anchor="end" font-weight="normal" fill="#182533">0×</text>
+<line x1="90.000" y1="479.200" x2="1530.000" y2="479.200" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="78.000" y="484.200" font-size="16" text-anchor="end" font-weight="normal" fill="#182533">0.5×</text>
+<line x1="90.000" y1="400.400" x2="1530.000" y2="400.400" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="78.000" y="405.400" font-size="16" text-anchor="end" font-weight="normal" fill="#182533">1×</text>
+<line x1="90.000" y1="321.600" x2="1530.000" y2="321.600" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="78.000" y="326.600" font-size="16" text-anchor="end" font-weight="normal" fill="#182533">1.5×</text>
+<line x1="90.000" y1="242.800" x2="1530.000" y2="242.800" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="78.000" y="247.800" font-size="16" text-anchor="end" font-weight="normal" fill="#182533">2×</text>
+<line x1="90.000" y1="164.000" x2="1530.000" y2="164.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="78.000" y="169.000" font-size="16" text-anchor="end" font-weight="normal" fill="#182533">2.5×</text>
+<line x1="90.000" y1="400.400" x2="1530.000" y2="400.400" stroke="#182533" stroke-opacity="1" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="1530.000" y="392.400" font-size="14" text-anchor="end" font-weight="normal" fill="#182533">1× baseline</text>
+<rect x="104.000" y="379.399" width="32.000" height="178.601" fill="#0072B2"/>
+<text x="120.000" y="370.399" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.13</text>
+<rect x="142.000" y="400.400" width="32.000" height="157.600" fill="#777777"/>
+<text x="158.000" y="391.400" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.00</text>
+<rect x="180.000" y="381.859" width="32.000" height="176.141" fill="#D55E00"/>
+<text x="196.000" y="372.859" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.12</text>
+<rect x="218.000" y="537.117" width="32.000" height="20.883" fill="#009E73"/>
+<text x="234.000" y="528.117" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">0.13</text>
+<text x="180.000" y="589.000" font-size="17" text-anchor="middle" font-weight="normal" fill="#182533">16</text>
+<rect x="284.000" y="356.447" width="32.000" height="201.553" fill="#0072B2"/>
+<text x="300.000" y="347.447" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.28</text>
+<rect x="322.000" y="400.400" width="32.000" height="157.600" fill="#777777"/>
+<text x="338.000" y="391.400" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.00</text>
+<rect x="360.000" y="427.911" width="32.000" height="130.089" fill="#D55E00"/>
+<text x="376.000" y="418.911" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">0.83</text>
+<rect x="398.000" y="510.807" width="32.000" height="47.193" fill="#009E73"/>
+<text x="414.000" y="501.807" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">0.30</text>
+<text x="360.000" y="589.000" font-size="17" text-anchor="middle" font-weight="normal" fill="#182533">64</text>
+<rect x="464.000" y="327.136" width="32.000" height="230.864" fill="#0072B2"/>
+<text x="480.000" y="318.136" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.46</text>
+<rect x="502.000" y="400.400" width="32.000" height="157.600" fill="#777777"/>
+<text x="518.000" y="391.400" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.00</text>
+<rect x="540.000" y="428.938" width="32.000" height="129.062" fill="#D55E00"/>
+<text x="556.000" y="419.938" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">0.82</text>
+<rect x="578.000" y="518.695" width="32.000" height="39.305" fill="#009E73"/>
+<text x="594.000" y="509.695" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">0.25</text>
+<text x="540.000" y="589.000" font-size="17" text-anchor="middle" font-weight="normal" fill="#182533">256</text>
+<rect x="644.000" y="372.465" width="32.000" height="185.535" fill="#0072B2"/>
+<text x="660.000" y="363.465" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.18</text>
+<rect x="682.000" y="400.400" width="32.000" height="157.600" fill="#777777"/>
+<text x="698.000" y="391.400" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.00</text>
+<rect x="720.000" y="371.016" width="32.000" height="186.984" fill="#D55E00"/>
+<text x="736.000" y="362.016" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.19</text>
+<rect x="758.000" y="491.384" width="32.000" height="66.616" fill="#009E73"/>
+<text x="774.000" y="482.384" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">0.42</text>
+<text x="720.000" y="589.000" font-size="17" text-anchor="middle" font-weight="normal" fill="#182533">1,024</text>
+<rect x="824.000" y="329.757" width="32.000" height="228.243" fill="#0072B2"/>
+<text x="840.000" y="320.757" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.45</text>
+<rect x="862.000" y="400.400" width="32.000" height="157.600" fill="#777777"/>
+<text x="878.000" y="391.400" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.00</text>
+<rect x="900.000" y="405.777" width="32.000" height="152.223" fill="#D55E00"/>
+<text x="916.000" y="396.777" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">0.97</text>
+<rect x="938.000" y="481.160" width="32.000" height="76.840" fill="#009E73"/>
+<text x="954.000" y="472.160" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">0.49</text>
+<text x="900.000" y="589.000" font-size="17" text-anchor="middle" font-weight="normal" fill="#182533">4,096</text>
+<rect x="1004.000" y="315.461" width="32.000" height="242.539" fill="#0072B2"/>
+<text x="1020.000" y="306.461" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.54</text>
+<rect x="1042.000" y="400.400" width="32.000" height="157.600" fill="#777777"/>
+<text x="1058.000" y="391.400" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.00</text>
+<rect x="1080.000" y="390.174" width="32.000" height="167.826" fill="#D55E00"/>
+<text x="1096.000" y="381.174" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.06</text>
+<rect x="1118.000" y="475.867" width="32.000" height="82.133" fill="#009E73"/>
+<text x="1134.000" y="466.867" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">0.52</text>
+<text x="1080.000" y="589.000" font-size="17" text-anchor="middle" font-weight="normal" fill="#182533">16,384</text>
+<rect x="1184.000" y="334.541" width="32.000" height="223.459" fill="#0072B2"/>
+<text x="1200.000" y="325.541" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.42</text>
+<rect x="1222.000" y="400.400" width="32.000" height="157.600" fill="#777777"/>
+<text x="1238.000" y="391.400" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.00</text>
+<rect x="1260.000" y="397.487" width="32.000" height="160.513" fill="#D55E00"/>
+<text x="1276.000" y="388.487" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.02</text>
+<rect x="1298.000" y="470.704" width="32.000" height="87.296" fill="#009E73"/>
+<text x="1314.000" y="461.704" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">0.55</text>
+<text x="1260.000" y="589.000" font-size="17" text-anchor="middle" font-weight="normal" fill="#182533">65,536</text>
+<rect x="1364.000" y="230.124" width="32.000" height="327.876" fill="#0072B2"/>
+<text x="1380.000" y="221.124" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">2.08</text>
+<rect x="1402.000" y="400.400" width="32.000" height="157.600" fill="#777777"/>
+<text x="1418.000" y="391.400" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.00</text>
+<rect x="1440.000" y="386.581" width="32.000" height="171.419" fill="#D55E00"/>
+<text x="1456.000" y="377.581" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">1.09</text>
+<rect x="1478.000" y="501.579" width="32.000" height="56.421" fill="#009E73"/>
+<text x="1494.000" y="492.579" font-size="12" text-anchor="middle" font-weight="bold" fill="#182533">0.36</text>
+<text x="1440.000" y="589.000" font-size="17" text-anchor="middle" font-weight="normal" fill="#182533">1,048,576</text>
+<text x="810.000" y="624.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">Transform length N</text>
+<text x="36.000" y="668.000" font-size="16" text-anchor="start" font-weight="normal" fill="#182533">Zero-based linear axes shared across detail charts. Labels are speedup factors; N/A means unavailable.</text>
+</g></svg>

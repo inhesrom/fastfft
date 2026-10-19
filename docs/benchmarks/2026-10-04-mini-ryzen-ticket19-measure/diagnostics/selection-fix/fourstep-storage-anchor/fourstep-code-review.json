@@ -1,0 +1,133 @@
+{
+  "scope": "Targeted compiled storage traversal review, not exhaustive algorithm/dataflow/performance audit. F64x8 ungrouped includes inverse N165375; F32x8v/F32x16 grouped branches inspected. Symbols are runtime-generic in plan dimensions and direction.",
+  "production_binary_sha256": "80c7736fff9d6c7ac7e06c7867fae860e6c78b9bfa70d0ff406eade8e7815071",
+  "prior_note": "FourStep prior comes from page-storage-observable-stack executable, not canonical matrix-prior. Its FourStep still uses original independent Vec storage.",
+  "no_source_edits_builds_disassembly_or_benchmarks": true,
+  "functions": [
+    {
+      "isa": "F64x8",
+      "prior": {
+        "instructions": 24456,
+        "vector_instructions": 12980,
+        "stack_vector_instructions": 521,
+        "explicit_frame_bytes": 3032,
+        "located_symbol_span_bytes": 142400,
+        "sha256": "8d42acf89bc09af4800794567452a33686078f5b571562dad971e3d53f5f0576",
+        "call_target_categories": {
+          "StockhamVector::pass": 148,
+          "PanelVector::first": 88,
+          "<core::panicking::panic_fmt>": 4,
+          "<core::panicking::panic_bounds_check>": 8,
+          "<core::panicking::panic_const::panic_const_div_by_zero>": 3,
+          "<core::panicking::panic>": 1
+        }
+      },
+      "production": {
+        "instructions": 24503,
+        "vector_instructions": 12983,
+        "stack_vector_instructions": 519,
+        "explicit_frame_bytes": 3032,
+        "located_symbol_span_bytes": 142912,
+        "sha256": "d34918593702d5a955697088ece8c30d6539f262417596b12407b1df8c6bd848",
+        "call_target_categories": {
+          "StockhamVector::pass": 148,
+          "PanelVector::first": 88,
+          "<core::panicking::panic_fmt>": 4,
+          "<core::panicking::panic_bounds_check>": 7,
+          "<core::panicking::panic_const::panic_const_div_by_zero>": 3,
+          "<core::panicking::panic>": 1
+        }
+      },
+      "code_span_delta_bytes": 512,
+      "explicit_frame_delta_bytes": 0
+    },
+    {
+      "isa": "F32x8v",
+      "prior": {
+        "instructions": 24469,
+        "vector_instructions": 13087,
+        "stack_vector_instructions": 511,
+        "explicit_frame_bytes": 2152,
+        "located_symbol_span_bytes": 135680,
+        "sha256": "48660ee5af61a535326e6111b55720673cb0e3f75dc0670179699b7fa2893334",
+        "call_target_categories": {
+          "StockhamVector::pass": 148,
+          "PanelVector::first": 88,
+          "<core::panicking::panic_fmt>": 4,
+          "<core::panicking::panic_bounds_check>": 7,
+          "<core::panicking::panic_const::panic_const_div_by_zero>": 3,
+          "<core::panicking::panic>": 1
+        }
+      },
+      "production": {
+        "instructions": 24452,
+        "vector_instructions": 13091,
+        "stack_vector_instructions": 484,
+        "explicit_frame_bytes": 2168,
+        "located_symbol_span_bytes": 135040,
+        "sha256": "6f3d357191d9000f6811b364922ce444222d0e2188b75306ea918a2486d74b0c",
+        "call_target_categories": {
+          "StockhamVector::pass": 148,
+          "PanelVector::first": 88,
+          "<core::panicking::panic_bounds_check>": 7,
+          "<core::panicking::panic_fmt>": 4,
+          "<core::panicking::panic_const::panic_const_div_by_zero>": 3,
+          "<core::panicking::panic>": 1
+        }
+      },
+      "code_span_delta_bytes": -640,
+      "explicit_frame_delta_bytes": 16
+    },
+    {
+      "isa": "F32x16",
+      "prior": {
+        "instructions": 25156,
+        "vector_instructions": 13891,
+        "stack_vector_instructions": 1140,
+        "explicit_frame_bytes": 5632,
+        "located_symbol_span_bytes": 149824,
+        "sha256": "49491c47365eb375d7ab2ad4376f040d8437cdc943687f3a5f9012cb26a255f8",
+        "call_target_categories": {
+          "StockhamVector::pass": 148,
+          "PanelVector::first": 88,
+          "<core::panicking::panic_fmt>": 4,
+          "<core::panicking::panic_bounds_check>": 6,
+          "<core::panicking::panic_const::panic_const_div_by_zero>": 3,
+          "<core::panicking::panic>": 1
+        }
+      },
+      "production": {
+        "instructions": 25109,
+        "vector_instructions": 13852,
+        "stack_vector_instructions": 1119,
+        "explicit_frame_bytes": 5568,
+        "located_symbol_span_bytes": 148480,
+        "sha256": "6a1761d42d27c9696bed63a5bdce6ca86d122da464782eebcad08b3a022d1f04",
+        "call_target_categories": {
+          "StockhamVector::pass": 148,
+          "PanelVector::first": 88,
+          "<core::panicking::panic_bounds_check>": 7,
+          "<core::panicking::panic_fmt>": 4,
+          "<core::panicking::panic_const::panic_const_div_by_zero>": 3,
+          "<core::panicking::panic>": 1
+        }
+      },
+      "code_span_delta_bytes": -1344,
+      "explicit_frame_delta_bytes": -64
+    }
+  ],
+  "findings": {
+    "views_before_repeated_work": "Source and inspected entry blocks form panel descriptors and cross/fine base offsets before column/group loops. Backing pointer loads use plan+0x10; the Small/Paged match is optimized to a common pointer load in these blocks.",
+    "per_pass_work": "The 24-byte descriptor iteration reads radix and table offset; LEA adds cached storage base once per pass dispatch, not per butterfly. This descriptor decoding intentionally remains repeated per panel/pass.",
+    "new_exec_allocation_or_graph_scan": "No new allocation or whole-storage comparison in source execute path; all compiled execute call targets are FFT first/pass functions or cold panic paths. No direct allocation, memcmp, diagnostic, or timing call targets; no rdtsc/rdtscp/syscall instructions. Callee bodies are outside this scoped review.",
+    "performance_limit": "Register allocation and branch/code placement changed. No assertion of vector sequence equivalence or performance acceptance for FourStep."
+  },
+  "evidence_ranges": {
+    "F64x8_ungrouped_entry": "0xe5e1e4\u20130xe5e2a0",
+    "F64x8_descriptor_traversal": "0xe6935f\u20130xe69424",
+    "F32x8v_grouped_entry": "0xf677f3\u20130xf6783c and0xf7d895\u20130xf7d8e2",
+    "F32x8v_grouped_descriptor_traversal": "0xf7e5fa\u20130xf7e6c1",
+    "F32x16_grouped_entry": "0xf35919\u20130xf35943 and0xf4d306\u20130xf4d358",
+    "F32x16_grouped_descriptor_traversal": "0xf4e072\u20130xf4e14e"
+  }
+}

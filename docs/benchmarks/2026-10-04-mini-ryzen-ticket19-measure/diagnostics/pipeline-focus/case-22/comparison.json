@@ -1,0 +1,29 @@
+{
+  "run": "target/ticket19/pipeline-focus/case-22",
+  "cells": 1,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "batch": {
+      "cells": 1,
+      "failures": 0,
+      "worst": 0.9898871769403603,
+      "geomean": 0.9898871769403603
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "batch:f32:fwd:oop:n64:b16384",
+      "suite": "batch",
+      "metric": "best",
+      "ratio": 0.9898871769403603,
+      "best": 0.9898871769403603,
+      "p1": 0.9888522837861553,
+      "median": 0.9842132052671866,
+      "estimate": "small avx512-ymm n=64 decomposition=8x8 radices=8x8 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x8",
+      "measure": "small avx512-ymm n=64 decomposition=8x8 radices=8x8 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=interleaved batch=avx512-ymm lanes=4 batch_radices=8x8",
+      "same_plan": true
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+--- a/crates/fastfft/src/tests.rs
++++ b/crates/fastfft/src/tests.rs
+@@ -42,13 +42,17 @@
+     let mut b = x.clone();
+     let mut s = vec![Complex::new(T::zero(), T::zero()); fft.get_inplace_scratch_len()];
+     fft.process_with_scratch(&mut b, &mut s);
+-    worst = worst.max(error_vs_dd(&b, &r).rel_l2 / eps);
++    let e = error_vs_dd(&b, &r).rel_l2 / eps;
++    assert!(e.is_finite(), "n={n} {dir}: non-finite in-place error");
++    worst = worst.max(e);
+     // out of place
+     let mut i = x.clone();
+     let mut o = vec![Complex::new(T::zero(), T::zero()); n];
+     let mut s = vec![Complex::new(T::zero(), T::zero()); fft.get_outofplace_scratch_len()];
+     fft.process_outofplace_with_scratch(&mut i, &mut o, &mut s);
+-    worst = worst.max(error_vs_dd(&o, &r).rel_l2 / eps);
++    let e = error_vs_dd(&o, &r).rel_l2 / eps;
++    assert!(e.is_finite(), "n={n} {dir}: non-finite out-of-place error");
++    worst = worst.max(e);
+     // immutable
+     let mut o = vec![Complex::new(T::zero(), T::zero()); n];
+     let mut s = vec![Complex::new(T::zero(), T::zero()); fft.get_immutable_scratch_len()];
+@@ -58,7 +62,9 @@
+         widen(&to_t::<T>(&random_c64(n, 99 + n as u64))),
+         "immutable input changed"
+     );
+-    worst = worst.max(error_vs_dd(&o, &r).rel_l2 / eps);
++    let e = error_vs_dd(&o, &r).rel_l2 / eps;
++    assert!(e.is_finite(), "n={n} {dir}: non-finite immutable error");
++    worst = worst.max(e);
+     worst
+ }
+ 

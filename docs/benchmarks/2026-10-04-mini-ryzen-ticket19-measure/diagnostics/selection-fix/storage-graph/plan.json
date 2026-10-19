@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-05T17:10:41.858057+00:00",
+  "acceptance": false,
+  "purpose": "Isolate residual same-plan cost by independent exchanges of Phase-B allocation and remaining Stockham read-only storage graph",
+  "cells": 2,
+  "procs": 8,
+  "core": 4,
+  "suites": [
+    "pow2"
+  ],
+  "filter": "precision=f32,place=oop,n=4096",
+  "mask_bits": {
+    "1": "Phase-B Vec",
+    "2": "radices Vec plus pass_tw descriptor Vec and all owned inner Vecs"
+  },
+  "order": "[0,1,3,2,2,3,1,0] XOR ((process/2)%4)",
+  "construction": "process bit0",
+  "member_start": "process bit2 XOR phase parity; alternating each round",
+  "calls_per_batch": 19,
+  "rounds": 7,
+  "turn_ms": 100,
+  "warmup_ms": 200,
+  "preflight": "all selected owners exchanged twice, exact original snapshot restored",
+  "conditions": "each mask twice with opposite first-member order; one validation pass eachphase including no-op; all capacities/metadata/bitwise values checked beforemutation",
+  "invariants": "originalFFT/runnerobjects and I/O/scratch fixed; only declaredstorageowners exchange; noFFTplan rebuild orcoefficientallocation/copy; finalexactrestoration",
+  "decision": "If remaining gap follows remainingstorage and joint exchange reverses it, storagegeometry iscausal and canonicalstorage becomesa justifiedcandidate. Ifgap stayswithobjectafterjointswap, tableallocationfixisrejected. Interactions andabsolute nsretained. Nopresumption that productiongapreproduces.",
+  "fixed_rule": "onefixedrun; allrecordsretained; noretryuntilpass",
+  "quiet": "fresh60s sustainedquiet/envcheck/core4reservation/continuousmonitor",
+  "features": "measure-diagnostics, active selector tracing disabled",
+  "limitations": [
+    "diagnosticfeaturechangescodelayout",
+    "postoriginaltimingandsecondaryplanning",
+    "doesnotprovephysicalcachecause",
+    "doesnotestablishN210cause",
+    "notacceptance"
+  ]
+}

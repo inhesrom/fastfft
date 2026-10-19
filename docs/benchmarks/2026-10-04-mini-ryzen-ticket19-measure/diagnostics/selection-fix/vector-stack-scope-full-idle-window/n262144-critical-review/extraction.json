@@ -1,0 +1,1060 @@
+{
+  "key": "pow2:f32:fwd:oop:n262144",
+  "acceptance": false,
+  "source_capture": "target/ticket19/selection-fix/vector-stack-scope-full-idle-window",
+  "source_files_are_live": true,
+  "hash_scope": "Exact extracted lines only, with source offsets; no whole-live-file hash claimed",
+  "executable_provenance": {
+    "utc": "2026-10-05T23:51:24.833723+00:00",
+    "executable": "target/ticket19/selection-fix/vector-stack-scope/fastfft-arena",
+    "sha256": "42f7c2a3c18bf844420749fc5fdc325e7025f802d1ae64ad93c95df1fd846a5a",
+    "build_command": "RUSTFLAGS='-C llvm-args=-align-all-functions=6' cargo build -j1 --profile arena -pfastfft-arena",
+    "features": "default SIMD; no diagnostics/tuning",
+    "source_files": 96,
+    "source_hashes_match": true,
+    "caller_route_coverage": "canonical-offset",
+    "acceptance": false,
+    "capture_prepared_utc": "2026-10-06T20:20:44.652828+00:00"
+  },
+  "provenance_sha256": "0cfafafff97dc204bd026b31155fb1d5af85f7b633cc0bbb7f53de03d294b2f6",
+  "static_evidence_path": "target/ticket19/selection-fix/vector-stack-scope/stack-context-code-verification.md",
+  "static_evidence_sha256": "3082e32cfb32d61d36f9fb59f708eb490a87facebd0b2cebfda6aaf61815cccf",
+  "merged_ratios": {
+    "best": 1.0220192913255328,
+    "p1": 1.0202111574040449,
+    "median": 1.001416521485246
+  },
+  "records": {
+    "trials.jsonl": [
+      {
+        "source_line": 577,
+        "source_byte_offset": 766141,
+        "source_line_sha256": "6ce54a8c820c64fb6b035ff4223d4d9f8877013528639edec6de0203d80a9da9",
+        "row": {
+          "spec": {
+            "suite": "pow2",
+            "precision": "f32",
+            "direction": "forward",
+            "placement": "outofplace",
+            "n": 262144,
+            "batch": 1,
+            "misalign": 0,
+            "caller_scratch": 336392,
+            "scenario": null,
+            "libs": [
+              "fastfft",
+              "fastfft/measure"
+            ],
+            "profile": "full",
+            "data": "zero",
+            "verify": true,
+            "seed": 1592852480,
+            "control": false
+          },
+          "key": "pow2:f32:fwd:oop:n262144",
+          "cpu": 4,
+          "wall_s": 2.491158708,
+          "clock_ghz": [
+            5.027299493072255,
+            5.027889072197345
+          ],
+          "procs": 1,
+          "results": [
+            {
+              "lib": "fastfft",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 372956.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 310928.0,
+                "p1": 311388.0,
+                "median": 313933.0,
+                "p10": 312120.0,
+                "p90": 320616.0,
+                "samples": 2213
+              },
+              "calls_per_batch": 1,
+              "mflops": 75879.17459990738
+            },
+            {
+              "lib": "fastfft/measure",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 448173979.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 310918.0,
+                "p1": 311278.0,
+                "median": 313848.5,
+                "p10": 312060.0,
+                "p90": 319204.0,
+                "samples": 2222
+              },
+              "calls_per_batch": 1,
+              "mflops": 75881.61508822262
+            }
+          ]
+        }
+      },
+      {
+        "source_line": 578,
+        "source_byte_offset": 767453,
+        "source_line_sha256": "f8156e893225a78d1bf9e3a4878b4f73a9fb06f6b305a40daf69aedb70c2d0f3",
+        "row": {
+          "spec": {
+            "suite": "pow2",
+            "precision": "f32",
+            "direction": "forward",
+            "placement": "outofplace",
+            "n": 262144,
+            "batch": 1,
+            "misalign": 0,
+            "caller_scratch": 336392,
+            "scenario": null,
+            "libs": [
+              "fastfft/measure",
+              "fastfft"
+            ],
+            "profile": "full",
+            "data": "zero",
+            "verify": true,
+            "seed": 1592852480,
+            "control": false
+          },
+          "key": "pow2:f32:fwd:oop:n262144",
+          "cpu": 4,
+          "wall_s": 2.492107743,
+          "clock_ghz": [
+            5.0324644280251905,
+            5.029966655093553
+          ],
+          "procs": 1,
+          "results": [
+            {
+              "lib": "fastfft/measure",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 450234075.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 308333.0,
+                "p1": 309024.0,
+                "median": 312120.5,
+                "p10": 309815.0,
+                "p90": 320616.0,
+                "samples": 2228
+              },
+              "calls_per_batch": 1,
+              "mflops": 76517.79083004413
+            },
+            {
+              "lib": "fastfft",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 374428.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 302502.0,
+                "p1": 304165.0,
+                "median": 311929.5,
+                "p10": 309665.0,
+                "p90": 318252.0,
+                "samples": 2232
+              },
+              "calls_per_batch": 1,
+              "mflops": 77992.74054386417
+            }
+          ]
+        }
+      },
+      {
+        "source_line": 579,
+        "source_byte_offset": 768766,
+        "source_line_sha256": "e6f53d82a44cc26a3761a39ac3241392b775faf35c575542a52de635d7cc31f5",
+        "row": {
+          "spec": {
+            "suite": "pow2",
+            "precision": "f32",
+            "direction": "forward",
+            "placement": "outofplace",
+            "n": 262144,
+            "batch": 1,
+            "misalign": 0,
+            "caller_scratch": 336392,
+            "scenario": null,
+            "libs": [
+              "fastfft",
+              "fastfft/measure"
+            ],
+            "profile": "full",
+            "data": "zero",
+            "verify": true,
+            "seed": 1592852480,
+            "control": false
+          },
+          "key": "pow2:f32:fwd:oop:n262144",
+          "cpu": 4,
+          "wall_s": 2.492877699,
+          "clock_ghz": [
+            5.033441556521333,
+            5.028762636494761
+          ],
+          "procs": 1,
+          "results": [
+            {
+              "lib": "fastfft",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 376321.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 311609.0,
+                "p1": 312491.0,
+                "median": 315046.0,
+                "p10": 313303.0,
+                "p90": 320596.0,
+                "samples": 2201
+              },
+              "calls_per_batch": 1,
+              "mflops": 75713.34589180672
+            },
+            {
+              "lib": "fastfft/measure",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 450268300.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 311249.0,
+                "p1": 311810.0,
+                "median": 313914.0,
+                "p10": 312491.0,
+                "p90": 319725.0,
+                "samples": 2218
+              },
+              "calls_per_batch": 1,
+              "mflops": 75800.91823588188
+            }
+          ]
+        }
+      },
+      {
+        "source_line": 580,
+        "source_byte_offset": 770078,
+        "source_line_sha256": "13b35dc1a1b786521a53e9ebfd60c696c1787f00db5be70e0f1e6c0d0fc51cba",
+        "row": {
+          "spec": {
+            "suite": "pow2",
+            "precision": "f32",
+            "direction": "forward",
+            "placement": "outofplace",
+            "n": 262144,
+            "batch": 1,
+            "misalign": 0,
+            "caller_scratch": 336392,
+            "scenario": null,
+            "libs": [
+              "fastfft/measure",
+              "fastfft"
+            ],
+            "profile": "full",
+            "data": "zero",
+            "verify": true,
+            "seed": 1592852480,
+            "control": false
+          },
+          "key": "pow2:f32:fwd:oop:n262144",
+          "cpu": 4,
+          "wall_s": 2.492947311,
+          "clock_ghz": [
+            5.028502811058783,
+            5.023289224667867
+          ],
+          "procs": 1,
+          "results": [
+            {
+              "lib": "fastfft/measure",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 452281297.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 308644.0,
+                "p1": 309335.0,
+                "median": 312320.0,
+                "p10": 310176.0,
+                "p90": 321999.0,
+                "samples": 2219
+              },
+              "calls_per_batch": 1,
+              "mflops": 76440.68894908049
+            },
+            {
+              "lib": "fastfft",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 369649.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 301690.0,
+                "p1": 302902.0,
+                "median": 311679.0,
+                "p10": 309796.0,
+                "p90": 317370.0,
+                "samples": 2237
+              },
+              "calls_per_batch": 1,
+              "mflops": 78202.65835791707
+            }
+          ]
+        }
+      },
+      {
+        "source_line": 581,
+        "source_byte_offset": 771390,
+        "source_line_sha256": "3cf86cd45997464c1724bc1f70df1f20e6ff728f857a0814ded8d89a809d9026",
+        "row": {
+          "spec": {
+            "suite": "pow2",
+            "precision": "f32",
+            "direction": "forward",
+            "placement": "outofplace",
+            "n": 262144,
+            "batch": 1,
+            "misalign": 0,
+            "caller_scratch": 336392,
+            "scenario": null,
+            "libs": [
+              "fastfft",
+              "fastfft/measure"
+            ],
+            "profile": "full",
+            "data": "zero",
+            "verify": true,
+            "seed": 1592852480,
+            "control": false
+          },
+          "key": "pow2:f32:fwd:oop:n262144",
+          "cpu": 4,
+          "wall_s": 2.49169915,
+          "clock_ghz": [
+            5.03089788824288,
+            5.027465041521833
+          ],
+          "procs": 1,
+          "results": [
+            {
+              "lib": "fastfft",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 371232.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 314916.0,
+                "p1": 315977.0,
+                "median": 318557.5,
+                "p10": 316909.0,
+                "p90": 323713.0,
+                "samples": 2190
+              },
+              "calls_per_batch": 1,
+              "mflops": 74918.26391799717
+            },
+            {
+              "lib": "fastfft/measure",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 448187585.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 315096.0,
+                "p1": 316027.0,
+                "median": 318838.0,
+                "p10": 316979.0,
+                "p90": 324374.0,
+                "samples": 2184
+              },
+              "calls_per_batch": 1,
+              "mflops": 74875.46652448777
+            }
+          ]
+        }
+      },
+      {
+        "source_line": 582,
+        "source_byte_offset": 772700,
+        "source_line_sha256": "958f6ac8d254a2e0f5ee89d3868490295cc5fd5df02f112986834f074d6d649c",
+        "row": {
+          "spec": {
+            "suite": "pow2",
+            "precision": "f32",
+            "direction": "forward",
+            "placement": "outofplace",
+            "n": 262144,
+            "batch": 1,
+            "misalign": 0,
+            "caller_scratch": 336392,
+            "scenario": null,
+            "libs": [
+              "fastfft/measure",
+              "fastfft"
+            ],
+            "profile": "full",
+            "data": "zero",
+            "verify": true,
+            "seed": 1592852480,
+            "control": false
+          },
+          "key": "pow2:f32:fwd:oop:n262144",
+          "cpu": 4,
+          "wall_s": 2.490063096,
+          "clock_ghz": [
+            5.034640846343265,
+            5.0224434162107645
+          ],
+          "procs": 1,
+          "results": [
+            {
+              "lib": "fastfft/measure",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 448130797.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 310658.0,
+                "p1": 311259.0,
+                "median": 313713.5,
+                "p10": 311930.0,
+                "p90": 321748.0,
+                "samples": 2214
+              },
+              "calls_per_batch": 1,
+              "mflops": 75945.122932614
+            },
+            {
+              "lib": "fastfft",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 371272.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 310247.0,
+                "p1": 310978.0,
+                "median": 313433.0,
+                "p10": 311739.0,
+                "p90": 318773.0,
+                "samples": 2223
+              },
+              "calls_per_batch": 1,
+              "mflops": 76045.73130441229
+            }
+          ]
+        }
+      },
+      {
+        "source_line": 583,
+        "source_byte_offset": 774011,
+        "source_line_sha256": "1108677798169afcded0758ac45519be6a6308dc3ec42148bb39525c09469788",
+        "row": {
+          "spec": {
+            "suite": "pow2",
+            "precision": "f32",
+            "direction": "forward",
+            "placement": "outofplace",
+            "n": 262144,
+            "batch": 1,
+            "misalign": 0,
+            "caller_scratch": 336392,
+            "scenario": null,
+            "libs": [
+              "fastfft",
+              "fastfft/measure"
+            ],
+            "profile": "full",
+            "data": "zero",
+            "verify": true,
+            "seed": 1592852480,
+            "control": false
+          },
+          "key": "pow2:f32:fwd:oop:n262144",
+          "cpu": 4,
+          "wall_s": 2.492429973,
+          "clock_ghz": [
+            5.035187146577067,
+            5.027318448448872
+          ],
+          "procs": 1,
+          "results": [
+            {
+              "lib": "fastfft",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 369829.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 316789.0,
+                "p1": 317510.0,
+                "median": 320165.0,
+                "p10": 318402.0,
+                "p90": 325536.0,
+                "samples": 2175
+              },
+              "calls_per_batch": 1,
+              "mflops": 74475.313221103
+            },
+            {
+              "lib": "fastfft/measure",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 450483827.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 314665.0,
+                "p1": 315918.0,
+                "median": 318643.0,
+                "p10": 316959.0,
+                "p90": 324003.0,
+                "samples": 2186
+              },
+              "calls_per_batch": 1,
+              "mflops": 74978.02424800978
+            }
+          ]
+        }
+      },
+      {
+        "source_line": 584,
+        "source_byte_offset": 775321,
+        "source_line_sha256": "a6139310b51cdc946f366740e7d7d875bf01c7905b2ae0b500baa3c5394a0c59",
+        "row": {
+          "spec": {
+            "suite": "pow2",
+            "precision": "f32",
+            "direction": "forward",
+            "placement": "outofplace",
+            "n": 262144,
+            "batch": 1,
+            "misalign": 0,
+            "caller_scratch": 336392,
+            "scenario": null,
+            "libs": [
+              "fastfft/measure",
+              "fastfft"
+            ],
+            "profile": "full",
+            "data": "zero",
+            "verify": true,
+            "seed": 1592852480,
+            "control": false
+          },
+          "key": "pow2:f32:fwd:oop:n262144",
+          "cpu": 4,
+          "wall_s": 2.49168846,
+          "clock_ghz": [
+            5.035968143472719,
+            5.02898455246815
+          ],
+          "procs": 1,
+          "results": [
+            {
+              "lib": "fastfft/measure",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 448977378.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 312411.0,
+                "p1": 313233.0,
+                "median": 316353.0,
+                "p10": 314224.0,
+                "p90": 324404.0,
+                "samples": 2196
+              },
+              "calls_per_batch": 1,
+              "mflops": 75518.97980544859
+            },
+            {
+              "lib": "fastfft",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 370321.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 310648.0,
+                "p1": 311259.0,
+                "median": 314184.0,
+                "p10": 312141.0,
+                "p90": 320155.0,
+                "samples": 2215
+              },
+              "calls_per_batch": 1,
+              "mflops": 75947.5676650099
+            }
+          ]
+        }
+      }
+    ],
+    "results.jsonl": [
+      {
+        "source_line": 73,
+        "source_byte_offset": 96039,
+        "source_line_sha256": "d83c6ea35c5abfb228ba2fb81d7f5e8ca316a8f3307dbb054294f0198d45cb95",
+        "row": {
+          "spec": {
+            "suite": "pow2",
+            "precision": "f32",
+            "direction": "forward",
+            "placement": "outofplace",
+            "n": 262144,
+            "batch": 1,
+            "misalign": 0,
+            "caller_scratch": 336392,
+            "scenario": null,
+            "libs": [
+              "fastfft",
+              "fastfft/measure"
+            ],
+            "profile": "full",
+            "data": "zero",
+            "verify": true,
+            "seed": 1592852480,
+            "control": false
+          },
+          "key": "pow2:f32:fwd:oop:n262144",
+          "cpu": 4,
+          "wall_s": 19.93497214,
+          "clock_ghz": [
+            5.0224434162107645,
+            5.035968143472719
+          ],
+          "procs": 8,
+          "results": [
+            {
+              "lib": "fastfft",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 369649.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 301690.0,
+                "p1": 302902.0,
+                "median": 311679.0,
+                "p10": 309796.0,
+                "p90": 317370.0,
+                "samples": 2237
+              },
+              "calls_per_batch": 1,
+              "mflops": 78202.65835791707
+            },
+            {
+              "lib": "fastfft/measure",
+              "status": "ok",
+              "describe": "fourstep avx512-ymm split L=8 decomposition=512x512 radices=8x8x8/8x8x8 scratch=336392 scratch_oop=336392 scratch_immutable=336392",
+              "plan_ns": 448173979.0,
+              "verify": {
+                "method": "dd",
+                "rel_l2_eps": 1.318355388502864,
+                "max_eps": 1.4795454220206965,
+                "passed": true
+              },
+              "time": {
+                "best": 308333.0,
+                "p1": 309024.0,
+                "median": 312120.5,
+                "p10": 309815.0,
+                "p90": 320616.0,
+                "samples": 2228
+              },
+              "calls_per_batch": 1,
+              "mflops": 76517.79083004413
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "all_eight_summary": [
+    {
+      "ordinal": 0,
+      "order": [
+        "fastfft",
+        "fastfft/measure"
+      ],
+      "clock_ghz": [
+        5.027299493072255,
+        5.027889072197345
+      ],
+      "estimate": {
+        "best": 310928.0,
+        "p1": 311388.0,
+        "median": 313933.0,
+        "p10": 312120.0,
+        "p90": 320616.0,
+        "samples": 2213
+      },
+      "measure": {
+        "best": 310918.0,
+        "p1": 311278.0,
+        "median": 313848.5,
+        "p10": 312060.0,
+        "p90": 319204.0,
+        "samples": 2222
+      },
+      "ratios": {
+        "best": 0.9999678382133484,
+        "p1": 0.9996467429701851,
+        "median": 0.9997308342862967
+      },
+      "same_description": true,
+      "calls": [
+        1,
+        1
+      ]
+    },
+    {
+      "ordinal": 1,
+      "order": [
+        "fastfft/measure",
+        "fastfft"
+      ],
+      "clock_ghz": [
+        5.0324644280251905,
+        5.029966655093553
+      ],
+      "estimate": {
+        "best": 302502.0,
+        "p1": 304165.0,
+        "median": 311929.5,
+        "p10": 309665.0,
+        "p90": 318252.0,
+        "samples": 2232
+      },
+      "measure": {
+        "best": 308333.0,
+        "p1": 309024.0,
+        "median": 312120.5,
+        "p10": 309815.0,
+        "p90": 320616.0,
+        "samples": 2228
+      },
+      "ratios": {
+        "best": 1.0192759056138472,
+        "p1": 1.0159748820541483,
+        "median": 1.0006123178474624
+      },
+      "same_description": true,
+      "calls": [
+        1,
+        1
+      ]
+    },
+    {
+      "ordinal": 2,
+      "order": [
+        "fastfft",
+        "fastfft/measure"
+      ],
+      "clock_ghz": [
+        5.033441556521333,
+        5.028762636494761
+      ],
+      "estimate": {
+        "best": 311609.0,
+        "p1": 312491.0,
+        "median": 315046.0,
+        "p10": 313303.0,
+        "p90": 320596.0,
+        "samples": 2201
+      },
+      "measure": {
+        "best": 311249.0,
+        "p1": 311810.0,
+        "median": 313914.0,
+        "p10": 312491.0,
+        "p90": 319725.0,
+        "samples": 2218
+      },
+      "ratios": {
+        "best": 0.9988447060258209,
+        "p1": 0.9978207372372324,
+        "median": 0.9964068739168248
+      },
+      "same_description": true,
+      "calls": [
+        1,
+        1
+      ]
+    },
+    {
+      "ordinal": 3,
+      "order": [
+        "fastfft/measure",
+        "fastfft"
+      ],
+      "clock_ghz": [
+        5.028502811058783,
+        5.023289224667867
+      ],
+      "estimate": {
+        "best": 301690.0,
+        "p1": 302902.0,
+        "median": 311679.0,
+        "p10": 309796.0,
+        "p90": 317370.0,
+        "samples": 2237
+      },
+      "measure": {
+        "best": 308644.0,
+        "p1": 309335.0,
+        "median": 312320.0,
+        "p10": 310176.0,
+        "p90": 321999.0,
+        "samples": 2219
+      },
+      "ratios": {
+        "best": 1.023050150817064,
+        "p1": 1.021237892123525,
+        "median": 1.0020566031076845
+      },
+      "same_description": true,
+      "calls": [
+        1,
+        1
+      ]
+    },
+    {
+      "ordinal": 4,
+      "order": [
+        "fastfft",
+        "fastfft/measure"
+      ],
+      "clock_ghz": [
+        5.03089788824288,
+        5.027465041521833
+      ],
+      "estimate": {
+        "best": 314916.0,
+        "p1": 315977.0,
+        "median": 318557.5,
+        "p10": 316909.0,
+        "p90": 323713.0,
+        "samples": 2190
+      },
+      "measure": {
+        "best": 315096.0,
+        "p1": 316027.0,
+        "median": 318838.0,
+        "p10": 316979.0,
+        "p90": 324374.0,
+        "samples": 2184
+      },
+      "ratios": {
+        "best": 1.0005715809930267,
+        "p1": 1.0001582393655235,
+        "median": 1.000880531772129
+      },
+      "same_description": true,
+      "calls": [
+        1,
+        1
+      ]
+    },
+    {
+      "ordinal": 5,
+      "order": [
+        "fastfft/measure",
+        "fastfft"
+      ],
+      "clock_ghz": [
+        5.034640846343265,
+        5.0224434162107645
+      ],
+      "estimate": {
+        "best": 310247.0,
+        "p1": 310978.0,
+        "median": 313433.0,
+        "p10": 311739.0,
+        "p90": 318773.0,
+        "samples": 2223
+      },
+      "measure": {
+        "best": 310658.0,
+        "p1": 311259.0,
+        "median": 313713.5,
+        "p10": 311930.0,
+        "p90": 321748.0,
+        "samples": 2214
+      },
+      "ratios": {
+        "best": 1.0013247509242635,
+        "p1": 1.0009036008978127,
+        "median": 1.0008949281026567
+      },
+      "same_description": true,
+      "calls": [
+        1,
+        1
+      ]
+    },
+    {
+      "ordinal": 6,
+      "order": [
+        "fastfft",
+        "fastfft/measure"
+      ],
+      "clock_ghz": [
+        5.035187146577067,
+        5.027318448448872
+      ],
+      "estimate": {
+        "best": 316789.0,
+        "p1": 317510.0,
+        "median": 320165.0,
+        "p10": 318402.0,
+        "p90": 325536.0,
+        "samples": 2175
+      },
+      "measure": {
+        "best": 314665.0,
+        "p1": 315918.0,
+        "median": 318643.0,
+        "p10": 316959.0,
+        "p90": 324003.0,
+        "samples": 2186
+      },
+      "ratios": {
+        "best": 0.9932952217406539,
+        "p1": 0.9949859846933955,
+        "median": 0.9952462011775178
+      },
+      "same_description": true,
+      "calls": [
+        1,
+        1
+      ]
+    },
+    {
+      "ordinal": 7,
+      "order": [
+        "fastfft/measure",
+        "fastfft"
+      ],
+      "clock_ghz": [
+        5.035968143472719,
+        5.02898455246815
+      ],
+      "estimate": {
+        "best": 310648.0,
+        "p1": 311259.0,
+        "median": 314184.0,
+        "p10": 312141.0,
+        "p90": 320155.0,
+        "samples": 2215
+      },
+      "measure": {
+        "best": 312411.0,
+        "p1": 313233.0,
+        "median": 316353.0,
+        "p10": 314224.0,
+        "p90": 324404.0,
+        "samples": 2196
+      },
+      "ratios": {
+        "best": 1.0056752337050294,
+        "p1": 1.0063419852919915,
+        "median": 1.0069035978916814
+      },
+      "same_description": true,
+      "calls": [
+        1,
+        1
+      ]
+    }
+  ]
+}

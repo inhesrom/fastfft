@@ -1,0 +1,49 @@
+{
+  "run": "target/ticket19/selection-fix/full-core4-all8",
+  "cells": 2,
+  "problems": [
+    "pow2:f32:inv:ip:n2: raw process workspace reservation differs",
+    "pow2:f32:inv:ip:n2: raw process workspace reservation differs",
+    "pow2:f32:inv:ip:n2: raw process workspace reservation differs",
+    "raw process trial coverage is incomplete",
+    "expected 710 cells, found 2 valid pairs",
+    "run has not completed (missing meta.json)",
+    "environment check did not pass"
+  ],
+  "threshold": 1.02,
+  "suites": {
+    "pow2": {
+      "cells": 2,
+      "failures": 0,
+      "worst": 1.0,
+      "geomean": 1.0
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "pow2:f32:fwd:ip:n2",
+      "suite": "pow2",
+      "metric": "p1",
+      "ratio": 1.0,
+      "best": 1.003015681544029,
+      "p1": 1.0,
+      "median": 1.0,
+      "estimate": "small avx512-ymm n=2 decomposition=2x1 radices=2x1 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=generic",
+      "measure": "small avx512-ymm n=2 decomposition=2x1 radices=2x1 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=generic",
+      "same_plan": true
+    },
+    {
+      "key": "pow2:f32:fwd:oop:n2",
+      "suite": "pow2",
+      "metric": "p1",
+      "ratio": 1.0,
+      "best": 1.0,
+      "p1": 1.0,
+      "median": 0.9945807187678267,
+      "estimate": "small avx512-ymm n=2 decomposition=2x1 radices=2x1 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=generic",
+      "measure": "small avx512-ymm n=2 decomposition=2x1 radices=2x1 scratch=0 scratch_oop=0 scratch_immutable=0 kernel=generic",
+      "same_plan": true
+    }
+  ]
+}

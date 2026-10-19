@@ -1,0 +1,129 @@
+{
+  "kind": "G9-compiler-comparison",
+  "revision": "4332e48",
+  "date": "2026-10-14",
+  "results": {
+    "1.95": {
+      "build": {
+        "builds": [
+          {
+            "cargo_timings": "/tmp/fastfft-build-time-408899-1791936460226007072/target-rustfft/cargo-timings",
+            "command": "cd \"/tmp/fastfft-build-time-408899-1791936460226007072/rf\" && env -u CARGO_ENCODED_RUSTFLAGS CARGO_BUILD_JOBS=\"1\" CARGO_INCREMENTAL=\"0\" RUSTFLAGS=\"\" \"/home/ianhersom/.rustup/toolchains/1.95.0-x86_64-unknown-linux-gnu/bin/cargo\" \"build\" \"--release\" \"--locked\" \"--offline\" \"--timings\" \"--target-dir\" \"/tmp/fastfft-build-time-408899-1791936460226007072/target-rustfft\"",
+            "library": "rustfft",
+            "seconds": 3.344123034,
+            "target_dir": "/tmp/fastfft-build-time-408899-1791936460226007072/target-rustfft"
+          },
+          {
+            "cargo_timings": "/tmp/fastfft-build-time-408899-1791936460226007072/target-fastfft/cargo-timings",
+            "command": "cd \"/home/ianhersom/.paseo/worktrees/36vt8mpo/nimble-hound\" && env -u CARGO_ENCODED_RUSTFLAGS CARGO_BUILD_JOBS=\"1\" CARGO_INCREMENTAL=\"0\" RUSTFLAGS=\"\" \"/home/ianhersom/.rustup/toolchains/1.95.0-x86_64-unknown-linux-gnu/bin/cargo\" \"build\" \"--release\" \"--locked\" \"--offline\" \"--timings\" \"--target-dir\" \"/tmp/fastfft-build-time-408899-1791936460226007072/target-fastfft\" \"-p\" \"fastfft\"",
+            "library": "fastfft",
+            "seconds": 43.564669946,
+            "target_dir": "/tmp/fastfft-build-time-408899-1791936460226007072/target-fastfft"
+          }
+        ],
+        "cargo": "cargo 1.95.0 (f2d3ce0bd 2026-03-21)\n",
+        "evidence_dir": "/tmp/fastfft-build-time-408899-1791936460226007072",
+        "fastfft_seconds": 43.564669946,
+        "gate": "G9",
+        "incremental": false,
+        "jobs": 1,
+        "passed": false,
+        "profile": "release",
+        "ratio": 13.027233000423156,
+        "revision": "4332e484e993cdc5c7637a1ed9b088ae00f5d0f5",
+        "rustc": "rustc 1.95.0 (59807616e 2026-04-14)\nbinary: rustc\ncommit-hash: 59807616e1fa2540724bfbac14d7976d7e4a3860\ncommit-date: 2026-04-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.95.0\nLLVM version: 22.1.2\n",
+        "rustfft_seconds": 3.344123034,
+        "rustflags": "",
+        "schema": 1,
+        "threshold": 2.0,
+        "working_tree": ""
+      },
+      "command": {
+        "command": [
+          "taskset",
+          "-c",
+          "2",
+          "/home/ianhersom/.paseo/worktrees/36vt8mpo/nimble-hound/target/xtask-1.95/debug/xtask",
+          "build-time",
+          "--out",
+          "/home/ianhersom/.paseo/worktrees/36vt8mpo/nimble-hound/target/qualification/build-comparison/1.95/g9.json",
+          "--check"
+        ],
+        "toolchain": "1.95.0",
+        "core": 2
+      },
+      "status": {
+        "returncode": 1,
+        "contaminated": false,
+        "reasons": []
+      },
+      "monitor_observations": 47,
+      "monitor_sha256": "44247bc48d88515097a5bfae8ffb56f8387f9c8622de00313695b0579dae4838",
+      "preflight_sha256": "6dccf332d8b399045a47a0352fec849bf3e29693a70823c9ebbebcf4d23a6f92"
+    },
+    "1.99": {
+      "build": {
+        "builds": [
+          {
+            "cargo_timings": "/tmp/fastfft-build-time-409412-1791936585724696742/target-rustfft/cargo-timings",
+            "command": "cd \"/tmp/fastfft-build-time-409412-1791936585724696742/rf\" && env -u CARGO_ENCODED_RUSTFLAGS CARGO_BUILD_JOBS=\"1\" CARGO_INCREMENTAL=\"0\" RUSTFLAGS=\"\" \"/home/ianhersom/.rustup/toolchains/1.99.0-x86_64-unknown-linux-gnu/bin/cargo\" \"build\" \"--release\" \"--locked\" \"--offline\" \"--timings\" \"--target-dir\" \"/tmp/fastfft-build-time-409412-1791936585724696742/target-rustfft\"",
+            "library": "rustfft",
+            "seconds": 3.19818994,
+            "target_dir": "/tmp/fastfft-build-time-409412-1791936585724696742/target-rustfft"
+          },
+          {
+            "cargo_timings": "/tmp/fastfft-build-time-409412-1791936585724696742/target-fastfft/cargo-timings",
+            "command": "cd \"/home/ianhersom/.paseo/worktrees/36vt8mpo/nimble-hound\" && env -u CARGO_ENCODED_RUSTFLAGS CARGO_BUILD_JOBS=\"1\" CARGO_INCREMENTAL=\"0\" RUSTFLAGS=\"\" \"/home/ianhersom/.rustup/toolchains/1.99.0-x86_64-unknown-linux-gnu/bin/cargo\" \"build\" \"--release\" \"--locked\" \"--offline\" \"--timings\" \"--target-dir\" \"/tmp/fastfft-build-time-409412-1791936585724696742/target-fastfft\" \"-p\" \"fastfft\"",
+            "library": "fastfft",
+            "seconds": 33.960154608,
+            "target_dir": "/tmp/fastfft-build-time-409412-1791936585724696742/target-fastfft"
+          }
+        ],
+        "cargo": "cargo 1.99.0 (5f94df478 2026-08-27)\n",
+        "evidence_dir": "/tmp/fastfft-build-time-409412-1791936585724696742",
+        "fastfft_seconds": 33.960154608,
+        "gate": "G9",
+        "incremental": false,
+        "jobs": 1,
+        "passed": false,
+        "profile": "release",
+        "ratio": 10.618554634062793,
+        "revision": "4332e484e993cdc5c7637a1ed9b088ae00f5d0f5",
+        "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.0\nLLVM version: 23.1.1\n",
+        "rustfft_seconds": 3.19818994,
+        "rustflags": "",
+        "schema": 1,
+        "threshold": 2.0,
+        "working_tree": ""
+      },
+      "command": {
+        "command": [
+          "taskset",
+          "-c",
+          "2",
+          "/home/ianhersom/.paseo/worktrees/36vt8mpo/nimble-hound/target/xtask-1.99/debug/xtask",
+          "build-time",
+          "--out",
+          "/home/ianhersom/.paseo/worktrees/36vt8mpo/nimble-hound/target/qualification/build-comparison/1.99/g9.json",
+          "--check"
+        ],
+        "toolchain": "1.99.0",
+        "core": 2
+      },
+      "status": {
+        "returncode": 1,
+        "contaminated": false,
+        "reasons": []
+      },
+      "monitor_observations": 38,
+      "monitor_sha256": "12b1a2863e8a6b20fdb332718626856a2d91a49cad18bd0261b23cc5589817e7",
+      "preflight_sha256": "060b5f568a9bd31423988adb875a37311969f24e910611d8d91f7fa63051f3fb"
+    }
+  },
+  "fastfft_duration_reduction_percent": 22.046569731631493,
+  "limits": [
+    "One uncontaminated matched pair per compiler; no runtime compiler-selection claim.",
+    "G9 fails on both compilers.",
+    "Build stage attribution is a separate instrumented diagnostic; not gate timing."
+  ]
+}

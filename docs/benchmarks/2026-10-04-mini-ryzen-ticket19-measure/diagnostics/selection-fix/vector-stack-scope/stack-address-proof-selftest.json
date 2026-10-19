@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "test": "aligned_direct",
+      "expected": true,
+      "actual": true,
+      "checks": 1
+    },
+    {
+      "test": "split_direct",
+      "expected": false,
+      "actual": false,
+      "checks": 1
+    },
+    {
+      "test": "unaligned_abi",
+      "expected": false,
+      "actual": false,
+      "checks": 1
+    },
+    {
+      "test": "derived_aligned_index",
+      "expected": true,
+      "actual": true,
+      "checks": 1
+    },
+    {
+      "test": "derived_unknown_index",
+      "expected": false,
+      "actual": false,
+      "checks": 1
+    },
+    {
+      "test": "derived_pointer_spill_reload",
+      "expected": false,
+      "actual": false,
+      "checks": 1
+    },
+    {
+      "test": "derived_pointer_xchg",
+      "expected": false,
+      "actual": false,
+      "checks": 1
+    },
+    {
+      "test": "implicit_mul_kills_known_rax",
+      "expected": false,
+      "actual": false,
+      "checks": 1
+    },
+    {
+      "test": "complete_r8_overwrite_clears_alias",
+      "expected": true,
+      "actual": true,
+      "checks": 0
+    }
+  ]
+}

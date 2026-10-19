@@ -1,0 +1,58 @@
+{
+  "acceptance": false,
+  "created_utc": "2026-10-05T14:53:27.064634+00:00",
+  "case": "smooth:f32:inv:ip:n96",
+  "procs": 8,
+  "core": 4,
+  "profile": "full",
+  "rustflags": "-C llvm-args=-align-all-functions=6",
+  "fixed_rule": "one eight-process run; no retry until promotion or passing result",
+  "gate": "fresh 60s sustained quiet and envcheck; journaled physical-core reservation; continuous monitor",
+  "selection": "all original search, choice and scores completed before diagnostic; elapsed frozen; no rescoring",
+  "plans": [
+    "actual internal baseline 8x12",
+    "actual built nominated contender1 16x6; independent of chosen"
+  ],
+  "paths": [
+    "direct black-box dispatch to original Buffers::sample",
+    "non-inlined helper dispatch to same original Buffers::sample"
+  ],
+  "calls": [
+    1024,
+    2048
+  ],
+  "rounds": 7,
+  "warm_calls_per_sample": 3,
+  "phases": [
+    "before original-route exposure",
+    "after original-route exposure"
+  ],
+  "exposure": {
+    "duration_ms": 100,
+    "path": 0,
+    "calls": [
+      1024,
+      2048
+    ],
+    "raw_pairs_retained": true,
+    "capacity_pairs": 16384,
+    "truncation_invalidates_control": true
+  },
+  "buffers": "original selector offset0; no reset or resizing between selection and control",
+  "rotations": {
+    "path_start": "p%2",
+    "member_start": "(p/2)%2",
+    "exposure_member_start": "(p/4)%2"
+  },
+  "predictions": [
+    "Adjacent direct/helper differences with same duration/schedule support generated caller-route sensitivity.",
+    "If differences disappear in the recompiled binary, this alone is not a production fix."
+  ],
+  "limitations": [
+    "Both paths call the same original sampler entry but surrounding caller frames differ deliberately.",
+    "Recompilation and trace retention can alter reproduction.",
+    "Optional diagnostics cannot substitute for production acceptance or waive retained failures."
+  ],
+  "schedule": "each phase interleaves routes and members; same rounds/counts/warms for each route",
+  "sampler": "one non-inlined warmed dispatcher reached through black-boxed function pointer; one indirect callsite targets original method or a non-tail helper to that same method"
+}

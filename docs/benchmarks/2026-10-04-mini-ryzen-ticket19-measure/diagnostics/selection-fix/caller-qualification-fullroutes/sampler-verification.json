@@ -1,0 +1,25 @@
+{
+  "acceptance": false,
+  "dispatchers": [
+    "0x49a300",
+    "0x49a640"
+  ],
+  "direct_samplers": [
+    "0x49a980",
+    "0x49ad40"
+  ],
+  "helpers": [
+    "0x49a280",
+    "0x49a2c0"
+  ],
+  "helper_target_samplers": [
+    "0x49a980",
+    "0x49ad40"
+  ],
+  "helper_local_stack_bytes": 24,
+  "helper_return_address_bytes": 8,
+  "helpers_are_non_tail_calls": true,
+  "same_route_pointer_selected_before_warm_timing_branches": true,
+  "dispatch_and_budget_checks_outside_returned_duration": true,
+  "limitations": "Compiler unrolls warm invocations, but both routes share each respective callsite and caller frame; caller-route robustness is not statistical independence."
+}

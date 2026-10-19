@@ -1,0 +1,38 @@
+{
+  "pow2:f32:fwd:ip:n8": {
+    "after_plan": "small avx2 n=8 decomposition=2x4 scratch=0 kernel=specialized",
+    "before_plan": "small avx2 n=8 decomposition=8x1 scratch=0",
+    "change": {
+      "best": -0.30503232402100533,
+      "median": -0.30695176018153136
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:oop:n8": {
+    "after_plan": "small avx2 n=8 decomposition=2x4 scratch=0 kernel=specialized",
+    "before_plan": "small avx2 n=8 decomposition=8x1 scratch=0",
+    "change": {
+      "best": -0.19588131241762363,
+      "median": -0.14266745558911276
+    },
+    "flag": false
+  },
+  "pow2:f32:inv:ip:n8": {
+    "after_plan": "small avx2 n=8 decomposition=2x4 scratch=0 kernel=specialized",
+    "before_plan": "small avx2 n=8 decomposition=8x1 scratch=0",
+    "change": {
+      "best": -0.04940626288231442,
+      "median": -0.026560900724516667
+    },
+    "flag": false
+  },
+  "pow2:f32:inv:oop:n8": {
+    "after_plan": "small avx2 n=8 decomposition=2x4 scratch=0 kernel=specialized",
+    "before_plan": "small avx2 n=8 decomposition=8x1 scratch=0",
+    "change": {
+      "best": -0.11366696032494705,
+      "median": -0.09958844270548184
+    },
+    "flag": false
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "assembly": "/home/ianhersom/repo/fastfft/target/ticket19/selection-fix/vector-stack-scope/all-fused-inventory-current/F32x8-24-8-3-false-true.asm",
+  "instructions": 223,
+  "reachable_instructions": 223,
+  "iterations": 225,
+  "jump_tables": [],
+  "unsupported_control_flow": [],
+  "local_vector_memory_checks": [
+    {
+      "address": "0x6d4403",
+      "instruction": "vmovaps XMMWORD PTR [rsp+0x80],xmm0",
+      "bytes": 16,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6d445a",
+      "instruction": "vmovaps XMMWORD PTR [rsp+0x60],xmm2",
+      "bytes": 16,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6d449c",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x40],ymm1",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6d44bd",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0xa0],ymm0",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6d44f1",
+      "instruction": "vmovaps xmm0,XMMWORD PTR [rsp+0x80]",
+      "bytes": 16,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6d452f",
+      "instruction": "vmovaps xmm0,XMMWORD PTR [rsp+0x60]",
+      "bytes": 16,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6d453f",
+      "instruction": "vmovaps ymm1,YMMWORD PTR [rsp+0x40]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6d4549",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x80],ymm9",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6d4590",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x60],ymm1",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6d459e",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0x40],ymm1",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6d45a8",
+      "instruction": "vmovaps ymm1,YMMWORD PTR [rsp+0xa0]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6d45b9",
+      "instruction": "vmovaps ymm1,YMMWORD PTR [rsp+0x80]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6d45cf",
+      "instruction": "vmovaps YMMWORD PTR [rsp+0xa0],ymm1",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6d461a",
+      "instruction": "vmulps ymm5,ymm9,YMMWORD PTR [rsp+0x60]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6d4620",
+      "instruction": "vmulps ymm9,ymm9,YMMWORD PTR [rsp+0x40]",
+      "bytes": 32,
+      "residues_mod64": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "address": "0x6d4669",
+      "instruction": "vmovaps ymm6,YMMWORD PTR [rsp+0xa0]",
+      "bytes": 32,
+      "residues_mod64": [
+        32
+      ],
+      "passed": true
+    }
+  ],
+  "unproved_local_vector_memory": [],
+  "unresolved_stack_pointer_stores": [],
+  "derived_scalar_stack_loads_to_review": [],
+  "calls_with_stack_arguments_to_review": [],
+  "passed": true,
+  "limitations": "Low-bit/alias model covers recorded instruction families; review transfer semantics and all unsupported constructs. Caller-clobbered registers lose aliases; RAX conservatively may return an argument-derived stack alias. Escaping stack-pointer stores fail; source review must establish that local-array copying calls do not introduce pointer values into vector storage. Does not prove arithmetic equivalence."
+}

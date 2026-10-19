@@ -1,0 +1,103 @@
+{
+  "prepared_only": true,
+  "acceptance": false,
+  "captures": 1,
+  "command": [
+    "target/ticket19/selection-fix/n262144-sample-trace/fastfft-arena",
+    "run",
+    "--suite",
+    "batch",
+    "--prec",
+    "f32",
+    "--profile",
+    "full",
+    "--libs",
+    "fastfft,fastfft/measure",
+    "--core",
+    "4",
+    "--procs",
+    "8",
+    "--filter",
+    "suite=batch,precision=f32,dir=fwd,place=oop,n=32,batch=32768",
+    "--sample-trace",
+    "--execution-order-factorial",
+    "--out",
+    "target/ticket19/selection-fix/batch32-order-factorial/run"
+  ],
+  "preconditions": [
+    "fresh300s quiet gate",
+    "same existing managed reservation and independent restoration proof",
+    "recheck frozen diagnostic executable SHA before launch"
+  ],
+  "diagnostic_executable_sha256": "d53258c740f718fbbc9aa98c68bb7749414a56bcc37c9c05d9e1ce911bbe5b94",
+  "source_check": "target/ticket19/status-reports/batch32-default-recheck-review/source-reuse-check.json",
+  "build_required": false,
+  "profile": {
+    "warmup_ms": 200,
+    "rounds": 7,
+    "turn_ms": 100,
+    "min_batch_us": 50
+  },
+  "ordinary_trials": 8,
+  "control_trials": 16,
+  "expected_calls_per_batch": 1,
+  "fixed_calls_cli_exists": false,
+  "factorial": [
+    {
+      "process": 0,
+      "construction_first": "fastfft",
+      "initial_calibration_execution_first": "fastfft",
+      "execution_rotation": 0
+    },
+    {
+      "process": 1,
+      "construction_first": "fastfft/measure",
+      "initial_calibration_execution_first": "fastfft",
+      "execution_rotation": 1
+    },
+    {
+      "process": 2,
+      "construction_first": "fastfft",
+      "initial_calibration_execution_first": "fastfft/measure",
+      "execution_rotation": 1
+    },
+    {
+      "process": 3,
+      "construction_first": "fastfft/measure",
+      "initial_calibration_execution_first": "fastfft/measure",
+      "execution_rotation": 0
+    },
+    {
+      "process": 4,
+      "construction_first": "fastfft",
+      "initial_calibration_execution_first": "fastfft",
+      "execution_rotation": 0
+    },
+    {
+      "process": 5,
+      "construction_first": "fastfft/measure",
+      "initial_calibration_execution_first": "fastfft",
+      "execution_rotation": 1
+    },
+    {
+      "process": 6,
+      "construction_first": "fastfft",
+      "initial_calibration_execution_first": "fastfft/measure",
+      "execution_rotation": 1
+    },
+    {
+      "process": 7,
+      "construction_first": "fastfft/measure",
+      "initial_calibration_execution_first": "fastfft/measure",
+      "execution_rotation": 0
+    }
+  ],
+  "reference_whole_buffer_ns": {
+    "retained_recheck_E_p1": 227881.0,
+    "retained_recheck_M_best": 232580.0
+  },
+  "audit_sha256": "1767bb7f83887bb5d22e9eded9b9b63b0f9da29dd4c17a66f190e6a5fc2b61e5",
+  "syntax_checked": true,
+  "tests_or_FFT_or_build_run": false,
+  "actual_executable_hash_verified": true
+}

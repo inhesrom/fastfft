@@ -1,0 +1,52 @@
+{
+  "recommendation": "one fixed complete unchanged-default capture for completion and quiet coverage",
+  "production_source_remedy_supported": false,
+  "acceptance": false,
+  "retained_failure": {
+    "key": "pow2:f32:inv:oop:n16384",
+    "best_ratio": 1.020155288248783,
+    "status": "strict failure retained; not waived by later host activity or diagnostic result"
+  },
+  "interrupted_full": {
+    "cells_completed": 323,
+    "cells_required": 710,
+    "dirty_samples": 9,
+    "valid_for_acceptance": false
+  },
+  "diagnostic": {
+    "evidence_valid": true,
+    "acceptance": false,
+    "p1_reversals": 8,
+    "p1_owner_effect_range": [
+      -0.0039211073555550716,
+      0.0021456147635046502
+    ],
+    "findings_sha256": "9248a2ce0c7b38a63e8eda03924821b24c55e3422e2b22d06aa7c543f4aa9218",
+    "limitation": "Different diagnostic build/caller context; does not reproduce or negate the production miss"
+  },
+  "fixed_capture_constraints": {
+    "attempts": 1,
+    "cells": 710,
+    "suites": 6,
+    "rotating_processes": 8,
+    "unchanged_default_executable_sha256": "42f7c2a3c18bf844420749fc5fdc325e7025f802d1ae64ad93c95df1fd846a5a",
+    "primary_and_raw_changed_plan_max_ratio": 1.02,
+    "statistics_controls_quiet_policy_unchanged": true,
+    "prior_evidence_retained": true,
+    "cross_capture_selection": false,
+    "automatic_retry_until_pass": false
+  },
+  "judgment": [
+    "One predeclared fresh complete capture of the unchanged frozen default executable is justified to obtain missing full coverage under sustained quiet.",
+    "The interrupted run remains incomplete/invalid for acceptance (323/710 cells; nine dirty samples); its earlier clean-window 1.020155288248783 ratio remains a strict failed observation.",
+    "The valid crossover shows p1 owner-swap reversals in all eight processes, with modeled owner effects from -0.392% to +0.215%.",
+    "That establishes small owner sensitivity in this diagnostic context; it neither reproduces nor explains away the production 2.0155% miss.",
+    "The diagnostic feature build and fixed caller context cannot establish unchanged default-binary performance or prove the earlier miss was noise.",
+    "No specific production source remedy is supported by this evidence; a source-change hold would currently require speculation.",
+    "Freeze this as one completion attempt: all 710 cells, six suites, eight rotating processes, unchanged executable, statistics, controls and quiet policy.",
+    "Apply the existing 2% primary and raw changed-plan rules without rounding, waiver, cell replacement, or selecting results across captures.",
+    "Any strict miss or invalid monitoring prevents acceptance of that capture; do not automatically rerun until a pass appears.",
+    "A clean complete pass would supply the missing coverage, while all prior failures and this unresolved production/diagnostic discrepancy remain visible in the final judgment."
+  ],
+  "new_experiments_or_source_edits": false
+}

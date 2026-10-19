@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1040" viewBox="0 0 1400 1040" role="img">
+<title>fastfft: geometric-mean CPU FFT speed relative to RustFFT</title>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="DejaVu Sans, sans-serif" fill="#182533">
+<text x="48.000" y="55.000" font-size="34" text-anchor="start" font-weight="bold" fill="#182533">CPU FFT performance</text>
+<text x="48.000" y="91.000" font-size="21" text-anchor="start" font-weight="normal" fill="#182533">AMD Ryzen 7 7840HS · one thread · in-place · median execution latency</text>
+<text x="48.000" y="131.000" font-size="22" text-anchor="start" font-weight="normal" fill="#182533">Geometric-mean speedup relative to RustFFT · higher is faster</text>
+<text x="48.000" y="190.000" font-size="26" text-anchor="start" font-weight="bold" fill="#182533">f32 · forward</text>
+<text x="48.000" y="222.000" font-size="19" text-anchor="start" font-weight="normal" fill="#182533">20 shared lengths · N = 2–1,048,576</text>
+<line x1="248.000" y1="248.000" x2="248.000" y2="464.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="248.000" y="494.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">0×</text>
+<line x1="338.000" y1="248.000" x2="338.000" y2="464.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="338.000" y="494.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">0.5×</text>
+<line x1="428.000" y1="248.000" x2="428.000" y2="464.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="428.000" y="494.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">1×</text>
+<line x1="518.000" y1="248.000" x2="518.000" y2="464.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="518.000" y="494.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">1.5×</text>
+<line x1="608.000" y1="248.000" x2="608.000" y2="464.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="608.000" y="494.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">2×</text>
+<line x1="428.000" y1="248.000" x2="428.000" y2="464.000" stroke="#182533" stroke-opacity="1" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="436.000" y="239.000" font-size="16" text-anchor="start" font-weight="normal" fill="#182533">1× baseline</text>
+<text x="232.000" y="282.000" font-size="20" text-anchor="end" font-weight="bold" fill="#182533">fastfft</text>
+<rect x="248.000" y="258.000" width="226.875" height="34.000" fill="#0072B2"/>
+<rect x="480.875" y="260.000" width="77.000" height="31.000" fill="white"/>
+<text x="484.875" y="283.000" font-size="22" text-anchor="start" font-weight="bold" fill="#0072B2">1.26×</text>
+<text x="232.000" y="336.000" font-size="20" text-anchor="end" font-weight="normal" fill="#182533">RustFFT</text>
+<rect x="248.000" y="312.000" width="180.000" height="34.000" fill="#777777"/>
+<rect x="434.000" y="314.000" width="77.000" height="31.000" fill="white"/>
+<text x="438.000" y="337.000" font-size="22" text-anchor="start" font-weight="normal" fill="#777777">1.00×</text>
+<text x="232.000" y="390.000" font-size="20" text-anchor="end" font-weight="normal" fill="#182533">FFTW</text>
+<rect x="248.000" y="366.000" width="140.673" height="34.000" fill="#D55E00"/>
+<rect x="394.673" y="368.000" width="77.000" height="31.000" fill="white"/>
+<text x="398.673" y="391.000" font-size="22" text-anchor="start" font-weight="normal" fill="#D55E00">0.78×</text>
+<text x="232.000" y="444.000" font-size="20" text-anchor="end" font-weight="normal" fill="#182533">PhastFT interleaved</text>
+<rect x="248.000" y="420.000" width="55.843" height="34.000" fill="#009E73"/>
+<rect x="309.843" y="422.000" width="77.000" height="31.000" fill="white"/>
+<text x="313.843" y="445.000" font-size="22" text-anchor="start" font-weight="normal" fill="#009E73">0.31×</text>
+<text x="743.000" y="190.000" font-size="26" text-anchor="start" font-weight="bold" fill="#182533">f32 · inverse</text>
+<text x="743.000" y="222.000" font-size="19" text-anchor="start" font-weight="normal" fill="#182533">20 shared lengths · N = 2–1,048,576</text>
+<line x1="943.000" y1="248.000" x2="943.000" y2="464.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="943.000" y="494.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">0×</text>
+<line x1="1033.000" y1="248.000" x2="1033.000" y2="464.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="1033.000" y="494.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">0.5×</text>
+<line x1="1123.000" y1="248.000" x2="1123.000" y2="464.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="1123.000" y="494.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">1×</text>
+<line x1="1213.000" y1="248.000" x2="1213.000" y2="464.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="1213.000" y="494.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">1.5×</text>
+<line x1="1303.000" y1="248.000" x2="1303.000" y2="464.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="1303.000" y="494.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">2×</text>
+<line x1="1123.000" y1="248.000" x2="1123.000" y2="464.000" stroke="#182533" stroke-opacity="1" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="1131.000" y="239.000" font-size="16" text-anchor="start" font-weight="normal" fill="#182533">1× baseline</text>
+<text x="927.000" y="282.000" font-size="20" text-anchor="end" font-weight="bold" fill="#182533">fastfft</text>
+<rect x="943.000" y="258.000" width="239.478" height="34.000" fill="#0072B2"/>
+<rect x="1188.478" y="260.000" width="77.000" height="31.000" fill="white"/>
+<text x="1192.478" y="283.000" font-size="22" text-anchor="start" font-weight="bold" fill="#0072B2">1.33×</text>
+<text x="927.000" y="336.000" font-size="20" text-anchor="end" font-weight="normal" fill="#182533">RustFFT</text>
+<rect x="943.000" y="312.000" width="180.000" height="34.000" fill="#777777"/>
+<rect x="1129.000" y="314.000" width="77.000" height="31.000" fill="white"/>
+<text x="1133.000" y="337.000" font-size="22" text-anchor="start" font-weight="normal" fill="#777777">1.00×</text>
+<text x="927.000" y="390.000" font-size="20" text-anchor="end" font-weight="normal" fill="#182533">FFTW</text>
+<rect x="943.000" y="366.000" width="148.137" height="34.000" fill="#D55E00"/>
+<rect x="1097.137" y="368.000" width="77.000" height="31.000" fill="white"/>
+<text x="1101.137" y="391.000" font-size="22" text-anchor="start" font-weight="normal" fill="#D55E00">0.82×</text>
+<text x="927.000" y="444.000" font-size="20" text-anchor="end" font-weight="normal" fill="#182533">PhastFT interleaved</text>
+<rect x="943.000" y="420.000" width="57.656" height="34.000" fill="#009E73"/>
+<rect x="1006.656" y="422.000" width="77.000" height="31.000" fill="white"/>
+<text x="1010.656" y="445.000" font-size="22" text-anchor="start" font-weight="normal" fill="#009E73">0.32×</text>
+<text x="48.000" y="575.000" font-size="26" text-anchor="start" font-weight="bold" fill="#182533">f64 · forward</text>
+<text x="48.000" y="607.000" font-size="19" text-anchor="start" font-weight="normal" fill="#182533">20 shared lengths · N = 2–1,048,576</text>
+<line x1="248.000" y1="633.000" x2="248.000" y2="849.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="248.000" y="879.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">0×</text>
+<line x1="338.000" y1="633.000" x2="338.000" y2="849.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="338.000" y="879.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">0.5×</text>
+<line x1="428.000" y1="633.000" x2="428.000" y2="849.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="428.000" y="879.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">1×</text>
+<line x1="518.000" y1="633.000" x2="518.000" y2="849.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="518.000" y="879.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">1.5×</text>
+<line x1="608.000" y1="633.000" x2="608.000" y2="849.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="608.000" y="879.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">2×</text>
+<line x1="428.000" y1="633.000" x2="428.000" y2="849.000" stroke="#182533" stroke-opacity="1" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="436.000" y="624.000" font-size="16" text-anchor="start" font-weight="normal" fill="#182533">1× baseline</text>
+<text x="232.000" y="667.000" font-size="20" text-anchor="end" font-weight="bold" fill="#182533">fastfft</text>
+<rect x="248.000" y="643.000" width="239.690" height="34.000" fill="#0072B2"/>
+<rect x="493.690" y="645.000" width="77.000" height="31.000" fill="white"/>
+<text x="497.690" y="668.000" font-size="22" text-anchor="start" font-weight="bold" fill="#0072B2">1.33×</text>
+<text x="232.000" y="721.000" font-size="20" text-anchor="end" font-weight="normal" fill="#182533">RustFFT</text>
+<rect x="248.000" y="697.000" width="180.000" height="34.000" fill="#777777"/>
+<rect x="434.000" y="699.000" width="77.000" height="31.000" fill="white"/>
+<text x="438.000" y="722.000" font-size="22" text-anchor="start" font-weight="normal" fill="#777777">1.00×</text>
+<text x="232.000" y="775.000" font-size="20" text-anchor="end" font-weight="normal" fill="#182533">FFTW</text>
+<rect x="248.000" y="751.000" width="177.669" height="34.000" fill="#D55E00"/>
+<rect x="431.669" y="753.000" width="77.000" height="31.000" fill="white"/>
+<text x="435.669" y="776.000" font-size="22" text-anchor="start" font-weight="normal" fill="#D55E00">0.99×</text>
+<text x="232.000" y="829.000" font-size="20" text-anchor="end" font-weight="normal" fill="#182533">PhastFT interleaved</text>
+<rect x="248.000" y="805.000" width="57.651" height="34.000" fill="#009E73"/>
+<rect x="311.651" y="807.000" width="77.000" height="31.000" fill="white"/>
+<text x="315.651" y="830.000" font-size="22" text-anchor="start" font-weight="normal" fill="#009E73">0.32×</text>
+<text x="743.000" y="575.000" font-size="26" text-anchor="start" font-weight="bold" fill="#182533">f64 · inverse</text>
+<text x="743.000" y="607.000" font-size="19" text-anchor="start" font-weight="normal" fill="#182533">20 shared lengths · N = 2–1,048,576</text>
+<line x1="943.000" y1="633.000" x2="943.000" y2="849.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="943.000" y="879.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">0×</text>
+<line x1="1033.000" y1="633.000" x2="1033.000" y2="849.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="1033.000" y="879.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">0.5×</text>
+<line x1="1123.000" y1="633.000" x2="1123.000" y2="849.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="1123.000" y="879.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">1×</text>
+<line x1="1213.000" y1="633.000" x2="1213.000" y2="849.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="1213.000" y="879.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">1.5×</text>
+<line x1="1303.000" y1="633.000" x2="1303.000" y2="849.000" stroke="#dbe1e6" stroke-opacity="1" stroke-width="1"/>
+<text x="1303.000" y="879.000" font-size="18" text-anchor="middle" font-weight="normal" fill="#182533">2×</text>
+<line x1="1123.000" y1="633.000" x2="1123.000" y2="849.000" stroke="#182533" stroke-opacity="1" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="1131.000" y="624.000" font-size="16" text-anchor="start" font-weight="normal" fill="#182533">1× baseline</text>
+<text x="927.000" y="667.000" font-size="20" text-anchor="end" font-weight="bold" fill="#182533">fastfft</text>
+<rect x="943.000" y="643.000" width="240.722" height="34.000" fill="#0072B2"/>
+<rect x="1189.722" y="645.000" width="77.000" height="31.000" fill="white"/>
+<text x="1193.722" y="668.000" font-size="22" text-anchor="start" font-weight="bold" fill="#0072B2">1.34×</text>
+<text x="927.000" y="721.000" font-size="20" text-anchor="end" font-weight="normal" fill="#182533">RustFFT</text>
+<rect x="943.000" y="697.000" width="180.000" height="34.000" fill="#777777"/>
+<rect x="1129.000" y="699.000" width="77.000" height="31.000" fill="white"/>
+<text x="1133.000" y="722.000" font-size="22" text-anchor="start" font-weight="normal" fill="#777777">1.00×</text>
+<text x="927.000" y="775.000" font-size="20" text-anchor="end" font-weight="normal" fill="#182533">FFTW</text>
+<rect x="943.000" y="751.000" width="177.905" height="34.000" fill="#D55E00"/>
+<rect x="1126.905" y="753.000" width="77.000" height="31.000" fill="white"/>
+<text x="1130.905" y="776.000" font-size="22" text-anchor="start" font-weight="normal" fill="#D55E00">0.99×</text>
+<text x="927.000" y="829.000" font-size="20" text-anchor="end" font-weight="normal" fill="#182533">PhastFT interleaved</text>
+<rect x="943.000" y="805.000" width="55.744" height="34.000" fill="#009E73"/>
+<rect x="1004.744" y="807.000" width="77.000" height="31.000" fill="white"/>
+<text x="1008.744" y="830.000" font-size="22" text-anchor="start" font-weight="normal" fill="#009E73">0.31×</text>
+<text x="48.000" y="968.000" font-size="20" text-anchor="start" font-weight="normal" fill="#182533">Speedup = RustFFT median latency ÷ library median latency · equal weight per shared length</text>
+<text x="48.000" y="998.000" font-size="18" text-anchor="start" font-weight="normal" fill="#182533">All four libraries share 20 lengths per panel · PhastFT interleaved includes allocations/conversion</text>
+</g></svg>

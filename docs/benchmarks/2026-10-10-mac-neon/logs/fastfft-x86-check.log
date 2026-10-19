@@ -1,0 +1,101 @@
+   Compiling zerocopy v0.8.57
+   Compiling getrandom v0.3.4
+   Compiling find-msvc-tools v0.1.13
+   Compiling rustix v1.1.5
+   Compiling num-traits v0.2.19
+   Compiling shlex v2.0.1
+   Compiling getrandom v0.4.3
+    Checking bitflags v2.13.2
+    Checking linux-raw-sys v0.12.1
+   Compiling zerocopy-derive v0.8.57
+    Checking regex-syntax v0.8.11
+    Checking fastrand v2.5.0
+   Compiling cc v1.4.7
+    Checking either v1.18.0
+    Checking anstyle v1.0.14
+    Checking once_cell v1.21.4
+    Checking ciborium-io v0.2.2
+    Checking clap_lex v1.1.1
+    Checking itertools v0.13.0
+    Checking wait-timeout v0.2.1
+    Checking clap_builder v4.6.7
+    Checking same-file v1.0.6
+    Checking quick-error v1.2.3
+    Checking bit-vec v0.8.0
+    Checking cast v0.3.0
+    Checking fnv v1.0.7
+    Checking rand_core v0.9.5
+    Checking walkdir v2.5.0
+    Checking tinytemplate v1.2.1
+    Checking bit-set v0.8.0
+    Checking rand_xorshift v0.4.0
+    Checking rand v0.9.5
+    Checking page_size v0.6.0
+    Checking anes v0.1.6
+    Checking oorandom v11.1.5
+    Checking unarray v0.1.4
+    Checking num-integer v0.1.47
+    Checking num-complex v0.4.6
+    Checking transpose v0.2.3
+    Checking primal-check v0.3.4
+    Checking rustfft v6.4.1
+    Checking fastfft-testkit v0.0.0 (/Users/ianhersom/repo/fastfft/crates/fastfft-testkit)
+    Checking fastfft v0.1.0 (/Users/ianhersom/repo/fastfft/crates/fastfft)
+    Checking criterion-plot v0.8.2
+    Checking clap v4.6.7
+   Compiling alloca v0.4.0
+    Checking tempfile v3.27.0
+    Checking regex-automata v0.4.18
+    Checking rusty-fork v0.3.1
+warning: alloca@0.4.0: Compiler family detection failed due to error: ToolNotFound: failed to find tool "x86_64-linux-gnu-gcc": No such file or directory (os error 2)
+warning: alloca@0.4.0: Compiler family detection failed due to error: ToolNotFound: failed to find tool "x86_64-linux-gnu-gcc": No such file or directory (os error 2)
+error: failed to run custom build command for `alloca v0.4.0`
+
+Caused by:
+  process didn't exit successfully: `/Users/ianhersom/repo/fastfft/target/debug/build/alloca-1a85afb70c577355/build-script-build` (exit status: 1)
+  --- stdout
+  cargo:rerun-if-env-changed=CC_FORCE_DISABLE
+  CC_FORCE_DISABLE = None
+  cargo:rerun-if-env-changed=CC_x86_64-unknown-linux-gnu
+  CC_x86_64-unknown-linux-gnu = None
+  cargo:rerun-if-env-changed=CC_x86_64_unknown_linux_gnu
+  CC_x86_64_unknown_linux_gnu = None
+  cargo:rerun-if-env-changed=TARGET_CC
+  TARGET_CC = None
+  cargo:rerun-if-env-changed=CC
+  CC = None
+  cargo:rerun-if-env-changed=CROSS_COMPILE
+  CROSS_COMPILE = None
+  PATH = Some(/Users/ianhersom/.codex/packages/app-server-daemon/releases/0.162.1-aarch64-apple-darwin/codex-path:/Users/ianhersom/.local/bin:/Users/ianhersom/.pi/agent/bin:/Users/ianhersom/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/ianhersom/.local/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/opt/homebrew/bin:/Users/ianhersom/.codex/tmp/arg0/codex-arg010EE0H:/Users/ianhersom/.codex/packages/app-server-daemon/releases/0.162.1-aarch64-apple-darwin/codex-path:/Users/ianhersom/.codex/tmp/arg0/codex-arg0wVnEdz:/Users/ianhersom/.codex/packages/app-server-daemon/releases/0.162.0-aarch64-apple-darwin/codex-path:/Users/ianhersom/.codex/tmp/arg0/codex-arg0w4vAlZ:/Users/ianhersom/.codex/packages/app-server-daemon/releases/0.161.0-aarch64-apple-darwin/codex-path:/Users/ianhersom/.codex/tmp/arg0/codex-arg0oPzhHU:/Users/ianhersom/.codex/packages/standalone/releases/0.161.0-aarch64-apple-darwin/codex-path:/Users/ianhersom/.local/bin:/Users/ianhersom/.pi/agent/bin:/opt/homebrew/sbin:/Users/ianhersom/.cargo/bin)
+  cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+  cargo:warning=Compiler family detection failed due to error: ToolNotFound: failed to find tool "x86_64-linux-gnu-gcc": No such file or directory (os error 2)
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+  cargo:warning=Compiler family detection failed due to error: ToolNotFound: failed to find tool "x86_64-linux-gnu-gcc": No such file or directory (os error 2)
+  cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+  CRATE_CC_NO_DEFAULTS = None
+  cargo:rerun-if-env-changed=CFLAGS
+  CFLAGS = None
+  cargo:rerun-if-env-changed=TARGET_CFLAGS
+  TARGET_CFLAGS = None
+  cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+  CFLAGS_x86_64_unknown_linux_gnu = None
+  cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
+  CFLAGS_x86_64-unknown-linux-gnu = None
+  cargo:rerun-if-env-changed=CFLAGS
+  CFLAGS = None
+  cargo:rerun-if-env-changed=TARGET_CFLAGS
+  TARGET_CFLAGS = None
+  cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+  CFLAGS_x86_64_unknown_linux_gnu = None
+  cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
+  CFLAGS_x86_64-unknown-linux-gnu = None
+
+  --- stderr
+
+
+  error occurred in cc-rs: failed to find tool "x86_64-linux-gnu-gcc": No such file or directory (os error 2)
+
+
+warning: build failed, waiting for other jobs to finish...

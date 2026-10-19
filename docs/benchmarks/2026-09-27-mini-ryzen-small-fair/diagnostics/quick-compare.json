@@ -1,0 +1,1622 @@
+{
+  "batch:f32:fwd:ip:n1024:b1024": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x2x8 scratch=1032",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x2x8 scratch=1032",
+    "change": {
+      "median": 0.00964717864240594,
+      "p1": 0.006895609432128413
+    },
+    "flag": false
+  },
+  "batch:f32:fwd:ip:n128:b8192": {
+    "after_plan": "small avx512 n=128 decomposition=16x8 scratch=0 kernel=interleaved",
+    "before_plan": "small avx512-ymm n=128 decomposition=32x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -0.054607647395601755,
+      "p1": -0.04715965563718627
+    },
+    "flag": false
+  },
+  "batch:f32:fwd:ip:n16:b65536": {
+    "after_plan": "small avx2 n=16 decomposition=4x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx2 n=16 decomposition=4x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -0.0006480911188534444,
+      "p1": -0.0004163024020648054
+    },
+    "flag": false
+  },
+  "batch:f32:fwd:ip:n256:b4096": {
+    "after_plan": "small avx512-ymm n=256 decomposition=64x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx512-ymm n=256 decomposition=64x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -0.0018666546037050535,
+      "p1": -0.006613846433819459
+    },
+    "flag": false
+  },
+  "batch:f32:fwd:ip:n32:b32768": {
+    "after_plan": "small avx2 n=32 decomposition=8x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx2 n=32 decomposition=8x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": 0.0010290818531706325,
+      "p1": 0.0015562479898463266
+    },
+    "flag": false
+  },
+  "batch:f32:fwd:ip:n512:b2048": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x8 scratch=520",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x8 scratch=520",
+    "change": {
+      "median": 0.02948631087071818,
+      "p1": 0.020534039267252835
+    },
+    "flag": false
+  },
+  "batch:f32:fwd:ip:n64:b16384": {
+    "after_plan": "small avx512-ymm n=64 decomposition=16x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx512-ymm n=64 decomposition=16x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": 0.0014961953387624405,
+      "p1": 0.0012129964926259618
+    },
+    "flag": false
+  },
+  "batch:f32:fwd:ip:n8:b131072": {
+    "after_plan": "small avx2 n=8 decomposition=2x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx2 n=8 decomposition=2x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -0.0013625827185425043,
+      "p1": 0.002574530189236146
+    },
+    "flag": false
+  },
+  "batch:f64:fwd:ip:n1024:b1024": {
+    "after_plan": "stockham avx512 split L=8 radices=8x2x8 scratch=1028",
+    "before_plan": "stockham avx512 split L=8 radices=8x2x8 scratch=1028",
+    "change": {
+      "median": -0.044967682201271564,
+      "p1": -0.03435891311589789
+    },
+    "flag": false
+  },
+  "batch:f64:fwd:ip:n128:b8192": {
+    "after_plan": "small avx512 n=128 decomposition=32x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx512 n=128 decomposition=32x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -0.09568653317432196,
+      "p1": 0.016870081705004702
+    },
+    "flag": false
+  },
+  "batch:f64:fwd:ip:n16:b65536": {
+    "after_plan": "small avx2 n=16 decomposition=4x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx2 n=16 decomposition=4x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -0.005430788291125976,
+      "p1": 0.005508211212552405
+    },
+    "flag": false
+  },
+  "batch:f64:fwd:ip:n256:b4096": {
+    "after_plan": "small avx512 n=256 decomposition=64x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx512 n=256 decomposition=64x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -0.00013750985027582985,
+      "p1": 0.016566029078852296
+    },
+    "flag": false
+  },
+  "batch:f64:fwd:ip:n32:b32768": {
+    "after_plan": "small avx512-ymm n=32 decomposition=8x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx512-ymm n=32 decomposition=8x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": 0.020250940588434796,
+      "p1": 0.028011379205104436
+    },
+    "flag": false
+  },
+  "batch:f64:fwd:ip:n512:b2048": {
+    "after_plan": "stockham avx512 split L=8 radices=8x8 scratch=516",
+    "before_plan": "stockham avx512 split L=8 radices=8x8 scratch=516",
+    "change": {
+      "median": 0.008224461207143818,
+      "p1": -0.01477644633065478
+    },
+    "flag": false
+  },
+  "batch:f64:fwd:ip:n64:b16384": {
+    "after_plan": "small avx512 n=64 decomposition=16x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx512 n=64 decomposition=16x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -0.0006675256997394907,
+      "p1": 0.0008023576709481617
+    },
+    "flag": false
+  },
+  "batch:f64:fwd:ip:n8:b131072": {
+    "after_plan": "small avx2 n=8 decomposition=2x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx2 n=8 decomposition=2x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -0.01182275866330429,
+      "p1": -0.004413717059507549
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n1024": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x2x8 scratch=1032",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x2x8 scratch=1032",
+    "change": {
+      "median": -0.004983816737722635,
+      "p1": -0.0029153771469786482
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n1048576": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x4x8x8x8x8 scratch=1048584",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x4x8x8x8x8 scratch=1048584",
+    "change": {
+      "median": 0.0846021785656399,
+      "p1": 0.10022635112677003
+    },
+    "flag": true
+  },
+  "pow2:f32:fwd:ip:n128": {
+    "after_plan": "small avx512 n=128 decomposition=16x8 scratch=0 kernel=interleaved",
+    "before_plan": "small avx512-ymm n=128 decomposition=32x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -0.027262204651361976,
+      "p1": -0.04537607104301389
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n131072": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x4x8x8x8 scratch=131080",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x4x8x8x8 scratch=131080",
+    "change": {
+      "median": 0.008626076979028952,
+      "p1": 0.006296863996023028
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n16": {
+    "after_plan": "small avx2 n=16 decomposition=4x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx2 n=16 decomposition=4x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -0.003161822466614117,
+      "p1": -0.00014593214155422807
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n16384": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x4x8x8 scratch=16392",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x4x8x8 scratch=16392",
+    "change": {
+      "median": -0.000723767829402644,
+      "p1": 0.0007116551319230613
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n16777216": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x8x8x8x8x8x8 scratch=16777224",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x8x8x8x8x8x8 scratch=16777224",
+    "change": {
+      "median": 0.05575383319024252,
+      "p1": 0.048277176071469086
+    },
+    "flag": true
+  },
+  "pow2:f32:fwd:ip:n2": {
+    "after_plan": "small avx2 n=2 decomposition=2x1 scratch=0 kernel=interleaved",
+    "before_plan": "small avx2 n=2 decomposition=2x1 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -0.0003024106688599426,
+      "p1": 0.003992455073515977
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n2048": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x4x8 scratch=2056",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x4x8 scratch=2056",
+    "change": {
+      "median": 0.006789465047587706,
+      "p1": 0.006616765228898869
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n2097152": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x8x8x8x8x8 scratch=2097160",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x8x8x8x8x8 scratch=2097160",
+    "change": {
+      "median": 0.06749185976421201,
+      "p1": 0.025566535554012892
+    },
+    "flag": true
+  },
+  "pow2:f32:fwd:ip:n256": {
+    "after_plan": "small avx512-ymm n=256 decomposition=64x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx512-ymm n=256 decomposition=64x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": 0.00015819623499035984,
+      "p1": -0.003780063537227263
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n262144": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x8x8x8x8 scratch=262152",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x8x8x8x8 scratch=262152",
+    "change": {
+      "median": 0.011950737321778204,
+      "p1": 0.006299535874317197
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n32": {
+    "after_plan": "small avx2 n=32 decomposition=8x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx2 n=32 decomposition=8x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -4.313319530713233e-05,
+      "p1": 0.0
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n32768": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=32776",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=32776",
+    "change": {
+      "median": 0.007542729271962756,
+      "p1": 0.004292934220539779
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n4": {
+    "after_plan": "small avx2 n=4 decomposition=2x2 scratch=0 kernel=interleaved",
+    "before_plan": "small avx2 n=4 decomposition=2x2 scratch=0 kernel=interleaved",
+    "change": {
+      "median": 8.67536944411107e-05,
+      "p1": 7.829420702409884e-05
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n4096": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=4104",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=4104",
+    "change": {
+      "median": 0.00216468433650574,
+      "p1": 0.0028761490164386228
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n4194304": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x2x8x8x8x8x8 scratch=4194312",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x2x8x8x8x8x8 scratch=4194312",
+    "change": {
+      "median": 0.005070641885382532,
+      "p1": 0.013690426796525212
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n512": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x8 scratch=520",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x8 scratch=520",
+    "change": {
+      "median": 0.006993507139658739,
+      "p1": -0.005983831267807216
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n524288": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x2x8x8x8x8 scratch=524296",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x2x8x8x8x8 scratch=524296",
+    "change": {
+      "median": -0.0009125084295970032,
+      "p1": 0.011670129924647998
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n64": {
+    "after_plan": "small avx512-ymm n=64 decomposition=16x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx512-ymm n=64 decomposition=16x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": 0.0009880804281008349,
+      "p1": 0.004660722925335703
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n65536": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x2x8x8x8 scratch=65544",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x2x8x8x8 scratch=65544",
+    "change": {
+      "median": -0.0069557923963500246,
+      "p1": -0.006587711721735112
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n8": {
+    "after_plan": "small avx2 n=8 decomposition=2x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx2 n=8 decomposition=2x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": 0.0002721986020524092,
+      "p1": -0.0002000934052140968
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n8192": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x2x8x8 scratch=8200",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x2x8x8 scratch=8200",
+    "change": {
+      "median": 0.00784821551199788,
+      "p1": 0.007358322618929769
+    },
+    "flag": false
+  },
+  "pow2:f32:fwd:ip:n8388608": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x4x8x8x8x8x8 scratch=8388616",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x4x8x8x8x8x8 scratch=8388616",
+    "change": {
+      "median": 0.06169890273301504,
+      "p1": 0.06276479821889591
+    },
+    "flag": true
+  },
+  "pow2:f64:fwd:ip:n1024": {
+    "after_plan": "stockham avx512 split L=8 radices=8x2x8 scratch=1028",
+    "before_plan": "stockham avx512 split L=8 radices=8x2x8 scratch=1028",
+    "change": {
+      "median": -0.09183326713638962,
+      "p1": -0.09038946025427685
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n1048576": {
+    "after_plan": "stockham avx512 split L=8 radices=8x4x8x8x8x8 scratch=1048580",
+    "before_plan": "stockham avx512 split L=8 radices=8x4x8x8x8x8 scratch=1048580",
+    "change": {
+      "median": -0.03238153180747905,
+      "p1": -0.02199715691789117
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n128": {
+    "after_plan": "small avx512 n=128 decomposition=32x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx512 n=128 decomposition=32x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": 0.0016147687371090846,
+      "p1": -0.019632812436647273
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n131072": {
+    "after_plan": "stockham avx512 split L=8 radices=8x4x8x8x8 scratch=131076",
+    "before_plan": "stockham avx512 split L=8 radices=8x4x8x8x8 scratch=131076",
+    "change": {
+      "median": -0.0006801708210101287,
+      "p1": 0.0004497545232944322
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n16": {
+    "after_plan": "small avx2 n=16 decomposition=4x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx2 n=16 decomposition=4x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -0.005873299888140782,
+      "p1": 0.0001301201436523236
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n16384": {
+    "after_plan": "stockham avx512 split L=8 radices=8x4x8x8 scratch=16388",
+    "before_plan": "stockham avx512 split L=8 radices=8x4x8x8 scratch=16388",
+    "change": {
+      "median": -0.006876095456384013,
+      "p1": -0.008582815326650173
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n16777216": {
+    "after_plan": "stockham avx512 split L=8 radices=8x8x8x8x8x8x8 scratch=16777220",
+    "before_plan": "stockham avx512 split L=8 radices=8x8x8x8x8x8x8 scratch=16777220",
+    "change": {
+      "median": 0.023808183223403168,
+      "p1": 0.016745661266806433
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n2": {
+    "after_plan": "small avx2 n=2 decomposition=2x1 scratch=0 kernel=interleaved",
+    "before_plan": "small avx2 n=2 decomposition=2x1 scratch=0 kernel=interleaved",
+    "change": {
+      "median": 9.943896700170818e-05,
+      "p1": 9.439941742050983e-05
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n2048": {
+    "after_plan": "stockham avx512 split L=8 radices=8x4x8 scratch=2052",
+    "before_plan": "stockham avx512 split L=8 radices=8x4x8 scratch=2052",
+    "change": {
+      "median": 0.03379578800279481,
+      "p1": 0.03472725807751198
+    },
+    "flag": true
+  },
+  "pow2:f64:fwd:ip:n2097152": {
+    "after_plan": "stockham avx512 split L=8 radices=8x8x8x8x8x8 scratch=2097156",
+    "before_plan": "stockham avx512 split L=8 radices=8x8x8x8x8x8 scratch=2097156",
+    "change": {
+      "median": 0.014240451990132685,
+      "p1": 0.013338903984839945
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n256": {
+    "after_plan": "small avx512 n=256 decomposition=64x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx512 n=256 decomposition=64x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": 0.002413828199212764,
+      "p1": -0.003841355694509385
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n262144": {
+    "after_plan": "stockham avx512 split L=8 radices=8x8x8x8x8 scratch=262148",
+    "before_plan": "stockham avx512 split L=8 radices=8x8x8x8x8 scratch=262148",
+    "change": {
+      "median": -0.006534967009275361,
+      "p1": -0.008838689870247385
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n32": {
+    "after_plan": "small avx512-ymm n=32 decomposition=8x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx512-ymm n=32 decomposition=8x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": 0.0011876484560569,
+      "p1": 0.015857523831054987
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n32768": {
+    "after_plan": "stockham avx512 split L=8 radices=8x8x8x8 scratch=32772",
+    "before_plan": "stockham avx512 split L=8 radices=8x8x8x8 scratch=32772",
+    "change": {
+      "median": 0.004446754446754353,
+      "p1": 0.0039038980713577143
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n4": {
+    "after_plan": "small avx2 n=4 decomposition=4x1 scratch=0 kernel=interleaved",
+    "before_plan": "small avx2 n=4 decomposition=4x1 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -0.000745591479666019,
+      "p1": 0.005582738016423061
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n4096": {
+    "after_plan": "stockham avx512 split L=8 radices=8x8x8 scratch=4100",
+    "before_plan": "stockham avx512 split L=8 radices=8x8x8 scratch=4100",
+    "change": {
+      "median": 0.009192575677732906,
+      "p1": 0.009272383652256133
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n4194304": {
+    "after_plan": "stockham avx512 split L=8 radices=8x2x8x8x8x8x8 scratch=4194308",
+    "before_plan": "stockham avx512 split L=8 radices=8x2x8x8x8x8x8 scratch=4194308",
+    "change": {
+      "median": 0.020880429633405306,
+      "p1": 0.003516469096041641
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n512": {
+    "after_plan": "stockham avx512 split L=8 radices=8x8 scratch=516",
+    "before_plan": "stockham avx512 split L=8 radices=8x8 scratch=516",
+    "change": {
+      "median": 0.013433447593335979,
+      "p1": 0.015042861852950784
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n524288": {
+    "after_plan": "stockham avx512 split L=8 radices=8x2x8x8x8x8 scratch=524292",
+    "before_plan": "stockham avx512 split L=8 radices=8x2x8x8x8x8 scratch=524292",
+    "change": {
+      "median": 0.044645670588928654,
+      "p1": -0.0020460320937809584
+    },
+    "flag": true
+  },
+  "pow2:f64:fwd:ip:n64": {
+    "after_plan": "small avx512 n=64 decomposition=16x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx512 n=64 decomposition=16x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -0.0008484687790003553,
+      "p1": 0.000506520275096678
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n65536": {
+    "after_plan": "stockham avx512 split L=8 radices=8x2x8x8x8 scratch=65540",
+    "before_plan": "stockham avx512 split L=8 radices=8x2x8x8x8 scratch=65540",
+    "change": {
+      "median": -0.001093461827247566,
+      "p1": -0.0005146415521589676
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n8": {
+    "after_plan": "small avx2 n=8 decomposition=2x4 scratch=0 kernel=interleaved",
+    "before_plan": "small avx2 n=8 decomposition=2x4 scratch=0 kernel=interleaved",
+    "change": {
+      "median": -0.007590796350662066,
+      "p1": 0.00691058037153125
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n8192": {
+    "after_plan": "stockham avx512 split L=8 radices=8x2x8x8 scratch=8196",
+    "before_plan": "stockham avx512 split L=8 radices=8x2x8x8 scratch=8196",
+    "change": {
+      "median": -0.001095231255386464,
+      "p1": 0.00018094962362469325
+    },
+    "flag": false
+  },
+  "pow2:f64:fwd:ip:n8388608": {
+    "after_plan": "stockham avx512 split L=8 radices=8x4x8x8x8x8x8 scratch=8388612",
+    "before_plan": "stockham avx512 split L=8 radices=8x4x8x8x8x8x8 scratch=8388612",
+    "change": {
+      "median": 0.027964445286851047,
+      "p1": 0.02310340050702253
+    },
+    "flag": false
+  },
+  "rough:f32:fwd:ip:n1021": {
+    "after_plan": "bluestein n=1021 m=2048 inner=[stockham avx512-ymm split L=8 radices=8x4x8 scratch=2056]",
+    "before_plan": "bluestein n=1021 m=2048 inner=[stockham avx512-ymm split L=8 radices=8x4x8 scratch=2056]",
+    "change": {
+      "median": 0.04256507429939149,
+      "p1": 0.04157224506166646
+    },
+    "flag": true
+  },
+  "rough:f32:fwd:ip:n127": {
+    "after_plan": "bluestein n=127 m=256 inner=[small avx512-ymm n=256 decomposition=64x4 scratch=0 kernel=interleaved]",
+    "before_plan": "bluestein n=127 m=256 inner=[small avx512-ymm n=256 decomposition=64x4 scratch=0 kernel=interleaved]",
+    "change": {
+      "median": -0.002776915329571361,
+      "p1": -0.006174429946445237
+    },
+    "flag": false
+  },
+  "rough:f32:fwd:ip:n131071": {
+    "after_plan": "bluestein n=131071 m=262144 inner=[stockham avx512-ymm split L=8 radices=8x8x8x8x8 scratch=262152]",
+    "before_plan": "bluestein n=131071 m=262144 inner=[stockham avx512-ymm split L=8 radices=8x8x8x8x8 scratch=262152]",
+    "change": {
+      "median": -0.009458387960338821,
+      "p1": -0.005894664187827692
+    },
+    "flag": false
+  },
+  "rough:f32:fwd:ip:n16381": {
+    "after_plan": "bluestein n=16381 m=32768 inner=[stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=32776]",
+    "before_plan": "bluestein n=16381 m=32768 inner=[stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=32776]",
+    "change": {
+      "median": -0.033086760631698686,
+      "p1": -0.0324334528978667
+    },
+    "flag": false
+  },
+  "rough:f32:fwd:ip:n17": {
+    "after_plan": "bluestein n=17 m=36 inner=[stockham sse2 split L=4 radices=9 scratch=44]",
+    "before_plan": "bluestein n=17 m=36 inner=[stockham sse2 split L=4 radices=9 scratch=44]",
+    "change": {
+      "median": 4.6199078085784606e-05,
+      "p1": 0.001147500517993727
+    },
+    "flag": false
+  },
+  "rough:f32:fwd:ip:n2018": {
+    "after_plan": "bluestein n=2018 m=4096 inner=[stockham avx512-ymm split L=8 radices=8x8x8 scratch=4104]",
+    "before_plan": "bluestein n=2018 m=4096 inner=[stockham avx512-ymm split L=8 radices=8x8x8 scratch=4104]",
+    "change": {
+      "median": -0.010431191203205237,
+      "p1": -0.011396365963801891
+    },
+    "flag": false
+  },
+  "rough:f32:fwd:ip:n2053": {
+    "after_plan": "bluestein n=2053 m=4608 inner=[stockham avx512-ymm split L=8 radices=12x4x12 scratch=4616]",
+    "before_plan": "bluestein n=2053 m=4608 inner=[stockham avx512-ymm split L=8 radices=12x4x12 scratch=4616]",
+    "change": {
+      "median": -0.014379319630194787,
+      "p1": -0.013745828447731534
+    },
+    "flag": false
+  },
+  "rough:f32:fwd:ip:n257": {
+    "after_plan": "bluestein n=257 m=576 inner=[stockham avx512-ymm split L=8 radices=12x6 scratch=584]",
+    "before_plan": "bluestein n=257 m=576 inner=[stockham avx512-ymm split L=8 radices=12x6 scratch=584]",
+    "change": {
+      "median": -0.0014244144639113943,
+      "p1": -0.007397969668324289
+    },
+    "flag": false
+  },
+  "rough:f32:fwd:ip:n3063": {
+    "after_plan": "bluestein n=3063 m=6144 inner=[stockham avx512-ymm split L=8 radices=12x8x8 scratch=6152]",
+    "before_plan": "bluestein n=3063 m=6144 inner=[stockham avx512-ymm split L=8 radices=12x8x8 scratch=6152]",
+    "change": {
+      "median": -0.007515627004931025,
+      "p1": -0.007939145526383862
+    },
+    "flag": false
+  },
+  "rough:f32:fwd:ip:n31": {
+    "after_plan": "bluestein n=31 m=64 inner=[small avx512-ymm n=64 decomposition=16x4 scratch=0 kernel=interleaved]",
+    "before_plan": "bluestein n=31 m=64 inner=[small avx512-ymm n=64 decomposition=16x4 scratch=0 kernel=interleaved]",
+    "change": {
+      "median": 0.00855601555639196,
+      "p1": 0.0020058397867208644
+    },
+    "flag": false
+  },
+  "rough:f32:fwd:ip:n4099": {
+    "after_plan": "bluestein n=4099 m=9216 inner=[stockham avx512-ymm split L=8 radices=12x8x12 scratch=9224]",
+    "before_plan": "bluestein n=4099 m=9216 inner=[stockham avx512-ymm split L=8 radices=12x8x12 scratch=9224]",
+    "change": {
+      "median": -0.011694247438928218,
+      "p1": -0.011455044503323908
+    },
+    "flag": false
+  },
+  "rough:f32:fwd:ip:n509": {
+    "after_plan": "bluestein n=509 m=1024 inner=[stockham avx512-ymm split L=8 radices=8x2x8 scratch=1032]",
+    "before_plan": "bluestein n=509 m=1024 inner=[stockham avx512-ymm split L=8 radices=8x2x8 scratch=1032]",
+    "change": {
+      "median": -0.0038704112985823436,
+      "p1": -0.0054500218434645475
+    },
+    "flag": false
+  },
+  "rough:f32:fwd:ip:n61": {
+    "after_plan": "bluestein n=61 m=128 inner=[small avx512 n=128 decomposition=16x8 scratch=0 kernel=interleaved]",
+    "before_plan": "bluestein n=61 m=128 inner=[small avx512-ymm n=128 decomposition=32x4 scratch=0 kernel=interleaved]",
+    "change": {
+      "median": 0.009222709719084232,
+      "p1": -0.0015333295136731317
+    },
+    "flag": false
+  },
+  "rough:f32:fwd:ip:n65524": {
+    "after_plan": "bluestein n=65524 m=131072 inner=[stockham avx512-ymm split L=8 radices=8x4x8x8x8 scratch=131080]",
+    "before_plan": "bluestein n=65524 m=131072 inner=[stockham avx512-ymm split L=8 radices=8x4x8x8x8 scratch=131080]",
+    "change": {
+      "median": 0.0020496338743845044,
+      "p1": 0.0010784049410552665
+    },
+    "flag": false
+  },
+  "rough:f32:fwd:ip:n65537": {
+    "after_plan": "bluestein n=65537 m=147456 inner=[stockham avx512-ymm split L=8 radices=12x2x8x8x12 scratch=147464]",
+    "before_plan": "bluestein n=65537 m=147456 inner=[stockham avx512-ymm split L=8 radices=12x2x8x8x12 scratch=147464]",
+    "change": {
+      "median": -0.011591453572214916,
+      "p1": -0.012963838336090716
+    },
+    "flag": false
+  },
+  "rough:f32:fwd:ip:n8191": {
+    "after_plan": "bluestein n=8191 m=16384 inner=[stockham avx512-ymm split L=8 radices=8x4x8x8 scratch=16392]",
+    "before_plan": "bluestein n=8191 m=16384 inner=[stockham avx512-ymm split L=8 radices=8x4x8x8 scratch=16392]",
+    "change": {
+      "median": -0.013732133909184152,
+      "p1": -0.013629194408659062
+    },
+    "flag": false
+  },
+  "rough:f32:fwd:ip:n9797": {
+    "after_plan": "bluestein n=9797 m=20480 inner=[stockham avx512-ymm split L=8 radices=8x4x8x10 scratch=20488]",
+    "before_plan": "bluestein n=9797 m=20480 inner=[stockham avx512-ymm split L=8 radices=8x4x8x10 scratch=20488]",
+    "change": {
+      "median": 0.02030946017200308,
+      "p1": 0.018619027468584903
+    },
+    "flag": false
+  },
+  "rough:f64:fwd:ip:n1021": {
+    "after_plan": "bluestein n=1021 m=2048 inner=[stockham avx512 split L=8 radices=8x4x8 scratch=2052]",
+    "before_plan": "bluestein n=1021 m=2048 inner=[stockham avx512 split L=8 radices=8x4x8 scratch=2052]",
+    "change": {
+      "median": 0.028178221228281286,
+      "p1": 0.025160608841711563
+    },
+    "flag": false
+  },
+  "rough:f64:fwd:ip:n127": {
+    "after_plan": "bluestein n=127 m=256 inner=[small avx512 n=256 decomposition=64x4 scratch=0 kernel=interleaved]",
+    "before_plan": "bluestein n=127 m=256 inner=[small avx512 n=256 decomposition=64x4 scratch=0 kernel=interleaved]",
+    "change": {
+      "median": -0.003537296760580788,
+      "p1": -0.004605989870990479
+    },
+    "flag": false
+  },
+  "rough:f64:fwd:ip:n131071": {
+    "after_plan": "bluestein n=131071 m=262144 inner=[stockham avx512 split L=8 radices=8x8x8x8x8 scratch=262148]",
+    "before_plan": "bluestein n=131071 m=262144 inner=[stockham avx512 split L=8 radices=8x8x8x8x8 scratch=262148]",
+    "change": {
+      "median": -0.0008818722306774829,
+      "p1": 0.004281042627946041
+    },
+    "flag": false
+  },
+  "rough:f64:fwd:ip:n16381": {
+    "after_plan": "bluestein n=16381 m=32768 inner=[stockham avx512 split L=8 radices=8x8x8x8 scratch=32772]",
+    "before_plan": "bluestein n=16381 m=32768 inner=[stockham avx512 split L=8 radices=8x8x8x8 scratch=32772]",
+    "change": {
+      "median": -0.00950717550141178,
+      "p1": -0.009339324893524625
+    },
+    "flag": false
+  },
+  "rough:f64:fwd:ip:n17": {
+    "after_plan": "bluestein n=17 m=36 inner=[stockham avx512-ymm split L=4 radices=9 scratch=40]",
+    "before_plan": "bluestein n=17 m=36 inner=[stockham avx512-ymm split L=4 radices=9 scratch=40]",
+    "change": {
+      "median": -0.00027145553231822106,
+      "p1": -0.0005424003908596209
+    },
+    "flag": false
+  },
+  "rough:f64:fwd:ip:n2018": {
+    "after_plan": "bluestein n=2018 m=4096 inner=[stockham avx512 split L=8 radices=8x8x8 scratch=4100]",
+    "before_plan": "bluestein n=2018 m=4096 inner=[stockham avx512 split L=8 radices=8x8x8 scratch=4100]",
+    "change": {
+      "median": 0.0271632341168766,
+      "p1": 0.02462277469152796
+    },
+    "flag": false
+  },
+  "rough:f64:fwd:ip:n2053": {
+    "after_plan": "bluestein n=2053 m=4608 inner=[stockham avx512 split L=8 radices=12x4x12 scratch=4612]",
+    "before_plan": "bluestein n=2053 m=4608 inner=[stockham avx512 split L=8 radices=12x4x12 scratch=4612]",
+    "change": {
+      "median": 0.004683200967861456,
+      "p1": 0.005519977998664105
+    },
+    "flag": false
+  },
+  "rough:f64:fwd:ip:n257": {
+    "after_plan": "bluestein n=257 m=576 inner=[stockham avx512 split L=8 radices=12x6 scratch=580]",
+    "before_plan": "bluestein n=257 m=576 inner=[stockham avx512 split L=8 radices=12x6 scratch=580]",
+    "change": {
+      "median": 0.03548183060945487,
+      "p1": 0.03509402086438951
+    },
+    "flag": true
+  },
+  "rough:f64:fwd:ip:n3063": {
+    "after_plan": "bluestein n=3063 m=6144 inner=[stockham avx512 split L=8 radices=12x8x8 scratch=6148]",
+    "before_plan": "bluestein n=3063 m=6144 inner=[stockham avx512 split L=8 radices=12x8x8 scratch=6148]",
+    "change": {
+      "median": 0.007802939779156581,
+      "p1": 0.0076877415992240294
+    },
+    "flag": false
+  },
+  "rough:f64:fwd:ip:n31": {
+    "after_plan": "bluestein n=31 m=64 inner=[small avx512 n=64 decomposition=16x4 scratch=0 kernel=interleaved]",
+    "before_plan": "bluestein n=31 m=64 inner=[small avx512 n=64 decomposition=16x4 scratch=0 kernel=interleaved]",
+    "change": {
+      "median": 0.0034799041297937094,
+      "p1": 0.00591715976331364
+    },
+    "flag": false
+  },
+  "rough:f64:fwd:ip:n4099": {
+    "after_plan": "bluestein n=4099 m=9216 inner=[stockham avx512 split L=8 radices=12x8x12 scratch=9220]",
+    "before_plan": "bluestein n=4099 m=9216 inner=[stockham avx512 split L=8 radices=12x8x12 scratch=9220]",
+    "change": {
+      "median": 0.07359965554822989,
+      "p1": 0.07371296434028851
+    },
+    "flag": true
+  },
+  "rough:f64:fwd:ip:n509": {
+    "after_plan": "bluestein n=509 m=1024 inner=[stockham avx512 split L=8 radices=8x2x8 scratch=1028]",
+    "before_plan": "bluestein n=509 m=1024 inner=[stockham avx512 split L=8 radices=8x2x8 scratch=1028]",
+    "change": {
+      "median": -0.0009692364355360361,
+      "p1": -0.001362742616855095
+    },
+    "flag": false
+  },
+  "rough:f64:fwd:ip:n61": {
+    "after_plan": "bluestein n=61 m=128 inner=[small avx512 n=128 decomposition=32x4 scratch=0 kernel=interleaved]",
+    "before_plan": "bluestein n=61 m=128 inner=[small avx512 n=128 decomposition=32x4 scratch=0 kernel=interleaved]",
+    "change": {
+      "median": 0.0014993145990405132,
+      "p1": 0.005019970753213698
+    },
+    "flag": false
+  },
+  "rough:f64:fwd:ip:n65524": {
+    "after_plan": "bluestein n=65524 m=131072 inner=[stockham avx512 split L=8 radices=8x4x8x8x8 scratch=131076]",
+    "before_plan": "bluestein n=65524 m=131072 inner=[stockham avx512 split L=8 radices=8x4x8x8x8 scratch=131076]",
+    "change": {
+      "median": 0.005163706305465476,
+      "p1": 0.00783725705553695
+    },
+    "flag": false
+  },
+  "rough:f64:fwd:ip:n65537": {
+    "after_plan": "bluestein n=65537 m=147456 inner=[stockham avx512 split L=8 radices=12x2x8x8x12 scratch=147460]",
+    "before_plan": "bluestein n=65537 m=147456 inner=[stockham avx512 split L=8 radices=12x2x8x8x12 scratch=147460]",
+    "change": {
+      "median": -0.0017865689027748433,
+      "p1": -0.008574179267821003
+    },
+    "flag": false
+  },
+  "rough:f64:fwd:ip:n8191": {
+    "after_plan": "bluestein n=8191 m=16384 inner=[stockham avx512 split L=8 radices=8x4x8x8 scratch=16388]",
+    "before_plan": "bluestein n=8191 m=16384 inner=[stockham avx512 split L=8 radices=8x4x8x8 scratch=16388]",
+    "change": {
+      "median": 0.0013002191380568906,
+      "p1": 0.0016210321553833396
+    },
+    "flag": false
+  },
+  "rough:f64:fwd:ip:n9797": {
+    "after_plan": "bluestein n=9797 m=20480 inner=[stockham avx512 split L=8 radices=8x4x8x10 scratch=20484]",
+    "before_plan": "bluestein n=9797 m=20480 inner=[stockham avx512 split L=8 radices=8x4x8x10 scratch=20484]",
+    "change": {
+      "median": -0.0022502250225022724,
+      "p1": -0.004185619989286238
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n1000": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=5x5x5 scratch=1008",
+    "before_plan": "stockham avx512-ymm split L=8 radices=5x5x5 scratch=1008",
+    "change": {
+      "median": 0.0015196397057102295,
+      "p1": 0.0014259729653767206
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n1000000": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=10x5x10x10x5x5 scratch=1000008",
+    "before_plan": "stockham avx512-ymm split L=8 radices=10x5x10x10x5x5 scratch=1000008",
+    "change": {
+      "median": 0.016179380143185762,
+      "p1": -0.02808298354694616
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n10368": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=12x9x12 scratch=10376",
+    "before_plan": "stockham avx512-ymm split L=8 radices=12x9x12 scratch=10376",
+    "change": {
+      "median": 0.00550911854103342,
+      "p1": 0.005161635664990838
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n108": {
+    "after_plan": "stockham sse2 split L=4 radices=9x3 scratch=116",
+    "before_plan": "stockham sse2 split L=4 radices=9x3 scratch=116",
+    "change": {
+      "median": -0.0014873497437115635,
+      "p1": -0.006795766529543279
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n12": {
+    "after_plan": "small avx2 n=12 decomposition=12x1 scratch=0 kernel=generic",
+    "before_plan": "small avx2 n=12 decomposition=12x1 scratch=0 kernel=generic",
+    "change": {
+      "median": 0.0005354508151942383,
+      "p1": 0.0004866180048659352
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n120": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=15 scratch=128",
+    "before_plan": "stockham avx512-ymm split L=8 radices=15 scratch=128",
+    "change": {
+      "median": 1.246711797620037e-05,
+      "p1": 0.007841153408372215
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n1200": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=15x10 scratch=1208",
+    "before_plan": "stockham avx512-ymm split L=8 radices=15x10 scratch=1208",
+    "change": {
+      "median": 0.007983193277310896,
+      "p1": 0.006555297102981639
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n12288": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=12x2x8x8 scratch=12296",
+    "before_plan": "stockham avx512-ymm split L=8 radices=12x2x8x8 scratch=12296",
+    "change": {
+      "median": -0.010802284471036039,
+      "p1": -0.008630641526029326
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n15": {
+    "after_plan": "small avx2 n=15 decomposition=15x1 scratch=0 kernel=generic",
+    "before_plan": "small avx2 n=15 decomposition=15x1 scratch=0 kernel=generic",
+    "change": {
+      "median": 0.0004720108320745986,
+      "p1": 0.011859328863865759
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n1536": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=12x2x8 scratch=1544",
+    "before_plan": "stockham avx512-ymm split L=8 radices=12x2x8 scratch=1544",
+    "change": {
+      "median": 0.001656373972434677,
+      "p1": 0.0012345170980618825
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n160": {
+    "after_plan": "stockham sse2 split L=4 radices=4x10 scratch=168",
+    "before_plan": "stockham sse2 split L=4 radices=4x10 scratch=168",
+    "change": {
+      "median": -0.0076389207819586025,
+      "p1": -0.009300263412685195
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n165375": {
+    "after_plan": "stockham scalar split L=1 radices=7x15x15x7x15 scratch=165383",
+    "before_plan": "stockham scalar split L=1 radices=7x15x15x7x15 scratch=165383",
+    "change": {
+      "median": 0.0007572499207046945,
+      "p1": -1.6644293961531886e-05
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n18": {
+    "after_plan": "stockham scalar split L=1 radices=6x3 scratch=26",
+    "before_plan": "stockham scalar split L=1 radices=6x3 scratch=26",
+    "change": {
+      "median": -0.005367651598404688,
+      "p1": -0.003316404287928121
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n1920": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=12x2x10 scratch=1928",
+    "before_plan": "stockham avx512-ymm split L=8 radices=12x2x10 scratch=1928",
+    "change": {
+      "median": -0.007192744981298516,
+      "p1": -0.004703991047200318
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n1960": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=7x5x7 scratch=1968",
+    "before_plan": "stockham avx512-ymm split L=8 radices=7x5x7 scratch=1968",
+    "change": {
+      "median": -0.0019364656067420993,
+      "p1": -0.0015998402719472615
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n210": {
+    "after_plan": "stockham scalar split L=1 radices=14x15 scratch=218",
+    "before_plan": "stockham scalar split L=1 radices=14x15 scratch=218",
+    "change": {
+      "median": -0.008206632459646146,
+      "p1": -0.008204107676653027
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n24": {
+    "after_plan": "small avx512-ymm n=24 decomposition=3x8 scratch=0 kernel=generic",
+    "before_plan": "small avx512-ymm n=24 decomposition=3x8 scratch=0 kernel=generic",
+    "change": {
+      "median": 2.03339979414352e-05,
+      "p1": -0.01379941775635829
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n240": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=15x2 scratch=248",
+    "before_plan": "stockham avx512-ymm split L=8 radices=15x2 scratch=248",
+    "change": {
+      "median": -0.03555681403005928,
+      "p1": -0.012012641704400973
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n2400": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=15x2x10 scratch=2408",
+    "before_plan": "stockham avx512-ymm split L=8 radices=15x2x10 scratch=2408",
+    "change": {
+      "median": -0.006475355283248052,
+      "p1": -0.0012045328472937156
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n27000": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=15x15x15 scratch=27008",
+    "before_plan": "stockham avx512-ymm split L=8 radices=15x15x15 scratch=27008",
+    "change": {
+      "median": -0.016137910128672606,
+      "p1": -0.01385201988512963
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n3072": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=12x4x8 scratch=3080",
+    "before_plan": "stockham avx512-ymm split L=8 radices=12x4x8 scratch=3080",
+    "change": {
+      "median": 0.0010566649794756522,
+      "p1": -0.0007277113619245101
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n320": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=4x10 scratch=328",
+    "before_plan": "stockham avx512-ymm split L=8 radices=4x10 scratch=328",
+    "change": {
+      "median": -0.005341260072919796,
+      "p1": -0.00023657440264968077
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n36": {
+    "after_plan": "stockham sse2 split L=4 radices=9 scratch=44",
+    "before_plan": "stockham sse2 split L=4 radices=9 scratch=44",
+    "change": {
+      "median": 0.0025142783567648763,
+      "p1": 0.0036952171692254954
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n384": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=12x4 scratch=392",
+    "before_plan": "stockham avx512-ymm split L=8 radices=12x4 scratch=392",
+    "change": {
+      "median": -0.007550525048816814,
+      "p1": -0.002962969945051186
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n4725": {
+    "after_plan": "stockham scalar split L=1 radices=7x3x15x15 scratch=4733",
+    "before_plan": "stockham scalar split L=1 radices=7x3x15x15 scratch=4733",
+    "change": {
+      "median": -0.0017892547995551622,
+      "p1": -0.0009562614335606456
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n48": {
+    "after_plan": "small avx512-ymm n=48 decomposition=6x8 scratch=0 kernel=generic",
+    "before_plan": "small avx512-ymm n=48 decomposition=6x8 scratch=0 kernel=generic",
+    "change": {
+      "median": 0.0021469075375322166,
+      "p1": -0.00017392671160454398
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n480": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=12x5 scratch=488",
+    "before_plan": "stockham avx512-ymm split L=8 radices=12x5 scratch=488",
+    "change": {
+      "median": -0.0029619153130882037,
+      "p1": -0.0008727019123963009
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n4800": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=12x5x10 scratch=4808",
+    "before_plan": "stockham avx512-ymm split L=8 radices=12x5x10 scratch=4808",
+    "change": {
+      "median": -0.015153547002816126,
+      "p1": -0.010440387510131655
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n48000": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=12x5x10x10 scratch=48008",
+    "before_plan": "stockham avx512-ymm split L=8 radices=12x5x10x10 scratch=48008",
+    "change": {
+      "median": 0.01799543150036209,
+      "p1": 0.01670052539404554
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n504": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=7x9 scratch=512",
+    "before_plan": "stockham avx512-ymm split L=8 radices=7x9 scratch=512",
+    "change": {
+      "median": -0.001713159518079821,
+      "p1": -0.005021163733918255
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n6": {
+    "after_plan": "small avx2 n=6 decomposition=6x1 scratch=0 kernel=generic",
+    "before_plan": "small avx2 n=6 decomposition=6x1 scratch=0 kernel=generic",
+    "change": {
+      "median": -0.000273387880146414,
+      "p1": 0.00765191832267087
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n6144": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=12x8x8 scratch=6152",
+    "before_plan": "stockham avx512-ymm split L=8 radices=12x8x8 scratch=6152",
+    "change": {
+      "median": -0.0047629027034237215,
+      "p1": -0.003450391044318435
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n640": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=8x10 scratch=648",
+    "before_plan": "stockham avx512-ymm split L=8 radices=8x10 scratch=648",
+    "change": {
+      "median": 0.00021483200137484282,
+      "p1": -0.0010920130167951791
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n720": {
+    "after_plan": "stockham sse2 split L=4 radices=12x15 scratch=728",
+    "before_plan": "stockham sse2 split L=4 radices=12x15 scratch=728",
+    "change": {
+      "median": -0.0061071188648902375,
+      "p1": -0.006346996437492369
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n75600": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=14x3x15x15 scratch=75608",
+    "before_plan": "stockham avx512-ymm split L=8 radices=14x3x15x15 scratch=75608",
+    "change": {
+      "median": -0.01604336437718279,
+      "p1": -0.016821824181003975
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n768": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=12x8 scratch=776",
+    "before_plan": "stockham avx512-ymm split L=8 radices=12x8 scratch=776",
+    "change": {
+      "median": -0.0014521100923458041,
+      "p1": -0.001349074479910617
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n80": {
+    "after_plan": "stockham sse2 split L=4 radices=10x2 scratch=88",
+    "before_plan": "stockham sse2 split L=4 radices=10x2 scratch=88",
+    "change": {
+      "median": 0.0025265333487543007,
+      "p1": 0.0059685076555975325
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n9": {
+    "after_plan": "small avx2 n=9 decomposition=9x1 scratch=0 kernel=generic",
+    "before_plan": "small avx2 n=9 decomposition=9x1 scratch=0 kernel=generic",
+    "change": {
+      "median": 0.0002055599164072497,
+      "p1": -0.00017481990562895344
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n96": {
+    "after_plan": "stockham sse2 split L=4 radices=12x2 scratch=104",
+    "before_plan": "stockham sse2 split L=4 radices=12x2 scratch=104",
+    "change": {
+      "median": -0.001874923219191471,
+      "p1": 0.002181954795538399
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n960": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=12x10 scratch=968",
+    "before_plan": "stockham avx512-ymm split L=8 radices=12x10 scratch=968",
+    "change": {
+      "median": 0.0005611777409146868,
+      "p1": -0.004888778149137796
+    },
+    "flag": false
+  },
+  "smooth:f32:fwd:ip:n96000": {
+    "after_plan": "stockham avx512-ymm split L=8 radices=12x10x10x10 scratch=96008",
+    "before_plan": "stockham avx512-ymm split L=8 radices=12x10x10x10 scratch=96008",
+    "change": {
+      "median": 0.005598035598417317,
+      "p1": 0.009186250257678719
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n1000": {
+    "after_plan": "stockham avx512 split L=8 radices=5x5x5 scratch=1004",
+    "before_plan": "stockham avx512 split L=8 radices=5x5x5 scratch=1004",
+    "change": {
+      "median": -0.011385545836462119,
+      "p1": -0.011424963851495828
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n1000000": {
+    "after_plan": "stockham avx512 split L=8 radices=10x5x10x10x5x5 scratch=1000004",
+    "before_plan": "stockham avx512 split L=8 radices=10x5x10x10x5x5 scratch=1000004",
+    "change": {
+      "median": 0.012519550214668218,
+      "p1": 0.005893601586162811
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n10368": {
+    "after_plan": "stockham avx512 split L=8 radices=12x9x12 scratch=10372",
+    "before_plan": "stockham avx512 split L=8 radices=12x9x12 scratch=10372",
+    "change": {
+      "median": -0.046604527296937426,
+      "p1": -0.046575602352494805
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n108": {
+    "after_plan": "stockham avx512-ymm split L=4 radices=9x3 scratch=112",
+    "before_plan": "stockham avx512-ymm split L=4 radices=9x3 scratch=112",
+    "change": {
+      "median": 0.007155555788025181,
+      "p1": 0.009203358169201037
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n12": {
+    "after_plan": "small avx2 n=12 decomposition=12x1 scratch=0 kernel=generic",
+    "before_plan": "small avx2 n=12 decomposition=12x1 scratch=0 kernel=generic",
+    "change": {
+      "median": 0.0024889309833979745,
+      "p1": 0.0003712588289990215
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n120": {
+    "after_plan": "stockham avx512 split L=8 radices=15 scratch=124",
+    "before_plan": "stockham avx512 split L=8 radices=15 scratch=124",
+    "change": {
+      "median": -0.016582400874782466,
+      "p1": -0.01636974969971805
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n1200": {
+    "after_plan": "stockham avx512 split L=8 radices=15x10 scratch=1204",
+    "before_plan": "stockham avx512 split L=8 radices=15x10 scratch=1204",
+    "change": {
+      "median": 0.007982170877584016,
+      "p1": 0.008230171214919091
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n12288": {
+    "after_plan": "stockham avx512 split L=8 radices=12x2x8x8 scratch=12292",
+    "before_plan": "stockham avx512 split L=8 radices=12x2x8x8 scratch=12292",
+    "change": {
+      "median": 0.0019095266283488677,
+      "p1": 0.0021178690386800536
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n15": {
+    "after_plan": "small avx2 n=15 decomposition=15x1 scratch=0 kernel=generic",
+    "before_plan": "small avx2 n=15 decomposition=15x1 scratch=0 kernel=generic",
+    "change": {
+      "median": 5.890785358464434e-05,
+      "p1": 0.0003344961387663492
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n1536": {
+    "after_plan": "stockham avx512 split L=8 radices=12x2x8 scratch=1540",
+    "before_plan": "stockham avx512 split L=8 radices=12x2x8 scratch=1540",
+    "change": {
+      "median": 0.0031990445520271305,
+      "p1": 0.0025900081339100822
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n160": {
+    "after_plan": "stockham avx512-ymm split L=4 radices=4x10 scratch=164",
+    "before_plan": "stockham avx512-ymm split L=4 radices=4x10 scratch=164",
+    "change": {
+      "median": 0.009455159603181551,
+      "p1": 0.011390394865966824
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n165375": {
+    "after_plan": "stockham scalar split L=1 radices=7x15x15x7x15 scratch=165379",
+    "before_plan": "stockham scalar split L=1 radices=7x15x15x7x15 scratch=165379",
+    "change": {
+      "median": -0.014244280388588604,
+      "p1": -0.01572336166632826
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n18": {
+    "after_plan": "stockham sse2 split L=2 radices=9 scratch=22",
+    "before_plan": "stockham sse2 split L=2 radices=9 scratch=22",
+    "change": {
+      "median": 0.005341984530999877,
+      "p1": 0.006298236619895814
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n1920": {
+    "after_plan": "stockham avx512 split L=8 radices=12x2x10 scratch=1924",
+    "before_plan": "stockham avx512 split L=8 radices=12x2x10 scratch=1924",
+    "change": {
+      "median": 0.05136369097681115,
+      "p1": 0.05049287070810604
+    },
+    "flag": true
+  },
+  "smooth:f64:fwd:ip:n1960": {
+    "after_plan": "stockham avx512 split L=8 radices=7x5x7 scratch=1964",
+    "before_plan": "stockham avx512 split L=8 radices=7x5x7 scratch=1964",
+    "change": {
+      "median": 0.015002168513188696,
+      "p1": 0.015052614922066665
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n210": {
+    "after_plan": "stockham sse2 split L=2 radices=7x15 scratch=214",
+    "before_plan": "stockham sse2 split L=2 radices=7x15 scratch=214",
+    "change": {
+      "median": -0.0006013977312788743,
+      "p1": 0.0018824119972391529
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n24": {
+    "after_plan": "small avx512 n=24 decomposition=3x8 scratch=0 kernel=generic",
+    "before_plan": "small avx512 n=24 decomposition=3x8 scratch=0 kernel=generic",
+    "change": {
+      "median": 0.004875558981130013,
+      "p1": -8.315080102239136e-07
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n240": {
+    "after_plan": "stockham avx512 split L=8 radices=15x2 scratch=244",
+    "before_plan": "stockham avx512 split L=8 radices=15x2 scratch=244",
+    "change": {
+      "median": 0.00038588996845168033,
+      "p1": 0.009631461749150416
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n2400": {
+    "after_plan": "stockham avx512 split L=8 radices=15x2x10 scratch=2404",
+    "before_plan": "stockham avx512 split L=8 radices=15x2x10 scratch=2404",
+    "change": {
+      "median": 0.03593743701374619,
+      "p1": 0.03504942089624641
+    },
+    "flag": true
+  },
+  "smooth:f64:fwd:ip:n27000": {
+    "after_plan": "stockham avx512 split L=8 radices=15x15x15 scratch=27004",
+    "before_plan": "stockham avx512 split L=8 radices=15x15x15 scratch=27004",
+    "change": {
+      "median": 0.008530360021493877,
+      "p1": 0.00811651711232364
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n3072": {
+    "after_plan": "stockham avx512 split L=8 radices=12x4x8 scratch=3076",
+    "before_plan": "stockham avx512 split L=8 radices=12x4x8 scratch=3076",
+    "change": {
+      "median": -0.03857825312314411,
+      "p1": -0.03904153304490221
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n320": {
+    "after_plan": "stockham avx512 split L=8 radices=4x10 scratch=324",
+    "before_plan": "stockham avx512 split L=8 radices=4x10 scratch=324",
+    "change": {
+      "median": -0.0032130580988433133,
+      "p1": -0.022411239890990364
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n36": {
+    "after_plan": "stockham avx512-ymm split L=4 radices=9 scratch=40",
+    "before_plan": "stockham avx512-ymm split L=4 radices=9 scratch=40",
+    "change": {
+      "median": -0.0029993484807009363,
+      "p1": -0.007781549993453485
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n384": {
+    "after_plan": "stockham avx512 split L=8 radices=12x4 scratch=388",
+    "before_plan": "stockham avx512 split L=8 radices=12x4 scratch=388",
+    "change": {
+      "median": 0.021783520111264165,
+      "p1": 0.032187467203040665
+    },
+    "flag": true
+  },
+  "smooth:f64:fwd:ip:n4725": {
+    "after_plan": "stockham scalar split L=1 radices=7x3x15x15 scratch=4729",
+    "before_plan": "stockham scalar split L=1 radices=7x3x15x15 scratch=4729",
+    "change": {
+      "median": -0.008068845728722462,
+      "p1": -0.005594606225792553
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n48": {
+    "after_plan": "small avx512 n=48 decomposition=6x8 scratch=0 kernel=generic",
+    "before_plan": "small avx512 n=48 decomposition=6x8 scratch=0 kernel=generic",
+    "change": {
+      "median": -0.000511307787044113,
+      "p1": 0.00100851468383234
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n480": {
+    "after_plan": "stockham avx512 split L=8 radices=12x5 scratch=484",
+    "before_plan": "stockham avx512 split L=8 radices=12x5 scratch=484",
+    "change": {
+      "median": 0.013022926022216996,
+      "p1": 0.011111111111111072
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n4800": {
+    "after_plan": "stockham avx512 split L=8 radices=12x5x10 scratch=4804",
+    "before_plan": "stockham avx512 split L=8 radices=12x5x10 scratch=4804",
+    "change": {
+      "median": 0.0008453085376163294,
+      "p1": 0.0
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n48000": {
+    "after_plan": "stockham avx512 split L=8 radices=12x5x10x10 scratch=48004",
+    "before_plan": "stockham avx512 split L=8 radices=12x5x10x10 scratch=48004",
+    "change": {
+      "median": -0.008000914390215996,
+      "p1": -0.007339079880847921
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n504": {
+    "after_plan": "stockham avx512 split L=8 radices=7x9 scratch=508",
+    "before_plan": "stockham avx512 split L=8 radices=7x9 scratch=508",
+    "change": {
+      "median": -0.009419762065300152,
+      "p1": -0.008342130820439997
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n6": {
+    "after_plan": "small scalar n=6 decomposition=6x1 scratch=0 kernel=generic",
+    "before_plan": "small scalar n=6 decomposition=6x1 scratch=0 kernel=generic",
+    "change": {
+      "median": -0.014847450354855796,
+      "p1": -0.00011701366869254493
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n6144": {
+    "after_plan": "stockham avx512 split L=8 radices=12x8x8 scratch=6148",
+    "before_plan": "stockham avx512 split L=8 radices=12x8x8 scratch=6148",
+    "change": {
+      "median": -0.008862301982940024,
+      "p1": -0.011183388939628447
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n640": {
+    "after_plan": "stockham avx512 split L=8 radices=8x10 scratch=644",
+    "before_plan": "stockham avx512 split L=8 radices=8x10 scratch=644",
+    "change": {
+      "median": -0.001638290371414941,
+      "p1": -0.0018804847471790564
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n720": {
+    "after_plan": "stockham avx512-ymm split L=4 radices=12x15 scratch=724",
+    "before_plan": "stockham avx512-ymm split L=4 radices=12x15 scratch=724",
+    "change": {
+      "median": 0.008676466237451885,
+      "p1": 0.008438546987422635
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n75600": {
+    "after_plan": "stockham avx512 split L=8 radices=14x3x15x15 scratch=75604",
+    "before_plan": "stockham avx512 split L=8 radices=14x3x15x15 scratch=75604",
+    "change": {
+      "median": -0.006547316024662075,
+      "p1": -0.0009354136170516281
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n768": {
+    "after_plan": "stockham avx512 split L=8 radices=12x8 scratch=772",
+    "before_plan": "stockham avx512 split L=8 radices=12x8 scratch=772",
+    "change": {
+      "median": -0.07417531190669924,
+      "p1": -0.07036482027451818
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n80": {
+    "after_plan": "stockham avx512-ymm split L=4 radices=10x2 scratch=84",
+    "before_plan": "stockham avx512-ymm split L=4 radices=10x2 scratch=84",
+    "change": {
+      "median": 0.010409111715711683,
+      "p1": 0.0036646375594737712
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n9": {
+    "after_plan": "small scalar n=9 decomposition=9x1 scratch=0 kernel=generic",
+    "before_plan": "small scalar n=9 decomposition=9x1 scratch=0 kernel=generic",
+    "change": {
+      "median": 2.3462031904397662e-05,
+      "p1": -7.683935648761242e-06
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n96": {
+    "after_plan": "stockham avx512-ymm split L=4 radices=12x2 scratch=100",
+    "before_plan": "stockham avx512-ymm split L=4 radices=12x2 scratch=100",
+    "change": {
+      "median": 0.004772818899153597,
+      "p1": 0.0006346431479240522
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n960": {
+    "after_plan": "stockham avx512 split L=8 radices=12x10 scratch=964",
+    "before_plan": "stockham avx512 split L=8 radices=12x10 scratch=964",
+    "change": {
+      "median": -0.008452509714377388,
+      "p1": -0.00773775490756623
+    },
+    "flag": false
+  },
+  "smooth:f64:fwd:ip:n96000": {
+    "after_plan": "stockham avx512 split L=8 radices=12x10x10x10 scratch=96004",
+    "before_plan": "stockham avx512 split L=8 radices=12x10x10x10 scratch=96004",
+    "change": {
+      "median": -0.013790514074645377,
+      "p1": 0.003544377549038691
+    },
+    "flag": false
+  }
+}

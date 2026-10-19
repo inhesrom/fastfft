@@ -1,0 +1,62 @@
+[
+  {
+    "index": 0,
+    "key": "smooth:f32:inv:ip:n1000000",
+    "primary_ratio": 1.0412986457030229,
+    "suite": "smooth",
+    "filter": "precision=f32,dir=inv,place=ip,n=1000000",
+    "procs": 8,
+    "core": 4,
+    "binary": "target/ticket19/selection-fix/deferred/fastfft-arena",
+    "output": "target/ticket19/selection-fix/primary-repeats/case-00",
+    "policy": "one fixed diagnostic; does not replace full-run failure; separate60s quiet gate and affinityjournal per run"
+  },
+  {
+    "index": 1,
+    "key": "batch:f64:fwd:oop:n32:b32768",
+    "primary_ratio": 1.0302187742435998,
+    "suite": "batch",
+    "filter": "precision=f64,dir=fwd,place=oop,n=32",
+    "procs": 8,
+    "core": 4,
+    "binary": "target/ticket19/selection-fix/deferred/fastfft-arena",
+    "output": "target/ticket19/selection-fix/primary-repeats/case-01",
+    "policy": "one fixed diagnostic; does not replace full-run failure; separate60s quiet gate and affinityjournal per run"
+  },
+  {
+    "index": 2,
+    "key": "smooth:f64:inv:oop:n165375",
+    "primary_ratio": 1.0273872280905474,
+    "suite": "smooth",
+    "filter": "precision=f64,dir=inv,place=oop,n=165375",
+    "procs": 8,
+    "core": 4,
+    "binary": "target/ticket19/selection-fix/deferred/fastfft-arena",
+    "output": "target/ticket19/selection-fix/primary-repeats/case-02",
+    "policy": "one fixed diagnostic; does not replace full-run failure; separate60s quiet gate and affinityjournal per run"
+  },
+  {
+    "index": 3,
+    "key": "pow2:f32:fwd:ip:n4096",
+    "primary_ratio": 1.0260088207411073,
+    "suite": "pow2",
+    "filter": "precision=f32,dir=fwd,place=ip,n=4096",
+    "procs": 8,
+    "core": 4,
+    "binary": "target/ticket19/selection-fix/deferred/fastfft-arena",
+    "output": "target/ticket19/selection-fix/primary-repeats/case-03",
+    "policy": "one fixed diagnostic; does not replace full-run failure; separate60s quiet gate and affinityjournal per run"
+  },
+  {
+    "index": 4,
+    "key": "pow2:f32:fwd:ip:n16777216",
+    "primary_ratio": 1.0233906874537047,
+    "suite": "pow2",
+    "filter": "precision=f32,dir=fwd,place=ip,n=16777216",
+    "procs": 8,
+    "core": 4,
+    "binary": "target/ticket19/selection-fix/deferred/fastfft-arena",
+    "output": "target/ticket19/selection-fix/primary-repeats/case-04",
+    "policy": "one fixed diagnostic; does not replace full-run failure; separate60s quiet gate and affinityjournal per run"
+  }
+]

@@ -1,0 +1,9 @@
+arena: 6 cells, profile quick, core 2 (sibling 2,10), output target/ticket19/pipeline-smoke
+[1/6] realworld:f32:fwd:ip:n1024:Spectrogram (4.6s) fastfft=760MS/s fastfft/measure=728MS/s rustfft=696MS/s phastft/split=700MS/s
+[2/6] realworld:f32:fwd:ip:n4096:Spectrogram (4.8s) fastfft=645MS/s fastfft/measure=661MS/s rustfft=570MS/s phastft/split=510MS/s
+[3/6] realworld:f32:fwd:ip:n16384:Spectrogram (5.0s) fastfft=605MS/s fastfft/measure=607MS/s rustfft=523MS/s phastft/split=450MS/s
+[4/6] realworld:f32:fwd:ip:n65536:Spectrogram (5.3s) fastfft=534MS/s fastfft/measure=530MS/s rustfft=459MS/s phastft/split=346MS/s
+[5/6] realworld:f32:fwd:ip:n4096:OverlapSave (1.8s) fastfft=338MS/s fastfft/measure=339MS/s rustfft=281MS/s phastft/split=247MS/s
+[6/6] realworld:f64:fwd:ip:n4096:Spectrogram (3.2s) fastfft=336MS/s fastfft/measure=336MS/s rustfft=285MS/s phastft/split=260MS/s
+arena: done in 27s, max clock drift 0.58%, 0 child failures
+target/ticket19/pipeline-smoke

@@ -1,0 +1,171 @@
+{
+  "scope": "Floating arithmetic opcode-family counts and vector identity after fixed/indexed stack shifts/aligned move normalization; not a proof of full dataflow equivalence where streams differ.",
+  "rows": [
+    {
+      "variant": "FourStep-F32x4",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": true,
+      "delta": {
+        "instructions": 0,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "vector_opcode_delta": {}
+    },
+    {
+      "variant": "FourStep-F32x8",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": true,
+      "delta": {
+        "instructions": 7,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 64
+      },
+      "vector_opcode_delta": {}
+    },
+    {
+      "variant": "FourStep-F64x2",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": true,
+      "delta": {
+        "instructions": 0,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "vector_opcode_delta": {}
+    },
+    {
+      "variant": "FourStep-F64x4",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": true,
+      "delta": {
+        "instructions": 7,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 64
+      },
+      "vector_opcode_delta": {}
+    },
+    {
+      "variant": "FourStep-F64x8",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": false,
+      "delta": {
+        "instructions": -103,
+        "vector_instructions": 2,
+        "vector_memory_instructions": -46,
+        "direct_rsp_vector_memory_sites": -49,
+        "direct_rsp_vector_bytes_static": -3136,
+        "explicit_frame_bytes": 312
+      },
+      "vector_opcode_delta": {
+        "vbroadcastsd": 1,
+        "vmovapd": 414,
+        "vmovaps": 11,
+        "vmovupd": -413,
+        "vmovups": -11
+      }
+    },
+    {
+      "variant": "FourStep-S32",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": true,
+      "delta": {
+        "instructions": 0,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "vector_opcode_delta": {}
+    },
+    {
+      "variant": "FourStep-S64",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": true,
+      "delta": {
+        "instructions": 0,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "vector_opcode_delta": {}
+    },
+    {
+      "variant": "FourStep-F32x16",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": true,
+      "delta": {
+        "instructions": 8,
+        "vector_instructions": 0,
+        "vector_memory_instructions": 0,
+        "direct_rsp_vector_memory_sites": 0,
+        "direct_rsp_vector_bytes_static": 0,
+        "explicit_frame_bytes": 0
+      },
+      "vector_opcode_delta": {}
+    },
+    {
+      "variant": "FourStep-F32x8v",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": false,
+      "delta": {
+        "instructions": 137,
+        "vector_instructions": 20,
+        "vector_memory_instructions": 10,
+        "direct_rsp_vector_memory_sites": 8,
+        "direct_rsp_vector_bytes_static": 256,
+        "explicit_frame_bytes": 264
+      },
+      "vector_opcode_delta": {
+        "vbroadcastss": 2,
+        "vmovaps": 426,
+        "vmovups": -408
+      }
+    },
+    {
+      "variant": "FourStep-F64x4v",
+      "arithmetic_count_delta": {},
+      "vector_sequence_same_including_indexed_stack_shift_normalization": false,
+      "delta": {
+        "instructions": -83,
+        "vector_instructions": 7,
+        "vector_memory_instructions": 18,
+        "direct_rsp_vector_memory_sites": 15,
+        "direct_rsp_vector_bytes_static": 480,
+        "explicit_frame_bytes": 152
+      },
+      "vector_opcode_delta": {
+        "vbroadcastsd": 3,
+        "vfmadd132pd": 3,
+        "vfmadd213pd": -3,
+        "vfmsub132pd": -1,
+        "vfmsub213pd": 1,
+        "vfnmadd132pd": 1,
+        "vfnmadd213pd": -1,
+        "vinsertf128": -10,
+        "vinsertf32x4": 10,
+        "vmovapd": 425,
+        "vmovaps": 6,
+        "vmovupd": -425,
+        "vmovups": -2,
+        "vperm2f128": -13,
+        "vshuff64x2": 13
+      }
+    }
+  ]
+}

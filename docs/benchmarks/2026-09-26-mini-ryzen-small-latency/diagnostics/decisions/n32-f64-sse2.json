@@ -1,0 +1,934 @@
+{
+  "cap": "sse2",
+  "decisions": {
+    "stockham:scalar:1": {
+      "cases": {
+        "Forward:immutable": {
+          "best": {
+            "change": 1.0905281784608363,
+            "ns": 81.365234,
+            "rustfft_speedup": 0.2875129075398468
+          },
+          "median": {
+            "change": 1.1172676346742576,
+            "ns": 83.02832,
+            "rustfft_speedup": 0.2850472224416922
+          }
+        },
+        "Forward:ip": {
+          "best": {
+            "change": 1.1406559427832654,
+            "ns": 82.352539,
+            "rustfft_speedup": 0.22336325295325749
+          },
+          "median": {
+            "change": 1.151279140543052,
+            "ns": 83.351562,
+            "rustfft_speedup": 0.22338082878398846
+          }
+        },
+        "Forward:op": {
+          "best": {
+            "change": 1.1290773547668889,
+            "ns": 81.844727,
+            "rustfft_speedup": 0.28654439766168444
+          },
+          "median": {
+            "change": 1.0985482670412186,
+            "ns": 82.724609,
+            "rustfft_speedup": 0.2913115370542277
+          }
+        },
+        "Inverse:immutable": {
+          "best": {
+            "change": 1.1417352581292657,
+            "ns": 83.360352,
+            "rustfft_speedup": 0.2809948307320007
+          },
+          "median": {
+            "change": 1.147718555044042,
+            "ns": 84.623047,
+            "rustfft_speedup": 0.2795600943085871
+          }
+        },
+        "Inverse:ip": {
+          "best": {
+            "change": 1.2005771526082678,
+            "ns": 83.40918,
+            "rustfft_speedup": 0.22135322514859873
+          },
+          "median": {
+            "change": 1.1689832934727895,
+            "ns": 84.270508,
+            "rustfft_speedup": 0.2216402207994284
+          }
+        },
+        "Inverse:op": {
+          "best": {
+            "change": 1.1355205146415979,
+            "ns": 82.636719,
+            "rustfft_speedup": 0.283325454874364
+          },
+          "median": {
+            "change": 1.1536233198905315,
+            "ns": 84.222656,
+            "rustfft_speedup": 0.28020499614735495
+          }
+        }
+      },
+      "geomean_ns": {
+        "best": 82.49143124660591,
+        "median": 83.70048735009874
+      },
+      "qualifies": false,
+      "reasons": [
+        "best: less than 3% geomean improvement",
+        "median: less than 3% geomean improvement",
+        "Forward:ip best: >3% slowdown",
+        "Forward:ip median: >3% slowdown",
+        "Forward:op best: >3% slowdown",
+        "Forward:op median: >3% slowdown",
+        "Forward:immutable best: >3% slowdown",
+        "Forward:immutable median: >3% slowdown",
+        "Inverse:ip best: >3% slowdown",
+        "Inverse:ip median: >3% slowdown",
+        "Inverse:op best: >3% slowdown",
+        "Inverse:op median: >3% slowdown",
+        "Inverse:immutable best: >3% slowdown",
+        "Inverse:immutable median: >3% slowdown"
+      ]
+    },
+    "stockham:sse2:2": {
+      "cases": {
+        "Forward:immutable": {
+          "best": {
+            "change": 0.0,
+            "ns": 38.920898,
+            "rustfft_speedup": 0.6010538348832547
+          },
+          "median": {
+            "change": 0.0,
+            "ns": 39.214844,
+            "rustfft_speedup": 0.6035212584295886
+          }
+        },
+        "Forward:ip": {
+          "best": {
+            "change": 0.0,
+            "ns": 38.470703,
+            "rustfft_speedup": 0.4781438748337924
+          },
+          "median": {
+            "change": 0.0,
+            "ns": 38.745117,
+            "rustfft_speedup": 0.4805545173602134
+          }
+        },
+        "Forward:op": {
+          "best": {
+            "change": 0.0,
+            "ns": 38.441406,
+            "rustfft_speedup": 0.6100751881968105
+          },
+          "median": {
+            "change": 0.0,
+            "ns": 39.419922,
+            "rustfft_speedup": 0.6113313212542633
+          }
+        },
+        "Inverse:immutable": {
+          "best": {
+            "change": 0.0,
+            "ns": 38.921875,
+            "rustfft_speedup": 0.6018165363307909
+          },
+          "median": {
+            "change": 0.0,
+            "ns": 39.401367,
+            "rustfft_speedup": 0.6004164017964148
+          }
+        },
+        "Inverse:ip": {
+          "best": {
+            "change": 0.0,
+            "ns": 37.90332,
+            "rustfft_speedup": 0.48710484991816017
+          },
+          "median": {
+            "change": 0.0,
+            "ns": 38.852539,
+            "rustfft_speedup": 0.48073393607558057
+          }
+        },
+        "Inverse:op": {
+          "best": {
+            "change": 0.0,
+            "ns": 38.696289,
+            "rustfft_speedup": 0.6050473212043667
+          },
+          "median": {
+            "change": 0.0,
+            "ns": 39.107422,
+            "rustfft_speedup": 0.60345601405278
+          }
+        }
+      },
+      "geomean_ns": {
+        "best": 38.55749050126409,
+        "median": 39.122702928476606
+      },
+      "qualifies": false,
+      "reasons": [
+        "best: less than 3% geomean improvement",
+        "median: less than 3% geomean improvement"
+      ]
+    }
+  },
+  "incumbent": "stockham:sse2:2",
+  "note": "Public-call gate only; arena confirmation required.",
+  "selected": "stockham:sse2:2",
+  "surfaces": {
+    "generic:avx512:8": {
+      "concrete": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 19.558594,
+            "median": 21.897461
+          },
+          "Forward:ip": {
+            "best": 25.673828,
+            "median": 26.055664
+          },
+          "Forward:op": {
+            "best": 19.548828,
+            "median": 21.935547
+          },
+          "Inverse:immutable": {
+            "best": 21.876953,
+            "median": 23.295898
+          },
+          "Inverse:ip": {
+            "best": 25.487305,
+            "median": 26.015625
+          },
+          "Inverse:op": {
+            "best": 22.993164,
+            "median": 23.168945
+          }
+        },
+        "decomposition": "4x8",
+        "geomean_ns": {
+          "best": 22.385995487548268,
+          "median": 23.66704622393902
+        }
+      },
+      "kernel": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 17.640625,
+            "median": 18.325195
+          },
+          "Forward:ip": {
+            "best": 24.841797,
+            "median": 25.584961
+          },
+          "Forward:op": {
+            "best": 17.865234,
+            "median": 18.267578
+          },
+          "Inverse:immutable": {
+            "best": 17.083008,
+            "median": 17.982422
+          },
+          "Inverse:ip": {
+            "best": 25.693359,
+            "median": 26.103516
+          },
+          "Inverse:op": {
+            "best": 17.073242,
+            "median": 17.963867
+          }
+        },
+        "decomposition": "4x8",
+        "geomean_ns": {
+          "best": 19.712172235916032,
+          "median": 20.406893273414795
+        }
+      },
+      "public": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 20.634766,
+            "median": 21.398438
+          },
+          "Forward:ip": {
+            "best": 25.350586,
+            "median": 25.859375
+          },
+          "Forward:op": {
+            "best": 19.842773,
+            "median": 21.837891
+          },
+          "Inverse:immutable": {
+            "best": 19.744141,
+            "median": 21.407227
+          },
+          "Inverse:ip": {
+            "best": 24.998047,
+            "median": 25.761719
+          },
+          "Inverse:op": {
+            "best": 20.145508,
+            "median": 21.564453
+          }
+        },
+        "decomposition": "4x8",
+        "geomean_ns": {
+          "best": 21.65801966817235,
+          "median": 22.88657202114459
+        }
+      }
+    },
+    "rustfft:auto:0": {
+      "public": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 23.393555,
+            "median": 23.666992
+          },
+          "Forward:ip": {
+            "best": 18.394531,
+            "median": 18.619141
+          },
+          "Forward:op": {
+            "best": 23.452148,
+            "median": 24.098633
+          },
+          "Inverse:immutable": {
+            "best": 23.423828,
+            "median": 23.657227
+          },
+          "Inverse:ip": {
+            "best": 18.462891,
+            "median": 18.677734
+          },
+          "Inverse:op": {
+            "best": 23.413086,
+            "median": 23.599609
+          }
+        },
+        "decomposition": "auto",
+        "geomean_ns": {
+          "best": 21.62207159504501,
+          "median": 21.91364678690376
+        }
+      }
+    },
+    "specialized:avx512:8": {
+      "concrete": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 20.40918,
+            "median": 23.110352
+          },
+          "Forward:ip": {
+            "best": 25.537109,
+            "median": 26.603516
+          },
+          "Forward:op": {
+            "best": 20.664062,
+            "median": 23.00293
+          },
+          "Inverse:immutable": {
+            "best": 20.537109,
+            "median": 22.807617
+          },
+          "Inverse:ip": {
+            "best": 25.673828,
+            "median": 26.162109
+          },
+          "Inverse:op": {
+            "best": 20.938477,
+            "median": 23.00293
+          }
+        },
+        "decomposition": "4x8",
+        "geomean_ns": {
+          "best": 22.175053068972343,
+          "median": 24.062685566098104
+        }
+      },
+      "kernel": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 18.071289,
+            "median": 18.873047
+          },
+          "Forward:ip": {
+            "best": 23.960938,
+            "median": 25.428711
+          },
+          "Forward:op": {
+            "best": 18.061523,
+            "median": 18.864258
+          },
+          "Inverse:immutable": {
+            "best": 18.452148,
+            "median": 18.74707
+          },
+          "Inverse:ip": {
+            "best": 24.049805,
+            "median": 25.360352
+          },
+          "Inverse:op": {
+            "best": 18.452148,
+            "median": 18.755859
+          }
+        },
+        "decomposition": "4x8",
+        "geomean_ns": {
+          "best": 20.002093613918543,
+          "median": 20.789240436111143
+        }
+      },
+      "public": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 20.389648,
+            "median": 21.995117
+          },
+          "Forward:ip": {
+            "best": 24.950195,
+            "median": 25.859375
+          },
+          "Forward:op": {
+            "best": 20.967773,
+            "median": 21.974609
+          },
+          "Inverse:immutable": {
+            "best": 20.966797,
+            "median": 22.5625
+          },
+          "Inverse:ip": {
+            "best": 24.929688,
+            "median": 26.055664
+          },
+          "Inverse:op": {
+            "best": 21.182617,
+            "median": 22.973633
+          }
+        },
+        "decomposition": "4x8",
+        "geomean_ns": {
+          "best": 22.150188224186678,
+          "median": 23.508815633181122
+        }
+      }
+    },
+    "stockham:avx2:4": {
+      "concrete": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 22.953125,
+            "median": 23.178711
+          },
+          "Forward:ip": {
+            "best": 23.422852,
+            "median": 23.6875
+          },
+          "Forward:op": {
+            "best": 22.336914,
+            "median": 22.533203
+          },
+          "Inverse:immutable": {
+            "best": 23.667969,
+            "median": 23.883789
+          },
+          "Inverse:ip": {
+            "best": 23.833984,
+            "median": 24.185547
+          },
+          "Inverse:op": {
+            "best": 22.933594,
+            "median": 23.198242
+          }
+        },
+        "decomposition": "8x4",
+        "geomean_ns": {
+          "best": 23.185817895715722,
+          "median": 23.438201051282718
+        }
+      },
+      "kernel": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 21.299805,
+            "median": 21.388672
+          },
+          "Forward:ip": {
+            "best": 22.014648,
+            "median": 22.209961
+          },
+          "Forward:op": {
+            "best": 21.260742,
+            "median": 21.310547
+          },
+          "Inverse:immutable": {
+            "best": 21.407227,
+            "median": 21.53418
+          },
+          "Inverse:ip": {
+            "best": 22.483398,
+            "median": 22.708984
+          },
+          "Inverse:op": {
+            "best": 21.388672,
+            "median": 21.447266
+          }
+        },
+        "decomposition": "8x4",
+        "geomean_ns": {
+          "best": 21.637744865048933,
+          "median": 21.760591647813065
+        }
+      },
+      "public": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 23.520508,
+            "median": 23.785156
+          },
+          "Forward:ip": {
+            "best": 22.963867,
+            "median": 24.098633
+          },
+          "Forward:op": {
+            "best": 23.658203,
+            "median": 23.902344
+          },
+          "Inverse:immutable": {
+            "best": 23.648438,
+            "median": 24.000977
+          },
+          "Inverse:ip": {
+            "best": 23.931641,
+            "median": 24.459961
+          },
+          "Inverse:op": {
+            "best": 23.677734,
+            "median": 23.961914
+          }
+        },
+        "decomposition": "8x4",
+        "geomean_ns": {
+          "best": 23.56485428307215,
+          "median": 24.03389623297981
+        }
+      }
+    },
+    "stockham:avx512-ymm:4": {
+      "concrete": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 19.646484,
+            "median": 20.517578
+          },
+          "Forward:ip": {
+            "best": 18.824219,
+            "median": 19.21582
+          },
+          "Forward:op": {
+            "best": 19.333008,
+            "median": 19.802734
+          },
+          "Inverse:immutable": {
+            "best": 20.243164,
+            "median": 20.625
+          },
+          "Inverse:ip": {
+            "best": 19.37207,
+            "median": 19.754883
+          },
+          "Inverse:op": {
+            "best": 19.353516,
+            "median": 19.988281
+          }
+        },
+        "decomposition": "8x4",
+        "geomean_ns": {
+          "best": 19.45744997546922,
+          "median": 19.97832186780804
+        }
+      },
+      "kernel": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 16.642578,
+            "median": 16.760742
+          },
+          "Forward:ip": {
+            "best": 18.746094,
+            "median": 19.118164
+          },
+          "Forward:op": {
+            "best": 16.633789,
+            "median": 16.691406
+          },
+          "Inverse:immutable": {
+            "best": 16.671875,
+            "median": 16.731445
+          },
+          "Inverse:ip": {
+            "best": 18.892578,
+            "median": 19.206055
+          },
+          "Inverse:op": {
+            "best": 16.681641,
+            "median": 16.72168
+          }
+        },
+        "decomposition": "8x4",
+        "geomean_ns": {
+          "best": 17.348935667963218,
+          "median": 17.50171652122678
+        }
+      },
+      "public": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 18.580078,
+            "median": 18.825195
+          },
+          "Forward:ip": {
+            "best": 20.262695,
+            "median": 20.839844
+          },
+          "Forward:op": {
+            "best": 18.413086,
+            "median": 18.667969
+          },
+          "Inverse:immutable": {
+            "best": 18.707031,
+            "median": 18.834961
+          },
+          "Inverse:ip": {
+            "best": 20.243164,
+            "median": 20.967773
+          },
+          "Inverse:op": {
+            "best": 18.560547,
+            "median": 18.805664
+          }
+        },
+        "decomposition": "8x4",
+        "geomean_ns": {
+          "best": 19.111329139828765,
+          "median": 19.465076744463236
+        }
+      }
+    },
+    "stockham:avx512:8": {
+      "concrete": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 28.745117,
+            "median": 29.655273
+          },
+          "Forward:ip": {
+            "best": 35.173828,
+            "median": 35.731445
+          },
+          "Forward:op": {
+            "best": 27.541992,
+            "median": 29.792969
+          },
+          "Inverse:immutable": {
+            "best": 28.666992,
+            "median": 29.489258
+          },
+          "Inverse:ip": {
+            "best": 35.046875,
+            "median": 35.536133
+          },
+          "Inverse:op": {
+            "best": 28.951172,
+            "median": 29.21582
+          }
+        },
+        "decomposition": "4x8",
+        "geomean_ns": {
+          "best": 30.531356927537654,
+          "median": 31.443899325273186
+        }
+      },
+      "kernel": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 26.015625,
+            "median": 28.334961
+          },
+          "Forward:ip": {
+            "best": 34.411133,
+            "median": 35.212891
+          },
+          "Forward:op": {
+            "best": 26.104492,
+            "median": 28.47168
+          },
+          "Inverse:immutable": {
+            "best": 25.673828,
+            "median": 29.558594
+          },
+          "Inverse:ip": {
+            "best": 34.518555,
+            "median": 35.017578
+          },
+          "Inverse:op": {
+            "best": 25.555664,
+            "median": 29.030273
+          }
+        },
+        "decomposition": "4x8",
+        "geomean_ns": {
+          "best": 28.4411060049752,
+          "median": 30.799457392220766
+        }
+      },
+      "public": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 27.708008,
+            "median": 28.1875
+          },
+          "Forward:ip": {
+            "best": 35.359375,
+            "median": 36.054688
+          },
+          "Forward:op": {
+            "best": 27.43457,
+            "median": 29.430664
+          },
+          "Inverse:immutable": {
+            "best": 27.327148,
+            "median": 28.599609
+          },
+          "Inverse:ip": {
+            "best": 35.49707,
+            "median": 35.926758
+          },
+          "Inverse:op": {
+            "best": 27.03418,
+            "median": 28.951172
+          }
+        },
+        "decomposition": "4x8",
+        "geomean_ns": {
+          "best": 29.83215841017653,
+          "median": 31.012999529019073
+        }
+      }
+    },
+    "stockham:scalar:1": {
+      "concrete": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 81.609375,
+            "median": 83.174805
+          },
+          "Forward:ip": {
+            "best": 80.972656,
+            "median": 82.196289
+          },
+          "Forward:op": {
+            "best": 80.875,
+            "median": 81.991211
+          },
+          "Inverse:immutable": {
+            "best": 83.02832,
+            "median": 84.4375
+          },
+          "Inverse:ip": {
+            "best": 82.176758,
+            "median": 82.880859
+          },
+          "Inverse:op": {
+            "best": 82.352539,
+            "median": 83.810547
+          }
+        },
+        "decomposition": "32x1",
+        "geomean_ns": {
+          "best": 81.83218793386483,
+          "median": 83.07747045145157
+        }
+      },
+      "kernel": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 78.850586,
+            "median": 79.682617
+          },
+          "Forward:ip": {
+            "best": 78.75293,
+            "median": 80.279297
+          },
+          "Forward:op": {
+            "best": 78.360352,
+            "median": 79.172852
+          },
+          "Inverse:immutable": {
+            "best": 79.955078,
+            "median": 80.77832
+          },
+          "Inverse:ip": {
+            "best": 79.926758,
+            "median": 80.572266
+          },
+          "Inverse:op": {
+            "best": 79.369141,
+            "median": 80.719727
+          }
+        },
+        "decomposition": "32x1",
+        "geomean_ns": {
+          "best": 79.20020860526567,
+          "median": 80.19868605905239
+        }
+      },
+      "public": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 81.365234,
+            "median": 83.02832
+          },
+          "Forward:ip": {
+            "best": 82.352539,
+            "median": 83.351562
+          },
+          "Forward:op": {
+            "best": 81.844727,
+            "median": 82.724609
+          },
+          "Inverse:immutable": {
+            "best": 83.360352,
+            "median": 84.623047
+          },
+          "Inverse:ip": {
+            "best": 83.40918,
+            "median": 84.270508
+          },
+          "Inverse:op": {
+            "best": 82.636719,
+            "median": 84.222656
+          }
+        },
+        "decomposition": "32x1",
+        "geomean_ns": {
+          "best": 82.49143124660591,
+          "median": 83.70048735009874
+        }
+      }
+    },
+    "stockham:sse2:2": {
+      "concrete": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 38.5,
+            "median": 38.735352
+          },
+          "Forward:ip": {
+            "best": 38.344727,
+            "median": 38.891602
+          },
+          "Forward:op": {
+            "best": 37.160156,
+            "median": 37.394531
+          },
+          "Inverse:immutable": {
+            "best": 38.392578,
+            "median": 38.735352
+          },
+          "Inverse:ip": {
+            "best": 38.461914,
+            "median": 38.666992
+          },
+          "Inverse:op": {
+            "best": 37.395508,
+            "median": 37.893555
+          }
+        },
+        "decomposition": "16x2",
+        "geomean_ns": {
+          "best": 38.03851776020784,
+          "median": 38.38228089297009
+        }
+      },
+      "kernel": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 36.435547,
+            "median": 36.69043
+          },
+          "Forward:ip": {
+            "best": 36.446289,
+            "median": 36.709961
+          },
+          "Forward:op": {
+            "best": 36.46582,
+            "median": 36.709961
+          },
+          "Inverse:immutable": {
+            "best": 36.817383,
+            "median": 37.169922
+          },
+          "Inverse:ip": {
+            "best": 36.973633,
+            "median": 37.288086
+          },
+          "Inverse:op": {
+            "best": 36.93457,
+            "median": 37.296875
+          }
+        },
+        "decomposition": "16x2",
+        "geomean_ns": {
+          "best": 36.678123923393024,
+          "median": 36.97650042076394
+        }
+      },
+      "public": {
+        "cases": {
+          "Forward:immutable": {
+            "best": 38.920898,
+            "median": 39.214844
+          },
+          "Forward:ip": {
+            "best": 38.470703,
+            "median": 38.745117
+          },
+          "Forward:op": {
+            "best": 38.441406,
+            "median": 39.419922
+          },
+          "Inverse:immutable": {
+            "best": 38.921875,
+            "median": 39.401367
+          },
+          "Inverse:ip": {
+            "best": 37.90332,
+            "median": 38.852539
+          },
+          "Inverse:op": {
+            "best": 38.696289,
+            "median": 39.107422
+          }
+        },
+        "decomposition": "16x2",
+        "geomean_ns": {
+          "best": 38.55749050126409,
+          "median": 39.122702928476606
+        }
+      }
+    }
+  }
+}

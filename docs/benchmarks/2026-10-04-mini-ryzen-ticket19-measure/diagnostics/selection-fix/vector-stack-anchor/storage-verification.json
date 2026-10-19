@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-05T23:21:39.660155+00:00",
+  "passed": true,
+  "source_files_verified": 96,
+  "unchanged_source_files": 94,
+  "changed_source_files": [
+    "crates/fastfft/src/engine/fourstep.rs",
+    "crates/fastfft/src/engine/small/rectangular.rs"
+  ],
+  "optimized_default_correctness_tests": 78,
+  "geometry": "All storage owners, constructors, coefficient formulas, layouts, descriptors, scratch sizing and selector source are unchanged. FourStep source equals prior after removing only the anchor insertion.",
+  "previous_native_evidence": "/home/ianhersom/repo/fastfft/target/ticket19/selection-fix/fourstep-indexed-completion/storage-verification.json",
+  "previous_native_tests": "Prior12 native SSE2 tuning shift and21 FourStep tests; not claimed rerun for this candidate.",
+  "limitation": "Native correctness, no Miri; generated alignment and quiet performance gates remain separate."
+}

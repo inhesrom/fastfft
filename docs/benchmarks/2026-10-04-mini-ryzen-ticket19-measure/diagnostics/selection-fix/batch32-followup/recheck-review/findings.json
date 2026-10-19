@@ -1,0 +1,97 @@
+{
+  "acceptance": false,
+  "strict_failures_retained": true,
+  "cause_established": false,
+  "source_remedy_supported": false,
+  "no_cross_run_process_pairing": true,
+  "order_groups": {
+    "full": {
+      "fastfft": {
+        "count": 4,
+        "ranges": {
+          "best": [
+            1.004810368639116,
+            1.0108825742032554
+          ],
+          "p1": [
+            1.0050391795149525,
+            1.0106034073682133
+          ],
+          "median": [
+            1.002999522236763,
+            1.0098956807972643
+          ]
+        },
+        "all_three_over_2pct": 0
+      },
+      "fastfft/measure": {
+        "count": 4,
+        "ranges": {
+          "best": [
+            1.0209168653965426,
+            1.0235166031573217
+          ],
+          "p1": [
+            1.0223656156286294,
+            1.0259698456229802
+          ],
+          "median": [
+            1.022637529422357,
+            1.0270382835506942
+          ]
+        },
+        "all_three_over_2pct": 4
+      }
+    },
+    "recheck": {
+      "fastfft": {
+        "count": 4,
+        "ranges": {
+          "best": [
+            1.0059404599093054,
+            1.0103544166456646
+          ],
+          "p1": [
+            1.0070890731661843,
+            1.0094378856420223
+          ],
+          "median": [
+            1.0017996033527303,
+            1.008316195320198
+          ]
+        },
+        "all_three_over_2pct": 0
+      },
+      "fastfft/measure": {
+        "count": 4,
+        "ranges": {
+          "best": [
+            1.0206207687793942,
+            1.0225354297459055
+          ],
+          "p1": [
+            1.0210839024689036,
+            1.0266854234692342
+          ],
+          "median": [
+            1.020692232038172,
+            1.0306927217906483
+          ]
+        },
+        "all_three_over_2pct": 4
+      }
+    }
+  },
+  "conclusion": [
+    "BatchN32\u00d732768 remains a strict same-description failure in the fully quiet fixed default recheck: best +2.1880%, p1 +2.3389%, median +2.0692%. Both failed default captures remain retained.",
+    "In EACH capture, all four Measure-first trials fail all three statistics; all four Estimate-first trials stay below2%. Measure is slower in all16 trials. This is recurring distribution-wide order association, not defensibly dismissible one-time noise.",
+    "The comparison uses the complete order groups, not paired process indices across captures. New Measure-first ranges are best +2.062\u20132.254%, p1 +2.108\u20132.669%, median +2.069\u20133.069%; new Estimate-first best +0.594\u20131.035%.",
+    "Construction and initial calibration/execution are coupled in these production captures. No source cause or remedy follows yet. N262144 passing the recheck does not erase either earlier failure or cure batchN32.",
+    "The smallest causally useful next step remains ONE existing eight-process execution-order-factorial +sample-trace diagnostic for this single batch case, after fresh300s quiet. Four combinations occur twice. It can distinguish construction-associated from initial-calibration/execution-associated behavior; it does not itself identify cache, allocation or warmup mechanisms.",
+    "Prepared only under target/ticket19/selection-fix/batch32-order-factorial: exact protocol/CLI and batch-aware audit.py. No worker, launch or extra capture. Reuse ONLY n262144-sample-trace/fastfft-arena: actual SHA recomputed and matched that directory\u2019s provenance; all96 source hashes match current and frozen default sources. No rebuild needed.",
+    "Auditor retains all raw ratios and round tails; whole-buffer trace timing divides by32768 only for summary comparison, with sample counts unscaled. It checks16 CALLS1, seven rounds/member, exact2x2 balance, merged selection, quiet/env/drift and independent restoration proof. Acceptance alwaysfalse; no waiver, cell replacement or automatic retry. Syntax checked only; no tests/builds/FFTs run."
+  ],
+  "prepared_protocol": "target/ticket19/selection-fix/batch32-order-factorial/protocol.json",
+  "prepared_auditor": "target/ticket19/selection-fix/batch32-order-factorial/audit.py",
+  "launched": false
+}

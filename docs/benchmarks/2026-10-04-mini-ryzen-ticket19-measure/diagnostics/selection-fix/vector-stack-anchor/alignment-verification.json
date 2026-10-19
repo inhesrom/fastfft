@@ -1,0 +1,849 @@
+{
+  "passed": true,
+  "scope": "Exactly six prior N80/N96 single/batch tiled/packed controls; complete normalized instruction identity preserves reviewed direct/derived local addresses. No general Small or FourStep claim.",
+  "production_binary_sha256": "2badd5bb28e3b05fe9a93a4798ca87ae8174bb694a291893726d8deccfcea16d",
+  "prior_production_binary_sha256": "a2bbb31ba6912363132f0cabfcc1798f369ccc217d2a9f5d548214314541596f",
+  "kernels": [
+    {
+      "kernel": "n80-forward-8x10",
+      "passed": true,
+      "current": {
+        "start": "0xb1d240",
+        "end": "0xb1de5b",
+        "bytes": 3099,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n80-forward-8x10.asm",
+        "assembly_sha256": "4273671c08de9a69e8f776a4c8675e5f91064ffbe32b7bc603cfd4f014fef1ec"
+      },
+      "prior": {
+        "start": "0xb193c0",
+        "end": "0xb19fdb",
+        "bytes": 3099,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n80-forward-8x10.asm",
+        "assembly_sha256": "69d26da39a014a0f7cfd41434b3711088534f5f5727ec5afa85ae31fab9a7047"
+      },
+      "full_normalized_instruction_identity": true,
+      "current_stats": {
+        "instructions": 514,
+        "vector_instructions": 503,
+        "direct_rsp_vector_memory_sites": 30,
+        "explicit_frame_bytes": 576
+      },
+      "distinct_local_vector_operands": [
+        {
+          "operand": "[rsp+0x100]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x120]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x140]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x160]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x180]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x1a0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x60]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x80]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xa0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0xc0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xe0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        }
+      ],
+      "derived_base_proof": "Inherited through full instruction identity; prior packed index takes0/64 scaled8, generic anchor addresses not dereferenced, RBP only restores stack."
+    },
+    {
+      "kernel": "n80-forward-8x10-batch",
+      "passed": true,
+      "current": {
+        "start": "0xb0b9c0",
+        "end": "0xb0c61e",
+        "bytes": 3166,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n80-forward-8x10-batch.asm",
+        "assembly_sha256": "12214d92f5ab622db1b1daac9f6e4b3690f5a1390cc3111f1a1286d072c605ef"
+      },
+      "prior": {
+        "start": "0xb07c80",
+        "end": "0xb088de",
+        "bytes": 3166,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n80-forward-8x10-batch.asm",
+        "assembly_sha256": "bf3c36e2cab13c4c280299299769440b684186c92fad541de75d04dd3fe34f7c"
+      },
+      "full_normalized_instruction_identity": true,
+      "current_stats": {
+        "instructions": 514,
+        "vector_instructions": 496,
+        "direct_rsp_vector_memory_sites": 14,
+        "explicit_frame_bytes": 256
+      },
+      "distinct_local_vector_operands": [
+        {
+          "operand": "[rsp+0x20]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x60]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        }
+      ],
+      "derived_base_proof": "Inherited through full instruction identity; prior packed index takes0/64 scaled8, generic anchor addresses not dereferenced, RBP only restores stack."
+    },
+    {
+      "kernel": "n80-forward-16x5",
+      "passed": true,
+      "current": {
+        "start": "0xadd940",
+        "end": "0xade367",
+        "bytes": 2599,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n80-forward-16x5.asm",
+        "assembly_sha256": "8621c6ca2b6205ca1604501972ce069ae0fa297f70514d0ef3e266d7d72b154c"
+      },
+      "prior": {
+        "start": "0xad9e40",
+        "end": "0xada867",
+        "bytes": 2599,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n80-forward-16x5.asm",
+        "assembly_sha256": "d27e8aff778b77cb254a6ac29038c4f04629042d6d7c21702edf75fed0665f36"
+      },
+      "full_normalized_instruction_identity": true,
+      "current_stats": {
+        "instructions": 423,
+        "vector_instructions": 399,
+        "direct_rsp_vector_memory_sites": 20,
+        "explicit_frame_bytes": 2112
+      },
+      "distinct_local_vector_operands": [
+        {
+          "operand": "[rsp+0x100]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x120]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x140]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x160]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x180]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x1a0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x1c0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x1e0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x200]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x20]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x220]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x240]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x260]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x60]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x80]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xa0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0xc0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xe0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x100]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+rax*8+0x120]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x140]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+rax*8+0x160]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x180]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+rax*8+0x1a0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x1c0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+rax*8+0x1e0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x20]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x20]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x30]",
+          "width_bytes": 16,
+          "offset_mod64": 48
+        },
+        {
+          "operand": "[rsp+rax*8+0x40]",
+          "width_bytes": 16,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+rax*8+0x40]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+rax*8+0x50]",
+          "width_bytes": 16,
+          "offset_mod64": 16
+        },
+        {
+          "operand": "[rsp+rax*8+0x60]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x60]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0x70]",
+          "width_bytes": 16,
+          "offset_mod64": 48
+        },
+        {
+          "operand": "[rsp+rax*8+0x80]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+rax*8+0xa0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8+0xc0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+rax*8+0xe0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+rax*8]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        }
+      ],
+      "derived_base_proof": "Inherited through full instruction identity; prior packed index takes0/64 scaled8, generic anchor addresses not dereferenced, RBP only restores stack."
+    },
+    {
+      "kernel": "n80-forward-16x5-batch",
+      "passed": true,
+      "current": {
+        "start": "0xad4700",
+        "end": "0xad51da",
+        "bytes": 2778,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n80-forward-16x5-batch.asm",
+        "assembly_sha256": "3a8229b6a05dbad0c48571519a656cc85c49f3b5a963acc8272f7e06e7a0697a"
+      },
+      "prior": {
+        "start": "0xad0cc0",
+        "end": "0xad179a",
+        "bytes": 2778,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n80-forward-16x5-batch.asm",
+        "assembly_sha256": "038cc0de423baa4d8b4192e98be22244c844f0d851942e434e8c7c7902b2819f"
+      },
+      "full_normalized_instruction_identity": true,
+      "current_stats": {
+        "instructions": 437,
+        "vector_instructions": 400,
+        "direct_rsp_vector_memory_sites": 20,
+        "explicit_frame_bytes": 2112
+      },
+      "distinct_local_vector_operands": [
+        {
+          "operand": "[rsp+0x100]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x120]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x140]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x160]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x180]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x1a0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x1c0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x1e0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x200]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x20]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x220]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x240]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x260]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x60]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x80]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xa0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0xc0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xe0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x100]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+r10*8+0x120]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x140]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+r10*8+0x160]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x180]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+r10*8+0x1a0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x1c0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+r10*8+0x1e0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x20]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x20]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x30]",
+          "width_bytes": 16,
+          "offset_mod64": 48
+        },
+        {
+          "operand": "[rsp+r10*8+0x40]",
+          "width_bytes": 16,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+r10*8+0x40]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+r10*8+0x50]",
+          "width_bytes": 16,
+          "offset_mod64": 16
+        },
+        {
+          "operand": "[rsp+r10*8+0x60]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x60]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0x70]",
+          "width_bytes": 16,
+          "offset_mod64": 48
+        },
+        {
+          "operand": "[rsp+r10*8+0x80]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+r10*8+0xa0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8+0xc0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+r10*8+0xe0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+r10*8]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        }
+      ],
+      "derived_base_proof": "Inherited through full instruction identity; prior packed index takes0/64 scaled8, generic anchor addresses not dereferenced, RBP only restores stack."
+    },
+    {
+      "kernel": "n96-inverse-8x12",
+      "passed": true,
+      "current": {
+        "start": "0xb09600",
+        "end": "0xb0a3b0",
+        "bytes": 3504,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n96-inverse-8x12.asm",
+        "assembly_sha256": "91aab4271defb65c7db31ac9cc1d5feed94a2443ffbf7ff4029183781bccb5d5"
+      },
+      "prior": {
+        "start": "0xb05900",
+        "end": "0xb066b0",
+        "bytes": 3504,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n96-inverse-8x12.asm",
+        "assembly_sha256": "03644875925148499c3e7eb1bb05b3e39fdf231835169331faa25a3dfc41806f"
+      },
+      "full_normalized_instruction_identity": true,
+      "current_stats": {
+        "instructions": 578,
+        "vector_instructions": 567,
+        "direct_rsp_vector_memory_sites": 52,
+        "explicit_frame_bytes": 704
+      },
+      "distinct_local_vector_operands": [
+        {
+          "operand": "[rsp+0x100]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x120]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x120]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x140]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x160]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x160]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x180]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x1a0]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x1a0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x1c0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x1e0]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x1e0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x200]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x20]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x20]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x220]",
+          "width_bytes": 16,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x220]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 16,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x60]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x80]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xa0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0xc0]",
+          "width_bytes": 16,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xc0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xe0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        }
+      ],
+      "derived_base_proof": "Inherited through full instruction identity; prior packed index takes0/64 scaled8, generic anchor addresses not dereferenced, RBP only restores stack."
+    },
+    {
+      "kernel": "n96-inverse-8x12-batch",
+      "passed": true,
+      "current": {
+        "start": "0xafbc40",
+        "end": "0xafca5a",
+        "bytes": 3610,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n96-inverse-8x12-batch.asm",
+        "assembly_sha256": "486768036e4dd3aa7a3ed69c29e2ebf9c5b19bd26ff04c387d16e817d7b1df77"
+      },
+      "prior": {
+        "start": "0xaf8000",
+        "end": "0xaf8e1a",
+        "bytes": 3610,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::small::SmallVector>::rectangle",
+        "assembly": "control-n96-inverse-8x12-batch.asm",
+        "assembly_sha256": "9ab7ef1ffe3ab1c28f87d2189df766617af7cd830650961e0b99628c02c24dda"
+      },
+      "full_normalized_instruction_identity": true,
+      "current_stats": {
+        "instructions": 576,
+        "vector_instructions": 558,
+        "direct_rsp_vector_memory_sites": 30,
+        "explicit_frame_bytes": 448
+      },
+      "distinct_local_vector_operands": [
+        {
+          "operand": "[rsp+0x100]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x120]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0x60]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0x80]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xa0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        },
+        {
+          "operand": "[rsp+0xc0]",
+          "width_bytes": 32,
+          "offset_mod64": 0
+        },
+        {
+          "operand": "[rsp+0xe0]",
+          "width_bytes": 32,
+          "offset_mod64": 32
+        }
+      ],
+      "derived_base_proof": "Inherited through full instruction identity; prior packed index takes0/64 scaled8, generic anchor addresses not dereferenced, RBP only restores stack."
+    }
+  ],
+  "normalization": "Strip int3; normalize RIP displacements and direct branch/call relocations. All other instructions preserved. Constant contents not independently compared."
+}

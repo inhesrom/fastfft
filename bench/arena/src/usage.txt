@@ -1,0 +1,32 @@
+fastfft-arena: benchmark harness comparing Rust FFT libraries
+
+USAGE:
+  fastfft-arena run [--suite pow2,smooth,rough,sweep,batch,realworld,datacheck]
+                    [--profile full|quick|sweep] [--libs fastfft,rustfft,...]
+                    [--core 2] [--prec f32|f64] [--max-n N] [--misalign 8]
+                    [--filter prec=f32,dir=fwd,place=ip,n=64|128,maxn=N,minn=N]
+                    [--label NAME] [--out DIR] [--timeout 600] [--control-every 25]
+                    [--no-verify] [--allow-dirty-env] [--procs K]
+  fastfft-arena run-cell --core 2 --spec '<json>'
+  fastfft-arena report <run-dir>
+  fastfft-arena compare <run-a> <run-b>
+  fastfft-arena publish <run-dir> --label <label>
+  fastfft-arena env [--core 2]
+  fastfft-arena stockham-matrix   (requires stockham-diagnostics and x86_64; inventory only)
+  fastfft-arena stockham-placement --prec f32|f64 --n N --process 0..7 [--full-rows] [--profile full]
+  fastfft-arena stockham-crossover --prec f32|f64 --n N --process 0..7 [--full-rows] [--profile full]
+  fastfft-arena stockham-passes --prec f32|f64 --n N --process INDEX [--profile full]
+    These three commands require stockham-diagnostics and Linux x86_64 (CPU affinity and /proc).
+    Placement/crossover require an AVX-512 host, even for an avx2 recipe; no shape substitution.
+    Pass diagnostics support scalar and x86 Stockham plans; opaque wrappers are unsupported.
+    NEON diagnostics are unsupported.
+    Commands emit diagnostic JSON, never acceptance results. Ordinary builds support ARM/macOS.
+
+Libraries: fastfft fastfft/avx2 rustfft phastft/split phastft/interleaved tfhe-fft oxifft fftw
+Extra rows: fastfft/avx512 fastfft/avx512-ymm fastfft/sse2 fastfft/scalar fastfft/measure
+Prototype: lab/dit-<ymm|zmm|avx2>-radices-<ordered Phase-A radices joined by x>
+           x86_64 with AVX-512; forward in-place only, radices 2/4/8/16, product N/L,
+           full Phase-B blocks (N divisible by L*L). No diagnostic feature needed for these rows.
+           Append -shared to use caller scratch while retaining both private allocations.
+           Append -shared-offset1024 for a fixed shifted caller-scratch control.
+           run-cell caller_scratch counts complex elements; shared views reserve N plus offset.

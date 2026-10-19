@@ -1,0 +1,257 @@
+diff --git a/crates/fastfft/src/isa/x86/interleaved.rs b/crates/fastfft/src/isa/x86/interleaved.rs
+index c4a9e39..1173254 100644
+--- a/crates/fastfft/src/isa/x86/interleaved.rs
++++ b/crates/fastfft/src/isa/x86/interleaved.rs
+@@ -29,6 +29,8 @@ pub(crate) unsafe trait Row: Copy {
+     unsafe fn mul_add(self, m: Self, a: Self) -> Self;
+     /// `self * m - a`, fused.
+     unsafe fn mul_sub(self, m: Self, a: Self) -> Self;
++    /// `a - self * m`, fused.
++    unsafe fn neg_mul_add(self, m: Self, a: Self) -> Self;
+     /// `(re - o.re, im + o.im)` for every complex value.
+     unsafe fn addsub(self, o: Self) -> Self;
+     /// Swaps the real and imaginary part of every complex value.
+@@ -37,9 +39,10 @@ pub(crate) unsafe trait Row: Copy {
+     unsafe fn rot<const INV: bool>(self) -> Self;
+     /// `(re, im)` in every complex position.
+     unsafe fn signs(re: f64, im: f64) -> Self;
+-    /// Whether latency-bound leaves fold the radix-4 rotation into `addsub`.
+-    /// It saves a step on the critical path but costs one more operation,
+-    /// which loses where a row is two registers or 512-bit ops run split.
++    /// Whether latency-bound leaves fold the radix-4 rotation into `addsub`
++    /// (see `radix4`). It saves a step on the critical path but costs two
++    /// more operations, which loses where a row is two registers or 512-bit
++    /// ops run split.
+     const FUSED_ROT: bool;
+     /// The complete size-N transform with these rows (`quad` or `wide`).
+     /// `LATENCY` marks a single in-place transform: the next call on the
+@@ -121,6 +124,11 @@ unsafe impl Row for R32 {
+         unsafe { Self(_mm256_fmsub_ps(self.0, m.0, a.0)) }
+     }
+     #[inline(always)]
++    unsafe fn neg_mul_add(self, m: Self, a: Self) -> Self {
++        // SAFETY: FMA enabled by the caller.
++        unsafe { Self(_mm256_fnmadd_ps(self.0, m.0, a.0)) }
++    }
++    #[inline(always)]
+     unsafe fn addsub(self, o: Self) -> Self {
+         // SAFETY: AVX enabled by the caller.
+         unsafe { Self(_mm256_addsub_ps(self.0, o.0)) }
+@@ -284,6 +292,16 @@ unsafe impl Row for R64 {
+         }
+     }
+     #[inline(always)]
++    unsafe fn neg_mul_add(self, m: Self, a: Self) -> Self {
++        // SAFETY: FMA enabled by the caller.
++        unsafe {
++            Self(
++                _mm256_fnmadd_pd(self.0, m.0, a.0),
++                _mm256_fnmadd_pd(self.1, m.1, a.1),
++            )
++        }
++    }
++    #[inline(always)]
+     unsafe fn addsub(self, o: Self) -> Self {
+         // SAFETY: AVX enabled by the caller.
+         unsafe { Self(_mm256_addsub_pd(self.0, o.0), _mm256_addsub_pd(self.1, o.1)) }
+@@ -447,6 +465,11 @@ unsafe impl Row for R64z {
+         unsafe { Self(_mm512_fmsub_pd(self.0, m.0, a.0)) }
+     }
+     #[inline(always)]
++    unsafe fn neg_mul_add(self, m: Self, a: Self) -> Self {
++        // SAFETY: AVX-512F enabled by the caller.
++        unsafe { Self(_mm512_fnmadd_pd(self.0, m.0, a.0)) }
++    }
++    #[inline(always)]
+     unsafe fn addsub(self, o: Self) -> Self {
+         // SAFETY: AVX-512F enabled by the caller. No 512-bit addsub exists.
+         unsafe { Self(_mm512_fmaddsub_pd(self.0, _mm512_set1_pd(1.), o.0)) }
+@@ -577,6 +600,11 @@ unsafe impl Row for R32z {
+         unsafe { Self(_mm512_fmsub_ps(self.0, m.0, a.0)) }
+     }
+     #[inline(always)]
++    unsafe fn neg_mul_add(self, m: Self, a: Self) -> Self {
++        // SAFETY: AVX-512F enabled by the caller.
++        unsafe { Self(_mm512_fnmadd_ps(self.0, m.0, a.0)) }
++    }
++    #[inline(always)]
+     unsafe fn addsub(self, o: Self) -> Self {
+         // SAFETY: AVX-512F enabled by the caller. No 512-bit addsub exists.
+         unsafe { Self(_mm512_fmaddsub_ps(self.0, _mm512_set1_ps(1.), o.0)) }
+@@ -668,21 +696,32 @@ unsafe fn cmul<R: Row>(v: R, w: *const R::S) -> R {
+     unsafe { v.swap().mul_add(R::load(w.add(R::W)), v.mul(R::load(w))) }
+ }
+ 
+-/// Radix-4 across rows. With `FUSED` (and `R::FUSED_ROT`) the ∓i rotation
+-/// folds into `addsub` of swapped differences, one step shorter on the
+-/// critical path than rotating and then adding, for one more operation.
++/// Radix-4 across rows. The ∓i rotation of `a1 - a3` folds into the two
++/// FMAs that add it to `a0 - a2` (`add_rot`). With `FUSED` (and
++/// `R::FUSED_ROT`) it folds into `addsub` of swapped differences instead:
++/// one step shorter on the critical path, for two more operations.
+ #[inline(always)]
+ unsafe fn radix4<R: Row, const INV: bool, const FUSED: bool>(a: [R; 4]) -> [R; 4] {
++    // SAFETY: row arithmetic under the caller's features.
++    unsafe { radix4_sd::<R, INV, FUSED>(a[0].add(a[2]), a[0].sub(a[2]), a[1], a[3]) }
++}
++
++/// `radix4` from `a0 + a2` (`s02`), `a0 - a2` (`d02`), `a1` and `a3`.
++#[inline(always)]
++unsafe fn radix4_sd<R: Row, const INV: bool, const FUSED: bool>(
++    s02: R,
++    d02: R,
++    a1: R,
++    a3: R,
++) -> [R; 4] {
+     // SAFETY: row arithmetic under the caller's features.
+     unsafe {
+-        let s02 = a[0].add(a[2]);
+-        let d02 = a[0].sub(a[2]);
+-        let s13 = a[1].add(a[3]);
++        let s13 = a1.add(a3);
+         if !(FUSED && R::FUSED_ROT) {
+-            let d13 = a[1].sub(a[3]).rot::<INV>();
+-            return [s02.add(s13), d02.add(d13), s02.sub(s13), d02.sub(d13)];
++            let (y1, y3) = add_rot::<R, INV>(d02, a1.sub(a3));
++            return [s02.add(s13), y1, s02.sub(s13), y3];
+         }
+-        let (p, q) = (a[1].swap(), a[3].swap());
++        let (p, q) = (a1.swap(), a3.swap());
+         // swap(a1 - a3) and its negation: d02 ∓ i·(a1 - a3) as addsub.
+         let (sw, nsw) = (p.sub(q), q.sub(p));
+         let (y1, y3) = if INV {
+@@ -694,6 +733,47 @@ unsafe fn radix4<R: Row, const INV: bool, const FUSED: bool>(a: [R; 4]) -> [R; 4
+     }
+ }
+ 
++/// `(a + ∓i·x, a - ∓i·x)` as two FMAs on `swap(x)`: ∓i·x = swap(x)·(±1, ∓1).
++/// Rotating with an xor and then adding would put three operations on the
++/// add pipes, which bind these leaves while the FMA pipes idle; the FMAs
++/// make N >= 16 up to 12% faster.
++#[inline(always)]
++unsafe fn add_rot<R: Row, const INV: bool>(a: R, x: R) -> (R, R) {
++    // SAFETY: row arithmetic under the caller's features.
++    unsafe {
++        let m = if INV {
++            R::signs(-1., 1.)
++        } else {
++            R::signs(1., -1.)
++        };
++        let t = x.swap();
++        (t.mul_add(m, a), t.neg_mul_add(m, a))
++    }
++}
++
++/// `(a + ω8·v, a - ω8·v)` (or ω8³ with `CUBE`) as four FMAs.
++#[inline(always)]
++unsafe fn add_w8<R: Row, const INV: bool, const CUBE: bool>(a: R, v: R) -> (R, R) {
++    // SAFETY: row arithmetic under the caller's features.
++    unsafe {
++        let h = core::f64::consts::FRAC_1_SQRT_2;
++        let (hh, rh) = (R::signs(h, h), rot_half::<R, INV>());
++        let t = v.swap();
++        // ω8·v = swap(v)·rh + v·hh; ω8³·v = swap(v)·rh - v·hh.
++        if CUBE {
++            (
++                t.mul_add(rh, v.neg_mul_add(hh, a)),
++                t.neg_mul_add(rh, v.mul_add(hh, a)),
++            )
++        } else {
++            (
++                t.mul_add(rh, v.mul_add(hh, a)),
++                t.neg_mul_add(rh, v.neg_mul_add(hh, a)),
++            )
++        }
++    }
++}
++
+ /// `(h, ∓h)` with h = 1/√2: `swap(v)` times this is `∓i·v/√2`.
+ #[inline(always)]
+ unsafe fn rot_half<R: Row, const INV: bool>() -> R {
+@@ -736,17 +816,18 @@ unsafe fn radix8<R: Row, const INV: bool, const FUSED: bool>(a: [R; 8]) -> [R; 8
+     unsafe {
+         let e = radix4::<R, INV, FUSED>([a[0], a[2], a[4], a[6]]);
+         let o = radix4::<R, INV, FUSED>([a[1], a[3], a[5], a[7]]);
++        // The ω8 products stay unfolded here (`add_w8` measured neutral).
+         let o1 = mul_w8::<R, INV>(o[1]);
+-        let o2 = o[2].rot::<INV>();
++        let (p2, m2) = add_rot::<R, INV>(e[2], o[2]);
+         let o3 = mul_w8_3::<R, INV>(o[3]);
+         [
+             e[0].add(o[0]),
+             e[1].add(o1),
+-            e[2].add(o2),
++            p2,
+             e[3].add(o3),
+             e[0].sub(o[0]),
+             e[1].sub(o1),
+-            e[2].sub(o2),
++            m2,
+             e[3].sub(o3),
+         ]
+     }
+@@ -814,10 +895,10 @@ pub(crate) fn table<S: Copy + core::ops::Neg<Output = S>>(
+ 
+ /// Leaves with rows of four. N=16 (4x4) and N=32 (8x4): columns across
+ /// rows, twiddle, 4x4 transposes, then radix-4 across rows, fused when
+-/// `LATENCY` (in place it shortens the critical path by 2-5%; out of place
+-/// its extra operations cost 4-7%). Other sizes use dedicated sequences,
+-/// unfused: even in place, N >= 64 run 14-29% slower fused. Every leaf loads
+-/// each input before it can be overwritten.
++/// `LATENCY` (in place it is up to 3% faster than the FMA rotation; out of
++/// place its extra operations cost more). Other sizes use dedicated
++/// sequences, unfused: even in place, N >= 64 run 14-29% slower fused. Every
++/// leaf loads each input before it can be overwritten.
+ #[inline(always)]
+ unsafe fn quad<R: Quad, const N: usize, const INV: bool, const LATENCY: bool>(
+     input: *const R::S,
+@@ -1074,30 +1155,28 @@ unsafe fn radix16<R: Row, const INV: bool, const FUSED: bool>(
+         let y2 = radix4::<R, INV, FUSED>([x[2], x[6], x[10], x[14]]);
+         let y3 = radix4::<R, INV, FUSED>([x[3], x[7], x[11], x[15]]);
+         // ω16^(b·c): 1, 2 and 3 for b = 1; 2, 4 and 6 for b = 2; 3, 6, 9.
+-        let y = [
+-            y0,
+-            [
+-                y1[0],
+-                cmul(y1[1], w),
+-                mul_w8::<R, INV>(y1[2]),
+-                cmul(y1[3], w.add(2 * R::W)),
+-            ],
+-            [
+-                y2[0],
+-                mul_w8::<R, INV>(y2[1]),
+-                y2[2].rot::<INV>(),
+-                mul_w8_3::<R, INV>(y2[3]),
+-            ],
+-            [
+-                y3[0],
+-                cmul(y3[1], w.add(2 * R::W)),
+-                mul_w8_3::<R, INV>(y3[2]),
+-                cmul(y3[3], w.add(4 * R::W)),
+-            ],
++        // b = 2's ω8, -i and ω8³ fold into the FMAs that form a0 ± a2.
++        let t1 = [
++            y1[0],
++            cmul(y1[1], w),
++            mul_w8::<R, INV>(y1[2]),
++            cmul(y1[3], w.add(2 * R::W)),
++        ];
++        let t3 = [
++            y3[0],
++            cmul(y3[1], w.add(2 * R::W)),
++            mul_w8_3::<R, INV>(y3[2]),
++            cmul(y3[3], w.add(4 * R::W)),
++        ];
++        let sd = [
++            (y0[0].add(y2[0]), y0[0].sub(y2[0])),
++            add_w8::<R, INV, false>(y0[1], y2[1]),
++            add_rot::<R, INV>(y0[2], y2[2]),
++            add_w8::<R, INV, true>(y0[3], y2[3]),
+         ];
+         let mut z = [x[0]; 16];
+         for c in 0..4 {
+-            let r = radix4::<R, INV, FUSED>([y[0][c], y[1][c], y[2][c], y[3][c]]);
++            let r = radix4_sd::<R, INV, FUSED>(sd[c].0, sd[c].1, t1[c], t3[c]);
+             for d in 0..4 {
+                 z[c + 4 * d] = r[d];
+             }

@@ -1,0 +1,25 @@
+{
+  "acceptance": false,
+  "cells": [
+    "smooth:f32:inv:oop:n75600",
+    "smooth:f64:inv:oop:n165375"
+  ],
+  "processes": 8,
+  "construction": "bit0",
+  "assignment": "[0,1,1,0] XOR bit1",
+  "first_member": "bit2 + phase + round",
+  "calls": 1,
+  "rounds": 7,
+  "turn_ms": 100,
+  "warmup_ms": 200,
+  "samples_capacity": 32768,
+  "region_capacity": 64,
+  "storage": "complete existing owner graph, identical preflight and sham scans; preserve values, objects, buffers; restore final owners",
+  "mapping": "post timing and restoration only; all owned initialized ranges plus caller buffers",
+  "quiet": "fresh 60s, continuous core4/12 monitor, journaled reservation and independent restoration",
+  "hypotheses": [
+    "table storage location transfers gap and restores",
+    "order drift changes gap independent of owner assignment",
+    "object/caller workspace gap remains tied to member"
+  ]
+}

@@ -1,0 +1,57 @@
+[Unit]
+Description=GitHub Actions runner for fastfft lightweight checks
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=3
+
+[Service]
+Type=simple
+Slice=fastfft-ci.slice
+User=fastfft-runner-2
+Group=fastfft-runner-2
+WorkingDirectory=/var/lib/fastfft-runner-2/runner
+Environment=HOME=/var/lib/fastfft-runner-2
+Environment=CARGO_HOME=/var/lib/fastfft-runner-2/.cargo
+Environment=RUSTUP_HOME=/var/lib/fastfft-runner-2/.rustup
+Environment=TMPDIR=/var/lib/fastfft-runner-2/tmp
+Environment=PATH=/var/lib/fastfft-runner-2/.cargo/bin:/usr/local/bin:/usr/bin:/bin
+Environment=ACTIONS_RUNNER_HOOK_JOB_STARTED=/usr/local/lib/fastfft-runner/job-started.sh
+Environment=ACTIONS_RUNNER_HOOK_JOB_COMPLETED=/usr/local/lib/fastfft-runner/job-completed.sh
+Environment=RUNNER_LOGRETENTION=7
+Environment=WORKER_LOGRETENTION=7
+ExecStartPre=/usr/bin/python3 -I /usr/local/lib/fastfft-runner/cleanup.py startup
+ExecStart=/var/lib/fastfft-runner-2/runner/runsvc.sh
+Restart=on-failure
+RestartSec=15
+KillSignal=SIGINT
+KillMode=control-group
+TimeoutStopSec=5min
+UMask=0077
+
+# Separate account and storage: cleanup cannot affect the other runner.
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/fastfft-runner-2
+PrivateTmp=true
+NoNewPrivileges=true
+CapabilityBoundingSet=
+# No RestrictSUIDSGID: it breaks nested GNU tar extraction on this host.
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+InaccessiblePaths=-/run/docker.sock -/run/podman/podman.sock
+
+# Lighter checks use at most 2 GiB within the shared 8 GiB budget.
+CPUQuota=400%
+CPUWeight=25
+IOWeight=25
+Nice=10
+MemoryHigh=2G
+MemoryMax=2G
+MemorySwapMax=0
+TasksMax=4096
+LogNamespace=fastfft-runner
+
+[Install]
+WantedBy=multi-user.target

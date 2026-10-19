@@ -1,0 +1,41 @@
+{
+  "run": "target/ticket19/parent-focus/case-25",
+  "cells": 2,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "realworld": {
+      "cells": 2,
+      "failures": 0,
+      "worst": 1.002638992950099,
+      "geomean": 1.0015479948979744
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "realworld:f32:fwd:ip:n4096:Spectrogram",
+      "suite": "realworld",
+      "metric": "best",
+      "ratio": 1.002638992950099,
+      "best": 1.002638992950099,
+      "p1": 1.002638992950099,
+      "median": 1.0061611321639654,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224",
+      "measure": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224",
+      "same_plan": true
+    },
+    {
+      "key": "realworld:f32:fwd:ip:n4096:OverlapSave",
+      "suite": "realworld",
+      "metric": "best",
+      "ratio": 1.0004581839897353,
+      "best": 1.0004581839897353,
+      "p1": 1.0004581839897353,
+      "median": 0.9991923424358269,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224 inverse=[stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224]",
+      "measure": "stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224 inverse=[stockham avx512-ymm split L=8 radices=8x8x8 scratch=9224 scratch_oop=9224 scratch_immutable=9224]",
+      "same_plan": true
+    }
+  ]
+}

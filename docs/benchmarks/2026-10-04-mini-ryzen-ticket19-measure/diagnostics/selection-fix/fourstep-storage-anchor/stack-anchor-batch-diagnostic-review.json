@@ -1,0 +1,564 @@
+{
+  "scope": "Existing frozen diagnostic assembly versus canonical originals; not default production acceptance. No compilation, disassembly, or benchmark performed.",
+  "diagnostic_binary_sha256_supplied_by_parent": "99c32d116272e48941a837af95054b7294a06b4c4ff1c2f2bf1ac220fa5cfd69",
+  "kernels": [
+    {
+      "kernel": "n96-inverse-8x12-batch",
+      "prior": {
+        "instructions": 555,
+        "vector_instructions": 545,
+        "stack_operand_instructions": 24,
+        "vector_stack_instructions": 24,
+        "stack_vector_width_counts": {
+          "YMM": 24
+        },
+        "fp_counts": {
+          "vaddps": 100,
+          "vfmadd231ps": 11,
+          "vfnmadd213ps": 8,
+          "vfnmadd231ps": 11,
+          "vmulps": 38,
+          "vsubps": 92
+        }
+      },
+      "diagnostic_anchor": {
+        "instructions": 576,
+        "vector_instructions": 558,
+        "stack_operand_instructions": 34,
+        "vector_stack_instructions": 30,
+        "stack_vector_width_counts": {
+          "YMM": 30
+        },
+        "fp_counts": {
+          "vaddps": 100,
+          "vfmadd231ps": 11,
+          "vfnmadd213ps": 8,
+          "vfnmadd231ps": 11,
+          "vmulps": 38,
+          "vsubps": 92
+        }
+      },
+      "assembly_sha256": {
+        "prior": "bb6d3bad73336d407e916112d2c791302ac27a5b7a45e0388743b69b7d647652",
+        "diagnostic": "d9dc03b908d3a732d1471584539e0b98ec83ea30d446e99f83d05e3effa181ff"
+      },
+      "normalized_vector_sequence_identical": false,
+      "normalization": "RIP relocation; aligned/unaligned stack move mnemonic; packed new stack offsets minus128. Generic stream lengths differ regardless of offsets.",
+      "fp_opcode_histogram_identical": true,
+      "current_local_vector_operands": [
+        {
+          "operand": "[rsp+0x100]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x120]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x60]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x80]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0xa0]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0xc0]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0xe0]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        }
+      ],
+      "all_local_vector_accesses_no_64_byte_crossing": true,
+      "explicit_frame_bytes": {
+        "prior": 72,
+        "diagnostic": 448
+      },
+      "frame_alignment": 64,
+      "index_proof": "All local vector operands use direct rsp displacements divisible32. rsp remains fixed throughout loop. r8/r9 hold anchor and pointer-slot addresses but are never dereferenced as vector/memory bases. No rbp vector operands. Input/output/coefficient bases excluded from local-stack guarantee.",
+      "anchor_byte_offset": 320,
+      "anchor_pointer_slot_offset": 56,
+      "overhead": "Six additional fixed instructions and two implicit push/pop accesses per batch; two scalar stores per transform. Two anchor LEAs and aligned frame setup are outside batch loop.",
+      "dynamic_listing_count": {
+        "prior": "547*C+8",
+        "diagnostic": "562*C+14",
+        "delta": "15*C+6",
+        "definition": "C positive transform count; architectural instruction listing, includes one pre-loop alignment nop and final vzeroupper; not a cycle estimate."
+      },
+      "concern": "N96 vector stack accesses24\u219230 and vector instructions545\u2192558 require production-code and measured-performance review; not automatic failure solely from static count."
+    },
+    {
+      "kernel": "n80-forward-8x10-batch",
+      "prior": {
+        "instructions": 524,
+        "vector_instructions": 514,
+        "stack_operand_instructions": 34,
+        "vector_stack_instructions": 34,
+        "stack_vector_width_counts": {
+          "YMM": 34
+        },
+        "fp_counts": {
+          "vaddps": 86,
+          "vfmadd213ps": 4,
+          "vfmadd231ps": 17,
+          "vfnmadd213ps": 4,
+          "vfnmadd231ps": 17,
+          "vmulps": 34,
+          "vsubps": 78
+        }
+      },
+      "diagnostic_anchor": {
+        "instructions": 514,
+        "vector_instructions": 496,
+        "stack_operand_instructions": 18,
+        "vector_stack_instructions": 14,
+        "stack_vector_width_counts": {
+          "YMM": 14
+        },
+        "fp_counts": {
+          "vaddps": 86,
+          "vfmadd213ps": 4,
+          "vfmadd231ps": 17,
+          "vfnmadd213ps": 4,
+          "vfnmadd231ps": 17,
+          "vmulps": 34,
+          "vsubps": 78
+        }
+      },
+      "assembly_sha256": {
+        "prior": "d5080fdb9481b83c1d1aed658a446a21d1a4fd3ac7d0e375bd982872c5c55596",
+        "diagnostic": "a19366fc892cac1a1e71eeb8a23b8859b424c52f16f1c56cfb9724f6cd73a71a"
+      },
+      "normalized_vector_sequence_identical": false,
+      "normalization": "RIP relocation; aligned/unaligned stack move mnemonic; packed new stack offsets minus128. Generic stream lengths differ regardless of offsets.",
+      "fp_opcode_histogram_identical": true,
+      "current_local_vector_operands": [
+        {
+          "operand": "[rsp+0x20]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x60]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        }
+      ],
+      "all_local_vector_accesses_no_64_byte_crossing": true,
+      "explicit_frame_bytes": {
+        "prior": 136,
+        "diagnostic": 256
+      },
+      "frame_alignment": 64,
+      "index_proof": "All local vector operands use direct rsp displacements divisible32. rsp remains fixed throughout loop. r8/r9 hold anchor and pointer-slot addresses but are never dereferenced as vector/memory bases. No rbp vector operands. Input/output/coefficient bases excluded from local-stack guarantee.",
+      "anchor_byte_offset": 128,
+      "anchor_pointer_slot_offset": 24,
+      "overhead": "Six additional fixed instructions and two implicit push/pop accesses per batch; two scalar stores per transform. Two anchor LEAs and aligned frame setup are outside batch loop.",
+      "dynamic_listing_count": {
+        "prior": "516*C+8",
+        "diagnostic": "500*C+14",
+        "delta": "-16*C+6",
+        "definition": "C positive transform count; architectural instruction listing, includes one pre-loop alignment nop and final vzeroupper; not a cycle estimate."
+      },
+      "concern": "N80 fewer static moves/spills do not establish a speedup; register scheduling differs."
+    },
+    {
+      "kernel": "n80-forward-16x5-batch",
+      "prior": {
+        "instructions": 433,
+        "vector_instructions": 400,
+        "stack_operand_instructions": 42,
+        "vector_stack_instructions": 42,
+        "stack_vector_width_counts": {
+          "YMM": 36,
+          "XMM": 6
+        },
+        "fp_counts": {
+          "vaddps": 45,
+          "vfmadd213ps": 19,
+          "vfmadd231ps": 36,
+          "vfnmadd213ps": 8,
+          "vfnmadd231ps": 9,
+          "vmulps": 30,
+          "vsubps": 37
+        }
+      },
+      "diagnostic_anchor": {
+        "instructions": 437,
+        "vector_instructions": 400,
+        "stack_operand_instructions": 43,
+        "vector_stack_instructions": 42,
+        "stack_vector_width_counts": {
+          "YMM": 36,
+          "XMM": 6
+        },
+        "fp_counts": {
+          "vaddps": 45,
+          "vfmadd213ps": 19,
+          "vfmadd231ps": 36,
+          "vfnmadd213ps": 8,
+          "vfnmadd231ps": 9,
+          "vmulps": 30,
+          "vsubps": 37
+        }
+      },
+      "assembly_sha256": {
+        "prior": "9ca6879bcec2147bbd0c6e99b97fd887ec8744f15b90ba2208856ec699852b27",
+        "diagnostic": "20c1555fe00bfa045be43a072ab932cb3ed9767a686b51e62b3d4453857c41c8"
+      },
+      "normalized_vector_sequence_identical": true,
+      "normalization": "RIP relocation; aligned/unaligned stack move mnemonic; packed new stack offsets minus128. Generic stream lengths differ regardless of offsets.",
+      "fp_opcode_histogram_identical": true,
+      "current_local_vector_operands": [
+        {
+          "operand": "[rsp+0x100]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x120]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x140]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x160]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x180]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x1a0]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x1c0]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x1e0]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x200]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x20]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x220]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x240]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x260]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x40]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x60]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0x80]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0xa0]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0xc0]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+0xe0]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x100]",
+          "width_bytes": 32,
+          "indexed": true,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x120]",
+          "width_bytes": 32,
+          "indexed": true,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x140]",
+          "width_bytes": 32,
+          "indexed": true,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x160]",
+          "width_bytes": 32,
+          "indexed": true,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x180]",
+          "width_bytes": 32,
+          "indexed": true,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x1a0]",
+          "width_bytes": 32,
+          "indexed": true,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x1c0]",
+          "width_bytes": 32,
+          "indexed": true,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x1e0]",
+          "width_bytes": 32,
+          "indexed": true,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x20]",
+          "width_bytes": 16,
+          "indexed": true,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x20]",
+          "width_bytes": 32,
+          "indexed": true,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x30]",
+          "width_bytes": 16,
+          "indexed": true,
+          "offset_mod64": 48,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x40]",
+          "width_bytes": 16,
+          "indexed": true,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x40]",
+          "width_bytes": 32,
+          "indexed": true,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x50]",
+          "width_bytes": 16,
+          "indexed": true,
+          "offset_mod64": 16,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x60]",
+          "width_bytes": 16,
+          "indexed": true,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x60]",
+          "width_bytes": 32,
+          "indexed": true,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x70]",
+          "width_bytes": 16,
+          "indexed": true,
+          "offset_mod64": 48,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0x80]",
+          "width_bytes": 32,
+          "indexed": true,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0xa0]",
+          "width_bytes": 32,
+          "indexed": true,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0xc0]",
+          "width_bytes": 32,
+          "indexed": true,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8+0xe0]",
+          "width_bytes": 32,
+          "indexed": true,
+          "offset_mod64": 32,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp+r10*8]",
+          "width_bytes": 32,
+          "indexed": true,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        },
+        {
+          "operand": "[rsp]",
+          "width_bytes": 32,
+          "indexed": false,
+          "offset_mod64": 0,
+          "no_64_byte_crossing": true
+        }
+      ],
+      "all_local_vector_accesses_no_64_byte_crossing": true,
+      "explicit_frame_bytes": {
+        "prior": 1920,
+        "diagnostic": 2112
+      },
+      "frame_alignment": 64,
+      "index_proof": "r10 starts0, increments64; used values0/64 scaled8 give0/512, both divisible64. r11 is derived from caller input, not stack. rbp appears only in epilogue LEA, not a vector load.",
+      "overhead": "Four additional fixed instructions and two implicit push/pop stack accesses per batch. No per-transform anchor stores. Full vector stream matches with stack displacement +128.",
+      "dynamic_listing_count": null
+    }
+  ]
+}

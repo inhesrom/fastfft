@@ -1,0 +1,1431 @@
+{
+  "passed_generated_alignment": true,
+  "scope": "Only three exact single-transform kernels in the frozen LARGE STORAGE CROSSOVER DIAGNOSTIC executable. Not default production acceptance, batch-path validation, or performance acceptance.",
+  "executable": "fastfft-arena",
+  "frozen_executable_sha256_supplied_by_root": "99c32d116272e48941a837af95054b7294a06b4c4ff1c2f2bf1ac220fa5cfd69",
+  "executable_hash_independently_recomputed": false,
+  "method": "Read retained assembly only on CPU0. Parse instructions through first RET (exclude trailing padding); audit stack bases and all general-purpose address-register writes; compare normalized instruction sequences. No build, disassembly, FFT execution or benchmark.",
+  "kernels": [
+    {
+      "identity": "rectangle<96, 8, 12, true, false>",
+      "start": "0xb73ac0",
+      "end": "0xb74880",
+      "assembly": "n96-inverse-8x12.asm",
+      "name": "n96-inverse-8x12",
+      "comparison": {
+        "canonical": {
+          "assembly": "target/ticket19/selection-fix/page-storage-stack/matrix-review-old/n96-inverse-8x12.asm",
+          "assembly_sha256": "0aff3344c303248ddfac9afd7aef120ef3b11788efe4f3af9e3528cd6e903fc5",
+          "explicit_frame_bytes": 424,
+          "symbol_span_bytes": 3456,
+          "body_bytes_through_ret": 3418,
+          "instructions_through_ret": 570,
+          "static_stack_operand_instructions_including_lea": 52,
+          "static_stack_vector_memory_instructions": 52,
+          "stack_memory_vector_width_counts": {
+            "YMMWORD": 44,
+            "XMMWORD": 8
+          }
+        },
+        "rejected_materialized": {
+          "assembly": "target/ticket19/selection-fix/page-storage-observable-stack/matrix-review-new/n96-inverse-8x12.asm",
+          "assembly_sha256": "a5a78ad221487f6b13b9d807fdf7ac6bd58fe34b6de4e4b9777ad20a41a4a1bb",
+          "explicit_frame_bytes": 2432,
+          "symbol_span_bytes": 4096,
+          "body_bytes_through_ret": 4084,
+          "instructions_through_ret": 653,
+          "static_stack_operand_instructions_including_lea": 66,
+          "static_stack_vector_memory_instructions": 63,
+          "stack_memory_vector_width_counts": {
+            "YMMWORD": 63
+          }
+        },
+        "anchor_diagnostic": {
+          "assembly": "target/ticket19/selection-fix/large-storage-crossover/matrix-code/n96-inverse-8x12.asm",
+          "assembly_sha256": "a342806b60c955438a7bae8edc98dd231572ab49695a0883860e680527bfd1f7",
+          "explicit_frame_bytes": 704,
+          "symbol_span_bytes": 3520,
+          "body_bytes_through_ret": 3504,
+          "instructions_through_ret": 578,
+          "static_stack_operand_instructions_including_lea": 56,
+          "static_stack_vector_memory_instructions": 52,
+          "stack_memory_vector_width_counts": {
+            "YMMWORD": 44,
+            "XMMWORD": 8
+          }
+        }
+      },
+      "stack_realignment_bytes": 64,
+      "frame_remains_aligned": true,
+      "rbp_memory_references": 0,
+      "derived_stack_pointer_memory_references": 0,
+      "audited_address_register_writes": [
+        {
+          "address": "0xb73ac1",
+          "instruction": "mov    rbp,rsp"
+        },
+        {
+          "address": "0xb73ac4",
+          "instruction": "and    rsp,0xffffffffffffffc0"
+        },
+        {
+          "address": "0xb73ac8",
+          "instruction": "sub    rsp,0x2c0"
+        },
+        {
+          "address": "0xb73ad7",
+          "instruction": "lea    rax,[rsp+0x240]"
+        },
+        {
+          "address": "0xb73ae4",
+          "instruction": "lea    rax,[rsp+0x18]"
+        },
+        {
+          "address": "0xb74868",
+          "instruction": "mov    rsp,rbp"
+        }
+      ],
+      "stack_vector_accesses": [
+        {
+          "instruction_address": "0xb73c41",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x100],ymm31",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb73c73",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x200],ymm30",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb73cc8",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x180],ymm9",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb73cfe",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0xa0],ymm4",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb73d19",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x140],ymm10",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb73d34",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x80],ymm7",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb73d49",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x1c0],ymm14",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb73d5f",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0xe0],ymm5",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb73d6e",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x120],ymm20",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb73d7c",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x220],ymm12",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb73d8b",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x1a0],ymm13",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb73d9a",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0xc0],ymm6",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb73da9",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x160],ymm16",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb73db7",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x20],ymm11",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb73dc1",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x1e0],ymm15",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb73dce",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x40],ymm8",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb73dff",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x60],ymm4",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb740d0",
+          "instruction": "vpermilps ymm24,YMMWORD PTR [rsp+0x60],0xd8",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb740e7",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x60],ymm2",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb74148",
+          "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x100]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb74151",
+          "instruction": "vinsertf128 ymm0,ymm0,XMMWORD PTR [rsp+0x120],0x1",
+          "width_bytes": 16,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb7415c",
+          "instruction": "vmovaps ymm1,YMMWORD PTR [rsp+0x140]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb74165",
+          "instruction": "vinsertf128 ymm1,ymm1,XMMWORD PTR [rsp+0x160],0x1",
+          "width_bytes": 16,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb74174",
+          "instruction": "vmovaps ymm3,YMMWORD PTR [rsp+0x180]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb7417d",
+          "instruction": "vinsertf128 ymm3,ymm3,XMMWORD PTR [rsp+0x1a0],0x1",
+          "width_bytes": 16,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb74188",
+          "instruction": "vmovaps ymm4,YMMWORD PTR [rsp+0x1c0]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb74191",
+          "instruction": "vinsertf128 ymm5,ymm4,XMMWORD PTR [rsp+0x1e0],0x1",
+          "width_bytes": 16,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb741aa",
+          "instruction": "vmovaps ymm6,YMMWORD PTR [rsp+0x200]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb741b3",
+          "instruction": "vinsertf128 ymm6,ymm6,XMMWORD PTR [rsp+0x220],0x1",
+          "width_bytes": 16,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb741be",
+          "instruction": "vmovaps ymm7,YMMWORD PTR [rsp+0x80]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb741c7",
+          "instruction": "vinsertf128 ymm8,ymm7,XMMWORD PTR [rsp+0x20],0x1",
+          "width_bytes": 16,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb741d4",
+          "instruction": "vmovaps ymm9,YMMWORD PTR [rsp+0xa0]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb741dd",
+          "instruction": "vinsertf128 ymm9,ymm9,XMMWORD PTR [rsp+0xc0],0x1",
+          "width_bytes": 16,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb741e8",
+          "instruction": "vmovaps ymm10,YMMWORD PTR [rsp+0xe0]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb741f1",
+          "instruction": "vinsertf128 ymm10,ymm10,XMMWORD PTR [rsp+0x40],0x1",
+          "width_bytes": 16,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb7425b",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x40],ymm0",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb743c1",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x20],ymm1",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb743e5",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x80],ymm1",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb74418",
+          "instruction": "vmovaps ymm1,YMMWORD PTR [rsp+0x60]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb74430",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0xa0],ymm1",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb74475",
+          "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x40]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb744c5",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0xe0],ymm2",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb744d4",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0xc0],ymm2",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb744ff",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x40],ymm2",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb74511",
+          "instruction": "vmovaps ymm2,YMMWORD PTR [rsp+0x80]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb7452c",
+          "instruction": "vmovaps ymm1,YMMWORD PTR [rsp+0x20]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb74552",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x20],ymm9",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb74604",
+          "instruction": "vmulps ymm2,ymm7,YMMWORD PTR [rsp+0xe0]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb7460d",
+          "instruction": "vmovaps ymm4,YMMWORD PTR [rsp+0xa0]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb74622",
+          "instruction": "vmovaps ymm10,YMMWORD PTR [rsp+0xc0]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb74631",
+          "instruction": "vmulps ymm4,ymm7,YMMWORD PTR [rsp+0x40]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xb7466b",
+          "instruction": "vmulps ymm16,ymm7,YMMWORD PTR [rsp+0x20]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        }
+      ],
+      "all_local_stack_vector_accesses_no_cache_line_crossing": true,
+      "anchor_offset_from_rsp": 576,
+      "anchor_pointer_slot_offset": 24,
+      "canonical_vector_sequence_restored_after_normalization": true,
+      "vector_instruction_count_including_vzeroupper": 567,
+      "stack_slot_shift_from_canonical": 160,
+      "canonical_red_zone_lowest_vector_slot_offset": -128,
+      "anchor_stack_slot_lowest_offset": 32,
+      "anchor_stack_slot_extent_exclusive": 576,
+      "extra_instructions_vs_canonical": 8,
+      "extra_explicit_stack_data_accesses_vs_canonical": 2,
+      "extra_implicit_stack_data_accesses_vs_canonical": 2,
+      "extra_stack_address_leas_vs_canonical": 2,
+      "address_proof": "All local vector memory operands use direct RSP+constant; all YMM offsets are multiples of32 and all XMM offsets here are also multiples of32. RSP is AND-aligned to64 and then reduced by a multiple of64, remaining unchanged until its final restoration. RAX holds anchor/black_box addresses but is never dereferenced; no vector memory references use RBP or another stack-derived base. RDI/RSI/RDX remain caller input/output/twiddle pointers.",
+      "normalization": "Compare every vector instruction in order, replacing RIP displacements with a relocation marker, shifting only stack displacements by the recorded fixed amount, and equating aligned/unaligned stack moves. Register operands and other memory operands remain unchanged.",
+      "static_overhead": "Relative to canonical: anchor byte initialization and pointer-slot store (2 explicit memory stores), two LEAs, push/pop RBP (2 implicit memory accesses), MOV RBP,RSP and AND RSP,-64. SUB allocation size changes; old ADD RSP epilogue becomes MOV RSP,RBP. Total +8 instructions; no new vector spill/reload instructions. Baseline uses negative-offset red-zone slots, so explicit SUB sizes alone overstate added touched stack storage."
+    },
+    {
+      "identity": "rectangle<80, 8, 10, false, false>",
+      "start": "0xbbbb40",
+      "end": "0xbbc780",
+      "assembly": "n80-forward-8x10.asm",
+      "name": "n80-forward-8x10",
+      "comparison": {
+        "canonical": {
+          "assembly": "target/ticket19/selection-fix/page-storage-stack/matrix-review-old/n80-forward-8x10.asm",
+          "assembly_sha256": "33d06ebb62517026846fc03b544a468ce095bf917035ed0d21ba9b36e123eca2",
+          "explicit_frame_bytes": 264,
+          "symbol_span_bytes": 3072,
+          "body_bytes_through_ret": 3027,
+          "instructions_through_ret": 506,
+          "static_stack_operand_instructions_including_lea": 30,
+          "static_stack_vector_memory_instructions": 30,
+          "stack_memory_vector_width_counts": {
+            "YMMWORD": 30
+          }
+        },
+        "rejected_materialized": {
+          "assembly": "target/ticket19/selection-fix/page-storage-observable-stack/matrix-review-new/n80-forward-8x10.asm",
+          "assembly_sha256": "0214845e8d80bae2cf01b3564d93ac338111ad2b371dac0a0d071d1ce44987b7",
+          "explicit_frame_bytes": 2240,
+          "symbol_span_bytes": 3520,
+          "body_bytes_through_ret": 3513,
+          "instructions_through_ret": 569,
+          "static_stack_operand_instructions_including_lea": 38,
+          "static_stack_vector_memory_instructions": 35,
+          "stack_memory_vector_width_counts": {
+            "YMMWORD": 35
+          }
+        },
+        "anchor_diagnostic": {
+          "assembly": "target/ticket19/selection-fix/large-storage-crossover/matrix-code/n80-forward-8x10.asm",
+          "assembly_sha256": "515f1567d087ac760e3adadcf9d00fe483a917a9ff42d32baa521f95c4b65ee0",
+          "explicit_frame_bytes": 576,
+          "symbol_span_bytes": 3136,
+          "body_bytes_through_ret": 3099,
+          "instructions_through_ret": 514,
+          "static_stack_operand_instructions_including_lea": 34,
+          "static_stack_vector_memory_instructions": 30,
+          "stack_memory_vector_width_counts": {
+            "YMMWORD": 30
+          }
+        }
+      },
+      "stack_realignment_bytes": 64,
+      "frame_remains_aligned": true,
+      "rbp_memory_references": 0,
+      "derived_stack_pointer_memory_references": 0,
+      "audited_address_register_writes": [
+        {
+          "address": "0xbbbb41",
+          "instruction": "mov    rbp,rsp"
+        },
+        {
+          "address": "0xbbbb44",
+          "instruction": "and    rsp,0xffffffffffffffc0"
+        },
+        {
+          "address": "0xbbbb48",
+          "instruction": "sub    rsp,0x240"
+        },
+        {
+          "address": "0xbbbb57",
+          "instruction": "lea    rax,[rsp+0x1c0]"
+        },
+        {
+          "address": "0xbbbb64",
+          "instruction": "lea    rax,[rsp+0x38]"
+        },
+        {
+          "address": "0xbbc753",
+          "instruction": "mov    rsp,rbp"
+        }
+      ],
+      "stack_vector_accesses": [
+        {
+          "instruction_address": "0xbbbdc4",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0xc0],ymm0",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbbddb",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0xa0],ymm1",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbbdf2",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x100],ymm2",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbbe08",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0xe0],ymm3",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbbe2f",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x180],ymm7",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbbe3e",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x160],ymm7",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbbe4c",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x140],ymm7",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbbe5a",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x120],ymm4",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbbe6a",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x40],ymm4",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbbe7d",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x1a0],ymm5",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbbe93",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x80],ymm6",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbbeaa",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x60],ymm7",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc104",
+          "instruction": "vpermilps ymm22,YMMWORD PTR [rsp+0x180],0xd8",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc10d",
+          "instruction": "vpermilps ymm7,YMMWORD PTR [rsp+0x160],0xd8",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc118",
+          "instruction": "vpermilps ymm21,YMMWORD PTR [rsp+0x140],0xd8",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc121",
+          "instruction": "vpermilps ymm12,YMMWORD PTR [rsp+0x120],0xd8",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc1b5",
+          "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0xc0]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc1be",
+          "instruction": "vunpcklpd ymm0,ymm0,YMMWORD PTR [rsp+0x100]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc1c7",
+          "instruction": "vmovaps ymm1,YMMWORD PTR [rsp+0xa0]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc1d0",
+          "instruction": "vunpcklpd ymm1,ymm1,YMMWORD PTR [rsp+0xe0]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc1e3",
+          "instruction": "vmovaps ymm3,YMMWORD PTR [rsp+0x40]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc1e9",
+          "instruction": "vunpcklpd ymm4,ymm3,YMMWORD PTR [rsp+0x80]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc1f2",
+          "instruction": "vmovaps ymm3,YMMWORD PTR [rsp+0x1a0]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc1fb",
+          "instruction": "vunpcklpd ymm5,ymm3,YMMWORD PTR [rsp+0x60]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc215",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x80],ymm0",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc228",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x60],ymm0",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc39f",
+          "instruction": "vmovaps YMMWORD PTR [rsp+0x40],ymm12",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc3d3",
+          "instruction": "vmovaps ymm2,YMMWORD PTR [rsp+0x60]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc45a",
+          "instruction": "vmovaps ymm29,YMMWORD PTR [rsp+0x80]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbbc4d2",
+          "instruction": "vmovaps ymm2,YMMWORD PTR [rsp+0x40]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        }
+      ],
+      "all_local_stack_vector_accesses_no_cache_line_crossing": true,
+      "anchor_offset_from_rsp": 448,
+      "anchor_pointer_slot_offset": 56,
+      "canonical_vector_sequence_restored_after_normalization": true,
+      "vector_instruction_count_including_vzeroupper": 503,
+      "stack_slot_shift_from_canonical": 192,
+      "canonical_red_zone_lowest_vector_slot_offset": -128,
+      "anchor_stack_slot_lowest_offset": 64,
+      "anchor_stack_slot_extent_exclusive": 448,
+      "extra_instructions_vs_canonical": 8,
+      "extra_explicit_stack_data_accesses_vs_canonical": 2,
+      "extra_implicit_stack_data_accesses_vs_canonical": 2,
+      "extra_stack_address_leas_vs_canonical": 2,
+      "address_proof": "All local vector memory operands use direct RSP+constant; all YMM offsets are multiples of32 and all XMM offsets here are also multiples of32. RSP is AND-aligned to64 and then reduced by a multiple of64, remaining unchanged until its final restoration. RAX holds anchor/black_box addresses but is never dereferenced; no vector memory references use RBP or another stack-derived base. RDI/RSI/RDX remain caller input/output/twiddle pointers.",
+      "normalization": "Compare every vector instruction in order, replacing RIP displacements with a relocation marker, shifting only stack displacements by the recorded fixed amount, and equating aligned/unaligned stack moves. Register operands and other memory operands remain unchanged.",
+      "static_overhead": "Relative to canonical: anchor byte initialization and pointer-slot store (2 explicit memory stores), two LEAs, push/pop RBP (2 implicit memory accesses), MOV RBP,RSP and AND RSP,-64. SUB allocation size changes; old ADD RSP epilogue becomes MOV RSP,RBP. Total +8 instructions; no new vector spill/reload instructions. Baseline uses negative-offset red-zone slots, so explicit SUB sizes alone overstate added touched stack storage."
+    },
+    {
+      "identity": "rectangle<80, 16, 5, false, false>",
+      "start": "0xbdd200",
+      "end": "0xbddc40",
+      "assembly": "n80-forward-16x5.asm",
+      "name": "n80-forward-16x5",
+      "comparison": {
+        "canonical": {
+          "assembly": "target/ticket19/selection-fix/page-storage-stack/matrix-review-old/n80-forward-16x5.asm",
+          "assembly_sha256": "382af95f139f7e6fbb76c9035249a570f3ac50f180c44d3b9d84681913aa6bd4",
+          "explicit_frame_bytes": 1920,
+          "symbol_span_bytes": 2624,
+          "body_bytes_through_ret": 2584,
+          "instructions_through_ret": 419,
+          "static_stack_operand_instructions_including_lea": 42,
+          "static_stack_vector_memory_instructions": 42,
+          "stack_memory_vector_width_counts": {
+            "XMMWORD": 6,
+            "YMMWORD": 36
+          }
+        },
+        "rejected_materialized": {
+          "assembly": "target/ticket19/selection-fix/page-storage-observable-stack/matrix-review-new/n80-forward-16x5.asm",
+          "assembly_sha256": "f371f893282b17e4e87afa1e6bfd60220638b7c8ea3da12a51dc64ace5ebcb45",
+          "explicit_frame_bytes": 2112,
+          "symbol_span_bytes": 2624,
+          "body_bytes_through_ret": 2599,
+          "instructions_through_ret": 423,
+          "static_stack_operand_instructions_including_lea": 42,
+          "static_stack_vector_memory_instructions": 42,
+          "stack_memory_vector_width_counts": {
+            "XMMWORD": 6,
+            "YMMWORD": 36
+          }
+        },
+        "anchor_diagnostic": {
+          "assembly": "target/ticket19/selection-fix/large-storage-crossover/matrix-code/n80-forward-16x5.asm",
+          "assembly_sha256": "8b13a36041ecb9c0cb79373a7b1472e6feec89434f7012e47ef30ddb41505277",
+          "explicit_frame_bytes": 2112,
+          "symbol_span_bytes": 2624,
+          "body_bytes_through_ret": 2599,
+          "instructions_through_ret": 423,
+          "static_stack_operand_instructions_including_lea": 42,
+          "static_stack_vector_memory_instructions": 42,
+          "stack_memory_vector_width_counts": {
+            "XMMWORD": 6,
+            "YMMWORD": 36
+          }
+        }
+      },
+      "stack_realignment_bytes": 64,
+      "frame_remains_aligned": true,
+      "rbp_memory_references": 0,
+      "derived_stack_pointer_memory_references": 0,
+      "audited_address_register_writes": [
+        {
+          "address": "0xbdd201",
+          "instruction": "mov    rbp,rsp"
+        },
+        {
+          "address": "0xbdd204",
+          "instruction": "and    rsp,0xffffffffffffffc0"
+        },
+        {
+          "address": "0xbdd208",
+          "instruction": "sub    rsp,0x840"
+        },
+        {
+          "address": "0xbdd23f",
+          "instruction": "xor    eax,eax"
+        },
+        {
+          "address": "0xbdd265",
+          "instruction": "mov    rcx,rdi"
+        },
+        {
+          "address": "0xbdd268",
+          "instruction": "xor    r8d,r8d"
+        },
+        {
+          "address": "0xbdd2b9",
+          "instruction": "add    rax,0x40"
+        },
+        {
+          "address": "0xbdd2bd",
+          "instruction": "add    rcx,0x20"
+        },
+        {
+          "address": "0xbdd2c5",
+          "instruction": "mov    r8b,0x1"
+        },
+        {
+          "address": "0xbddc1f",
+          "instruction": "mov    rsp,rbp"
+        }
+      ],
+      "stack_vector_accesses": [
+        {
+          "instruction_address": "0xbdd27c",
+          "instruction": "vmovaps XMMWORD PTR [rsp+rax*8+0x30],xmm19",
+          "width_bytes": 16,
+          "effective_address_mod64": [
+            48
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd284",
+          "instruction": "vmovaps XMMWORD PTR [rsp+rax*8+0x20],xmm18",
+          "width_bytes": 16,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd297",
+          "instruction": "vmovaps XMMWORD PTR [rsp+rax*8+0x50],xmm15",
+          "width_bytes": 16,
+          "effective_address_mod64": [
+            16
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd29d",
+          "instruction": "vmovaps XMMWORD PTR [rsp+rax*8+0x40],xmm14",
+          "width_bytes": 16,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd2ad",
+          "instruction": "vmovaps XMMWORD PTR [rsp+rax*8+0x70],xmm10",
+          "width_bytes": 16,
+          "effective_address_mod64": [
+            48
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd2b3",
+          "instruction": "vmovaps XMMWORD PTR [rsp+rax*8+0x60],xmm11",
+          "width_bytes": 16,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd66d",
+          "instruction": "vmovaps YMMWORD PTR [rsp+rax*8],ymm28",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd69f",
+          "instruction": "vmovaps YMMWORD PTR [rsp+rax*8+0x80],ymm21",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd6a7",
+          "instruction": "vmovapd YMMWORD PTR [rsp+rax*8+0x100],ymm25",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd6af",
+          "instruction": "vmovapd YMMWORD PTR [rsp+rax*8+0x180],ymm24",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd6ca",
+          "instruction": "vmovaps YMMWORD PTR [rsp+rax*8+0x20],ymm24",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd6f3",
+          "instruction": "vmovaps YMMWORD PTR [rsp+rax*8+0xa0],ymm18",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd6fb",
+          "instruction": "vmovapd YMMWORD PTR [rsp+rax*8+0x120],ymm21",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd703",
+          "instruction": "vmovapd YMMWORD PTR [rsp+rax*8+0x1a0],ymm20",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd71e",
+          "instruction": "vmovaps YMMWORD PTR [rsp+rax*8+0x40],ymm20",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd745",
+          "instruction": "vmovaps YMMWORD PTR [rsp+rax*8+0xc0],ymm14",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd74e",
+          "instruction": "vmovapd YMMWORD PTR [rsp+rax*8+0x140],ymm17",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd756",
+          "instruction": "vmovapd YMMWORD PTR [rsp+rax*8+0x1c0],ymm16",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd76f",
+          "instruction": "vmovaps YMMWORD PTR [rsp+rax*8+0x60],ymm16",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd793",
+          "instruction": "vmovaps YMMWORD PTR [rsp+rax*8+0xe0],ymm10",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd79c",
+          "instruction": "vmovapd YMMWORD PTR [rsp+rax*8+0x160],ymm13",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd7a5",
+          "instruction": "vmovapd YMMWORD PTR [rsp+rax*8+0x1e0],ymm12",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd7b3",
+          "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x80]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd7bc",
+          "instruction": "vmovaps ymm1,YMMWORD PTR [rsp+0x100]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd7e4",
+          "instruction": "vmovaps ymm0,YMMWORD PTR [rsp+0x180]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd803",
+          "instruction": "vmovaps ymm3,YMMWORD PTR [rsp+0x200]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd822",
+          "instruction": "vmovaps ymm5,YMMWORD PTR [rsp]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd8e4",
+          "instruction": "vmovaps ymm5,YMMWORD PTR [rsp+0x20]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd8ea",
+          "instruction": "vmovaps ymm6,YMMWORD PTR [rsp+0xa0]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd8f3",
+          "instruction": "vmovaps ymm7,YMMWORD PTR [rsp+0x120]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd928",
+          "instruction": "vmovaps ymm6,YMMWORD PTR [rsp+0x1a0]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd947",
+          "instruction": "vmovaps ymm9,YMMWORD PTR [rsp+0x220]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdd9fa",
+          "instruction": "vmovaps ymm5,YMMWORD PTR [rsp+0x40]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdda00",
+          "instruction": "vmovaps ymm6,YMMWORD PTR [rsp+0xc0]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdda09",
+          "instruction": "vmovaps ymm7,YMMWORD PTR [rsp+0x140]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdda12",
+          "instruction": "vmovaps ymm8,YMMWORD PTR [rsp+0x1c0]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbdda5e",
+          "instruction": "vmovaps ymm7,YMMWORD PTR [rsp+0x240]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            0
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbddb10",
+          "instruction": "vmovaps ymm5,YMMWORD PTR [rsp+0x60]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbddb16",
+          "instruction": "vmovaps ymm6,YMMWORD PTR [rsp+0xe0]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbddb1f",
+          "instruction": "vmovaps ymm7,YMMWORD PTR [rsp+0x160]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbddb54",
+          "instruction": "vmovaps ymm6,YMMWORD PTR [rsp+0x1e0]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        },
+        {
+          "instruction_address": "0xbddb73",
+          "instruction": "vmovaps ymm9,YMMWORD PTR [rsp+0x260]",
+          "width_bytes": 32,
+          "effective_address_mod64": [
+            32
+          ],
+          "no_64_byte_boundary_crossing": true
+        }
+      ],
+      "all_local_stack_vector_accesses_no_cache_line_crossing": true,
+      "packed_full_sequence_equal_to_rejected_after_relocation_normalization": true,
+      "indexed_stack_proof": "Only indexed stack base is RSP+RAX*8. EAX is zeroed before the panel loop; the only following RAX write adds 0x40. Stack stores execute with RAX=0 or 0x40; the added scaled offset is a multiple of512 and contributes zero modulo64. XMM displacements are multiples of16 and YMM displacements multiples of32. RCX derives from RDI (caller input), never stack. RBP only preserves/restores the original stack pointer.",
+      "change_from_rejected": "No additional anchor in packed path; full normalized instruction sequence unchanged."
+    }
+  ],
+  "limitations": [
+    "Frozen diagnostic build only. Independently locate and verify the final production executable before acceptance.",
+    "Only BATCH=false instances reviewed; no claim about batch or other precision/ISA instances.",
+    "Static instruction counts are not cycle costs. Packed control flow repeats part of the listed instruction stream.",
+    "Symbol spans include alignment padding. RIP relocation normalization does not independently verify constant bytes.",
+    "No claim that external input/output/twiddle memory accesses avoid cache-line crossings; alignment proof covers local stack accesses only.",
+    "No claim of portable compiler-guaranteed spill alignment or timing improvement."
+  ]
+}

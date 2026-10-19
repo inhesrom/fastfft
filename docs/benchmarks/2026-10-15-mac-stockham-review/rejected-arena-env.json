@@ -1,0 +1,92 @@
+{
+  "ac_power": true,
+  "architecture": "aarch64",
+  "boost": null,
+  "build_profile": "arena",
+  "caches": [],
+  "clock_probe": {
+    "calibrated_frequency": false,
+    "historical_field": "clock_ghz",
+    "kind": "dependent-add-throughput"
+  },
+  "cpu": {
+    "logical_cpus": "12",
+    "memory_bytes": "17179869184",
+    "model_name": "Apple M6",
+    "physical_cpus": "12"
+  },
+  "energy_performance_preference": null,
+  "env_check": {
+    "ok": false,
+    "problems": [
+      "CPU pinning and Linux performance-policy checks are unavailable on this platform"
+    ]
+  },
+  "fftw": {
+    "configure": "double: CFLAGS='-O3 -fPIC -std=gnu17' ./configure --enable-static --disable-shared --disable-fortran --disable-doc --enable-neon\nsingle: CFLAGS='-O3 -fPIC -std=gnu17' ./configure --enable-static --disable-shared --disable-fortran --disable-doc --enable-neon --enable-float",
+    "dir": "/Users/ianhersom/.paseo/worktrees/2gwvkfm8/flying-cobra/bench/arena/../../target/fftw/install",
+    "linked": true,
+    "version": "fftw-3.3.11-neon"
+  },
+  "git": {
+    "commit": "e4b9ed81d0a44c852f58344abeeb908db759a98b",
+    "dirty": true
+  },
+  "governor": null,
+  "host": "Ians-Mac-Mini.localdomain",
+  "kernel": "Darwin Ians-Mac-Mini.localdomain 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:15 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T8152 arm64",
+  "libraries": {
+    "fearless_simd": "0.5.0",
+    "num-complex": "0.4.6",
+    "oxifft": "0.4.2",
+    "phastft": "0.4.1",
+    "pulp": "0.22.3",
+    "rustfft": "6.4.1",
+    "tfhe-fft": "0.10.1"
+  },
+  "library_patches": {
+    "oxifft": {
+      "base_version": "0.4.2",
+      "patch": "stockham-correctness-1",
+      "provenance": "vendor/oxifft/FASTFFT-PATCH.md",
+      "source": "vendor/oxifft"
+    }
+  },
+  "loadavg": null,
+  "max_freq_khz": null,
+  "os": "macos",
+  "pinned_cpu": null,
+  "pinned_cpu_sibling": null,
+  "run": {
+    "caller_scratch": "parent-planned-shared-aligned",
+    "cells": 14,
+    "filter": "dir=fwd,n=1024|2048|4096|8192|16384|32768|65536",
+    "label": "mac-review",
+    "libs": [
+      "fastfft",
+      "rustfft",
+      "fftw"
+    ],
+    "max_n": 65536,
+    "misalign": 0,
+    "official": false,
+    "planning_samples": "secondary-after-execution-retained-runners",
+    "precisions": [
+      "f32",
+      "f64"
+    ],
+    "process_order": "rotating",
+    "procs": 2,
+    "profile": "quick",
+    "suites": [
+      "pow2"
+    ]
+  },
+  "rustc": "rustc 1.95.0 (59807616e 2026-04-14); binary: rustc; commit-hash: 59807616e1fa2540724bfbac14d7976d7e4a3860; commit-date: 2026-04-14; host: aarch64-apple-darwin; release: 1.95.0; LLVM version: 22.1.2",
+  "rustflags": "",
+  "scaling_driver": null,
+  "scheduling": "user-initiated QoS; no CPU affinity",
+  "smt_active": null,
+  "target_cpu_native": false,
+  "virtualization": null
+}

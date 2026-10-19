@@ -1,0 +1,83 @@
+{
+  "acceptance": false,
+  "created_utc": "2026-10-05T13:47:00Z",
+  "case": "smooth:f32:inv:ip:n96",
+  "procs": 8,
+  "core": 4,
+  "profile": "full",
+  "rustflags": "-C llvm-args=-align-all-functions=6",
+  "gate": "fresh 60s sustained quiet and envcheck; journaled physical-core reservation; continuous monitor",
+  "nominee": {
+    "index": 1,
+    "baseline_radices": [
+      8,
+      12
+    ],
+    "contender_radices": [
+      16,
+      6
+    ],
+    "retention": "actual built candidate after complete compare; separate from actual choice"
+  },
+  "fixed_rule": "one eight-process run; no retry until promotion or passing result",
+  "location": {
+    "conditions": [
+      "selector-offset0",
+      "selector-offset1",
+      "selector-offset2",
+      "original-arena"
+    ],
+    "calls": [
+      1024,
+      2048
+    ],
+    "rounds": 7,
+    "warm_calls_per_sample": 3
+  },
+  "counts": {
+    "location": "selector-offset0",
+    "both_plans_each_count": [
+      718,
+      992,
+      1024,
+      2048
+    ],
+    "rounds": 7,
+    "warm_calls_per_sample": 3
+  },
+  "exposure": {
+    "location": "selector-offset0",
+    "calls": [
+      1024,
+      2048
+    ],
+    "duration_ms": 100,
+    "warm_calls_before_every_sample": 3,
+    "windows": "first and last seven; all chronological samples retained"
+  },
+  "sampler": "one non-inlined entry for all conditions, same public slice loop",
+  "predictions": [
+    "Slow baseline only at original selector locations supports caller-location effect.",
+    "Ranking tracking call count on identical location supports count-dependent regime.",
+    "Baseline falling from early to late with fixed address/count/warm cadence supports accumulated-exposure effect.",
+    "If all conditions run fast baseline and no prior slow regime returns, caller/stack/code context remains unresolved."
+  ],
+  "limitations": [
+    "Retaining selector vectors and nominee perturbs later allocation history.",
+    "Original scratch allocation may have been replaced before retention; N96 controls use no active scratch.",
+    "The common sampler changes original qualification caller/stack context.",
+    "Diagnostics cannot replace uninstrumented acceptance or waive any failed cell.",
+    "Even first exposure samples follow ordinary arena timing; a flat exposure trace cannot reject an earlier qualification transient."
+  ],
+  "reset": "zero once per block/location; no reset between samples",
+  "short_sample_vectors": "capacity seven allocated before sampling",
+  "block_order": "cyclic rotation by process modulo3; all sampling is post-arena",
+  "counterbalancing": {
+    "location_start": "p%4",
+    "location_member_start": "(p/4)%2",
+    "count_start": "(p/2)%4",
+    "count_member_start": "p%2",
+    "exposure_member_start": "(p/2)%2"
+  },
+  "duration_evidence": "Each sample emits actual integer timed_batch_ns and ns_per_call; auditor verifies exact declared-call normalization."
+}

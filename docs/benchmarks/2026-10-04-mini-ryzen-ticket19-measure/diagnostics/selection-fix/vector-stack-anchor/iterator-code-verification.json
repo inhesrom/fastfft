@@ -1,0 +1,413 @@
+{
+  "passed": true,
+  "scope": "Compiled indexed empty-range guards preserved for known N210 count1/1; no old iterator divide pattern in three principal variants. Source arithmetic and full loop equivalence not established by this narrow check.",
+  "binary_sha256": "2badd5bb28e3b05fe9a93a4798ca87ae8174bb694a291893726d8deccfcea16d",
+  "functions": [
+    {
+      "variant": "FourStep-F64x8",
+      "current": {
+        "start": "0xe5cc00",
+        "end": "0xe7f861",
+        "bytes": 142433,
+        "symbol": "<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F64x8.asm",
+        "assembly_sha256": "8a1dd45e7eb1f079349c7d71e1e102a690b99099f6121c32499525dd45769201"
+      },
+      "old_skip_patterns": [],
+      "scope": "No old stride24 pointer-distance skip bookkeeping; not absence of legitimate radix multiply/divide."
+    },
+    {
+      "variant": "FourStep-F32x8v",
+      "current": {
+        "start": "0xf68000",
+        "end": "0xf892c3",
+        "bytes": 135875,
+        "symbol": "<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F32x8v.asm",
+        "assembly_sha256": "0ea99b433d5867b8a5a1aba72407e6787aaccf32c14d7232a1700f4184f96758"
+      },
+      "old_skip_patterns": [],
+      "scope": "No old stride24 pointer-distance skip bookkeeping; not absence of legitimate radix multiply/divide."
+    },
+    {
+      "variant": "FourStep-F32x16",
+      "current": {
+        "start": "0xf36140",
+        "end": "0xf5a4dc",
+        "bytes": 148380,
+        "symbol": "<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute",
+        "assembly": "FourStep-F32x16.asm",
+        "assembly_sha256": "a8b170a43a89876ea72f7038a95058a25fb90b029768d532aafe1314b3ef0b3a"
+      },
+      "old_skip_patterns": [],
+      "scope": "No old stride24 pointer-distance skip bookkeeping; not absence of legitimate radix multiply/divide."
+    }
+  ],
+  "F64x8_count_guard_evidence": [
+    {
+      "start": "0xe5ce90",
+      "instructions": [
+        {
+          "address": "0xe5ce90",
+          "instruction": "mov    rcx,QWORD PTR [rdi+0x20]"
+        },
+        {
+          "address": "0xe5ce94",
+          "instruction": "mov    QWORD PTR [rsp+0x80],rcx"
+        },
+        {
+          "address": "0xe5ce9c",
+          "instruction": "mov    rdx,QWORD PTR [rdi+0x60]"
+        },
+        {
+          "address": "0xe5cea0",
+          "instruction": "mov    rcx,QWORD PTR [rdi+0x28]"
+        },
+        {
+          "address": "0xe5cea4",
+          "instruction": "mov    QWORD PTR [rsp+0x78],rcx"
+        },
+        {
+          "address": "0xe5cea9",
+          "instruction": "mov    rcx,QWORD PTR [rdi+0x30]"
+        },
+        {
+          "address": "0xe5cead",
+          "instruction": "mov    rsi,QWORD PTR [rdi+0x40]"
+        }
+      ]
+    },
+    {
+      "start": "0xe5ce94",
+      "instructions": [
+        {
+          "address": "0xe5ce94",
+          "instruction": "mov    QWORD PTR [rsp+0x80],rcx"
+        },
+        {
+          "address": "0xe5ce9c",
+          "instruction": "mov    rdx,QWORD PTR [rdi+0x60]"
+        },
+        {
+          "address": "0xe5cea0",
+          "instruction": "mov    rcx,QWORD PTR [rdi+0x28]"
+        },
+        {
+          "address": "0xe5cea4",
+          "instruction": "mov    QWORD PTR [rsp+0x78],rcx"
+        },
+        {
+          "address": "0xe5cea9",
+          "instruction": "mov    rcx,QWORD PTR [rdi+0x30]"
+        },
+        {
+          "address": "0xe5cead",
+          "instruction": "mov    rsi,QWORD PTR [rdi+0x40]"
+        },
+        {
+          "address": "0xe5ceb1",
+          "instruction": "add    rsi,r12"
+        }
+      ]
+    },
+    {
+      "start": "0xe5cea0",
+      "instructions": [
+        {
+          "address": "0xe5cea0",
+          "instruction": "mov    rcx,QWORD PTR [rdi+0x28]"
+        },
+        {
+          "address": "0xe5cea4",
+          "instruction": "mov    QWORD PTR [rsp+0x78],rcx"
+        },
+        {
+          "address": "0xe5cea9",
+          "instruction": "mov    rcx,QWORD PTR [rdi+0x30]"
+        },
+        {
+          "address": "0xe5cead",
+          "instruction": "mov    rsi,QWORD PTR [rdi+0x40]"
+        },
+        {
+          "address": "0xe5ceb1",
+          "instruction": "add    rsi,r12"
+        },
+        {
+          "address": "0xe5ceb4",
+          "instruction": "mov    QWORD PTR [rsp+0x868],rsi"
+        },
+        {
+          "address": "0xe5cebc",
+          "instruction": "mov    r14,QWORD PTR [rdi+0x78]"
+        }
+      ]
+    },
+    {
+      "start": "0xe5cea4",
+      "instructions": [
+        {
+          "address": "0xe5cea4",
+          "instruction": "mov    QWORD PTR [rsp+0x78],rcx"
+        },
+        {
+          "address": "0xe5cea9",
+          "instruction": "mov    rcx,QWORD PTR [rdi+0x30]"
+        },
+        {
+          "address": "0xe5cead",
+          "instruction": "mov    rsi,QWORD PTR [rdi+0x40]"
+        },
+        {
+          "address": "0xe5ceb1",
+          "instruction": "add    rsi,r12"
+        },
+        {
+          "address": "0xe5ceb4",
+          "instruction": "mov    QWORD PTR [rsp+0x868],rsi"
+        },
+        {
+          "address": "0xe5cebc",
+          "instruction": "mov    r14,QWORD PTR [rdi+0x78]"
+        },
+        {
+          "address": "0xe5cec0",
+          "instruction": "shl    r14,0x4"
+        }
+      ]
+    },
+    {
+      "start": "0xe67dc3",
+      "instructions": [
+        {
+          "address": "0xe67dc3",
+          "instruction": "cmp    QWORD PTR [rsp+0x80],0x2"
+        },
+        {
+          "address": "0xe67dcc",
+          "instruction": "mov    rdx,QWORD PTR [rsp+0x50]"
+        },
+        {
+          "address": "0xe67dd1",
+          "instruction": "vbroadcastsd zmm28,QWORD PTR [rip+0xffffffffff20ccbd]"
+        },
+        {
+          "address": "0xe67ddb",
+          "instruction": "jb     e68eb0 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0xc2b0>"
+        },
+        {
+          "address": "0xe67de1",
+          "instruction": "mov    rax,QWORD PTR [r12]"
+        },
+        {
+          "address": "0xe67de5",
+          "instruction": "mov    QWORD PTR [rsp+0x2c0],rax"
+        },
+        {
+          "address": "0xe67ded",
+          "instruction": "mov    edi,0x1"
+        }
+      ]
+    },
+    {
+      "start": "0xe68643",
+      "instructions": [
+        {
+          "address": "0xe68643",
+          "instruction": "cmp    QWORD PTR [rsp+0x80],0x2"
+        },
+        {
+          "address": "0xe6864c",
+          "instruction": "mov    rdx,QWORD PTR [rsp+0x50]"
+        },
+        {
+          "address": "0xe68651",
+          "instruction": "jb     e68eb0 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0xc2b0>"
+        },
+        {
+          "address": "0xe68657",
+          "instruction": "mov    rax,QWORD PTR [r12]"
+        },
+        {
+          "address": "0xe6865b",
+          "instruction": "mov    QWORD PTR [rsp+0x2c0],rax"
+        },
+        {
+          "address": "0xe68663",
+          "instruction": "mov    edi,0x1"
+        },
+        {
+          "address": "0xe68668",
+          "instruction": "mov    rax,r14"
+        }
+      ]
+    },
+    {
+      "start": "0xe718d3",
+      "instructions": [
+        {
+          "address": "0xe718d3",
+          "instruction": "cmp    QWORD PTR [rsp+0x78],0x2"
+        },
+        {
+          "address": "0xe718d9",
+          "instruction": "jae    e7198a <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x14d8a>"
+        },
+        {
+          "address": "0xe718df",
+          "instruction": "jmp    e73d00 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x17100>"
+        },
+        {
+          "address": "0xe718e4",
+          "instruction": "mov    rsi,r14"
+        },
+        {
+          "address": "0xe718e7",
+          "instruction": "mov    rdx,QWORD PTR [rsp+0x40]"
+        },
+        {
+          "address": "0xe718ec",
+          "instruction": "vzeroupper"
+        },
+        {
+          "address": "0xe718ef",
+          "instruction": "call   e526c0 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::first>"
+        }
+      ]
+    },
+    {
+      "start": "0xe7197e",
+      "instructions": [
+        {
+          "address": "0xe7197e",
+          "instruction": "cmp    QWORD PTR [rsp+0x78],0x2"
+        },
+        {
+          "address": "0xe71984",
+          "instruction": "jb     e73d00 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x17100>"
+        },
+        {
+          "address": "0xe7198a",
+          "instruction": "mov    rax,QWORD PTR [rsp+0x80]"
+        },
+        {
+          "address": "0xe71992",
+          "instruction": "mov    r13,QWORD PTR [rax]"
+        },
+        {
+          "address": "0xe71995",
+          "instruction": "mov    edi,0x1"
+        },
+        {
+          "address": "0xe7199a",
+          "instruction": "mov    rax,QWORD PTR [rsp+0x108]"
+        },
+        {
+          "address": "0xe719a2",
+          "instruction": "mov    r14,QWORD PTR [rsp+0x628]"
+        }
+      ]
+    },
+    {
+      "start": "0xe728e3",
+      "instructions": [
+        {
+          "address": "0xe728e3",
+          "instruction": "cmp    QWORD PTR [rsp+0x78],0x2"
+        },
+        {
+          "address": "0xe728e9",
+          "instruction": "jae    e72c4e <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x1604e>"
+        },
+        {
+          "address": "0xe728ef",
+          "instruction": "jmp    e73d00 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x17100>"
+        },
+        {
+          "address": "0xe728f4",
+          "instruction": "cmp    QWORD PTR [rsp+0x40],0x3"
+        },
+        {
+          "address": "0xe728fa",
+          "instruction": "mov    r8,QWORD PTR [rsp+0x138]"
+        },
+        {
+          "address": "0xe72902",
+          "instruction": "jb     e734d7 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x168d7>"
+        },
+        {
+          "address": "0xe72908",
+          "instruction": "mov    rax,QWORD PTR [rsp+0x90]"
+        }
+      ]
+    },
+    {
+      "start": "0xe72c42",
+      "instructions": [
+        {
+          "address": "0xe72c42",
+          "instruction": "cmp    QWORD PTR [rsp+0x78],0x2"
+        },
+        {
+          "address": "0xe72c48",
+          "instruction": "jb     e73d00 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x17100>"
+        },
+        {
+          "address": "0xe72c4e",
+          "instruction": "mov    rax,QWORD PTR [rsp+0x80]"
+        },
+        {
+          "address": "0xe72c56",
+          "instruction": "mov    r13,QWORD PTR [rax]"
+        },
+        {
+          "address": "0xe72c59",
+          "instruction": "mov    edi,0x1"
+        },
+        {
+          "address": "0xe72c5e",
+          "instruction": "mov    rax,QWORD PTR [rsp+0x108]"
+        },
+        {
+          "address": "0xe72c66",
+          "instruction": "mov    r14,QWORD PTR [rsp+0x628]"
+        }
+      ]
+    },
+    {
+      "start": "0xe734da",
+      "instructions": [
+        {
+          "address": "0xe734da",
+          "instruction": "cmp    QWORD PTR [rsp+0x78],0x2"
+        },
+        {
+          "address": "0xe734e0",
+          "instruction": "jb     e73d00 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x17100>"
+        },
+        {
+          "address": "0xe734e6",
+          "instruction": "mov    rax,QWORD PTR [rsp+0x80]"
+        },
+        {
+          "address": "0xe734ee",
+          "instruction": "mov    r13,QWORD PTR [rax]"
+        },
+        {
+          "address": "0xe734f1",
+          "instruction": "mov    edi,0x1"
+        },
+        {
+          "address": "0xe734f6",
+          "instruction": "mov    rax,QWORD PTR [rsp+0x108]"
+        },
+        {
+          "address": "0xe734fe",
+          "instruction": "mov    r14,QWORD PTR [rsp+0x628]"
+        }
+      ]
+    }
+  ],
+  "N210": "Column count1 storedRSP+0x80 and rowcount1 storedRSP+0x78; directCMP2 skips later passes.",
+  "caveat": "Code scheduling differs; count/guard proof is independent of exact instruction identity."
+}

@@ -1,0 +1,82 @@
+{
+  "utc": "2026-10-05T21:19:00.510061+00:00",
+  "passed": true,
+  "executable_sha256": "bcf2baf643c137df00ab68574405f1e6292e8e0581248fa87a058741b1bcdeab",
+  "functions": [
+    {
+      "address": "000000000038fb40",
+      "calls": 160,
+      "callsites": [
+        {
+          "callsite": "3918f8",
+          "calls": 160,
+          "turn_ns": 100000000,
+          "context": "  3918ba:\tmov    0x8(%r12),%r12\n  3918bf:\tmov    %r13,%rdi\n  3918c2:\tmov    0x118(%rsp),%r14\n  3918ca:\tmov    %r14,%rsi\n  3918cd:\tcall   *0x48(%r12)\n  3918d2:\tlea    (%r15,%r15,2),%rax\n  3918d6:\tmov    0xd0(%rsp),%rcx\n  3918de:\tlea    (%rcx,%rax,8),%rbx\n  3918e2:\tmov    $0xa0,%edx\n  3918e7:\tmov    %r13,%rdi\n  3918ea:\tmov    %r14,%rsi\n  3918ed:\txor    %ecx,%ecx\n  3918ef:\tmov    $0x5f5e100,%r8d\n  3918f5:\tmov    %rbx,%r9\n  3918f8:\tcall   *0x38(%r12)\n  3918fd:\tmov    (%rbx),%rax\n  391900:\tmov    %rax,0x308(%rsp)"
+        },
+        {
+          "callsite": "3919af",
+          "calls": 160,
+          "turn_ns": 100000000,
+          "context": "  391971:\tmov    0x8(%r12),%r12\n  391976:\tmov    %r13,%rdi\n  391979:\tmov    0x118(%rsp),%r14\n  391981:\tmov    %r14,%rsi\n  391984:\tcall   *0x48(%r12)\n  391989:\tlea    (%r15,%r15,2),%rax\n  39198d:\tmov    0xd0(%rsp),%rcx\n  391995:\tlea    (%rcx,%rax,8),%rbx\n  391999:\tmov    $0xa0,%edx\n  39199e:\tmov    %r13,%rdi\n  3919a1:\tmov    %r14,%rsi\n  3919a4:\txor    %ecx,%ecx\n  3919a6:\tmov    $0x5f5e100,%r8d\n  3919ac:\tmov    %rbx,%r9\n  3919af:\tcall   *0x38(%r12)\n  3919b4:\tmov    (%rbx),%rax\n  3919b7:\tmov    %rax,0x308(%rsp)"
+        }
+      ]
+    },
+    {
+      "address": "0000000000395080",
+      "calls": 20,
+      "callsites": [
+        {
+          "callsite": "396e38",
+          "calls": 20,
+          "turn_ns": 100000000,
+          "context": "  396dfa:\tmov    0x8(%r12),%r12\n  396dff:\tmov    %r13,%rdi\n  396e02:\tmov    0x118(%rsp),%r14\n  396e0a:\tmov    %r14,%rsi\n  396e0d:\tcall   *0x48(%r12)\n  396e12:\tlea    (%r15,%r15,2),%rax\n  396e16:\tmov    0xd0(%rsp),%rcx\n  396e1e:\tlea    (%rcx,%rax,8),%rbx\n  396e22:\tmov    $0x14,%edx\n  396e27:\tmov    %r13,%rdi\n  396e2a:\tmov    %r14,%rsi\n  396e2d:\txor    %ecx,%ecx\n  396e2f:\tmov    $0x5f5e100,%r8d\n  396e35:\tmov    %rbx,%r9\n  396e38:\tcall   *0x38(%r12)\n  396e3d:\tmov    (%rbx),%rax\n  396e40:\tmov    %rax,0x308(%rsp)"
+        },
+        {
+          "callsite": "396eef",
+          "calls": 20,
+          "turn_ns": 100000000,
+          "context": "  396eb1:\tmov    0x8(%r12),%r12\n  396eb6:\tmov    %r13,%rdi\n  396eb9:\tmov    0x118(%rsp),%r14\n  396ec1:\tmov    %r14,%rsi\n  396ec4:\tcall   *0x48(%r12)\n  396ec9:\tlea    (%r15,%r15,2),%rax\n  396ecd:\tmov    0xd0(%rsp),%rcx\n  396ed5:\tlea    (%rcx,%rax,8),%rbx\n  396ed9:\tmov    $0x14,%edx\n  396ede:\tmov    %r13,%rdi\n  396ee1:\tmov    %r14,%rsi\n  396ee4:\txor    %ecx,%ecx\n  396ee6:\tmov    $0x5f5e100,%r8d\n  396eec:\tmov    %rbx,%r9\n  396eef:\tcall   *0x38(%r12)\n  396ef4:\tmov    (%rbx),%rax\n  396ef7:\tmov    %rax,0x308(%rsp)"
+        }
+      ]
+    },
+    {
+      "address": "000000000039a5c0",
+      "calls": 20,
+      "callsites": [
+        {
+          "callsite": "39c30b",
+          "calls": 20,
+          "turn_ns": 100000000,
+          "context": "  39c2cc:\tmov    %r13,%rdi\n  39c2cf:\tmov    0x118(%rsp),%rbx\n  39c2d7:\tmov    %rbx,%rsi\n  39c2da:\tcall   *0x48(%r15)\n  39c2de:\tlea    0x0(,%rbp,2),%rax\n  39c2e6:\tadd    %rbp,%rax\n  39c2e9:\tmov    0xd0(%rsp),%rcx\n  39c2f1:\tlea    (%rcx,%rax,8),%r14\n  39c2f5:\tmov    $0x14,%edx\n  39c2fa:\tmov    %r13,%rdi\n  39c2fd:\tmov    %rbx,%rsi\n  39c300:\txor    %ecx,%ecx\n  39c302:\tmov    $0x5f5e100,%r8d\n  39c308:\tmov    %r14,%r9\n  39c30b:\tcall   *0x38(%r15)\n  39c30f:\tmov    (%r14),%rax\n  39c312:\tmov    %rax,0x308(%rsp)"
+        },
+        {
+          "callsite": "39c3c6",
+          "calls": 20,
+          "turn_ns": 100000000,
+          "context": "  39c387:\tmov    %r13,%rdi\n  39c38a:\tmov    0x118(%rsp),%rbx\n  39c392:\tmov    %rbx,%rsi\n  39c395:\tcall   *0x48(%r15)\n  39c399:\tlea    0x0(,%rbp,2),%rax\n  39c3a1:\tadd    %rbp,%rax\n  39c3a4:\tmov    0xd0(%rsp),%rcx\n  39c3ac:\tlea    (%rcx,%rax,8),%r14\n  39c3b0:\tmov    $0x14,%edx\n  39c3b5:\tmov    %r13,%rdi\n  39c3b8:\tmov    %rbx,%rsi\n  39c3bb:\txor    %ecx,%ecx\n  39c3bd:\tmov    $0x5f5e100,%r8d\n  39c3c3:\tmov    %r14,%r9\n  39c3c6:\tcall   *0x38(%r15)\n  39c3ca:\tmov    (%r14),%rax\n  39c3cd:\tmov    %rax,0x308(%rsp)"
+        }
+      ]
+    },
+    {
+      "address": "000000000039fa40",
+      "calls": 160,
+      "callsites": [
+        {
+          "callsite": "3a178b",
+          "calls": 160,
+          "turn_ns": 100000000,
+          "context": "  3a174c:\tmov    %r13,%rdi\n  3a174f:\tmov    0x118(%rsp),%rbx\n  3a1757:\tmov    %rbx,%rsi\n  3a175a:\tcall   *0x48(%r15)\n  3a175e:\tlea    0x0(,%rbp,2),%rax\n  3a1766:\tadd    %rbp,%rax\n  3a1769:\tmov    0xd0(%rsp),%rcx\n  3a1771:\tlea    (%rcx,%rax,8),%r14\n  3a1775:\tmov    $0xa0,%edx\n  3a177a:\tmov    %r13,%rdi\n  3a177d:\tmov    %rbx,%rsi\n  3a1780:\txor    %ecx,%ecx\n  3a1782:\tmov    $0x5f5e100,%r8d\n  3a1788:\tmov    %r14,%r9\n  3a178b:\tcall   *0x38(%r15)\n  3a178f:\tmov    (%r14),%rax\n  3a1792:\tmov    %rax,0x308(%rsp)"
+        },
+        {
+          "callsite": "3a1846",
+          "calls": 160,
+          "turn_ns": 100000000,
+          "context": "  3a1807:\tmov    %r13,%rdi\n  3a180a:\tmov    0x118(%rsp),%rbx\n  3a1812:\tmov    %rbx,%rsi\n  3a1815:\tcall   *0x48(%r15)\n  3a1819:\tlea    0x0(,%rbp,2),%rax\n  3a1821:\tadd    %rbp,%rax\n  3a1824:\tmov    0xd0(%rsp),%rcx\n  3a182c:\tlea    (%rcx,%rax,8),%r14\n  3a1830:\tmov    $0xa0,%edx\n  3a1835:\tmov    %r13,%rdi\n  3a1838:\tmov    %rbx,%rsi\n  3a183b:\txor    %ecx,%ecx\n  3a183d:\tmov    $0x5f5e100,%r8d\n  3a1843:\tmov    %r14,%r9\n  3a1846:\tcall   *0x38(%r15)\n  3a184a:\tmov    (%r14),%rax\n  3a184d:\tmov    %rax,0x308(%rsp)"
+        }
+      ]
+    }
+  ],
+  "generic_instantiations": "Two scalar types times both fixed call counts; frozen source validates precision/length and dispatches N4096 to20 and N210 to160. Both member turn callsites checked in each generated function.",
+  "limitation": "Scoped call-argument check, not an instruction-equivalence/performance claim. Original arena timing is unchanged; tuning build is diagnostic only.",
+  "source_sha256": "951826551ba8b04e9b9dd03d42f2266b76f9221acf375e995046ebeb7753013e"
+}

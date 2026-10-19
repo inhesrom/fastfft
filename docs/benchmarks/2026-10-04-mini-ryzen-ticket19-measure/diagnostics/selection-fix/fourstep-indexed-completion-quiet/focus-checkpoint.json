@@ -1,0 +1,94 @@
+{
+  "utc": "2026-10-05T23:06:06.374645+00:00",
+  "acceptance": false,
+  "focus_passed": false,
+  "cells": 51,
+  "ordinary_trials": 408,
+  "control_rows": 4,
+  "control_trials": 32,
+  "protocol_issues": [
+    "focus lacks completely quiet running monitor"
+  ],
+  "audit_failures": [
+    {
+      "key": "smooth:f64:fwd:oop:n165375",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 1.0211370063561056,
+      "best": 1.0211370063561056,
+      "p1": 1.0099701209475418,
+      "median": 1.0145645183176495,
+      "estimate": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+      "measure": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+      "same_plan": true
+    }
+  ],
+  "audit_problems": [
+    "smooth:f32:inv:ip:n210: slower promotion in raw process trial 4 (p1 ratio 1.025254)",
+    "smooth:f64:inv:ip:n210: slower promotion in raw process trial 5 (p1 ratio 1.070003)"
+  ],
+  "meta": {
+    "aborted": null,
+    "cells": 51,
+    "child_failures": 0,
+    "drift_flag": false,
+    "elapsed_s": 967.881335277,
+    "max_drift": 0.02093468139769261,
+    "official": true
+  },
+  "quiet_running_samples": 193,
+  "quiet_dirty_samples": [
+    {
+      "utc": "2026-10-05T22:54:08.348552+00:00",
+      "event": "running",
+      "quiet": false,
+      "load1": 1.4677734375,
+      "background_busy_cores": 0.8127059869811444,
+      "cpu_busy": {
+        "0": 0.06589147286821706,
+        "1": 0.041916167664670656,
+        "2": 0.043912175648702645,
+        "3": 0.030000000000000027,
+        "4": 1.0,
+        "5": 0.05400000000000005,
+        "6": 0.07784431137724546,
+        "7": 0.2934131736526946,
+        "8": 0.031936127744510934,
+        "9": 0.06387225548902198,
+        "10": 0.028000000000000025,
+        "11": 0.021956087824351322,
+        "12": 0.005964214711729587,
+        "13": 0.020000000000000018,
+        "14": 0.014000000000000012,
+        "15": 0.020000000000000018
+      }
+    },
+    {
+      "utc": "2026-10-05T22:54:28.420622+00:00",
+      "event": "running",
+      "quiet": false,
+      "load1": 1.40869140625,
+      "background_busy_cores": 0.6886012237945915,
+      "cpu_busy": {
+        "0": 0.099609375,
+        "1": 0.034068136272545124,
+        "2": 0.05976095617529875,
+        "3": 0.03200000000000003,
+        "4": 0.998003992015968,
+        "5": 0.05600000000000005,
+        "6": 0.11377245508982037,
+        "7": 0.08982035928143717,
+        "8": 0.00994035785288272,
+        "9": 0.052000000000000046,
+        "10": 0.021912350597609542,
+        "11": 0.04590818363273452,
+        "12": 0.003992015968063867,
+        "13": 0.03400000000000003,
+        "14": 0.007984031936127733,
+        "15": 0.027833001988071593
+      }
+    }
+  ],
+  "restoration": true,
+  "full710_launched": false
+}

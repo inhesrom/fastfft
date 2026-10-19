@@ -1,0 +1,18 @@
+statistic: p1; times in ns; x rf = rustfft time / fastfft time
+cell                                  ff m0      ff m8 ff m8/m0 rf m8/m0  x rf m0  x rf m8  plan
+pow2:f32:fwd:ip:n2097152         11914104.0 12211553.0    1.025    1.055    0.691    0.711  stockham avx512-ymm split L=8 radices=8x8x8x8x8x8 scratch=2097160
+pow2:f32:fwd:ip:n4194304         31910678.0 32449868.0    1.017    1.033    0.596    0.605  stockham avx512-ymm split L=8 radices=8x2x8x8x8x8x8 scratch=4194312
+pow2:f32:fwd:ip:n8388608         65399453.0 65688259.0    1.004    1.025    0.614    0.627  stockham avx512-ymm split L=8 radices=8x4x8x8x8x8x8 scratch=8388616
+pow2:f32:fwd:ip:n16777216        134040413.0 135543668.0    1.011    1.024    0.673    0.681  stockham avx512-ymm split L=8 radices=8x8x8x8x8x8x8 scratch=16777224
+pow2:f64:fwd:ip:n2097152         28319399.0 28742901.0    1.015    1.031    0.636    0.645  stockham avx512 split L=8 radices=8x8x8x8x8x8 scratch=2097156
+pow2:f64:fwd:ip:n4194304         71364586.0 70116974.0    0.983    1.030    0.557    0.584  stockham avx512 split L=8 radices=8x2x8x8x8x8x8 scratch=4194308
+pow2:f64:fwd:ip:n8388608         144025183.0 138221898.0    0.960    1.025    0.607    0.648  stockham avx512 split L=8 radices=8x4x8x8x8x8x8 scratch=8388612
+pow2:f64:fwd:ip:n16777216        280371571.0 274629531.0    0.980    1.032    0.687    0.724  stockham avx512 split L=8 radices=8x8x8x8x8x8x8 scratch=16777220
+
+prec  band      place cells  ff m8/m0   worst  rf m8/m0  x rf m0  x rf m8
+f32   2M-16M    all       4     1.014   1.025     1.034    0.642    0.655
+f32   2M-16M    ip        4     1.014   1.025     1.034    0.642    0.655
+f32   all       all       4     1.014   1.025     1.034    0.642    0.655
+f64   2M-16M    all       4     0.984   1.015     1.030    0.620    0.649
+f64   2M-16M    ip        4     0.984   1.015     1.030    0.620    0.649
+f64   all       all       4     0.984   1.015     1.030    0.620    0.649

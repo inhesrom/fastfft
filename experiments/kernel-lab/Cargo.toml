@@ -1,0 +1,16 @@
+[package]
+name = "kernel-lab"
+version = "0.0.0"
+description = "Throwaway M2 experiments: Stockham kernels, split vs interleaved layouts"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+num-complex = { workspace = true, features = ["std"] }
+fastfft-testkit.workspace = true
+rustfft = "6.4.1"
+
+[lints]
+workspace = true

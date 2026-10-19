@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+from pathlib import Path
+import importlib.util,json,hashlib,time
+B=Path(__file__).resolve().parent;s=importlib.util.spec_from_file_location('proof',B/'prove-stack-addresses.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);exe=B/'fastfft-arena';sha=hashlib.sha256(exe.read_bytes()).hexdigest();assert sha=='42f7c2a3c18bf844420749fc5fdc325e7025f802d1ae64ad93c95df1fd846a5a';elf=m.Elf(exe);out=B/'stack-address-proofs';out.mkdir(exist_ok=True);records=[]
+f=json.loads((B/'fused-inventory-comparison.json').read_text())['rows'];jobs=[('fused-'+'-'.join(str(r[k]) for k in ('vector','n','rows','cols','inverse','batch')),Path(r['current']['assembly'])) for r in f if r['selected']]
+jobs +=[(n,B/'stack-context-current'/(n+'.asm')) for n in ('FourStep-F32x16','FourStep-F64x8','FourStep-F32x8v','FourStep-F64x4v','FourStep-F32x8','FourStep-F64x4')]
+for label,p in jobs:
+ r=m.run(p,elf);path=out/(label+'.json');path.write_text(json.dumps(r,indent=2)+'\n');z={'label':label,'passed':r['passed'],'instructions':r['instructions'],'checks':len(r['local_vector_memory_checks']),'unproved':len(r['unproved_local_vector_memory']),'unsupported_jumps':len(r['unsupported_control_flow']),'indirect_pointer_stores':len(r['unresolved_stack_pointer_stores']),'derived_scalar_loads':len(r['derived_scalar_stack_loads_to_review']),'calls_with_stack_arguments':len(r['calls_with_stack_arguments_to_review']),'report':str(path)};records.append(z)
+ if label.startswith('FourStep') or not r['passed']:print(json.dumps(z),flush=True)
+result={'binary_sha256':sha,'passed':all(r['passed'] for r in records),'jobs':len(records),'total_checks':sum(r['checks'] for r in records),'records':records,'checker_sha256':hashlib.sha256((B/'prove-stack-addresses.py').read_bytes()).hexdigest(),'review_required':'Source-backed call-effects review and any derived scalar loads; pointer values are never copied into vector arrays. This does not prove arithmetic equivalence.'};(B/'stack-address-proof-summary.json').write_text(json.dumps(result,indent=2)+'\n');print('DONE',result['passed'],result['jobs'],result['total_checks'],flush=True)

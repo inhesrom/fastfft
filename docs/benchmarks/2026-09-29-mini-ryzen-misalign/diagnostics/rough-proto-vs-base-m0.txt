@@ -1,0 +1,52 @@
+statistic: p1; times in ns; x rf = rustfft time / fastfft time
+cell                                  ff m0      ff m8 ff m8/m0 rf m8/m0  x rf m0  x rf m8  plan
+rough:f32:fwd:ip:n17                  124.2      123.6    0.995    0.994    0.218    0.218  bluestein n=17 m=36 inner=[stockham sse2 split L=4 radices=9 scratch=44]
+rough:f32:fwd:ip:n31                   85.0       84.5    0.994    0.996    1.107    1.109  bluestein n=31 m=64 inner=[small avx512-ymm n=64 decomposition=16x4 scratch=0 kernel=interleaved]
+rough:f32:fwd:ip:n61                  159.2      151.7    0.952    1.002    0.813    0.855  bluestein n=61 m=128 inner=[small avx512 n=128 decomposition=16x8 scratch=0 kernel=interleaved]
+rough:f32:fwd:ip:n127                 331.1      305.2    0.922    1.028    1.467    1.637  bluestein n=127 m=256 inner=[small avx512-ymm n=256 decomposition=64x4 scratch=0 kernel=interleaved]
+rough:f32:fwd:ip:n257                 878.2      852.5    0.971    1.000    0.520    0.536  bluestein n=257 m=576 inner=[stockham avx512-ymm split L=8 radices=12x6 scratch=584]
+rough:f32:fwd:ip:n509                1789.8     1628.9    0.910    1.047    0.847    0.975  bluestein n=509 m=1024 inner=[stockham avx512-ymm split L=8 radices=8x2x8 scratch=1032]
+rough:f32:fwd:ip:n1021               3781.0     3409.1    0.902    1.000    1.365    1.514  bluestein n=1021 m=2048 inner=[stockham avx512-ymm split L=8 radices=8x4x8 scratch=2056]
+rough:f32:fwd:ip:n2018              11682.2     8012.4    0.686    0.993    0.481    0.696  bluestein n=2018 m=4096 inner=[stockham avx512-ymm split L=8 radices=8x8x8 scratch=4104]
+rough:f32:fwd:ip:n2053               9108.8     8142.6    0.894    0.999    1.233    1.379  bluestein n=2053 m=4608 inner=[stockham avx512-ymm split L=8 radices=12x4x12 scratch=4616]
+rough:f32:fwd:ip:n3063              13661.0    11449.8    0.838    0.999    1.195    1.424  bluestein n=3063 m=6144 inner=[stockham avx512-ymm split L=8 radices=12x8x8 scratch=6152]
+rough:f32:fwd:ip:n4099              20716.0    16808.3    0.811    0.996    1.160    1.424  bluestein n=4099 m=9216 inner=[stockham avx512-ymm split L=8 radices=12x8x12 scratch=9224]
+rough:f32:fwd:ip:n8191              41523.5    32702.0    0.788    1.006    1.185    1.513  bluestein n=8191 m=16384 inner=[stockham avx512-ymm split L=8 radices=8x4x8x8 scratch=16392]
+rough:f32:fwd:ip:n9797              54613.0    44629.0    0.817    1.004    0.956    1.175  bluestein n=9797 m=20480 inner=[stockham avx512-ymm split L=8 radices=8x4x8x10 scratch=20488]
+rough:f32:fwd:ip:n16381            101102.0    73369.0    0.726    1.003    0.996    1.377  bluestein n=16381 m=32768 inner=[stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=32776]
+rough:f32:fwd:ip:n65524            528631.0   374338.0    0.708    1.004    0.805    1.142  bluestein n=65524 m=131072 inner=[stockham avx512-ymm split L=8 radices=8x4x8x8x8 scratch=131080]
+rough:f32:fwd:ip:n65537            673644.0   451464.0    0.670    1.006    0.374    0.561  bluestein n=65537 m=147456 inner=[stockham avx512-ymm split L=8 radices=12x2x8x8x12 scratch=147464]
+rough:f32:fwd:ip:n131071          1241579.0   810573.0    0.653    1.085    0.724    1.204  bluestein n=131071 m=262144 inner=[stockham avx512-ymm split L=8 radices=8x8x8x8x8 scratch=262152]
+rough:f64:fwd:ip:n17                  144.7      145.0    1.002    0.994    0.217    0.215  bluestein n=17 m=36 inner=[stockham avx512-ymm split L=4 radices=9 scratch=40]
+rough:f64:fwd:ip:n31                  140.3      141.0    1.005    1.013    0.648    0.652  bluestein n=31 m=64 inner=[small avx512 n=64 decomposition=16x4 scratch=0 kernel=interleaved]
+rough:f64:fwd:ip:n61                  266.2      272.2    1.022    0.991    0.811    0.786  bluestein n=61 m=128 inner=[small avx512 n=128 decomposition=32x4 scratch=0 kernel=interleaved]
+rough:f64:fwd:ip:n127                 551.6      551.5    1.000    0.993    0.863    0.858  bluestein n=127 m=256 inner=[small avx512 n=256 decomposition=64x4 scratch=0 kernel=interleaved]
+rough:f64:fwd:ip:n257                1651.7     1653.8    1.001    1.006    0.520    0.523  bluestein n=257 m=576 inner=[stockham avx512 split L=8 radices=12x6 scratch=580]
+rough:f64:fwd:ip:n509                3169.1     3195.4    1.008    1.003    1.010    1.004  bluestein n=509 m=1024 inner=[stockham avx512 split L=8 radices=8x2x8 scratch=1028]
+rough:f64:fwd:ip:n1021               8891.8     7501.4    0.844    1.001    0.859    1.019  bluestein n=1021 m=2048 inner=[stockham avx512 split L=8 radices=8x4x8 scratch=2052]
+rough:f64:fwd:ip:n2018              17940.7    15061.0    0.839    1.002    0.596    0.711  bluestein n=2018 m=4096 inner=[stockham avx512 split L=8 radices=8x8x8 scratch=4100]
+rough:f64:fwd:ip:n2053              17192.7    15616.0    0.908    0.997    1.007    1.105  bluestein n=2053 m=4608 inner=[stockham avx512 split L=8 radices=12x4x12 scratch=4612]
+rough:f64:fwd:ip:n3063              23214.0    23090.3    0.995    1.006    1.071    1.083  bluestein n=3063 m=6144 inner=[stockham avx512 split L=8 radices=12x8x8 scratch=6148]
+rough:f64:fwd:ip:n4099              36744.5    36754.5    1.000    0.995    1.200    1.193  bluestein n=4099 m=9216 inner=[stockham avx512 split L=8 radices=12x8x12 scratch=9220]
+rough:f64:fwd:ip:n8191              67949.0    68229.0    1.004    1.005    1.036    1.037  bluestein n=8191 m=16384 inner=[stockham avx512 split L=8 radices=8x4x8x8 scratch=16388]
+rough:f64:fwd:ip:n9797             108856.0    92835.0    0.853    0.998    0.975    1.140  bluestein n=9797 m=20480 inner=[stockham avx512 split L=8 radices=8x4x8x10 scratch=20484]
+rough:f64:fwd:ip:n16381            169811.0   141969.0    0.836    1.016    0.844    1.026  bluestein n=16381 m=32768 inner=[stockham avx512 split L=8 radices=8x8x8x8 scratch=32772]
+rough:f64:fwd:ip:n65524           1043123.0   743447.0    0.713    0.995    0.612    0.854  bluestein n=65524 m=131072 inner=[stockham avx512 split L=8 radices=8x4x8x8x8 scratch=131076]
+rough:f64:fwd:ip:n65537           1072850.0   861430.0    0.803    1.001    0.454    0.565  bluestein n=65537 m=147456 inner=[stockham avx512 split L=8 radices=12x2x8x8x12 scratch=147460]
+rough:f64:fwd:ip:n131071          2070989.0  2067942.0    0.999    1.062    1.235    1.314  bluestein n=131071 m=262144 inner=[stockham avx512 split L=8 radices=8x8x8x8x8 scratch=262148]
+
+prec  band      place cells  ff m8/m0   worst  rf m8/m0  x rf m0  x rf m8
+f32   2-256     all       4     0.965   0.995     1.005    0.733    0.762
+f32   2-256     ip        4     0.965   0.995     1.005    0.733    0.762
+f32   512-16K   all      10     0.830   0.971     1.005    0.943    1.142
+f32   512-16K   ip       10     0.830   0.971     1.005    0.943    1.142
+f32   32K-128K  all       3     0.677   0.708     1.031    0.602    0.917
+f32   32K-128K  ip        3     0.677   0.708     1.031    0.602    0.917
+f32   all       all      17     0.830   0.995     1.009    0.821    0.999
+f64   2-256     all       4     1.007   1.022     0.998    0.560    0.554
+f64   2-256     ip        4     1.007   1.022     0.998    0.560    0.554
+f64   512-16K   all      10     0.926   1.008     1.003    0.885    0.959
+f64   512-16K   ip       10     0.926   1.008     1.003    0.885    0.959
+f64   32K-128K  all       3     0.830   0.999     1.019    0.700    0.859
+f64   32K-128K  ip        3     0.830   0.999     1.019    0.700    0.859
+f64   all       all      17     0.926   1.022     1.004    0.763    0.827

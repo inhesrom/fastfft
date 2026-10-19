@@ -1,0 +1,88 @@
+statistic: median; times in ns; x rf = rustfft time / fastfft time
+cell                                  ff m0      ff m8 ff m8/m0 rf m8/m0  x rf m0  x rf m8  plan
+pow2:f32:fwd:ip:n512                  236.5      237.1    1.002    0.945    1.172    1.105  stockham avx512-ymm split L=8 radices=8x8 scratch=520
+pow2:f32:fwd:oop:n512                 256.8      256.5    0.999    1.000    1.040    1.041  stockham avx512-ymm split L=8 radices=8x8 scratch=520
+pow2:f32:inv:ip:n512                  236.4      237.7    1.005    0.983    1.128    1.103  stockham avx512-ymm split L=8 radices=8x8 scratch=520
+pow2:f32:inv:oop:n512                 256.2      256.4    1.001    1.042    1.040    1.083  stockham avx512-ymm split L=8 radices=8x8 scratch=520
+pow2:f32:fwd:ip:n1024                 568.4      539.3    0.949    0.986    1.138    1.182  stockham avx512-ymm split L=8 radices=8x2x8 scratch=1032
+pow2:f32:fwd:oop:n1024                604.1      565.8    0.937    0.999    1.035    1.104  stockham avx512-ymm split L=8 radices=8x2x8 scratch=1032
+pow2:f32:inv:ip:n1024                 568.8      535.6    0.941    1.017    1.117    1.207  stockham avx512-ymm split L=8 radices=8x2x8 scratch=1032
+pow2:f32:inv:oop:n1024                605.1      571.1    0.944    0.999    1.043    1.104  stockham avx512-ymm split L=8 radices=8x2x8 scratch=1032
+pow2:f32:fwd:ip:n4096                3359.7     2725.2    0.811    0.957    1.116    1.316  stockham avx512-ymm split L=8 radices=8x8x8 scratch=4104
+pow2:f32:fwd:oop:n4096               3334.9     2714.6    0.814    1.007    1.167    1.444  stockham avx512-ymm split L=8 radices=8x8x8 scratch=4104
+pow2:f32:inv:ip:n4096                3395.1     2698.3    0.795    0.974    1.078    1.322  stockham avx512-ymm split L=8 radices=8x8x8 scratch=4104
+pow2:f32:inv:oop:n4096               3346.3     2734.6    0.817    1.017    1.138    1.416  stockham avx512-ymm split L=8 radices=8x8x8 scratch=4104
+pow2:f32:fwd:ip:n32768              32271.0    26730.5    0.828    0.910    1.467    1.612  stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=32776
+pow2:f32:fwd:oop:n32768             49584.0    27166.5    0.548    1.005    0.861    1.580  stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=32776
+pow2:f32:inv:ip:n32768              32346.5    26505.5    0.819    0.987    1.339    1.613  stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=32776
+pow2:f32:inv:oop:n32768             49218.0    27011.0    0.549    0.994    0.867    1.570  stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=32776
+pow2:f32:fwd:ip:n131072            213374.0   132431.0    0.621    1.001    0.942    1.521  stockham avx512-ymm split L=8 radices=8x4x8x8x8 scratch=131080
+pow2:f32:fwd:oop:n131072           194277.0   132791.0    0.684    0.999    1.003    1.467  stockham avx512-ymm split L=8 radices=8x4x8x8x8 scratch=131080
+pow2:f32:inv:ip:n131072            213674.0   133793.0    0.626    0.996    0.941    1.497  stockham avx512-ymm split L=8 radices=8x4x8x8x8 scratch=131080
+pow2:f32:inv:oop:n131072           195780.0   133884.0    0.684    1.002    0.997    1.461  stockham avx512-ymm split L=8 radices=8x4x8x8x8 scratch=131080
+pow2:f32:fwd:ip:n262144            463086.0   281072.0    0.607    0.972    1.006    1.610  stockham avx512-ymm split L=8 radices=8x8x8x8x8 scratch=262152
+pow2:f32:fwd:oop:n262144           455581.0   283366.0    0.622    0.978    1.012    1.590  stockham avx512-ymm split L=8 radices=8x8x8x8x8 scratch=262152
+pow2:f32:inv:ip:n262144            467014.0   280991.0    0.602    1.013    0.970    1.633  stockham avx512-ymm split L=8 radices=8x8x8x8x8 scratch=262152
+pow2:f32:inv:oop:n262144           457135.0   285960.0    0.626    0.998    0.992    1.583  stockham avx512-ymm split L=8 radices=8x8x8x8x8 scratch=262152
+pow2:f32:fwd:ip:n524288            958974.0   939487.0    0.980    0.990    1.028    1.039  stockham avx512-ymm split L=8 radices=8x2x8x8x8x8 scratch=524296
+pow2:f32:fwd:oop:n524288          1190703.0  1190161.0    1.000    0.982    0.836    0.822  stockham avx512-ymm split L=8 radices=8x2x8x8x8x8 scratch=524296
+pow2:f32:inv:ip:n524288            955588.0   946505.5    0.990    0.985    1.034    1.029  stockham avx512-ymm split L=8 radices=8x2x8x8x8x8 scratch=524296
+pow2:f32:inv:oop:n524288          1202405.0  1184124.5    0.985    0.997    0.820    0.830  stockham avx512-ymm split L=8 radices=8x2x8x8x8x8 scratch=524296
+pow2:f32:fwd:ip:n1048576          3691022.5  3524481.0    0.955    0.989    0.856    0.887  stockham avx512-ymm split L=8 radices=8x4x8x8x8x8 scratch=1048584
+pow2:f32:fwd:oop:n1048576         4145823.0  4052976.0    0.978    0.953    0.710    0.692  stockham avx512-ymm split L=8 radices=8x4x8x8x8x8 scratch=1048584
+pow2:f32:inv:ip:n1048576          3652440.0  3558361.0    0.974    0.984    0.865    0.874  stockham avx512-ymm split L=8 radices=8x4x8x8x8x8 scratch=1048584
+pow2:f32:inv:oop:n1048576         4122854.5  3963797.0    0.961    0.986    0.710    0.728  stockham avx512-ymm split L=8 radices=8x4x8x8x8x8 scratch=1048584
+pow2:f64:fwd:ip:n512                  451.6      446.6    0.989    1.001    1.202    1.216  stockham avx512 split L=8 radices=8x8 scratch=516
+pow2:f64:fwd:oop:n512                 484.1      480.9    0.994    1.001    1.057    1.065  stockham avx512 split L=8 radices=8x8 scratch=516
+pow2:f64:inv:ip:n512                  448.5      448.6    1.000    0.932    1.217    1.134  stockham avx512 split L=8 radices=8x8 scratch=516
+pow2:f64:inv:oop:n512                 483.6      489.6    1.012    1.007    1.071    1.065  stockham avx512 split L=8 radices=8x8 scratch=516
+pow2:f64:fwd:ip:n1024                1231.8     1114.6    0.905    0.990    1.086    1.188  stockham avx512 split L=8 radices=8x2x8 scratch=1028
+pow2:f64:fwd:oop:n1024               1214.2     1106.8    0.911    0.999    1.072    1.175  stockham avx512 split L=8 radices=8x2x8 scratch=1028
+pow2:f64:inv:ip:n1024                1196.9     1135.1    0.948    1.007    1.109    1.178  stockham avx512 split L=8 radices=8x2x8 scratch=1028
+pow2:f64:inv:oop:n1024               1197.6     1113.5    0.930    1.000    1.087    1.170  stockham avx512 split L=8 radices=8x2x8 scratch=1028
+pow2:f64:fwd:ip:n4096                6250.5     5026.5    0.804    1.008    1.204    1.510  stockham avx512 split L=8 radices=8x8x8 scratch=4100
+pow2:f64:fwd:oop:n4096               5765.3     5276.0    0.915    1.004    1.302    1.429  stockham avx512 split L=8 radices=8x8x8 scratch=4100
+pow2:f64:inv:ip:n4096                6263.0     5009.5    0.800    1.037    1.151    1.492  stockham avx512 split L=8 radices=8x8x8 scratch=4100
+pow2:f64:inv:oop:n4096               5817.7     5296.0    0.910    1.009    1.277    1.415  stockham avx512 split L=8 radices=8x8x8 scratch=4100
+pow2:f64:fwd:ip:n32768              64642.0    52079.0    0.806    0.974    1.376    1.663  stockham avx512 split L=8 radices=8x8x8x8 scratch=32772
+pow2:f64:fwd:oop:n32768             88067.0    52339.0    0.594    0.996    0.978    1.639  stockham avx512 split L=8 radices=8x8x8x8 scratch=32772
+pow2:f64:inv:ip:n32768              63250.0    52269.0    0.826    0.992    1.386    1.664  stockham avx512 split L=8 radices=8x8x8x8 scratch=32772
+pow2:f64:inv:oop:n32768             87115.0    52600.0    0.604    0.989    0.994    1.629  stockham avx512 split L=8 radices=8x8x8x8 scratch=32772
+pow2:f64:fwd:ip:n131072            387579.0   257296.0    0.664    0.993    1.100    1.646  stockham avx512 split L=8 radices=8x4x8x8x8 scratch=131076
+pow2:f64:fwd:oop:n131072           382864.5   260292.0    0.680    0.999    1.113    1.635  stockham avx512 split L=8 radices=8x4x8x8x8 scratch=131076
+pow2:f64:inv:ip:n131072            387227.5   257908.0    0.666    1.004    1.098    1.655  stockham avx512 split L=8 radices=8x4x8x8x8 scratch=131076
+pow2:f64:inv:oop:n131072           381953.0   260102.0    0.681    1.006    1.110    1.638  stockham avx512 split L=8 radices=8x4x8x8x8 scratch=131076
+pow2:f64:fwd:ip:n262144            872525.5   816415.0    0.936    0.926    1.180    1.168  stockham avx512 split L=8 radices=8x8x8x8x8 scratch=262148
+pow2:f64:fwd:oop:n262144           822576.0   805183.0    0.979    0.972    1.198    1.189  stockham avx512 split L=8 radices=8x8x8x8x8 scratch=262148
+pow2:f64:inv:ip:n262144            831624.0   796882.0    0.958    0.948    1.204    1.191  stockham avx512 split L=8 radices=8x8x8x8x8 scratch=262148
+pow2:f64:inv:oop:n262144           828212.0   808760.0    0.977    0.944    1.219    1.178  stockham avx512 split L=8 radices=8x8x8x8x8 scratch=262148
+pow2:f64:fwd:ip:n524288           3508267.0  3080916.5    0.878    0.938    0.927    0.990  stockham avx512 split L=8 radices=8x2x8x8x8x8 scratch=524292
+pow2:f64:fwd:oop:n524288          3854633.0  3458383.0    0.897    0.915    0.802    0.818  stockham avx512 split L=8 radices=8x2x8x8x8x8 scratch=524292
+pow2:f64:inv:ip:n524288           3531230.0  3065397.0    0.868    0.938    0.927    1.002  stockham avx512 split L=8 radices=8x2x8x8x8x8 scratch=524292
+pow2:f64:inv:oop:n524288          3959701.0  3464034.0    0.875    0.907    0.783    0.812  stockham avx512 split L=8 radices=8x2x8x8x8x8 scratch=524292
+pow2:f64:fwd:ip:n1048576         13350241.5 12337091.0    0.924    0.985    0.660    0.703  stockham avx512 split L=8 radices=8x4x8x8x8x8 scratch=1048580
+pow2:f64:fwd:oop:n1048576        13027712.0 12523038.5    0.961    0.973    0.592    0.599  stockham avx512 split L=8 radices=8x4x8x8x8x8 scratch=1048580
+pow2:f64:inv:ip:n1048576         12905174.5 12353532.0    0.957    0.987    0.684    0.705  stockham avx512 split L=8 radices=8x4x8x8x8x8 scratch=1048580
+pow2:f64:inv:oop:n1048576        12958505.5 12603797.5    0.973    0.983    0.592    0.598  stockham avx512 split L=8 radices=8x4x8x8x8x8 scratch=1048580
+
+prec  band      place cells  ff m8/m0   worst  rf m8/m0  x rf m0  x rf m8
+f32   512-16K   all      12     0.914   1.005     0.993    1.100    1.195
+f32   512-16K   ip        6     0.913   1.005     0.977    1.124    1.202
+f32   512-16K   oop       6     0.915   1.001     1.010    1.076    1.188
+f32   32K-128K  all       8     0.662   0.828     0.986    1.033    1.539
+f32   32K-128K  ip        4     0.717   0.828     0.973    1.149    1.560
+f32   32K-128K  oop       4     0.612   0.684     1.000    0.930    1.519
+f32   256K-1M   all      12     0.837   1.000     0.986    0.896    1.054
+f32   256K-1M   ip        6     0.831   0.990     0.989    0.957    1.139
+f32   256K-1M   oop       6     0.843   1.000     0.982    0.838    0.976
+f32   all       all      32     0.816   1.005     0.989    1.003    1.215
+f64   512-16K   all      12     0.924   1.012     0.999    1.150    1.244
+f64   512-16K   ip        6     0.904   1.000     0.995    1.160    1.278
+f64   512-16K   oop       6     0.945   1.012     1.003    1.140    1.211
+f64   32K-128K  all       8     0.686   0.826     0.994    1.136    1.646
+f64   32K-128K  ip        4     0.737   0.826     0.991    1.232    1.657
+f64   32K-128K  oop       4     0.638   0.681     0.997    1.047    1.635
+f64   256K-1M   all      12     0.931   0.979     0.951    0.866    0.884
+f64   256K-1M   ip        6     0.920   0.958     0.953    0.906    0.939
+f64   256K-1M   oop       6     0.943   0.979     0.948    0.828    0.833
+f64   all       all      32     0.860   1.012     0.980    1.031    1.174

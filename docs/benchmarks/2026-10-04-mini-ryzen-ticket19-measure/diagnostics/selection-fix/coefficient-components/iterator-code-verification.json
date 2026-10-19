@@ -1,0 +1,1354 @@
+{
+  "passed": true,
+  "scope": "Compiled iterator-control gate only: F64x8 empty remaining-pass paths use stored length comparisons and no stride24 iterator pointer-distance multiply. Not numeric or performance acceptance; other arithmetic multiplies remain.",
+  "before_binary_sha256": "bcf2baf643c137df00ab68574405f1e6292e8e0581248fa87a058741b1bcdeab",
+  "binary_sha256": "9e9dfb4c4f8837e3471d0e935da0fa563112452f4777def65fb99ef3d2c8b350",
+  "functions": [
+    {
+      "isa": "F64x8",
+      "before": {
+        "explicit_frame_bytes": 3032,
+        "symbol_span_bytes": 142912,
+        "instructions": 24503,
+        "stride24_skip_pattern_count": 14,
+        "stride24_skip_patterns": [
+          [
+            {
+              "address": "0xf68e7a",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x98]"
+            },
+            {
+              "address": "0xf68e82",
+              "instruction": "sub    rcx,r11"
+            },
+            {
+              "address": "0xf68e85",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0xf68e89",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0xf68e93",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0xf68e97",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0xf68e9a",
+              "instruction": "jae    f69715 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0xc415>"
+            }
+          ],
+          [
+            {
+              "address": "0xf696c1",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x98]"
+            },
+            {
+              "address": "0xf696c9",
+              "instruction": "sub    rcx,r11"
+            },
+            {
+              "address": "0xf696cc",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0xf696d0",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0xf696da",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0xf696de",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0xf696e1",
+              "instruction": "jae    f69710 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0xc410>"
+            }
+          ],
+          [
+            {
+              "address": "0xf6c882",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x3c0]"
+            },
+            {
+              "address": "0xf6c88a",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0xf6c88d",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0xf6c891",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0xf6c89b",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0xf6c89f",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0xf6c8a2",
+              "instruction": "jae    f6d7dd <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x104dd>"
+            }
+          ],
+          [
+            {
+              "address": "0xf6d147",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x3c0]"
+            },
+            {
+              "address": "0xf6d14f",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0xf6d152",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0xf6d156",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0xf6d160",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0xf6d164",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0xf6d167",
+              "instruction": "jae    f6d190 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0xfe90>"
+            }
+          ],
+          [
+            {
+              "address": "0xf6f7b9",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x480]"
+            },
+            {
+              "address": "0xf6f7c1",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0xf6f7c4",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0xf6f7c8",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0xf6f7d2",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0xf6f7d6",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0xf6f7d9",
+              "instruction": "jae    f71340 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x14040>"
+            }
+          ],
+          [
+            {
+              "address": "0xf70a57",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x480]"
+            },
+            {
+              "address": "0xf70a5f",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0xf70a62",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0xf70a66",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0xf70a70",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0xf70a74",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0xf70a77",
+              "instruction": "jae    f71340 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x14040>"
+            }
+          ],
+          [
+            {
+              "address": "0xf712f7",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x480]"
+            },
+            {
+              "address": "0xf712ff",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0xf71302",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0xf71306",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0xf71310",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0xf71314",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0xf71317",
+              "instruction": "jae    f71340 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x14040>"
+            }
+          ],
+          [
+            {
+              "address": "0xf72889",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x480]"
+            },
+            {
+              "address": "0xf72891",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0xf72894",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0xf72898",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0xf728a2",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0xf728a6",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0xf728a9",
+              "instruction": "jae    f74450 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x17150>"
+            }
+          ],
+          [
+            {
+              "address": "0xf73b67",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x480]"
+            },
+            {
+              "address": "0xf73b6f",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0xf73b72",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0xf73b76",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0xf73b80",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0xf73b84",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0xf73b87",
+              "instruction": "jae    f74450 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x17150>"
+            }
+          ],
+          [
+            {
+              "address": "0xf74407",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x480]"
+            },
+            {
+              "address": "0xf7440f",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0xf74412",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0xf74416",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0xf74420",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0xf74424",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0xf74427",
+              "instruction": "jae    f74450 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x17150>"
+            }
+          ],
+          [
+            {
+              "address": "0xf771f5",
+              "instruction": "mov    rdx,QWORD PTR [rsp+0x520]"
+            },
+            {
+              "address": "0xf771fd",
+              "instruction": "sub    rdx,r9"
+            },
+            {
+              "address": "0xf77200",
+              "instruction": "shr    rdx,0x3"
+            },
+            {
+              "address": "0xf77204",
+              "instruction": "movabs rdi,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0xf7720e",
+              "instruction": "imul   rdx,rdi"
+            },
+            {
+              "address": "0xf77212",
+              "instruction": "cmp    rcx,rdx"
+            },
+            {
+              "address": "0xf77215",
+              "instruction": "jae    f77230 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x19f30>"
+            }
+          ],
+          [
+            {
+              "address": "0xf7a4dd",
+              "instruction": "mov    rdx,QWORD PTR [rsp+0x520]"
+            },
+            {
+              "address": "0xf7a4e5",
+              "instruction": "sub    rdx,r9"
+            },
+            {
+              "address": "0xf7a4e8",
+              "instruction": "shr    rdx,0x3"
+            },
+            {
+              "address": "0xf7a4ec",
+              "instruction": "movabs rdi,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0xf7a4f6",
+              "instruction": "imul   rdx,rdi"
+            },
+            {
+              "address": "0xf7a4fa",
+              "instruction": "cmp    rcx,rdx"
+            },
+            {
+              "address": "0xf7a4fd",
+              "instruction": "jae    f7a520 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x1d220>"
+            }
+          ],
+          [
+            {
+              "address": "0xf7d36c",
+              "instruction": "mov    rdx,QWORD PTR [rsp+0x1e8]"
+            },
+            {
+              "address": "0xf7d374",
+              "instruction": "sub    rdx,r10"
+            },
+            {
+              "address": "0xf7d377",
+              "instruction": "shr    rdx,0x3"
+            },
+            {
+              "address": "0xf7d37b",
+              "instruction": "movabs rsi,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0xf7d385",
+              "instruction": "imul   rdx,rsi"
+            },
+            {
+              "address": "0xf7d389",
+              "instruction": "cmp    rcx,rdx"
+            },
+            {
+              "address": "0xf7d38c",
+              "instruction": "jae    f7b100 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x1de00>"
+            }
+          ],
+          [
+            {
+              "address": "0xf7fd4c",
+              "instruction": "mov    rdx,QWORD PTR [rsp+0x1e8]"
+            },
+            {
+              "address": "0xf7fd54",
+              "instruction": "sub    rdx,r10"
+            },
+            {
+              "address": "0xf7fd57",
+              "instruction": "shr    rdx,0x3"
+            },
+            {
+              "address": "0xf7fd5b",
+              "instruction": "movabs rsi,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0xf7fd65",
+              "instruction": "imul   rdx,rsi"
+            },
+            {
+              "address": "0xf7fd69",
+              "instruction": "cmp    rcx,rdx"
+            },
+            {
+              "address": "0xf7fd6c",
+              "instruction": "jae    f7dae0 <<fastfft::isa::x86::F64x8 as fastfft::engine::fourstep::PanelVector>::execute+0x207e0>"
+            }
+          ]
+        ],
+        "assembly_sha256": "9a001fbe288fead77d79dcb11c7b804827a765b2f2a2d16e3960930b417a966c"
+      },
+      "current": {
+        "explicit_frame_bytes": 3144,
+        "symbol_span_bytes": 142656,
+        "instructions": 24451,
+        "stride24_skip_pattern_count": 0,
+        "stride24_skip_patterns": [],
+        "assembly_sha256": "65b35d62caf05469da7a3daaf45f4ef82ec0ed89f1e33259b16a34475bc0f7d4"
+      },
+      "frame_delta": 112,
+      "span_delta": -256
+    },
+    {
+      "isa": "F32x8v",
+      "before": {
+        "explicit_frame_bytes": 2168,
+        "symbol_span_bytes": 135040,
+        "instructions": 24452,
+        "stride24_skip_pattern_count": 14,
+        "stride24_skip_patterns": [
+          [
+            {
+              "address": "0x1072198",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x320]"
+            },
+            {
+              "address": "0x10721a0",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x10721a3",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x10721a7",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x10721b1",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x10721b5",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x10721b8",
+              "instruction": "jae    107299d <<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute+0xbe5d>"
+            }
+          ],
+          [
+            {
+              "address": "0x1072948",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x320]"
+            },
+            {
+              "address": "0x1072950",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x1072953",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x1072957",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x1072961",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x1072965",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x1072968",
+              "instruction": "jae    1072990 <<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute+0xbe50>"
+            }
+          ],
+          [
+            {
+              "address": "0x1075890",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x320]"
+            },
+            {
+              "address": "0x1075898",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x107589b",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x107589f",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x10758a9",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x10758ad",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x10758b0",
+              "instruction": "jae    10760e0 <<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute+0xf5a0>"
+            }
+          ],
+          [
+            {
+              "address": "0x107609c",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x320]"
+            },
+            {
+              "address": "0x10760a4",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x10760a7",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x10760ab",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x10760b5",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x10760b9",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x10760bc",
+              "instruction": "jae    10760e0 <<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute+0xf5a0>"
+            }
+          ],
+          [
+            {
+              "address": "0x1078421",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x80]"
+            },
+            {
+              "address": "0x1078429",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x107842c",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x1078430",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x107843a",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x107843e",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x1078441",
+              "instruction": "jae    1078470 <<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute+0x11930>"
+            }
+          ],
+          [
+            {
+              "address": "0x1079661",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x80]"
+            },
+            {
+              "address": "0x1079669",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x107966c",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x1079670",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x107967a",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x107967e",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x1079681",
+              "instruction": "jae    1078478 <<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute+0x11938>"
+            }
+          ],
+          [
+            {
+              "address": "0x1079e71",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x80]"
+            },
+            {
+              "address": "0x1079e79",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x1079e7c",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x1079e80",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x1079e8a",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x1079e8e",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x1079e91",
+              "instruction": "jae    1078478 <<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute+0x11938>"
+            }
+          ],
+          [
+            {
+              "address": "0x107b101",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x80]"
+            },
+            {
+              "address": "0x107b109",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x107b10c",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x107b110",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x107b11a",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x107b11e",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x107b121",
+              "instruction": "jae    107b150 <<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute+0x14610>"
+            }
+          ],
+          [
+            {
+              "address": "0x107c23d",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x80]"
+            },
+            {
+              "address": "0x107c245",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x107c248",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x107c24c",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x107c256",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x107c25a",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x107c25d",
+              "instruction": "jae    107ca90 <<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute+0x15f50>"
+            }
+          ],
+          [
+            {
+              "address": "0x107ca4d",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x80]"
+            },
+            {
+              "address": "0x107ca55",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x107ca58",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x107ca5c",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x107ca66",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x107ca6a",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x107ca6d",
+              "instruction": "jae    107ca90 <<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute+0x15f50>"
+            }
+          ],
+          [
+            {
+              "address": "0x107f4f0",
+              "instruction": "mov    rdx,QWORD PTR [rsp+0x88]"
+            },
+            {
+              "address": "0x107f4f8",
+              "instruction": "sub    rdx,r9"
+            },
+            {
+              "address": "0x107f4fb",
+              "instruction": "shr    rdx,0x3"
+            },
+            {
+              "address": "0x107f4ff",
+              "instruction": "movabs rsi,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x107f509",
+              "instruction": "imul   rdx,rsi"
+            },
+            {
+              "address": "0x107f50d",
+              "instruction": "cmp    rcx,rdx"
+            },
+            {
+              "address": "0x107f510",
+              "instruction": "jae    107f530 <<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute+0x189f0>"
+            }
+          ],
+          [
+            {
+              "address": "0x1082423",
+              "instruction": "mov    rdx,QWORD PTR [rsp+0x88]"
+            },
+            {
+              "address": "0x108242b",
+              "instruction": "sub    rdx,r9"
+            },
+            {
+              "address": "0x108242e",
+              "instruction": "shr    rdx,0x3"
+            },
+            {
+              "address": "0x1082432",
+              "instruction": "movabs rsi,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x108243c",
+              "instruction": "imul   rdx,rsi"
+            },
+            {
+              "address": "0x1082440",
+              "instruction": "cmp    rcx,rdx"
+            },
+            {
+              "address": "0x1082443",
+              "instruction": "jae    1082460 <<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute+0x1b920>"
+            }
+          ],
+          [
+            {
+              "address": "0x1084ff6",
+              "instruction": "mov    rdx,QWORD PTR [rsp+0x1f8]"
+            },
+            {
+              "address": "0x1084ffe",
+              "instruction": "sub    rdx,r11"
+            },
+            {
+              "address": "0x1085001",
+              "instruction": "shr    rdx,0x3"
+            },
+            {
+              "address": "0x1085005",
+              "instruction": "movabs rsi,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x108500f",
+              "instruction": "imul   rdx,rsi"
+            },
+            {
+              "address": "0x1085013",
+              "instruction": "cmp    rcx,rdx"
+            },
+            {
+              "address": "0x1085016",
+              "instruction": "jae    1082f90 <<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute+0x1c450>"
+            }
+          ],
+          [
+            {
+              "address": "0x1087745",
+              "instruction": "mov    rdx,QWORD PTR [rsp+0x260]"
+            },
+            {
+              "address": "0x108774d",
+              "instruction": "sub    rdx,r11"
+            },
+            {
+              "address": "0x1087750",
+              "instruction": "shr    rdx,0x3"
+            },
+            {
+              "address": "0x1087754",
+              "instruction": "movabs rsi,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x108775e",
+              "instruction": "imul   rdx,rsi"
+            },
+            {
+              "address": "0x1087762",
+              "instruction": "cmp    rcx,rdx"
+            },
+            {
+              "address": "0x1087765",
+              "instruction": "jae    1085750 <<fastfft::isa::x86::F32x8v as fastfft::engine::fourstep::PanelVector>::execute+0x1ec10>"
+            }
+          ]
+        ],
+        "assembly_sha256": "56a194a0807ae00f0fccc2df2953b138ea4973b36631d3853fcd5da68fd7cbed"
+      },
+      "current": {
+        "explicit_frame_bytes": 2232,
+        "symbol_span_bytes": 134080,
+        "instructions": 24273,
+        "stride24_skip_pattern_count": 0,
+        "stride24_skip_patterns": [],
+        "assembly_sha256": "9246ca104d3d6371d1317efd732b387a769fdb9b79484e9c40578143873ec293"
+      },
+      "frame_delta": 64,
+      "span_delta": -960
+    },
+    {
+      "isa": "F32x16",
+      "before": {
+        "explicit_frame_bytes": 5568,
+        "symbol_span_bytes": 148480,
+        "instructions": 25109,
+        "stride24_skip_pattern_count": 14,
+        "stride24_skip_patterns": [
+          [
+            {
+              "address": "0x10405bf",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x50]"
+            },
+            {
+              "address": "0x10405c4",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x10405c7",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x10405cb",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x10405d5",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x10405d9",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x10405dc",
+              "instruction": "jae    1040600 <<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute+0xb9c0>"
+            }
+          ],
+          [
+            {
+              "address": "0x10417df",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x50]"
+            },
+            {
+              "address": "0x10417e4",
+              "instruction": "sub    rcx,r10"
+            },
+            {
+              "address": "0x10417e7",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x10417eb",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x10417f5",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x10417f9",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x10417fc",
+              "instruction": "jae    1041820 <<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute+0xcbe0>"
+            }
+          ],
+          [
+            {
+              "address": "0x10443ef",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x180]"
+            },
+            {
+              "address": "0x10443f7",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x10443fa",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x10443fe",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x1044408",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x104440c",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x104440f",
+              "instruction": "jae    1044430 <<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute+0xf7f0>"
+            }
+          ],
+          [
+            {
+              "address": "0x104565f",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x180]"
+            },
+            {
+              "address": "0x1045667",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x104566a",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x104566e",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x1045678",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x104567c",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x104567f",
+              "instruction": "jae    10456a4 <<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute+0x10a64>"
+            }
+          ],
+          [
+            {
+              "address": "0x10477cf",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x540]"
+            },
+            {
+              "address": "0x10477d7",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x10477da",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x10477de",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x10477e8",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x10477ec",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x10477ef",
+              "instruction": "jae    1047820 <<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute+0x12be0>"
+            }
+          ],
+          [
+            {
+              "address": "0x1048a9f",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x540]"
+            },
+            {
+              "address": "0x1048aa7",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x1048aaa",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x1048aae",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x1048ab8",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x1048abc",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x1048abf",
+              "instruction": "jae    10493b0 <<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute+0x14770>"
+            }
+          ],
+          [
+            {
+              "address": "0x104936f",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x540]"
+            },
+            {
+              "address": "0x1049377",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x104937a",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x104937e",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x1049388",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x104938c",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x104938f",
+              "instruction": "jae    10493b0 <<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute+0x14770>"
+            }
+          ],
+          [
+            {
+              "address": "0x104a92f",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x540]"
+            },
+            {
+              "address": "0x104a937",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x104a93a",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x104a93e",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x104a948",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x104a94c",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x104a94f",
+              "instruction": "jae    104a970 <<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute+0x15d30>"
+            }
+          ],
+          [
+            {
+              "address": "0x104bd4f",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x540]"
+            },
+            {
+              "address": "0x104bd57",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x104bd5a",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x104bd5e",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x104bd68",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x104bd6c",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x104bd6f",
+              "instruction": "jae    104a978 <<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute+0x15d38>"
+            }
+          ],
+          [
+            {
+              "address": "0x104c60f",
+              "instruction": "mov    rcx,QWORD PTR [rsp+0x540]"
+            },
+            {
+              "address": "0x104c617",
+              "instruction": "sub    rcx,r9"
+            },
+            {
+              "address": "0x104c61a",
+              "instruction": "shr    rcx,0x3"
+            },
+            {
+              "address": "0x104c61e",
+              "instruction": "movabs rdx,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x104c628",
+              "instruction": "imul   rcx,rdx"
+            },
+            {
+              "address": "0x104c62c",
+              "instruction": "cmp    rax,rcx"
+            },
+            {
+              "address": "0x104c62f",
+              "instruction": "jae    104a978 <<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute+0x15d38>"
+            }
+          ],
+          [
+            {
+              "address": "0x104f2d1",
+              "instruction": "mov    rdx,QWORD PTR [rsp+0x30]"
+            },
+            {
+              "address": "0x104f2d6",
+              "instruction": "sub    rdx,r9"
+            },
+            {
+              "address": "0x104f2d9",
+              "instruction": "shr    rdx,0x3"
+            },
+            {
+              "address": "0x104f2dd",
+              "instruction": "movabs rsi,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x104f2e7",
+              "instruction": "imul   rdx,rsi"
+            },
+            {
+              "address": "0x104f2eb",
+              "instruction": "cmp    rcx,rdx"
+            },
+            {
+              "address": "0x104f2ee",
+              "instruction": "jae    104f300 <<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute+0x1a6c0>"
+            }
+          ],
+          [
+            {
+              "address": "0x1052c51",
+              "instruction": "mov    rdx,QWORD PTR [rsp+0x30]"
+            },
+            {
+              "address": "0x1052c56",
+              "instruction": "sub    rdx,r9"
+            },
+            {
+              "address": "0x1052c59",
+              "instruction": "shr    rdx,0x3"
+            },
+            {
+              "address": "0x1052c5d",
+              "instruction": "movabs rsi,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x1052c67",
+              "instruction": "imul   rdx,rsi"
+            },
+            {
+              "address": "0x1052c6b",
+              "instruction": "cmp    rcx,rdx"
+            },
+            {
+              "address": "0x1052c6e",
+              "instruction": "jae    1052c80 <<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute+0x1e040>"
+            }
+          ],
+          [
+            {
+              "address": "0x10561f5",
+              "instruction": "mov    rdx,QWORD PTR [rsp+0x128]"
+            },
+            {
+              "address": "0x10561fd",
+              "instruction": "sub    rdx,r9"
+            },
+            {
+              "address": "0x1056200",
+              "instruction": "shr    rdx,0x3"
+            },
+            {
+              "address": "0x1056204",
+              "instruction": "movabs rsi,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x105620e",
+              "instruction": "imul   rdx,rsi"
+            },
+            {
+              "address": "0x1056212",
+              "instruction": "cmp    rcx,rdx"
+            },
+            {
+              "address": "0x1056215",
+              "instruction": "jae    1053e80 <<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute+0x1f240>"
+            }
+          ],
+          [
+            {
+              "address": "0x1058ca5",
+              "instruction": "mov    rdx,QWORD PTR [rsp+0x128]"
+            },
+            {
+              "address": "0x1058cad",
+              "instruction": "sub    rdx,r9"
+            },
+            {
+              "address": "0x1058cb0",
+              "instruction": "shr    rdx,0x3"
+            },
+            {
+              "address": "0x1058cb4",
+              "instruction": "movabs rsi,0xaaaaaaaaaaaaaaab"
+            },
+            {
+              "address": "0x1058cbe",
+              "instruction": "imul   rdx,rsi"
+            },
+            {
+              "address": "0x1058cc2",
+              "instruction": "cmp    rcx,rdx"
+            },
+            {
+              "address": "0x1058cc5",
+              "instruction": "jae    1056930 <<fastfft::isa::x86::F32x16 as fastfft::engine::fourstep::PanelVector>::execute+0x21cf0>"
+            }
+          ]
+        ],
+        "assembly_sha256": "93c8878a81830f5bd75c04b0791a44b13e6b4fa6b0c657af6d6c541dc207d361"
+      },
+      "current": {
+        "explicit_frame_bytes": 5696,
+        "symbol_span_bytes": 148352,
+        "instructions": 24976,
+        "stride24_skip_pattern_count": 0,
+        "stride24_skip_patterns": [],
+        "assembly_sha256": "f4f798422d054a090f05e715e7f14fe9dcfa95e35a974d96bf9138f2bf612bd9"
+      },
+      "frame_delta": 128,
+      "span_delta": -128
+    }
+  ],
+  "F64x8_path_evidence": {
+    "inverse_ungrouped_entry": "0xf7a540\u20130xf7a55e loads counts[0] from plan+0x20 to RSP+0x10 and counts[1] from plan+0x28 to RSP+0x58. N210 counts are1,1.",
+    "column_full": "0xf85713 CMP [RSP+0x10],2;0xf8572b JB0xf867b0 skips completion passes when count1. No pointer distance/MOVABS/IMUL on this empty-range path.",
+    "column_partial": "0xf85f83 CMP [RSP+0x10],2;0xf85f91 JB0xf867b0 gives the same empty-range skip.",
+    "inverse_row_entry": "Unblocked/nonstreaming path0xf8e54c\u21920xf8e560 forms row descriptor base from cached base+columns_count\u00d724; row count remains at RSP+0x58. This is address formation, not a pointer-distance divide.",
+    "row_empty_guards": [
+      "0xf8f169 CMP [RSP+0x58],2; JB0xf915e0",
+      "0xf90133 CMP [RSP+0x58],2; JAE nonempty path, otherwise JMP0xf915e0",
+      "0xf904aa CMP [RSP+0x58],2; JB0xf915e0",
+      "0xf90d75 CMP [RSP+0x58],2; JB0xf915e0"
+    ],
+    "nonempty_loop": "Index starts1 at0xf8573d; increments at0xf857a6, compares directly to stored count at0xf857bd. Descriptor address uses index\u00d724 LEA at0xf857d6, radix/offset loads follow. No element count is reconstructed from pointer distance.",
+    "prior_example": "Before0xf68e7a\u20130xf68e9a: load endpoint, SUB ptr, SHR3, MOVABS0xaaaaaaaaaaaaaaab, IMUL, CMP/JAE. Fourteen matching old skip patterns occur across the whole symbol; zero in the new symbol."
+  },
+  "caveats": [
+    "The optimization changes register allocation, stack offsets, function span and code placement. It is not a one-instruction performance counterfactual.",
+    "F64x8 explicit frame grows112 bytes despite smaller function span; performance must be measured rather than inferred.",
+    "Other MOVABS/MUL sequences for radix arithmetic remain and are not failures of this narrowly scoped gate.",
+    "Existing test/Clippy logs are separate correctness evidence. All review here reads retained assembly only; no build/disassembly/benchmark/source edit."
+  ]
+}

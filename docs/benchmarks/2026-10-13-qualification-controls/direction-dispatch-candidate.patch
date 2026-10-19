@@ -1,0 +1,363 @@
+diff --git a/crates/fastfft/src/engine/fourstep.rs b/crates/fastfft/src/engine/fourstep.rs
+index ae1e8be..fed61a4 100644
+--- a/crates/fastfft/src/engine/fourstep.rs
++++ b/crates/fastfft/src/engine/fourstep.rs
+@@ -346,12 +346,11 @@ trait PanelVector: StockhamVector {
+         valid: usize,
+         one: Self,
+     );
+-    unsafe fn execute(
++    unsafe fn execute<const INV: bool>(
+         plan: &FourStepPlan<Self::S>,
+         input: *const Self::S,
+         output: *mut Self::S,
+         scratch: *mut Self::S,
+-        inverse: bool,
+     ) where
+         Self::S: FftNum;
+ }
+@@ -709,14 +708,13 @@ macro_rules! vector {
+                 unsafe { first::<Self, R, SWAP, PARTIAL, SPLIT>(input, output, rows, stride, valid, one) }
+             }
+             $(#[target_feature(enable = $features)])?
+-            unsafe fn execute(
++            unsafe fn execute<const INV: bool>(
+                 plan: &FourStepPlan<Self::S>, input: *const Self::S, output: *mut Self::S,
+-                scratch: *mut Self::S, inverse: bool,
++                scratch: *mut Self::S,
+             ) {
+                 // SAFETY: caller validates buffers, plan shape and ISA.
+                 unsafe {
+-                    if inverse { execute::<Self, $l, true>(plan, input, output, scratch); }
+-                    else { execute::<Self, $l, false>(plan, input, output, scratch); }
++                    execute::<Self, $l, INV>(plan, input, output, scratch);
+                 }
+             }
+         }
+@@ -779,13 +777,12 @@ pub(crate) unsafe fn run<T: FftNum>(
+             // SAFETY: FftNum is sealed; the precision match guarantees T=$s.
+             // The caller checked matching shape, ISA and buffer sizes.
+             unsafe {
+-                <$v>::execute(
+-                    &*(plan as *const FourStepPlan<T>).cast::<FourStepPlan<$s>>(),
+-                    input.cast(),
+-                    output.cast(),
+-                    scratch.cast(),
+-                    inverse,
+-                )
++                let plan = &*(plan as *const FourStepPlan<T>).cast::<FourStepPlan<$s>>();
++                if inverse {
++                    <$v>::execute::<true>(plan, input.cast(), output.cast(), scratch.cast())
++                } else {
++                    <$v>::execute::<false>(plan, input.cast(), output.cast(), scratch.cast())
++                }
+             }
+         }};
+     }
+diff --git a/crates/fastfft/src/engine/mod.rs b/crates/fastfft/src/engine/mod.rs
+index 8ec9424..70f30ae 100644
+--- a/crates/fastfft/src/engine/mod.rs
++++ b/crates/fastfft/src/engine/mod.rs
+@@ -18,7 +18,8 @@ pub(crate) mod timing;
+ #[cfg(feature = "tuning")]
+ pub(crate) mod tuning;
+ 
+-use crate::isa::{Isa, scalar};
++use crate::api::FftNum;
++use crate::isa::{Isa, Precision, scalar};
+ use stockham::{Mode, StockhamPlan};
+ 
+ /// Planned vector shape: tier plus lanes per vector. Small-only narrow shapes
+@@ -116,17 +117,16 @@ macro_rules! entry {
+         }
+ 
+         #[target_feature(enable = $feat)]
+-        pub(super) unsafe fn $name(
++        pub(super) unsafe fn $name<const INV: bool>(
+             plan: &StockhamPlan<$s>,
+             i: *mut $s,
+             o: *mut $s,
+             s: *mut $s,
+             mode: Mode,
+-            inv: bool,
+         ) {
+             // SAFETY: forwarded contract of `stockham::execute`; the tier's
+             // features are enabled on this function.
+-            unsafe { stockham::execute::<$v>(plan, i, o, s, mode, inv) }
++            unsafe { stockham::execute::<$v>(plan, i, o, s, mode, INV) }
+         }
+     };
+ }
+@@ -194,59 +194,95 @@ mod x86_sse2 {
+ ///
+ /// `shape.isa` is available, `plan.l == shape.lanes`, and the pointers
+ /// satisfy `stockham::execute`'s contract.
+-pub(crate) unsafe fn stockham_f32(
++unsafe fn stockham_f32<const INV: bool>(
+     shape: Shape,
+     plan: &StockhamPlan<f32>,
+     i: *mut f32,
+     o: *mut f32,
+     s: *mut f32,
+     mode: Mode,
+-    inv: bool,
+ ) {
+     // SAFETY: see the function contract.
+     unsafe {
+         match (shape.isa, shape.lanes) {
+             #[cfg(all(target_arch = "aarch64", feature = "neon"))]
+-            (Isa::Neon, 4) => arm_neon::f32_(plan, i, o, s, mode, inv),
++            (Isa::Neon, 4) => arm_neon::f32_::<INV>(plan, i, o, s, mode),
+             #[cfg(all(target_arch = "x86_64", feature = "avx512"))]
+-            (Isa::Avx512, 16) => x86_avx512::zmm_f32(plan, i, o, s, mode, inv),
++            (Isa::Avx512, 16) => x86_avx512::zmm_f32::<INV>(plan, i, o, s, mode),
+             #[cfg(all(target_arch = "x86_64", feature = "avx512"))]
+-            (Isa::Avx512Ymm, 8) => x86_avx512::ymm_f32(plan, i, o, s, mode, inv),
++            (Isa::Avx512Ymm, 8) => x86_avx512::ymm_f32::<INV>(plan, i, o, s, mode),
+             #[cfg(all(target_arch = "x86_64", feature = "avx2"))]
+-            (Isa::Avx2, 8) => x86_avx2::ymm_f32(plan, i, o, s, mode, inv),
++            (Isa::Avx2, 8) => x86_avx2::ymm_f32::<INV>(plan, i, o, s, mode),
+             #[cfg(all(target_arch = "x86_64", feature = "sse2"))]
+-            (Isa::Sse2, 4) => x86_sse2::xmm_f32(plan, i, o, s, mode, inv),
+-            (Isa::Scalar, 1) => stockham::execute::<scalar::S32>(plan, i, o, s, mode, inv),
++            (Isa::Sse2, 4) => x86_sse2::xmm_f32::<INV>(plan, i, o, s, mode),
++            (Isa::Scalar, 1) => stockham::execute::<scalar::S32>(plan, i, o, s, mode, INV),
+             other => unreachable!("no f32 kernel for {other:?}"),
+         }
+     }
+ }
+ 
+ /// Runs a Stockham plan on the given tier (f64). Same contract as [`stockham_f32`].
+-pub(crate) unsafe fn stockham_f64(
++unsafe fn stockham_f64<const INV: bool>(
+     shape: Shape,
+     plan: &StockhamPlan<f64>,
+     i: *mut f64,
+     o: *mut f64,
+     s: *mut f64,
+     mode: Mode,
+-    inv: bool,
+ ) {
+     // SAFETY: see the function contract.
+     unsafe {
+         match (shape.isa, shape.lanes) {
+             #[cfg(all(target_arch = "aarch64", feature = "neon"))]
+-            (Isa::Neon, 2) => arm_neon::f64_(plan, i, o, s, mode, inv),
++            (Isa::Neon, 2) => arm_neon::f64_::<INV>(plan, i, o, s, mode),
+             #[cfg(all(target_arch = "x86_64", feature = "avx512"))]
+-            (Isa::Avx512, 8) => x86_avx512::zmm_f64(plan, i, o, s, mode, inv),
++            (Isa::Avx512, 8) => x86_avx512::zmm_f64::<INV>(plan, i, o, s, mode),
+             #[cfg(all(target_arch = "x86_64", feature = "avx512"))]
+-            (Isa::Avx512Ymm, 4) => x86_avx512::ymm_f64(plan, i, o, s, mode, inv),
++            (Isa::Avx512Ymm, 4) => x86_avx512::ymm_f64::<INV>(plan, i, o, s, mode),
+             #[cfg(all(target_arch = "x86_64", feature = "avx2"))]
+-            (Isa::Avx2, 4) => x86_avx2::ymm_f64(plan, i, o, s, mode, inv),
++            (Isa::Avx2, 4) => x86_avx2::ymm_f64::<INV>(plan, i, o, s, mode),
+             #[cfg(all(target_arch = "x86_64", feature = "sse2"))]
+-            (Isa::Sse2, 2) => x86_sse2::xmm_f64(plan, i, o, s, mode, inv),
+-            (Isa::Scalar, 1) => stockham::execute::<scalar::S64>(plan, i, o, s, mode, inv),
++            (Isa::Sse2, 2) => x86_sse2::xmm_f64::<INV>(plan, i, o, s, mode),
++            (Isa::Scalar, 1) => stockham::execute::<scalar::S64>(plan, i, o, s, mode, INV),
+             other => unreachable!("no f64 kernel for {other:?}"),
+         }
+     }
+ }
++
++/// Execute a Stockham plan through the matching precision, direction and ISA.
++///
++/// # Safety
++/// The shape must be available and match the plan; all pointers satisfy
++/// `stockham::execute`'s buffer and scratch contracts.
++pub(crate) unsafe fn execute_stockham<T: FftNum>(
++    shape: Shape,
++    plan: &StockhamPlan<T>,
++    input: *mut T,
++    output: *mut T,
++    scratch: *mut T,
++    mode: Mode,
++    inverse: bool,
++) {
++    macro_rules! run {
++        ($scalar:ty, $entry:ident, $inverse:literal) => {
++            $entry::<$inverse>(
++                shape,
++                &*(plan as *const StockhamPlan<T>).cast::<StockhamPlan<$scalar>>(),
++                input.cast(),
++                output.cast(),
++                scratch.cast(),
++                mode,
++            )
++        };
++    }
++    // SAFETY: FftNum is sealed to the matched precision. The caller supplies
++    // the validated shape and complete buffers; direction changes no bounds.
++    unsafe {
++        match (T::precision(), inverse) {
++            (Precision::F32, false) => run!(f32, stockham_f32, false),
++            (Precision::F32, true) => run!(f32, stockham_f32, true),
++            (Precision::F64, false) => run!(f64, stockham_f64, false),
++            (Precision::F64, true) => run!(f64, stockham_f64, true),
++        }
++    }
++}
+diff --git a/crates/fastfft/src/engine/timing.rs b/crates/fastfft/src/engine/timing.rs
+index 6358c74..333b277 100644
+--- a/crates/fastfft/src/engine/timing.rs
++++ b/crates/fastfft/src/engine/timing.rs
+@@ -6,7 +6,6 @@ use super::{
+ use crate::api::{Fft, FftDirection, FftNum};
+ use crate::diagnostic::{Sample, enabled, sample, wrapper};
+ use crate::fft::{FftImpl, Kernel, align_slack};
+-use crate::isa::Precision;
+ use num_complex::Complex;
+ use std::hint::black_box;
+ 
+@@ -63,26 +62,15 @@ pub(crate) fn stockham<T: FftNum>(
+         let ns = sample(|| {
+             // SAFETY: validated shape and complete buffers; T is sealed to f32/f64.
+             unsafe {
+-                match T::precision() {
+-                    Precision::F32 => super::stockham_f32(
+-                        shape,
+-                        &*(&plan as *const StockhamPlan<T>).cast::<StockhamPlan<f32>>(),
+-                        black_box(ip.cast()),
+-                        black_box(dst.cast()),
+-                        black_box(sp.cast()),
+-                        mode,
+-                        inverse,
+-                    ),
+-                    Precision::F64 => super::stockham_f64(
+-                        shape,
+-                        &*(&plan as *const StockhamPlan<T>).cast::<StockhamPlan<f64>>(),
+-                        black_box(ip.cast()),
+-                        black_box(dst.cast()),
+-                        black_box(sp.cast()),
+-                        mode,
+-                        inverse,
+-                    ),
+-                }
++                super::execute_stockham(
++                    shape,
++                    &plan,
++                    black_box(ip),
++                    black_box(dst),
++                    black_box(sp),
++                    mode,
++                    inverse,
++                )
+             }
+             black_box(dst);
+         });
+diff --git a/crates/fastfft/src/fft.rs b/crates/fastfft/src/fft.rs
+index 0d5beb4..05720ab 100644
+--- a/crates/fastfft/src/fft.rs
++++ b/crates/fastfft/src/fft.rs
+@@ -5,7 +5,6 @@ use crate::engine::bluestein::BluesteinPlan;
+ use crate::engine::fourstep::FourStepPlan;
+ use crate::engine::stockham::{Mode, StockhamPlan};
+ use crate::engine::{self, Shape};
+-use crate::isa::Precision;
+ use num_complex::Complex;
+ 
+ /// Extra complex elements of scratch so internal buffers can be 64-byte aligned.
+@@ -93,28 +92,7 @@ impl<T: FftNum> FftImpl<T> {
+                 // available tiers with matching lanes; pointer validity per
+                 // this function's contract. T is f32 (resp. f64) exactly when
+                 // the precision says so (FftNum is sealed).
+-                unsafe {
+-                    match T::precision() {
+-                        Precision::F32 => engine::stockham_f32(
+-                            *shape,
+-                            &*(plan as *const StockhamPlan<T>).cast::<StockhamPlan<f32>>(),
+-                            i.cast(),
+-                            o.cast(),
+-                            s.cast(),
+-                            mode,
+-                            inverse,
+-                        ),
+-                        Precision::F64 => engine::stockham_f64(
+-                            *shape,
+-                            &*(plan as *const StockhamPlan<T>).cast::<StockhamPlan<f64>>(),
+-                            i.cast(),
+-                            o.cast(),
+-                            s.cast(),
+-                            mode,
+-                            inverse,
+-                        ),
+-                    }
+-                }
++                unsafe { engine::execute_stockham(*shape, plan, i, o, s, mode, inverse) }
+             }
+             Kernel::FourStep { shape, plan } => {
+                 debug_assert_eq!(self.len, plan.n);
+diff --git a/crates/fastfft/src/tuning/stockham.rs b/crates/fastfft/src/tuning/stockham.rs
+index bebfb70..ff8ef6b 100644
+--- a/crates/fastfft/src/tuning/stockham.rs
++++ b/crates/fastfft/src/tuning/stockham.rs
+@@ -5,7 +5,7 @@ use crate::api::{Fft, FftDirection, FftNum};
+ use crate::engine::stockham::Mode;
+ use crate::engine::stockham::diagnostic::{Pointers, Schedule};
+ use crate::fft::FftImpl;
+-use crate::isa::{Isa, Precision};
++use crate::isa::Isa;
+ use num_complex::Complex;
+ 
+ /// A diagnostic route, chosen once before its batched calls.
+@@ -331,37 +331,16 @@ unsafe fn engine_calls<T: FftNum>(schedule: &Schedule<'_, T>, p: Pointers, calls
+     // SAFETY: sealed FftNum identifies the scalar type, and the constructor
+     // validated the retained production shape and complete scratch contract.
+     unsafe {
+-        match T::precision() {
+-            Precision::F32 => {
+-                let plan = &*(schedule.plan as *const _
+-                    as *const crate::engine::stockham::StockhamPlan<f32>);
+-                for _ in 0..calls {
+-                    crate::engine::stockham_f32(
+-                        schedule.shape,
+-                        plan,
+-                        p.input.cast(),
+-                        p.output.cast(),
+-                        p.scratch.cast(),
+-                        schedule.mode,
+-                        schedule.inverse,
+-                    );
+-                }
+-            }
+-            Precision::F64 => {
+-                let plan = &*(schedule.plan as *const _
+-                    as *const crate::engine::stockham::StockhamPlan<f64>);
+-                for _ in 0..calls {
+-                    crate::engine::stockham_f64(
+-                        schedule.shape,
+-                        plan,
+-                        p.input.cast(),
+-                        p.output.cast(),
+-                        p.scratch.cast(),
+-                        schedule.mode,
+-                        schedule.inverse,
+-                    );
+-                }
+-            }
++        for _ in 0..calls {
++            crate::engine::execute_stockham(
++                schedule.shape,
++                schedule.plan,
++                p.input.cast(),
++                p.output.cast(),
++                p.scratch.cast(),
++                schedule.mode,
++                schedule.inverse,
++            );
+         }
+     }
+ }
+diff --git a/crates/fastfft/src/tuning/stockham/tests.rs b/crates/fastfft/src/tuning/stockham/tests.rs
+index 686894f..ea8a3c7 100644
+--- a/crates/fastfft/src/tuning/stockham/tests.rs
++++ b/crates/fastfft/src/tuning/stockham/tests.rs
+@@ -1,4 +1,5 @@
+ use super::*;
++use crate::isa::Precision;
+ use crate::engine::{Shape, stockham::StockhamPlan};
+ use crate::fft::Kernel;
+ 

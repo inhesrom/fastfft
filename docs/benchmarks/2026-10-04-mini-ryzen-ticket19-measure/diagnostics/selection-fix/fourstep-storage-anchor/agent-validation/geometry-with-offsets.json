@@ -1,0 +1,592 @@
+{
+  "plans": [
+    {
+      "caller_buffers": {
+        "aligned_scratch": 128996107898944,
+        "input": 128996109725760,
+        "output": 128996109119552,
+        "scratch": 128996107898944,
+        "scratch_len": 152232
+      },
+      "executed_fft": false,
+      "execution_geometry": {
+        "effective_scratch_bases": [],
+        "phase_a_bases": [
+          [
+            128996109725760,
+            128996109119552
+          ],
+          [
+            128996109119552,
+            128996109725760
+          ],
+          [
+            128996109725760,
+            128996109119552
+          ],
+          [
+            128996109119552,
+            128996109725760
+          ]
+        ],
+        "phase_b_bases": [
+          128996109725760,
+          128996109119552
+        ],
+        "scratch_only_branch": false,
+        "scratch_reserved_but_unused": true
+      },
+      "isa": "Avx512Ymm",
+      "kernel": "Stockham",
+      "lanes": 8,
+      "metadata": {
+        "0": 8,
+        "10": 152224,
+        "11": 152224,
+        "12": 152224,
+        "2": 1
+      },
+      "n": 75600,
+      "radices": [
+        14,
+        15,
+        15,
+        3
+      ],
+      "regions": [
+        {
+          "capacity": 0,
+          "element_bytes": 192,
+          "index": 0,
+          "kind": "Object",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 104381304694080,
+          "relative_offset": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 112,
+          "index": 0,
+          "kind": "EmbeddedPlan",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 104381304694088,
+          "relative_offset": 8
+        },
+        {
+          "capacity": 167,
+          "element_bytes": 4096,
+          "index": 0,
+          "kind": "CoefficientStorage",
+          "len": 167,
+          "owner": 104381304694080,
+          "ptr": 128996110336000,
+          "relative_offset": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 24,
+          "index": 0,
+          "kind": "PassDescriptors",
+          "len": 4,
+          "owner": 104381304694080,
+          "ptr": 128996110336000,
+          "relative_offset": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 0,
+          "kind": "Radices",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 128996110336000,
+          "values": [
+            14
+          ],
+          "relative_offset": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 4,
+          "index": 0,
+          "kind": "Twiddles",
+          "len": 26,
+          "owner": 104381304694080,
+          "ptr": 128996110336128,
+          "relative_offset": 128
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 1,
+          "kind": "Radices",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 128996110336024,
+          "values": [
+            15
+          ],
+          "relative_offset": 24
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 4,
+          "index": 1,
+          "kind": "Twiddles",
+          "len": 392,
+          "owner": 104381304694080,
+          "ptr": 128996110336256,
+          "relative_offset": 256
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 2,
+          "kind": "Radices",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 128996110336048,
+          "values": [
+            15
+          ],
+          "relative_offset": 48
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 4,
+          "index": 2,
+          "kind": "Twiddles",
+          "len": 5880,
+          "owner": 104381304694080,
+          "ptr": 128996110337856,
+          "relative_offset": 1856
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 3,
+          "kind": "Radices",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 128996110336072,
+          "values": [
+            3
+          ],
+          "relative_offset": 72
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 4,
+          "index": 3,
+          "kind": "Twiddles",
+          "len": 12600,
+          "owner": 104381304694080,
+          "ptr": 128996110361408,
+          "relative_offset": 25408
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 4,
+          "index": 0,
+          "kind": "PhaseBTwiddles",
+          "len": 151296,
+          "owner": 104381304694080,
+          "ptr": 128996110411840,
+          "relative_offset": 75840
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 0,
+          "index": 0,
+          "kind": "Metadata",
+          "len": 8,
+          "owner": 104381304694080,
+          "ptr": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 0,
+          "index": 2,
+          "kind": "Metadata",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 0,
+          "index": 10,
+          "kind": "Metadata",
+          "len": 152224,
+          "owner": 104381304694080,
+          "ptr": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 0,
+          "index": 11,
+          "kind": "Metadata",
+          "len": 152224,
+          "owner": 104381304694080,
+          "ptr": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 0,
+          "index": 12,
+          "kind": "Metadata",
+          "len": 152224,
+          "owner": 104381304694080,
+          "ptr": 0
+        }
+      ],
+      "scalar_bytes": 4,
+      "scratch_lengths_ip_oop_immutable": [
+        152232,
+        152232,
+        152232
+      ]
+    },
+    {
+      "caller_buffers": {
+        "aligned_scratch": 128996100251712,
+        "input": 128996105662528,
+        "output": 128996103012416,
+        "scratch": 128996100251712,
+        "scratch_len": 172436
+      },
+      "executed_fft": false,
+      "execution_geometry": {
+        "actual_streaming": false,
+        "blocked": 0,
+        "matrix": 128996100251712,
+        "matrix_mod4096": 64,
+        "streaming_flag": 0,
+        "work1": 128996102897728,
+        "work1_mod4096": 64,
+        "work1_offset_bytes": 2646016,
+        "work2": 128996102954176,
+        "work2_mod4096": 3264,
+        "work2_offset_bytes": 2702464
+      },
+      "isa": "Avx512",
+      "kernel": "FourStep",
+      "lanes": 8,
+      "metadata": {
+        "0": 8,
+        "2": 1,
+        "3": 165376,
+        "4": 3528,
+        "5": 1,
+        "6": 3532,
+        "7": 0,
+        "8": 0,
+        "9": 1
+      },
+      "n": 165375,
+      "radices": [
+        375,
+        441
+      ],
+      "regions": [
+        {
+          "capacity": 0,
+          "element_bytes": 192,
+          "index": 0,
+          "kind": "Object",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 104381304694080,
+          "relative_offset": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 160,
+          "index": 0,
+          "kind": "EmbeddedPlan",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 104381304694080,
+          "relative_offset": 0
+        },
+        {
+          "capacity": 660,
+          "element_bytes": 4096,
+          "index": 0,
+          "kind": "CoefficientStorage",
+          "len": 660,
+          "owner": 104381304694080,
+          "ptr": 128996108316672,
+          "relative_offset": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 24,
+          "index": 0,
+          "kind": "PassDescriptors",
+          "len": 3,
+          "owner": 104381304694080,
+          "ptr": 128996108316672,
+          "relative_offset": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 0,
+          "kind": "ColumnRadices",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 128996108316672,
+          "values": [
+            15
+          ],
+          "relative_offset": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 0,
+          "kind": "ColumnTwiddles",
+          "len": 28,
+          "owner": 104381304694080,
+          "ptr": 128996108316864,
+          "relative_offset": 192
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 1,
+          "kind": "ColumnRadices",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 128996108316696,
+          "values": [
+            5
+          ],
+          "relative_offset": 24
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 1,
+          "kind": "ColumnTwiddles",
+          "len": 120,
+          "owner": 104381304694080,
+          "ptr": 128996108317120,
+          "relative_offset": 448
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 2,
+          "kind": "ColumnRadices",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 128996108316720,
+          "values": [
+            5
+          ],
+          "relative_offset": 48
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 2,
+          "kind": "ColumnTwiddles",
+          "len": 600,
+          "owner": 104381304694080,
+          "ptr": 128996108318080,
+          "relative_offset": 1408
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 24,
+          "index": 1,
+          "kind": "PassDescriptors",
+          "len": 3,
+          "owner": 104381304694080,
+          "ptr": 128996108316744,
+          "relative_offset": 72
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 0,
+          "kind": "RowRadices",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 128996108316744,
+          "values": [
+            7
+          ],
+          "relative_offset": 72
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 0,
+          "kind": "RowTwiddles",
+          "len": 12,
+          "owner": 104381304694080,
+          "ptr": 128996108322880,
+          "relative_offset": 6208
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 1,
+          "kind": "RowRadices",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 128996108316768,
+          "values": [
+            7
+          ],
+          "relative_offset": 96
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 1,
+          "kind": "RowTwiddles",
+          "len": 84,
+          "owner": 104381304694080,
+          "ptr": 128996108323008,
+          "relative_offset": 6336
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 2,
+          "kind": "RowRadices",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 128996108316792,
+          "values": [
+            9
+          ],
+          "relative_offset": 120
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 2,
+          "kind": "RowTwiddles",
+          "len": 784,
+          "owner": 104381304694080,
+          "ptr": 128996108323712,
+          "relative_offset": 7040
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 0,
+          "kind": "CrossTwiddles",
+          "len": 336000,
+          "owner": 104381304694080,
+          "ptr": 128996108329984,
+          "relative_offset": 13312
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 8,
+          "index": 0,
+          "kind": "FineTwiddles",
+          "len": 0,
+          "owner": 104381304694080,
+          "ptr": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 0,
+          "index": 0,
+          "kind": "Metadata",
+          "len": 8,
+          "owner": 104381304694080,
+          "ptr": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 0,
+          "index": 2,
+          "kind": "Metadata",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 0,
+          "index": 3,
+          "kind": "Metadata",
+          "len": 165376,
+          "owner": 104381304694080,
+          "ptr": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 0,
+          "index": 4,
+          "kind": "Metadata",
+          "len": 3528,
+          "owner": 104381304694080,
+          "ptr": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 0,
+          "index": 5,
+          "kind": "Metadata",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 0,
+          "index": 6,
+          "kind": "Metadata",
+          "len": 3532,
+          "owner": 104381304694080,
+          "ptr": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 0,
+          "index": 7,
+          "kind": "Metadata",
+          "len": 0,
+          "owner": 104381304694080,
+          "ptr": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 0,
+          "index": 8,
+          "kind": "Metadata",
+          "len": 0,
+          "owner": 104381304694080,
+          "ptr": 0
+        },
+        {
+          "capacity": 0,
+          "element_bytes": 0,
+          "index": 9,
+          "kind": "Metadata",
+          "len": 1,
+          "owner": 104381304694080,
+          "ptr": 0
+        }
+      ],
+      "scalar_bytes": 8,
+      "scratch_lengths_ip_oop_immutable": [
+        172436,
+        172436,
+        172436
+      ]
+    }
+  ],
+  "scope": "default SIMD features + tuning, debug, non-test layout; constructors and address geometry only"
+}

@@ -1,0 +1,79 @@
+{
+  "all": {
+    "cells": 48,
+    "best_speedup": 2.135555461737027,
+    "median_speedup": 2.0937520115924415,
+    "minimum_median_speedup": 0.9574401988195091,
+    "rustfft_median_speedup": 0.9648654591943416
+  },
+  "pow2": {
+    "cells": 24,
+    "best_speedup": 2.079114039267274,
+    "median_speedup": 2.0476077798308845,
+    "minimum_median_speedup": 0.958466444031089,
+    "rustfft_median_speedup": 0.9795027342174172
+  },
+  "smooth": {
+    "cells": 10,
+    "best_speedup": 1.8645097214386082,
+    "median_speedup": 1.811719613729231,
+    "minimum_median_speedup": 1.2042211118974933,
+    "rustfft_median_speedup": 0.9476153914685683
+  },
+  "rough": {
+    "cells": 6,
+    "best_speedup": 2.66737580799066,
+    "median_speedup": 2.604176903868981,
+    "minimum_median_speedup": 1.965984754344641,
+    "rustfft_median_speedup": 0.9315922018305413
+  },
+  "batch": {
+    "cells": 8,
+    "best_speedup": 2.3209256315561966,
+    "median_speedup": 2.2774274041302665,
+    "minimum_median_speedup": 0.9574401988195091,
+    "rustfft_median_speedup": 0.9684430426438047
+  },
+  "slower_cells": [
+    {
+      "key": "pow2:f32:fwd:ip:n8",
+      "before_best_ns": 5.162144491663942,
+      "after_best_ns": 5.1837288135593225,
+      "best_speedup": 0.9958361398383879,
+      "before_median_ns": 5.230744018354637,
+      "after_median_ns": 5.452203389830508,
+      "median_speedup": 0.9593816745925255,
+      "rustfft_median_speedup": 1.0007284172614637
+    },
+    {
+      "key": "batch:f32:fwd:ip:n8:b131072",
+      "before_best_ns": 2.9379501342773438,
+      "after_best_ns": 2.9385833740234375,
+      "best_speedup": 0.9997845084976348,
+      "before_median_ns": 2.9392242431640625,
+      "after_median_ns": 3.0698776245117188,
+      "median_speedup": 0.9574401988195091,
+      "rustfft_median_speedup": 0.9573366960907944
+    },
+    {
+      "key": "pow2:f64:fwd:ip:n8",
+      "before_best_ns": 5.204944697462589,
+      "after_best_ns": 5.20822102425876,
+      "best_speedup": 0.9993709316903199,
+      "before_median_ns": 5.2456083279115155,
+      "after_median_ns": 5.47291807718348,
+      "median_speedup": 0.958466444031089,
+      "rustfft_median_speedup": 0.9999463518745255
+    },
+    {
+      "key": "batch:f64:fwd:ip:n8:b131072",
+      "before_best_ns": 2.9385910034179688,
+      "after_best_ns": 2.9392242431640625,
+      "best_speedup": 0.9997845554834524,
+      "before_median_ns": 2.941131591796875,
+      "after_median_ns": 3.0705108642578125,
+      "median_speedup": 0.9578639261736629,
+      "rustfft_median_speedup": 0.9577788235294118
+    }
+  ]
+}

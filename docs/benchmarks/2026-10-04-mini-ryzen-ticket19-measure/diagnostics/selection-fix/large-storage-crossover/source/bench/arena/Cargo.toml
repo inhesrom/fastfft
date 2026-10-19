@@ -1,0 +1,35 @@
+[package]
+name = "fastfft-arena"
+version = "0.0.0"
+description = "Benchmark arena comparing Rust FFT libraries (never published: optionally links GPL FFTW)"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+
+[features]
+default = []
+# Link the FFTW 3.3.11 reference build produced by `cargo xtask fftw-build`.
+fftw = []
+# Captures selector evidence and matched replay; never used for acceptance runs.
+measure-diagnostics = ["fastfft/tuning"]
+
+[dependencies]
+fastfft.workspace = true
+fastfft-testkit.workspace = true
+kernel-lab = { path = "../../experiments/kernel-lab" }
+num-complex = { workspace = true, features = ["std"] }
+serde.workspace = true
+serde_json.workspace = true
+libc.workspace = true
+rustfft = "6.4.1"
+phastft = { version = "0.4.1", default-features = false, features = ["complex-nums"] }
+tfhe-fft = "0.10.1"
+dyn-stack = "0.13"
+# AVX-512 paths of oxifft are opt-in and, per its changelog, never executed upstream; use its defaults minus threading.
+oxifft = { version = "0.4.2", default-features = false, features = ["std"] }
+plotters = { version = "0.3.7", default-features = false, features = ["svg_backend", "line_series", "point_series"] }
+flate2 = "1"
+
+[lints]
+workspace = true

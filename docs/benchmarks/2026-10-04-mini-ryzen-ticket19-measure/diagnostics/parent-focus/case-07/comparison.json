@@ -1,0 +1,29 @@
+{
+  "run": "target/ticket19/parent-focus/case-07",
+  "cells": 1,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "smooth": {
+      "cells": 1,
+      "failures": 0,
+      "worst": 1.0017366743640146,
+      "geomean": 1.0017366743640146
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "smooth:f32:fwd:ip:n6144",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 1.0017366743640146,
+      "best": 1.0017366743640146,
+      "p1": 1.0034272658035035,
+      "median": 1.0056807422836582,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x12x8 scratch=13320 scratch_oop=13320 scratch_immutable=13320",
+      "measure": "stockham avx512-ymm split L=8 radices=8x12x8 scratch=13320 scratch_oop=13320 scratch_immutable=13320",
+      "same_plan": true
+    }
+  ]
+}

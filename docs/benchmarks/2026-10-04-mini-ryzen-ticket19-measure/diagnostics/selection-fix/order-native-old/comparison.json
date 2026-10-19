@@ -1,0 +1,65 @@
+{
+  "run": "target/ticket19/selection-fix/order-native-old",
+  "cells": 4,
+  "problems": [],
+  "threshold": 1.02,
+  "suites": {
+    "pow2": {
+      "cells": 4,
+      "failures": 0,
+      "worst": 1.0187437176025387,
+      "geomean": 1.0134555421481113
+    }
+  },
+  "failures": [],
+  "comparisons": [
+    {
+      "key": "pow2:f32:fwd:ip:n32768",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.0187437176025387,
+      "best": 1.0187437176025387,
+      "p1": 1.0178347934918648,
+      "median": 1.016612641815235,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=66568 scratch_oop=66568 scratch_immutable=66568",
+      "measure": "stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=66568 scratch_oop=66568 scratch_immutable=66568",
+      "same_plan": true
+    },
+    {
+      "key": "pow2:f32:fwd:oop:n32768",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.011617531586837,
+      "best": 1.011617531586837,
+      "p1": 1.0142055015321394,
+      "median": 1.0155514487952857,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=66568 scratch_oop=66568 scratch_immutable=66568",
+      "measure": "stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=66568 scratch_oop=66568 scratch_immutable=66568",
+      "same_plan": true
+    },
+    {
+      "key": "pow2:f32:inv:ip:n32768",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.0155076754170995,
+      "best": 1.0155076754170995,
+      "p1": 1.016719095887219,
+      "median": 1.0194665436796186,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=66568 scratch_oop=66568 scratch_immutable=66568",
+      "measure": "stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=66568 scratch_oop=66568 scratch_immutable=66568",
+      "same_plan": true
+    },
+    {
+      "key": "pow2:f32:inv:oop:n32768",
+      "suite": "pow2",
+      "metric": "best",
+      "ratio": 1.0079855516404908,
+      "best": 1.0079855516404908,
+      "p1": 1.0100425621724296,
+      "median": 1.0111170849303666,
+      "estimate": "stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=66568 scratch_oop=66568 scratch_immutable=66568",
+      "measure": "stockham avx512-ymm split L=8 radices=8x8x8x8 scratch=66568 scratch_oop=66568 scratch_immutable=66568",
+      "same_plan": true
+    }
+  ]
+}

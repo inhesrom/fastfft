@@ -1,0 +1,50 @@
+{
+  "utc": "2026-10-05T19:37:56.742019+00:00",
+  "acceptance": false,
+  "focus_passed": false,
+  "cells": 34,
+  "ordinary_trials": 272,
+  "control_rows": 3,
+  "control_trials": 24,
+  "protocol_issues": [],
+  "audit_failures": [
+    {
+      "key": "smooth:f64:inv:oop:n165375",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 1.0253940686931378,
+      "best": 1.0253940686931378,
+      "p1": 1.0183159988596027,
+      "median": 1.014778584644433,
+      "estimate": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+      "measure": "fourstep avx512 split L=8 decomposition=375x441 radices=15x5x5/7x7x9 scratch=172436 scratch_oop=172436 scratch_immutable=172436",
+      "same_plan": true
+    },
+    {
+      "key": "smooth:f32:inv:oop:n75600",
+      "suite": "smooth",
+      "metric": "best",
+      "ratio": 1.0235349424848317,
+      "best": 1.0235349424848317,
+      "p1": 1.0258238299492015,
+      "median": 1.0131880077812108,
+      "estimate": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+      "measure": "stockham avx512-ymm split L=8 radices=14x15x15x3 scratch=152232 scratch_oop=152232 scratch_immutable=152232",
+      "same_plan": true
+    }
+  ],
+  "audit_problems": [],
+  "meta": {
+    "aborted": null,
+    "cells": 34,
+    "child_failures": 0,
+    "drift_flag": false,
+    "elapsed_s": 647.636702976,
+    "max_drift": 0.014367148278365716,
+    "official": true
+  },
+  "quiet_running_samples": 130,
+  "quiet_dirty_samples": [],
+  "restoration": true,
+  "full710_launched": false
+}

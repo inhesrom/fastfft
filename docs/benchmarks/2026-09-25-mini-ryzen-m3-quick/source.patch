@@ -1,0 +1,369 @@
+diff --git a/crates/fastfft/src/engine/mod.rs b/crates/fastfft/src/engine/mod.rs
+index 472a5d5..59d2cbe 100644
+--- a/crates/fastfft/src/engine/mod.rs
++++ b/crates/fastfft/src/engine/mod.rs
+@@ -57,6 +57,46 @@ pub(crate) fn shapes(isa: Isa, f64_: bool) -> Vec<Shape> {
+ 
+ macro_rules! entry {
+     ($name:ident, $feat:literal, $v:ty, $s:ty) => {
++        impl stockham::StockhamVector for $v {
++            #[target_feature(enable = $feat)]
++            #[inline(never)]
++            unsafe fn pass<const R: usize, const USER: bool, const SWAP: bool>(
++                x: *const $s,
++                y: *mut $s,
++                m: usize,
++                ns: usize,
++                tw: *const $s,
++                one: Self,
++            ) {
++                // SAFETY: forwarded pass contract; this entry point enables
++                // every instruction-set feature required by the vector type.
++                unsafe { stockham::pass::<Self, R, USER, SWAP>(x, y, m, ns, tw, one) }
++            }
++
++            #[target_feature(enable = $feat)]
++            #[inline(never)]
++            unsafe fn finish<
++                const L: usize,
++                const USER: bool,
++                const SWAP_LOAD: bool,
++                const SWAP: bool,
++                const PARTIAL: bool,
++            >(
++                y: *const $s,
++                x: *mut $s,
++                m: usize,
++                vtw: *const $s,
++                one: Self,
++            ) {
++                // SAFETY: forwarded Phase B contract with the matching features.
++                unsafe {
++                    stockham::phase_b_blocks::<Self, L, USER, SWAP_LOAD, SWAP, PARTIAL>(
++                        y, x, m, vtw, one,
++                    )
++                }
++            }
++        }
++
+         #[target_feature(enable = $feat)]
+         pub(super) unsafe fn $name(
+             plan: &StockhamPlan<$s>,
+@@ -73,6 +113,9 @@ macro_rules! entry {
+     };
+ }
+ 
++impl stockham::StockhamVector for scalar::S32 {}
++impl stockham::StockhamVector for scalar::S64 {}
++
+ #[cfg(all(target_arch = "x86_64", feature = "avx512"))]
+ mod x86_avx512 {
+     use super::*;
+diff --git a/crates/fastfft/src/engine/stockham.rs b/crates/fastfft/src/engine/stockham.rs
+index 4dad7ac..8f8b898 100644
+--- a/crates/fastfft/src/engine/stockham.rs
++++ b/crates/fastfft/src/engine/stockham.rs
+@@ -22,6 +22,44 @@ use crate::codelets::generated;
+ use crate::isa::Vector;
+ use crate::twiddle::omega;
+ 
++/// Per-tier pass entry points. Keeping each radix in its own target-feature
++/// function lets LLVM allocate registers independently of the other radices
++/// and of the final transpose.
++pub(crate) trait StockhamVector: Vector {
++    /// Same pointer and feature requirements as [`pass`].
++    #[inline(always)]
++    unsafe fn pass<const R: usize, const USER: bool, const SWAP: bool>(
++        x: *const Self::S,
++        y: *mut Self::S,
++        m: usize,
++        ns: usize,
++        tw: *const Self::S,
++        one: Self,
++    ) {
++        // SAFETY: the caller supplies the pass's valid buffers and features.
++        unsafe { pass::<Self, R, USER, SWAP>(x, y, m, ns, tw, one) }
++    }
++
++    /// Same pointer and feature requirements as [`phase_b_blocks`].
++    #[inline(always)]
++    unsafe fn finish<
++        const L: usize,
++        const USER: bool,
++        const SWAP_LOAD: bool,
++        const SWAP: bool,
++        const PARTIAL: bool,
++    >(
++        y: *const Self::S,
++        x: *mut Self::S,
++        m: usize,
++        vtw: *const Self::S,
++        one: Self,
++    ) {
++        // SAFETY: the caller supplies valid blocks and matching features.
++        unsafe { phase_b_blocks::<Self, L, USER, SWAP_LOAD, SWAP, PARTIAL>(y, x, m, vtw, one) }
++    }
++}
++
+ /// Twiddle tables and pass structure of one Stockham transform.
+ #[derive(Clone, Debug)]
+ pub(crate) struct StockhamPlan<S> {
+@@ -145,9 +183,10 @@ unsafe fn store_mem<V: Vector>(p: *mut V::S, re: V, im: V) {
+ /// # Safety
+ ///
+ /// `x`/`y` valid for `m` vectors (`2 * LANES * m` reals); `tw` holds the
+-/// pass table; `x == y` only for a last pass (`ns * R == m`).
++/// pass table; `x == y` only for a last pass (`ns * R == m`). `USER` is
++/// true exactly for the first pass, where `ns == 1`.
+ #[inline(always)]
+-unsafe fn pass<V: Vector, const R: usize, const USER: bool, const SWAP: bool>(
++pub(super) unsafe fn pass<V: Vector, const R: usize, const USER: bool, const SWAP: bool>(
+     x: *const V::S,
+     y: *mut V::S,
+     m: usize,
+@@ -155,6 +194,7 @@ unsafe fn pass<V: Vector, const R: usize, const USER: bool, const SWAP: bool>(
+     tw: *const V::S,
+     one: V,
+ ) {
++    debug_assert_eq!(USER, ns == 1);
+     let vs = 2 * V::LANES;
+     let seg = m / R;
+     let groups = seg / ns;
+@@ -183,7 +223,7 @@ unsafe fn pass<V: Vector, const R: usize, const USER: bool, const SWAP: bool>(
+                     re[j] = r;
+                     im[j] = i;
+                 }
+-                if ns == 1 {
++                if USER {
+                     generated::notw::<V, R>(&mut re, &mut im, one);
+                 } else {
+                     let mut wr = [one; R];
+@@ -205,7 +245,7 @@ unsafe fn pass<V: Vector, const R: usize, const USER: bool, const SWAP: bool>(
+ 
+ #[inline(always)]
+ #[allow(clippy::too_many_arguments)]
+-unsafe fn run_pass<V: Vector>(
++unsafe fn run_pass<V: StockhamVector>(
+     r: usize,
+     user: bool,
+     swap: bool,
+@@ -221,9 +261,9 @@ unsafe fn run_pass<V: Vector>(
+             // SAFETY: forwarded contract of `pass`.
+             unsafe {
+                 match (user, swap) {
+-                    (true, true) => pass::<V, $r, true, true>(x, y, m, ns, tw, one),
+-                    (true, false) => pass::<V, $r, true, false>(x, y, m, ns, tw, one),
+-                    _ => pass::<V, $r, false, false>(x, y, m, ns, tw, one),
++                    (true, true) => V::pass::<$r, true, true>(x, y, m, ns, tw, one),
++                    (true, false) => V::pass::<$r, true, false>(x, y, m, ns, tw, one),
++                    _ => V::pass::<$r, false, false>(x, y, m, ns, tw, one),
+                 }
+             }
+         };
+@@ -273,13 +313,15 @@ unsafe fn transpose<V: Vector, const L: usize>(r: &mut [V; L]) {
+ ///
+ /// `y` valid for `m` vectors, `x` for `n = m * L` complex values; for
+ /// `USER` in place (`x == y`) only when `m <= L` (one block).
++/// `L == V::LANES`; a partial-block call requires `m % L != 0`.
+ #[inline(always)]
+-unsafe fn phase_b<
++pub(super) unsafe fn phase_b_blocks<
+     V: Vector,
+     const L: usize,
+     const USER: bool,
+     const SWAP_LOAD: bool,
+     const SWAP: bool,
++    const PARTIAL: bool,
+ >(
+     y: *const V::S,
+     x: *mut V::S,
+@@ -293,8 +335,9 @@ unsafe fn phase_b<
+     // SAFETY: see the function contract.
+     unsafe {
+         let zero = V::splat(V::S::default());
+-        for b in 0..full + usize::from(rem > 0) {
+-            let valid = if b < full { L } else { rem };
++        let blocks = if PARTIAL { full..full + 1 } else { 0..full };
++        for b in blocks {
++            let valid = if PARTIAL { rem } else { L };
+             let mut re = [zero; L];
+             let mut im = [zero; L];
+             for t in 0..valid {
+@@ -319,7 +362,7 @@ unsafe fn phase_b<
+                     V::interleave(re[k2], im[k2])
+                 };
+                 let dst = x.add(2 * (b * L + m * k2));
+-                if valid == L {
++                if !PARTIAL {
+                     V::store(dst, lo);
+                     V::store(dst.add(L), hi);
+                 } else {
+@@ -333,8 +376,35 @@ unsafe fn phase_b<
+     }
+ }
+ 
++/// Keep the full-block loop separate from the tail. A runtime `valid`
++/// count in the hot loop prevents LLVM from unrolling the loads and
++/// keeping the transpose and codelet entirely in registers.
++#[inline(always)]
++unsafe fn phase_b<
++    V: StockhamVector,
++    const L: usize,
++    const USER: bool,
++    const SWAP_LOAD: bool,
++    const SWAP: bool,
++>(
++    y: *const V::S,
++    x: *mut V::S,
++    m: usize,
++    vtw: *const V::S,
++    one: V,
++) {
++    // SAFETY: the caller supplies m valid vectors and their twiddle table.
++    // Full blocks access L vectors each; the tail accesses only m % L.
++    unsafe {
++        V::finish::<L, USER, SWAP_LOAD, SWAP, false>(y, x, m, vtw, one);
++        if !m.is_multiple_of(L) {
++            V::finish::<L, USER, SWAP_LOAD, SWAP, true>(y, x, m, vtw, one);
++        }
++    }
++}
++
+ #[inline(always)]
+-unsafe fn run_phase_b<V: Vector>(
++unsafe fn run_phase_b<V: StockhamVector>(
+     user: bool,
+     swap: bool,
+     y: *const V::S,
+@@ -391,7 +461,7 @@ unsafe fn run_phase_b<V: Vector>(
+ /// tier is available and this is called from a matching `#[target_feature]`
+ /// context; `plan.l == V::LANES`.
+ #[inline(always)]
+-pub(crate) unsafe fn execute<V: Vector>(
++pub(crate) unsafe fn execute<V: StockhamVector>(
+     plan: &StockhamPlan<V::S>,
+     input: *mut V::S,
+     output: *mut V::S,
+diff --git a/crates/fastfft/src/tests.rs b/crates/fastfft/src/tests.rs
+index 8011a9d..21e0198 100644
+--- a/crates/fastfft/src/tests.rs
++++ b/crates/fastfft/src/tests.rs
+@@ -64,7 +64,15 @@ fn check_all_modes<T: FftNum + ToDd>(fft: &dyn Fft<T>, dir: FftDirection, eps: f
+ 
+ fn every_shape<T: FftNum + ToDd>(sizes: &[usize], eps: f64) {
+     let f64_ = T::precision() == crate::isa::Precision::F64;
+-    for shape in shapes(detected_isa(), f64_) {
++    let mut all_shapes = shapes(detected_isa(), f64_);
++    // On AVX-512 hosts the planner's candidate list substitutes Avx512Ymm
++    // for Avx2. Test the 16-register AVX2 kernels explicitly as well.
++    for shape in shapes(Isa::Avx2, f64_) {
++        if !all_shapes.contains(&shape) {
++            all_shapes.push(shape);
++        }
++    }
++    for shape in all_shapes {
+         for &n in sizes {
+             let l = shape.lanes;
+             if n % l != 0 || !is_smooth(n) || (l > 1 && n < 2 * l) {
+@@ -117,6 +125,18 @@ fn every_tier_f64() {
+     every_shape::<f64>(&sizes(), f64::EPSILON);
+ }
+ 
++#[test]
++#[ignore = "exhaustive M3 checkpoint across every supported vector shape and placement"]
++fn m3_smooth_every_shape() {
++    let sizes: Vec<usize> = (2..=32768).filter(|&n| is_smooth(n)).collect();
++    every_shape::<f32>(&sizes, f64::from(f32::EPSILON));
++    every_shape::<f64>(&sizes, f64::EPSILON);
++    eprintln!(
++        "checked all {} non-identity smooth lengths through 32768, all supported shapes, both precisions/directions, three placements",
++        sizes.len()
++    );
++}
++
+ #[test]
+ fn radix_choice_covers_smooth_sizes() {
+     for m in 1..=5000usize {
+diff --git a/crates/fastfft/tests/accuracy.rs b/crates/fastfft/tests/accuracy.rs
+index ea25237..9a332b0 100644
+--- a/crates/fastfft/tests/accuracy.rs
++++ b/crates/fastfft/tests/accuracy.rs
+@@ -36,14 +36,14 @@ fn bluestein_m(desc: &str) -> Option<usize> {
+     desc[i + 3..].split(' ').next()?.parse().ok()
+ }
+ 
+-fn run<T>(eps: f64)
++fn run<T>(eps: f64, lengths: &[usize])
+ where
+     T: fastfft::FftNum + rustfft::FftNum + ToDd,
+ {
+     let mut ours = FftPlanner::<T>::new();
+     let mut theirs = rustfft::FftPlanner::<T>::new();
+     let mut worst: (f64, usize) = (0.0, 0);
+-    for n in sizes() {
++    for &n in lengths {
+         let x64 = random_c64(n, 1234 + n as u64);
+         let x: Vec<Complex<T>> = x64
+             .iter()
+@@ -86,15 +86,58 @@ where
+             }
+         }
+     }
+-    eprintln!("worst error {:.2} eps at n={}", worst.0, worst.1);
++    eprintln!(
++        "checked {} lengths on {}; worst error {:.2} eps at n={}",
++        lengths.len(),
++        ours.isa(),
++        worst.0,
++        worst.1
++    );
+ }
+ 
+ #[test]
+ fn sweep_f32() {
+-    run::<f32>(f64::from(f32::EPSILON));
++    run::<f32>(f64::from(f32::EPSILON), &sizes());
+ }
+ 
+ #[test]
+ fn sweep_f64() {
+-    run::<f64>(f64::EPSILON);
++    run::<f64>(f64::EPSILON, &sizes());
++}
++
++/// Every 13-smooth length through the provisional Stockham/FourStep
++/// boundary. Run explicitly with each FASTFFT_ISA_CAP for the M3 checkpoint:
++/// `cargo test -p fastfft --release --test accuracy m3_smooth -- --ignored --nocapture`.
++fn m3_smooth_sizes() -> Vec<usize> {
++    (1..=32768)
++        .filter(|&n| {
++            let mut rest = n;
++            for p in [2, 3, 5, 7, 11, 13] {
++                while rest % p == 0 {
++                    rest /= p;
++                }
++            }
++            rest == 1
++        })
++        .collect()
++}
++
++#[test]
++#[ignore = "exhaustive M3 checkpoint; run once per ISA cap in release mode"]
++fn m3_smooth_f32() {
++    assert!(
++        !quick(),
++        "M3 validation requires both directions at every length"
++    );
++    run::<f32>(f64::from(f32::EPSILON), &m3_smooth_sizes());
++}
++
++#[test]
++#[ignore = "exhaustive M3 checkpoint; run once per ISA cap in release mode"]
++fn m3_smooth_f64() {
++    assert!(
++        !quick(),
++        "M3 validation requires both directions at every length"
++    );
++    run::<f64>(f64::EPSILON, &m3_smooth_sizes());
+ }
