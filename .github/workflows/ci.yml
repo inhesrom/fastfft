@@ -148,10 +148,16 @@ jobs:
           FASTFFT_ISA_CAP: ${{ matrix.cap }}
           FASTFFT_REQUIRE_ISA: ${{ matrix.cap }}
           FASTFFT_TEST_QUICK: "1"
+        # measurement_can_promote_a_faster_public_plan times real execution and
+        # expects the AVX-512 plan to beat scalar within a 1 s budget. SDE
+        # emulation and instrumentation overhead make that timing comparison
+        # meaningless (Measure keeps the scalar baseline). Native hosts still
+        # run it in the test and tiers jobs.
         run: |
           while read -r t; do
             echo "== $t"
-            "$SDE_PATH/sde64" -spr -- "$t" --test-threads=4
+            "$SDE_PATH/sde64" -spr -- "$t" --test-threads=4 \
+              --skip measurement_can_promote_a_faster_public_plan
           done < tests.txt
 
   # Native ARM coverage on a GitHub-hosted runner (free for public repos; the
